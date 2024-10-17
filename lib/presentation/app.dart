@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shibuya_buddy/presentation/home/home_page.dart';
+import 'home/home_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -32,4 +32,3 @@ class App extends StatelessWidget {
     );
   }
 }
-
