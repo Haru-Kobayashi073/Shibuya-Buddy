@@ -121,3 +121,6 @@ lib/generated_plugin_registrant.dart
 
 # FVM Version Cache
 .fvm/
+
+# Enviroment Variables File
+**dart_defines/
