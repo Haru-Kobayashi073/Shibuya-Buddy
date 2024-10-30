@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "346265803262",
+    "project_id": "shibuya-buddy-dev",
+    "storage_bucket": "shibuya-buddy-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346265803262:android:f2d8c01acbe422fd7b08af",
+        "android_client_info": {
+          "package_name": "com.shibuya.buddy.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAl-gakWjPkWE764i7j9DlEXy1abfOufE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
