@@ -19,6 +19,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
       'tag': '人数:1人〜',
     },
     {
+      'url': 'https://placehold.jp/320x180.png',
       'title': '画像2のタイトル',
       'tag': 'タグ2',
     },
