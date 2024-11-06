@@ -1,3 +1,6 @@
+// GoRouterのBranchを定義する上で、必要なルールのIgnoreを追加しています。
+// ignore_for_file: avoid_classes_with_only_static_members
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
