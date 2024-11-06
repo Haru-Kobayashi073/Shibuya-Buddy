@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'infrastructure/firebase/firebase_options_dev.dart' as dev;
 import 'infrastructure/firebase/firebase_options_prod.dart' as prod;
 import 'presentation/app.dart';
@@ -13,5 +14,9 @@ Future<void> main() async {
       ? prod.DefaultFirebaseOptions.currentPlatform
       : dev.DefaultFirebaseOptions.currentPlatform;
   await Firebase.initializeApp(options: firebaseOptions);
-  runApp(const App());
+  runApp(
+    const ProviderScope(
+      child: App(),
+    ),
+  );
 }
