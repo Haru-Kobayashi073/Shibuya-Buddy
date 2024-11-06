@@ -13,7 +13,6 @@ class BottomNavigation extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationShell.currentIndex,
