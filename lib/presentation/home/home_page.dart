@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: ComplicatedImageCarousel(key: Key('carousel_key')),
+        child: ComplicatedImageCarousel(),
       ),
     );
   }
