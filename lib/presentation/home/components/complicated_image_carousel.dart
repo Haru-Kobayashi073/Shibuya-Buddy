@@ -140,7 +140,9 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
                   ),
                   child: Text(
                     tag,
-                    style: const TextStyle(fontSize: 8),
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                 );
               }).toList(),
