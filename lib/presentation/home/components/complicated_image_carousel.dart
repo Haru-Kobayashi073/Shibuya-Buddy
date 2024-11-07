@@ -10,23 +10,25 @@ class ComplicatedImageCarousel extends StatefulWidget {
 }
 
 class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
-  int _current = 0; // カルーセルの現在のインデックスを保持
+  int _current = 0; // カルーセルの現在のインデックス
 
-  final List<Map<String, String>> imgList = [
+  //
+  final List<Map<String, Object>> imgList = [
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像1のタイトル',
-      'tag': '人数:1人〜',
+      'url':
+          'https://placehold.jp/320x180.png',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', 'タグA', 'タグB'],
     },
     {
       'url': 'https://placehold.jp/320x180.png',
       'title': '画像2のタイトル',
-      'tag': 'タグ2',
+      'tags': ['タグ2', 'タグC'],
     },
     {
       'url': 'https://placehold.jp/320x180.png',
       'title': '画像3のタイトル',
-      'tag': 'タグ3',
+      'tags': ['タグ3', 'タグD', 'タグE'],
     },
   ];
 
@@ -44,9 +46,8 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
         ),
         CarouselSlider(
           options: CarouselOptions(
-            autoPlay: true,
             enlargeCenterPage: true,
-            aspectRatio: 16 / 12,
+            aspectRatio: 16 / 11,
             onPageChanged: (index, reason) {
               setState(() {
                 _current = index; // 現在のインデックスを更新
@@ -73,7 +74,12 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
     );
   }
 
-  Widget buildCarouselItem(Map<String, String> item) {
+  Widget buildCarouselItem(Map<String, Object> item) {
+    // 以下三つの定義にはエラーハンドリングが必要
+    final url = item['url']! as String;
+    final title = item['title']! as String;
+    final tags = item['tags']! as List<String>;
+
     return Column(
       children: [
         Expanded(
@@ -83,18 +89,18 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
               topRight: Radius.circular(12),
             ),
             child: Image.network(
-              item['url'] ?? '',
+              url,
               fit: BoxFit.cover,
               width: double.infinity,
             ),
           ),
         ),
-        buildBottomContainer(item),
+        buildBottomContainer(title, tags),
       ],
     );
   }
 
-  Widget buildBottomContainer(Map<String, String> item) {
+  Widget buildBottomContainer(String title, List<String> tags) {
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         bottomLeft: Radius.circular(12),
@@ -110,7 +116,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              item['title'] ?? '',
+              title,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -120,15 +126,24 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
             const SizedBox(
               height: 6,
             ),
-            Container(
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text(
-                item['tag'] ?? '',
-              ),
+            // 複数のタグを表示する部分
+            Wrap(
+              spacing: 8,
+              runSpacing: 4,
+              children: tags.map((tag) {
+                return Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    tag,
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                );
+              }).toList(),
             ),
           ],
         ),
