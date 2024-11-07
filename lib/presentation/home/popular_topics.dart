@@ -1,56 +1,5 @@
 import 'package:flutter/material.dart';
-
-Widget? createCard(String title, String path, double screenHeight) {
-  double card_Height = screenHeight * 0.18;
-  double card_Width = card_Height * (5 / 4);
-  return Padding(
-      padding: const EdgeInsets.only(left: 5),
-      child: Container(
-        height: card_Height,
-        width: card_Width,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Column(
-          children: [
-            Container(
-              height: card_Height * 0.75,
-              width: card_Width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-                image: DecorationImage(
-                  image: AssetImage(path),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Container(
-              height: card_Height * 0.25,
-              width: card_Width,
-              padding: const EdgeInsets.only(left: 10, top: 7),
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
-              child: Text(
-                title,
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ));
-}
+import 'topicCard.dart';
 
 class PopularTopics extends StatelessWidget {
   const PopularTopics({super.key});
@@ -81,14 +30,26 @@ class PopularTopics extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              createCard("アニメ", "images/sample.jpg", screenHeight) ??
-                  Container(),
-              createCard("ショッピング", "images/sample.jpg", screenHeight) ??
-                  Container(),
-              createCard("アクティビティー", "images/sample.jpg", screenHeight) ??
-                  Container(),
-              createCard("グルメ", "images/sample.jpg", screenHeight) ??
-                  Container(),
+              topicCard(
+                title: "アニメ",
+                imagePath: "images/sample.jpg",
+                screenHeight: screenHeight,
+              ),
+              topicCard(
+                title: "ショッピング",
+                imagePath: "images/sample.jpg",
+                screenHeight: screenHeight,
+              ),
+              topicCard(
+                title: "アクティビティー",
+                imagePath: "images/sample.jpg",
+                screenHeight: screenHeight,
+              ),
+              topicCard(
+                title: "グルメ",
+                imagePath: "images/sample.jpg",
+                screenHeight: screenHeight,
+              ),
             ],
           ),
         ),
