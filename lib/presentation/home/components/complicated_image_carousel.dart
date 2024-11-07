@@ -37,11 +37,21 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.all(16),
-          child: Text(
-            '人気のプラン ＞',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row( 
+            children: [
+              const Text(
+                '人気のプラン',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              IconButton(
+                icon: const Icon(Icons.arrow_forward_ios),
+                color: Colors.black,
+                
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
         CarouselSlider(
