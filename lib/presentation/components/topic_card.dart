@@ -35,7 +35,7 @@ class TopicCard extends StatelessWidget {
             child: Column(
               children: [
                 AspectRatio(
-                  aspectRatio: 16 / 8,
+                  aspectRatio: 16 / 10,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
