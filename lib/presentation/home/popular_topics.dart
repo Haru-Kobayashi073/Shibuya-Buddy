@@ -2,6 +2,21 @@ import 'package:flutter/material.dart';
 import '/gen/assets.gen.dart';
 import '../components/topic_card.dart';
 
+Map<String, Map<int, String>> topics = {
+  'アニメ': {
+    30:  Assets.images.anime.path,
+  },
+  'ショッピング': {
+    208:  Assets.images.shopping.path,
+  },
+  'アクティビティー': {
+    16:  Assets.images.activity.path,
+  },
+  'グルメ': {
+    430:  Assets.images.gourmet.path,
+  },
+};
+
 class PopularTopics extends StatelessWidget {
   const PopularTopics({super.key});
 
@@ -42,32 +57,34 @@ class PopularTopics extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(
+            left: 10,
+          ),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                TopicCard(
-                  title: 'アニメ',
-                  imagePath: Assets.images.anime.path,
-                  numberOfTopics: 30,
-                ),
-                TopicCard(
-                  title: 'ショッピング',
-                  imagePath: Assets.images.shopping.path,
-                  numberOfTopics: 208,
-                ),
-                TopicCard(
-                  title: 'アクティビティー',
-                  imagePath: Assets.images.activity.path,
-                  numberOfTopics: 16,
-                ),
-                TopicCard(
-                  title: 'グルメ',
-                  imagePath: Assets.images.gourmet.path,
-                  numberOfTopics: 430,
-                ),
-              ],
+              children: topics.entries.map((entry) {
+                final title = entry.key;
+
+                final path = entry.value;
+                final pathWidgets = <Widget>[];
+                for (final pathEntry in path.entries) {
+                  final image = pathEntry.value;
+                  final numberOfTopics = pathEntry.key;
+                  pathWidgets.add(
+                    TopicCard(
+                      title: title,
+                      imagePath: image,
+                      numberOfTopics: numberOfTopics,
+                    ),
+                  );
+                }
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: pathWidgets,
+                );
+              }).toList(),
             ),
           ),
         ),
