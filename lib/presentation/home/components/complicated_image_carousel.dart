@@ -39,7 +39,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
       children: [
         Padding(
           padding: const EdgeInsets.all(16),
-          child: Row( 
+          child: Row(
             children: [
               const Text(
                 '人気のプラン',
@@ -48,7 +48,6 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
               IconButton(
                 icon: const Icon(Icons.arrow_forward_ios),
                 color: Colors.black,
-                
                 onPressed: () {},
               ),
             ],
