@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'topicCard.dart';
+import '../components/topicCard.dart';
 
 class PopularTopics extends StatelessWidget {
   const PopularTopics({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     return Column(children: [
       Padding(
         padding: EdgeInsets.only(left: 15, bottom: 0),
@@ -32,23 +31,23 @@ class PopularTopics extends StatelessWidget {
             children: [
               topicCard(
                 title: "アニメ",
-                imagePath: "images/sample.jpg",
-                screenHeight: screenHeight,
+                imagePath: "images/anime.png",
+                number_ofTopics: 999,
               ),
               topicCard(
                 title: "ショッピング",
-                imagePath: "images/sample.jpg",
-                screenHeight: screenHeight,
+                imagePath: "images/shopping.png",
+                number_ofTopics: 999,
               ),
               topicCard(
                 title: "アクティビティー",
-                imagePath: "images/sample.jpg",
-                screenHeight: screenHeight,
+                imagePath: "images/activity.png",
+                number_ofTopics: 999,
               ),
               topicCard(
                 title: "グルメ",
-                imagePath: "images/sample.jpg",
-                screenHeight: screenHeight,
+                imagePath: "images/gourmet.png",
+                number_ofTopics: 999,
               ),
             ],
           ),
