@@ -139,9 +139,9 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
+              style: AppTextStyle.textStyle.copyWith(
                 fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.start,
             ),
@@ -162,7 +162,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
                   ),
                   child: Text(
                     tag,
-                    style: const TextStyle(
+                    style: AppTextStyle.textStyle.copyWith(
                       fontSize: 10,
                     ),
                   ),
