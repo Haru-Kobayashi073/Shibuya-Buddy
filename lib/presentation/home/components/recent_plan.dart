@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/styles/app_color.dart';
+import '../../../utils/styles/app_text_style.dart';
+
 class RecentPlan extends StatelessWidget {
   const RecentPlan({
     super.key,
@@ -84,14 +87,14 @@ class RecentPlan extends StatelessWidget {
           onPressed: onPressed,
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
-            backgroundColor: const Color(0xFFF2F4F8),
+            backgroundColor: AppColor.blue50Background,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(4),
             ),
           ),
           child: Text(
             label,
-            style: const TextStyle(
+            style: AppTextStyle.textStyle.copyWith(
               fontSize: 8,
             ),
           ),

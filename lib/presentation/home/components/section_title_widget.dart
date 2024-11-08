@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/styles/app_text_style.dart';
+
 class SectionTitleWidget extends StatelessWidget {
   const SectionTitleWidget({
     super.key,
@@ -22,10 +24,9 @@ class SectionTitleWidget extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(
+            style: AppTextStyle.textStyle.copyWith(
               fontSize: fontsize,
               fontWeight: FontWeight.bold,
-              
             ),
           ),
           IconButton(
