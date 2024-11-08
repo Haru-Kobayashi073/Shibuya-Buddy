@@ -39,7 +39,7 @@ class RecentPlan extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
                   child: Text(
                     label,
-                    style: const TextStyle(
+                    style: AppTextStyle.textStyle.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
