@@ -54,9 +54,12 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black,
+                    const Padding(
+                      padding: EdgeInsets.only(left: 4),
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.black,
+                      ),
                     ),
                   ],
                 ),
