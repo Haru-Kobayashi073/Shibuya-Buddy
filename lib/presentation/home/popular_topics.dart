@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '/gen/assets.gen.dart';
+import '../../utils/styles/app_text_style.dart';
 import '../components/topic_card.dart';
 
 Map<String, Map<int, String>> topics = {
@@ -34,22 +36,17 @@ class PopularTopics extends StatelessWidget {
               onTap: () {
                 debugPrint('人気のトピック');
               },
-              child: const Padding(
-                padding: EdgeInsets.only(bottom: 10),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       '人気のトピック',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: AppTextStyle.textStyle
+                          .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3),
-                      child: Icon(Icons.arrow_forward_ios, size: 23),
-                    ),
+                    const Icon(Icons.arrow_forward_ios, size: 20),
                   ],
                 ),
               ),

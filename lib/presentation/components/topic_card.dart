@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../utils/styles/app_color.dart';
+import '../../utils/styles/app_text_style.dart';
 
 class TopicCard extends StatelessWidget {
   const TopicCard({
@@ -13,7 +15,7 @@ class TopicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
 
     return SizedBox(
       width: size.width * 0.47,
@@ -27,7 +29,6 @@ class TopicCard extends StatelessWidget {
           padding: const EdgeInsets.only(left: 5),
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(255, 255, 255, 0.5),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -51,9 +52,9 @@ class TopicCard extends StatelessWidget {
                   aspectRatio: 16 / 3,
                   child: Container(
                     padding: const EdgeInsets.only(left: 10, top: 7),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: const BorderRadius.only(
+                    decoration: const BoxDecoration(
+                      color: AppColor.blue50Background,
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20),
                       ),
@@ -64,9 +65,8 @@ class TopicCard extends StatelessWidget {
                         children: [
                           Text(
                             title,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.black87,
+                            style: AppTextStyle.textStyle.copyWith(
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
