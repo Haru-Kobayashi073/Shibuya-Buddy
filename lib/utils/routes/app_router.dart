@@ -99,7 +99,7 @@ class HomeScreenRouteData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const HomePage(title: '');
+    return const HomePage();
   }
 }
 
