@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class ComplicatedImageCarousel extends StatefulWidget {
@@ -58,7 +59,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
                       padding: EdgeInsets.only(left: 4),
                       child: Icon(
                         Icons.arrow_forward_ios,
-                        color: Colors.black,
+                        color: AppColor.black,
                       ),
                     ),
                   ],
@@ -90,7 +91,8 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
               margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _current == entry.key ? Colors.black : Colors.grey,
+                color:
+                    _current == entry.key ? AppColor.black : AppColor.grey400,
               ),
             );
           }).toList(),
@@ -134,7 +136,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
       child: Container(
         padding: const EdgeInsets.all(16),
         width: double.infinity,
-        color: const Color(0xFFF2F4F8),
+        color: AppColor.blue50Background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,7 +162,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColor.white,
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
