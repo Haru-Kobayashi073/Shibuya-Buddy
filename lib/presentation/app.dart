@@ -1,34 +1,47 @@
 import 'package:flutter/material.dart';
-import 'home/home_page.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class App extends StatelessWidget {
+import '../utils/routes/app_router.dart';
+import '../utils/styles/app_color.dart';
+import '../utils/styles/app_text_style.dart';
+
+class App extends ConsumerWidget {
   const App({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final goRouter = ref.watch(goRouterProvider);
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: AppColor.white,
+        appBarTheme: const AppBarTheme(backgroundColor: AppColor.white),
+        navigationBarTheme: NavigationBarThemeData(
+          backgroundColor: AppColor.white,
+          indicatorColor: AppColor.blue50Background,
+          labelTextStyle: WidgetStateProperty.resolveWith((states) {
+            final style = AppTextStyle.textStyle
+                .copyWith(color: AppColor.blue900Tertiary);
+            if (states.contains(WidgetState.selected)) {
+              return style.copyWith(
+                color: AppColor.blue900Tertiary,
+                fontWeight: FontWeight.bold,
+              );
+            }
+            return style;
+          }),
+          iconTheme: WidgetStateProperty.all(
+            const IconThemeData(
+              color: AppColor.blue900Tertiary,
+            ),
+          ),
+        ),
         useMaterial3: true,
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      routerDelegate: goRouter.routerDelegate,
+      routeInformationProvider: goRouter.routeInformationProvider,
+      routeInformationParser: goRouter.routeInformationParser,
     );
   }
 }
