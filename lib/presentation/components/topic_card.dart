@@ -19,8 +19,6 @@ class TopicCard extends StatelessWidget {
 
     return SizedBox(
       width: size.width * 0.47,
-      // child: AspectRatio(
-      //   aspectRatio: 16 / 11,
       child: GestureDetector(
         onTap: () {
           debugPrint('タップ$title');
@@ -38,8 +36,8 @@ class TopicCard extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
                       ),
                       image: DecorationImage(
                         image: AssetImage(imagePath),
@@ -50,24 +48,27 @@ class TopicCard extends StatelessWidget {
                 ),
                 AspectRatio(
                   aspectRatio: 16 / 3,
-                  child: Container(
-                    padding: const EdgeInsets.only(left: 10, top: 7),
+                  child: DecoratedBox(
                     decoration: const BoxDecoration(
                       color: AppColor.blue50Background,
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(12),
+                        bottomRight: Radius.circular(12),
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 3, bottom: 8),
+                      padding: const EdgeInsets.all(8),
                       child: Row(
                         children: [
-                          Text(
-                            title,
-                            style: AppTextStyle.textStyle.copyWith(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Text(
+                              title,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTextStyle.textStyle.copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                overflow: TextOverflow.clip,
+                              ),
                             ),
                           ),
                           Padding(
@@ -75,7 +76,7 @@ class TopicCard extends StatelessWidget {
                             child: Text(
                               '$numberOfTopics件~',
                               style: const TextStyle(
-                                fontSize: 10,
+                                fontSize: 12,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
