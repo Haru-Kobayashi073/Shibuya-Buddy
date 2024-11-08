@@ -46,8 +46,13 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               ),
               IconButton(
+                style: const ButtonStyle(
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
                 icon: const Icon(Icons.arrow_forward_ios),
                 color: Colors.black,
+                constraints: const BoxConstraints(),
+                padding: const EdgeInsets.only(left: 4),
                 onPressed: () {},
               ),
             ],
@@ -57,6 +62,8 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
           options: CarouselOptions(
             enlargeCenterPage: true,
             aspectRatio: 16 / 11,
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 6),
             onPageChanged: (index, reason) {
               setState(() {
                 _current = index; // 現在のインデックスを更新
