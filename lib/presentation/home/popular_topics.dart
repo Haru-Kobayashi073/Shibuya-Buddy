@@ -4,16 +4,16 @@ import '../components/topic_card.dart';
 
 Map<String, Map<int, String>> topics = {
   'アニメ': {
-    30:  Assets.images.anime.path,
+    30: Assets.images.anime.path,
   },
   'ショッピング': {
-    208:  Assets.images.shopping.path,
+    208: Assets.images.shopping.path,
   },
   'アクティビティー': {
-    16:  Assets.images.activity.path,
+    16: Assets.images.activity.path,
   },
   'グルメ': {
-    430:  Assets.images.gourmet.path,
+    430: Assets.images.gourmet.path,
   },
 };
 
