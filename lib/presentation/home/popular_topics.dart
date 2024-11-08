@@ -17,6 +17,9 @@ Map<String, Map<int, String>> topics = {
   'グルメ': {
     430: Assets.images.gourmet.path,
   },
+  'もじもじもじもじもじもじもじもじもじもじもじもじもじもじもじ': {
+    430: Assets.images.gourmet.path,
+  },
 };
 
 class PopularTopics extends StatelessWidget {
@@ -37,7 +40,7 @@ class PopularTopics extends StatelessWidget {
                 debugPrint('人気のトピック');
               },
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
+                padding: const EdgeInsets.only(bottom: 16),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
