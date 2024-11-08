@@ -13,12 +13,10 @@ class TopicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final cardHeight = screenHeight * 0.2;
-    final cardWidth = cardHeight * (5 / 4);
+    final Size size = MediaQuery.of(context).size;
 
     return SizedBox(
-      width: cardWidth,
+      width: size.width * 0.47,
       // child: AspectRatio(
       //   aspectRatio: 16 / 11,
       child: GestureDetector(
@@ -35,7 +33,7 @@ class TopicCard extends StatelessWidget {
             child: Column(
               children: [
                 AspectRatio(
-                  aspectRatio: 16 / 10,
+                  aspectRatio: 16 / 12,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
