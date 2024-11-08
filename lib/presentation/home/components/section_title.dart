@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/styles/app_text_style.dart';
 
-class SectionTitleWidget extends StatelessWidget {
-  const SectionTitleWidget({
+class SectionTitle extends StatelessWidget {
+  const SectionTitle({
     super.key,
     required this.label,
     required this.fontsize,
@@ -18,24 +18,29 @@ class SectionTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-      child: Row(
-        children: [
-          Text(
+    return Row(
+      children: [
+        SizedBox(
+          child: Text(
             label,
             style: AppTextStyle.textStyle.copyWith(
               fontSize: fontsize,
               fontWeight: FontWeight.bold,
             ),
           ),
-          IconButton(
-            onPressed: onPressed,
+        ),
+        SizedBox(
+          width: 28,
+          height: 28,
+          child: IconButton(
             icon: const Icon(Icons.arrow_forward_ios),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: onPressed,
             iconSize: iconSize,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
