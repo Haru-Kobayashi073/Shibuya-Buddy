@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'components/resent_plans_section.dart';
 
 class HomePage extends StatelessWidget {
