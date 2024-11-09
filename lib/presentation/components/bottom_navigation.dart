@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
+import '../../i18n/strings.g.dart';
+
 class BottomNavigation extends ConsumerWidget {
   const BottomNavigation({
     super.key,
@@ -13,6 +15,9 @@ class BottomNavigation extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final i18n = Translations.of(context);
+    final navigationBarItemi18n = i18n.NavigationBar.items;
+
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationShell.currentIndex,
@@ -22,18 +27,18 @@ class BottomNavigation extends ConsumerWidget {
             initialLocation: index == navigationShell.currentIndex,
           );
         },
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Symbols.home),
-            label: 'ホーム',
+            icon: const Icon(Symbols.home),
+            label: navigationBarItemi18n.home,
           ),
           NavigationDestination(
-            icon: Icon(Symbols.bookmark_flag),
-            label: 'マイプラン',
+            icon: const Icon(Symbols.bookmark_flag),
+            label: navigationBarItemi18n.myPlan,
           ),
           NavigationDestination(
-            icon: Icon(Symbols.account_circle),
-            label: 'マイページ',
+            icon: const Icon(Symbols.account_circle),
+            label: navigationBarItemi18n.myPage,
           ),
         ],
       ),
