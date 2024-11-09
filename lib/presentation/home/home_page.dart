@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'popular_topics.dart';
 
 import 'components/complicated_image_carousel.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: ComplicatedImageCarousel(),
+        child: Column(
+          children: const [
+            ComplicatedImageCarousel(),
+            Expanded(
+              child: Center(
+                child: PopularTopics(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
