@@ -151,7 +151,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
               textAlign: TextAlign.start,
             ),
             const SizedBox(
-              height: 6,
+              height: 4,
             ),
             // 複数のタグを表示する部分
             Wrap(
@@ -159,8 +159,7 @@ class _ComplicatedImageCarouselState extends State<ComplicatedImageCarousel> {
               runSpacing: 4,
               children: tags.map((tag) {
                 return Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     color: AppColor.white,
                     borderRadius: BorderRadius.circular(4),
