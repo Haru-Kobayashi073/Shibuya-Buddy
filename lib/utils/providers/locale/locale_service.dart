@@ -18,7 +18,8 @@ class LocaleService extends _$LocaleService {
     return switch (userLocale) {
       'en' => AppLocale.en,
       'ja' => AppLocale.ja,
-      'zh' => AppLocale.zh,
+      'zh_Hans' => AppLocale.zhHans,
+      'zh_Hant' => AppLocale.zhHant,
       _ => AppLocale.en,
     };
   }
