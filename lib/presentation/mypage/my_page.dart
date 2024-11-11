@@ -44,7 +44,12 @@ class MyPage extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  const Icon(Icons.edit, size: 24),
+                  IconButton(
+                    onPressed: () {
+                      debugPrint('TapEdit!');
+                    },
+                    icon: const Icon(Icons.edit, size: 24),
+                  ),
                 ],
               ),
             ),
@@ -74,37 +79,37 @@ class MyPage extends StatelessWidget {
                 Textarrowbutton(
                   text: 'アカウント',
                   onTapCallback: () {
-                    debugPrint('TAP');
+                    debugPrint('TapAccount');
                   },
                 ),
                 Textarrowbutton(
                   text: '言語',
                   onTapCallback: () {
-                    debugPrint('TAP');
+                    debugPrint('TapLanguage');
                   },
                 ),
                 Textarrowbutton(
                   text: 'テーマ',
                   onTapCallback: () {
-                    debugPrint('TAP');
+                    debugPrint('TapThema');
                   },
                 ),
                 Textarrowbutton(
                   text: '利用規約・プライバシーポリシー',
                   onTapCallback: () {
-                    debugPrint('TAP');
+                    debugPrint('TapPrivacyPolicy');
                   },
                 ),
                 Textarrowbutton(
                   text: 'このアプリについて',
                   onTapCallback: () {
-                    debugPrint('TAP');
+                    debugPrint('TapAboutthisApp');
                   },
                 ),
                 Textarrowbutton(
                   text: '開発者について',
                   onTapCallback: () {
-                    debugPrint('TAP');
+                    debugPrint('TapAboutTheDeveloper');
                   },
                 ),
               ],
