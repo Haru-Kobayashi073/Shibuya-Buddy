@@ -1,22 +1,33 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'i18n/strings.g.dart';
 import 'infrastructure/firebase/firebase_options_dev.dart' as dev;
 import 'infrastructure/firebase/firebase_options_prod.dart' as prod;
 import 'presentation/app.dart';
+import 'utils/providers/shared_preferences/shared_preferences_service.dart';
 
 const flavor = String.fromEnvironment('flavor');
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocaleSettings.useDeviceLocale();
 
   final firebaseOptions = flavor == 'prod'
       ? prod.DefaultFirebaseOptions.currentPlatform
       : dev.DefaultFirebaseOptions.currentPlatform;
   await Firebase.initializeApp(options: firebaseOptions);
   runApp(
-    const ProviderScope(
-      child: App(),
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(
+          await SharedPreferences.getInstance(),
+        ),
+      ],
+      child: TranslationProvider(
+        child: const App(),
+      ),
     ),
   );
 }
