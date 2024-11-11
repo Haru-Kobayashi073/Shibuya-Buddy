@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/textArrowButton.dart';
 
@@ -9,15 +10,13 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    // final screenHeight = MediaQuery.of(context).size.height;
     final circleSize = screenWidth * 0.1;
     return Scaffold(
       body: Column(
         children: [
-          // const Spacer(),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 54, left: 16, right: 5),
+              padding: const EdgeInsets.only(top: 50, left: 16, right: 5),
               child: Row(
                 children: <Widget>[
                   Padding(
@@ -27,15 +26,14 @@ class MyPage extends StatelessWidget {
                       height: circleSize,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.black,
                         // image: DecorationImage(
-                        //   fit: BoxFit.fill,
-                        //   image: AssetImage('/images/sample.jpg'),
+                        // fit: BoxFit.fill,
+                        //   image: AssetImage('Assets.images.anime.path'),
                         // ),
+                        color: AppColor.blue400,
                       ),
                     ),
                   ),
-                  // const SizedBox(width: 15),
                   Text(
                     'Name',
                     style: AppTextStyle.textStyle.copyWith(
@@ -56,7 +54,34 @@ class MyPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Container(),
+            child: Row(
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'AIの機能について',
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    debugPrint('TapDetail');
+                  },
+                  child: Text(
+                    '詳細',
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                const Icon(Icons.arrow_forward_ios, size: 24),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16),
