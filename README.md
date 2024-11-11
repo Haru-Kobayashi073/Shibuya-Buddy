@@ -27,7 +27,14 @@ make run-dev
 ```
 
 # 多言語対応の方法
-1. `lib/i18n/strings.i18n.json`ファイルと`lib/i18n/strings_ja.i18n.json`ファイル、`lib/i18n/strings_zh.i18n.json`ファイルにそれぞれの言語をjson形式で書く。
+1. 設定
+- `lib/i18n/strings.i18n.json` // 英語
+- `lib/i18n/strings_ja.i18n.json` // 日本語
+- `lib/i18n/strings_zh-Hans.i18n.json` // 中国簡体字
+- `lib/i18n/strings_zh-Hant.i18n.json` // 中国繁体字
+
+上記のファイルにそれぞれの言語をjson形式で書く。
+
 2. ``` make runner ```コマンドでdartコードにコンバートする
 3. ```Translation.of(context). ・・・```で呼び出せる
 
