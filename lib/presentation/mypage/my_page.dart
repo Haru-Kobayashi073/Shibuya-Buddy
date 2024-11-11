@@ -84,6 +84,33 @@ class MyPage extends StatelessWidget {
             ),
           ),
           Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: AppColor.grey200,
+              ),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 10, bottom: 10, left: 16),
+                      child: Text(
+                        '現在のグレードは${false ? 'プレミアム' : 'ベーシック'}です。',
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.only(left: 16),
             child: Align(
               alignment: Alignment.centerLeft,
