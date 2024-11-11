@@ -10,13 +10,13 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class TranslationsZh implements Translations {
+class TranslationsZhHans implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsZh({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsZhHans({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.zh,
+		    locale: AppLocale.zhHans,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
@@ -24,16 +24,16 @@ class TranslationsZh implements Translations {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
 
-	/// Metadata for the translations of <zh>.
+	/// Metadata for the translations of <zh-Hans>.
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
 	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-	late final TranslationsZh _root = this; // ignore: unused_field
+	late final TranslationsZhHans _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsNavigationBarZh NavigationBar = _TranslationsNavigationBarZh._(_root);
+	@override late final _TranslationsNavigationBarZhHans NavigationBar = _TranslationsNavigationBarZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -42,20 +42,20 @@ class TranslationsZh implements Translations {
 }
 
 // Path: NavigationBar
-class _TranslationsNavigationBarZh implements TranslationsNavigationBarEn {
-	_TranslationsNavigationBarZh._(this._root);
+class _TranslationsNavigationBarZhHans implements TranslationsNavigationBarEn {
+	_TranslationsNavigationBarZhHans._(this._root);
 
-	final TranslationsZh _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsNavigationBarItemsZh items = _TranslationsNavigationBarItemsZh._(_root);
+	@override late final _TranslationsNavigationBarItemsZhHans items = _TranslationsNavigationBarItemsZhHans._(_root);
 }
 
 // Path: NavigationBar.items
-class _TranslationsNavigationBarItemsZh implements TranslationsNavigationBarItemsEn {
-	_TranslationsNavigationBarItemsZh._(this._root);
+class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBarItemsEn {
+	_TranslationsNavigationBarItemsZhHans._(this._root);
 
-	final TranslationsZh _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => '首页';
@@ -65,7 +65,7 @@ class _TranslationsNavigationBarItemsZh implements TranslationsNavigationBarItem
 
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
-extension on TranslationsZh {
+extension on TranslationsZhHans {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'NavigationBar.items.home': return '首页';

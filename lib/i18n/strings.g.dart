@@ -3,10 +3,10 @@
 /// Source: lib/i18n
 /// To regenerate, run: `dart run slang`
 ///
-/// Locales: 3
-/// Strings: 18 (6 per locale)
+/// Locales: 4
+/// Strings: 24 (6 per locale)
 ///
-/// Built on 2024-11-09 at 07:46 UTC
+/// Built on 2024-11-11 at 15:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -18,7 +18,8 @@ import 'package:slang_flutter/slang_flutter.dart';
 export 'package:slang_flutter/slang_flutter.dart';
 
 import 'strings_ja.g.dart' deferred as l_ja;
-import 'strings_zh.g.dart' deferred as l_zh;
+import 'strings_zh_Hans.g.dart' deferred as l_zh_Hans;
+import 'strings_zh_Hant.g.dart' deferred as l_zh_Hant;
 part 'strings_en.g.dart';
 
 /// Supported locales.
@@ -30,7 +31,8 @@ part 'strings_en.g.dart';
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	en(languageCode: 'en'),
 	ja(languageCode: 'ja'),
-	zh(languageCode: 'zh');
+	zhHans(languageCode: 'zh', scriptCode: 'Hans'),
+	zhHant(languageCode: 'zh', scriptCode: 'Hant');
 
 	const AppLocale({
 		required this.languageCode,
@@ -62,9 +64,16 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
-			case AppLocale.zh:
-				await l_zh.loadLibrary();
-				return l_zh.TranslationsZh(
+			case AppLocale.zhHans:
+				await l_zh_Hans.loadLibrary();
+				return l_zh_Hans.TranslationsZhHans(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zhHant:
+				await l_zh_Hant.loadLibrary();
+				return l_zh_Hant.TranslationsZhHant(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -91,8 +100,14 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
-			case AppLocale.zh:
-				return l_zh.TranslationsZh(
+			case AppLocale.zhHans:
+				return l_zh_Hans.TranslationsZhHans(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zhHant:
+				return l_zh_Hant.TranslationsZhHant(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
