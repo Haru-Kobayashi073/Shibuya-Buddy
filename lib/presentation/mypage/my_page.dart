@@ -17,7 +17,7 @@ class MyPage extends StatelessWidget {
           // const Spacer(),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 50, left: 16, right: 16),
+              padding: const EdgeInsets.only(top: 54, left: 16, right: 5),
               child: Row(
                 children: <Widget>[
                   Padding(
