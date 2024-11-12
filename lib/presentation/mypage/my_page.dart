@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../gen/assets.gen.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/textArrowButton.dart';
@@ -24,21 +25,26 @@ class MyPage extends StatelessWidget {
                     child: Container(
                       width: circleSize,
                       height: circleSize,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        // image: DecorationImage(
-                        // fit: BoxFit.fill,
-                        //   image: AssetImage('Assets.images.anime.path'),
-                        // ),
-                        color: AppColor.blue400,
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(
+                            Assets.images.usericon.path,
+                          ),
+                        ),
+                        // color: AppColor.blue400,
                       ),
                     ),
                   ),
-                  Text(
-                    'Name',
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      'Name',
+                      style: AppTextStyle.textStyle.copyWith(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const Spacer(),
@@ -95,8 +101,8 @@ class MyPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10, bottom: 10, left: 16),
+                      padding: const EdgeInsets.only(
+                          top: 16, bottom: 80, left: 16), //bottomは仮
                       child: Text(
                         '現在のグレードは${false ? 'プレミアム' : 'ベーシック'}です。',
                         style: AppTextStyle.textStyle.copyWith(
@@ -111,7 +117,7 @@ class MyPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 16),
+            padding: const EdgeInsets.only(left: 16, top: 16),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
