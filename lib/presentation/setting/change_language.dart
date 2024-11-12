@@ -3,19 +3,25 @@ import 'package:flutter/material.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
-enum Language {
+enum Languages {
   japanese('日本語'),
   english('英語'),
   simplified('中国語（簡体字）'),
   traditional('中国語（繁体字）');
 
   final String displayName;
-  const Language(this.displayName);
+  const Languages(this.displayName);
 }
 
-class ChangeLanguage extends StatelessWidget {
+class ChangeLanguage extends StatefulWidget {
   const ChangeLanguage({super.key});
-  final Language _language = Language.japanese;
+
+  @override
+  State<ChangeLanguage> createState() => _ChangeLanguageState();
+}
+
+class _ChangeLanguageState extends State<ChangeLanguage> {
+  Languages? selectLanguage = Languages.japanese;
 
   @override
   Widget build(BuildContext context) {
@@ -33,33 +39,77 @@ class ChangeLanguage extends StatelessWidget {
         padding: const EdgeInsets.only(top: 8, left: 16),
         child: Column(
           children: [
-            ListTile(
-              title: Text(Language.japanese.displayName),
-              leading: Radio<Language>(
-                fillColor: WidgetStateProperty.all(
-                  AppColor.yellow600Primary,
+            RadioListTile(
+              activeColor: AppColor.yellow600Primary,
+              title: Text(
+                '日本語',
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
-                focusColor: AppColor.blue200,
-                value: Language.japanese,
-                groupValue: _language,
-                onChanged: (Language? value) {
-                  debugPrint('TapJapanese');
-                },
               ),
+              value: Languages.japanese,
+              groupValue: selectLanguage,
+              onChanged: (Languages? value) {
+                setState(() {
+                  selectLanguage = value;
+                });
+                debugPrint('TapJapanese');
+              },
             ),
-            ListTile(
-              title: Text(Language.english.displayName),
-              leading: Radio<Language>(
-                fillColor: WidgetStateProperty.all(
-                  AppColor.yellow600Primary,
+            RadioListTile(
+              activeColor: AppColor.yellow600Primary,
+              title: Text(
+                '英語',
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
-                focusColor: AppColor.grey600,
-                value: Language.english,
-                groupValue: _language,
-                onChanged: (Language? value) {
-                  debugPrint('TapEnglish');
-                },
               ),
+              value: Languages.english,
+              groupValue: selectLanguage,
+              onChanged: (Languages? value) {
+                setState(() {
+                  selectLanguage = value;
+                });
+                debugPrint('TapEnglish');
+              },
+            ),
+            RadioListTile(
+              activeColor: AppColor.yellow600Primary,
+              title: Text(
+                '中国語（簡体字）',
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              value: Languages.simplified,
+              groupValue: selectLanguage,
+              onChanged: (Languages? value) {
+                setState(() {
+                  selectLanguage = value;
+                });
+                debugPrint('TapSimplified');
+              },
+            ),
+            RadioListTile(
+              activeColor: AppColor.yellow600Primary,
+              title: Text(
+                '中国語（繁体字）',
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              value: Languages.traditional,
+              groupValue: selectLanguage,
+              onChanged: (Languages? value) {
+                setState(() {
+                  selectLanguage = value;
+                });
+                debugPrint('TapTraditional');
+              },
             ),
           ],
         ),
