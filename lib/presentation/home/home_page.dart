@@ -14,19 +14,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const PopularTopics(),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ChangeLanguage()), //gorouterを使う
-              );
-            },
-            child: const Text('遷移'),
-          ),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            const PopularTopics(),
+            TextButton(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const ChangeLanguage(),
+                  ),
+                );
+              },
+              child: const Text('遷移'),
+            ),
+          ],
+        ),
       ),
     );
   }
