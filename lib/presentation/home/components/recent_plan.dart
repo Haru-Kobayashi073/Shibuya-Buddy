@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import 'category_tags.dart';
 
