@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
-class TagFeature extends StatelessWidget {
-  const TagFeature({super.key, required this.tags});
+class CategoryTags extends StatelessWidget {
+  const CategoryTags({super.key, required this.tags});
   final List<String> tags;
 
   @override
