@@ -46,7 +46,9 @@ class RecentPlan extends StatelessWidget {
                   ),
                   const Row(
                     children: [
-                      TagFeature (tags: ['所要時間: 1時間〜','人数: １人','＃ショッピング'],),
+                      TagFeature(
+                        tags: ['所要時間: 1時間〜', '人数: １人', '＃ショッピング'],
+                      ),
                     ],
                   ),
                 ],

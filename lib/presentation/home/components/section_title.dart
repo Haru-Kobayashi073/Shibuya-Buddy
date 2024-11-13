@@ -9,7 +9,7 @@ class SectionTitle extends StatelessWidget {
     required this.fontsize,
     required this.onPressed,
     required this.iconSize,
-    });
+  });
 
   final String label;
   final double fontsize;

@@ -4,7 +4,6 @@ import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class TagFeature extends StatelessWidget {
-
   const TagFeature({super.key, required this.tags});
   final List<String> tags;
 
@@ -15,8 +14,7 @@ class TagFeature extends StatelessWidget {
       runSpacing: 4,
       children: tags.map((tag) {
         return Container(
-          padding:
-            const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
           decoration: BoxDecoration(
             color: AppColor.blue50Background,
             borderRadius: BorderRadius.circular(4),
