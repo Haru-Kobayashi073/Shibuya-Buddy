@@ -6,6 +6,16 @@
             "myPage": "My Page"
         }
     },
+    "ChangeLanguage":{
+        "items":{
+            "japanese": "Japanese",
+            "english":"English",
+            "chinese_simplified":"Chinese (Simplified)",
+            "chinese_traditional":"Chinese (Traditional)",
+            "language":"Language"
+
+        }
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",
