@@ -1,0 +1,14 @@
+{
+    "NavigationBar": {
+        "items": {
+            "home": "Home",
+            "myPlan": "My Plan",
+            "myPage": "My Page"
+        }
+    },
+    "locales(map)": {
+        "en": "English",
+        "ja": "Japanese",
+        "zh": "Chinese"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "NavigationBar": {
+        "items": {
+            "home": "ホーム",
+            "myPlan": "マイプラン",
+            "myPage": "マイページ"
+        }
+    },
+    "locales(map)": {
+        "en": "英語",
+        "ja": "日本語",
+        "zh": "中国語"
+    }
+}
