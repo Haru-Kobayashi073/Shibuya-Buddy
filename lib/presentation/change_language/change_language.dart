@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/radio_button.dart';
-import '../../i18n/strings.g.dart';
 
 enum Languages {
   japanese('日本語'),
