@@ -1,6 +1,9 @@
-import 'components/complicated_image_carousel.dart';
+import 'package:flutter/material.dart';
+
 import '../setting/change_language.dart';
+import 'components/complicated_image_carousel.dart';
 import 'popular_topics.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -15,12 +18,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            ComplicatedImageCarousel(),
-            PopularTopics(),
+            const ComplicatedImageCarousel(),
+            const PopularTopics(),
             TextButton(
               onPressed: () async {
                 await Navigator.push(
