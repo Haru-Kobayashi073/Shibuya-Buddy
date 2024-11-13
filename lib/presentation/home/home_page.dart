@@ -4,7 +4,6 @@ import '../setting/change_language.dart';
 import 'components/complicated_image_carousel.dart';
 import 'popular_topics.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({
     super.key,
@@ -17,7 +16,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Column(
