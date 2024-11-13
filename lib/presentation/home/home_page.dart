@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/complicated_image_carousel.dart';
+import 'components/recent_plans_section.dart';
 import 'popular_topics.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             ComplicatedImageCarousel(),
             PopularTopics(),
+            RecentPlansSection(),
           ],
         ),
       ),
