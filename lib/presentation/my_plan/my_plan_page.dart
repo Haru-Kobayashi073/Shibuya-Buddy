@@ -22,6 +22,7 @@ class MyPlanPage extends StatelessWidget {
             ),
           ),
           bottom: TabBar(
+            indicatorWeight: 4,
             labelStyle: AppTextStyle.textStyle
                 .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
             unselectedLabelStyle: AppTextStyle.textStyle
@@ -29,7 +30,7 @@ class MyPlanPage extends StatelessWidget {
             labelColor: AppColor.black,
             unselectedLabelColor: AppColor.black,
             indicatorColor: AppColor.blue800Secondary,
-            dividerColor: AppColor.black,
+            dividerColor: AppColor.blue900Tertiary,
             tabs: const <Widget>[
               Tab(
                 text: '作成したプラン',
