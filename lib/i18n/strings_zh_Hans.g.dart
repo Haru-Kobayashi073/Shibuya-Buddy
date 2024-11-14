@@ -34,6 +34,7 @@ class TranslationsZhHans implements Translations {
 
 	// Translations
 	@override late final _TranslationsNavigationBarZhHans NavigationBar = _TranslationsNavigationBarZhHans._(_root);
+	@override late final _TranslationsMyPageZhHans MyPage = _TranslationsMyPageZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -49,6 +50,24 @@ class _TranslationsNavigationBarZhHans implements TranslationsNavigationBarEn {
 
 	// Translations
 	@override late final _TranslationsNavigationBarItemsZhHans items = _TranslationsNavigationBarItemsZhHans._(_root);
+}
+
+// Path: MyPage
+class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
+	_TranslationsMyPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get aboutAIFunction => '关于AI功能';
+	@override String get details => '详细';
+	@override String get settings => '设置';
+	@override String get account => '账户';
+	@override String get language => '语言';
+	@override String get themes => '主题';
+	@override String get termsofUsePrivacyPolicy => '使用条款和隐私政策';
+	@override String get aboutThisApp => '关于本应用';
+	@override String get aboutTheDeveloper => '关于开发者';
 }
 
 // Path: NavigationBar.items
@@ -71,6 +90,15 @@ extension on TranslationsZhHans {
 			case 'NavigationBar.items.home': return '首页';
 			case 'NavigationBar.items.myPlan': return '我的计划';
 			case 'NavigationBar.items.myPage': return '我的页面';
+			case 'MyPage.aboutAIFunction': return '关于AI功能';
+			case 'MyPage.details': return '详细';
+			case 'MyPage.settings': return '设置';
+			case 'MyPage.account': return '账户';
+			case 'MyPage.language': return '语言';
+			case 'MyPage.themes': return '主题';
+			case 'MyPage.termsofUsePrivacyPolicy': return '使用条款和隐私政策';
+			case 'MyPage.aboutThisApp': return '关于本应用';
+			case 'MyPage.aboutTheDeveloper': return '关于开发者';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

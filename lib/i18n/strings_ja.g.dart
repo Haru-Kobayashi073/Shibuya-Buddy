@@ -34,6 +34,7 @@ class TranslationsJa implements Translations {
 
 	// Translations
 	@override late final _TranslationsNavigationBarJa NavigationBar = _TranslationsNavigationBarJa._(_root);
+	@override late final _TranslationsMyPageJa MyPage = _TranslationsMyPageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -49,6 +50,24 @@ class _TranslationsNavigationBarJa implements TranslationsNavigationBarEn {
 
 	// Translations
 	@override late final _TranslationsNavigationBarItemsJa items = _TranslationsNavigationBarItemsJa._(_root);
+}
+
+// Path: MyPage
+class _TranslationsMyPageJa implements TranslationsMyPageEn {
+	_TranslationsMyPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get aboutAIFunction => 'AIの機能について';
+	@override String get details => '詳細';
+	@override String get settings => '設定';
+	@override String get account => 'アカウント';
+	@override String get language => '言語';
+	@override String get themes => 'テーマ';
+	@override String get termsofUsePrivacyPolicy => '利用規約・プライバシーポリシー';
+	@override String get aboutThisApp => 'このアプリについて';
+	@override String get aboutTheDeveloper => '開発者について';
 }
 
 // Path: NavigationBar.items
@@ -71,6 +90,15 @@ extension on TranslationsJa {
 			case 'NavigationBar.items.home': return 'ホーム';
 			case 'NavigationBar.items.myPlan': return 'マイプラン';
 			case 'NavigationBar.items.myPage': return 'マイページ';
+			case 'MyPage.aboutAIFunction': return 'AIの機能について';
+			case 'MyPage.details': return '詳細';
+			case 'MyPage.settings': return '設定';
+			case 'MyPage.account': return 'アカウント';
+			case 'MyPage.language': return '言語';
+			case 'MyPage.themes': return 'テーマ';
+			case 'MyPage.termsofUsePrivacyPolicy': return '利用規約・プライバシーポリシー';
+			case 'MyPage.aboutThisApp': return 'このアプリについて';
+			case 'MyPage.aboutTheDeveloper': return '開発者について';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

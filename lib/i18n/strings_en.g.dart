@@ -38,6 +38,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final TranslationsNavigationBarEn NavigationBar = TranslationsNavigationBarEn._(_root);
+	late final TranslationsMyPageEn MyPage = TranslationsMyPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -53,6 +54,24 @@ class TranslationsNavigationBarEn {
 
 	// Translations
 	late final TranslationsNavigationBarItemsEn items = TranslationsNavigationBarItemsEn._(_root);
+}
+
+// Path: MyPage
+class TranslationsMyPageEn {
+	TranslationsMyPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get aboutAIFunction => 'About AI Features';
+	String get details => 'Details';
+	String get settings => 'Settings';
+	String get account => 'Account';
+	String get language => 'Language';
+	String get themes => 'Theme';
+	String get termsofUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
+	String get aboutThisApp => 'About This App';
+	String get aboutTheDeveloper => 'About the Developer';
 }
 
 // Path: NavigationBar.items
@@ -75,6 +94,15 @@ extension on Translations {
 			case 'NavigationBar.items.home': return 'Home';
 			case 'NavigationBar.items.myPlan': return 'My Plan';
 			case 'NavigationBar.items.myPage': return 'My Page';
+			case 'MyPage.aboutAIFunction': return 'About AI Features';
+			case 'MyPage.details': return 'Details';
+			case 'MyPage.settings': return 'Settings';
+			case 'MyPage.account': return 'Account';
+			case 'MyPage.language': return 'Language';
+			case 'MyPage.themes': return 'Theme';
+			case 'MyPage.termsofUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
+			case 'MyPage.aboutThisApp': return 'About This App';
+			case 'MyPage.aboutTheDeveloper': return 'About the Developer';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

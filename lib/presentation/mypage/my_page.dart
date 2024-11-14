@@ -4,12 +4,15 @@ import '../../gen/assets.gen.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/textArrowButton.dart';
+import '../../i18n/strings.g.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
+    final myPageItemi18n = i18n.MyPage;
     final screenWidth = MediaQuery.of(context).size.width;
     final circleSize = screenWidth * 0.1;
     return Scaffold(
@@ -65,7 +68,7 @@ class MyPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'AIの機能について',
+                    myPageItemi18n.aboutAIFunction,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -78,7 +81,7 @@ class MyPage extends StatelessWidget {
                     debugPrint('TapDetail');
                   },
                   child: Text(
-                    '詳細',
+                    myPageItemi18n.details,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -121,7 +124,7 @@ class MyPage extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '設定',
+                myPageItemi18n.settings,
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -135,37 +138,37 @@ class MyPage extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: <Widget>[
                 Textarrowbutton(
-                  text: 'アカウント',
+                  text: myPageItemi18n.account,
                   onTapCallback: () {
                     debugPrint('TapAccount');
                   },
                 ),
                 Textarrowbutton(
-                  text: '言語',
+                  text: myPageItemi18n.language,
                   onTapCallback: () {
                     debugPrint('TapLanguage');
                   },
                 ),
                 Textarrowbutton(
-                  text: 'テーマ',
+                  text: myPageItemi18n.themes,
                   onTapCallback: () {
                     debugPrint('TapThema');
                   },
                 ),
                 Textarrowbutton(
-                  text: '利用規約・プライバシーポリシー',
+                  text: myPageItemi18n.termsofUsePrivacyPolicy,
                   onTapCallback: () {
                     debugPrint('TapPrivacyPolicy');
                   },
                 ),
                 Textarrowbutton(
-                  text: 'このアプリについて',
+                  text: myPageItemi18n.aboutThisApp,
                   onTapCallback: () {
                     debugPrint('TapAboutthisApp');
                   },
                 ),
                 Textarrowbutton(
-                  text: '開発者について',
+                  text: myPageItemi18n.aboutTheDeveloper,
                   onTapCallback: () {
                     debugPrint('TapAboutTheDeveloper');
                   },

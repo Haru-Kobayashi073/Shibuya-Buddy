@@ -6,6 +6,17 @@
             "myPage": "我的页面"
         }
     },
+    "MyPage":{
+        "aboutAIFunction":"关于AI功能",
+        "details": "详细",
+        "settings":"设置",
+        "account":"账户",
+        "language":"语言",
+        "themes":"主题",
+        "termsofUsePrivacyPolicy" : "使用条款和隐私政策",
+        "aboutThisApp" :"关于本应用",
+        "aboutTheDeveloper":"关于开发者"
+    },
     "locales(map)": {
         "en": "英语",
         "ja": "日语",
