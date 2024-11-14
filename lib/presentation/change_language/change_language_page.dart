@@ -21,8 +21,6 @@ class ChangeLanguagePage extends StatefulWidget {
 class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
   AppLocale selectLanguage = AppLocale.japanese;
 
-
-
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
