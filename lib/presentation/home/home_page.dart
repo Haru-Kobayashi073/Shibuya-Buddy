@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'components/complicated_image_carousel.dart';
+import 'components/recent_plans_section.dart';
 import 'popular_topics.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,11 +18,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            ComplicatedImageCarousel(),
-            PopularTopics(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ComplicatedImageCarousel(),
+              PopularTopics(),
+              RecentPlansSection(),
+            ],
+          ),
         ),
       ),
     );
