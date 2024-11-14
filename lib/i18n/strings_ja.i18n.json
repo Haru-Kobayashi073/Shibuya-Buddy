@@ -6,14 +6,16 @@
             "myPage": "マイページ"
         }
     },
-    "ChangeLanguage":{
+    "ChangeLanguagePage":{
+        "title":{
+            "title":"言語"
+        },
         "items":{
             "japanese": "日本語",
             "english":"英語",
             "chinese_simplified":"中国語（簡体字）",
-            "chinese_traditional":"中国語（繁体字）",
-            "language":"言語"
 
+            "chinese_traditional":"中国語（繁体字）"
         }
     },
     "locales(map)": {

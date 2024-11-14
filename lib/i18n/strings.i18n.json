@@ -6,14 +6,15 @@
             "myPage": "My Page"
         }
     },
-    "ChangeLanguage":{
+    "ChangeLanguagePage":{
+        "title":{
+            "title":"Language"
+        },
         "items":{
             "japanese": "Japanese",
             "english":"English",
             "chinese_simplified":"Chinese (Simplified)",
-            "chinese_traditional":"Chinese (Traditional)",
-            "language":"Language"
-
+            "chinese_traditional":"Chinese (Traditional)"
         }
     },
     "locales(map)": {
