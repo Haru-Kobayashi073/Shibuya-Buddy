@@ -7,9 +7,7 @@
         }
     },
     "ChangeLanguagePage":{
-        "title":{
-            "title":"言語"
-        },
+        "title": "言語",
         "items":{
             "japanese": "日本語",
             "english":"英語",

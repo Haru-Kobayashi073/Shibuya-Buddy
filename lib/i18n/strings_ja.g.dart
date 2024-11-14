@@ -74,8 +74,7 @@ class _TranslationsChangeLanguagePageJa
 
   // Translations
   @override
-  late final _TranslationsChangeLanguagePageTitleJa title =
-      _TranslationsChangeLanguagePageTitleJa._(_root);
+  String get title => '言語';
   @override
   late final _TranslationsChangeLanguagePageItemsJa items =
       _TranslationsChangeLanguagePageItemsJa._(_root);
@@ -95,18 +94,6 @@ class _TranslationsNavigationBarItemsJa
   String get myPlan => 'マイプラン';
   @override
   String get myPage => 'マイページ';
-}
-
-// Path: ChangeLanguagePage.title
-class _TranslationsChangeLanguagePageTitleJa
-    implements TranslationsChangeLanguagePageTitleEn {
-  _TranslationsChangeLanguagePageTitleJa._(this._root);
-
-  final TranslationsJa _root; // ignore: unused_field
-
-  // Translations
-  @override
-  String get title => '言語';
 }
 
 // Path: ChangeLanguagePage.items
@@ -138,7 +125,7 @@ extension on TranslationsJa {
         return 'マイプラン';
       case 'NavigationBar.items.myPage':
         return 'マイページ';
-      case 'ChangeLanguagePage.title.title':
+      case 'ChangeLanguagePage.title':
         return '言語';
       case 'ChangeLanguagePage.items.japanese':
         return '日本語';

@@ -73,8 +73,7 @@ class TranslationsChangeLanguagePageEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
-  late final TranslationsChangeLanguagePageTitleEn title =
-      TranslationsChangeLanguagePageTitleEn._(_root);
+  String get title => 'Language';
   late final TranslationsChangeLanguagePageItemsEn items =
       TranslationsChangeLanguagePageItemsEn._(_root);
 }
@@ -89,16 +88,6 @@ class TranslationsNavigationBarItemsEn {
   String get home => 'Home';
   String get myPlan => 'My Plan';
   String get myPage => 'My Page';
-}
-
-// Path: ChangeLanguagePage.title
-class TranslationsChangeLanguagePageTitleEn {
-  TranslationsChangeLanguagePageTitleEn._(this._root);
-
-  final Translations _root; // ignore: unused_field
-
-  // Translations
-  String get title => 'Language';
 }
 
 // Path: ChangeLanguagePage.items
@@ -125,7 +114,7 @@ extension on Translations {
         return 'My Plan';
       case 'NavigationBar.items.myPage':
         return 'My Page';
-      case 'ChangeLanguagePage.title.title':
+      case 'ChangeLanguagePage.title':
         return 'Language';
       case 'ChangeLanguagePage.items.japanese':
         return 'Japanese';

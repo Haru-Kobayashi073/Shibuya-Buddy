@@ -74,8 +74,7 @@ class _TranslationsChangeLanguagePageZhHans
 
   // Translations
   @override
-  late final _TranslationsChangeLanguagePageTitleZhHans title =
-      _TranslationsChangeLanguagePageTitleZhHans._(_root);
+  String get title => '语言';
   @override
   late final _TranslationsChangeLanguagePageItemsZhHans items =
       _TranslationsChangeLanguagePageItemsZhHans._(_root);
@@ -95,18 +94,6 @@ class _TranslationsNavigationBarItemsZhHans
   String get myPlan => '我的计划';
   @override
   String get myPage => '我的页面';
-}
-
-// Path: ChangeLanguagePage.title
-class _TranslationsChangeLanguagePageTitleZhHans
-    implements TranslationsChangeLanguagePageTitleEn {
-  _TranslationsChangeLanguagePageTitleZhHans._(this._root);
-
-  final TranslationsZhHans _root; // ignore: unused_field
-
-  // Translations
-  @override
-  String get title => '语言';
 }
 
 // Path: ChangeLanguagePage.items
@@ -138,7 +125,7 @@ extension on TranslationsZhHans {
         return '我的计划';
       case 'NavigationBar.items.myPage':
         return '我的页面';
-      case 'ChangeLanguagePage.title.title':
+      case 'ChangeLanguagePage.title':
         return '语言';
       case 'ChangeLanguagePage.items.japanese':
         return '日本人';
