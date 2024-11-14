@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
+/// RadioButtonWithText
+/// example usage:
+/// ```dart
+///   RadioButtonWithText <T>(
+///     title: '日本語',
+///      value: Languages.japanese,
+///      groupValue: selectLanguage,
+///      onChanged: (value) {
+///        setState(() {
+///          if (value != null) {
+///            debugPrint('TapJapanese');
+///            selectLanguage = value;
+///          }
+///        });
+///      },
+///    ),
+/// ```
 class RadioButtonWithText<T> extends StatefulWidget {
   const RadioButtonWithText({
     super.key,
@@ -42,17 +60,3 @@ class _RadiobuttonTextState<T> extends State<RadioButtonWithText<T>> {
     );
   }
 }
-
-// RadioButtonWithText<Languages>(
-//               title: '日本語',
-//               value: Languages.japanese,
-//               groupValue: selectLanguage,
-//               onChanged: (value) {
-//                 setState(() {
-//                   if (value != null) {
-//                     debugPrint('TapJapanese');
-//                     selectLanguage = value;
-//                   }
-//                 });
-//               },
-//             ),
