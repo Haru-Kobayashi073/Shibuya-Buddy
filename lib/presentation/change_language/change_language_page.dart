@@ -2,14 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../components/radio_button_withtext.dart';
-
-enum AppLocale {
-  japanese,
-  english,
-  simplified,
-  traditional;
-}
+import '../components/radio_button_with_text.dart';
 
 class ChangeLanguagePage extends StatefulWidget {
   const ChangeLanguagePage({super.key});
@@ -19,7 +12,7 @@ class ChangeLanguagePage extends StatefulWidget {
 }
 
 class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
-  AppLocale selectLanguage = AppLocale.japanese;
+  AppLocale selectLanguage = AppLocale.ja;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +22,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          titlei18n.title,
+          titlei18n,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -42,7 +35,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
           children: [
             RadioButtonWithText<AppLocale>(
               title: itemi18n.japanese,
-              value: AppLocale.japanese,
+              value: AppLocale.ja,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
@@ -55,7 +48,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
             ),
             RadioButtonWithText<AppLocale>(
               title: itemi18n.english,
-              value: AppLocale.english,
+              value: AppLocale.en,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
@@ -68,7 +61,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
             ),
             RadioButtonWithText<AppLocale>(
               title: itemi18n.chinese_simplified,
-              value: AppLocale.simplified,
+              value: AppLocale.zhHans,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
@@ -81,7 +74,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
             ),
             RadioButtonWithText<AppLocale>(
               title: itemi18n.chinese_traditional,
-              value: AppLocale.traditional,
+              value: AppLocale.zhHant,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
