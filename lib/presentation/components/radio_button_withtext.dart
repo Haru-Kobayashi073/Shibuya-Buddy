@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
-class RadiobuttonText<T> extends StatefulWidget {
-  const RadiobuttonText({
+class RadioButtonWithText<T> extends StatefulWidget {
+  const RadioButtonWithText({
     super.key,
     required this.title,
     required this.value,
@@ -17,10 +17,10 @@ class RadiobuttonText<T> extends StatefulWidget {
   final void Function(T?) onChanged;
 
   @override
-  State<RadiobuttonText<T>> createState() => _RadiobuttonTextState<T>();
+  State<RadioButtonWithText<T>> createState() => _RadiobuttonTextState<T>();
 }
 
-class _RadiobuttonTextState<T> extends State<RadiobuttonText<T>> {
+class _RadiobuttonTextState<T> extends State<RadioButtonWithText<T>> {
   @override
   Widget build(BuildContext context) {
     return RadioListTile<T>(
@@ -43,7 +43,7 @@ class _RadiobuttonTextState<T> extends State<RadiobuttonText<T>> {
   }
 }
 
-// RadiobuttonText<Languages>(
+// RadioButtonWithText<Languages>(
 //               title: '日本語',
 //               value: Languages.japanese,
 //               groupValue: selectLanguage,

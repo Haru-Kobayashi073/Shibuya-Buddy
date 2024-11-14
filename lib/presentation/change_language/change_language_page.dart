@@ -2,36 +2,36 @@ import 'package:flutter/material.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../components/radio_button.dart';
+import '../components/radio_button_withtext.dart';
 
-enum Languages {
-  japanese('日本語'),
-  english('英語'),
-  simplified('中国語（簡体字）'),
-  traditional('中国語（繁体字）');
-
-  const Languages(this.displayName);
-  final String displayName;
+enum AppLocale {
+  japanese,
+  english,
+  simplified,
+  traditional;
 }
 
-class ChangeLanguage extends StatefulWidget {
-  const ChangeLanguage({super.key});
+class ChangeLanguagePage extends StatefulWidget {
+  const ChangeLanguagePage({super.key});
 
   @override
-  State<ChangeLanguage> createState() => _ChangeLanguageState();
+  State<ChangeLanguagePage> createState() => _ChangeLanguagePageState();
 }
 
-class _ChangeLanguageState extends State<ChangeLanguage> {
-  Languages selectLanguage = Languages.japanese;
+class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
+  AppLocale selectLanguage = AppLocale.japanese;
+
+
 
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    final itemi18n = i18n.ChangeLanguage.items;
+    final itemi18n = i18n.ChangeLanguagePage.items;
+    final titlei18n = i18n.ChangeLanguagePage.title;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          itemi18n.language,
+          titlei18n.title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -42,9 +42,9 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
         padding: const EdgeInsets.only(top: 8, left: 16),
         child: Column(
           children: [
-            RadiobuttonText<Languages>(
+            RadioButtonWithText<AppLocale>(
               title: itemi18n.japanese,
-              value: Languages.japanese,
+              value: AppLocale.japanese,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
@@ -55,9 +55,9 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
                 });
               },
             ),
-            RadiobuttonText<Languages>(
+            RadioButtonWithText<AppLocale>(
               title: itemi18n.english,
-              value: Languages.english,
+              value: AppLocale.english,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
@@ -68,9 +68,9 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
                 });
               },
             ),
-            RadiobuttonText<Languages>(
+            RadioButtonWithText<AppLocale>(
               title: itemi18n.chinese_simplified,
-              value: Languages.simplified,
+              value: AppLocale.simplified,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
@@ -81,9 +81,9 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
                 });
               },
             ),
-            RadiobuttonText<Languages>(
+            RadioButtonWithText<AppLocale>(
               title: itemi18n.chinese_traditional,
-              value: Languages.traditional,
+              value: AppLocale.traditional,
               groupValue: selectLanguage,
               onChanged: (value) {
                 setState(() {
