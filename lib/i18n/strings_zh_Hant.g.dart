@@ -46,6 +46,9 @@ class TranslationsZhHant implements Translations {
   late final _TranslationsChangeLanguagePageZhHant ChangeLanguagePage =
       _TranslationsChangeLanguagePageZhHant._(_root);
   @override
+  late final _TranslationsMyplanZhHant Myplan =
+      _TranslationsMyplanZhHant._(_root);
+  @override
   Map<String, String> get locales => {
         'en': '英語',
         'ja': '日語',
@@ -78,6 +81,20 @@ class _TranslationsChangeLanguagePageZhHant
   @override
   late final _TranslationsChangeLanguagePageItemsZhHant items =
       _TranslationsChangeLanguagePageItemsZhHant._(_root);
+}
+
+// Path: Myplan
+class _TranslationsMyplanZhHant implements TranslationsMyplanEn {
+  _TranslationsMyplanZhHant._(this._root);
+
+  final TranslationsZhHant _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => '我的計劃';
+  @override
+  late final _TranslationsMyplanTabsZhHant tabs =
+      _TranslationsMyplanTabsZhHant._(_root);
 }
 
 // Path: NavigationBar.items
@@ -114,6 +131,19 @@ class _TranslationsChangeLanguagePageItemsZhHant
   String get chinese_traditional => '中文(繁体字)';
 }
 
+// Path: Myplan.tabs
+class _TranslationsMyplanTabsZhHant implements TranslationsMyplanTabsEn {
+  _TranslationsMyplanTabsZhHant._(this._root);
+
+  final TranslationsZhHant _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get created_plans => '已創建的計劃';
+  @override
+  String get bookmark => '書籤';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHant {
@@ -135,6 +165,12 @@ extension on TranslationsZhHant {
         return '中文(简体字)';
       case 'ChangeLanguagePage.items.chinese_traditional':
         return '中文(繁体字)';
+      case 'Myplan.title':
+        return '我的計劃';
+      case 'Myplan.tabs.created_plans':
+        return '已創建的計劃';
+      case 'Myplan.tabs.bookmark':
+        return '書籤';
       case 'locales.en':
         return '英語';
       case 'locales.ja':

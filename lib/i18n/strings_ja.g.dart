@@ -46,6 +46,8 @@ class TranslationsJa implements Translations {
   late final _TranslationsChangeLanguagePageJa ChangeLanguagePage =
       _TranslationsChangeLanguagePageJa._(_root);
   @override
+  late final _TranslationsMyplanJa Myplan = _TranslationsMyplanJa._(_root);
+  @override
   Map<String, String> get locales => {
         'en': '英語',
         'ja': '日本語',
@@ -78,6 +80,20 @@ class _TranslationsChangeLanguagePageJa
   @override
   late final _TranslationsChangeLanguagePageItemsJa items =
       _TranslationsChangeLanguagePageItemsJa._(_root);
+}
+
+// Path: Myplan
+class _TranslationsMyplanJa implements TranslationsMyplanEn {
+  _TranslationsMyplanJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => 'マイプラン';
+  @override
+  late final _TranslationsMyplanTabsJa tabs =
+      _TranslationsMyplanTabsJa._(_root);
 }
 
 // Path: NavigationBar.items
@@ -114,6 +130,19 @@ class _TranslationsChangeLanguagePageItemsJa
   String get chinese_traditional => '中国語（繁体字）';
 }
 
+// Path: Myplan.tabs
+class _TranslationsMyplanTabsJa implements TranslationsMyplanTabsEn {
+  _TranslationsMyplanTabsJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get created_plans => '作成したプラン';
+  @override
+  String get bookmark => 'ブックマーク';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsJa {
@@ -135,6 +164,12 @@ extension on TranslationsJa {
         return '中国語（簡体字）';
       case 'ChangeLanguagePage.items.chinese_traditional':
         return '中国語（繁体字）';
+      case 'Myplan.title':
+        return 'マイプラン';
+      case 'Myplan.tabs.created_plans':
+        return '作成したプラン';
+      case 'Myplan.tabs.bookmark':
+        return 'ブックマーク';
       case 'locales.en':
         return '英語';
       case 'locales.ja':

@@ -16,6 +16,13 @@
             "chinese_traditional":"中国語（繁体字）"
         }
     },
+    "Myplan":{
+        "title":"マイプラン",
+        "tabs":{
+            "created_plans":"作成したプラン",
+            "bookmark":"ブックマーク"
+        }
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",
