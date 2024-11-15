@@ -15,6 +15,9 @@
             "chinese_traditional":"Chinese (Traditional)"
         }
     },
+    "PopularTopics":{
+        "section_name" : "Popular Topics"
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",

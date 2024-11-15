@@ -46,6 +46,9 @@ class TranslationsJa implements Translations {
   late final _TranslationsChangeLanguagePageJa ChangeLanguagePage =
       _TranslationsChangeLanguagePageJa._(_root);
   @override
+  late final _TranslationsPopularTopicsJa PopularTopics =
+      _TranslationsPopularTopicsJa._(_root);
+  @override
   Map<String, String> get locales => {
         'en': '英語',
         'ja': '日本語',
@@ -78,6 +81,17 @@ class _TranslationsChangeLanguagePageJa
   @override
   late final _TranslationsChangeLanguagePageItemsJa items =
       _TranslationsChangeLanguagePageItemsJa._(_root);
+}
+
+// Path: PopularTopics
+class _TranslationsPopularTopicsJa implements TranslationsPopularTopicsEn {
+  _TranslationsPopularTopicsJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get section_name => '人気のトピック';
 }
 
 // Path: NavigationBar.items
@@ -135,6 +149,8 @@ extension on TranslationsJa {
         return '中国語（簡体字）';
       case 'ChangeLanguagePage.items.chinese_traditional':
         return '中国語（繁体字）';
+      case 'PopularTopics.section_name':
+        return '人気のトピック';
       case 'locales.en':
         return '英語';
       case 'locales.ja':

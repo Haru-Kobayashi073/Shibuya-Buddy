@@ -15,6 +15,9 @@
             "chinese_traditional":"中文(繁体字)"
         }
     },
+    "PopularTopics":{
+        "section_name" :"熱門話題"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日語",

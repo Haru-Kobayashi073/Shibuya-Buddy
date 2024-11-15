@@ -48,6 +48,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
       TranslationsNavigationBarEn._(_root);
   late final TranslationsChangeLanguagePageEn ChangeLanguagePage =
       TranslationsChangeLanguagePageEn._(_root);
+  late final TranslationsPopularTopicsEn PopularTopics =
+      TranslationsPopularTopicsEn._(_root);
   Map<String, String> get locales => {
         'en': 'English',
         'ja': 'Japanese',
@@ -76,6 +78,16 @@ class TranslationsChangeLanguagePageEn {
   String get title => 'Language';
   late final TranslationsChangeLanguagePageItemsEn items =
       TranslationsChangeLanguagePageItemsEn._(_root);
+}
+
+// Path: PopularTopics
+class TranslationsPopularTopicsEn {
+  TranslationsPopularTopicsEn._(this._root);
+
+  final Translations _root; // ignore: unused_field
+
+  // Translations
+  String get section_name => 'Popular Topics';
 }
 
 // Path: NavigationBar.items
@@ -124,6 +136,8 @@ extension on Translations {
         return 'Chinese (Simplified)';
       case 'ChangeLanguagePage.items.chinese_traditional':
         return 'Chinese (Traditional)';
+      case 'PopularTopics.section_name':
+        return 'Popular Topics';
       case 'locales.en':
         return 'English';
       case 'locales.ja':

@@ -46,6 +46,9 @@ class TranslationsZhHant implements Translations {
   late final _TranslationsChangeLanguagePageZhHant ChangeLanguagePage =
       _TranslationsChangeLanguagePageZhHant._(_root);
   @override
+  late final _TranslationsPopularTopicsZhHant PopularTopics =
+      _TranslationsPopularTopicsZhHant._(_root);
+  @override
   Map<String, String> get locales => {
         'en': '英語',
         'ja': '日語',
@@ -78,6 +81,17 @@ class _TranslationsChangeLanguagePageZhHant
   @override
   late final _TranslationsChangeLanguagePageItemsZhHant items =
       _TranslationsChangeLanguagePageItemsZhHant._(_root);
+}
+
+// Path: PopularTopics
+class _TranslationsPopularTopicsZhHant implements TranslationsPopularTopicsEn {
+  _TranslationsPopularTopicsZhHant._(this._root);
+
+  final TranslationsZhHant _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get section_name => '熱門話題';
 }
 
 // Path: NavigationBar.items
@@ -135,6 +149,8 @@ extension on TranslationsZhHant {
         return '中文(简体字)';
       case 'ChangeLanguagePage.items.chinese_traditional':
         return '中文(繁体字)';
+      case 'PopularTopics.section_name':
+        return '熱門話題';
       case 'locales.en':
         return '英語';
       case 'locales.ja':

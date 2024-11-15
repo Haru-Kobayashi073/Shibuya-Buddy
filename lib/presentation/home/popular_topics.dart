@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/gen/assets.gen.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/topic_card.dart';
 
@@ -27,6 +28,8 @@ class PopularTopics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
+    final section = i18n.PopularTopics.section_name;
     return Column(
       children: [
         Padding(
@@ -37,7 +40,7 @@ class PopularTopics extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: GestureDetector(
               onTap: () {
-                debugPrint('人気のトピック');
+                debugPrint(section);
               },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 16),
@@ -45,7 +48,7 @@ class PopularTopics extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      '人気のトピック',
+                      section,
                       style: AppTextStyle.textStyle
                           .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
