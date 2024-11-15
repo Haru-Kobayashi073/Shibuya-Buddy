@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../components/textArrowButton.dart';
+import '../components/text_arrow_button.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
