@@ -17,16 +17,16 @@ class MyPage extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     // final circleSize = screenWidth * 0.1;
     final circleSize = min(screenSize.width, screenSize.height) * 0.1;
-    final spaceHeight = screenSize.height * 0.03;
+    final spaceHeight = screenSize.height * 0.06;
     debugPrint(spaceHeight.toString());
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Padding(
-          padding: EdgeInsets.only(top: spaceHeight, left: 16, right: 5),
+          padding: EdgeInsets.only(top: spaceHeight, left: 16, right: 6),
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(right: 1),
+                padding: const EdgeInsets.only(right: 10),
                 child: SizedBox(
                   width: circleSize,
                   height: circleSize,
