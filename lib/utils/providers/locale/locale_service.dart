@@ -1,4 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '../../../i18n/strings.g.dart';
 import '../shared_preferences/shared_preferences_config.dart';
 import '../shared_preferences/shared_preferences_service.dart';
@@ -18,8 +19,8 @@ class LocaleService extends _$LocaleService {
     return switch (userLocale) {
       'en' => AppLocale.en,
       'ja' => AppLocale.ja,
-      'zh_Hans' => AppLocale.zhHans,
-      'zh_Hant' => AppLocale.zhHant,
+      'zhHans' => AppLocale.zhHans,
+      'zhHant' => AppLocale.zhHant,
       _ => AppLocale.en,
     };
   }
