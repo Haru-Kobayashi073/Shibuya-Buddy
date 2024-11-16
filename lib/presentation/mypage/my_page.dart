@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -11,25 +14,33 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
     final myPageItemi18n = i18n.MyPage;
-    final screenWidth = MediaQuery.of(context).size.width;
-    final circleSize = screenWidth * 0.1;
+    final screenSize = MediaQuery.of(context).size;
+    // final circleSize = screenWidth * 0.1;
+    final circleSize = min(screenSize.width, screenSize.height) * 0.1;
+    final spaceHeight = screenSize.height * 0.03;
+    debugPrint(spaceHeight.toString());
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Padding(
-          padding: const EdgeInsets.only(top: 66, left: 16, right: 5),
+          padding: EdgeInsets.only(top: spaceHeight, left: 16, right: 5),
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Container(
+                padding: const EdgeInsets.only(right: 1),
+                child: SizedBox(
                   width: circleSize,
                   height: circleSize,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(
-                        Assets.images.usericon.path,
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            Assets.images.usericon.path,
+                          ),
+                        ),
                       ),
                     ),
                   ),
