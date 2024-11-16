@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
@@ -15,7 +16,6 @@ class MyPage extends StatelessWidget {
     final i18n = Translations.of(context);
     final myPageItemi18n = i18n.MyPage;
     final screenSize = MediaQuery.of(context).size;
-    // final circleSize = screenWidth * 0.1;
     final circleSize = min(screenSize.width, screenSize.height) * 0.1;
     final spaceHeight = screenSize.height * 0.06;
     debugPrint(spaceHeight.toString());
@@ -58,9 +58,9 @@ class MyPage extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                onPressed: () {
-                  debugPrint('TapEdit!');
-                },
+                onPressed: () async {
+                    await context.push('/editProfile');
+                  },
                 icon: const Icon(Icons.edit, size: 24),
               ),
             ],
@@ -85,8 +85,8 @@ class MyPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () {
-                    debugPrint('TapDetail');
+                  onTap: () async {
+                    await context.push('/aiFunctionsDetail');
                   },
                   child: Text(
                     myPageItemi18n.details,
@@ -123,38 +123,38 @@ class MyPage extends StatelessWidget {
               children: <Widget>[
                 Textarrowbutton(
                   text: myPageItemi18n.account,
-                  onTapCallback: () {
-                    debugPrint('TapAccount');
+                  onTapCallback: () async {
+                    await context.push('/acount');
                   },
                 ),
                 Textarrowbutton(
                   text: myPageItemi18n.language,
-                  onTapCallback: () {
-                    debugPrint('TapLanguage');
+                  onTapCallback: () async {
+                    await context.push('/changeLanguageage');
                   },
                 ),
                 Textarrowbutton(
                   text: myPageItemi18n.themes,
-                  onTapCallback: () {
-                    debugPrint('TapThema');
+                  onTapCallback: () async {
+                    await context.push('/thema');
                   },
                 ),
                 Textarrowbutton(
                   text: myPageItemi18n.termsofUsePrivacyPolicy,
-                  onTapCallback: () {
-                    debugPrint('TapPrivacyPolicy');
+                  onTapCallback: () async {
+                    await context.push('/termsOfUsePrivacyPolicy');
                   },
                 ),
                 Textarrowbutton(
                   text: myPageItemi18n.aboutThisApp,
-                  onTapCallback: () {
-                    debugPrint('TapAboutthisApp');
+                  onTapCallback: () async {
+                    await context.push('/aboutApp');
                   },
                 ),
                 Textarrowbutton(
                   text: myPageItemi18n.aboutTheDeveloper,
-                  onTapCallback: () {
-                    debugPrint('TapAboutTheDeveloper');
+                  onTapCallback: () async {
+                    await context.push('/aboutDev');
                   },
                 ),
               ],
