@@ -8,9 +8,11 @@ part of 'app_router.dart';
 
 List<RouteBase> get $appRoutes => [
       $appShellRouteData,
+      $startUpPageRouteData,
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
+      $signInPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -105,6 +107,29 @@ extension $MyPageRouteDataExtension on MyPageRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $startUpPageRouteData => GoRouteData.$route(
+      path: '/',
+      factory: $StartUpPageRouteDataExtension._fromState,
+    );
+
+extension $StartUpPageRouteDataExtension on StartUpPageRouteData {
+  static StartUpPageRouteData _fromState(GoRouterState state) =>
+      const StartUpPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 RouteBase get $homeScreenRouteData => GoRouteData.$route(
       path: '/home',
       factory: $HomeScreenRouteDataExtension._fromState,
@@ -120,11 +145,34 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
       factory: $MyPageRouteDataExtension._fromState,
     );
 
+RouteBase get $signInPageRouteData => GoRouteData.$route(
+      path: '/signIn',
+      factory: $SignInPageRouteDataExtension._fromState,
+    );
+
+extension $SignInPageRouteDataExtension on SignInPageRouteData {
+  static SignInPageRouteData _fromState(GoRouterState state) =>
+      const SignInPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/signIn',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$goRouterHash() => r'50c112ac3e4eef1afe66ec59300cf2ba58f6d8ab';
+String _$goRouterHash() => r'e148b1d63206522af40a7c9eb863e898adfd2825';
 
 /// See also [goRouter].
 @ProviderFor(goRouter)
