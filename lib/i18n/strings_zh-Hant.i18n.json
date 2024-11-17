@@ -6,6 +6,45 @@
             "myPage": "我的頁面"
         }
     },
+    "authentication": {
+        "signInPage": {
+            "title": "登入",
+            "optionText": " 或 ",
+            "textFields": {
+                "email": "電子郵件地址",
+                "password": "密碼"
+            },
+            "buttons": {
+                "signIn": "登入",
+                "signUp": "註冊",
+                "resetPassword": "忘記密碼？",
+                "appleSignIn": "使用Apple登入",
+                "googleSignIn": "使用Google登入",
+                "signInAfter": "稍後註冊"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "請在良好的網絡環境中重試",
+                "weakPassword": "密碼太短。請輸入6個字符或更多",
+                "invalidEmail": "電子郵件地址格式不正確",
+                "userNotFound": "找不到帳戶",
+                "wrongPassword": "密碼錯誤",
+                "emailAlreadyInUse": "電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建",
+                "unexpected": "發生錯誤。請在良好的網絡環境中重試"
+            }
+        }
+    },
+    "validation": {
+        "emailRequired": "請輸入電子郵件地址",
+        "emailInvalid": "電子郵件地址格式不正確",
+        "passwordRequired": "請輸入密碼",
+        "passwordShort": "密碼必須至少8個字符",
+        "passwordWeak": "密碼應包含字母和數字的組合",
+        "passwordMatch": "密碼不匹配",
+        "informationRequired": "請輸入信息",
+        "urlInvalid": "URL格式不正確"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日語",

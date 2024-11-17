@@ -6,6 +6,45 @@
             "myPage": "マイページ"
         }
     },
+    "authentication": {
+        "signInPage": {
+            "title": "ログイン",
+            "optionText": " または ",
+            "textFields": {
+                "email": "メールアドレス",
+                "password": "パスワード"
+            },
+            "buttons": {
+                "signIn": "ログイン",
+                "signUp": "新規登録",
+                "resetPassword": "パスワードを忘れた方はこちら",
+                "appleSignIn": "Appleでログイン",
+                "googleSignIn": "Googleでログイン",
+                "signInAfter": "後で登録"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "通信環境がいい所で再度やり直してください",
+                "weakPassword": "パスワードが短すぎます。6文字以上を入力してください",
+                "invalidEmail": "メールアドレスの形式が正しくありません",
+                "userNotFound": "アカウントが見つかりません",
+                "wrongPassword": "パスワードが正しくありません",
+                "emailAlreadyInUse": "メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください",
+                "unexpected": "エラーが発生しました。通信環境がいい所で再度やり直してください。"
+            }
+        }
+    },
+    "validation": {
+        "emailRequired": "メールアドレスを入力してください",
+        "emailInvalid": "メールアドレスの形式が正しくありません",
+        "passwordRequired": "パスワードを入力してください",
+        "passwordShort": "パスワードは少なくとも8文字以上である必要があります",
+        "passwordWeak": "パスワードは半角英数字を組み合わせてください",
+        "passwordMatch": "パスワードが一致しません",
+        "informationRequired": "情報を入力してください",
+        "urlInvalid": "URLの形式が正しくありません"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",

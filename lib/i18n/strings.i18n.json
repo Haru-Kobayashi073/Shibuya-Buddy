@@ -6,6 +6,45 @@
             "myPage": "My Page"
         }
     },
+    "authentication": {
+        "signInPage": {
+            "title": "Sign In",
+            "optionText": " or ",
+            "textFields": {
+                "email": "Email Address",
+                "password": "Password"
+            },
+            "buttons": {
+                "signIn": "Sign In",
+                "signUp": "Sign Up",
+                "resetPassword": "Forgot Password?",
+                "appleSignIn": "Sign in with Apple",
+                "googleSignIn": "Sign in with Google",
+                "signInAfter": "Register Later"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "Please try again in a good network environment",
+                "weakPassword": "Password is too short. Please enter 6 characters or more",
+                "invalidEmail": "Email address is not in the correct format",
+                "userNotFound": "Account not found",
+                "wrongPassword": "Password is incorrect",
+                "emailAlreadyInUse": "Email address is already in use. Please log in or create with another email address",
+                "unexpected": "An error occurred. Please try again in a good network environment"
+            }
+        }
+    },
+    "validation": {
+        "emailRequired": "Please enter your email address",
+        "emailInvalid": "The email address format is incorrect",
+        "passwordRequired": "Please enter your password",
+        "passwordShort": "The password must be at least 8 characters long",
+        "passwordWeak": "Please combine alphanumeric characters for the password",
+        "passwordMatch": "Passwords do not match",
+        "informationRequired": "Please enter the information",
+        "urlInvalid": "The URL format is incorrect"
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",

@@ -6,6 +6,45 @@
             "myPage": "我的页面"
         }
     },
+    "authentication": {
+        "signInPage": {
+            "title": "登录",
+            "optionText": " 或 ",
+            "textFields": {
+                "email": "电子邮件地址",
+                "password": "密码"
+            },
+            "buttons": {
+                "signIn": "登录",
+                "signUp": "注册",
+                "resetPassword": "忘记密码？",
+                "appleSignIn": "使用Apple登录",
+                "googleSignIn": "使用Google登录",
+                "signInAfter": "稍后注册"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "请在良好的网络环境中重试",
+                "weakPassword": "密码太短。请输入6个字符或更多",
+                "invalidEmail": "电子邮件地址格式不正确",
+                "userNotFound": "找不到帐户",
+                "wrongPassword": "密码错误",
+                "emailAlreadyInUse": "电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建",
+                "unexpected": "发生错误。请在良好的网络环境中重试"
+            }
+        }
+    },
+    "validation": {
+        "emailRequired": "请输入电子邮件地址",
+        "emailInvalid": "电子邮件地址格式不正确",
+        "passwordRequired": "请输入密码",
+        "passwordShort": "密码至少需要8个字符",
+        "passwordWeak": "密码应包含字母和数字的组合",
+        "passwordMatch": "密码不匹配",
+        "informationRequired": "请输入信息",
+        "urlInvalid": "URL格式不正确"
+    },
     "locales(map)": {
         "en": "英语",
         "ja": "日语",
