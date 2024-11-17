@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_color.dart';
 
-
 /// A text style that uses the IBM Plex Sans JP font.
 /// example usage:
 /// ```dart

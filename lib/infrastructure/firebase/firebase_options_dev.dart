@@ -51,8 +51,8 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDAl-gakWjPkWE764i7j9DlEXy1abfOufE',
-    androidClientId: '346265803262-dpa47ijsevjiv60mup2ba2epv849s6uv.apps.googleusercontent.com',
-    
+    androidClientId:
+        '346265803262-dpa47ijsevjiv60mup2ba2epv849s6uv.apps.googleusercontent.com',
     appId: '1:346265803262:android:f2d8c01acbe422fd7b08af',
     messagingSenderId: '346265803262',
     projectId: 'shibuya-buddy-dev',
