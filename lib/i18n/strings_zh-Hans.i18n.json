@@ -45,6 +45,15 @@
         "informationRequired": "请输入信息",
         "urlInvalid": "URL格式不正确"
     },
+    "ChangeLanguagePage":{
+        "title": "语言",
+        "items":{
+            "japanese": "日本人",
+            "english":"英语",
+            "chinese_simplified":"中文（简体）",
+            "chinese_traditional":"中文（繁体）"
+        }
+    },
     "locales(map)": {
         "en": "英语",
         "ja": "日语",

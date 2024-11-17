@@ -40,6 +40,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsNavigationBarEn NavigationBar = TranslationsNavigationBarEn._(_root);
 	late final TranslationsAuthenticationEn authentication = TranslationsAuthenticationEn._(_root);
 	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
+	late final TranslationsChangeLanguagePageEn ChangeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -85,6 +86,17 @@ class TranslationsValidationEn {
 	String get urlInvalid => 'The URL format is incorrect';
 }
 
+// Path: ChangeLanguagePage
+class TranslationsChangeLanguagePageEn {
+	TranslationsChangeLanguagePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Language';
+	late final TranslationsChangeLanguagePageItemsEn items = TranslationsChangeLanguagePageItemsEn._(_root);
+}
+
 // Path: NavigationBar.items
 class TranslationsNavigationBarItemsEn {
 	TranslationsNavigationBarItemsEn._(this._root);
@@ -118,6 +130,19 @@ class TranslationsAuthenticationFirebaseAuthEn {
 
 	// Translations
 	late final TranslationsAuthenticationFirebaseAuthErrorEn error = TranslationsAuthenticationFirebaseAuthErrorEn._(_root);
+}
+
+// Path: ChangeLanguagePage.items
+class TranslationsChangeLanguagePageItemsEn {
+	TranslationsChangeLanguagePageItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get japanese => 'Japanese';
+	String get english => 'English';
+	String get chinese_simplified => 'Chinese (Simplified)';
+	String get chinese_traditional => 'Chinese (Traditional)';
 }
 
 // Path: authentication.signInPage.textFields
@@ -195,6 +220,11 @@ extension on Translations {
 			case 'validation.passwordMatch': return 'Passwords do not match';
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
+			case 'ChangeLanguagePage.title': return 'Language';
+			case 'ChangeLanguagePage.items.japanese': return 'Japanese';
+			case 'ChangeLanguagePage.items.english': return 'English';
+			case 'ChangeLanguagePage.items.chinese_simplified': return 'Chinese (Simplified)';
+			case 'ChangeLanguagePage.items.chinese_traditional': return 'Chinese (Traditional)';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

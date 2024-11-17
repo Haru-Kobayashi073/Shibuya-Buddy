@@ -36,6 +36,7 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsNavigationBarZhHant NavigationBar = _TranslationsNavigationBarZhHant._(_root);
 	@override late final _TranslationsAuthenticationZhHant authentication = _TranslationsAuthenticationZhHant._(_root);
 	@override late final _TranslationsValidationZhHant validation = _TranslationsValidationZhHant._(_root);
+	@override late final _TranslationsChangeLanguagePageZhHant ChangeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -81,6 +82,17 @@ class _TranslationsValidationZhHant implements TranslationsValidationEn {
 	@override String get urlInvalid => 'URL格式不正確';
 }
 
+// Path: ChangeLanguagePage
+class _TranslationsChangeLanguagePageZhHant implements TranslationsChangeLanguagePageEn {
+	_TranslationsChangeLanguagePageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '語言';
+	@override late final _TranslationsChangeLanguagePageItemsZhHant items = _TranslationsChangeLanguagePageItemsZhHant._(_root);
+}
+
 // Path: NavigationBar.items
 class _TranslationsNavigationBarItemsZhHant implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsZhHant._(this._root);
@@ -114,6 +126,19 @@ class _TranslationsAuthenticationFirebaseAuthZhHant implements TranslationsAuthe
 
 	// Translations
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorZhHant error = _TranslationsAuthenticationFirebaseAuthErrorZhHant._(_root);
+}
+
+// Path: ChangeLanguagePage.items
+class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLanguagePageItemsEn {
+	_TranslationsChangeLanguagePageItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get japanese => '日语';
+	@override String get english => '英语';
+	@override String get chinese_simplified => '中文(简体字)';
+	@override String get chinese_traditional => '中文(繁体字)';
 }
 
 // Path: authentication.signInPage.textFields
@@ -191,6 +216,11 @@ extension on TranslationsZhHant {
 			case 'validation.passwordMatch': return '密碼不匹配';
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
+			case 'ChangeLanguagePage.title': return '語言';
+			case 'ChangeLanguagePage.items.japanese': return '日语';
+			case 'ChangeLanguagePage.items.english': return '英语';
+			case 'ChangeLanguagePage.items.chinese_simplified': return '中文(简体字)';
+			case 'ChangeLanguagePage.items.chinese_traditional': return '中文(繁体字)';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

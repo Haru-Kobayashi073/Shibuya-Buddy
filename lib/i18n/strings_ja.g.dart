@@ -36,6 +36,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsNavigationBarJa NavigationBar = _TranslationsNavigationBarJa._(_root);
 	@override late final _TranslationsAuthenticationJa authentication = _TranslationsAuthenticationJa._(_root);
 	@override late final _TranslationsValidationJa validation = _TranslationsValidationJa._(_root);
+	@override late final _TranslationsChangeLanguagePageJa ChangeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -81,6 +82,17 @@ class _TranslationsValidationJa implements TranslationsValidationEn {
 	@override String get urlInvalid => 'URLの形式が正しくありません';
 }
 
+// Path: ChangeLanguagePage
+class _TranslationsChangeLanguagePageJa implements TranslationsChangeLanguagePageEn {
+	_TranslationsChangeLanguagePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '言語';
+	@override late final _TranslationsChangeLanguagePageItemsJa items = _TranslationsChangeLanguagePageItemsJa._(_root);
+}
+
 // Path: NavigationBar.items
 class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsJa._(this._root);
@@ -114,6 +126,19 @@ class _TranslationsAuthenticationFirebaseAuthJa implements TranslationsAuthentic
 
 	// Translations
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorJa error = _TranslationsAuthenticationFirebaseAuthErrorJa._(_root);
+}
+
+// Path: ChangeLanguagePage.items
+class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLanguagePageItemsEn {
+	_TranslationsChangeLanguagePageItemsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get japanese => '日本語';
+	@override String get english => '英語';
+	@override String get chinese_simplified => '中国語（簡体字）';
+	@override String get chinese_traditional => '中国語（繁体字）';
 }
 
 // Path: authentication.signInPage.textFields
@@ -191,6 +216,11 @@ extension on TranslationsJa {
 			case 'validation.passwordMatch': return 'パスワードが一致しません';
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
+			case 'ChangeLanguagePage.title': return '言語';
+			case 'ChangeLanguagePage.items.japanese': return '日本語';
+			case 'ChangeLanguagePage.items.english': return '英語';
+			case 'ChangeLanguagePage.items.chinese_simplified': return '中国語（簡体字）';
+			case 'ChangeLanguagePage.items.chinese_traditional': return '中国語（繁体字）';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
