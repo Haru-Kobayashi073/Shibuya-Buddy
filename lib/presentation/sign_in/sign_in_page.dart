@@ -25,7 +25,7 @@ class SignInPage extends HookConsumerWidget {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
     final focusNode = useFocusNode();
-    final visiblePassword = useState(false);
+    final hidePassword = useState(true);
     final formKey = useFormStateKey();
     final notifier = ref.read(signInPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
@@ -109,7 +109,7 @@ class SignInPage extends HookConsumerWidget {
                     focusNode: focusNode,
                     validator: Validator.password,
                     textInputAction: TextInputAction.done,
-                    obscureText: visiblePassword.value,
+                    obscureText: hidePassword.value,
                     onFieldSubmitted: (value) async {
                       if (formKey.currentState!.validate()) {
                         await notifier.signInWithEmailAndPassword(
@@ -123,10 +123,10 @@ class SignInPage extends HookConsumerWidget {
                     label: i18nSignInPage.textFields.password,
                     icon: IconButton(
                       onPressed: () {
-                        visiblePassword.value = !visiblePassword.value;
+                        hidePassword.value = !hidePassword.value;
                       },
                       icon: Icon(
-                        visiblePassword.value
+                        hidePassword.value
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: AppColor.blue900Tertiary,
