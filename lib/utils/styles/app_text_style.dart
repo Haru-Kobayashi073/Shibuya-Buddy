@@ -3,13 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_color.dart';
 
-class AppTextStyle {
-  AppTextStyle._();
-
-  static TextStyle textStyle = GoogleFonts.ibmPlexSansJp.call(
-    color: AppColor.black,
-  );
-}
 
 /// A text style that uses the IBM Plex Sans JP font.
 /// example usage:
@@ -22,3 +15,10 @@ class AppTextStyle {
 ///   ),
 /// )
 /// ```
+class AppTextStyle {
+  AppTextStyle._();
+
+  static TextStyle textStyle = GoogleFonts.ibmPlexSansJp.call(
+    color: AppColor.black,
+  );
+}
