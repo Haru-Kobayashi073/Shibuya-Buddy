@@ -51,18 +51,22 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDAl-gakWjPkWE764i7j9DlEXy1abfOufE',
+    androidClientId: '346265803262-dpa47ijsevjiv60mup2ba2epv849s6uv.apps.googleusercontent.com',
+    
     appId: '1:346265803262:android:f2d8c01acbe422fd7b08af',
     messagingSenderId: '346265803262',
     projectId: 'shibuya-buddy-dev',
-    storageBucket: 'shibuya-buddy-dev.appspot.com',
+    storageBucket: 'shibuya-buddy-dev.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAADyxmCZweM0U9yNQeFI6FxJ7OKJ8uD4w',
+    iosClientId:
+        '346265803262-e0lp7h85rep4cjareko3no2ir79g86u9.apps.googleusercontent.com',
     appId: '1:346265803262:ios:2bb6114de5aff3657b08af',
     messagingSenderId: '346265803262',
     projectId: 'shibuya-buddy-dev',
-    storageBucket: 'shibuya-buddy-dev.appspot.com',
+    storageBucket: 'shibuya-buddy-dev.firebasestorage.app',
     iosBundleId: 'com.shibuya.buddy.dev',
   );
 }
