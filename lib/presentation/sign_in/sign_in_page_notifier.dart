@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
+import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 
 part 'sign_in_page_notifier.g.dart';
@@ -44,6 +45,25 @@ class SignInPageNotifier extends _$SignInPageNotifier {
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
+    }
+  }
+
+  Future<void> signInWithApple() async {
+    try {
+      await authenticationDataSource.signInWithApple();
+    } on FirebaseAuthException catch (e) {
+      final exceptionMessage = e.toAfterTranslation;
+      ref
+          .read(scaffoldMessengerProvider.notifier)
+          .showExceptionSnackBar(exceptionMessage);
+    }
+  }
+
+  Future<void> onPressedChangeLocaleButton(String? text) async {
+    if (text != null) {
+      final appLocale =
+          ref.read(localeServiceProvider.notifier).getLocaleFromString(text);
+      await ref.read(localeServiceProvider.notifier).changeLocale(appLocale);
     }
   }
 }
