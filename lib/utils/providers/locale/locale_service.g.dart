@@ -6,7 +6,7 @@ part of 'locale_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$localeServiceHash() => r'dd354f716fcd216e64a811962fc46a333dfc1881';
+String _$localeServiceHash() => r'a5c49c92600c19e2cd61a864c4929e97c4245a5f';
 
 /// See also [LocaleService].
 @ProviderFor(LocaleService)

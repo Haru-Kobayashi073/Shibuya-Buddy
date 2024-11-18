@@ -6,6 +6,17 @@
             "myPage": "我的頁面"
         }
     },
+    "MyPage":{
+        "aboutAIFunction":"關於AI功能",
+        "details": "詳細",
+        "settings":"設定",
+        "account":"帳戶",
+        "language":"語言",
+        "themes":"主題",
+        "termsofUsePrivacyPolicy" : "使用條款和隱私政策",
+        "aboutThisApp" :"關於本應用",
+        "aboutTheDeveloper":"關於開發者"
+    },
     "ChangeLanguagePage":{
         "title": "語言",
         "items":{

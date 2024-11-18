@@ -118,7 +118,160 @@ RouteBase get $myPlanPageRouteData => GoRouteData.$route(
 RouteBase get $myPageRouteData => GoRouteData.$route(
       path: '/myPage',
       factory: $MyPageRouteDataExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'aboutApp',
+          factory: $AboutAppRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'aboutDev',
+          factory: $AboutDevRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'account',
+          factory: $AccountRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'aiFunctionsDetail',
+          factory: $AiFunctionsDetailRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'changeLanguage',
+          factory: $ChangeLanguagePageRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'termsOfUsePrivacyPolicy',
+          factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'theme',
+          factory: $ThemeRouteExtension._fromState,
+        ),
+      ],
     );
+
+extension $AboutAppRouteExtension on AboutAppRoute {
+  static AboutAppRoute _fromState(GoRouterState state) => const AboutAppRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/aboutApp',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AboutDevRouteExtension on AboutDevRoute {
+  static AboutDevRoute _fromState(GoRouterState state) => const AboutDevRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/aboutDev',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AccountRouteExtension on AccountRoute {
+  static AccountRoute _fromState(GoRouterState state) => const AccountRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/account',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AiFunctionsDetailRouteExtension on AiFunctionsDetailRoute {
+  static AiFunctionsDetailRoute _fromState(GoRouterState state) =>
+      const AiFunctionsDetailRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/aiFunctionsDetail',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ChangeLanguagePageRouteExtension on ChangeLanguagePageRoute {
+  static ChangeLanguagePageRoute _fromState(GoRouterState state) =>
+      const ChangeLanguagePageRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/changeLanguage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TermsofUsePrivacyPolicyRouteExtension
+    on TermsofUsePrivacyPolicyRoute {
+  static TermsofUsePrivacyPolicyRoute _fromState(GoRouterState state) =>
+      const TermsofUsePrivacyPolicyRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/termsOfUsePrivacyPolicy',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ThemeRouteExtension on ThemeRoute {
+  static ThemeRoute _fromState(GoRouterState state) => const ThemeRoute();
+
+  String get location => GoRouteData.$location(
+        '/myPage/theme',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 // **************************************************************************
 // RiverpodGenerator

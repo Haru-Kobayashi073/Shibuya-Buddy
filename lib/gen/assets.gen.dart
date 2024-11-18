@@ -27,9 +27,12 @@ class $ImagesGen {
   /// File path: images/shopping.png
   AssetGenImage get shopping => const AssetGenImage('images/shopping.png');
 
+  /// File path: images/usericon.png
+  AssetGenImage get usericon => const AssetGenImage('images/usericon.png');
+
   /// List of all assets
   List<AssetGenImage> get values =>
-      [activity, anime, gourmet, sample, shopping];
+      [activity, anime, gourmet, sample, shopping, usericon];
 }
 
 class Assets {

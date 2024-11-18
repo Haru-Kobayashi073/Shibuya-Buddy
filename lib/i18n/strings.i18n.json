@@ -6,6 +6,17 @@
             "myPage": "My Page"
         }
     },
+    "MyPage":{
+        "aboutAIFunction":"About AI Features",
+        "details": "Details",
+        "settings":"Settings",
+        "account":"Account",
+        "language":"Language",
+        "themes":"Theme",
+        "termsofUsePrivacyPolicy" : "Terms of Use & Privacy Policy",
+        "aboutThisApp" :"About This App",
+        "aboutTheDeveloper":"About the Developer"
+    },
     "ChangeLanguagePage":{
         "title": "Language",
         "items":{
