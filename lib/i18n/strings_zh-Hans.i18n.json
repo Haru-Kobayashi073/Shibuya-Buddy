@@ -6,31 +6,90 @@
             "myPage": "我的页面"
         }
     },
-    "MyPage":{
-        "aboutAIFunction":"关于AI功能",
-        "details": "详细",
-        "settings":"设置",
-        "account":"账户",
-        "language":"语言",
-        "themes":"主题",
-        "termsofUsePrivacyPolicy" : "使用条款和隐私政策",
-        "aboutThisApp" :"关于本应用",
-        "aboutTheDeveloper":"关于开发者"
-    },
-    "ChangeLanguagePage":{
-        "title": "语言",
-        "items":{
-            "japanese": "日本人",
-            "english":"英语",
-            "chinese_simplified":"中文（简体）",
-            "chinese_traditional":"中文（繁体）"
+    "authentication": {
+        "signInPage": {
+            "title": "登录",
+            "optionText": " 或 ",
+            "textFields": {
+                "email": "电子邮件地址",
+                "password": "密码"
+            },
+            "buttons": {
+                "signIn": "登录",
+                "signUp": "注册",
+                "resetPassword": "忘记密码？",
+                "appleSignIn": "使用Apple登录",
+                "googleSignIn": "使用Google登录",
+                "signInAfter": "稍后注册"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "请在良好的网络环境中重试",
+                "weakPassword": "密码太短。请输入6个字符或更多",
+                "invalidEmail": "电子邮件地址格式不正确",
+                "userNotFound": "找不到帐户",
+                "wrongPassword": "密码错误",
+                "emailAlreadyInUse": "电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建",
+                "unexpected": "发生错误。请在良好的网络环境中重试"
+            }
+        },
+        "resetPasswordPage": {
+            "title": "重置密码",
+            "description": "将向输入的电子邮件地址发送密码重置邮件",
+            "textFields": {
+                "email": "电子邮件地址"
+            },
+            "buttons": {
+                "submit": "发送"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "发送完成",
+            "description": "密码重置邮件已发送到${email} \n 重置后请从登录页面登录",
+            "successResendEmail": "确认邮件已重新发送",
+            "buttons": {
+                "toSignIn": "前往登录页面",
+                "resendEmail": "重新发送确认邮件",
+                "changeEmail": "更改电子邮件地址"
+            }
         }
     },
-    "Myplan":{
-        "title":"我的计划",
-        "tabs":{
-            "created_plans":"已创建的计划",
-            "bookmark":"收藏夹"
+    "validation": {
+        "emailRequired": "请输入电子邮件地址",
+        "emailInvalid": "电子邮件地址格式不正确",
+        "passwordRequired": "请输入密码",
+        "passwordShort": "密码至少需要8个字符",
+        "passwordWeak": "密码应包含字母和数字的组合",
+        "passwordMatch": "密码不匹配",
+        "informationRequired": "请输入信息",
+        "urlInvalid": "URL格式不正确"
+    },
+    "MyPage": {
+        "aboutAIFunction": "关于AI功能",
+        "details": "详细",
+        "settings": "设置",
+        "account": "账户",
+        "language": "语言",
+        "themes": "主题",
+        "termsofUsePrivacyPolicy": "使用条款和隐私政策",
+        "aboutThisApp": "关于本应用",
+        "aboutTheDeveloper": "关于开发者"
+    },
+    "ChangeLanguagePage": {
+        "title": "语言",
+        "items": {
+            "japanese": "日本人",
+            "english": "英语",
+            "chinese_simplified": "中文（简体）",
+            "chinese_traditional": "中文（繁体）"
+        }
+    },
+    "Myplan": {
+        "title": "我的计划",
+        "tabs": {
+            "created_plans": "已创建的计划",
+            "bookmark": "收藏夹"
         }
     },
     "locales(map)": {

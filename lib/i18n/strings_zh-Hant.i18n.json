@@ -6,31 +6,90 @@
             "myPage": "我的頁面"
         }
     },
-    "MyPage":{
-        "aboutAIFunction":"關於AI功能",
-        "details": "詳細",
-        "settings":"設定",
-        "account":"帳戶",
-        "language":"語言",
-        "themes":"主題",
-        "termsofUsePrivacyPolicy" : "使用條款和隱私政策",
-        "aboutThisApp" :"關於本應用",
-        "aboutTheDeveloper":"關於開發者"
-    },
-    "ChangeLanguagePage":{
-        "title": "語言",
-        "items":{
-            "japanese": "日语",
-            "english":"英语",
-            "chinese_simplified":"中文(简体字)",
-            "chinese_traditional":"中文(繁体字)"
+    "authentication": {
+        "signInPage": {
+            "title": "登入",
+            "optionText": " 或 ",
+            "textFields": {
+                "email": "電子郵件地址",
+                "password": "密碼"
+            },
+            "buttons": {
+                "signIn": "登入",
+                "signUp": "註冊",
+                "resetPassword": "忘記密碼？",
+                "appleSignIn": "使用Apple登入",
+                "googleSignIn": "使用Google登入",
+                "signInAfter": "稍後註冊"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "請在良好的網絡環境中重試",
+                "weakPassword": "密碼太短。請輸入6個字符或更多",
+                "invalidEmail": "電子郵件地址格式不正確",
+                "userNotFound": "找不到帳戶",
+                "wrongPassword": "密碼錯誤",
+                "emailAlreadyInUse": "電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建",
+                "unexpected": "發生錯誤。請在良好的網絡環境中重試"
+            }
+        },
+        "resetPasswordPage": {
+            "title": "重設密碼",
+            "description": "將發送密碼重設郵件到輸入的電子郵件地址",
+            "textFields": {
+                "email": "電子郵件地址"
+            },
+            "buttons": {
+                "submit": "發送"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "發送完成",
+            "description": "密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入",
+            "successResendEmail": "確認郵件已重新發送",
+            "buttons": {
+                "toSignIn": "前往登入畫面",
+                "resendEmail": "重新發送確認郵件",
+                "changeEmail": "更改電子郵件地址"
+            }
         }
     },
-    "Myplan":{
-        "title":"我的計劃",
-        "tabs":{
-            "created_plans":"已創建的計劃",
-            "bookmark":"書籤"
+    "validation": {
+        "emailRequired": "請輸入電子郵件地址",
+        "emailInvalid": "電子郵件地址格式不正確",
+        "passwordRequired": "請輸入密碼",
+        "passwordShort": "密碼必須至少8個字符",
+        "passwordWeak": "密碼應包含字母和數字的組合",
+        "passwordMatch": "密碼不匹配",
+        "informationRequired": "請輸入信息",
+        "urlInvalid": "URL格式不正確"
+    },
+    "MyPage": {
+        "aboutAIFunction": "關於AI功能",
+        "details": "詳細",
+        "settings": "設定",
+        "account": "帳戶",
+        "language": "語言",
+        "themes": "主題",
+        "termsofUsePrivacyPolicy": "使用條款和隱私政策",
+        "aboutThisApp": "關於本應用",
+        "aboutTheDeveloper": "關於開發者"
+    },
+    "ChangeLanguagePage": {
+        "title": "語言",
+        "items": {
+            "japanese": "日语",
+            "english": "英语",
+            "chinese_simplified": "中文(简体字)",
+            "chinese_traditional": "中文(繁体字)"
+        }
+    },
+    "Myplan": {
+        "title": "我的計劃",
+        "tabs": {
+            "created_plans": "已創建的計劃",
+            "bookmark": "書籤"
         }
     },
     "locales(map)": {

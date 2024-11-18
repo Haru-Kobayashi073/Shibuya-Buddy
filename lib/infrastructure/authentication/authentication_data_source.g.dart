@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'locale_service.dart';
+part of 'authentication_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$localeServiceHash() => r'b52719485712c6c7279945c8e7ea7dcfc5a3adc3';
+String _$authenticationDataSourceHash() =>
+    r'eecf41aff24d74d8a388d121c45f39e1d3583347';
 
-/// See also [LocaleService].
-@ProviderFor(LocaleService)
-final localeServiceProvider =
-    AutoDisposeNotifierProvider<LocaleService, AppLocale>.internal(
-  LocaleService.new,
-  name: r'localeServiceProvider',
+/// See also [AuthenticationDataSource].
+@ProviderFor(AuthenticationDataSource)
+final authenticationDataSourceProvider =
+    AutoDisposeNotifierProvider<AuthenticationDataSource, void>.internal(
+  AuthenticationDataSource.new,
+  name: r'authenticationDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$localeServiceHash,
+      : _$authenticationDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$LocaleService = AutoDisposeNotifier<AppLocale>;
+typedef _$AuthenticationDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

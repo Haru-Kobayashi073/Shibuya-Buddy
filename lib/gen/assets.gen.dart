@@ -9,26 +9,42 @@
 
 import 'package:flutter/widgets.dart';
 
-class $ImagesGen {
-  const $ImagesGen();
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
 
-  /// File path: images/activity.png
-  AssetGenImage get activity => const AssetGenImage('images/activity.png');
+  /// File path: assets/icons/apple_icon.svg
+  String get appleIcon => 'assets/icons/apple_icon.svg';
 
-  /// File path: images/anime.png
-  AssetGenImage get anime => const AssetGenImage('images/anime.png');
+  /// File path: assets/icons/google_icon.svg
+  String get googleIcon => 'assets/icons/google_icon.svg';
 
-  /// File path: images/gourmet.png
-  AssetGenImage get gourmet => const AssetGenImage('images/gourmet.png');
+  /// List of all assets
+  List<String> get values => [appleIcon, googleIcon];
+}
 
-  /// File path: images/sample.jpg
-  AssetGenImage get sample => const AssetGenImage('images/sample.jpg');
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
 
-  /// File path: images/shopping.png
-  AssetGenImage get shopping => const AssetGenImage('images/shopping.png');
+  /// File path: assets/images/activity.png
+  AssetGenImage get activity =>
+      const AssetGenImage('assets/images/activity.png');
 
-  /// File path: images/usericon.png
-  AssetGenImage get usericon => const AssetGenImage('images/usericon.png');
+  /// File path: assets/images/anime.png
+  AssetGenImage get anime => const AssetGenImage('assets/images/anime.png');
+
+  /// File path: assets/images/gourmet.png
+  AssetGenImage get gourmet => const AssetGenImage('assets/images/gourmet.png');
+
+  /// File path: assets/images/sample.jpg
+  AssetGenImage get sample => const AssetGenImage('assets/images/sample.jpg');
+
+  /// File path: assets/images/shopping.png
+  AssetGenImage get shopping =>
+      const AssetGenImage('assets/images/shopping.png');
+
+  /// File path: assets/images/usericon.png
+  AssetGenImage get usericon =>
+      const AssetGenImage('assets/images/usericon.png');
 
   /// List of all assets
   List<AssetGenImage> get values =>
@@ -38,7 +54,8 @@ class $ImagesGen {
 class Assets {
   Assets._();
 
-  static const $ImagesGen images = $ImagesGen();
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

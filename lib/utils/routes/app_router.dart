@@ -12,11 +12,15 @@ import '../../presentation/account/account_page.dart';
 import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
 import '../../presentation/change_language/change_language_page.dart';
 import '../../presentation/change_theme/change_theme_page.dart';
+import '../../presentation/complete_send_email/complete_send_email_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/reset_password/reset_password_page.dart';
+import '../../presentation/sign_in/sign_in_page.dart';
 import '../../presentation/termsofuse_privacypolicy/termsofuse_privacypolicy.dart';
+import '../../start_up_page.dart';
 import 'routes.dart';
 
 part 'app_router.g.dart';
@@ -29,7 +33,7 @@ final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'my_page');
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
-    initialLocation: Routes.home,
+    initialLocation: Routes.root,
     navigatorKey: rootNavigatorKey,
     routes: $appRoutes,
     debugLogDiagnostics: kDebugMode,
@@ -98,6 +102,18 @@ class MyPageBranch extends StatefulShellBranchData {
 }
 
 // TOPレベルのパスには、@TypedGoRouteをつける
+@TypedGoRoute<StartUpPageRouteData>(
+  path: Routes.root,
+)
+class StartUpPageRouteData extends GoRouteData {
+  const StartUpPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const StartUpPage();
+  }
+}
+
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
 )
@@ -154,6 +170,49 @@ class MyPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MyPage();
+  }
+}
+
+@TypedGoRoute<SignInPageRouteData>(
+  path: Routes.signIn,
+  routes: [
+    TypedGoRoute<ResetPasswordPageRouteData>(
+      path: Routes.resetPassword,
+      routes: [
+        TypedGoRoute<CompleteSendEmailPageRouteData>(
+          path: Routes.completeSendEmail,
+        ),
+      ],
+    ),
+  ],
+)
+class SignInPageRouteData extends GoRouteData {
+  const SignInPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SignInPage();
+  }
+}
+
+class ResetPasswordPageRouteData extends GoRouteData {
+  const ResetPasswordPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ResetPasswordPage();
+  }
+}
+
+class CompleteSendEmailPageRouteData extends GoRouteData {
+  const CompleteSendEmailPageRouteData({
+    required this.email,
+  });
+  final String email;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return CompleteSendEmailPage(email: email);
   }
 }
 

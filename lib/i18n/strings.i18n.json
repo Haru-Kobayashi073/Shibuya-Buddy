@@ -6,31 +6,90 @@
             "myPage": "My Page"
         }
     },
-    "MyPage":{
-        "aboutAIFunction":"About AI Features",
-        "details": "Details",
-        "settings":"Settings",
-        "account":"Account",
-        "language":"Language",
-        "themes":"Theme",
-        "termsofUsePrivacyPolicy" : "Terms of Use & Privacy Policy",
-        "aboutThisApp" :"About This App",
-        "aboutTheDeveloper":"About the Developer"
-    },
-    "ChangeLanguagePage":{
-        "title": "Language",
-        "items":{
-            "japanese": "Japanese",
-            "english":"English",
-            "chinese_simplified":"Chinese (Simplified)",
-            "chinese_traditional":"Chinese (Traditional)"
+    "authentication": {
+        "signInPage": {
+            "title": "Sign In",
+            "optionText": " or ",
+            "textFields": {
+                "email": "Email Address",
+                "password": "Password"
+            },
+            "buttons": {
+                "signIn": "Sign In",
+                "signUp": "Sign Up",
+                "resetPassword": "Forgot Password?",
+                "appleSignIn": "Sign in with Apple",
+                "googleSignIn": "Sign in with Google",
+                "signInAfter": "Register Later"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "Please try again in a good network environment",
+                "weakPassword": "Password is too short. Please enter 6 characters or more",
+                "invalidEmail": "Email address is not in the correct format",
+                "userNotFound": "Account not found",
+                "wrongPassword": "Password is incorrect",
+                "emailAlreadyInUse": "Email address is already in use. Please log in or create with another email address",
+                "unexpected": "An error occurred. Please try again in a good network environment"
+            }
+        },
+        "resetPasswordPage": {
+            "title": "Reset Password",
+            "description": "A password reset email will be sent to the entered email address",
+            "textFields": {
+                "email": "Email Address"
+            },
+            "buttons": {
+                "submit": "Submit"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "Send Complete",
+            "description": "A password reset email has been sent to ${email} \n Please log in from the login screen after resetting",
+            "successResendEmail": "Confirmation email has been resent",
+            "buttons": {
+                "toSignIn": "To Login Screen",
+                "resendEmail": "Resend Confirmation Email",
+                "changeEmail": "Change Email Address"
+            }
         }
     },
-    "Myplan":{
-        "title":"My Plans",
-        "tabs":{
-            "created_plans":"Created Plans",
-            "bookmark":"Bookmarks"
+    "validation": {
+        "emailRequired": "Please enter your email address",
+        "emailInvalid": "The email address format is incorrect",
+        "passwordRequired": "Please enter your password",
+        "passwordShort": "The password must be at least 8 characters long",
+        "passwordWeak": "Please combine alphanumeric characters for the password",
+        "passwordMatch": "Passwords do not match",
+        "informationRequired": "Please enter the information",
+        "urlInvalid": "The URL format is incorrect"
+    },
+    "MyPage": {
+        "aboutAIFunction": "About AI Features",
+        "details": "Details",
+        "settings": "Settings",
+        "account": "Account",
+        "language": "Language",
+        "themes": "Theme",
+        "termsofUsePrivacyPolicy": "Terms of Use & Privacy Policy",
+        "aboutThisApp": "About This App",
+        "aboutTheDeveloper": "About the Developer"
+    },
+    "ChangeLanguagePage": {
+        "title": "Language",
+        "items": {
+            "japanese": "Japanese",
+            "english": "English",
+            "chinese_simplified": "Chinese (Simplified)",
+            "chinese_traditional": "Chinese (Traditional)"
+        }
+    },
+    "Myplan": {
+        "title": "My Plans",
+        "tabs": {
+            "created_plans": "Created Plans",
+            "bookmark": "Bookmarks"
         }
     },
     "locales(map)": {

@@ -38,6 +38,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final TranslationsNavigationBarEn NavigationBar = TranslationsNavigationBarEn._(_root);
+	late final TranslationsAuthenticationEn authentication = TranslationsAuthenticationEn._(_root);
+	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
 	late final TranslationsMyPageEn MyPage = TranslationsMyPageEn._(_root);
 	late final TranslationsChangeLanguagePageEn ChangeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
 	late final TranslationsMyplanEn Myplan = TranslationsMyplanEn._(_root);
@@ -56,6 +58,36 @@ class TranslationsNavigationBarEn {
 
 	// Translations
 	late final TranslationsNavigationBarItemsEn items = TranslationsNavigationBarItemsEn._(_root);
+}
+
+// Path: authentication
+class TranslationsAuthenticationEn {
+	TranslationsAuthenticationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
+	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
+	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
+	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
+}
+
+// Path: validation
+class TranslationsValidationEn {
+	TranslationsValidationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get emailRequired => 'Please enter your email address';
+	String get emailInvalid => 'The email address format is incorrect';
+	String get passwordRequired => 'Please enter your password';
+	String get passwordShort => 'The password must be at least 8 characters long';
+	String get passwordWeak => 'Please combine alphanumeric characters for the password';
+	String get passwordMatch => 'Passwords do not match';
+	String get informationRequired => 'Please enter the information';
+	String get urlInvalid => 'The URL format is incorrect';
 }
 
 // Path: MyPage
@@ -110,6 +142,55 @@ class TranslationsNavigationBarItemsEn {
 	String get myPage => 'My Page';
 }
 
+// Path: authentication.signInPage
+class TranslationsAuthenticationSignInPageEn {
+	TranslationsAuthenticationSignInPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Sign In';
+	String get optionText => ' or ';
+	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
+}
+
+// Path: authentication.firebaseAuth
+class TranslationsAuthenticationFirebaseAuthEn {
+	TranslationsAuthenticationFirebaseAuthEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsAuthenticationFirebaseAuthErrorEn error = TranslationsAuthenticationFirebaseAuthErrorEn._(_root);
+}
+
+// Path: authentication.resetPasswordPage
+class TranslationsAuthenticationResetPasswordPageEn {
+	TranslationsAuthenticationResetPasswordPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Reset Password';
+	String get description => 'A password reset email will be sent to the entered email address';
+	late final TranslationsAuthenticationResetPasswordPageTextFieldsEn textFields = TranslationsAuthenticationResetPasswordPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
+}
+
+// Path: authentication.completeSendEmailPage
+class TranslationsAuthenticationCompleteSendEmailPageEn {
+	TranslationsAuthenticationCompleteSendEmailPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Send Complete';
+	String description({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
+	String get successResendEmail => 'Confirmation email has been resent';
+	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
+}
+
 // Path: ChangeLanguagePage.items
 class TranslationsChangeLanguagePageItemsEn {
 	TranslationsChangeLanguagePageItemsEn._(this._root);
@@ -134,6 +215,80 @@ class TranslationsMyplanTabsEn {
 	String get bookmark => 'Bookmarks';
 }
 
+// Path: authentication.signInPage.textFields
+class TranslationsAuthenticationSignInPageTextFieldsEn {
+	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get email => 'Email Address';
+	String get password => 'Password';
+}
+
+// Path: authentication.signInPage.buttons
+class TranslationsAuthenticationSignInPageButtonsEn {
+	TranslationsAuthenticationSignInPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get signIn => 'Sign In';
+	String get signUp => 'Sign Up';
+	String get resetPassword => 'Forgot Password?';
+	String get appleSignIn => 'Sign in with Apple';
+	String get googleSignIn => 'Sign in with Google';
+	String get signInAfter => 'Register Later';
+}
+
+// Path: authentication.firebaseAuth.error
+class TranslationsAuthenticationFirebaseAuthErrorEn {
+	TranslationsAuthenticationFirebaseAuthErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get networkRequestFailed => 'Please try again in a good network environment';
+	String get weakPassword => 'Password is too short. Please enter 6 characters or more';
+	String get invalidEmail => 'Email address is not in the correct format';
+	String get userNotFound => 'Account not found';
+	String get wrongPassword => 'Password is incorrect';
+	String get emailAlreadyInUse => 'Email address is already in use. Please log in or create with another email address';
+	String get unexpected => 'An error occurred. Please try again in a good network environment';
+}
+
+// Path: authentication.resetPasswordPage.textFields
+class TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	TranslationsAuthenticationResetPasswordPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get email => 'Email Address';
+}
+
+// Path: authentication.resetPasswordPage.buttons
+class TranslationsAuthenticationResetPasswordPageButtonsEn {
+	TranslationsAuthenticationResetPasswordPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submit => 'Submit';
+}
+
+// Path: authentication.completeSendEmailPage.buttons
+class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get toSignIn => 'To Login Screen';
+	String get resendEmail => 'Resend Confirmation Email';
+	String get changeEmail => 'Change Email Address';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -142,6 +297,41 @@ extension on Translations {
 			case 'NavigationBar.items.home': return 'Home';
 			case 'NavigationBar.items.myPlan': return 'My Plan';
 			case 'NavigationBar.items.myPage': return 'My Page';
+			case 'authentication.signInPage.title': return 'Sign In';
+			case 'authentication.signInPage.optionText': return ' or ';
+			case 'authentication.signInPage.textFields.email': return 'Email Address';
+			case 'authentication.signInPage.textFields.password': return 'Password';
+			case 'authentication.signInPage.buttons.signIn': return 'Sign In';
+			case 'authentication.signInPage.buttons.signUp': return 'Sign Up';
+			case 'authentication.signInPage.buttons.resetPassword': return 'Forgot Password?';
+			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
+			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
+			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
+			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
+			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
+			case 'authentication.firebaseAuth.error.userNotFound': return 'Account not found';
+			case 'authentication.firebaseAuth.error.wrongPassword': return 'Password is incorrect';
+			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'Email address is already in use. Please log in or create with another email address';
+			case 'authentication.firebaseAuth.error.unexpected': return 'An error occurred. Please try again in a good network environment';
+			case 'authentication.resetPasswordPage.title': return 'Reset Password';
+			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
+			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
+			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
+			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
+			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'To Login Screen';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return 'Resend Confirmation Email';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'Change Email Address';
+			case 'validation.emailRequired': return 'Please enter your email address';
+			case 'validation.emailInvalid': return 'The email address format is incorrect';
+			case 'validation.passwordRequired': return 'Please enter your password';
+			case 'validation.passwordShort': return 'The password must be at least 8 characters long';
+			case 'validation.passwordWeak': return 'Please combine alphanumeric characters for the password';
+			case 'validation.passwordMatch': return 'Passwords do not match';
+			case 'validation.informationRequired': return 'Please enter the information';
+			case 'validation.urlInvalid': return 'The URL format is incorrect';
 			case 'MyPage.aboutAIFunction': return 'About AI Features';
 			case 'MyPage.details': return 'Details';
 			case 'MyPage.settings': return 'Settings';

@@ -8,9 +8,11 @@ part of 'app_router.dart';
 
 List<RouteBase> get $appRoutes => [
       $appShellRouteData,
+      $startUpPageRouteData,
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
+      $signInPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -93,6 +95,29 @@ extension $MyPageRouteDataExtension on MyPageRouteData {
 
   String get location => GoRouteData.$location(
         '/myPage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $startUpPageRouteData => GoRouteData.$route(
+      path: '/',
+      factory: $StartUpPageRouteDataExtension._fromState,
+    );
+
+extension $StartUpPageRouteDataExtension on StartUpPageRouteData {
+  static StartUpPageRouteData _fromState(GoRouterState state) =>
+      const StartUpPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -273,11 +298,88 @@ extension $ThemeRouteExtension on ThemeRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $signInPageRouteData => GoRouteData.$route(
+      path: '/signIn',
+      factory: $SignInPageRouteDataExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'resetPassword',
+          factory: $ResetPasswordPageRouteDataExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'completeSendEmail',
+              factory: $CompleteSendEmailPageRouteDataExtension._fromState,
+            ),
+          ],
+        ),
+      ],
+    );
+
+extension $SignInPageRouteDataExtension on SignInPageRouteData {
+  static SignInPageRouteData _fromState(GoRouterState state) =>
+      const SignInPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/signIn',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ResetPasswordPageRouteDataExtension on ResetPasswordPageRouteData {
+  static ResetPasswordPageRouteData _fromState(GoRouterState state) =>
+      const ResetPasswordPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/signIn/resetPassword',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $CompleteSendEmailPageRouteDataExtension
+    on CompleteSendEmailPageRouteData {
+  static CompleteSendEmailPageRouteData _fromState(GoRouterState state) =>
+      CompleteSendEmailPageRouteData(
+        email: state.uri.queryParameters['email']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/signIn/resetPassword/completeSendEmail',
+        queryParams: {
+          'email': email,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$goRouterHash() => r'50c112ac3e4eef1afe66ec59300cf2ba58f6d8ab';
+String _$goRouterHash() => r'e148b1d63206522af40a7c9eb863e898adfd2825';
 
 /// See also [goRouter].
 @ProviderFor(goRouter)
