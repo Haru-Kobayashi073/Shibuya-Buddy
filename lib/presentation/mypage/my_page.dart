@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/routes/routes.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../components/text_arrow_button.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
@@ -58,9 +58,7 @@ class MyPage extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                onPressed: () async {
-                    await context.push('/editProfile');
-                  },
+                onPressed: () async {},
                 icon: const Icon(Icons.edit, size: 24),
               ),
             ],
@@ -86,7 +84,8 @@ class MyPage extends StatelessWidget {
                 const Spacer(),
                 GestureDetector(
                   onTap: () async {
-                    await context.push('/aiFunctionsDetail');
+                    await context
+                        .push(Routes.myPage + Routes.aiFunctionsDetail);
                   },
                   child: Text(
                     myPageItemi18n.details,
@@ -99,9 +98,6 @@ class MyPage extends StatelessWidget {
                 const Icon(Icons.arrow_forward_ios, size: 24),
               ],
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 16, right: 16),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16),
@@ -118,43 +114,85 @@ class MyPage extends StatelessWidget {
           ),
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.all(16),
               physics: const NeverScrollableScrollPhysics(),
               children: <Widget>[
-                Textarrowbutton(
-                  text: myPageItemi18n.account,
-                  onTapCallback: () async {
-                    await context.push('/acount');
+                ListTile(
+                  leading: Text(
+                    myPageItemi18n.account,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    await context.push(Routes.myPage + Routes.account);
                   },
                 ),
-                Textarrowbutton(
-                  text: myPageItemi18n.language,
-                  onTapCallback: () async {
-                    await context.push('/changeLanguageage');
+                ListTile(
+                  leading: Text(
+                    myPageItemi18n.language,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    await context.push(Routes.myPage + Routes.changeLanguage);
                   },
                 ),
-                Textarrowbutton(
-                  text: myPageItemi18n.themes,
-                  onTapCallback: () async {
-                    await context.push('/thema');
+                ListTile(
+                  leading: Text(
+                    myPageItemi18n.themes,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    await context.push(Routes.myPage + Routes.theme);
                   },
                 ),
-                Textarrowbutton(
-                  text: myPageItemi18n.termsofUsePrivacyPolicy,
-                  onTapCallback: () async {
-                    await context.push('/termsOfUsePrivacyPolicy');
+                ListTile(
+                  leading: Text(
+                    myPageItemi18n.termsofUsePrivacyPolicy,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    await context
+                        .push(Routes.myPage + Routes.termsOfUsePrivacyPolicy);
                   },
                 ),
-                Textarrowbutton(
-                  text: myPageItemi18n.aboutThisApp,
-                  onTapCallback: () async {
-                    await context.push('/aboutApp');
+                ListTile(
+                  leading: Text(
+                    myPageItemi18n.aboutThisApp,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    await context.push(Routes.myPage + Routes.aboutApp);
                   },
                 ),
-                Textarrowbutton(
-                  text: myPageItemi18n.aboutTheDeveloper,
-                  onTapCallback: () async {
-                    await context.push('/aboutDev');
+                ListTile(
+                  leading: Text(
+                    myPageItemi18n.aboutTheDeveloper,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    await context.push(Routes.myPage + Routes.aboutDev);
                   },
                 ),
               ],
