@@ -6,10 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../presentation/complete_send_email/complete_send_email_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
 import '../../start_up_page.dart';
 import 'routes.dart';
@@ -143,6 +145,16 @@ class MyPageRouteData extends GoRouteData {
 
 @TypedGoRoute<SignInPageRouteData>(
   path: Routes.signIn,
+  routes: [
+    TypedGoRoute<ResetPasswordPageRouteData>(
+      path: Routes.resetPassword,
+      routes: [
+        TypedGoRoute<CompleteSendEmailPageRouteData>(
+          path: Routes.completeSendEmail,
+        ),
+      ],
+    ),
+  ],
 )
 class SignInPageRouteData extends GoRouteData {
   const SignInPageRouteData();
@@ -150,5 +162,26 @@ class SignInPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const SignInPage();
+  }
+}
+
+class ResetPasswordPageRouteData extends GoRouteData {
+  const ResetPasswordPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ResetPasswordPage();
+  }
+}
+
+class CompleteSendEmailPageRouteData extends GoRouteData {
+  const CompleteSendEmailPageRouteData({
+    required this.email,
+  });
+  final String email;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return CompleteSendEmailPage(email: email);
   }
 }
