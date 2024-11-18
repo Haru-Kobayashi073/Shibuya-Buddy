@@ -15,6 +15,13 @@
             "chinese_traditional":"Chinese (Traditional)"
         }
     },
+    "Myplan":{
+        "title":"My Plans",
+        "tabs":{
+            "created_plans":"Created Plans",
+            "bookmark":"Bookmarks"
+        }
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",
