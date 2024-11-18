@@ -13,8 +13,8 @@ import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
-import '../components/oblong_button.dart';
 import '../components/simple_text_field.dart';
+import '../components/wide_button.dart';
 import 'sign_in_page_notifier.dart';
 
 class SignInPage extends HookConsumerWidget {
@@ -151,7 +151,7 @@ class SignInPage extends HookConsumerWidget {
                 ),
                 const SliverGap(24),
                 SliverToBoxAdapter(
-                  child: OblongButton(
+                  child: WideButton(
                     label: i18nSignInPage.buttons.signIn,
                     color: AppColor.yellow600Primary,
                     onPressed: () async {
@@ -189,7 +189,7 @@ class SignInPage extends HookConsumerWidget {
                 ),
                 const SliverGap(16),
                 SliverToBoxAdapter(
-                  child: OblongButton.border(
+                  child: WideButton.border(
                     label: i18nSignInPage.buttons.signUp,
                     color: AppColor.white,
                     border: const BorderSide(color: AppColor.black),
@@ -198,7 +198,7 @@ class SignInPage extends HookConsumerWidget {
                 ),
                 const SliverGap(16),
                 SliverToBoxAdapter(
-                  child: OblongButton.icon(
+                  child: WideButton.icon(
                     label: i18nSignInPage.buttons.appleSignIn,
                     color: AppColor.blue50Background,
                     icon: SvgPicture.asset(Assets.icons.appleIcon),
@@ -207,7 +207,7 @@ class SignInPage extends HookConsumerWidget {
                 ),
                 const SliverGap(16),
                 SliverToBoxAdapter(
-                  child: OblongButton.icon(
+                  child: WideButton.icon(
                     label: i18nSignInPage.buttons.googleSignIn,
                     color: AppColor.blue50Background,
                     icon: SvgPicture.asset(Assets.icons.googleIcon),

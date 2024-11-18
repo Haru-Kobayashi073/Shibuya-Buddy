@@ -30,7 +30,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
       );
       await onSuccess();
     } on FirebaseAuthException catch (e) {
-      final exceptionMessage = e.toAfterTranslation;
+      final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
@@ -41,7 +41,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     try {
       await authenticationDataSource.signInWithGoogle();
     } on FirebaseAuthException catch (e) {
-      final exceptionMessage = e.toAfterTranslation;
+      final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
@@ -52,7 +52,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     try {
       await authenticationDataSource.signInWithApple();
     } on FirebaseAuthException catch (e) {
-      final exceptionMessage = e.toAfterTranslation;
+      final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);

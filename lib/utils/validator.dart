@@ -31,8 +31,6 @@ class Validator {
       return _i18nValidation.passwordShort;
     }
 
-    // 大文字、小文字、数字、特殊文字が含まれているか確認
-    // if (!RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$').hasMatch(value)) {
     if (!RegExp(r'^(?=.*[0-9])(?=.*[a-zA-Z]).*$').hasMatch(value)) {
       return _i18nValidation.passwordWeak;
     }

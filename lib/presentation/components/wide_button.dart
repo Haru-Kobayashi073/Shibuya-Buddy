@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
-class OblongButton extends StatelessWidget {
-  const OblongButton({
+class WideButton extends StatelessWidget {
+  const WideButton({
     super.key,
     required this.label,
     required this.color,
@@ -12,13 +12,13 @@ class OblongButton extends StatelessWidget {
     required this.onPressed,
   });
 
-  factory OblongButton.icon({
+  factory WideButton.icon({
     required String label,
     required Color color,
     required Widget icon,
     required VoidCallback onPressed,
   }) {
-    return OblongButton(
+    return WideButton(
       label: label,
       color: color,
       onPressed: onPressed,
@@ -26,13 +26,13 @@ class OblongButton extends StatelessWidget {
     );
   }
 
-  factory OblongButton.border({
+  factory WideButton.border({
     required String label,
     required Color color,
     required BorderSide border,
     required VoidCallback onPressed,
   }) {
-    return OblongButton(
+    return WideButton(
       label: label,
       color: color,
       border: border,
