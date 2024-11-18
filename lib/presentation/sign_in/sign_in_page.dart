@@ -14,7 +14,7 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
 import '../components/oblong_button.dart';
-import 'components/simple_text_field.dart';
+import '../components/simple_text_field.dart';
 import 'sign_in_page_notifier.dart';
 
 class SignInPage extends HookConsumerWidget {
@@ -137,7 +137,8 @@ class SignInPage extends HookConsumerWidget {
                 const SliverGap(8),
                 SliverToBoxAdapter(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () async =>
+                        const ResetPasswordPageRouteData().push<void>(context),
                     child: Text(
                       i18nSignInPage.buttons.resetPassword,
                       style: AppTextStyle.textStyle.copyWith(
