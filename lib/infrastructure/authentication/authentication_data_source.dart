@@ -56,4 +56,9 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
       );
     }
   }
+
+  @override
+  Future<void> sendPasswordResetEmail(String email) async {
+    await firebaseAuth.sendPasswordResetEmail(email: email);
+  }
 }
