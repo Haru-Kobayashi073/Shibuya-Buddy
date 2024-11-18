@@ -65,6 +65,17 @@
         "informationRequired": "情報を入力してください",
         "urlInvalid": "URLの形式が正しくありません"
     },
+    "MyPage": {
+        "aboutAIFunction": "AIの機能について",
+        "details": "詳細",
+        "settings": "設定",
+        "account": "アカウント",
+        "language": "言語",
+        "themes": "テーマ",
+        "termsofUsePrivacyPolicy": "利用規約・プライバシーポリシー",
+        "aboutThisApp": "このアプリについて",
+        "aboutTheDeveloper": "開発者について"
+    },
     "ChangeLanguagePage": {
         "title": "言語",
         "items": {
@@ -72,6 +83,13 @@
             "english": "英語",
             "chinese_simplified": "中国語（簡体字）",
             "chinese_traditional": "中国語（繁体字）"
+        }
+    },
+    "Myplan": {
+        "title": "マイプラン",
+        "tabs": {
+            "created_plans": "作成したプラン",
+            "bookmark": "ブックマーク"
         }
     },
     "locales(map)": {

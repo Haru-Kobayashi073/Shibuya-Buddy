@@ -36,7 +36,9 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsNavigationBarZhHans NavigationBar = _TranslationsNavigationBarZhHans._(_root);
 	@override late final _TranslationsAuthenticationZhHans authentication = _TranslationsAuthenticationZhHans._(_root);
 	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
+	@override late final _TranslationsMyPageZhHans MyPage = _TranslationsMyPageZhHans._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHans ChangeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsMyplanZhHans Myplan = _TranslationsMyplanZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -84,6 +86,24 @@ class _TranslationsValidationZhHans implements TranslationsValidationEn {
 	@override String get urlInvalid => 'URL格式不正确';
 }
 
+// Path: MyPage
+class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
+	_TranslationsMyPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get aboutAIFunction => '关于AI功能';
+	@override String get details => '详细';
+	@override String get settings => '设置';
+	@override String get account => '账户';
+	@override String get language => '语言';
+	@override String get themes => '主题';
+	@override String get termsofUsePrivacyPolicy => '使用条款和隐私政策';
+	@override String get aboutThisApp => '关于本应用';
+	@override String get aboutTheDeveloper => '关于开发者';
+}
+
 // Path: ChangeLanguagePage
 class _TranslationsChangeLanguagePageZhHans implements TranslationsChangeLanguagePageEn {
 	_TranslationsChangeLanguagePageZhHans._(this._root);
@@ -93,6 +113,17 @@ class _TranslationsChangeLanguagePageZhHans implements TranslationsChangeLanguag
 	// Translations
 	@override String get title => '语言';
 	@override late final _TranslationsChangeLanguagePageItemsZhHans items = _TranslationsChangeLanguagePageItemsZhHans._(_root);
+}
+
+// Path: Myplan
+class _TranslationsMyplanZhHans implements TranslationsMyplanEn {
+	_TranslationsMyplanZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '我的计划';
+	@override late final _TranslationsMyplanTabsZhHans tabs = _TranslationsMyplanTabsZhHans._(_root);
 }
 
 // Path: NavigationBar.items
@@ -167,6 +198,17 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get chinese_simplified => '中文（简体）';
 	@override String get chinese_traditional => '中文（繁体）';
+}
+
+// Path: Myplan.tabs
+class _TranslationsMyplanTabsZhHans implements TranslationsMyplanTabsEn {
+	_TranslationsMyplanTabsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get created_plans => '已创建的计划';
+	@override String get bookmark => '收藏夹';
 }
 
 // Path: authentication.signInPage.textFields
@@ -286,11 +328,23 @@ extension on TranslationsZhHans {
 			case 'validation.passwordMatch': return '密码不匹配';
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'MyPage.aboutAIFunction': return '关于AI功能';
+			case 'MyPage.details': return '详细';
+			case 'MyPage.settings': return '设置';
+			case 'MyPage.account': return '账户';
+			case 'MyPage.language': return '语言';
+			case 'MyPage.themes': return '主题';
+			case 'MyPage.termsofUsePrivacyPolicy': return '使用条款和隐私政策';
+			case 'MyPage.aboutThisApp': return '关于本应用';
+			case 'MyPage.aboutTheDeveloper': return '关于开发者';
 			case 'ChangeLanguagePage.title': return '语言';
 			case 'ChangeLanguagePage.items.japanese': return '日本人';
 			case 'ChangeLanguagePage.items.english': return '英语';
 			case 'ChangeLanguagePage.items.chinese_simplified': return '中文（简体）';
 			case 'ChangeLanguagePage.items.chinese_traditional': return '中文（繁体）';
+			case 'Myplan.title': return '我的计划';
+			case 'Myplan.tabs.created_plans': return '已创建的计划';
+			case 'Myplan.tabs.bookmark': return '收藏夹';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

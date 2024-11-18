@@ -40,7 +40,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsNavigationBarEn NavigationBar = TranslationsNavigationBarEn._(_root);
 	late final TranslationsAuthenticationEn authentication = TranslationsAuthenticationEn._(_root);
 	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
+	late final TranslationsMyPageEn MyPage = TranslationsMyPageEn._(_root);
 	late final TranslationsChangeLanguagePageEn ChangeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
+	late final TranslationsMyplanEn Myplan = TranslationsMyplanEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -88,6 +90,24 @@ class TranslationsValidationEn {
 	String get urlInvalid => 'The URL format is incorrect';
 }
 
+// Path: MyPage
+class TranslationsMyPageEn {
+	TranslationsMyPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get aboutAIFunction => 'About AI Features';
+	String get details => 'Details';
+	String get settings => 'Settings';
+	String get account => 'Account';
+	String get language => 'Language';
+	String get themes => 'Theme';
+	String get termsofUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
+	String get aboutThisApp => 'About This App';
+	String get aboutTheDeveloper => 'About the Developer';
+}
+
 // Path: ChangeLanguagePage
 class TranslationsChangeLanguagePageEn {
 	TranslationsChangeLanguagePageEn._(this._root);
@@ -97,6 +117,17 @@ class TranslationsChangeLanguagePageEn {
 	// Translations
 	String get title => 'Language';
 	late final TranslationsChangeLanguagePageItemsEn items = TranslationsChangeLanguagePageItemsEn._(_root);
+}
+
+// Path: Myplan
+class TranslationsMyplanEn {
+	TranslationsMyplanEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'My Plans';
+	late final TranslationsMyplanTabsEn tabs = TranslationsMyplanTabsEn._(_root);
 }
 
 // Path: NavigationBar.items
@@ -171,6 +202,17 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get english => 'English';
 	String get chinese_simplified => 'Chinese (Simplified)';
 	String get chinese_traditional => 'Chinese (Traditional)';
+}
+
+// Path: Myplan.tabs
+class TranslationsMyplanTabsEn {
+	TranslationsMyplanTabsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get created_plans => 'Created Plans';
+	String get bookmark => 'Bookmarks';
 }
 
 // Path: authentication.signInPage.textFields
@@ -290,11 +332,23 @@ extension on Translations {
 			case 'validation.passwordMatch': return 'Passwords do not match';
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
+			case 'MyPage.aboutAIFunction': return 'About AI Features';
+			case 'MyPage.details': return 'Details';
+			case 'MyPage.settings': return 'Settings';
+			case 'MyPage.account': return 'Account';
+			case 'MyPage.language': return 'Language';
+			case 'MyPage.themes': return 'Theme';
+			case 'MyPage.termsofUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
+			case 'MyPage.aboutThisApp': return 'About This App';
+			case 'MyPage.aboutTheDeveloper': return 'About the Developer';
 			case 'ChangeLanguagePage.title': return 'Language';
 			case 'ChangeLanguagePage.items.japanese': return 'Japanese';
 			case 'ChangeLanguagePage.items.english': return 'English';
 			case 'ChangeLanguagePage.items.chinese_simplified': return 'Chinese (Simplified)';
 			case 'ChangeLanguagePage.items.chinese_traditional': return 'Chinese (Traditional)';
+			case 'Myplan.title': return 'My Plans';
+			case 'Myplan.tabs.created_plans': return 'Created Plans';
+			case 'Myplan.tabs.bookmark': return 'Bookmarks';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

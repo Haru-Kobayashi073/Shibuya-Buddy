@@ -9,8 +9,8 @@ import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
-import '../components/oblong_button.dart';
 import '../components/simple_text_field.dart';
+import '../components/wide_button.dart';
 import 'reset_password_page_notifier.dart';
 
 class ResetPasswordPage extends HookConsumerWidget {
@@ -74,7 +74,7 @@ class ResetPasswordPage extends HookConsumerWidget {
                 label: i18nResetPasswordPage.textFields.email,
               ),
               const SizedBox(height: 24),
-              OblongButton(
+              WideButton(
                 label: i18nResetPasswordPage.buttons.submit,
                 color: AppColor.yellow600Primary,
                 onPressed: () async {

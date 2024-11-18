@@ -25,7 +25,7 @@ class ResetPasswordPageNotifier extends _$ResetPasswordPageNotifier {
       await authenticationDataSource.sendPasswordResetEmail(email);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
-      final exceptionMessage = e.toAfterTranslation;
+      final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);

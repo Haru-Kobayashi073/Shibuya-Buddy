@@ -8,7 +8,7 @@ import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../components/oblong_button.dart';
+import '../components/wide_button.dart';
 import '../reset_password/reset_password_page_notifier.dart';
 
 class CompleteSendEmailPage extends ConsumerWidget {
@@ -50,7 +50,7 @@ class CompleteSendEmailPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 24),
-            OblongButton(
+            WideButton(
               label: i18nCompleteSendEmailPage.buttons.toSignIn,
               color: AppColor.yellow600Primary,
               onPressed: () {
@@ -58,7 +58,7 @@ class CompleteSendEmailPage extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 16),
-            OblongButton(
+            WideButton(
               label: i18nCompleteSendEmailPage.buttons.resendEmail,
               color: AppColor.yellow600Primary,
               onPressed: () async {
@@ -75,7 +75,7 @@ class CompleteSendEmailPage extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 16),
-            OblongButton(
+            WideButton(
               label: i18nCompleteSendEmailPage.buttons.changeEmail,
               color: AppColor.blue50Background,
               onPressed: () => context.pop(),

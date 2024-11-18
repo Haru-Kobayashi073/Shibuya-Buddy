@@ -65,13 +65,31 @@
         "informationRequired": "请输入信息",
         "urlInvalid": "URL格式不正确"
     },
-    "ChangeLanguagePage":{
+    "MyPage": {
+        "aboutAIFunction": "关于AI功能",
+        "details": "详细",
+        "settings": "设置",
+        "account": "账户",
+        "language": "语言",
+        "themes": "主题",
+        "termsofUsePrivacyPolicy": "使用条款和隐私政策",
+        "aboutThisApp": "关于本应用",
+        "aboutTheDeveloper": "关于开发者"
+    },
+    "ChangeLanguagePage": {
         "title": "语言",
-        "items":{
+        "items": {
             "japanese": "日本人",
-            "english":"英语",
-            "chinese_simplified":"中文（简体）",
-            "chinese_traditional":"中文（繁体）"
+            "english": "英语",
+            "chinese_simplified": "中文（简体）",
+            "chinese_traditional": "中文（繁体）"
+        }
+    },
+    "Myplan": {
+        "title": "我的计划",
+        "tabs": {
+            "created_plans": "已创建的计划",
+            "bookmark": "收藏夹"
         }
     },
     "locales(map)": {

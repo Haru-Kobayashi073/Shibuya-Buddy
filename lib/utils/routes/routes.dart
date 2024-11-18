@@ -6,4 +6,12 @@ class Routes {
   static const signIn = '/signIn';
   static const resetPassword = 'resetPassword';
   static const completeSendEmail = 'completeSendEmail';
+  static const aboutApp = 'aboutApp';
+  static const aboutDev = 'aboutDev';
+  static const account = 'account';
+  static const aiFunctionsDetail = 'aiFunctionsDetail';
+  static const changeLanguage = 'changeLanguage';
+  static const editProfile = 'editProfile';
+  static const termsOfUsePrivacyPolicy = 'termsOfUsePrivacyPolicy';
+  static const theme = 'theme';
 }
