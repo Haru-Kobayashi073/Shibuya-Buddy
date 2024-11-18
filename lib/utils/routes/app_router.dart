@@ -6,18 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../presentation/about_app/about_app.dart';
-import '../../presentation/about_dev/about_dev.dart';
-import '../../presentation/account/account.dart';
-import '../../presentation/ai_functions_detail/aif_functions_detail.dart';
+import '../../presentation/about_app/about_app_page.dart';
+import '../../presentation/about_dev/about_dev_page.dart';
+import '../../presentation/account/account_page.dart';
+import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
 import '../../presentation/change_language/change_language_page.dart';
+import '../../presentation/change_theme/change_theme_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
-import '../../presentation/edit_profile/edit_profile.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
 import '../../presentation/termsofuse_privacypolicy/termsofuse_privacypolicy.dart';
-import '../../presentation/change_thema/change_thema.dart';
 import 'routes.dart';
 
 part 'app_router.g.dart';
@@ -63,7 +62,6 @@ GoRouter goRouter(GoRouterRef ref) {
         ),
       ],
     ),
-    // TypedStatefulShellBranch()
   ],
 )
 class AppShellRouteData extends StatefulShellRouteData {
@@ -126,6 +124,29 @@ class MyPlanPageRouteData extends GoRouteData {
 
 @TypedGoRoute<MyPageRouteData>(
   path: Routes.myPage,
+  routes: [
+    TypedGoRoute<AboutAppRoute>(
+      path: Routes.aboutApp,
+    ),
+    TypedGoRoute<AboutDevRoute>(
+      path: Routes.aboutDev,
+    ),
+    TypedGoRoute<AccountRoute>(
+      path: Routes.account,
+    ),
+    TypedGoRoute<AiFunctionsDetailRoute>(
+      path: Routes.aiFunctionsDetail,
+    ),
+    TypedGoRoute<ChangeLanguagePageRoute>(
+      path: Routes.changeLanguage,
+    ),
+    TypedGoRoute<TermsofUsePrivacyPolicyRoute>(
+      path: Routes.termsOfUsePrivacyPolicy,
+    ),
+    TypedGoRoute<ThemeRoute>(
+      path: Routes.theme,
+    ),
+  ],
 )
 class MyPageRouteData extends GoRouteData {
   const MyPageRouteData();
@@ -144,7 +165,7 @@ class AboutAppRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const AboutApp();
+    return const AboutAppPage();
   }
 }
 
@@ -156,19 +177,19 @@ class AboutDevRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const AboutDev();
+    return const AboutDevPage();
   }
 }
 
 @TypedGoRoute<AccountRoute>(
-  path: Routes.acount,
+  path: Routes.account,
 )
 class AccountRoute extends GoRouteData {
   const AccountRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Account();
+    return const AccountPage();
   }
 }
 
@@ -180,12 +201,12 @@ class AiFunctionsDetailRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const AiFunctionsDetail();
+    return const AiFunctionsDetailPage();
   }
 }
 
 @TypedGoRoute<ChangeLanguagePageRoute>(
-  path: Routes.changelanguageage,
+  path: Routes.changeLanguage,
 )
 class ChangeLanguagePageRoute extends GoRouteData {
   const ChangeLanguagePageRoute();
@@ -193,18 +214,6 @@ class ChangeLanguagePageRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const ChangeLanguagePage();
-  }
-}
-
-@TypedGoRoute<EditProfileRoute>(
-  path: Routes.editProfile,
-)
-class EditProfileRoute extends GoRouteData {
-  const EditProfileRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const EditProfile();
   }
 }
 
@@ -221,13 +230,13 @@ class TermsofUsePrivacyPolicyRoute extends GoRouteData {
 }
 
 @TypedGoRoute<ThemeRoute>(
-  path: Routes.thema,
+  path: Routes.theme,
 )
 class ThemeRoute extends GoRouteData {
   const ThemeRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Changethema();
+    return const ChangeThemePage();
   }
 }

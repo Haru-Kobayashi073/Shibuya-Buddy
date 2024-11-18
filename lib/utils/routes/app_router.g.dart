@@ -16,7 +16,6 @@ List<RouteBase> get $appRoutes => [
       $accountRoute,
       $aiFunctionsDetailRoute,
       $changeLanguagePageRoute,
-      $editProfileRoute,
       $termsofUsePrivacyPolicyRoute,
       $themeRoute,
     ];
@@ -126,11 +125,36 @@ RouteBase get $myPlanPageRouteData => GoRouteData.$route(
 RouteBase get $myPageRouteData => GoRouteData.$route(
       path: '/myPage',
       factory: $MyPageRouteDataExtension._fromState,
-    );
-
-RouteBase get $aboutAppRoute => GoRouteData.$route(
-      path: '/aboutApp',
-      factory: $AboutAppRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: '/aboutApp',
+          factory: $AboutAppRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/aboutDev',
+          factory: $AboutDevRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/account',
+          factory: $AccountRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/aiFunctionsDetail',
+          factory: $AiFunctionsDetailRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/changeLanguage',
+          factory: $ChangeLanguagePageRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/termsOfUsePrivacyPolicy',
+          factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/theme',
+          factory: $ThemeRouteExtension._fromState,
+        ),
+      ],
     );
 
 extension $AboutAppRouteExtension on AboutAppRoute {
@@ -150,11 +174,6 @@ extension $AboutAppRouteExtension on AboutAppRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $aboutDevRoute => GoRouteData.$route(
-      path: '/aboutDev',
-      factory: $AboutDevRouteExtension._fromState,
-    );
-
 extension $AboutDevRouteExtension on AboutDevRoute {
   static AboutDevRoute _fromState(GoRouterState state) => const AboutDevRoute();
 
@@ -172,16 +191,11 @@ extension $AboutDevRouteExtension on AboutDevRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $accountRoute => GoRouteData.$route(
-      path: '/acount',
-      factory: $AccountRouteExtension._fromState,
-    );
-
 extension $AccountRouteExtension on AccountRoute {
   static AccountRoute _fromState(GoRouterState state) => const AccountRoute();
 
   String get location => GoRouteData.$location(
-        '/acount',
+        '/account',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -193,11 +207,6 @@ extension $AccountRouteExtension on AccountRoute {
 
   void replace(BuildContext context) => context.replace(location);
 }
-
-RouteBase get $aiFunctionsDetailRoute => GoRouteData.$route(
-      path: '/aiFunctionsDetail',
-      factory: $AiFunctionsDetailRouteExtension._fromState,
-    );
 
 extension $AiFunctionsDetailRouteExtension on AiFunctionsDetailRoute {
   static AiFunctionsDetailRoute _fromState(GoRouterState state) =>
@@ -217,17 +226,12 @@ extension $AiFunctionsDetailRouteExtension on AiFunctionsDetailRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $changeLanguagePageRoute => GoRouteData.$route(
-      path: '/changeLanguageage',
-      factory: $ChangeLanguagePageRouteExtension._fromState,
-    );
-
 extension $ChangeLanguagePageRouteExtension on ChangeLanguagePageRoute {
   static ChangeLanguagePageRoute _fromState(GoRouterState state) =>
       const ChangeLanguagePageRoute();
 
   String get location => GoRouteData.$location(
-        '/changeLanguageage',
+        '/changeLanguage',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -239,34 +243,6 @@ extension $ChangeLanguagePageRouteExtension on ChangeLanguagePageRoute {
 
   void replace(BuildContext context) => context.replace(location);
 }
-
-RouteBase get $editProfileRoute => GoRouteData.$route(
-      path: '/editProfile',
-      factory: $EditProfileRouteExtension._fromState,
-    );
-
-extension $EditProfileRouteExtension on EditProfileRoute {
-  static EditProfileRoute _fromState(GoRouterState state) =>
-      const EditProfileRoute();
-
-  String get location => GoRouteData.$location(
-        '/editProfile',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $termsofUsePrivacyPolicyRoute => GoRouteData.$route(
-      path: '/termsOfUsePrivacyPolicy',
-      factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
-    );
 
 extension $TermsofUsePrivacyPolicyRouteExtension
     on TermsofUsePrivacyPolicyRoute {
@@ -287,16 +263,11 @@ extension $TermsofUsePrivacyPolicyRouteExtension
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $themeRoute => GoRouteData.$route(
-      path: '/thema',
-      factory: $ThemeRouteExtension._fromState,
-    );
-
 extension $ThemeRouteExtension on ThemeRoute {
   static ThemeRoute _fromState(GoRouterState state) => const ThemeRoute();
 
   String get location => GoRouteData.$location(
-        '/thema',
+        '/theme',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -308,6 +279,41 @@ extension $ThemeRouteExtension on ThemeRoute {
 
   void replace(BuildContext context) => context.replace(location);
 }
+
+RouteBase get $aboutAppRoute => GoRouteData.$route(
+      path: '/aboutApp',
+      factory: $AboutAppRouteExtension._fromState,
+    );
+
+RouteBase get $aboutDevRoute => GoRouteData.$route(
+      path: '/aboutDev',
+      factory: $AboutDevRouteExtension._fromState,
+    );
+
+RouteBase get $accountRoute => GoRouteData.$route(
+      path: '/account',
+      factory: $AccountRouteExtension._fromState,
+    );
+
+RouteBase get $aiFunctionsDetailRoute => GoRouteData.$route(
+      path: '/aiFunctionsDetail',
+      factory: $AiFunctionsDetailRouteExtension._fromState,
+    );
+
+RouteBase get $changeLanguagePageRoute => GoRouteData.$route(
+      path: '/changeLanguage',
+      factory: $ChangeLanguagePageRouteExtension._fromState,
+    );
+
+RouteBase get $termsofUsePrivacyPolicyRoute => GoRouteData.$route(
+      path: '/termsOfUsePrivacyPolicy',
+      factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
+    );
+
+RouteBase get $themeRoute => GoRouteData.$route(
+      path: '/theme',
+      factory: $ThemeRouteExtension._fromState,
+    );
 
 // **************************************************************************
 // RiverpodGenerator
@@ -326,8 +332,6 @@ final goRouterProvider = Provider<GoRouter>.internal(
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 typedef GoRouterRef = ProviderRef<GoRouter>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
