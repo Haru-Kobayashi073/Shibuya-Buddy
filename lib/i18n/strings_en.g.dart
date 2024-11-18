@@ -40,6 +40,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsNavigationBarEn NavigationBar = TranslationsNavigationBarEn._(_root);
 	late final TranslationsMyPageEn MyPage = TranslationsMyPageEn._(_root);
 	late final TranslationsChangeLanguagePageEn ChangeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
+	late final TranslationsMyplanEn Myplan = TranslationsMyplanEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -86,6 +87,17 @@ class TranslationsChangeLanguagePageEn {
 	late final TranslationsChangeLanguagePageItemsEn items = TranslationsChangeLanguagePageItemsEn._(_root);
 }
 
+// Path: Myplan
+class TranslationsMyplanEn {
+	TranslationsMyplanEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'My Plans';
+	late final TranslationsMyplanTabsEn tabs = TranslationsMyplanTabsEn._(_root);
+}
+
 // Path: NavigationBar.items
 class TranslationsNavigationBarItemsEn {
 	TranslationsNavigationBarItemsEn._(this._root);
@@ -111,6 +123,17 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get chinese_traditional => 'Chinese (Traditional)';
 }
 
+// Path: Myplan.tabs
+class TranslationsMyplanTabsEn {
+	TranslationsMyplanTabsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get created_plans => 'Created Plans';
+	String get bookmark => 'Bookmarks';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -133,6 +156,9 @@ extension on Translations {
 			case 'ChangeLanguagePage.items.english': return 'English';
 			case 'ChangeLanguagePage.items.chinese_simplified': return 'Chinese (Simplified)';
 			case 'ChangeLanguagePage.items.chinese_traditional': return 'Chinese (Traditional)';
+			case 'Myplan.title': return 'My Plans';
+			case 'Myplan.tabs.created_plans': return 'Created Plans';
+			case 'Myplan.tabs.bookmark': return 'Bookmarks';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

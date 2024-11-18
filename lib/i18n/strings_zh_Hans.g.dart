@@ -36,6 +36,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsNavigationBarZhHans NavigationBar = _TranslationsNavigationBarZhHans._(_root);
 	@override late final _TranslationsMyPageZhHans MyPage = _TranslationsMyPageZhHans._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHans ChangeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsMyplanZhHans Myplan = _TranslationsMyplanZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -82,6 +83,17 @@ class _TranslationsChangeLanguagePageZhHans implements TranslationsChangeLanguag
 	@override late final _TranslationsChangeLanguagePageItemsZhHans items = _TranslationsChangeLanguagePageItemsZhHans._(_root);
 }
 
+// Path: Myplan
+class _TranslationsMyplanZhHans implements TranslationsMyplanEn {
+	_TranslationsMyplanZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '我的计划';
+	@override late final _TranslationsMyplanTabsZhHans tabs = _TranslationsMyplanTabsZhHans._(_root);
+}
+
 // Path: NavigationBar.items
 class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsZhHans._(this._root);
@@ -107,6 +119,17 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	@override String get chinese_traditional => '中文（繁体）';
 }
 
+// Path: Myplan.tabs
+class _TranslationsMyplanTabsZhHans implements TranslationsMyplanTabsEn {
+	_TranslationsMyplanTabsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get created_plans => '已创建的计划';
+	@override String get bookmark => '收藏夹';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHans {
@@ -129,6 +152,9 @@ extension on TranslationsZhHans {
 			case 'ChangeLanguagePage.items.english': return '英语';
 			case 'ChangeLanguagePage.items.chinese_simplified': return '中文（简体）';
 			case 'ChangeLanguagePage.items.chinese_traditional': return '中文（繁体）';
+			case 'Myplan.title': return '我的计划';
+			case 'Myplan.tabs.created_plans': return '已创建的计划';
+			case 'Myplan.tabs.bookmark': return '收藏夹';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';
