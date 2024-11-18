@@ -7,7 +7,7 @@ import '../../i18n/strings.g.dart';
 import '../routes/app_router.dart';
 
 extension FirebaseAuthExceptionEx on FirebaseAuthException {
-  String get toAfterTranslation {
+  String get toLocalizedMessage {
     final context = rootNavigatorKey.currentContext!;
     final i18n = Translations.of(context);
     final i18nAuthError = i18n.authentication.firebaseAuth.error;
