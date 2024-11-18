@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../i18n/strings.g.dart';
 import '../utils/providers/locale/locale_service.dart';
+import '../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../utils/routes/app_router.dart';
 import '../utils/styles/app_color.dart';
 import '../utils/styles/app_text_style.dart';
@@ -59,6 +60,7 @@ class App extends HookConsumerWidget {
       routerDelegate: goRouter.routerDelegate,
       routeInformationProvider: goRouter.routeInformationProvider,
       routeInformationParser: goRouter.routeInformationParser,
+      scaffoldMessengerKey: ref.read(scaffoldMessengerKeyProvider),
     );
   }
 }
