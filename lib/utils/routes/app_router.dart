@@ -157,9 +157,6 @@ class MyPageRouteData extends GoRouteData {
   }
 }
 
-@TypedGoRoute<AboutAppRoute>(
-  path: Routes.aboutApp,
-)
 class AboutAppRoute extends GoRouteData {
   const AboutAppRoute();
 
@@ -169,9 +166,6 @@ class AboutAppRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<AboutDevRoute>(
-  path: Routes.aboutDev,
-)
 class AboutDevRoute extends GoRouteData {
   const AboutDevRoute();
 
@@ -181,9 +175,6 @@ class AboutDevRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<AccountRoute>(
-  path: Routes.account,
-)
 class AccountRoute extends GoRouteData {
   const AccountRoute();
 
@@ -193,9 +184,6 @@ class AccountRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<AiFunctionsDetailRoute>(
-  path: Routes.aiFunctionsDetail,
-)
 class AiFunctionsDetailRoute extends GoRouteData {
   const AiFunctionsDetailRoute();
 
@@ -205,9 +193,6 @@ class AiFunctionsDetailRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<ChangeLanguagePageRoute>(
-  path: Routes.changeLanguage,
-)
 class ChangeLanguagePageRoute extends GoRouteData {
   const ChangeLanguagePageRoute();
 
@@ -217,9 +202,6 @@ class ChangeLanguagePageRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<TermsofUsePrivacyPolicyRoute>(
-  path: Routes.termsOfUsePrivacyPolicy,
-)
 class TermsofUsePrivacyPolicyRoute extends GoRouteData {
   const TermsofUsePrivacyPolicyRoute();
 
@@ -229,9 +211,6 @@ class TermsofUsePrivacyPolicyRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<ThemeRoute>(
-  path: Routes.theme,
-)
 class ThemeRoute extends GoRouteData {
   const ThemeRoute();
 
