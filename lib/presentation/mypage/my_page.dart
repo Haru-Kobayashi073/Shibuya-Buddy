@@ -13,7 +13,7 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    final myPageItemi18n = i18n.MyPage;
+    final myPageItemi18n = i18n.myPage;
     final screenSize = MediaQuery.of(context).size;
     final circleSize = min(screenSize.width, screenSize.height) * 0.1;
     final spaceHeight = screenSize.height * 0.06;
@@ -37,7 +37,7 @@ class MyPage extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage(
-                            Assets.images.usericon.path,
+                            Assets.images.userIcon.path,
                           ),
                         ),
                       ),
@@ -142,7 +142,7 @@ class MyPage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Text(
-                    myPageItemi18n.themes,
+                    myPageItemi18n.theme,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -155,7 +155,7 @@ class MyPage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Text(
-                    myPageItemi18n.termsofUsePrivacyPolicy,
+                    myPageItemi18n.termsOfUsePrivacyPolicy,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,

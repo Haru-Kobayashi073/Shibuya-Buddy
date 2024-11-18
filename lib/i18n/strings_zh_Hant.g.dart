@@ -33,12 +33,12 @@ class TranslationsZhHant implements Translations {
 	late final TranslationsZhHant _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsNavigationBarZhHant NavigationBar = _TranslationsNavigationBarZhHant._(_root);
+	@override late final _TranslationsNavigationBarZhHant navigationBar = _TranslationsNavigationBarZhHant._(_root);
 	@override late final _TranslationsAuthenticationZhHant authentication = _TranslationsAuthenticationZhHant._(_root);
 	@override late final _TranslationsValidationZhHant validation = _TranslationsValidationZhHant._(_root);
-	@override late final _TranslationsMyPageZhHant MyPage = _TranslationsMyPageZhHant._(_root);
-	@override late final _TranslationsChangeLanguagePageZhHant ChangeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
-	@override late final _TranslationsMyplanZhHant Myplan = _TranslationsMyplanZhHant._(_root);
+	@override late final _TranslationsMyPageZhHant myPage = _TranslationsMyPageZhHant._(_root);
+	@override late final _TranslationsChangeLanguagePageZhHant changeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
+	@override late final _TranslationsMyPlanPageZhHant myPlanPage = _TranslationsMyPlanPageZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -46,7 +46,7 @@ class TranslationsZhHant implements Translations {
 	};
 }
 
-// Path: NavigationBar
+// Path: navigationBar
 class _TranslationsNavigationBarZhHant implements TranslationsNavigationBarEn {
 	_TranslationsNavigationBarZhHant._(this._root);
 
@@ -86,7 +86,7 @@ class _TranslationsValidationZhHant implements TranslationsValidationEn {
 	@override String get urlInvalid => 'URL格式不正確';
 }
 
-// Path: MyPage
+// Path: myPage
 class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	_TranslationsMyPageZhHant._(this._root);
 
@@ -98,13 +98,13 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	@override String get settings => '設定';
 	@override String get account => '帳戶';
 	@override String get language => '語言';
-	@override String get themes => '主題';
-	@override String get termsofUsePrivacyPolicy => '使用條款和隱私政策';
+	@override String get theme => '主題';
+	@override String get termsOfUsePrivacyPolicy => '使用條款和隱私政策';
 	@override String get aboutThisApp => '關於本應用';
 	@override String get aboutTheDeveloper => '關於開發者';
 }
 
-// Path: ChangeLanguagePage
+// Path: changeLanguagePage
 class _TranslationsChangeLanguagePageZhHant implements TranslationsChangeLanguagePageEn {
 	_TranslationsChangeLanguagePageZhHant._(this._root);
 
@@ -115,18 +115,18 @@ class _TranslationsChangeLanguagePageZhHant implements TranslationsChangeLanguag
 	@override late final _TranslationsChangeLanguagePageItemsZhHant items = _TranslationsChangeLanguagePageItemsZhHant._(_root);
 }
 
-// Path: Myplan
-class _TranslationsMyplanZhHant implements TranslationsMyplanEn {
-	_TranslationsMyplanZhHant._(this._root);
+// Path: myPlanPage
+class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
+	_TranslationsMyPlanPageZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '我的計劃';
-	@override late final _TranslationsMyplanTabsZhHant tabs = _TranslationsMyplanTabsZhHant._(_root);
+	@override late final _TranslationsMyPlanPageTabsZhHant tabs = _TranslationsMyPlanPageTabsZhHant._(_root);
 }
 
-// Path: NavigationBar.items
+// Path: navigationBar.items
 class _TranslationsNavigationBarItemsZhHant implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsZhHant._(this._root);
 
@@ -187,7 +187,7 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHant implements Translat
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(_root);
 }
 
-// Path: ChangeLanguagePage.items
+// Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHant._(this._root);
 
@@ -196,18 +196,18 @@ class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLa
 	// Translations
 	@override String get japanese => '日语';
 	@override String get english => '英语';
-	@override String get chinese_simplified => '中文(简体字)';
-	@override String get chinese_traditional => '中文(繁体字)';
+	@override String get simplifiedChinese => '中文(简体字)';
+	@override String get traditionalChinese => '中文(繁体字)';
 }
 
-// Path: Myplan.tabs
-class _TranslationsMyplanTabsZhHant implements TranslationsMyplanTabsEn {
-	_TranslationsMyplanTabsZhHant._(this._root);
+// Path: myPlanPage.tabs
+class _TranslationsMyPlanPageTabsZhHant implements TranslationsMyPlanPageTabsEn {
+	_TranslationsMyPlanPageTabsZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get created_plans => '已創建的計劃';
+	@override String get createdPlans => '已創建的計劃';
 	@override String get bookmark => '書籤';
 }
 
@@ -290,9 +290,9 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 extension on TranslationsZhHant {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'NavigationBar.items.home': return '首頁';
-			case 'NavigationBar.items.myPlan': return '我的計劃';
-			case 'NavigationBar.items.myPage': return '我的頁面';
+			case 'navigationBar.items.home': return '首頁';
+			case 'navigationBar.items.myPlan': return '我的計劃';
+			case 'navigationBar.items.myPage': return '我的頁面';
 			case 'authentication.signInPage.title': return '登入';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '電子郵件地址';
@@ -328,23 +328,23 @@ extension on TranslationsZhHant {
 			case 'validation.passwordMatch': return '密碼不匹配';
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
-			case 'MyPage.aboutAIFunction': return '關於AI功能';
-			case 'MyPage.details': return '詳細';
-			case 'MyPage.settings': return '設定';
-			case 'MyPage.account': return '帳戶';
-			case 'MyPage.language': return '語言';
-			case 'MyPage.themes': return '主題';
-			case 'MyPage.termsofUsePrivacyPolicy': return '使用條款和隱私政策';
-			case 'MyPage.aboutThisApp': return '關於本應用';
-			case 'MyPage.aboutTheDeveloper': return '關於開發者';
-			case 'ChangeLanguagePage.title': return '語言';
-			case 'ChangeLanguagePage.items.japanese': return '日语';
-			case 'ChangeLanguagePage.items.english': return '英语';
-			case 'ChangeLanguagePage.items.chinese_simplified': return '中文(简体字)';
-			case 'ChangeLanguagePage.items.chinese_traditional': return '中文(繁体字)';
-			case 'Myplan.title': return '我的計劃';
-			case 'Myplan.tabs.created_plans': return '已創建的計劃';
-			case 'Myplan.tabs.bookmark': return '書籤';
+			case 'myPage.aboutAIFunction': return '關於AI功能';
+			case 'myPage.details': return '詳細';
+			case 'myPage.settings': return '設定';
+			case 'myPage.account': return '帳戶';
+			case 'myPage.language': return '語言';
+			case 'myPage.theme': return '主題';
+			case 'myPage.termsOfUsePrivacyPolicy': return '使用條款和隱私政策';
+			case 'myPage.aboutThisApp': return '關於本應用';
+			case 'myPage.aboutTheDeveloper': return '關於開發者';
+			case 'changeLanguagePage.title': return '語言';
+			case 'changeLanguagePage.items.japanese': return '日语';
+			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文(简体字)';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'myPlanPage.title': return '我的計劃';
+			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
+			case 'myPlanPage.tabs.bookmark': return '書籤';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

@@ -30,7 +30,7 @@ class SignInPage extends HookConsumerWidget {
     final notifier = ref.read(signInPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
     final i18nSignInPage = i18n.authentication.signInPage;
-    final i18nLanguage = i18n.ChangeLanguagePage.items;
+    final i18nLanguage = i18n.changeLanguagePage.items;
 
     Future<void> onPressedSignInButton() async {
       if (formKey.currentState!.validate()) {
@@ -82,8 +82,8 @@ class SignInPage extends HookConsumerWidget {
                         dropdownMenuEntries: [
                           i18nLanguage.english,
                           i18nLanguage.japanese,
-                          i18nLanguage.chinese_simplified,
-                          i18nLanguage.chinese_traditional,
+                          i18nLanguage.simplifiedChinese,
+                          i18nLanguage.traditionalChinese,
                         ].map((String value) {
                           return DropdownMenuEntry<String>(
                             value: value,

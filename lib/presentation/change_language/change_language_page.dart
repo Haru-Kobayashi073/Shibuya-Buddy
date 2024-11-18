@@ -16,8 +16,8 @@ class ChangeLanguagePage extends ConsumerWidget {
     final localeState = ref.watch(localeServiceProvider);
     final local = ref.read(localeServiceProvider.notifier);
     final i18n = Translations.of(context);
-    final itemi18n = i18n.ChangeLanguagePage.items;
-    final titlei18n = i18n.ChangeLanguagePage.title;
+    final itemi18n = i18n.changeLanguagePage.items;
+    final titlei18n = i18n.changeLanguagePage.title;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -53,7 +53,7 @@ class ChangeLanguagePage extends ConsumerWidget {
               },
             ),
             RadioButtonWithText<AppLocale>(
-              title: itemi18n.chinese_simplified,
+              title: itemi18n.simplifiedChinese,
               value: AppLocale.zhHans,
               groupValue: localeState,
               onChanged: (value) async {
@@ -63,7 +63,7 @@ class ChangeLanguagePage extends ConsumerWidget {
               },
             ),
             RadioButtonWithText<AppLocale>(
-              title: itemi18n.chinese_traditional,
+              title: itemi18n.traditionalChinese,
               value: AppLocale.zhHant,
               groupValue: localeState,
               onChanged: (value) async {

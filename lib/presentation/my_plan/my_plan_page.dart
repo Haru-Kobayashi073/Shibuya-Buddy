@@ -12,8 +12,8 @@ class MyPlanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    final titlei18n = i18n.Myplan.title;
-    final tabi18n = i18n.Myplan.tabs;
+    final titlei18n = i18n.myPlanPage.title;
+    final tabi18n = i18n.myPlanPage.tabs;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -37,7 +37,7 @@ class MyPlanPage extends StatelessWidget {
             dividerColor: AppColor.blue900Tertiary,
             tabs: <Widget>[
               Tab(
-                text: tabi18n.created_plans,
+                text: tabi18n.createdPlans,
               ),
               Tab(
                 text: tabi18n.bookmark,

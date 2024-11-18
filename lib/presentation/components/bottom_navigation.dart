@@ -16,7 +16,7 @@ class BottomNavigation extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
-    final navigationBarItemi18n = i18n.NavigationBar.items;
+    final navigationBarItemi18n = i18n.navigationBar.items;
 
     return Scaffold(
       bottomNavigationBar: NavigationBar(
