@@ -1,11 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
-import '../../utils/routes/routes.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_text_style.dart';
 
 class MyPage extends StatelessWidget {
@@ -84,8 +83,7 @@ class MyPage extends StatelessWidget {
                 const Spacer(),
                 GestureDetector(
                   onTap: () async {
-                    await context
-                        .push(Routes.myPage + Routes.aiFunctionsDetail);
+                    await const AiFunctionsDetailRoute().push<void>(context);
                   },
                   child: Text(
                     myPageItemi18n.details,
@@ -126,7 +124,7 @@ class MyPage extends StatelessWidget {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () async {
-                    await context.push(Routes.myPage + Routes.account);
+                    await const AccountRoute().push<void>(context);
                   },
                 ),
                 ListTile(
@@ -139,7 +137,7 @@ class MyPage extends StatelessWidget {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () async {
-                    await context.push(Routes.myPage + Routes.changeLanguage);
+                    await const ChangeLanguagePageRoute().push<void>(context);
                   },
                 ),
                 ListTile(
@@ -152,7 +150,7 @@ class MyPage extends StatelessWidget {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () async {
-                    await context.push(Routes.myPage + Routes.theme);
+                    await const ThemeRoute().push<void>(context);
                   },
                 ),
                 ListTile(
@@ -165,8 +163,8 @@ class MyPage extends StatelessWidget {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () async {
-                    await context
-                        .push(Routes.myPage + Routes.termsOfUsePrivacyPolicy);
+                    await const TermsofUsePrivacyPolicyRoute()
+                        .push<void>(context);
                   },
                 ),
                 ListTile(
@@ -179,7 +177,7 @@ class MyPage extends StatelessWidget {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () async {
-                    await context.push(Routes.myPage + Routes.aboutApp);
+                    await const AboutAppRoute().push<void>(context);
                   },
                 ),
                 ListTile(
@@ -192,7 +190,7 @@ class MyPage extends StatelessWidget {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () async {
-                    await context.push(Routes.myPage + Routes.aboutDev);
+                    await const AboutDevRoute().push<void>(context);
                   },
                 ),
               ],
