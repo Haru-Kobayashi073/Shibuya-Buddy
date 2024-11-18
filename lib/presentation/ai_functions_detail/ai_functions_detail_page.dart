@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AiFunctionsDetail extends StatelessWidget {
-  const AiFunctionsDetail({super.key});
+class AiFunctionsDetailPage extends StatelessWidget {
+  const AiFunctionsDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {

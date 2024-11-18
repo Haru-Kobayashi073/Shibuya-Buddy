@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AboutApp extends StatelessWidget {
-  const AboutApp({super.key});
+class ChangeThemePage extends StatelessWidget {
+  const ChangeThemePage({super.key});
 
   @override
   Widget build(BuildContext context) {
