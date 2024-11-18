@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../presentation/components/common_snack_bar.dart';
+
 part 'scaffold_messenger.g.dart';
 
 @Riverpod(keepAlive: true)
@@ -31,8 +33,8 @@ class ScaffoldMessenger extends _$ScaffoldMessenger {
       scaffoldMessengerState.removeCurrentSnackBar();
     }
     return scaffoldMessengerState.showSnackBar(
-      SnackBar(
-        content: Text(message),
+      CommonSnackBar(
+        message: message,
         duration: duration,
       ),
     );
@@ -49,9 +51,10 @@ class ScaffoldMessenger extends _$ScaffoldMessenger {
       scaffoldMessengerState.removeCurrentSnackBar();
     }
     return scaffoldMessengerState.showSnackBar(
-      SnackBar(
-        content: Text(message),
+      CommonSnackBar(
+        message: message,
         duration: duration,
+        isSuccess: false,
       ),
     );
   }
