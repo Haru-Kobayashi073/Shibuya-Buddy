@@ -26,17 +26,13 @@ class ScaffoldMessenger extends _$ScaffoldMessenger {
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSuccessSnackBar(
     String message, {
     bool removeCurrentSnackBar = true,
-    Duration duration = const Duration(seconds: 3),
   }) {
     final scaffoldMessengerState = scaffoldKey.currentState!;
     if (removeCurrentSnackBar) {
       scaffoldMessengerState.removeCurrentSnackBar();
     }
     return scaffoldMessengerState.showSnackBar(
-      CommonSnackBar(
-        message: message,
-        duration: duration,
-      ),
+      CommonSnackBar(message: message),
     );
   }
 
@@ -44,18 +40,13 @@ class ScaffoldMessenger extends _$ScaffoldMessenger {
       showExceptionSnackBar(
     String message, {
     bool removeCurrentSnackBar = true,
-    Duration duration = const Duration(seconds: 3),
   }) {
     final scaffoldMessengerState = scaffoldKey.currentState!;
     if (removeCurrentSnackBar) {
       scaffoldMessengerState.removeCurrentSnackBar();
     }
     return scaffoldMessengerState.showSnackBar(
-      CommonSnackBar(
-        message: message,
-        duration: duration,
-        isSuccess: false,
-      ),
+      CommonSnackBar(message: message, isSuccess: false),
     );
   }
 }

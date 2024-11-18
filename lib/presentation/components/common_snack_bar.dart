@@ -7,7 +7,7 @@ class CommonSnackBar extends SnackBar {
     super.key,
     required String message,
     super.backgroundColor = AppColor.blue50Background,
-    required super.duration,
+    super.duration,
     bool isSuccess = true,
   }) : super(
           content: Row(
