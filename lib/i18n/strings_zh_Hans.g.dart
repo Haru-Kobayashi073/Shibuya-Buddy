@@ -63,6 +63,8 @@ class _TranslationsAuthenticationZhHans implements TranslationsAuthenticationEn 
 	// Translations
 	@override late final _TranslationsAuthenticationSignInPageZhHans signInPage = _TranslationsAuthenticationSignInPageZhHans._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthZhHans firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHans._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageZhHans resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHans completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHans._(_root);
 }
 
 // Path: validation
@@ -128,6 +130,32 @@ class _TranslationsAuthenticationFirebaseAuthZhHans implements TranslationsAuthe
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorZhHans error = _TranslationsAuthenticationFirebaseAuthErrorZhHans._(_root);
 }
 
+// Path: authentication.resetPasswordPage
+class _TranslationsAuthenticationResetPasswordPageZhHans implements TranslationsAuthenticationResetPasswordPageEn {
+	_TranslationsAuthenticationResetPasswordPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重置密码';
+	@override String get description => '将向输入的电子邮件地址发送密码重置邮件';
+	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHans buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHans._(_root);
+}
+
+// Path: authentication.completeSendEmailPage
+class _TranslationsAuthenticationCompleteSendEmailPageZhHans implements TranslationsAuthenticationCompleteSendEmailPageEn {
+	_TranslationsAuthenticationCompleteSendEmailPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '发送完成';
+	@override String description({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
+	@override String get successResendEmail => '确认邮件已重新发送';
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(_root);
+}
+
 // Path: ChangeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHans._(this._root);
@@ -183,6 +211,38 @@ class _TranslationsAuthenticationFirebaseAuthErrorZhHans implements Translations
 	@override String get unexpected => '发生错误。请在良好的网络环境中重试';
 }
 
+// Path: authentication.resetPasswordPage.textFields
+class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	_TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get email => '电子邮件地址';
+}
+
+// Path: authentication.resetPasswordPage.buttons
+class _TranslationsAuthenticationResetPasswordPageButtonsZhHans implements TranslationsAuthenticationResetPasswordPageButtonsEn {
+	_TranslationsAuthenticationResetPasswordPageButtonsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '发送';
+}
+
+// Path: authentication.completeSendEmailPage.buttons
+class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get toSignIn => '前往登录页面';
+	@override String get resendEmail => '重新发送确认邮件';
+	@override String get changeEmail => '更改电子邮件地址';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHans {
@@ -208,6 +268,16 @@ extension on TranslationsZhHans {
 			case 'authentication.firebaseAuth.error.wrongPassword': return '密码错误';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
 			case 'authentication.firebaseAuth.error.unexpected': return '发生错误。请在良好的网络环境中重试';
+			case 'authentication.resetPasswordPage.title': return '重置密码';
+			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
+			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
+			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
+			case 'authentication.completeSendEmailPage.title': return '发送完成';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '确认邮件已重新发送';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登录页面';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改电子邮件地址';
 			case 'validation.emailRequired': return '请输入电子邮件地址';
 			case 'validation.emailInvalid': return '电子邮件地址格式不正确';
 			case 'validation.passwordRequired': return '请输入密码';

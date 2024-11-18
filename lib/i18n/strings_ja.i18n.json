@@ -6,7 +6,6 @@
             "myPage": "マイページ"
         }
     },
-
     "authentication": {
         "signInPage": {
             "title": "ログイン",
@@ -22,6 +21,26 @@
                 "appleSignIn": "Appleでログイン",
                 "googleSignIn": "Googleでログイン",
                 "signInAfter": "後で登録"
+            }
+        },
+        "resetPasswordPage": {
+            "title": "パスワードのリセット",
+            "description": "入力されたメールアドレスにパスワードリセットのメールを送信します",
+            "textFields": {
+                "email": "メールアドレス"
+            },
+            "buttons": {
+                "submit": "送信"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "送信完了",
+            "description": "パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください",
+            "successResendEmail": "確認メールを再送信しました",
+            "buttons": {
+                "toSignIn": "ログイン画面へ",
+                "resendEmail": "確認メールを再送信",
+                "changeEmail": "メールアドレスの変更"
             }
         },
         "firebaseAuth": {
@@ -46,14 +65,13 @@
         "informationRequired": "情報を入力してください",
         "urlInvalid": "URLの形式が正しくありません"
     },
-    "ChangeLanguagePage":{
+    "ChangeLanguagePage": {
         "title": "言語",
-        "items":{
+        "items": {
             "japanese": "日本語",
-            "english":"英語",
-            "chinese_simplified":"中国語（簡体字）",
-
-            "chinese_traditional":"中国語（繁体字）"
+            "english": "英語",
+            "chinese_simplified": "中国語（簡体字）",
+            "chinese_traditional": "中国語（繁体字）"
         }
     },
     "locales(map)": {

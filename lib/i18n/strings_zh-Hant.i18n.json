@@ -33,6 +33,26 @@
                 "emailAlreadyInUse": "電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建",
                 "unexpected": "發生錯誤。請在良好的網絡環境中重試"
             }
+        },
+        "resetPasswordPage": {
+            "title": "重設密碼",
+            "description": "將發送密碼重設郵件到輸入的電子郵件地址",
+            "textFields": {
+                "email": "電子郵件地址"
+            },
+            "buttons": {
+                "submit": "發送"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "發送完成",
+            "description": "密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入",
+            "successResendEmail": "確認郵件已重新發送",
+            "buttons": {
+                "toSignIn": "前往登入畫面",
+                "resendEmail": "重新發送確認郵件",
+                "changeEmail": "更改電子郵件地址"
+            }
         }
     },
     "validation": {
