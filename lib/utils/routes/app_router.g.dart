@@ -11,13 +11,6 @@ List<RouteBase> get $appRoutes => [
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
-      $aboutAppRoute,
-      $aboutDevRoute,
-      $accountRoute,
-      $aiFunctionsDetailRoute,
-      $changeLanguagePageRoute,
-      $termsofUsePrivacyPolicyRoute,
-      $themeRoute,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -127,31 +120,31 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
       factory: $MyPageRouteDataExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: '/aboutApp',
+          path: 'aboutApp',
           factory: $AboutAppRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/aboutDev',
+          path: 'aboutDev',
           factory: $AboutDevRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/account',
+          path: 'account',
           factory: $AccountRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/aiFunctionsDetail',
+          path: 'aiFunctionsDetail',
           factory: $AiFunctionsDetailRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/changeLanguage',
+          path: 'changeLanguage',
           factory: $ChangeLanguagePageRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/termsOfUsePrivacyPolicy',
+          path: 'termsOfUsePrivacyPolicy',
           factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/theme',
+          path: 'theme',
           factory: $ThemeRouteExtension._fromState,
         ),
       ],
@@ -161,7 +154,7 @@ extension $AboutAppRouteExtension on AboutAppRoute {
   static AboutAppRoute _fromState(GoRouterState state) => const AboutAppRoute();
 
   String get location => GoRouteData.$location(
-        '/aboutApp',
+        '/myPage/aboutApp',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -178,7 +171,7 @@ extension $AboutDevRouteExtension on AboutDevRoute {
   static AboutDevRoute _fromState(GoRouterState state) => const AboutDevRoute();
 
   String get location => GoRouteData.$location(
-        '/aboutDev',
+        '/myPage/aboutDev',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -195,7 +188,7 @@ extension $AccountRouteExtension on AccountRoute {
   static AccountRoute _fromState(GoRouterState state) => const AccountRoute();
 
   String get location => GoRouteData.$location(
-        '/account',
+        '/myPage/account',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -213,7 +206,7 @@ extension $AiFunctionsDetailRouteExtension on AiFunctionsDetailRoute {
       const AiFunctionsDetailRoute();
 
   String get location => GoRouteData.$location(
-        '/aiFunctionsDetail',
+        '/myPage/aiFunctionsDetail',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -231,7 +224,7 @@ extension $ChangeLanguagePageRouteExtension on ChangeLanguagePageRoute {
       const ChangeLanguagePageRoute();
 
   String get location => GoRouteData.$location(
-        '/changeLanguage',
+        '/myPage/changeLanguage',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -250,7 +243,7 @@ extension $TermsofUsePrivacyPolicyRouteExtension
       const TermsofUsePrivacyPolicyRoute();
 
   String get location => GoRouteData.$location(
-        '/termsOfUsePrivacyPolicy',
+        '/myPage/termsOfUsePrivacyPolicy',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -267,7 +260,7 @@ extension $ThemeRouteExtension on ThemeRoute {
   static ThemeRoute _fromState(GoRouterState state) => const ThemeRoute();
 
   String get location => GoRouteData.$location(
-        '/theme',
+        '/myPage/theme',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -279,41 +272,6 @@ extension $ThemeRouteExtension on ThemeRoute {
 
   void replace(BuildContext context) => context.replace(location);
 }
-
-RouteBase get $aboutAppRoute => GoRouteData.$route(
-      path: '/aboutApp',
-      factory: $AboutAppRouteExtension._fromState,
-    );
-
-RouteBase get $aboutDevRoute => GoRouteData.$route(
-      path: '/aboutDev',
-      factory: $AboutDevRouteExtension._fromState,
-    );
-
-RouteBase get $accountRoute => GoRouteData.$route(
-      path: '/account',
-      factory: $AccountRouteExtension._fromState,
-    );
-
-RouteBase get $aiFunctionsDetailRoute => GoRouteData.$route(
-      path: '/aiFunctionsDetail',
-      factory: $AiFunctionsDetailRouteExtension._fromState,
-    );
-
-RouteBase get $changeLanguagePageRoute => GoRouteData.$route(
-      path: '/changeLanguage',
-      factory: $ChangeLanguagePageRouteExtension._fromState,
-    );
-
-RouteBase get $termsofUsePrivacyPolicyRoute => GoRouteData.$route(
-      path: '/termsOfUsePrivacyPolicy',
-      factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
-    );
-
-RouteBase get $themeRoute => GoRouteData.$route(
-      path: '/theme',
-      factory: $ThemeRouteExtension._fromState,
-    );
 
 // **************************************************************************
 // RiverpodGenerator
