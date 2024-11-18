@@ -62,6 +62,8 @@ class _TranslationsAuthenticationJa implements TranslationsAuthenticationEn {
 
 	// Translations
 	@override late final _TranslationsAuthenticationSignInPageJa signInPage = _TranslationsAuthenticationSignInPageJa._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageJa resetPasswordPage = _TranslationsAuthenticationResetPasswordPageJa._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageJa completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageJa._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthJa firebaseAuth = _TranslationsAuthenticationFirebaseAuthJa._(_root);
 }
 
@@ -118,6 +120,32 @@ class _TranslationsAuthenticationSignInPageJa implements TranslationsAuthenticat
 	@override late final _TranslationsAuthenticationSignInPageButtonsJa buttons = _TranslationsAuthenticationSignInPageButtonsJa._(_root);
 }
 
+// Path: authentication.resetPasswordPage
+class _TranslationsAuthenticationResetPasswordPageJa implements TranslationsAuthenticationResetPasswordPageEn {
+	_TranslationsAuthenticationResetPasswordPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'パスワードのリセット';
+	@override String get description => '入力されたメールアドレスにパスワードリセットのメールを送信します';
+	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsJa textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsJa._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageButtonsJa buttons = _TranslationsAuthenticationResetPasswordPageButtonsJa._(_root);
+}
+
+// Path: authentication.completeSendEmailPage
+class _TranslationsAuthenticationCompleteSendEmailPageJa implements TranslationsAuthenticationCompleteSendEmailPageEn {
+	_TranslationsAuthenticationCompleteSendEmailPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '送信完了';
+	@override String description({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
+	@override String get successResendEmail => '確認メールを再送信しました';
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsJa buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(_root);
+}
+
 // Path: authentication.firebaseAuth
 class _TranslationsAuthenticationFirebaseAuthJa implements TranslationsAuthenticationFirebaseAuthEn {
 	_TranslationsAuthenticationFirebaseAuthJa._(this._root);
@@ -167,6 +195,38 @@ class _TranslationsAuthenticationSignInPageButtonsJa implements TranslationsAuth
 	@override String get signInAfter => '後で登録';
 }
 
+// Path: authentication.resetPasswordPage.textFields
+class _TranslationsAuthenticationResetPasswordPageTextFieldsJa implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	_TranslationsAuthenticationResetPasswordPageTextFieldsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get email => 'メールアドレス';
+}
+
+// Path: authentication.resetPasswordPage.buttons
+class _TranslationsAuthenticationResetPasswordPageButtonsJa implements TranslationsAuthenticationResetPasswordPageButtonsEn {
+	_TranslationsAuthenticationResetPasswordPageButtonsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '送信';
+}
+
+// Path: authentication.completeSendEmailPage.buttons
+class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	_TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get toSignIn => 'ログイン画面へ';
+	@override String get resendEmail => '確認メールを再送信';
+	@override String get changeEmail => 'メールアドレスの変更';
+}
+
 // Path: authentication.firebaseAuth.error
 class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuthenticationFirebaseAuthErrorEn {
 	_TranslationsAuthenticationFirebaseAuthErrorJa._(this._root);
@@ -201,6 +261,16 @@ extension on TranslationsJa {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Appleでログイン';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Googleでログイン';
 			case 'authentication.signInPage.buttons.signInAfter': return '後で登録';
+			case 'authentication.resetPasswordPage.title': return 'パスワードのリセット';
+			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
+			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
+			case 'authentication.resetPasswordPage.buttons.submit': return '送信';
+			case 'authentication.completeSendEmailPage.title': return '送信完了';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '確認メールを再送信しました';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'ログイン画面へ';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '確認メールを再送信';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'メールアドレスの変更';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '通信環境がいい所で再度やり直してください';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'パスワードが短すぎます。6文字以上を入力してください';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'メールアドレスの形式が正しくありません';

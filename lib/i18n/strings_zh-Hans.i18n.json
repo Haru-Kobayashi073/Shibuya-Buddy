@@ -33,6 +33,26 @@
                 "emailAlreadyInUse": "电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建",
                 "unexpected": "发生错误。请在良好的网络环境中重试"
             }
+        },
+        "resetPasswordPage": {
+            "title": "重置密码",
+            "description": "将向输入的电子邮件地址发送密码重置邮件",
+            "textFields": {
+                "email": "电子邮件地址"
+            },
+            "buttons": {
+                "submit": "发送"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "发送完成",
+            "description": "密码重置邮件已发送到${email} \n 重置后请从登录页面登录",
+            "successResendEmail": "确认邮件已重新发送",
+            "buttons": {
+                "toSignIn": "前往登录页面",
+                "resendEmail": "重新发送确认邮件",
+                "changeEmail": "更改电子邮件地址"
+            }
         }
     },
     "validation": {

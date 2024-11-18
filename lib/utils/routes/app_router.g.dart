@@ -148,6 +148,18 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
 RouteBase get $signInPageRouteData => GoRouteData.$route(
       path: '/signIn',
       factory: $SignInPageRouteDataExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'resetPassword',
+          factory: $ResetPasswordPageRouteDataExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'completeSendEmail',
+              factory: $CompleteSendEmailPageRouteDataExtension._fromState,
+            ),
+          ],
+        ),
+      ],
     );
 
 extension $SignInPageRouteDataExtension on SignInPageRouteData {
@@ -156,6 +168,48 @@ extension $SignInPageRouteDataExtension on SignInPageRouteData {
 
   String get location => GoRouteData.$location(
         '/signIn',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ResetPasswordPageRouteDataExtension on ResetPasswordPageRouteData {
+  static ResetPasswordPageRouteData _fromState(GoRouterState state) =>
+      const ResetPasswordPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/signIn/resetPassword',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $CompleteSendEmailPageRouteDataExtension
+    on CompleteSendEmailPageRouteData {
+  static CompleteSendEmailPageRouteData _fromState(GoRouterState state) =>
+      CompleteSendEmailPageRouteData(
+        email: state.uri.queryParameters['email']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/signIn/resetPassword/completeSendEmail',
+        queryParams: {
+          'email': email,
+        },
       );
 
   void go(BuildContext context) => context.go(location);

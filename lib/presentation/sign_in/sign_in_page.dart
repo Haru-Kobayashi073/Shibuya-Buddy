@@ -13,8 +13,8 @@ import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
+import '../components/simple_text_field.dart';
 import '../components/wide_button.dart';
-import 'components/simple_text_field.dart';
 import 'sign_in_page_notifier.dart';
 
 class SignInPage extends HookConsumerWidget {
@@ -31,6 +31,16 @@ class SignInPage extends HookConsumerWidget {
     final i18n = Translations.of(context);
     final i18nSignInPage = i18n.authentication.signInPage;
     final i18nLanguage = i18n.ChangeLanguagePage.items;
+
+    Future<void> onPressedSignInButton() async {
+      if (formKey.currentState!.validate()) {
+        await notifier.signInWithEmailAndPassword(
+          emailAddress: emailController.text,
+          password: passwordController.text,
+          onSuccess: () async => const HomeScreenRouteData().go(context),
+        );
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -110,16 +120,7 @@ class SignInPage extends HookConsumerWidget {
                     validator: Validator.password,
                     textInputAction: TextInputAction.done,
                     obscureText: hidePassword.value,
-                    onFieldSubmitted: (value) async {
-                      if (formKey.currentState!.validate()) {
-                        await notifier.signInWithEmailAndPassword(
-                          emailAddress: emailController.text,
-                          password: passwordController.text,
-                          onSuccess: () async =>
-                              const HomeScreenRouteData().go(context),
-                        );
-                      }
-                    },
+                    onFieldSubmitted: (_) async => onPressedSignInButton(),
                     label: i18nSignInPage.textFields.password,
                     icon: IconButton(
                       onPressed: () {
@@ -137,7 +138,8 @@ class SignInPage extends HookConsumerWidget {
                 const SliverGap(8),
                 SliverToBoxAdapter(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () async =>
+                        const ResetPasswordPageRouteData().push<void>(context),
                     child: Text(
                       i18nSignInPage.buttons.resetPassword,
                       style: AppTextStyle.textStyle.copyWith(
@@ -153,16 +155,7 @@ class SignInPage extends HookConsumerWidget {
                   child: WideButton(
                     label: i18nSignInPage.buttons.signIn,
                     color: AppColor.yellow600Primary,
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        await notifier.signInWithEmailAndPassword(
-                          emailAddress: emailController.text,
-                          password: passwordController.text,
-                          onSuccess: () async =>
-                              const HomeScreenRouteData().go(context),
-                        );
-                      }
-                    },
+                    onPressed: () async => onPressedSignInButton(),
                   ),
                 ),
                 const SliverGap(16),

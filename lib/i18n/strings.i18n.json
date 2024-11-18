@@ -33,6 +33,26 @@
                 "emailAlreadyInUse": "Email address is already in use. Please log in or create with another email address",
                 "unexpected": "An error occurred. Please try again in a good network environment"
             }
+        },
+        "resetPasswordPage": {
+            "title": "Reset Password",
+            "description": "A password reset email will be sent to the entered email address",
+            "textFields": {
+                "email": "Email Address"
+            },
+            "buttons": {
+                "submit": "Submit"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "Send Complete",
+            "description": "A password reset email has been sent to ${email} \n Please log in from the login screen after resetting",
+            "successResendEmail": "Confirmation email has been resent",
+            "buttons": {
+                "toSignIn": "To Login Screen",
+                "resendEmail": "Resend Confirmation Email",
+                "changeEmail": "Change Email Address"
+            }
         }
     },
     "validation": {

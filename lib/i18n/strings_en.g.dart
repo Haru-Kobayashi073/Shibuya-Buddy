@@ -67,6 +67,8 @@ class TranslationsAuthenticationEn {
 	// Translations
 	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
+	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
+	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
 }
 
 // Path: validation
@@ -132,6 +134,32 @@ class TranslationsAuthenticationFirebaseAuthEn {
 	late final TranslationsAuthenticationFirebaseAuthErrorEn error = TranslationsAuthenticationFirebaseAuthErrorEn._(_root);
 }
 
+// Path: authentication.resetPasswordPage
+class TranslationsAuthenticationResetPasswordPageEn {
+	TranslationsAuthenticationResetPasswordPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Reset Password';
+	String get description => 'A password reset email will be sent to the entered email address';
+	late final TranslationsAuthenticationResetPasswordPageTextFieldsEn textFields = TranslationsAuthenticationResetPasswordPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
+}
+
+// Path: authentication.completeSendEmailPage
+class TranslationsAuthenticationCompleteSendEmailPageEn {
+	TranslationsAuthenticationCompleteSendEmailPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Send Complete';
+	String description({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
+	String get successResendEmail => 'Confirmation email has been resent';
+	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
+}
+
 // Path: ChangeLanguagePage.items
 class TranslationsChangeLanguagePageItemsEn {
 	TranslationsChangeLanguagePageItemsEn._(this._root);
@@ -187,6 +215,38 @@ class TranslationsAuthenticationFirebaseAuthErrorEn {
 	String get unexpected => 'An error occurred. Please try again in a good network environment';
 }
 
+// Path: authentication.resetPasswordPage.textFields
+class TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	TranslationsAuthenticationResetPasswordPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get email => 'Email Address';
+}
+
+// Path: authentication.resetPasswordPage.buttons
+class TranslationsAuthenticationResetPasswordPageButtonsEn {
+	TranslationsAuthenticationResetPasswordPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submit => 'Submit';
+}
+
+// Path: authentication.completeSendEmailPage.buttons
+class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get toSignIn => 'To Login Screen';
+	String get resendEmail => 'Resend Confirmation Email';
+	String get changeEmail => 'Change Email Address';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -212,6 +272,16 @@ extension on Translations {
 			case 'authentication.firebaseAuth.error.wrongPassword': return 'Password is incorrect';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'Email address is already in use. Please log in or create with another email address';
 			case 'authentication.firebaseAuth.error.unexpected': return 'An error occurred. Please try again in a good network environment';
+			case 'authentication.resetPasswordPage.title': return 'Reset Password';
+			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
+			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
+			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
+			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
+			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'To Login Screen';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return 'Resend Confirmation Email';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'Change Email Address';
 			case 'validation.emailRequired': return 'Please enter your email address';
 			case 'validation.emailInvalid': return 'The email address format is incorrect';
 			case 'validation.passwordRequired': return 'Please enter your password';

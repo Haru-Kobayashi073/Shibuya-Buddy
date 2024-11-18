@@ -63,6 +63,8 @@ class _TranslationsAuthenticationZhHant implements TranslationsAuthenticationEn 
 	// Translations
 	@override late final _TranslationsAuthenticationSignInPageZhHant signInPage = _TranslationsAuthenticationSignInPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthZhHant firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHant._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageZhHant resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHant completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHant._(_root);
 }
 
 // Path: validation
@@ -128,6 +130,32 @@ class _TranslationsAuthenticationFirebaseAuthZhHant implements TranslationsAuthe
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorZhHant error = _TranslationsAuthenticationFirebaseAuthErrorZhHant._(_root);
 }
 
+// Path: authentication.resetPasswordPage
+class _TranslationsAuthenticationResetPasswordPageZhHant implements TranslationsAuthenticationResetPasswordPageEn {
+	_TranslationsAuthenticationResetPasswordPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重設密碼';
+	@override String get description => '將發送密碼重設郵件到輸入的電子郵件地址';
+	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHant textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsZhHant._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHant buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHant._(_root);
+}
+
+// Path: authentication.completeSendEmailPage
+class _TranslationsAuthenticationCompleteSendEmailPageZhHant implements TranslationsAuthenticationCompleteSendEmailPageEn {
+	_TranslationsAuthenticationCompleteSendEmailPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '發送完成';
+	@override String description({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
+	@override String get successResendEmail => '確認郵件已重新發送';
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(_root);
+}
+
 // Path: ChangeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHant._(this._root);
@@ -183,6 +211,38 @@ class _TranslationsAuthenticationFirebaseAuthErrorZhHant implements Translations
 	@override String get unexpected => '發生錯誤。請在良好的網絡環境中重試';
 }
 
+// Path: authentication.resetPasswordPage.textFields
+class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHant implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	_TranslationsAuthenticationResetPasswordPageTextFieldsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get email => '電子郵件地址';
+}
+
+// Path: authentication.resetPasswordPage.buttons
+class _TranslationsAuthenticationResetPasswordPageButtonsZhHant implements TranslationsAuthenticationResetPasswordPageButtonsEn {
+	_TranslationsAuthenticationResetPasswordPageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '發送';
+}
+
+// Path: authentication.completeSendEmailPage.buttons
+class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get toSignIn => '前往登入畫面';
+	@override String get resendEmail => '重新發送確認郵件';
+	@override String get changeEmail => '更改電子郵件地址';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHant {
@@ -208,6 +268,16 @@ extension on TranslationsZhHant {
 			case 'authentication.firebaseAuth.error.wrongPassword': return '密碼錯誤';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
 			case 'authentication.firebaseAuth.error.unexpected': return '發生錯誤。請在良好的網絡環境中重試';
+			case 'authentication.resetPasswordPage.title': return '重設密碼';
+			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';
+			case 'authentication.resetPasswordPage.textFields.email': return '電子郵件地址';
+			case 'authentication.resetPasswordPage.buttons.submit': return '發送';
+			case 'authentication.completeSendEmailPage.title': return '發送完成';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '確認郵件已重新發送';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登入畫面';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新發送確認郵件';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改電子郵件地址';
 			case 'validation.emailRequired': return '請輸入電子郵件地址';
 			case 'validation.emailInvalid': return '電子郵件地址格式不正確';
 			case 'validation.passwordRequired': return '請輸入密碼';
