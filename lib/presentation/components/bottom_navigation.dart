@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 import '../../i18n/strings.g.dart';
 
-class BottomNavigation extends ConsumerWidget {
+class BottomNavigation extends StatelessWidget {
   const BottomNavigation({
     super.key,
     required this.navigationShell,
@@ -14,7 +13,7 @@ class BottomNavigation extends ConsumerWidget {
   final StatefulNavigationShell navigationShell;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final i18n = Translations.of(context);
     final navigationBarItemi18n = i18n.navigationBar.items;
 

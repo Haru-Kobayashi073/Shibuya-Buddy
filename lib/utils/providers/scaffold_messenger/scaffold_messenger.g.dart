@@ -24,7 +24,7 @@ final scaffoldMessengerKeyProvider =
 
 typedef ScaffoldMessengerKeyRef
     = ProviderRef<GlobalKey<ScaffoldMessengerState>>;
-String _$scaffoldMessengerHash() => r'9b70109f635243e78a31540ef6bb0a5db0225441';
+String _$scaffoldMessengerHash() => r'1c1bf4590526c1017dc73d84f962d0a4a5a897e7';
 
 /// See also [ScaffoldMessenger].
 @ProviderFor(ScaffoldMessenger)

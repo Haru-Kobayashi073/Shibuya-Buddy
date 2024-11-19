@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final isShowLoadingOverlayProvider = StateProvider.autoDispose((ref) => false);
 
-class LoadingOverlay extends HookConsumerWidget {
+class LoadingOverlay extends ConsumerWidget {
   const LoadingOverlay({
     super.key,
     this.backgroundColor = Colors.black26,

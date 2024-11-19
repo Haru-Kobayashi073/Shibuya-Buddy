@@ -12,7 +12,10 @@ import '../components/wide_button.dart';
 import '../reset_password/reset_password_page_notifier.dart';
 
 class CompleteSendEmailPage extends ConsumerWidget {
-  const CompleteSendEmailPage({super.key, required this.email});
+  const CompleteSendEmailPage({
+    super.key,
+    required this.email,
+  });
   final String email;
 
   @override
