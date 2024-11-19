@@ -24,7 +24,7 @@ class RecentPlansSection extends StatelessWidget {
             children: List.generate(
               3,
               (index) => const RecentPlan(
-                label: '宮下公園でピクニック',
+                title: '宮下公園でピクニック',
               ),
             ),
           ),
