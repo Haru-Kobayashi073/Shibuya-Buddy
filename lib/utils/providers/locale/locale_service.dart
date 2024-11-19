@@ -42,27 +42,27 @@ class LocaleService extends _$LocaleService {
 
   AppLocale getLocaleFromString(String text) {
     final context = rootNavigatorKey.currentContext!;
-    final i18nLanguage = Translations.of(context).ChangeLanguagePage.items;
+    final i18nLanguage = Translations.of(context).changeLanguagePage.items;
 
     // 対応言語を追加する場合はここに追加する
     return switch (null) {
       _ when i18nLanguage.english == text => AppLocale.en,
       _ when i18nLanguage.japanese == text => AppLocale.ja,
-      _ when i18nLanguage.chinese_simplified == text => AppLocale.zhHans,
-      _ when i18nLanguage.chinese_traditional == text => AppLocale.zhHant,
+      _ when i18nLanguage.simplifiedChinese == text => AppLocale.zhHans,
+      _ when i18nLanguage.traditionalChinese == text => AppLocale.zhHant,
       _ => AppLocale.en,
     };
   }
 
   String getTranslationLocale() {
     final context = rootNavigatorKey.currentContext!;
-    final i18nLanguage = Translations.of(context).ChangeLanguagePage.items;
+    final i18nLanguage = Translations.of(context).changeLanguagePage.items;
 
     return switch (state) {
       AppLocale.en => i18nLanguage.english,
       AppLocale.ja => i18nLanguage.japanese,
-      AppLocale.zhHans => i18nLanguage.chinese_simplified,
-      AppLocale.zhHant => i18nLanguage.chinese_traditional,
+      AppLocale.zhHans => i18nLanguage.simplifiedChinese,
+      AppLocale.zhHant => i18nLanguage.traditionalChinese,
     };
   }
 }

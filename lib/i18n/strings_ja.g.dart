@@ -33,12 +33,13 @@ class TranslationsJa implements Translations {
 	late final TranslationsJa _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsNavigationBarJa NavigationBar = _TranslationsNavigationBarJa._(_root);
+	@override late final _TranslationsNavigationBarJa navigationBar = _TranslationsNavigationBarJa._(_root);
+	@override late final _TranslationsHomePageJa homePage = _TranslationsHomePageJa._(_root);
 	@override late final _TranslationsAuthenticationJa authentication = _TranslationsAuthenticationJa._(_root);
 	@override late final _TranslationsValidationJa validation = _TranslationsValidationJa._(_root);
-	@override late final _TranslationsMyPageJa MyPage = _TranslationsMyPageJa._(_root);
-	@override late final _TranslationsChangeLanguagePageJa ChangeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
-	@override late final _TranslationsMyplanJa Myplan = _TranslationsMyplanJa._(_root);
+	@override late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
+	@override late final _TranslationsChangeLanguagePageJa changeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
+	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -46,7 +47,7 @@ class TranslationsJa implements Translations {
 	};
 }
 
-// Path: NavigationBar
+// Path: navigationBar
 class _TranslationsNavigationBarJa implements TranslationsNavigationBarEn {
 	_TranslationsNavigationBarJa._(this._root);
 
@@ -54,6 +55,18 @@ class _TranslationsNavigationBarJa implements TranslationsNavigationBarEn {
 
 	// Translations
 	@override late final _TranslationsNavigationBarItemsJa items = _TranslationsNavigationBarItemsJa._(_root);
+}
+
+// Path: homePage
+class _TranslationsHomePageJa implements TranslationsHomePageEn {
+	_TranslationsHomePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansJa popularPlans = _TranslationsHomePagePopularPlansJa._(_root);
+	@override late final _TranslationsHomePagePopularTopicsJa popularTopics = _TranslationsHomePagePopularTopicsJa._(_root);
+	@override late final _TranslationsHomePageRecentPlansJa recentPlans = _TranslationsHomePageRecentPlansJa._(_root);
 }
 
 // Path: authentication
@@ -86,7 +99,7 @@ class _TranslationsValidationJa implements TranslationsValidationEn {
 	@override String get urlInvalid => 'URLの形式が正しくありません';
 }
 
-// Path: MyPage
+// Path: myPage
 class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	_TranslationsMyPageJa._(this._root);
 
@@ -98,13 +111,13 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	@override String get settings => '設定';
 	@override String get account => 'アカウント';
 	@override String get language => '言語';
-	@override String get themes => 'テーマ';
-	@override String get termsofUsePrivacyPolicy => '利用規約・プライバシーポリシー';
+	@override String get theme => 'テーマ';
+	@override String get termsOfUsePrivacyPolicy => '利用規約・プライバシーポリシー';
 	@override String get aboutThisApp => 'このアプリについて';
 	@override String get aboutTheDeveloper => '開発者について';
 }
 
-// Path: ChangeLanguagePage
+// Path: changeLanguagePage
 class _TranslationsChangeLanguagePageJa implements TranslationsChangeLanguagePageEn {
 	_TranslationsChangeLanguagePageJa._(this._root);
 
@@ -115,18 +128,18 @@ class _TranslationsChangeLanguagePageJa implements TranslationsChangeLanguagePag
 	@override late final _TranslationsChangeLanguagePageItemsJa items = _TranslationsChangeLanguagePageItemsJa._(_root);
 }
 
-// Path: Myplan
-class _TranslationsMyplanJa implements TranslationsMyplanEn {
-	_TranslationsMyplanJa._(this._root);
+// Path: myPlanPage
+class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
+	_TranslationsMyPlanPageJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'マイプラン';
-	@override late final _TranslationsMyplanTabsJa tabs = _TranslationsMyplanTabsJa._(_root);
+	@override late final _TranslationsMyPlanPageTabsJa tabs = _TranslationsMyPlanPageTabsJa._(_root);
 }
 
-// Path: NavigationBar.items
+// Path: navigationBar.items
 class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsJa._(this._root);
 
@@ -136,6 +149,37 @@ class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItem
 	@override String get home => 'ホーム';
 	@override String get myPlan => 'マイプラン';
 	@override String get myPage => 'マイページ';
+}
+
+// Path: homePage.popularPlans
+class _TranslationsHomePagePopularPlansJa implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '人気のプラン';
+}
+
+// Path: homePage.popularTopics
+class _TranslationsHomePagePopularTopicsJa implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '人気のトピック';
+	@override String numberOfTopics({required Object number}) => '${number}件~';
+}
+
+// Path: homePage.recentPlans
+class _TranslationsHomePageRecentPlansJa implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '最近作成したプラン';
 }
 
 // Path: authentication.signInPage
@@ -187,7 +231,7 @@ class _TranslationsAuthenticationFirebaseAuthJa implements TranslationsAuthentic
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorJa error = _TranslationsAuthenticationFirebaseAuthErrorJa._(_root);
 }
 
-// Path: ChangeLanguagePage.items
+// Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsJa._(this._root);
 
@@ -196,18 +240,18 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 	// Translations
 	@override String get japanese => '日本語';
 	@override String get english => '英語';
-	@override String get chinese_simplified => '中国語（簡体字）';
-	@override String get chinese_traditional => '中国語（繁体字）';
+	@override String get simplifiedChinese => '中国語（簡体字）';
+	@override String get traditionalChinese => '中国語（繁体字）';
 }
 
-// Path: Myplan.tabs
-class _TranslationsMyplanTabsJa implements TranslationsMyplanTabsEn {
-	_TranslationsMyplanTabsJa._(this._root);
+// Path: myPlanPage.tabs
+class _TranslationsMyPlanPageTabsJa implements TranslationsMyPlanPageTabsEn {
+	_TranslationsMyPlanPageTabsJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get created_plans => '作成したプラン';
+	@override String get createdPlans => '作成したプラン';
 	@override String get bookmark => 'ブックマーク';
 }
 
@@ -290,9 +334,13 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 extension on TranslationsJa {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'NavigationBar.items.home': return 'ホーム';
-			case 'NavigationBar.items.myPlan': return 'マイプラン';
-			case 'NavigationBar.items.myPage': return 'マイページ';
+			case 'navigationBar.items.home': return 'ホーム';
+			case 'navigationBar.items.myPlan': return 'マイプラン';
+			case 'navigationBar.items.myPage': return 'マイページ';
+			case 'homePage.popularPlans.title': return '人気のプラン';
+			case 'homePage.popularTopics.title': return '人気のトピック';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近作成したプラン';
 			case 'authentication.signInPage.title': return 'ログイン';
 			case 'authentication.signInPage.optionText': return ' または ';
 			case 'authentication.signInPage.textFields.email': return 'メールアドレス';
@@ -328,23 +376,23 @@ extension on TranslationsJa {
 			case 'validation.passwordMatch': return 'パスワードが一致しません';
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
-			case 'MyPage.aboutAIFunction': return 'AIの機能について';
-			case 'MyPage.details': return '詳細';
-			case 'MyPage.settings': return '設定';
-			case 'MyPage.account': return 'アカウント';
-			case 'MyPage.language': return '言語';
-			case 'MyPage.themes': return 'テーマ';
-			case 'MyPage.termsofUsePrivacyPolicy': return '利用規約・プライバシーポリシー';
-			case 'MyPage.aboutThisApp': return 'このアプリについて';
-			case 'MyPage.aboutTheDeveloper': return '開発者について';
-			case 'ChangeLanguagePage.title': return '言語';
-			case 'ChangeLanguagePage.items.japanese': return '日本語';
-			case 'ChangeLanguagePage.items.english': return '英語';
-			case 'ChangeLanguagePage.items.chinese_simplified': return '中国語（簡体字）';
-			case 'ChangeLanguagePage.items.chinese_traditional': return '中国語（繁体字）';
-			case 'Myplan.title': return 'マイプラン';
-			case 'Myplan.tabs.created_plans': return '作成したプラン';
-			case 'Myplan.tabs.bookmark': return 'ブックマーク';
+			case 'myPage.aboutAIFunction': return 'AIの機能について';
+			case 'myPage.details': return '詳細';
+			case 'myPage.settings': return '設定';
+			case 'myPage.account': return 'アカウント';
+			case 'myPage.language': return '言語';
+			case 'myPage.theme': return 'テーマ';
+			case 'myPage.termsOfUsePrivacyPolicy': return '利用規約・プライバシーポリシー';
+			case 'myPage.aboutThisApp': return 'このアプリについて';
+			case 'myPage.aboutTheDeveloper': return '開発者について';
+			case 'changeLanguagePage.title': return '言語';
+			case 'changeLanguagePage.items.japanese': return '日本語';
+			case 'changeLanguagePage.items.english': return '英語';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
+			case 'myPlanPage.title': return 'マイプラン';
+			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
+			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

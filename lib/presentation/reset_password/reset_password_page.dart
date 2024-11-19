@@ -23,6 +23,19 @@ class ResetPasswordPage extends HookConsumerWidget {
     final i18n = Translations.of(context);
     final i18nResetPasswordPage = i18n.authentication.resetPasswordPage;
 
+    Future<void> sendResetPasswordEmail() async {
+      if (formKey.currentState!.validate()) {
+        await notifier.sendPasswordResetEmail(
+          email: controller.text,
+          onSuccess: () async {
+            await CompleteSendEmailPageRouteData(
+              email: controller.text,
+            ).push<void>(context);
+          },
+        );
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.white,
@@ -59,36 +72,14 @@ class ResetPasswordPage extends HookConsumerWidget {
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.done,
                 validator: Validator.email,
-                onFieldSubmitted: (value) async {
-                  if (formKey.currentState!.validate()) {
-                    await notifier.sendPasswordResetEmail(
-                      email: controller.text,
-                      onSuccess: () async {
-                        await CompleteSendEmailPageRouteData(
-                          email: controller.text,
-                        ).push<void>(context);
-                      },
-                    );
-                  }
-                },
+                onFieldSubmitted: (_) async => sendResetPasswordEmail(),
                 label: i18nResetPasswordPage.textFields.email,
               ),
               const SizedBox(height: 24),
               WideButton(
                 label: i18nResetPasswordPage.buttons.submit,
                 color: AppColor.yellow600Primary,
-                onPressed: () async {
-                  if (formKey.currentState!.validate()) {
-                    await notifier.sendPasswordResetEmail(
-                      email: controller.text,
-                      onSuccess: () async {
-                        await CompleteSendEmailPageRouteData(
-                          email: controller.text,
-                        ).push<void>(context);
-                      },
-                    );
-                  }
-                },
+                onPressed: () async => sendResetPasswordEmail(),
               ),
             ],
           ),

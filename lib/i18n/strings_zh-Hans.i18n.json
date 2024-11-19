@@ -1,9 +1,21 @@
 {
-    "NavigationBar": {
+    "navigationBar": {
         "items": {
             "home": "首页",
             "myPlan": "我的计划",
             "myPage": "我的页面"
+        }
+    },
+    "homePage": {
+        "popularPlans": {
+            "title": "热门计划"
+        },
+        "popularTopics": {
+            "title": "热门话题",
+            "numberOfTopics": "${number}件~"
+        },
+        "recentPlans": {
+            "title": "最近创建的计划"
         }
     },
     "authentication": {
@@ -65,30 +77,30 @@
         "informationRequired": "请输入信息",
         "urlInvalid": "URL格式不正确"
     },
-    "MyPage": {
+    "myPage": {
         "aboutAIFunction": "关于AI功能",
         "details": "详细",
         "settings": "设置",
         "account": "账户",
         "language": "语言",
-        "themes": "主题",
-        "termsofUsePrivacyPolicy": "使用条款和隐私政策",
+        "theme": "主题",
+        "termsOfUsePrivacyPolicy": "使用条款和隐私政策",
         "aboutThisApp": "关于本应用",
         "aboutTheDeveloper": "关于开发者"
     },
-    "ChangeLanguagePage": {
+    "changeLanguagePage": {
         "title": "语言",
         "items": {
             "japanese": "日本人",
             "english": "英语",
-            "chinese_simplified": "中文（简体）",
-            "chinese_traditional": "中文（繁体）"
+            "simplifiedChinese": "中文（简体）",
+            "traditionalChinese": "中文（繁体）"
         }
     },
-    "Myplan": {
+    "myPlanPage": {
         "title": "我的计划",
         "tabs": {
-            "created_plans": "已创建的计划",
+            "createdPlans": "已创建的计划",
             "bookmark": "收藏夹"
         }
     },

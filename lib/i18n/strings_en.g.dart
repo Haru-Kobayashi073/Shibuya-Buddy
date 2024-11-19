@@ -37,12 +37,13 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
-	late final TranslationsNavigationBarEn NavigationBar = TranslationsNavigationBarEn._(_root);
+	late final TranslationsNavigationBarEn navigationBar = TranslationsNavigationBarEn._(_root);
+	late final TranslationsHomePageEn homePage = TranslationsHomePageEn._(_root);
 	late final TranslationsAuthenticationEn authentication = TranslationsAuthenticationEn._(_root);
 	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
-	late final TranslationsMyPageEn MyPage = TranslationsMyPageEn._(_root);
-	late final TranslationsChangeLanguagePageEn ChangeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
-	late final TranslationsMyplanEn Myplan = TranslationsMyplanEn._(_root);
+	late final TranslationsMyPageEn myPage = TranslationsMyPageEn._(_root);
+	late final TranslationsChangeLanguagePageEn changeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
+	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -50,7 +51,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	};
 }
 
-// Path: NavigationBar
+// Path: navigationBar
 class TranslationsNavigationBarEn {
 	TranslationsNavigationBarEn._(this._root);
 
@@ -58,6 +59,18 @@ class TranslationsNavigationBarEn {
 
 	// Translations
 	late final TranslationsNavigationBarItemsEn items = TranslationsNavigationBarItemsEn._(_root);
+}
+
+// Path: homePage
+class TranslationsHomePageEn {
+	TranslationsHomePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsHomePagePopularPlansEn popularPlans = TranslationsHomePagePopularPlansEn._(_root);
+	late final TranslationsHomePagePopularTopicsEn popularTopics = TranslationsHomePagePopularTopicsEn._(_root);
+	late final TranslationsHomePageRecentPlansEn recentPlans = TranslationsHomePageRecentPlansEn._(_root);
 }
 
 // Path: authentication
@@ -90,7 +103,7 @@ class TranslationsValidationEn {
 	String get urlInvalid => 'The URL format is incorrect';
 }
 
-// Path: MyPage
+// Path: myPage
 class TranslationsMyPageEn {
 	TranslationsMyPageEn._(this._root);
 
@@ -102,13 +115,13 @@ class TranslationsMyPageEn {
 	String get settings => 'Settings';
 	String get account => 'Account';
 	String get language => 'Language';
-	String get themes => 'Theme';
-	String get termsofUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
+	String get theme => 'Theme';
+	String get termsOfUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
 	String get aboutThisApp => 'About This App';
 	String get aboutTheDeveloper => 'About the Developer';
 }
 
-// Path: ChangeLanguagePage
+// Path: changeLanguagePage
 class TranslationsChangeLanguagePageEn {
 	TranslationsChangeLanguagePageEn._(this._root);
 
@@ -119,18 +132,18 @@ class TranslationsChangeLanguagePageEn {
 	late final TranslationsChangeLanguagePageItemsEn items = TranslationsChangeLanguagePageItemsEn._(_root);
 }
 
-// Path: Myplan
-class TranslationsMyplanEn {
-	TranslationsMyplanEn._(this._root);
+// Path: myPlanPage
+class TranslationsMyPlanPageEn {
+	TranslationsMyPlanPageEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => 'My Plans';
-	late final TranslationsMyplanTabsEn tabs = TranslationsMyplanTabsEn._(_root);
+	late final TranslationsMyPlanPageTabsEn tabs = TranslationsMyPlanPageTabsEn._(_root);
 }
 
-// Path: NavigationBar.items
+// Path: navigationBar.items
 class TranslationsNavigationBarItemsEn {
 	TranslationsNavigationBarItemsEn._(this._root);
 
@@ -140,6 +153,37 @@ class TranslationsNavigationBarItemsEn {
 	String get home => 'Home';
 	String get myPlan => 'My Plan';
 	String get myPage => 'My Page';
+}
+
+// Path: homePage.popularPlans
+class TranslationsHomePagePopularPlansEn {
+	TranslationsHomePagePopularPlansEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Popular Plans';
+}
+
+// Path: homePage.popularTopics
+class TranslationsHomePagePopularTopicsEn {
+	TranslationsHomePagePopularTopicsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Popular Topics';
+	String numberOfTopics({required Object number}) => '${number} items~';
+}
+
+// Path: homePage.recentPlans
+class TranslationsHomePageRecentPlansEn {
+	TranslationsHomePageRecentPlansEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Recently Created Plans';
 }
 
 // Path: authentication.signInPage
@@ -191,7 +235,7 @@ class TranslationsAuthenticationCompleteSendEmailPageEn {
 	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
 }
 
-// Path: ChangeLanguagePage.items
+// Path: changeLanguagePage.items
 class TranslationsChangeLanguagePageItemsEn {
 	TranslationsChangeLanguagePageItemsEn._(this._root);
 
@@ -200,18 +244,18 @@ class TranslationsChangeLanguagePageItemsEn {
 	// Translations
 	String get japanese => 'Japanese';
 	String get english => 'English';
-	String get chinese_simplified => 'Chinese (Simplified)';
-	String get chinese_traditional => 'Chinese (Traditional)';
+	String get simplifiedChinese => 'Chinese (Simplified)';
+	String get traditionalChinese => 'Chinese (Traditional)';
 }
 
-// Path: Myplan.tabs
-class TranslationsMyplanTabsEn {
-	TranslationsMyplanTabsEn._(this._root);
+// Path: myPlanPage.tabs
+class TranslationsMyPlanPageTabsEn {
+	TranslationsMyPlanPageTabsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get created_plans => 'Created Plans';
+	String get createdPlans => 'Created Plans';
 	String get bookmark => 'Bookmarks';
 }
 
@@ -294,9 +338,13 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'NavigationBar.items.home': return 'Home';
-			case 'NavigationBar.items.myPlan': return 'My Plan';
-			case 'NavigationBar.items.myPage': return 'My Page';
+			case 'navigationBar.items.home': return 'Home';
+			case 'navigationBar.items.myPlan': return 'My Plan';
+			case 'navigationBar.items.myPage': return 'My Page';
+			case 'homePage.popularPlans.title': return 'Popular Plans';
+			case 'homePage.popularTopics.title': return 'Popular Topics';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number} items~';
+			case 'homePage.recentPlans.title': return 'Recently Created Plans';
 			case 'authentication.signInPage.title': return 'Sign In';
 			case 'authentication.signInPage.optionText': return ' or ';
 			case 'authentication.signInPage.textFields.email': return 'Email Address';
@@ -332,23 +380,23 @@ extension on Translations {
 			case 'validation.passwordMatch': return 'Passwords do not match';
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
-			case 'MyPage.aboutAIFunction': return 'About AI Features';
-			case 'MyPage.details': return 'Details';
-			case 'MyPage.settings': return 'Settings';
-			case 'MyPage.account': return 'Account';
-			case 'MyPage.language': return 'Language';
-			case 'MyPage.themes': return 'Theme';
-			case 'MyPage.termsofUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
-			case 'MyPage.aboutThisApp': return 'About This App';
-			case 'MyPage.aboutTheDeveloper': return 'About the Developer';
-			case 'ChangeLanguagePage.title': return 'Language';
-			case 'ChangeLanguagePage.items.japanese': return 'Japanese';
-			case 'ChangeLanguagePage.items.english': return 'English';
-			case 'ChangeLanguagePage.items.chinese_simplified': return 'Chinese (Simplified)';
-			case 'ChangeLanguagePage.items.chinese_traditional': return 'Chinese (Traditional)';
-			case 'Myplan.title': return 'My Plans';
-			case 'Myplan.tabs.created_plans': return 'Created Plans';
-			case 'Myplan.tabs.bookmark': return 'Bookmarks';
+			case 'myPage.aboutAIFunction': return 'About AI Features';
+			case 'myPage.details': return 'Details';
+			case 'myPage.settings': return 'Settings';
+			case 'myPage.account': return 'Account';
+			case 'myPage.language': return 'Language';
+			case 'myPage.theme': return 'Theme';
+			case 'myPage.termsOfUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
+			case 'myPage.aboutThisApp': return 'About This App';
+			case 'myPage.aboutTheDeveloper': return 'About the Developer';
+			case 'changeLanguagePage.title': return 'Language';
+			case 'changeLanguagePage.items.japanese': return 'Japanese';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
+			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
+			case 'myPlanPage.title': return 'My Plans';
+			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
+			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

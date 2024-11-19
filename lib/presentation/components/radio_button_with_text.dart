@@ -20,7 +20,7 @@ import '../../utils/styles/app_text_style.dart';
 ///      },
 ///    ),
 /// ```
-class RadioButtonWithText<T> extends StatefulWidget {
+class RadioButtonWithText<T> extends StatelessWidget {
   const RadioButtonWithText({
     super.key,
     required this.title,
@@ -32,29 +32,31 @@ class RadioButtonWithText<T> extends StatefulWidget {
   final String title;
   final T value;
   final T groupValue;
-  final void Function(T?) onChanged;
+  final void Function(T) onChanged;
 
-  @override
-  State<RadioButtonWithText<T>> createState() => _RadiobuttonTextState<T>();
-}
-
-class _RadiobuttonTextState<T> extends State<RadioButtonWithText<T>> {
   @override
   Widget build(BuildContext context) {
     return RadioListTile<T>(
-      activeColor: AppColor.yellow600Primary,
+      fillColor: WidgetStateProperty.resolveWith(
+        (states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColor.yellow600Primary;
+          }
+          return AppColor.grey600;
+        },
+      ),
       title: Text(
-        widget.title,
+        title,
         style: AppTextStyle.textStyle.copyWith(
           fontSize: 16,
           fontWeight: FontWeight.w600,
         ),
       ),
-      value: widget.value,
-      groupValue: widget.groupValue,
+      value: value,
+      groupValue: groupValue,
       onChanged: (selectedValue) {
         if (selectedValue != null) {
-          widget.onChanged(selectedValue);
+          onChanged(selectedValue);
         }
       },
     );

@@ -1,9 +1,21 @@
 {
-    "NavigationBar": {
+    "navigationBar": {
         "items": {
             "home": "Home",
             "myPlan": "My Plan",
             "myPage": "My Page"
+        }
+    },
+    "homePage": {
+        "popularPlans": {
+            "title": "Popular Plans"
+        },
+        "popularTopics": {
+            "title": "Popular Topics",
+            "numberOfTopics": "${number} items~"
+        },
+        "recentPlans": {
+            "title": "Recently Created Plans"
         }
     },
     "authentication": {
@@ -65,30 +77,30 @@
         "informationRequired": "Please enter the information",
         "urlInvalid": "The URL format is incorrect"
     },
-    "MyPage": {
+    "myPage": {
         "aboutAIFunction": "About AI Features",
         "details": "Details",
         "settings": "Settings",
         "account": "Account",
         "language": "Language",
-        "themes": "Theme",
-        "termsofUsePrivacyPolicy": "Terms of Use & Privacy Policy",
+        "theme": "Theme",
+        "termsOfUsePrivacyPolicy": "Terms of Use & Privacy Policy",
         "aboutThisApp": "About This App",
         "aboutTheDeveloper": "About the Developer"
     },
-    "ChangeLanguagePage": {
+    "changeLanguagePage": {
         "title": "Language",
         "items": {
             "japanese": "Japanese",
             "english": "English",
-            "chinese_simplified": "Chinese (Simplified)",
-            "chinese_traditional": "Chinese (Traditional)"
+            "simplifiedChinese": "Chinese (Simplified)",
+            "traditionalChinese": "Chinese (Traditional)"
         }
     },
-    "Myplan": {
+    "myPlanPage": {
         "title": "My Plans",
         "tabs": {
-            "created_plans": "Created Plans",
+            "createdPlans": "Created Plans",
             "bookmark": "Bookmarks"
         }
     },
