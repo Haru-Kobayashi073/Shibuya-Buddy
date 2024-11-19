@@ -9,20 +9,25 @@ class RecentPlansSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          SectionTitle(
-            label: '最近作成したプラン',
-            fontsize: 20,
-            onPressed: () {},
-            iconSize: 20,
-          ),
           const SizedBox(height: 16),
-          const RecentPlan(label: '宮下パークへようこそ'),
-          const RecentPlan(label: '宮下パークへようこそ'),
-          const RecentPlan(label: '宮下パークへようこそ'),
+          SectionTitle.medium(
+            label: '最近作成したプラン',
+            onPressed: () {},
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            direction: Axis.vertical,
+            spacing: 8,
+            children: List.generate(
+              3,
+              (index) => const RecentPlan(
+                label: '宮下公園でピクニック',
+              ),
+            ),
+          ),
         ],
       ),
     );
