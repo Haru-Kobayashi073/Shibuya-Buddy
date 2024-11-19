@@ -19,7 +19,7 @@ import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
-import '../../presentation/termsofuse_privacypolicy/termsofuse_privacypolicy.dart';
+import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
 import 'routes.dart';
 
@@ -266,7 +266,7 @@ class TermsofUsePrivacyPolicyRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const TermsofUsePrivacyPolicy();
+    return const TermsOfUsePrivacyPolicyPage();
   }
 }
 
