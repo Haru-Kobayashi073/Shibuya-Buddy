@@ -36,7 +36,7 @@ class PopularTopics extends StatelessWidget {
             label: '人気のトピック',
             onPressed: () {},
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Wrap(
