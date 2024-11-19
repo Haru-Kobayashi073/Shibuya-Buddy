@@ -6,6 +6,18 @@
             "myPage": "My Page"
         }
     },
+    "homePage": {
+        "popularPlans": {
+            "title": "Popular Plans"
+        },
+        "popularTopics": {
+            "title": "Popular Topics",
+            "numberOfTopics": "${number} items~"
+        },
+        "recentPlans": {
+            "title": "Recently Created Plans"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "Sign In",

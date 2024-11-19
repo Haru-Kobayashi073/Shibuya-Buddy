@@ -6,6 +6,18 @@
             "myPage": "我的页面"
         }
     },
+    "homePage": {
+        "popularPlans": {
+            "title": "热门计划"
+        },
+        "popularTopics": {
+            "title": "热门话题",
+            "numberOfTopics": "${number}件~"
+        },
+        "recentPlans": {
+            "title": "最近创建的计划"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "登录",

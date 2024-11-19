@@ -34,6 +34,7 @@ class TranslationsJa implements Translations {
 
 	// Translations
 	@override late final _TranslationsNavigationBarJa navigationBar = _TranslationsNavigationBarJa._(_root);
+	@override late final _TranslationsHomePageJa homePage = _TranslationsHomePageJa._(_root);
 	@override late final _TranslationsAuthenticationJa authentication = _TranslationsAuthenticationJa._(_root);
 	@override late final _TranslationsValidationJa validation = _TranslationsValidationJa._(_root);
 	@override late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
@@ -54,6 +55,18 @@ class _TranslationsNavigationBarJa implements TranslationsNavigationBarEn {
 
 	// Translations
 	@override late final _TranslationsNavigationBarItemsJa items = _TranslationsNavigationBarItemsJa._(_root);
+}
+
+// Path: homePage
+class _TranslationsHomePageJa implements TranslationsHomePageEn {
+	_TranslationsHomePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansJa popularPlans = _TranslationsHomePagePopularPlansJa._(_root);
+	@override late final _TranslationsHomePagePopularTopicsJa popularTopics = _TranslationsHomePagePopularTopicsJa._(_root);
+	@override late final _TranslationsHomePageRecentPlansJa recentPlans = _TranslationsHomePageRecentPlansJa._(_root);
 }
 
 // Path: authentication
@@ -136,6 +149,37 @@ class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItem
 	@override String get home => 'ホーム';
 	@override String get myPlan => 'マイプラン';
 	@override String get myPage => 'マイページ';
+}
+
+// Path: homePage.popularPlans
+class _TranslationsHomePagePopularPlansJa implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '人気のプラン';
+}
+
+// Path: homePage.popularTopics
+class _TranslationsHomePagePopularTopicsJa implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '人気のトピック';
+	@override String numberOfTopics({required Object number}) => '${number}件~';
+}
+
+// Path: homePage.recentPlans
+class _TranslationsHomePageRecentPlansJa implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '最近作成したプラン';
 }
 
 // Path: authentication.signInPage
@@ -293,6 +337,10 @@ extension on TranslationsJa {
 			case 'navigationBar.items.home': return 'ホーム';
 			case 'navigationBar.items.myPlan': return 'マイプラン';
 			case 'navigationBar.items.myPage': return 'マイページ';
+			case 'homePage.popularPlans.title': return '人気のプラン';
+			case 'homePage.popularTopics.title': return '人気のトピック';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近作成したプラン';
 			case 'authentication.signInPage.title': return 'ログイン';
 			case 'authentication.signInPage.optionText': return ' または ';
 			case 'authentication.signInPage.textFields.email': return 'メールアドレス';

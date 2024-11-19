@@ -34,6 +34,7 @@ class TranslationsZhHans implements Translations {
 
 	// Translations
 	@override late final _TranslationsNavigationBarZhHans navigationBar = _TranslationsNavigationBarZhHans._(_root);
+	@override late final _TranslationsHomePageZhHans homePage = _TranslationsHomePageZhHans._(_root);
 	@override late final _TranslationsAuthenticationZhHans authentication = _TranslationsAuthenticationZhHans._(_root);
 	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
 	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
@@ -54,6 +55,18 @@ class _TranslationsNavigationBarZhHans implements TranslationsNavigationBarEn {
 
 	// Translations
 	@override late final _TranslationsNavigationBarItemsZhHans items = _TranslationsNavigationBarItemsZhHans._(_root);
+}
+
+// Path: homePage
+class _TranslationsHomePageZhHans implements TranslationsHomePageEn {
+	_TranslationsHomePageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansZhHans popularPlans = _TranslationsHomePagePopularPlansZhHans._(_root);
+	@override late final _TranslationsHomePagePopularTopicsZhHans popularTopics = _TranslationsHomePagePopularTopicsZhHans._(_root);
+	@override late final _TranslationsHomePageRecentPlansZhHans recentPlans = _TranslationsHomePageRecentPlansZhHans._(_root);
 }
 
 // Path: authentication
@@ -136,6 +149,37 @@ class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBar
 	@override String get home => '首页';
 	@override String get myPlan => '我的计划';
 	@override String get myPage => '我的页面';
+}
+
+// Path: homePage.popularPlans
+class _TranslationsHomePagePopularPlansZhHans implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '热门计划';
+}
+
+// Path: homePage.popularTopics
+class _TranslationsHomePagePopularTopicsZhHans implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '热门话题';
+	@override String numberOfTopics({required Object number}) => '${number}件~';
+}
+
+// Path: homePage.recentPlans
+class _TranslationsHomePageRecentPlansZhHans implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '最近创建的计划';
 }
 
 // Path: authentication.signInPage
@@ -293,6 +337,10 @@ extension on TranslationsZhHans {
 			case 'navigationBar.items.home': return '首页';
 			case 'navigationBar.items.myPlan': return '我的计划';
 			case 'navigationBar.items.myPage': return '我的页面';
+			case 'homePage.popularPlans.title': return '热门计划';
+			case 'homePage.popularTopics.title': return '热门话题';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近创建的计划';
 			case 'authentication.signInPage.title': return '登录';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '电子邮件地址';

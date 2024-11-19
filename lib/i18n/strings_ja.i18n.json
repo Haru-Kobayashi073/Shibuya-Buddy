@@ -6,6 +6,18 @@
             "myPage": "マイページ"
         }
     },
+    "homePage": {
+        "popularPlans": {
+            "title": "人気のプラン"
+        },
+        "popularTopics": {
+            "title": "人気のトピック",
+            "numberOfTopics": "${number}件~"
+        },
+        "recentPlans": {
+            "title": "最近作成したプラン"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "ログイン",

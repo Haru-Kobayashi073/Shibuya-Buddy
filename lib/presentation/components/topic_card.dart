@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -20,6 +21,7 @@ class TopicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = context.deviceWidth;
+    final i18n = Translations.of(context);
 
     return GestureDetector(
       onTap: onTap,
@@ -63,7 +65,8 @@ class TopicCard extends StatelessWidget {
                   ),
                   const Gap(4),
                   Text(
-                    '$numberOfTopics件~',
+                    i18n.homePage.popularTopics
+                        .numberOfTopics(number: numberOfTopics),
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 12,
                       color: AppColor.black,

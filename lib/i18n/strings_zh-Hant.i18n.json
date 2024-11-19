@@ -6,6 +6,18 @@
             "myPage": "我的頁面"
         }
     },
+    "homePage": {
+        "popularPlans": {
+            "title": "熱門計畫"
+        },
+        "popularTopics": {
+            "title": "熱門話題",
+            "numberOfTopics": "${number}件~"
+        },
+        "recentPlans": {
+            "title": "最近創建的計畫"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "登入",

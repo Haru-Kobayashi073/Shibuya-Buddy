@@ -34,6 +34,7 @@ class TranslationsZhHant implements Translations {
 
 	// Translations
 	@override late final _TranslationsNavigationBarZhHant navigationBar = _TranslationsNavigationBarZhHant._(_root);
+	@override late final _TranslationsHomePageZhHant homePage = _TranslationsHomePageZhHant._(_root);
 	@override late final _TranslationsAuthenticationZhHant authentication = _TranslationsAuthenticationZhHant._(_root);
 	@override late final _TranslationsValidationZhHant validation = _TranslationsValidationZhHant._(_root);
 	@override late final _TranslationsMyPageZhHant myPage = _TranslationsMyPageZhHant._(_root);
@@ -54,6 +55,18 @@ class _TranslationsNavigationBarZhHant implements TranslationsNavigationBarEn {
 
 	// Translations
 	@override late final _TranslationsNavigationBarItemsZhHant items = _TranslationsNavigationBarItemsZhHant._(_root);
+}
+
+// Path: homePage
+class _TranslationsHomePageZhHant implements TranslationsHomePageEn {
+	_TranslationsHomePageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansZhHant popularPlans = _TranslationsHomePagePopularPlansZhHant._(_root);
+	@override late final _TranslationsHomePagePopularTopicsZhHant popularTopics = _TranslationsHomePagePopularTopicsZhHant._(_root);
+	@override late final _TranslationsHomePageRecentPlansZhHant recentPlans = _TranslationsHomePageRecentPlansZhHant._(_root);
 }
 
 // Path: authentication
@@ -136,6 +149,37 @@ class _TranslationsNavigationBarItemsZhHant implements TranslationsNavigationBar
 	@override String get home => '首頁';
 	@override String get myPlan => '我的計劃';
 	@override String get myPage => '我的頁面';
+}
+
+// Path: homePage.popularPlans
+class _TranslationsHomePagePopularPlansZhHant implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '熱門計畫';
+}
+
+// Path: homePage.popularTopics
+class _TranslationsHomePagePopularTopicsZhHant implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '熱門話題';
+	@override String numberOfTopics({required Object number}) => '${number}件~';
+}
+
+// Path: homePage.recentPlans
+class _TranslationsHomePageRecentPlansZhHant implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '最近創建的計畫';
 }
 
 // Path: authentication.signInPage
@@ -293,6 +337,10 @@ extension on TranslationsZhHant {
 			case 'navigationBar.items.home': return '首頁';
 			case 'navigationBar.items.myPlan': return '我的計劃';
 			case 'navigationBar.items.myPage': return '我的頁面';
+			case 'homePage.popularPlans.title': return '熱門計畫';
+			case 'homePage.popularTopics.title': return '熱門話題';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近創建的計畫';
 			case 'authentication.signInPage.title': return '登入';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '電子郵件地址';

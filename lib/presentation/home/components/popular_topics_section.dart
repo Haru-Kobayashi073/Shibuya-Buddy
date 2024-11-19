@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/gen/assets.gen.dart';
+import '../../../i18n/strings.g.dart';
 import '../../components/topic_card.dart';
 import 'section_title.dart';
 
@@ -27,13 +28,15 @@ class PopularTopics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 16),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SectionTitle.medium(
-            label: '人気のトピック',
+            label: i18n.homePage.popularTopics.title,
             onPressed: () {},
           ),
           const SizedBox(height: 8),
