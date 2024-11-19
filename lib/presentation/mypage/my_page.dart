@@ -64,7 +64,8 @@ class MyPage extends StatelessWidget {
                     constraints: const BoxConstraints(),
                     padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
                     onPressed: () async {
-                      await const AiFunctionsDetailRoute().push<void>(context);
+                      await const AiFunctionsDetailPageRouteData()
+                          .push<void>(context);
                     },
                     icon: Row(
                       children: [
@@ -95,31 +96,33 @@ class MyPage extends StatelessWidget {
                     ListTileWithIcon(
                       title: myPageItemi18n.account,
                       onTap: () async =>
-                          const AccountRoute().push<void>(context),
+                          const AccountPageRouteData().push<void>(context),
                     ),
                     ListTileWithIcon(
                       title: myPageItemi18n.language,
-                      onTap: () async =>
-                          const ChangeLanguagePageRoute().push<void>(context),
+                      onTap: () async => const ChangeLanguagePageRouteData()
+                          .push<void>(context),
                     ),
                     ListTileWithIcon(
                       title: myPageItemi18n.theme,
-                      onTap: () async => const ThemeRoute().push<void>(context),
+                      onTap: () async =>
+                          const ChangeThemePageRouteData().push<void>(context),
                     ),
                     ListTileWithIcon(
                       title: myPageItemi18n.termsOfUsePrivacyPolicy,
-                      onTap: () async => const TermsofUsePrivacyPolicyRoute()
-                          .push<void>(context),
+                      onTap: () async =>
+                          const TermsofUsePrivacyPolicyPageRouteData()
+                              .push<void>(context),
                     ),
                     ListTileWithIcon(
                       title: myPageItemi18n.aboutThisApp,
                       onTap: () async =>
-                          const AboutAppRoute().push<void>(context),
+                          const AboutAppPgeRouteData().push<void>(context),
                     ),
                     ListTileWithIcon(
                       title: myPageItemi18n.aboutTheDeveloper,
                       onTap: () async =>
-                          const AboutDevRoute().push<void>(context),
+                          const AboutDevPageRouteData().push<void>(context),
                     ),
                   ],
                 ),

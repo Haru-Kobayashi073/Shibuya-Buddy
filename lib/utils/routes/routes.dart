@@ -13,5 +13,5 @@ class Routes {
   static const changeLanguage = 'changeLanguage';
   static const editProfile = 'editProfile';
   static const termsOfUsePrivacyPolicy = 'termsOfUsePrivacyPolicy';
-  static const theme = 'theme';
+  static const changeTheme = 'changeTheme';
 }

@@ -141,26 +141,26 @@ class MyPlanPageRouteData extends GoRouteData {
 @TypedGoRoute<MyPageRouteData>(
   path: Routes.myPage,
   routes: [
-    TypedGoRoute<AboutAppRoute>(
+    TypedGoRoute<AboutAppPgeRouteData>(
       path: Routes.aboutApp,
     ),
-    TypedGoRoute<AboutDevRoute>(
+    TypedGoRoute<AboutDevPageRouteData>(
       path: Routes.aboutDev,
     ),
-    TypedGoRoute<AccountRoute>(
+    TypedGoRoute<AccountPageRouteData>(
       path: Routes.account,
     ),
-    TypedGoRoute<AiFunctionsDetailRoute>(
+    TypedGoRoute<AiFunctionsDetailPageRouteData>(
       path: Routes.aiFunctionsDetail,
     ),
-    TypedGoRoute<ChangeLanguagePageRoute>(
+    TypedGoRoute<ChangeLanguagePageRouteData>(
       path: Routes.changeLanguage,
     ),
-    TypedGoRoute<TermsofUsePrivacyPolicyRoute>(
+    TypedGoRoute<TermsofUsePrivacyPolicyPageRouteData>(
       path: Routes.termsOfUsePrivacyPolicy,
     ),
-    TypedGoRoute<ThemeRoute>(
-      path: Routes.theme,
+    TypedGoRoute<ChangeThemePageRouteData>(
+      path: Routes.changeTheme,
     ),
   ],
 )
@@ -170,6 +170,69 @@ class MyPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MyPage();
+  }
+}
+
+class AboutAppPgeRouteData extends GoRouteData {
+  const AboutAppPgeRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AboutAppPage();
+  }
+}
+
+class AboutDevPageRouteData extends GoRouteData {
+  const AboutDevPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AboutDevPage();
+  }
+}
+
+class AccountPageRouteData extends GoRouteData {
+  const AccountPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AccountPage();
+  }
+}
+
+class AiFunctionsDetailPageRouteData extends GoRouteData {
+  const AiFunctionsDetailPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AiFunctionsDetailPage();
+  }
+}
+
+class ChangeLanguagePageRouteData extends GoRouteData {
+  const ChangeLanguagePageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ChangeLanguagePage();
+  }
+}
+
+class TermsofUsePrivacyPolicyPageRouteData extends GoRouteData {
+  const TermsofUsePrivacyPolicyPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const TermsOfUsePrivacyPolicyPage();
+  }
+}
+
+class ChangeThemePageRouteData extends GoRouteData {
+  const ChangeThemePageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ChangeThemePage();
   }
 }
 
@@ -213,68 +276,5 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return CompleteSendEmailPage(email: email);
-  }
-}
-
-class AboutAppRoute extends GoRouteData {
-  const AboutAppRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const AboutAppPage();
-  }
-}
-
-class AboutDevRoute extends GoRouteData {
-  const AboutDevRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const AboutDevPage();
-  }
-}
-
-class AccountRoute extends GoRouteData {
-  const AccountRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const AccountPage();
-  }
-}
-
-class AiFunctionsDetailRoute extends GoRouteData {
-  const AiFunctionsDetailRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const AiFunctionsDetailPage();
-  }
-}
-
-class ChangeLanguagePageRoute extends GoRouteData {
-  const ChangeLanguagePageRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const ChangeLanguagePage();
-  }
-}
-
-class TermsofUsePrivacyPolicyRoute extends GoRouteData {
-  const TermsofUsePrivacyPolicyRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const TermsOfUsePrivacyPolicyPage();
-  }
-}
-
-class ThemeRoute extends GoRouteData {
-  const ThemeRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const ChangeThemePage();
   }
 }

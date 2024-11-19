@@ -146,37 +146,38 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
       routes: [
         GoRouteData.$route(
           path: 'aboutApp',
-          factory: $AboutAppRouteExtension._fromState,
+          factory: $AboutAppPgeRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'aboutDev',
-          factory: $AboutDevRouteExtension._fromState,
+          factory: $AboutDevPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'account',
-          factory: $AccountRouteExtension._fromState,
+          factory: $AccountPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'aiFunctionsDetail',
-          factory: $AiFunctionsDetailRouteExtension._fromState,
+          factory: $AiFunctionsDetailPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'changeLanguage',
-          factory: $ChangeLanguagePageRouteExtension._fromState,
+          factory: $ChangeLanguagePageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'termsOfUsePrivacyPolicy',
-          factory: $TermsofUsePrivacyPolicyRouteExtension._fromState,
+          factory: $TermsofUsePrivacyPolicyPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'theme',
-          factory: $ThemeRouteExtension._fromState,
+          factory: $ChangeThemePageRouteDataExtension._fromState,
         ),
       ],
     );
 
-extension $AboutAppRouteExtension on AboutAppRoute {
-  static AboutAppRoute _fromState(GoRouterState state) => const AboutAppRoute();
+extension $AboutAppPgeRouteDataExtension on AboutAppPgeRouteData {
+  static AboutAppPgeRouteData _fromState(GoRouterState state) =>
+      const AboutAppPgeRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/aboutApp',
@@ -192,8 +193,9 @@ extension $AboutAppRouteExtension on AboutAppRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AboutDevRouteExtension on AboutDevRoute {
-  static AboutDevRoute _fromState(GoRouterState state) => const AboutDevRoute();
+extension $AboutDevPageRouteDataExtension on AboutDevPageRouteData {
+  static AboutDevPageRouteData _fromState(GoRouterState state) =>
+      const AboutDevPageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/aboutDev',
@@ -209,8 +211,9 @@ extension $AboutDevRouteExtension on AboutDevRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AccountRouteExtension on AccountRoute {
-  static AccountRoute _fromState(GoRouterState state) => const AccountRoute();
+extension $AccountPageRouteDataExtension on AccountPageRouteData {
+  static AccountPageRouteData _fromState(GoRouterState state) =>
+      const AccountPageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/account',
@@ -226,9 +229,10 @@ extension $AccountRouteExtension on AccountRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AiFunctionsDetailRouteExtension on AiFunctionsDetailRoute {
-  static AiFunctionsDetailRoute _fromState(GoRouterState state) =>
-      const AiFunctionsDetailRoute();
+extension $AiFunctionsDetailPageRouteDataExtension
+    on AiFunctionsDetailPageRouteData {
+  static AiFunctionsDetailPageRouteData _fromState(GoRouterState state) =>
+      const AiFunctionsDetailPageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/aiFunctionsDetail',
@@ -244,9 +248,9 @@ extension $AiFunctionsDetailRouteExtension on AiFunctionsDetailRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ChangeLanguagePageRouteExtension on ChangeLanguagePageRoute {
-  static ChangeLanguagePageRoute _fromState(GoRouterState state) =>
-      const ChangeLanguagePageRoute();
+extension $ChangeLanguagePageRouteDataExtension on ChangeLanguagePageRouteData {
+  static ChangeLanguagePageRouteData _fromState(GoRouterState state) =>
+      const ChangeLanguagePageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/changeLanguage',
@@ -262,10 +266,10 @@ extension $ChangeLanguagePageRouteExtension on ChangeLanguagePageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $TermsofUsePrivacyPolicyRouteExtension
-    on TermsofUsePrivacyPolicyRoute {
-  static TermsofUsePrivacyPolicyRoute _fromState(GoRouterState state) =>
-      const TermsofUsePrivacyPolicyRoute();
+extension $TermsofUsePrivacyPolicyPageRouteDataExtension
+    on TermsofUsePrivacyPolicyPageRouteData {
+  static TermsofUsePrivacyPolicyPageRouteData _fromState(GoRouterState state) =>
+      const TermsofUsePrivacyPolicyPageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/termsOfUsePrivacyPolicy',
@@ -281,8 +285,9 @@ extension $TermsofUsePrivacyPolicyRouteExtension
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ThemeRouteExtension on ThemeRoute {
-  static ThemeRoute _fromState(GoRouterState state) => const ThemeRoute();
+extension $ChangeThemePageRouteDataExtension on ChangeThemePageRouteData {
+  static ChangeThemePageRouteData _fromState(GoRouterState state) =>
+      const ChangeThemePageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/theme',
