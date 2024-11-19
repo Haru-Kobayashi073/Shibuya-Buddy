@@ -32,7 +32,7 @@ class SignInPage extends HookConsumerWidget {
     final i18nSignInPage = i18n.authentication.signInPage;
     final i18nLanguage = i18n.changeLanguagePage.items;
 
-    Future<void> onPressedSignInButton() async {
+    Future<void> signIn() async {
       if (formKey.currentState!.validate()) {
         await notifier.signInWithEmailAndPassword(
           emailAddress: emailController.text,
@@ -120,7 +120,7 @@ class SignInPage extends HookConsumerWidget {
                     validator: Validator.password,
                     textInputAction: TextInputAction.done,
                     obscureText: hidePassword.value,
-                    onFieldSubmitted: (_) async => onPressedSignInButton(),
+                    onFieldSubmitted: (_) async => signIn(),
                     label: i18nSignInPage.textFields.password,
                     icon: IconButton(
                       onPressed: () {
@@ -155,7 +155,7 @@ class SignInPage extends HookConsumerWidget {
                   child: WideButton(
                     label: i18nSignInPage.buttons.signIn,
                     color: AppColor.yellow600Primary,
-                    onPressed: () async => onPressedSignInButton(),
+                    onPressed: () async => signIn(),
                   ),
                 ),
                 const SliverGap(16),
