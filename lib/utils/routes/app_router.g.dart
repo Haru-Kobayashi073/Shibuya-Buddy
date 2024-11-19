@@ -146,7 +146,7 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
       routes: [
         GoRouteData.$route(
           path: 'aboutApp',
-          factory: $AboutAppPgeRouteDataExtension._fromState,
+          factory: $AboutAppPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'aboutDev',
@@ -169,15 +169,15 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
           factory: $TermsofUsePrivacyPolicyPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
-          path: 'theme',
+          path: 'changeTheme',
           factory: $ChangeThemePageRouteDataExtension._fromState,
         ),
       ],
     );
 
-extension $AboutAppPgeRouteDataExtension on AboutAppPgeRouteData {
-  static AboutAppPgeRouteData _fromState(GoRouterState state) =>
-      const AboutAppPgeRouteData();
+extension $AboutAppPageRouteDataExtension on AboutAppPageRouteData {
+  static AboutAppPageRouteData _fromState(GoRouterState state) =>
+      const AboutAppPageRouteData();
 
   String get location => GoRouteData.$location(
         '/myPage/aboutApp',
@@ -290,7 +290,7 @@ extension $ChangeThemePageRouteDataExtension on ChangeThemePageRouteData {
       const ChangeThemePageRouteData();
 
   String get location => GoRouteData.$location(
-        '/myPage/theme',
+        '/myPage/changeTheme',
       );
 
   void go(BuildContext context) => context.go(location);

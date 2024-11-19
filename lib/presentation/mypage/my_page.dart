@@ -117,7 +117,7 @@ class MyPage extends StatelessWidget {
                     ListTileWithIcon(
                       title: myPageItemi18n.aboutThisApp,
                       onTap: () async =>
-                          const AboutAppPgeRouteData().push<void>(context),
+                          const AboutAppPageRouteData().push<void>(context),
                     ),
                     ListTileWithIcon(
                       title: myPageItemi18n.aboutTheDeveloper,

@@ -141,7 +141,7 @@ class MyPlanPageRouteData extends GoRouteData {
 @TypedGoRoute<MyPageRouteData>(
   path: Routes.myPage,
   routes: [
-    TypedGoRoute<AboutAppPgeRouteData>(
+    TypedGoRoute<AboutAppPageRouteData>(
       path: Routes.aboutApp,
     ),
     TypedGoRoute<AboutDevPageRouteData>(
@@ -173,8 +173,8 @@ class MyPageRouteData extends GoRouteData {
   }
 }
 
-class AboutAppPgeRouteData extends GoRouteData {
-  const AboutAppPgeRouteData();
+class AboutAppPageRouteData extends GoRouteData {
+  const AboutAppPageRouteData();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
