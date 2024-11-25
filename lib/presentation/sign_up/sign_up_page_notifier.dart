@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
+import '../components/loading_overlay.dart';
 
 part 'sign_up_page_notifier.g.dart';
 
@@ -20,20 +21,23 @@ class SignUpPageNotifier extends _$SignUpPageNotifier {
   Future<void> signUpWithEmailAndPassword({
     required String emailAddress,
     required String password,
-    required Future<void> Function() onSuccess,
+    required void Function() onSuccess,
   }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.signUpWithEmailAndPassword(
         emailAddress,
         password,
       );
       await _sendEmailVerification();
-      await onSuccess();
+      onSuccess();
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
