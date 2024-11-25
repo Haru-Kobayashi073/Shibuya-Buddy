@@ -56,6 +56,31 @@
                 "submit": "发送"
             }
         },
+        "signUpPage": {
+            "title": "注册",
+            "textFields": {
+                "email": "邮箱地址",
+                "password": "密码"
+            },
+            "button": "注册"
+        },
+        "emailVerificationPage": {
+            "title": "邮箱验证",
+            "descriptionForDestination": "将向输入的邮箱地址发送确认邮件：${email}",
+            "descriptionForNextStep": "验证完成后，页面将自动跳转。",
+            "buttons": {
+                "resendEmail": "重新发送确认邮件",
+                "toNextStep": "修改邮箱地址"
+            }
+        },
+        "registerProfilePage": {
+            "title": "注册个人信息",
+            "textFields": "姓名",
+            "buttons": {
+                "submit": "完成",
+                "skip": "跳过"
+            }
+        },
         "completeSendEmailPage": {
             "title": "发送完成",
             "description": "密码重置邮件已发送到${email} \n 重置后请从登录页面登录",

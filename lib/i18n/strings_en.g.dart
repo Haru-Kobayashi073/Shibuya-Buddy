@@ -83,6 +83,9 @@ class TranslationsAuthenticationEn {
 	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
+	late final TranslationsAuthenticationSignUpPageEn signUpPage = TranslationsAuthenticationSignUpPageEn._(_root);
+	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
+	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
 }
 
@@ -222,6 +225,43 @@ class TranslationsAuthenticationResetPasswordPageEn {
 	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
 }
 
+// Path: authentication.signUpPage
+class TranslationsAuthenticationSignUpPageEn {
+	TranslationsAuthenticationSignUpPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Sign Up';
+	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
+	String get button => 'Sign Up';
+}
+
+// Path: authentication.emailVerificationPage
+class TranslationsAuthenticationEmailVerificationPageEn {
+	TranslationsAuthenticationEmailVerificationPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Email Verification';
+	String descriptionForDestination({required Object email}) => 'A confirmation email will be sent to the entered address: ${email}';
+	String get descriptionForNextStep => 'Once verified, the screen will automatically proceed.';
+	late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons = TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
+}
+
+// Path: authentication.registerProfilePage
+class TranslationsAuthenticationRegisterProfilePageEn {
+	TranslationsAuthenticationRegisterProfilePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Profile Registration';
+	String get textFields => 'Name';
+	late final TranslationsAuthenticationRegisterProfilePageButtonsEn buttons = TranslationsAuthenticationRegisterProfilePageButtonsEn._(_root);
+}
+
 // Path: authentication.completeSendEmailPage
 class TranslationsAuthenticationCompleteSendEmailPageEn {
 	TranslationsAuthenticationCompleteSendEmailPageEn._(this._root);
@@ -321,6 +361,39 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 	String get submit => 'Submit';
 }
 
+// Path: authentication.signUpPage.textFields
+class TranslationsAuthenticationSignUpPageTextFieldsEn {
+	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get email => 'Email Address';
+	String get password => 'Password';
+}
+
+// Path: authentication.emailVerificationPage.buttons
+class TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	TranslationsAuthenticationEmailVerificationPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get resendEmail => 'Resend Confirmation Email';
+	String get toNextStep => 'Edit Email Address';
+}
+
+// Path: authentication.registerProfilePage.buttons
+class TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	TranslationsAuthenticationRegisterProfilePageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submit => 'Complete';
+	String get skip => 'Skip';
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
@@ -366,6 +439,19 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
+			case 'authentication.signUpPage.title': return 'Sign Up';
+			case 'authentication.signUpPage.textFields.email': return 'Email Address';
+			case 'authentication.signUpPage.textFields.password': return 'Password';
+			case 'authentication.signUpPage.button': return 'Sign Up';
+			case 'authentication.emailVerificationPage.title': return 'Email Verification';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A confirmation email will be sent to the entered address: ${email}';
+			case 'authentication.emailVerificationPage.descriptionForNextStep': return 'Once verified, the screen will automatically proceed.';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Confirmation Email';
+			case 'authentication.emailVerificationPage.buttons.toNextStep': return 'Edit Email Address';
+			case 'authentication.registerProfilePage.title': return 'Profile Registration';
+			case 'authentication.registerProfilePage.textFields': return 'Name';
+			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
+			case 'authentication.registerProfilePage.buttons.skip': return 'Skip';
 			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
 			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';

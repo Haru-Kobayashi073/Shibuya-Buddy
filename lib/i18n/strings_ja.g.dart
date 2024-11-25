@@ -78,6 +78,9 @@ class _TranslationsAuthenticationJa implements TranslationsAuthenticationEn {
 	// Translations
 	@override late final _TranslationsAuthenticationSignInPageJa signInPage = _TranslationsAuthenticationSignInPageJa._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageJa resetPasswordPage = _TranslationsAuthenticationResetPasswordPageJa._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageJa signUpPage = _TranslationsAuthenticationSignUpPageJa._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageJa emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageJa._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageJa registerProfilePage = _TranslationsAuthenticationRegisterProfilePageJa._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageJa completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageJa._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthJa firebaseAuth = _TranslationsAuthenticationFirebaseAuthJa._(_root);
 }
@@ -208,6 +211,43 @@ class _TranslationsAuthenticationResetPasswordPageJa implements TranslationsAuth
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsJa buttons = _TranslationsAuthenticationResetPasswordPageButtonsJa._(_root);
 }
 
+// Path: authentication.signUpPage
+class _TranslationsAuthenticationSignUpPageJa implements TranslationsAuthenticationSignUpPageEn {
+	_TranslationsAuthenticationSignUpPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '新規登録';
+	@override late final _TranslationsAuthenticationSignUpPageTextFieldsJa textFields = _TranslationsAuthenticationSignUpPageTextFieldsJa._(_root);
+	@override String get button => '新規登録';
+}
+
+// Path: authentication.emailVerificationPage
+class _TranslationsAuthenticationEmailVerificationPageJa implements TranslationsAuthenticationEmailVerificationPageEn {
+	_TranslationsAuthenticationEmailVerificationPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'メールアドレスの確認';
+	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信します';
+	@override String get descriptionForNextStep => '確認が完了すれば、画面は自動で移動します';
+	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsJa buttons = _TranslationsAuthenticationEmailVerificationPageButtonsJa._(_root);
+}
+
+// Path: authentication.registerProfilePage
+class _TranslationsAuthenticationRegisterProfilePageJa implements TranslationsAuthenticationRegisterProfilePageEn {
+	_TranslationsAuthenticationRegisterProfilePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プロフィールの登録';
+	@override String get textFields => '名前';
+	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsJa buttons = _TranslationsAuthenticationRegisterProfilePageButtonsJa._(_root);
+}
+
 // Path: authentication.completeSendEmailPage
 class _TranslationsAuthenticationCompleteSendEmailPageJa implements TranslationsAuthenticationCompleteSendEmailPageEn {
 	_TranslationsAuthenticationCompleteSendEmailPageJa._(this._root);
@@ -301,6 +341,39 @@ class _TranslationsAuthenticationResetPasswordPageButtonsJa implements Translati
 	@override String get submit => '送信';
 }
 
+// Path: authentication.signUpPage.textFields
+class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsAuthenticationSignUpPageTextFieldsEn {
+	_TranslationsAuthenticationSignUpPageTextFieldsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get email => 'メールアドレス';
+	@override String get password => 'パスワード';
+}
+
+// Path: authentication.emailVerificationPage.buttons
+class _TranslationsAuthenticationEmailVerificationPageButtonsJa implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	_TranslationsAuthenticationEmailVerificationPageButtonsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get resendEmail => '確認メールを再送信';
+	@override String get toNextStep => 'メールアドレスの修正';
+}
+
+// Path: authentication.registerProfilePage.buttons
+class _TranslationsAuthenticationRegisterProfilePageButtonsJa implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	_TranslationsAuthenticationRegisterProfilePageButtonsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '完了';
+	@override String get skip => 'スキップ';
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(this._root);
@@ -355,6 +428,19 @@ extension on TranslationsJa {
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
 			case 'authentication.resetPasswordPage.buttons.submit': return '送信';
+			case 'authentication.signUpPage.title': return '新規登録';
+			case 'authentication.signUpPage.textFields.email': return 'メールアドレス';
+			case 'authentication.signUpPage.textFields.password': return 'パスワード';
+			case 'authentication.signUpPage.button': return '新規登録';
+			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
+			case 'authentication.emailVerificationPage.descriptionForNextStep': return '確認が完了すれば、画面は自動で移動します';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return '確認メールを再送信';
+			case 'authentication.emailVerificationPage.buttons.toNextStep': return 'メールアドレスの修正';
+			case 'authentication.registerProfilePage.title': return 'プロフィールの登録';
+			case 'authentication.registerProfilePage.textFields': return '名前';
+			case 'authentication.registerProfilePage.buttons.submit': return '完了';
+			case 'authentication.registerProfilePage.buttons.skip': return 'スキップ';
 			case 'authentication.completeSendEmailPage.title': return '送信完了';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '確認メールを再送信しました';

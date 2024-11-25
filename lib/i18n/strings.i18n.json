@@ -56,6 +56,31 @@
                 "submit": "Submit"
             }
         },
+        "signUpPage": {
+            "title": "Sign Up",
+            "textFields": {
+                "email": "Email Address",
+                "password": "Password"
+            },
+            "button": "Sign Up"
+        },
+        "emailVerificationPage": {
+            "title": "Email Verification",
+            "descriptionForDestination": "A confirmation email will be sent to the entered address: ${email}",
+            "descriptionForNextStep": "Once verified, the screen will automatically proceed.",
+            "buttons": {
+                "resendEmail": "Resend Confirmation Email",
+                "toNextStep": "Edit Email Address"
+            }
+        },
+        "registerProfilePage": {
+            "title": "Profile Registration",
+            "textFields": "Name",
+            "buttons": {
+                "submit": "Complete",
+                "skip": "Skip"
+            }
+        },
         "completeSendEmailPage": {
             "title": "Send Complete",
             "description": "A password reset email has been sent to ${email} \n Please log in from the login screen after resetting",

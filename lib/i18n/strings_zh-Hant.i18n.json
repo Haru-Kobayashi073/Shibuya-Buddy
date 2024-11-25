@@ -56,6 +56,31 @@
                 "submit": "發送"
             }
         },
+        "signUpPage": {
+            "title": "註冊",
+            "textFields": {
+                "email": "電子郵件地址",
+                "password": "密碼"
+            },
+            "button": "註冊"
+        },
+        "emailVerificationPage": {
+            "title": "電子郵件驗證",
+            "descriptionForDestination": "將向輸入的電子郵件地址發送確認郵件：${email}",
+            "descriptionForNextStep": "驗證完成後，頁面將自動跳轉。",
+            "buttons": {
+                "resendEmail": "重新發送確認郵件",
+                "toNextStep": "修改電子郵件地址"
+            }
+        },
+        "registerProfilePage": {
+            "title": "註冊個人資訊",
+            "textFields": "姓名",
+            "buttons": {
+                "submit": "完成",
+                "skip": "跳過"
+            }
+        },
         "completeSendEmailPage": {
             "title": "發送完成",
             "description": "密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入",

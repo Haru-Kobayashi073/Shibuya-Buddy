@@ -45,6 +45,31 @@
                 "submit": "送信"
             }
         },
+        "signUpPage": {
+            "title": "新規登録",
+            "textFields": {
+                "email": "メールアドレス",
+                "password": "パスワード"
+            },
+            "button": "新規登録"
+        },
+        "emailVerificationPage": {
+            "title": "メールアドレスの確認",
+            "descriptionForDestination": "入力された${email}に確認メールを送信します",
+            "descriptionForNextStep": "確認が完了すれば、画面は自動で移動します",
+            "buttons": {
+                "resendEmail": "確認メールを再送信",
+                "toNextStep": "メールアドレスの修正"
+            }
+        },
+        "registerProfilePage": {
+            "title": "プロフィールの登録",
+            "textFields": "名前",
+            "buttons": {
+                "submit": "完了",
+                "skip": "スキップ"
+            }
+        },
         "completeSendEmailPage": {
             "title": "送信完了",
             "description": "パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください",
