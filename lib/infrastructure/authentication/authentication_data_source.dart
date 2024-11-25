@@ -63,16 +63,16 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   }
 
   @override
-  Future<void> sendEmailVerification(UserCredential userCredential) async {
-    await userCredential.user?.sendEmailVerification();
+  Future<void> sendEmailVerification() async {
+    await firebaseAuth.currentUser?.sendEmailVerification();
   }
 
   @override
-  Future<UserCredential> signUpWithEmailAndPassword(
+  Future<void> signUpWithEmailAndPassword(
     String email,
     String password,
   ) async {
-    return firebaseAuth.createUserWithEmailAndPassword(
+    await firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );

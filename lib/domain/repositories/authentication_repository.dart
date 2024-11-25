@@ -1,12 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 abstract interface class AuthenticationRepository {
   Future<void> signInWithEmailAndPassword(String email, String password);
-  Future<UserCredential> signUpWithEmailAndPassword(
+  Future<void> signUpWithEmailAndPassword(
     String email,
     String password,
   );
-  Future<void> sendEmailVerification(UserCredential userCredential);
+  Future<void> sendEmailVerification();
   Future<void> signInWithGoogle();
   Future<void> signInWithApple();
   Future<void> sendPasswordResetEmail(String email);

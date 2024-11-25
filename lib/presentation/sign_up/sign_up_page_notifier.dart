@@ -23,12 +23,11 @@ class SignUpPageNotifier extends _$SignUpPageNotifier {
     required Future<void> Function() onSuccess,
   }) async {
     try {
-      final credential =
-          await authenticationDataSource.signUpWithEmailAndPassword(
+      await authenticationDataSource.signUpWithEmailAndPassword(
         emailAddress,
         password,
       );
-      await _sendEmailVerification(credential);
+      await _sendEmailVerification();
       await onSuccess();
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
@@ -38,9 +37,7 @@ class SignUpPageNotifier extends _$SignUpPageNotifier {
     }
   }
 
-  Future<void> _sendEmailVerification(
-    UserCredential userCredential,
-  ) async {
-    await authenticationDataSource.sendEmailVerification(userCredential);
+  Future<void> _sendEmailVerification() async {
+    await authenticationDataSource.sendEmailVerification();
   }
 }
