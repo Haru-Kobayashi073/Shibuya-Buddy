@@ -360,7 +360,7 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsJa implements Trans
 
 	// Translations
 	@override String get resendEmail => '確認メールを再送信';
-	@override String get toNextStep => 'メールアドレスの修正';
+	@override String get retypeEmail => 'メールアドレスの修正';
 }
 
 // Path: authentication.registerProfilePage.buttons
@@ -436,7 +436,7 @@ extension on TranslationsJa {
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return '確認が完了すれば、画面は自動で移動します';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '確認メールを再送信';
-			case 'authentication.emailVerificationPage.buttons.toNextStep': return 'メールアドレスの修正';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'メールアドレスの修正';
 			case 'authentication.registerProfilePage.title': return 'プロフィールの登録';
 			case 'authentication.registerProfilePage.textFields': return '名前';
 			case 'authentication.registerProfilePage.buttons.submit': return '完了';

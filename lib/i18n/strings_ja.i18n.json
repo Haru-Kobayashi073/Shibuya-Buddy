@@ -59,7 +59,7 @@
             "descriptionForNextStep": "確認が完了すれば、画面は自動で移動します",
             "buttons": {
                 "resendEmail": "確認メールを再送信",
-                "toNextStep": "メールアドレスの修正"
+                "retypeEmail": "メールアドレスの修正"
             }
         },
         "registerProfilePage": {

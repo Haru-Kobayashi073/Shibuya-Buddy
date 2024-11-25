@@ -380,7 +380,7 @@ class TranslationsAuthenticationEmailVerificationPageButtonsEn {
 
 	// Translations
 	String get resendEmail => 'Resend Confirmation Email';
-	String get toNextStep => 'Edit Email Address';
+	String get retypeEmail => 'Edit Email Address';
 }
 
 // Path: authentication.registerProfilePage.buttons
@@ -447,7 +447,7 @@ extension on Translations {
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A confirmation email will be sent to the entered address: ${email}';
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return 'Once verified, the screen will automatically proceed.';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Confirmation Email';
-			case 'authentication.emailVerificationPage.buttons.toNextStep': return 'Edit Email Address';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'Edit Email Address';
 			case 'authentication.registerProfilePage.title': return 'Profile Registration';
 			case 'authentication.registerProfilePage.textFields': return 'Name';
 			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';

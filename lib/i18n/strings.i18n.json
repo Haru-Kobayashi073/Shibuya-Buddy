@@ -70,7 +70,7 @@
             "descriptionForNextStep": "Once verified, the screen will automatically proceed.",
             "buttons": {
                 "resendEmail": "Resend Confirmation Email",
-                "toNextStep": "Edit Email Address"
+                "retypeEmail": "Edit Email Address"
             }
         },
         "registerProfilePage": {

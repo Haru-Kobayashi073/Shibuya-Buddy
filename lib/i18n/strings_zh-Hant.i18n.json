@@ -70,7 +70,7 @@
             "descriptionForNextStep": "驗證完成後，頁面將自動跳轉。",
             "buttons": {
                 "resendEmail": "重新發送確認郵件",
-                "toNextStep": "修改電子郵件地址"
+                "retypeEmail": "修改電子郵件地址"
             }
         },
         "registerProfilePage": {

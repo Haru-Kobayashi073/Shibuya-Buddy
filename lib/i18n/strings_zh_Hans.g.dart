@@ -376,7 +376,7 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsZhHans implements T
 
 	// Translations
 	@override String get resendEmail => '重新发送确认邮件';
-	@override String get toNextStep => '修改邮箱地址';
+	@override String get retypeEmail => '修改邮箱地址';
 }
 
 // Path: authentication.registerProfilePage.buttons
@@ -443,7 +443,7 @@ extension on TranslationsZhHans {
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的邮箱地址发送确认邮件：${email}';
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return '验证完成后，页面将自动跳转。';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新发送确认邮件';
-			case 'authentication.emailVerificationPage.buttons.toNextStep': return '修改邮箱地址';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
 			case 'authentication.registerProfilePage.title': return '注册个人信息';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';

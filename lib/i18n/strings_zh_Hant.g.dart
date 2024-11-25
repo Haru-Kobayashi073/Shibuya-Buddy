@@ -376,7 +376,7 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsZhHant implements T
 
 	// Translations
 	@override String get resendEmail => '重新發送確認郵件';
-	@override String get toNextStep => '修改電子郵件地址';
+	@override String get retypeEmail => '修改電子郵件地址';
 }
 
 // Path: authentication.registerProfilePage.buttons
@@ -443,7 +443,7 @@ extension on TranslationsZhHant {
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的電子郵件地址發送確認郵件：${email}';
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return '驗證完成後，頁面將自動跳轉。';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
-			case 'authentication.emailVerificationPage.buttons.toNextStep': return '修改電子郵件地址';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改電子郵件地址';
 			case 'authentication.registerProfilePage.title': return '註冊個人資訊';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';
