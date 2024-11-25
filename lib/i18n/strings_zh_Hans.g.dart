@@ -244,6 +244,7 @@ class _TranslationsAuthenticationEmailVerificationPageZhHans implements Translat
 	@override String descriptionForDestination({required Object email}) => '将向输入的邮箱地址发送确认邮件：${email}';
 	@override String get descriptionForNextStep => '验证完成后，页面将自动跳转。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHans buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(_root);
 }
 
 // Path: authentication.registerProfilePage
@@ -379,6 +380,17 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsZhHans implements T
 	@override String get retypeEmail => '修改邮箱地址';
 }
 
+// Path: authentication.emailVerificationPage.snackBar
+class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '重新发送完成';
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(_root);
+}
+
 // Path: authentication.registerProfilePage.buttons
 class _TranslationsAuthenticationRegisterProfilePageButtonsZhHans implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
 	_TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(this._root);
@@ -400,6 +412,16 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements T
 	@override String get toSignIn => '前往登录页面';
 	@override String get resendEmail => '重新发送确认邮件';
 	@override String get changeEmail => '更改电子邮件地址';
+}
+
+// Path: authentication.emailVerificationPage.snackBar.error
+class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get unexpected => '发生了错误，请稍后再试。';
 }
 
 /// Flat map(s) containing all translations.
@@ -444,6 +466,8 @@ extension on TranslationsZhHans {
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return '验证完成后，页面将自动跳转。';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新发送确认邮件';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '重新发送完成';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生了错误，请稍后再试。';
 			case 'authentication.registerProfilePage.title': return '注册个人信息';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';

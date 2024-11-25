@@ -71,6 +71,12 @@
             "buttons": {
                 "resendEmail": "Resend Confirmation Email",
                 "retypeEmail": "Edit Email Address"
+            },
+            "snackBar": {
+                "success": "Resent successfully",
+                "error": {
+                    "unexpected": "An error occurred. Please try again later."
+                }
             }
         },
         "registerProfilePage": {

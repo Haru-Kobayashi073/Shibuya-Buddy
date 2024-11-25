@@ -71,6 +71,12 @@
             "buttons": {
                 "resendEmail": "重新發送確認郵件",
                 "retypeEmail": "修改電子郵件地址"
+            },
+            "snackBar": {
+                "success": "重新發送完成",
+                "error": {
+                    "unexpected": "發生了錯誤，請稍後再試。"
+                }
             }
         },
         "registerProfilePage": {

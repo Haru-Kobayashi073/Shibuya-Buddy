@@ -60,6 +60,12 @@
             "buttons": {
                 "resendEmail": "確認メールを再送信",
                 "retypeEmail": "メールアドレスの修正"
+            },
+            "snackBar": {
+                "success": "再送信が完了しました",
+                "error": {
+                    "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
+                }
             }
         },
         "registerProfilePage": {

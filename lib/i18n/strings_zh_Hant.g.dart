@@ -244,6 +244,7 @@ class _TranslationsAuthenticationEmailVerificationPageZhHant implements Translat
 	@override String descriptionForDestination({required Object email}) => '將向輸入的電子郵件地址發送確認郵件：${email}';
 	@override String get descriptionForNextStep => '驗證完成後，頁面將自動跳轉。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHant buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(_root);
 }
 
 // Path: authentication.registerProfilePage
@@ -379,6 +380,17 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsZhHant implements T
 	@override String get retypeEmail => '修改電子郵件地址';
 }
 
+// Path: authentication.emailVerificationPage.snackBar
+class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '重新發送完成';
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(_root);
+}
+
 // Path: authentication.registerProfilePage.buttons
 class _TranslationsAuthenticationRegisterProfilePageButtonsZhHant implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
 	_TranslationsAuthenticationRegisterProfilePageButtonsZhHant._(this._root);
@@ -400,6 +412,16 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get toSignIn => '前往登入畫面';
 	@override String get resendEmail => '重新發送確認郵件';
 	@override String get changeEmail => '更改電子郵件地址';
+}
+
+// Path: authentication.emailVerificationPage.snackBar.error
+class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get unexpected => '發生了錯誤，請稍後再試。';
 }
 
 /// Flat map(s) containing all translations.
@@ -444,6 +466,8 @@ extension on TranslationsZhHant {
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return '驗證完成後，頁面將自動跳轉。';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改電子郵件地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '重新發送完成';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '發生了錯誤，請稍後再試。';
 			case 'authentication.registerProfilePage.title': return '註冊個人資訊';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';

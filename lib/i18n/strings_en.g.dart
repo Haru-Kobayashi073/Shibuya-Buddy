@@ -248,6 +248,7 @@ class TranslationsAuthenticationEmailVerificationPageEn {
 	String descriptionForDestination({required Object email}) => 'A confirmation email will be sent to the entered address: ${email}';
 	String get descriptionForNextStep => 'Once verified, the screen will automatically proceed.';
 	late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons = TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
+	late final TranslationsAuthenticationEmailVerificationPageSnackBarEn snackBar = TranslationsAuthenticationEmailVerificationPageSnackBarEn._(_root);
 }
 
 // Path: authentication.registerProfilePage
@@ -383,6 +384,17 @@ class TranslationsAuthenticationEmailVerificationPageButtonsEn {
 	String get retypeEmail => 'Edit Email Address';
 }
 
+// Path: authentication.emailVerificationPage.snackBar
+class TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	TranslationsAuthenticationEmailVerificationPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get success => 'Resent successfully';
+	late final TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn error = TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(_root);
+}
+
 // Path: authentication.registerProfilePage.buttons
 class TranslationsAuthenticationRegisterProfilePageButtonsEn {
 	TranslationsAuthenticationRegisterProfilePageButtonsEn._(this._root);
@@ -404,6 +416,16 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get toSignIn => 'To Login Screen';
 	String get resendEmail => 'Resend Confirmation Email';
 	String get changeEmail => 'Change Email Address';
+}
+
+// Path: authentication.emailVerificationPage.snackBar.error
+class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get unexpected => 'An error occurred. Please try again later.';
 }
 
 /// Flat map(s) containing all translations.
@@ -448,6 +470,8 @@ extension on Translations {
 			case 'authentication.emailVerificationPage.descriptionForNextStep': return 'Once verified, the screen will automatically proceed.';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Confirmation Email';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'Edit Email Address';
+			case 'authentication.emailVerificationPage.snackBar.success': return 'Resent successfully';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
 			case 'authentication.registerProfilePage.title': return 'Profile Registration';
 			case 'authentication.registerProfilePage.textFields': return 'Name';
 			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
