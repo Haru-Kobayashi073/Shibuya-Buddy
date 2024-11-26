@@ -82,7 +82,7 @@ class RegisterProfilePage extends HookConsumerWidget {
                   controller: nameController,
                   onFieldSubmitted: (_) async => registerProfile(),
                   validator: Validator.common,
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   label: i18nRegisterProfilePage.textFields,
                 ),
