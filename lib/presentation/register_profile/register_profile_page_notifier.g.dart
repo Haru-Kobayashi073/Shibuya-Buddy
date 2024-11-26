@@ -7,7 +7,7 @@ part of 'register_profile_page_notifier.dart';
 // **************************************************************************
 
 String _$registerProfilePageNotifierHash() =>
-    r'd538cf29efaee3cfb42f170ec2f36a7c592ab4f3';
+    r'180cd477f16663cfe7ddabfe5cd6f0bcfcfeafac';
 
 /// See also [RegisterProfilePageNotifier].
 @ProviderFor(RegisterProfilePageNotifier)
