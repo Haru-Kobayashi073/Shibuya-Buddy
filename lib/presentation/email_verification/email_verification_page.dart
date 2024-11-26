@@ -26,19 +26,19 @@ class EmailVerificationPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
     final i18nEmailVerificationPage = i18n.authentication.emailVerificationPage;
-    final isEmailVerified = ref.watch(emailVerificationPageNotifierProvider);
+    final state = ref.watch(emailVerificationPageNotifierProvider);
     final notifier = ref.read(emailVerificationPageNotifierProvider.notifier);
 
     useEffect(
       () {
-        if (isEmailVerified) {
+        if (state.isEmailVerified) {
           Timer(const Duration(seconds: 2), () {
             context.go(const RegisterProfilePageRouteData().location);
           });
         }
         return null;
       },
-      [isEmailVerified],
+      [state.isEmailVerified],
     );
 
     return Scaffold(
@@ -82,7 +82,7 @@ class EmailVerificationPage extends HookConsumerWidget {
             ),
             const Gap(64),
             Align(
-              child: isEmailVerified
+              child: state.isEmailVerified
                   ? Icon(
                       Icons.check_circle_outline_rounded,
                       color: AppColor.blue600Primary,
@@ -93,11 +93,15 @@ class EmailVerificationPage extends HookConsumerWidget {
                       size: context.deviceWidth * 0.2,
                     ),
             ),
-            if (!isEmailVerified) ...[
+            if (!state.isEmailVerified) ...[
               const Gap(64),
               WideButton(
-                label: i18nEmailVerificationPage.buttons.resendEmail,
-                color: AppColor.yellow600Primary,
+                label: state.canResendEmailVerification
+                    ? i18nEmailVerificationPage.buttons.resendEmail
+                    : '${state.resendEmailVerificationCountdown}s',
+                color: state.canResendEmailVerification
+                    ? AppColor.yellow600Primary
+                    : AppColor.grey600,
                 onPressed: () async => notifier.resendEmailVerification(),
               ),
               const Gap(16),
