@@ -61,7 +61,7 @@ class App extends HookConsumerWidget {
       routerDelegate: goRouter.routerDelegate,
       routeInformationProvider: goRouter.routeInformationProvider,
       routeInformationParser: goRouter.routeInformationParser,
-      scaffoldMessengerKey: ref.read(scaffoldMessengerKeyProvider),
+      scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
       builder: (BuildContext context, Widget? child) {
         return GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

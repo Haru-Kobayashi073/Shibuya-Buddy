@@ -12,7 +12,7 @@ class ChangeLanguagePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final localeState =
-        ref.read(localeServiceProvider.notifier).getTranslationLocale();
+        ref.watch(localeServiceProvider.notifier).getTranslationLocale();
     final notifier = ref.read(localeServiceProvider.notifier);
     final i18n = Translations.of(context);
     final itemi18n = i18n.changeLanguagePage.items;

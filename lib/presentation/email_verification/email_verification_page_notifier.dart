@@ -17,6 +17,8 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
+  ScaffoldMessenger get scaffoldMessenger =>
+      ref.read(scaffoldMessengerProvider.notifier);
 
   @override
   EmailVerificationState build() {
@@ -59,13 +61,9 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
           timer.cancel();
         }
       });
-      ref
-          .read(scaffoldMessengerProvider.notifier)
-          .showSuccessSnackBar(i18n.success);
+      scaffoldMessenger.showSuccessSnackBar(i18n.success);
     } on Exception catch (_) {
-      ref
-          .read(scaffoldMessengerProvider.notifier)
-          .showExceptionSnackBar(i18n.error.unexpected);
+      scaffoldMessenger.showExceptionSnackBar(i18n.error.unexpected);
     }
   }
 }

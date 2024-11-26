@@ -12,6 +12,8 @@ part 'sign_in_page_notifier.g.dart';
 class SignInPageNotifier extends _$SignInPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
+  ScaffoldMessenger get scaffoldMessenger =>
+      ref.read(scaffoldMessengerProvider.notifier);
 
   @override
   void build() {
@@ -31,9 +33,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
       await onSuccess();
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
-      ref
-          .read(scaffoldMessengerProvider.notifier)
-          .showExceptionSnackBar(exceptionMessage);
+      scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     }
   }
 
@@ -42,9 +42,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
       await authenticationDataSource.signInWithGoogle();
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
-      ref
-          .read(scaffoldMessengerProvider.notifier)
-          .showExceptionSnackBar(exceptionMessage);
+      scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     }
   }
 
@@ -53,9 +51,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
       await authenticationDataSource.signInWithApple();
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
-      ref
-          .read(scaffoldMessengerProvider.notifier)
-          .showExceptionSnackBar(exceptionMessage);
+      scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     }
   }
 
