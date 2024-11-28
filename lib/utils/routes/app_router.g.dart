@@ -11,6 +11,7 @@ List<RouteBase> get $appRoutes => [
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
+      $popularTopicsRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -119,6 +120,29 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
       path: '/myPage',
       factory: $MyPageRouteDataExtension._fromState,
     );
+
+RouteBase get $popularTopicsRouteData => GoRouteData.$route(
+      path: '/popularTopics',
+      factory: $PopularTopicsRouteDataExtension._fromState,
+    );
+
+extension $PopularTopicsRouteDataExtension on PopularTopicsRouteData {
+  static PopularTopicsRouteData _fromState(GoRouterState state) =>
+      PopularTopicsRouteData();
+
+  String get location => GoRouteData.$location(
+        '/popularTopics',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 // **************************************************************************
 // RiverpodGenerator
