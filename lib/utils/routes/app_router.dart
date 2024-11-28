@@ -10,6 +10,7 @@ import '../../presentation/components/bottom_navigation.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/popular_topics/popular_topics_page.dart';
 import 'routes.dart';
 
 part 'app_router.g.dart';
@@ -124,5 +125,17 @@ class MyPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MyPage();
+  }
+}
+
+@TypedGoRoute<PopularTopicsRouteData>(
+  path: Routes.popularTopics,
+)
+class PopularTopicsRouteData extends GoRouteData {
+  PopularTopicsRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PopularTopicsPage();
   }
 }
