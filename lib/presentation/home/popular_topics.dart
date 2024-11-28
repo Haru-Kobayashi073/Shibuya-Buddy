@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/topic_card.dart';
 
@@ -44,16 +45,23 @@ class PopularTopics extends StatelessWidget {
               },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      section,
-                      style: AppTextStyle.textStyle
-                          .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const Icon(Icons.arrow_forward_ios, size: 20),
-                  ],
+                child: GestureDetector(
+                  onTap: () async{
+                    await PopularTopicsRouteData().push<void>(context);
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        section,
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Icon(Icons.arrow_forward_ios, size: 20),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -68,7 +76,6 @@ class PopularTopics extends StatelessWidget {
             child: Row(
               children: topics.entries.map((entry) {
                 final title = entry.key;
-
                 final path = entry.value;
                 final pathWidgets = <Widget>[];
                 for (final pathEntry in path.entries) {
