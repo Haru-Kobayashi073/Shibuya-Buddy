@@ -26,21 +26,21 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
     final timer =
         Timer.periodic(const Duration(seconds: 1), (Timer timer) async {
       await authenticationDataSource.isEmailVerified();
-      if (firebaseAuth.currentUser == null) {
-        state = EmailVerificationState(
-          canResendEmailVerification: state.canResendEmailVerification,
-        );
-      } else if (firebaseAuth.currentUser!.emailVerified) {
+      if (firebaseAuth.currentUser!.emailVerified) {
         timer.cancel();
-        state = const EmailVerificationState(isEmailVerified: true);
+        state = state.copyWith(
+          isEmailVerified: true,
+          emailVerificationButtonState: EmailVerificationButtonState.verified,
+        );
       }
     });
     ref.onDispose(timer.cancel);
     return const EmailVerificationState();
   }
 
-  Future<void> resendEmailVerification() async {
-    if (!state.canResendEmailVerification) {
+  Future<void> sendEmailVerification() async {
+    if (state.emailVerificationButtonState ==
+        EmailVerificationButtonState.coolDown) {
       return;
     }
     final i18n = Translations.of(rootNavigatorKey.currentContext!)
@@ -49,15 +49,18 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
         .snackBar;
     try {
       await authenticationDataSource.sendEmailVerification();
-      state = const EmailVerificationState(canResendEmailVerification: false);
+      state = state.copyWith(
+        emailVerificationButtonState: EmailVerificationButtonState.coolDown,
+        resendEmailVerificationCountdown: 60,
+      );
       Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-        state = EmailVerificationState(
-          canResendEmailVerification: false,
-          resendEmailVerificationCountdown:
-              state.resendEmailVerificationCountdown - 1,
+        state = state.copyWith(
+          resendEmailVerificationCountdown: 60 - timer.tick,
         );
         if (timer.tick == 60) {
-          state = const EmailVerificationState();
+          state = state.copyWith(
+            emailVerificationButtonState: EmailVerificationButtonState.resend,
+          );
           timer.cancel();
         }
       });
