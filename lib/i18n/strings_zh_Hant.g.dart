@@ -240,9 +240,9 @@ class _TranslationsAuthenticationEmailVerificationPageZhHant implements Translat
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '電子郵件驗證';
-	@override String descriptionForDestination({required Object email}) => '將向輸入的電子郵件地址發送確認郵件：${email}';
-	@override String get descriptionForNextStep => '驗證完成後，頁面將自動跳轉。';
+	@override String get title => '電子郵件地址驗證';
+	@override String descriptionForDestination({required Object email}) => '將向輸入的${email}發送確認郵件。';
+	@override String get descriptionForCoolDown => '確認郵件每60秒只能重新發送一次。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHant buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(_root);
 }
@@ -376,7 +376,9 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsZhHant implements T
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
+	@override String get sendEmail => '發送確認郵件';
 	@override String get resendEmail => '重新發送確認郵件';
+	@override String get toNext => '下一步';
 	@override String get retypeEmail => '修改電子郵件地址';
 }
 
@@ -387,7 +389,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant implements 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get success => '重新發送完成';
+	@override String get success => '發送成功';
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(_root);
 }
 
@@ -421,7 +423,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implem
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get unexpected => '發生了錯誤，請稍後再試。';
+	@override String get unexpected => '發生錯誤，請稍後再試。';
 }
 
 /// Flat map(s) containing all translations.
@@ -461,13 +463,15 @@ extension on TranslationsZhHant {
 			case 'authentication.signUpPage.textFields.email': return '電子郵件地址';
 			case 'authentication.signUpPage.textFields.password': return '密碼';
 			case 'authentication.signUpPage.button': return '註冊';
-			case 'authentication.emailVerificationPage.title': return '電子郵件驗證';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的電子郵件地址發送確認郵件：${email}';
-			case 'authentication.emailVerificationPage.descriptionForNextStep': return '驗證完成後，頁面將自動跳轉。';
+			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '發送確認郵件';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改電子郵件地址';
-			case 'authentication.emailVerificationPage.snackBar.success': return '重新發送完成';
-			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '發生了錯誤，請稍後再試。';
+			case 'authentication.emailVerificationPage.snackBar.success': return '發送成功';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
 			case 'authentication.registerProfilePage.title': return '註冊個人資訊';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';

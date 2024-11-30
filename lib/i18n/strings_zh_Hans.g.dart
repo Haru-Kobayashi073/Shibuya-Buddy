@@ -240,9 +240,9 @@ class _TranslationsAuthenticationEmailVerificationPageZhHans implements Translat
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '邮箱验证';
-	@override String descriptionForDestination({required Object email}) => '将向输入的邮箱地址发送确认邮件：${email}';
-	@override String get descriptionForNextStep => '验证完成后，页面将自动跳转。';
+	@override String get title => '邮箱地址验证';
+	@override String descriptionForDestination({required Object email}) => '将向输入的${email}发送确认邮件。';
+	@override String get descriptionForCoolDown => '确认邮件每60秒只能重新发送一次。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHans buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHans._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(_root);
 }
@@ -376,7 +376,9 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsZhHans implements T
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+	@override String get sendEmail => '发送确认邮件';
 	@override String get resendEmail => '重新发送确认邮件';
+	@override String get toNext => '下一步';
 	@override String get retypeEmail => '修改邮箱地址';
 }
 
@@ -387,7 +389,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans implements 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get success => '重新发送完成';
+	@override String get success => '发送成功';
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(_root);
 }
 
@@ -421,7 +423,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans implem
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get unexpected => '发生了错误，请稍后再试。';
+	@override String get unexpected => '发生错误，请稍后再试。';
 }
 
 /// Flat map(s) containing all translations.
@@ -461,13 +463,15 @@ extension on TranslationsZhHans {
 			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
 			case 'authentication.signUpPage.textFields.password': return '密码';
 			case 'authentication.signUpPage.button': return '注册';
-			case 'authentication.emailVerificationPage.title': return '邮箱验证';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的邮箱地址发送确认邮件：${email}';
-			case 'authentication.emailVerificationPage.descriptionForNextStep': return '验证完成后，页面将自动跳转。';
+			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的${email}发送确认邮件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '发送确认邮件';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
-			case 'authentication.emailVerificationPage.snackBar.success': return '重新发送完成';
-			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生了错误，请稍后再试。';
+			case 'authentication.emailVerificationPage.snackBar.success': return '发送成功';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
 			case 'authentication.registerProfilePage.title': return '注册个人信息';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';

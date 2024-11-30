@@ -65,15 +65,17 @@
             "button": "Sign Up"
         },
         "emailVerificationPage": {
-            "title": "Email Verification",
-            "descriptionForDestination": "A confirmation email will be sent to the entered address: ${email}",
-            "descriptionForNextStep": "Once verified, the screen will automatically proceed.",
+            "title": "Email Address Verification",
+            "descriptionForDestination": "A verification email will be sent to the entered ${email}.",
+            "descriptionForCoolDown": "You can resend the verification email once every 60 seconds.",
             "buttons": {
-                "resendEmail": "Resend Confirmation Email",
+                "sendEmail": "Send Verification Email",
+                "resendEmail": "Resend Verification Email",
+                "toNext": "Next",
                 "retypeEmail": "Edit Email Address"
             },
             "snackBar": {
-                "success": "Resent successfully",
+                "success": "Email sent successfully",
                 "error": {
                     "unexpected": "An error occurred. Please try again later."
                 }

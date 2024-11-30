@@ -232,7 +232,7 @@ class _TranslationsAuthenticationEmailVerificationPageJa implements Translations
 	// Translations
 	@override String get title => 'メールアドレスの確認';
 	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信します';
-	@override String get descriptionForNextStep => '確認が完了すれば、画面は自動で移動します';
+	@override String get descriptionForCoolDown => '確認メールの再送信は、60秒ごとに1回可能です。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsJa buttons = _TranslationsAuthenticationEmailVerificationPageButtonsJa._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarJa snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarJa._(_root);
 }
@@ -360,7 +360,9 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsJa implements Trans
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get sendEmail => '確認メールを送信';
 	@override String get resendEmail => '確認メールを再送信';
+	@override String get toNext => '次へ';
 	@override String get retypeEmail => 'メールアドレスの修正';
 }
 
@@ -371,7 +373,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarJa implements Tran
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get success => '再送信が完了しました';
+	@override String get success => '送信が完了しました';
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(_root);
 }
 
@@ -456,10 +458,12 @@ extension on TranslationsJa {
 			case 'authentication.signUpPage.button': return '新規登録';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
-			case 'authentication.emailVerificationPage.descriptionForNextStep': return '確認が完了すれば、画面は自動で移動します';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認メールの再送信は、60秒ごとに1回可能です。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '確認メールを送信';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '確認メールを再送信';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '次へ';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'メールアドレスの修正';
-			case 'authentication.emailVerificationPage.snackBar.success': return '再送信が完了しました';
+			case 'authentication.emailVerificationPage.snackBar.success': return '送信が完了しました';
 			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return 'エラーが発生しました。時間をおいて再度お試しください';
 			case 'authentication.registerProfilePage.title': return 'プロフィールの登録';
 			case 'authentication.registerProfilePage.textFields': return '名前';

@@ -56,13 +56,15 @@
         "emailVerificationPage": {
             "title": "メールアドレスの確認",
             "descriptionForDestination": "入力された${email}に確認メールを送信します",
-            "descriptionForNextStep": "確認が完了すれば、画面は自動で移動します",
+            "descriptionForCoolDown": "確認メールの再送信は、60秒ごとに1回可能です。",
             "buttons": {
+                "sendEmail": "確認メールを送信",
                 "resendEmail": "確認メールを再送信",
+                "toNext": "次へ",
                 "retypeEmail": "メールアドレスの修正"
             },
             "snackBar": {
-                "success": "再送信が完了しました",
+                "success": "送信が完了しました",
                 "error": {
                     "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
                 }
