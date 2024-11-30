@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -14,8 +11,9 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 import 'email_verification_page_notifier.dart';
+import 'email_verification_state.dart';
 
-class EmailVerificationPage extends HookConsumerWidget {
+class EmailVerificationPage extends ConsumerWidget {
   const EmailVerificationPage({
     super.key,
     required this.email,
@@ -28,18 +26,6 @@ class EmailVerificationPage extends HookConsumerWidget {
     final i18nEmailVerificationPage = i18n.authentication.emailVerificationPage;
     final state = ref.watch(emailVerificationPageNotifierProvider);
     final notifier = ref.read(emailVerificationPageNotifierProvider.notifier);
-
-    useEffect(
-      () {
-        if (state.isEmailVerified) {
-          Timer(const Duration(seconds: 2), () {
-            context.go(const RegisterProfilePageRouteData().location);
-          });
-        }
-        return null;
-      },
-      [state.isEmailVerified],
-    );
 
     return Scaffold(
       appBar: AppBar(
@@ -73,7 +59,7 @@ class EmailVerificationPage extends HookConsumerWidget {
             ),
             Flexible(
               child: Text(
-                i18nEmailVerificationPage.descriptionForNextStep,
+                i18nEmailVerificationPage.descriptionForCoolDown,
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -93,24 +79,37 @@ class EmailVerificationPage extends HookConsumerWidget {
                       size: context.deviceWidth * 0.2,
                     ),
             ),
-            if (!state.isEmailVerified) ...[
-              const Gap(64),
-              WideButton(
-                label: state.canResendEmailVerification
-                    ? i18nEmailVerificationPage.buttons.resendEmail
-                    : '${state.resendEmailVerificationCountdown}s',
-                color: state.canResendEmailVerification
-                    ? AppColor.yellow600Primary
-                    : AppColor.grey600,
-                onPressed: () async => notifier.resendEmailVerification(),
-              ),
-              const Gap(16),
+            const Gap(64),
+            WideButton(
+              label: switch (state.emailVerificationButtonState) {
+                EmailVerificationButtonState.initialize =>
+                  i18nEmailVerificationPage.buttons.sendEmail,
+                EmailVerificationButtonState.coolDown =>
+                  '${state.resendEmailVerificationCountdown}s',
+                EmailVerificationButtonState.resend =>
+                  i18nEmailVerificationPage.buttons.resendEmail,
+                EmailVerificationButtonState.verified =>
+                  i18nEmailVerificationPage.buttons.toNext,
+              },
+              color: state.emailVerificationButtonState ==
+                      EmailVerificationButtonState.coolDown
+                  ? AppColor.grey600
+                  : AppColor.yellow600Primary,
+              onPressed: () async {
+                if (state.isEmailVerified) {
+                  context.go(const RegisterProfilePageRouteData().location);
+                } else {
+                  await notifier.sendEmailVerification();
+                }
+              },
+            ),
+            const Gap(16),
+            if (!state.isEmailVerified)
               WideButton(
                 label: i18nEmailVerificationPage.buttons.retypeEmail,
                 color: AppColor.blue50Background,
                 onPressed: () => context.pop(),
               ),
-            ],
           ],
         ),
       ),
