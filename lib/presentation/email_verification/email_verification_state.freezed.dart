@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$EmailVerificationState {
   bool get isEmailVerified => throw _privateConstructorUsedError;
-  bool get canResendEmailVerification => throw _privateConstructorUsedError;
+  EmailVerificationButtonState get emailVerificationButtonState =>
+      throw _privateConstructorUsedError;
   int get resendEmailVerificationCountdown =>
       throw _privateConstructorUsedError;
 
@@ -36,7 +37,7 @@ abstract class $EmailVerificationStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isEmailVerified,
-      bool canResendEmailVerification,
+      EmailVerificationButtonState emailVerificationButtonState,
       int resendEmailVerificationCountdown});
 }
 
@@ -57,7 +58,7 @@ class _$EmailVerificationStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isEmailVerified = null,
-    Object? canResendEmailVerification = null,
+    Object? emailVerificationButtonState = null,
     Object? resendEmailVerificationCountdown = null,
   }) {
     return _then(_value.copyWith(
@@ -65,10 +66,10 @@ class _$EmailVerificationStateCopyWithImpl<$Res,
           ? _value.isEmailVerified
           : isEmailVerified // ignore: cast_nullable_to_non_nullable
               as bool,
-      canResendEmailVerification: null == canResendEmailVerification
-          ? _value.canResendEmailVerification
-          : canResendEmailVerification // ignore: cast_nullable_to_non_nullable
-              as bool,
+      emailVerificationButtonState: null == emailVerificationButtonState
+          ? _value.emailVerificationButtonState
+          : emailVerificationButtonState // ignore: cast_nullable_to_non_nullable
+              as EmailVerificationButtonState,
       resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
           ? _value.resendEmailVerificationCountdown
           : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
@@ -88,7 +89,7 @@ abstract class _$$EmailVerificationStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isEmailVerified,
-      bool canResendEmailVerification,
+      EmailVerificationButtonState emailVerificationButtonState,
       int resendEmailVerificationCountdown});
 }
 
@@ -108,7 +109,7 @@ class __$$EmailVerificationStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isEmailVerified = null,
-    Object? canResendEmailVerification = null,
+    Object? emailVerificationButtonState = null,
     Object? resendEmailVerificationCountdown = null,
   }) {
     return _then(_$EmailVerificationStateImpl(
@@ -116,10 +117,10 @@ class __$$EmailVerificationStateImplCopyWithImpl<$Res>
           ? _value.isEmailVerified
           : isEmailVerified // ignore: cast_nullable_to_non_nullable
               as bool,
-      canResendEmailVerification: null == canResendEmailVerification
-          ? _value.canResendEmailVerification
-          : canResendEmailVerification // ignore: cast_nullable_to_non_nullable
-              as bool,
+      emailVerificationButtonState: null == emailVerificationButtonState
+          ? _value.emailVerificationButtonState
+          : emailVerificationButtonState // ignore: cast_nullable_to_non_nullable
+              as EmailVerificationButtonState,
       resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
           ? _value.resendEmailVerificationCountdown
           : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
@@ -133,7 +134,8 @@ class __$$EmailVerificationStateImplCopyWithImpl<$Res>
 class _$EmailVerificationStateImpl implements _EmailVerificationState {
   const _$EmailVerificationStateImpl(
       {this.isEmailVerified = false,
-      this.canResendEmailVerification = true,
+      this.emailVerificationButtonState =
+          EmailVerificationButtonState.initialize,
       this.resendEmailVerificationCountdown = 60});
 
   @override
@@ -141,14 +143,14 @@ class _$EmailVerificationStateImpl implements _EmailVerificationState {
   final bool isEmailVerified;
   @override
   @JsonKey()
-  final bool canResendEmailVerification;
+  final EmailVerificationButtonState emailVerificationButtonState;
   @override
   @JsonKey()
   final int resendEmailVerificationCountdown;
 
   @override
   String toString() {
-    return 'EmailVerificationState(isEmailVerified: $isEmailVerified, canResendEmailVerification: $canResendEmailVerification, resendEmailVerificationCountdown: $resendEmailVerificationCountdown)';
+    return 'EmailVerificationState(isEmailVerified: $isEmailVerified, emailVerificationButtonState: $emailVerificationButtonState, resendEmailVerificationCountdown: $resendEmailVerificationCountdown)';
   }
 
   @override
@@ -158,10 +160,10 @@ class _$EmailVerificationStateImpl implements _EmailVerificationState {
             other is _$EmailVerificationStateImpl &&
             (identical(other.isEmailVerified, isEmailVerified) ||
                 other.isEmailVerified == isEmailVerified) &&
-            (identical(other.canResendEmailVerification,
-                    canResendEmailVerification) ||
-                other.canResendEmailVerification ==
-                    canResendEmailVerification) &&
+            (identical(other.emailVerificationButtonState,
+                    emailVerificationButtonState) ||
+                other.emailVerificationButtonState ==
+                    emailVerificationButtonState) &&
             (identical(other.resendEmailVerificationCountdown,
                     resendEmailVerificationCountdown) ||
                 other.resendEmailVerificationCountdown ==
@@ -170,7 +172,7 @@ class _$EmailVerificationStateImpl implements _EmailVerificationState {
 
   @override
   int get hashCode => Object.hash(runtimeType, isEmailVerified,
-      canResendEmailVerification, resendEmailVerificationCountdown);
+      emailVerificationButtonState, resendEmailVerificationCountdown);
 
   /// Create a copy of EmailVerificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -185,14 +187,14 @@ class _$EmailVerificationStateImpl implements _EmailVerificationState {
 abstract class _EmailVerificationState implements EmailVerificationState {
   const factory _EmailVerificationState(
           {final bool isEmailVerified,
-          final bool canResendEmailVerification,
+          final EmailVerificationButtonState emailVerificationButtonState,
           final int resendEmailVerificationCountdown}) =
       _$EmailVerificationStateImpl;
 
   @override
   bool get isEmailVerified;
   @override
-  bool get canResendEmailVerification;
+  EmailVerificationButtonState get emailVerificationButtonState;
   @override
   int get resendEmailVerificationCountdown;
 
