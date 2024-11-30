@@ -29,7 +29,6 @@ class SignUpPageNotifier extends _$SignUpPageNotifier {
         emailAddress,
         password,
       );
-      await _sendEmailVerification();
       onSuccess();
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
@@ -39,9 +38,5 @@ class SignUpPageNotifier extends _$SignUpPageNotifier {
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
-  }
-
-  Future<void> _sendEmailVerification() async {
-    await authenticationDataSource.sendEmailVerification();
   }
 }
