@@ -21,6 +21,21 @@ Map<String, Map<int, String>> topics = {
   'もじもじもじもじもじもじもじもじもじもじもじもじもじもじもじ': {
     430: Assets.images.gourmet.path,
   },
+  'TextTextText': {
+    430: Assets.images.gourmet.path,
+  },
+  'TextTextTextTextTextText': {
+    999: Assets.images.gourmet.path,
+  },
+  'TextTextTextTextTextTextTextTextText': {
+    99999: Assets.images.gourmet.path,
+  },
+  'TextTextTextTextTextTextTextTextTextTextTextText': {
+    999999: Assets.images.gourmet.path,
+  },
+  'TextTextTextTextTextTextTextTextTextTextTextTextTextTextText': {
+    9999999: Assets.images.gourmet.path,
+  },
 };
 
 class PopularTopicsPage extends StatelessWidget {
@@ -39,27 +54,34 @@ class PopularTopicsPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: topics.entries.map((entry) {
-          final title = entry.key;
-          final path = entry.value;
-          final pathWidgets = <Widget>[];
-          for (final pathEntry in path.entries) {
-            final image = pathEntry.value;
-            final numberOfTopics = pathEntry.key;
-            pathWidgets.add(
-              TopicCard(
-                title: title,
-                imagePath: image,
-                numberOfTopics: numberOfTopics,
-              ),
-            );
-          }
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: pathWidgets,
-          );
-        }).toList(),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10), //仮10ピクセルに修正
+        child: SingleChildScrollView(
+          child: Wrap(
+            spacing: 4,
+            runSpacing: 8,
+            children: topics.entries.map((entry) {
+              final title = entry.key;
+              final path = entry.value;
+              final pathWidgets = <Widget>[];
+              for (final pathEntry in path.entries) {
+                final image = pathEntry.value;
+                final numberOfTopics = pathEntry.key;
+                pathWidgets.add(
+                  TopicCard(
+                    title: title,
+                    imagePath: image,
+                    numberOfTopics: numberOfTopics,
+                  ),
+                );
+              }
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: pathWidgets,
+              );
+            }).toList(),
+          ),
+        ),
       ),
     );
   }
