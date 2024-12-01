@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
-import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -64,18 +63,10 @@ class CompleteSendEmailPage extends ConsumerWidget {
             WideButton(
               label: i18nCompleteSendEmailPage.buttons.resendEmail,
               color: AppColor.yellow600Primary,
-              onPressed: () async {
-                await notifier.sendPasswordResetEmail(
-                  email: email,
-                  onSuccess: () async {
-                    ref
-                        .read(scaffoldMessengerProvider.notifier)
-                        .showSuccessSnackBar(
-                          i18nCompleteSendEmailPage.successResendEmail,
-                        );
-                  },
-                );
-              },
+              onPressed: () async => notifier.sendPasswordResetEmail(
+                email: email,
+                onSuccess: () async {},
+              ),
             ),
             const SizedBox(height: 16),
             WideButton(

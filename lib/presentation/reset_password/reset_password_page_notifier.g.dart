@@ -7,7 +7,7 @@ part of 'reset_password_page_notifier.dart';
 // **************************************************************************
 
 String _$resetPasswordPageNotifierHash() =>
-    r'2d250f9cf64a25f0142503dd5fde1d9a2c91252a';
+    r'608323cb4cf10b68906f1e7ebb6d21afd0bd3ba0';
 
 /// See also [ResetPasswordPageNotifier].
 @ProviderFor(ResetPasswordPageNotifier)

@@ -4,6 +4,9 @@ class Routes {
   static const myPlan = '/myPlan';
   static const myPage = '/myPage';
   static const signIn = '/signIn';
+  static const signUp = 'signUp';
+  static const emailVerification = 'emailVerification';
+  static const registerProfile = '/registerProfile';
   static const resetPassword = 'resetPassword';
   static const completeSendEmail = 'completeSendEmail';
   static const aboutApp = 'aboutApp';

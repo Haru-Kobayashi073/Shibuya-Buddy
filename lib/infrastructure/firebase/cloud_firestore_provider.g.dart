@@ -1,27 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'authentication_data_source.dart';
+part of 'cloud_firestore_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authenticationDataSourceHash() =>
-    r'c4795071439f943a22d2ea911ddc2e981718f52e';
+String _$cloudFirestoreHash() => r'2fd206ed7ec823e00283003ed763967356d336b9';
 
-/// See also [AuthenticationDataSource].
-@ProviderFor(AuthenticationDataSource)
-final authenticationDataSourceProvider =
-    AutoDisposeNotifierProvider<AuthenticationDataSource, void>.internal(
-  AuthenticationDataSource.new,
-  name: r'authenticationDataSourceProvider',
+/// See also [cloudFirestore].
+@ProviderFor(cloudFirestore)
+final cloudFirestoreProvider = Provider<FirebaseFirestore>.internal(
+  cloudFirestore,
+  name: r'cloudFirestoreProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$authenticationDataSourceHash,
+      : _$cloudFirestoreHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AuthenticationDataSource = AutoDisposeNotifier<void>;
+typedef CloudFirestoreRef = ProviderRef<FirebaseFirestore>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

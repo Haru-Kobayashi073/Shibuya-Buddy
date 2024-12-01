@@ -45,6 +45,39 @@
                 "submit": "送信"
             }
         },
+        "signUpPage": {
+            "title": "新規登録",
+            "textFields": {
+                "email": "メールアドレス",
+                "password": "パスワード"
+            },
+            "button": "新規登録"
+        },
+        "emailVerificationPage": {
+            "title": "メールアドレスの確認",
+            "descriptionForDestination": "入力された${email}に確認メールを送信します",
+            "descriptionForCoolDown": "確認メールの再送信は、60秒ごとに1回可能です。",
+            "buttons": {
+                "sendEmail": "確認メールを送信",
+                "resendEmail": "確認メールを再送信",
+                "toNext": "次へ",
+                "retypeEmail": "メールアドレスの修正"
+            },
+            "snackBar": {
+                "success": "送信が完了しました",
+                "error": {
+                    "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
+                }
+            }
+        },
+        "registerProfilePage": {
+            "title": "プロフィールの登録",
+            "textFields": "名前",
+            "buttons": {
+                "submit": "完了",
+                "skip": "スキップ"
+            }
+        },
         "completeSendEmailPage": {
             "title": "送信完了",
             "description": "パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください",

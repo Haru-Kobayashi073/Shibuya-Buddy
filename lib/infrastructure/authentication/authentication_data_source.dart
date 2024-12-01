@@ -61,4 +61,30 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   Future<void> sendPasswordResetEmail(String email) async {
     await firebaseAuth.sendPasswordResetEmail(email: email);
   }
+
+  @override
+  Future<void> sendEmailVerification() async {
+    await firebaseAuth.currentUser?.sendEmailVerification();
+  }
+
+  @override
+  Future<void> signUpWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
+    await firebaseAuth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+  }
+
+  @override
+  Future<bool> isEmailVerified() async {
+    await firebaseAuth.currentUser?.reload();
+    if (firebaseAuth.currentUser == null) {
+      return false;
+    } else {
+      return firebaseAuth.currentUser!.emailVerified;
+    }
+  }
 }

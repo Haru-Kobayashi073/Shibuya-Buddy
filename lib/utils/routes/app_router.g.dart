@@ -13,6 +13,7 @@ List<RouteBase> get $appRoutes => [
       $myPlanPageRouteData,
       $myPageRouteData,
       $signInPageRouteData,
+      $registerProfilePageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -317,6 +318,16 @@ RouteBase get $signInPageRouteData => GoRouteData.$route(
             ),
           ],
         ),
+        GoRouteData.$route(
+          path: 'signUp',
+          factory: $SignUpPageRouteDataExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'emailVerification',
+              factory: $EmailVerificationPageRouteDataExtension._fromState,
+            ),
+          ],
+        ),
       ],
     );
 
@@ -368,6 +379,72 @@ extension $CompleteSendEmailPageRouteDataExtension
         queryParams: {
           'email': email,
         },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
+  static SignUpPageRouteData _fromState(GoRouterState state) =>
+      const SignUpPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/signIn/signUp',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $EmailVerificationPageRouteDataExtension
+    on EmailVerificationPageRouteData {
+  static EmailVerificationPageRouteData _fromState(GoRouterState state) =>
+      EmailVerificationPageRouteData(
+        email: state.uri.queryParameters['email']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/signIn/signUp/emailVerification',
+        queryParams: {
+          'email': email,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $registerProfilePageRouteData => GoRouteData.$route(
+      path: '/registerProfile',
+      factory: $RegisterProfilePageRouteDataExtension._fromState,
+    );
+
+extension $RegisterProfilePageRouteDataExtension
+    on RegisterProfilePageRouteData {
+  static RegisterProfilePageRouteData _fromState(GoRouterState state) =>
+      const RegisterProfilePageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/registerProfile',
       );
 
   void go(BuildContext context) => context.go(location);

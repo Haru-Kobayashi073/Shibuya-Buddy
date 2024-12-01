@@ -185,7 +185,8 @@ class SignInPage extends HookConsumerWidget {
                     label: i18nSignInPage.buttons.signUp,
                     color: AppColor.white,
                     border: const BorderSide(color: AppColor.black),
-                    onPressed: () {},
+                    onPressed: () async =>
+                        const SignUpPageRouteData().push<void>(context),
                   ),
                 ),
                 const SliverGap(16),
@@ -213,8 +214,7 @@ class SignInPage extends HookConsumerWidget {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: AppColor.white,
                     ),
-                    onPressed: () async =>
-                        const HomeScreenRouteData().push<void>(context),
+                    onPressed: () => const HomeScreenRouteData().go(context),
                     child: Text(
                       i18nSignInPage.buttons.signInAfter,
                       style: AppTextStyle.textStyle.copyWith(

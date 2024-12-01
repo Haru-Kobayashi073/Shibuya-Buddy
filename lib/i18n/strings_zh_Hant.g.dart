@@ -79,6 +79,9 @@ class _TranslationsAuthenticationZhHant implements TranslationsAuthenticationEn 
 	@override late final _TranslationsAuthenticationSignInPageZhHant signInPage = _TranslationsAuthenticationSignInPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthZhHant firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHant._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageZhHant resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageZhHant signUpPage = _TranslationsAuthenticationSignUpPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageZhHant emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageZhHant registerProfilePage = _TranslationsAuthenticationRegisterProfilePageZhHant._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHant completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHant._(_root);
 }
 
@@ -218,6 +221,44 @@ class _TranslationsAuthenticationResetPasswordPageZhHant implements Translations
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHant buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHant._(_root);
 }
 
+// Path: authentication.signUpPage
+class _TranslationsAuthenticationSignUpPageZhHant implements TranslationsAuthenticationSignUpPageEn {
+	_TranslationsAuthenticationSignUpPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '註冊';
+	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHant._(_root);
+	@override String get button => '註冊';
+}
+
+// Path: authentication.emailVerificationPage
+class _TranslationsAuthenticationEmailVerificationPageZhHant implements TranslationsAuthenticationEmailVerificationPageEn {
+	_TranslationsAuthenticationEmailVerificationPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '電子郵件地址驗證';
+	@override String descriptionForDestination({required Object email}) => '將向輸入的${email}發送確認郵件。';
+	@override String get descriptionForCoolDown => '確認郵件每60秒只能重新發送一次。';
+	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHant buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(_root);
+}
+
+// Path: authentication.registerProfilePage
+class _TranslationsAuthenticationRegisterProfilePageZhHant implements TranslationsAuthenticationRegisterProfilePageEn {
+	_TranslationsAuthenticationRegisterProfilePageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '註冊個人資訊';
+	@override String get textFields => '姓名';
+	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHant buttons = _TranslationsAuthenticationRegisterProfilePageButtonsZhHant._(_root);
+}
+
 // Path: authentication.completeSendEmailPage
 class _TranslationsAuthenticationCompleteSendEmailPageZhHant implements TranslationsAuthenticationCompleteSendEmailPageEn {
 	_TranslationsAuthenticationCompleteSendEmailPageZhHant._(this._root);
@@ -317,6 +358,52 @@ class _TranslationsAuthenticationResetPasswordPageButtonsZhHant implements Trans
 	@override String get submit => '發送';
 }
 
+// Path: authentication.signUpPage.textFields
+class _TranslationsAuthenticationSignUpPageTextFieldsZhHant implements TranslationsAuthenticationSignUpPageTextFieldsEn {
+	_TranslationsAuthenticationSignUpPageTextFieldsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get email => '電子郵件地址';
+	@override String get password => '密碼';
+}
+
+// Path: authentication.emailVerificationPage.buttons
+class _TranslationsAuthenticationEmailVerificationPageButtonsZhHant implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	_TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get sendEmail => '發送確認郵件';
+	@override String get resendEmail => '重新發送確認郵件';
+	@override String get toNext => '下一步';
+	@override String get retypeEmail => '修改電子郵件地址';
+}
+
+// Path: authentication.emailVerificationPage.snackBar
+class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '發送成功';
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(_root);
+}
+
+// Path: authentication.registerProfilePage.buttons
+class _TranslationsAuthenticationRegisterProfilePageButtonsZhHant implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	_TranslationsAuthenticationRegisterProfilePageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '完成';
+	@override String get skip => '跳過';
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(this._root);
@@ -327,6 +414,16 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get toSignIn => '前往登入畫面';
 	@override String get resendEmail => '重新發送確認郵件';
 	@override String get changeEmail => '更改電子郵件地址';
+}
+
+// Path: authentication.emailVerificationPage.snackBar.error
+class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get unexpected => '發生錯誤，請稍後再試。';
 }
 
 /// Flat map(s) containing all translations.
@@ -362,6 +459,23 @@ extension on TranslationsZhHant {
 			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';
 			case 'authentication.resetPasswordPage.textFields.email': return '電子郵件地址';
 			case 'authentication.resetPasswordPage.buttons.submit': return '發送';
+			case 'authentication.signUpPage.title': return '註冊';
+			case 'authentication.signUpPage.textFields.email': return '電子郵件地址';
+			case 'authentication.signUpPage.textFields.password': return '密碼';
+			case 'authentication.signUpPage.button': return '註冊';
+			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '發送確認郵件';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改電子郵件地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '發送成功';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
+			case 'authentication.registerProfilePage.title': return '註冊個人資訊';
+			case 'authentication.registerProfilePage.textFields': return '姓名';
+			case 'authentication.registerProfilePage.buttons.submit': return '完成';
+			case 'authentication.registerProfilePage.buttons.skip': return '跳過';
 			case 'authentication.completeSendEmailPage.title': return '發送完成';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '確認郵件已重新發送';

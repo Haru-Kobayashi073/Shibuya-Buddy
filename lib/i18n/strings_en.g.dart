@@ -83,6 +83,9 @@ class TranslationsAuthenticationEn {
 	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
+	late final TranslationsAuthenticationSignUpPageEn signUpPage = TranslationsAuthenticationSignUpPageEn._(_root);
+	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
+	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
 }
 
@@ -222,6 +225,44 @@ class TranslationsAuthenticationResetPasswordPageEn {
 	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
 }
 
+// Path: authentication.signUpPage
+class TranslationsAuthenticationSignUpPageEn {
+	TranslationsAuthenticationSignUpPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Sign Up';
+	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
+	String get button => 'Sign Up';
+}
+
+// Path: authentication.emailVerificationPage
+class TranslationsAuthenticationEmailVerificationPageEn {
+	TranslationsAuthenticationEmailVerificationPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Email Address Verification';
+	String descriptionForDestination({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+	String get descriptionForCoolDown => 'You can resend the verification email once every 60 seconds.';
+	late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons = TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
+	late final TranslationsAuthenticationEmailVerificationPageSnackBarEn snackBar = TranslationsAuthenticationEmailVerificationPageSnackBarEn._(_root);
+}
+
+// Path: authentication.registerProfilePage
+class TranslationsAuthenticationRegisterProfilePageEn {
+	TranslationsAuthenticationRegisterProfilePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Profile Registration';
+	String get textFields => 'Name';
+	late final TranslationsAuthenticationRegisterProfilePageButtonsEn buttons = TranslationsAuthenticationRegisterProfilePageButtonsEn._(_root);
+}
+
 // Path: authentication.completeSendEmailPage
 class TranslationsAuthenticationCompleteSendEmailPageEn {
 	TranslationsAuthenticationCompleteSendEmailPageEn._(this._root);
@@ -321,6 +362,52 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 	String get submit => 'Submit';
 }
 
+// Path: authentication.signUpPage.textFields
+class TranslationsAuthenticationSignUpPageTextFieldsEn {
+	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get email => 'Email Address';
+	String get password => 'Password';
+}
+
+// Path: authentication.emailVerificationPage.buttons
+class TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	TranslationsAuthenticationEmailVerificationPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get sendEmail => 'Send Verification Email';
+	String get resendEmail => 'Resend Verification Email';
+	String get toNext => 'Next';
+	String get retypeEmail => 'Edit Email Address';
+}
+
+// Path: authentication.emailVerificationPage.snackBar
+class TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	TranslationsAuthenticationEmailVerificationPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get success => 'Email sent successfully';
+	late final TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn error = TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(_root);
+}
+
+// Path: authentication.registerProfilePage.buttons
+class TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	TranslationsAuthenticationRegisterProfilePageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submit => 'Complete';
+	String get skip => 'Skip';
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
@@ -331,6 +418,16 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get toSignIn => 'To Login Screen';
 	String get resendEmail => 'Resend Confirmation Email';
 	String get changeEmail => 'Change Email Address';
+}
+
+// Path: authentication.emailVerificationPage.snackBar.error
+class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get unexpected => 'An error occurred. Please try again later.';
 }
 
 /// Flat map(s) containing all translations.
@@ -366,6 +463,23 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
+			case 'authentication.signUpPage.title': return 'Sign Up';
+			case 'authentication.signUpPage.textFields.email': return 'Email Address';
+			case 'authentication.signUpPage.textFields.password': return 'Password';
+			case 'authentication.signUpPage.button': return 'Sign Up';
+			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return 'Send Verification Email';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Verification Email';
+			case 'authentication.emailVerificationPage.buttons.toNext': return 'Next';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'Edit Email Address';
+			case 'authentication.emailVerificationPage.snackBar.success': return 'Email sent successfully';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
+			case 'authentication.registerProfilePage.title': return 'Profile Registration';
+			case 'authentication.registerProfilePage.textFields': return 'Name';
+			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
+			case 'authentication.registerProfilePage.buttons.skip': return 'Skip';
 			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
 			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';

@@ -56,6 +56,39 @@
                 "submit": "發送"
             }
         },
+        "signUpPage": {
+            "title": "註冊",
+            "textFields": {
+                "email": "電子郵件地址",
+                "password": "密碼"
+            },
+            "button": "註冊"
+        },
+        "emailVerificationPage": {
+            "title": "電子郵件地址驗證",
+            "descriptionForDestination": "將向輸入的${email}發送確認郵件。",
+            "descriptionForCoolDown": "確認郵件每60秒只能重新發送一次。",
+            "buttons": {
+                "sendEmail": "發送確認郵件",
+                "resendEmail": "重新發送確認郵件",
+                "toNext": "下一步",
+                "retypeEmail": "修改電子郵件地址"
+            },
+            "snackBar": {
+                "success": "發送成功",
+                "error": {
+                    "unexpected": "發生錯誤，請稍後再試。"
+                }
+            }
+        },
+        "registerProfilePage": {
+            "title": "註冊個人資訊",
+            "textFields": "姓名",
+            "buttons": {
+                "submit": "完成",
+                "skip": "跳過"
+            }
+        },
         "completeSendEmailPage": {
             "title": "發送完成",
             "description": "密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入",

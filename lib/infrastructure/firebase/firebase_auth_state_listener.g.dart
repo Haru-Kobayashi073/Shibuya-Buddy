@@ -7,7 +7,7 @@ part of 'firebase_auth_state_listener.dart';
 // **************************************************************************
 
 String _$firebaseAuthStateListenerHash() =>
-    r'd0795219742ef26b51bcc872a12176a6e7e19334';
+    r'c997ea81a91e03dbe8ba007c7aef6096dd2c9eec';
 
 /// See also [firebaseAuthStateListener].
 @ProviderFor(firebaseAuthStateListener)

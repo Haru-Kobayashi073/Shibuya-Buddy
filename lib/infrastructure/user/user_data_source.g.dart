@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'authentication_data_source.dart';
+part of 'user_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authenticationDataSourceHash() =>
-    r'c4795071439f943a22d2ea911ddc2e981718f52e';
+String _$userDataSourceHash() => r'e988d29b15515dfed6347e572e876a240510b318';
 
-/// See also [AuthenticationDataSource].
-@ProviderFor(AuthenticationDataSource)
-final authenticationDataSourceProvider =
-    AutoDisposeNotifierProvider<AuthenticationDataSource, void>.internal(
-  AuthenticationDataSource.new,
-  name: r'authenticationDataSourceProvider',
+/// See also [UserDataSource].
+@ProviderFor(UserDataSource)
+final userDataSourceProvider =
+    AutoDisposeNotifierProvider<UserDataSource, void>.internal(
+  UserDataSource.new,
+  name: r'userDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$authenticationDataSourceHash,
+      : _$userDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AuthenticationDataSource = AutoDisposeNotifier<void>;
+typedef _$UserDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

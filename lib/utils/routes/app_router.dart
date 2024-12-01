@@ -14,11 +14,14 @@ import '../../presentation/change_language/change_language_page.dart';
 import '../../presentation/change_theme/change_theme_page.dart';
 import '../../presentation/complete_send_email/complete_send_email_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
+import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
+import '../../presentation/sign_up/sign_up_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
 import 'routes.dart';
@@ -247,6 +250,14 @@ class ChangeThemePageRouteData extends GoRouteData {
         ),
       ],
     ),
+    TypedGoRoute<SignUpPageRouteData>(
+      path: Routes.signUp,
+      routes: [
+        TypedGoRoute<EmailVerificationPageRouteData>(
+          path: Routes.emailVerification,
+        ),
+      ],
+    ),
   ],
 )
 class SignInPageRouteData extends GoRouteData {
@@ -276,5 +287,38 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return CompleteSendEmailPage(email: email);
+  }
+}
+
+class SignUpPageRouteData extends GoRouteData {
+  const SignUpPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SignUpPage();
+  }
+}
+
+class EmailVerificationPageRouteData extends GoRouteData {
+  const EmailVerificationPageRouteData({
+    required this.email,
+  });
+  final String email;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return EmailVerificationPage(email: email);
+  }
+}
+
+@TypedGoRoute<RegisterProfilePageRouteData>(
+  path: Routes.registerProfile,
+)
+class RegisterProfilePageRouteData extends GoRouteData {
+  const RegisterProfilePageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const RegisterProfilePage();
   }
 }

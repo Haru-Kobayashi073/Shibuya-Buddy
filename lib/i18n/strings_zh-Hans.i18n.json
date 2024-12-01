@@ -56,6 +56,39 @@
                 "submit": "发送"
             }
         },
+        "signUpPage": {
+            "title": "注册",
+            "textFields": {
+                "email": "邮箱地址",
+                "password": "密码"
+            },
+            "button": "注册"
+        },
+        "emailVerificationPage": {
+            "title": "邮箱地址验证",
+            "descriptionForDestination": "将向输入的${email}发送确认邮件。",
+            "descriptionForCoolDown": "确认邮件每60秒只能重新发送一次。",
+            "buttons": {
+                "sendEmail": "发送确认邮件",
+                "resendEmail": "重新发送确认邮件",
+                "toNext": "下一步",
+                "retypeEmail": "修改邮箱地址"
+            },
+            "snackBar": {
+                "success": "发送成功",
+                "error": {
+                    "unexpected": "发生错误，请稍后再试。"
+                }
+            }
+        },
+        "registerProfilePage": {
+            "title": "注册个人信息",
+            "textFields": "姓名",
+            "buttons": {
+                "submit": "完成",
+                "skip": "跳过"
+            }
+        },
         "completeSendEmailPage": {
             "title": "发送完成",
             "description": "密码重置邮件已发送到${email} \n 重置后请从登录页面登录",
