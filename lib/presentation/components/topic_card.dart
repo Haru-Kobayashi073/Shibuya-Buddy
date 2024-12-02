@@ -117,20 +117,23 @@ class TopicCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
                           bottomRight: Radius.circular(80),
-                          topRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
                         ),
                         color: rankingColor(ranking),
                       ),
                       width: 45,
                       height: 45, //数値固定を修正
-                      child: Text(
-                        '$ranking',
-                        textAlign: TextAlign.center,
-                        style: AppTextStyle.textStyle.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: AppColor.white,
+                      child: Align(
+                        alignment: const Alignment(-0.1, -0.3),
+                        child: Text(
+                          '$ranking',
+                          style: AppTextStyle.textStyle.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: AppColor.white,
+                          ),
                         ),
                       ),
                     ),
