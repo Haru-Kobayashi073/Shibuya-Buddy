@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+
+Color rankingColor(int? ranking) {
+  switch (ranking) {
+    case 1:
+      return AppColor.yellow900Tertiary;
+    case 2:
+      return AppColor.blue900Tertiary;
+    case 3:
+      return AppColor.yellow600Primary;
+    case null:
+      return AppColor.grey600;
+    default:
+      return AppColor.grey600;
+  }
+}
 
 class TopicCard extends StatelessWidget {
   const TopicCard({
@@ -8,80 +24,114 @@ class TopicCard extends StatelessWidget {
     required this.title,
     required this.imagePath,
     required this.numberOfTopics,
+    required this.ranking,
   });
   final String title;
   final String imagePath;
   final int numberOfTopics;
+  final int? ranking;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return SizedBox(
       width: size.width * 0.47,
       child: GestureDetector(
         onTap: () {
           debugPrint('タップ$title');
+          debugPrint(ranking.toString());
         },
         child: Padding(
-          padding: const EdgeInsets.only(left: 5),
+          padding: const EdgeInsets.only(left: 1, right: 1), //仮
           child: DecoratedBox(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Column(
-              children: [
-                AspectRatio(
-                  aspectRatio: 16 / 12,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage(imagePath),
-                        fit: BoxFit.cover,
+            child: Stack(
+              alignment: Alignment.topLeft,
+              children: <Widget>[
+                Column(
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 16 / 12,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                          image: DecorationImage(
+                            image: AssetImage(imagePath),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    AspectRatio(
+                      aspectRatio: 16 / 3,
+                      child: DecoratedBox(
+                        decoration: const BoxDecoration(
+                          color: AppColor.blue50Background,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  title,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: AppTextStyle.textStyle.copyWith(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: Text(
+                                  '$numberOfTopics件~',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                AspectRatio(
-                  aspectRatio: 16 / 3,
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(
-                      color: AppColor.blue50Background,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(12),
-                        bottomRight: Radius.circular(12),
+                Offstage(
+                  offstage: ranking == null ? true : false,
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                          bottomRight: Radius.circular(80),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
+                        color: rankingColor(ranking),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              title,
-                              overflow: TextOverflow.ellipsis,
-                              style: AppTextStyle.textStyle.copyWith(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                overflow: TextOverflow.clip,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5),
-                            child: Text(
-                              '$numberOfTopics件~',
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
+                      width: 45,
+                      height: 45, //数値固定を修正
+                      child: Text(
+                        '$ranking',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: AppColor.white,
+                        ),
                       ),
                     ),
                   ),
@@ -92,6 +142,5 @@ class TopicCard extends StatelessWidget {
         ),
       ),
     );
-    // );
   }
 }
