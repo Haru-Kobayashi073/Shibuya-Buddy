@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'components/complicated_image_carousel.dart';
 import 'components/recent_plans_section.dart';
-import 'popular_topics.dart';
+import 'components/popular_topics.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

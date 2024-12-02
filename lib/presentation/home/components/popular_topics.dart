@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '/gen/assets.gen.dart';
-import '../../i18n/strings.g.dart';
-import '../../utils/routes/app_router.dart';
-import '../../utils/styles/app_text_style.dart';
-import '../components/topic_card.dart';
+import '../../../i18n/strings.g.dart';
+import '../../../utils/routes/app_router.dart';
+import '../../../utils/styles/app_text_style.dart';
+import '../../components/topic_card.dart';
 
 Map<String, Map<int, String>> topics = {
   'アニメ': {
@@ -82,15 +82,17 @@ class PopularTopics extends StatelessWidget {
                   final image = pathEntry.value;
                   final numberOfTopics = pathEntry.key;
                   pathWidgets.add(
-                    TopicCard(
-                      title: title,
-                      imagePath: image,
-                      numberOfTopics: numberOfTopics,
-                      ranking: null,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: TopicCard(
+                        title: title,
+                        imagePath: image,
+                        numberOfTopics: numberOfTopics,
+                        ranking: null,
+                      ),
                     ),
                   );
                 }
-
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: pathWidgets,
