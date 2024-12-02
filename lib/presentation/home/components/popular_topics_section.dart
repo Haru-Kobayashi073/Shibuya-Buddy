@@ -50,12 +50,11 @@ class PopularTopics extends StatelessWidget {
                   final path = entry.value;
                   final imagePath = path.values.first;
                   final numberOfTopics = path.keys.first;
-
                   return TopicCard(
                     title: title,
                     imagePath: imagePath,
                     numberOfTopics: numberOfTopics,
-                    onTap: () {},
+                    ranking: null,
                   );
                 },
               ).toList(),

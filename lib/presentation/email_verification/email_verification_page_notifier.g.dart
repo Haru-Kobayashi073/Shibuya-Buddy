@@ -7,7 +7,7 @@ part of 'email_verification_page_notifier.dart';
 // **************************************************************************
 
 String _$emailVerificationPageNotifierHash() =>
-    r'c2f32231d6b97ecc1ab031351fa6c362dc8671b4';
+    r'6262efb53f5692fbbb2f2af5a67bc581cb593318';
 
 /// See also [EmailVerificationPageNotifier].
 @ProviderFor(EmailVerificationPageNotifier)

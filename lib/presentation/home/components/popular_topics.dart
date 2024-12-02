@@ -30,7 +30,7 @@ class PopularTopics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    final section = i18n.PopularTopics.section_name;
+    const section = '人気のトピック';
     return Column(
       children: [
         Padding(
@@ -47,7 +47,7 @@ class PopularTopics extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 16),
                 child: GestureDetector(
                   onTap: () async {
-                    await PopularTopicsRouteData().push<void>(context);
+                    await const PopularTopicsRouteData().push<void>(context);
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

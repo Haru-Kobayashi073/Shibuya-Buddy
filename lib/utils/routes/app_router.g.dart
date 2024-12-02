@@ -11,6 +11,7 @@ List<RouteBase> get $appRoutes => [
       $startUpPageRouteData,
       $homeScreenRouteData,
       $myPlanPageRouteData,
+      $popularTopicsRouteData,
       $myPageRouteData,
       $signInPageRouteData,
       $registerProfilePageRouteData,
@@ -140,6 +141,29 @@ RouteBase get $myPlanPageRouteData => GoRouteData.$route(
       path: '/myPlan',
       factory: $MyPlanPageRouteDataExtension._fromState,
     );
+
+RouteBase get $popularTopicsRouteData => GoRouteData.$route(
+      path: '/popularTopicsPage',
+      factory: $PopularTopicsRouteDataExtension._fromState,
+    );
+
+extension $PopularTopicsRouteDataExtension on PopularTopicsRouteData {
+  static PopularTopicsRouteData _fromState(GoRouterState state) =>
+      const PopularTopicsRouteData();
+
+  String get location => GoRouteData.$location(
+        '/popularTopicsPage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 RouteBase get $myPageRouteData => GoRouteData.$route(
       path: '/myPage',

@@ -18,6 +18,7 @@ import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/popular_topics/popular_topics_page.dart';
 import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
@@ -138,6 +139,18 @@ class MyPlanPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MyPlanPage();
+  }
+}
+
+@TypedGoRoute<PopularTopicsRouteData>(
+  path: Routes.popularTopicsPage,
+)
+class PopularTopicsRouteData extends GoRouteData {
+  const PopularTopicsRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PopularTopicsPage();
   }
 }
 
