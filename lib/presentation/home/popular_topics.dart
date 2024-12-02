@@ -46,7 +46,7 @@ class PopularTopics extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: GestureDetector(
-                  onTap: () async{
+                  onTap: () async {
                     await PopularTopicsRouteData().push<void>(context);
                   },
                   child: Row(
@@ -86,6 +86,7 @@ class PopularTopics extends StatelessWidget {
                       title: title,
                       imagePath: image,
                       numberOfTopics: numberOfTopics,
+                      ranking: null,
                     ),
                   );
                 }

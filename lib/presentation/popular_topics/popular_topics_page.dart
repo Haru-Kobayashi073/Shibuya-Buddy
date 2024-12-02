@@ -44,6 +44,7 @@ class PopularTopicsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
     final title = i18n.PopularTopics.section_name;
+    var ranking = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -65,6 +66,7 @@ class PopularTopicsPage extends StatelessWidget {
               final path = entry.value;
               final pathWidgets = <Widget>[];
               for (final pathEntry in path.entries) {
+                ranking++;
                 final image = pathEntry.value;
                 final numberOfTopics = pathEntry.key;
                 pathWidgets.add(
@@ -72,6 +74,7 @@ class PopularTopicsPage extends StatelessWidget {
                     title: title,
                     imagePath: image,
                     numberOfTopics: numberOfTopics,
+                    ranking: ranking,
                   ),
                 );
               }
