@@ -56,10 +56,10 @@ class PopularTopicsPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10), //仮10ピクセルに修正
+        padding: const EdgeInsets.only(left: 16, right: 16),
         child: SingleChildScrollView(
           child: Wrap(
-            spacing: 4,
+            spacing: 8,
             runSpacing: 8,
             children: topics.entries.map((entry) {
               final title = entry.key;
