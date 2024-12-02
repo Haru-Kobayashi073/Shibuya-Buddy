@@ -1,5 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '../../../i18n/strings.g.dart';
+import '../../routes/app_router.dart';
 import '../shared_preferences/shared_preferences_config.dart';
 import '../shared_preferences/shared_preferences_service.dart';
 
@@ -18,8 +20,8 @@ class LocaleService extends _$LocaleService {
     return switch (userLocale) {
       'en' => AppLocale.en,
       'ja' => AppLocale.ja,
-      'zh_Hans' => AppLocale.zhHans,
-      'zh_Hant' => AppLocale.zhHant,
+      'zhHans' => AppLocale.zhHans,
+      'zhHant' => AppLocale.zhHant,
       _ => AppLocale.en,
     };
   }
@@ -36,5 +38,31 @@ class LocaleService extends _$LocaleService {
 
   Future<void> changeLocaleToPreviousValue() async {
     await LocaleSettings.setLocale(state);
+  }
+
+  AppLocale getLocaleFromString(String text) {
+    final context = rootNavigatorKey.currentContext!;
+    final i18nLanguage = Translations.of(context).changeLanguagePage.items;
+
+    // 対応言語を追加する場合はここに追加する
+    return switch (null) {
+      _ when i18nLanguage.english == text => AppLocale.en,
+      _ when i18nLanguage.japanese == text => AppLocale.ja,
+      _ when i18nLanguage.simplifiedChinese == text => AppLocale.zhHans,
+      _ when i18nLanguage.traditionalChinese == text => AppLocale.zhHant,
+      _ => AppLocale.en,
+    };
+  }
+
+  String getTranslationLocale() {
+    final context = rootNavigatorKey.currentContext!;
+    final i18nLanguage = Translations.of(context).changeLanguagePage.items;
+
+    return switch (state) {
+      AppLocale.en => i18nLanguage.english,
+      AppLocale.ja => i18nLanguage.japanese,
+      AppLocale.zhHans => i18nLanguage.simplifiedChinese,
+      AppLocale.zhHant => i18nLanguage.traditionalChinese,
+    };
   }
 }
