@@ -77,6 +77,7 @@ class _TranslationsAuthenticationZhHant implements TranslationsAuthenticationEn 
 
 	// Translations
 	@override late final _TranslationsAuthenticationSignInPageZhHant signInPage = _TranslationsAuthenticationSignInPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationAccountPageZhHant accountPage = _TranslationsAuthenticationAccountPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthZhHant firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHant._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageZhHant resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageZhHant signUpPage = _TranslationsAuthenticationSignUpPageZhHant._(_root);
@@ -196,6 +197,20 @@ class _TranslationsAuthenticationSignInPageZhHant implements TranslationsAuthent
 	@override String get optionText => ' 或 ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHant._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsZhHant buttons = _TranslationsAuthenticationSignInPageButtonsZhHant._(_root);
+}
+
+// Path: authentication.accountPage
+class _TranslationsAuthenticationAccountPageZhHant implements TranslationsAuthenticationAccountPageEn {
+	_TranslationsAuthenticationAccountPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get signOut => '登出';
+	@override String get linkedWithGoogle => '與Google連結';
+	@override String get linkedWithApple => '與Apple連結';
+	@override String get alreadyLinkedGoogle => '已連接Google';
+	@override String get alreadyLinkedApple => '已連接Apple';
 }
 
 // Path: authentication.firebaseAuth
@@ -448,6 +463,11 @@ extension on TranslationsZhHant {
 			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登入';
 			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登入';
 			case 'authentication.signInPage.buttons.signInAfter': return '稍後註冊';
+			case 'authentication.accountPage.signOut': return '登出';
+			case 'authentication.accountPage.linkedWithGoogle': return '與Google連結';
+			case 'authentication.accountPage.linkedWithApple': return '與Apple連結';
+			case 'authentication.accountPage.alreadyLinkedGoogle': return '已連接Google';
+			case 'authentication.accountPage.alreadyLinkedApple': return '已連接Apple';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請在良好的網絡環境中重試';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密碼太短。請輸入6個字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '電子郵件地址格式不正確';

@@ -81,6 +81,7 @@ class TranslationsAuthenticationEn {
 
 	// Translations
 	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
+	late final TranslationsAuthenticationAccountPageEn accountPage = TranslationsAuthenticationAccountPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
 	late final TranslationsAuthenticationSignUpPageEn signUpPage = TranslationsAuthenticationSignUpPageEn._(_root);
@@ -200,6 +201,20 @@ class TranslationsAuthenticationSignInPageEn {
 	String get optionText => ' or ';
 	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
 	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
+}
+
+// Path: authentication.accountPage
+class TranslationsAuthenticationAccountPageEn {
+	TranslationsAuthenticationAccountPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get signOut => 'Log out';
+	String get linkedWithGoogle => 'Linked with Google';
+	String get linkedWithApple => 'Linked with Apple';
+	String get alreadyLinkedGoogle => 'Linked with Google';
+	String get alreadyLinkedApple => 'Linked with Apple';
 }
 
 // Path: authentication.firebaseAuth
@@ -452,6 +467,11 @@ extension on Translations {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
 			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.accountPage.signOut': return 'Log out';
+			case 'authentication.accountPage.linkedWithGoogle': return 'Linked with Google';
+			case 'authentication.accountPage.linkedWithApple': return 'Linked with Apple';
+			case 'authentication.accountPage.alreadyLinkedGoogle': return 'Linked with Google';
+			case 'authentication.accountPage.alreadyLinkedApple': return 'Linked with Apple';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';

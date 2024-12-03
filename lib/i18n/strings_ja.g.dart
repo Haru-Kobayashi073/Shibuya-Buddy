@@ -77,6 +77,7 @@ class _TranslationsAuthenticationJa implements TranslationsAuthenticationEn {
 
 	// Translations
 	@override late final _TranslationsAuthenticationSignInPageJa signInPage = _TranslationsAuthenticationSignInPageJa._(_root);
+	@override late final _TranslationsAuthenticationAccountPageJa accountPage = _TranslationsAuthenticationAccountPageJa._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageJa resetPasswordPage = _TranslationsAuthenticationResetPasswordPageJa._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageJa signUpPage = _TranslationsAuthenticationSignUpPageJa._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageJa emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageJa._(_root);
@@ -196,6 +197,20 @@ class _TranslationsAuthenticationSignInPageJa implements TranslationsAuthenticat
 	@override String get optionText => ' または ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsJa textFields = _TranslationsAuthenticationSignInPageTextFieldsJa._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsJa buttons = _TranslationsAuthenticationSignInPageButtonsJa._(_root);
+}
+
+// Path: authentication.accountPage
+class _TranslationsAuthenticationAccountPageJa implements TranslationsAuthenticationAccountPageEn {
+	_TranslationsAuthenticationAccountPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get signOut => 'ログアウト';
+	@override String get linkedWithGoogle => 'Googleで連携';
+	@override String get linkedWithApple => 'Appleで連携';
+	@override String get alreadyLinkedGoogle => 'Google連携済み';
+	@override String get alreadyLinkedApple => 'Appleで連携済み';
 }
 
 // Path: authentication.resetPasswordPage
@@ -448,6 +463,11 @@ extension on TranslationsJa {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Appleでログイン';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Googleでログイン';
 			case 'authentication.signInPage.buttons.signInAfter': return '後で登録';
+			case 'authentication.accountPage.signOut': return 'ログアウト';
+			case 'authentication.accountPage.linkedWithGoogle': return 'Googleで連携';
+			case 'authentication.accountPage.linkedWithApple': return 'Appleで連携';
+			case 'authentication.accountPage.alreadyLinkedGoogle': return 'Google連携済み';
+			case 'authentication.accountPage.alreadyLinkedApple': return 'Appleで連携済み';
 			case 'authentication.resetPasswordPage.title': return 'パスワードのリセット';
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
