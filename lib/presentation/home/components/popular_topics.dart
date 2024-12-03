@@ -30,7 +30,7 @@ class PopularTopics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    const section = '人気のトピック';
+    final section = i18n.PopularTopics.section_name;
     return Column(
       children: [
         Padding(
