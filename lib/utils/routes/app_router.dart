@@ -120,6 +120,11 @@ class StartUpPageRouteData extends GoRouteData {
 
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
+  routes: [
+    TypedGoRoute<PopularTopicsRouteData>(
+      path: Routes.popularTopicsPage,
+    ),
+  ],
 )
 class HomeScreenRouteData extends GoRouteData {
   const HomeScreenRouteData();
@@ -142,9 +147,6 @@ class MyPlanPageRouteData extends GoRouteData {
   }
 }
 
-@TypedGoRoute<PopularTopicsRouteData>(
-  path: Routes.popularTopicsPage,
-)
 class PopularTopicsRouteData extends GoRouteData {
   const PopularTopicsRouteData();
 
