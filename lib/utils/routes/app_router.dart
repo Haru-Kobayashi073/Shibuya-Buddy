@@ -199,7 +199,7 @@ class AccountPageRouteData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const AccountPage();
+    return  AccountPage();
   }
 }
 
