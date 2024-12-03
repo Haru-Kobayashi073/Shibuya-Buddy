@@ -35,6 +35,13 @@
                 "signInAfter": "稍后注册"
             }
         },
+        "accountPage": {
+            "signOut": "退出登录",
+            "linkedWithGoogle": "与Google关联",
+            "linkedWithApple": "与Apple关联",
+            "alreadyLinkedGoogle": "已连接Google",
+            "alreadyLinkedApple": "已连接Apple"
+        },
         "firebaseAuth": {
             "error": {
                 "networkRequestFailed": "请在良好的网络环境中重试",

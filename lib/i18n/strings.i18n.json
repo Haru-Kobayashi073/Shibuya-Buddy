@@ -35,6 +35,13 @@
                 "signInAfter": "Register Later"
             }
         },
+        "accountPage": {
+            "signOut": "Log out",
+            "linkedWithGoogle": "Linked with Google",
+            "linkedWithApple": "Linked with Apple",
+            "alreadyLinkedGoogle": "Linked with Google",
+            "alreadyLinkedApple": "Linked with Apple"
+        },
         "firebaseAuth": {
             "error": {
                 "networkRequestFailed": "Please try again in a good network environment",

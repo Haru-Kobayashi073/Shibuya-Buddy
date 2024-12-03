@@ -35,6 +35,13 @@
                 "signInAfter": "後で登録"
             }
         },
+        "accountPage": {
+            "signOut": "ログアウト",
+            "linkedWithGoogle": "Googleで連携",
+            "linkedWithApple": "Appleで連携",
+            "alreadyLinkedGoogle": "Google連携済み",
+            "alreadyLinkedApple": "Appleで連携済み"
+        },
         "resetPasswordPage": {
             "title": "パスワードのリセット",
             "description": "入力されたメールアドレスにパスワードリセットのメールを送信します",
