@@ -107,7 +107,7 @@ class TopicCard extends StatelessWidget {
                 ],
               ),
               Offstage(
-                offstage: ranking == null ? true : false,
+                offstage: ranking == null,
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Container(
