@@ -121,7 +121,7 @@ class TopicCard extends StatelessWidget {
                       color: rankingColor(ranking),
                     ),
                     width: 45,
-                    height: 45, //数値固定を修正
+                    height: 45,
                     child: Align(
                       alignment: const Alignment(-0.1, -0.3),
                       child: Text(
