@@ -33,7 +33,6 @@ class TopicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SizedBox(
       width: (MediaQuery.of(context).size.width - 44) / 2,
       child: GestureDetector(
