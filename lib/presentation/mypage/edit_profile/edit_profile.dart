@@ -7,13 +7,44 @@ class EditProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () async {
-        await showModalBottomSheet<void>(
-          context: context,
-          builder: (BuildContext context) {
-            return Padding(
+        await _showEditProfileModal(context);
+      },
+      child: const Text('プロフィールを編集'),
+    );
+  }
+
+  Future<void> _showEditProfileModal(BuildContext context) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(56),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(24),
+                ),
+                child: AppBar(
+                  title: const Text('編集'),
+                  backgroundColor: Theme.of(context).primaryColor,
+                  leading: IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
+              ),
+            ),
+            body: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   ElevatedButton(
                     onPressed: () {
@@ -25,13 +56,25 @@ class EditProfile extends StatelessWidget {
                   const TextField(
                     decoration: InputDecoration(labelText: '名前を変更'),
                   ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
+                    onPressed: () {
+                      // 保存のロジックをここに追加
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('保存'),
+                  ),
                 ],
               ),
-            );
-          },
+            ),
+          ),
         );
       },
-      child: const Text('プロフィールを編集'),
     );
   }
 }
