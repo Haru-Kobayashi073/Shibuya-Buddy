@@ -43,20 +43,19 @@ class PopularTopicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    // final title = i18n.PopularTopics.section_name;
+    final title = i18n.PopularTopics.section_name;
     var ranking = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'title',
+          title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
+      body: Center(
         child: SingleChildScrollView(
           child: Wrap(
             spacing: 8,
