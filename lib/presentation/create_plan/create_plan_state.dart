@@ -5,7 +5,7 @@ part 'create_plan_state.freezed.dart';
 @freezed
 abstract class CreatePlanState with _$CreatePlanState {
   const factory CreatePlanState({
-    @Default('') String location,
+    @Default('渋谷') String location,
     @Default('') String date,
     @Default('') String numberOfPeople,
     @Default('') String transport,

@@ -166,7 +166,7 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
 
 class _$CreatePlanStateImpl implements _CreatePlanState {
   const _$CreatePlanStateImpl(
-      {this.location = '',
+      {this.location = '渋谷',
       this.date = '',
       this.numberOfPeople = '',
       this.transport = '',
