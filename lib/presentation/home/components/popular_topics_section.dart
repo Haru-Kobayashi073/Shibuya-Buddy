@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/routes/app_router.dart';
 import '/gen/assets.gen.dart';
 import '../../../i18n/strings.g.dart';
+import '../../../utils/routes/app_router.dart';
 import '../../components/topic_card.dart';
 import 'section_title.dart';
 
