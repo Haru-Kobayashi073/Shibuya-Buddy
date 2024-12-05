@@ -44,7 +44,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsMyPageEn myPage = TranslationsMyPageEn._(_root);
 	late final TranslationsChangeLanguagePageEn changeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
 	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
-	late final TranslationsPopularTopicsEn PopularTopics = TranslationsPopularTopicsEn._(_root);
+	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -147,7 +147,7 @@ class TranslationsMyPlanPageEn {
 	late final TranslationsMyPlanPageTabsEn tabs = TranslationsMyPlanPageTabsEn._(_root);
 }
 
-// Path: PopularTopics
+// Path: popularTopics
 class TranslationsPopularTopicsEn {
 	TranslationsPopularTopicsEn._(this._root);
 
@@ -522,7 +522,7 @@ extension on Translations {
 			case 'myPlanPage.title': return 'My Plans';
 			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
 			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
-			case 'PopularTopics.section_name': return 'Popular Topics';
+			case 'popularTopics.section_name': return 'Popular Topics';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

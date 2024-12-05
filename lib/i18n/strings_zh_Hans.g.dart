@@ -40,7 +40,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
 	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
-	@override late final _TranslationsPopularTopicsZhHans PopularTopics = _TranslationsPopularTopicsZhHans._(_root);
+	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -143,7 +143,7 @@ class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
 	@override late final _TranslationsMyPlanPageTabsZhHans tabs = _TranslationsMyPlanPageTabsZhHans._(_root);
 }
 
-// Path: PopularTopics
+// Path: popularTopics
 class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
 	_TranslationsPopularTopicsZhHans._(this._root);
 
@@ -518,7 +518,7 @@ extension on TranslationsZhHans {
 			case 'myPlanPage.title': return '我的计划';
 			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
 			case 'myPlanPage.tabs.bookmark': return '收藏夹';
-			case 'PopularTopics.section_name': return '热门话题';
+			case 'popularTopics.section_name': return '热门话题';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

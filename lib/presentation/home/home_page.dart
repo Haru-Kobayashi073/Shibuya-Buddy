@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import 'components/popular_plans_carousel.dart';
-import 'components/popular_topics.dart';
+import 'components/popular_topics_section.dart';
 import 'components/recent_plans_section.dart';
 
 class HomePage extends StatelessWidget {
