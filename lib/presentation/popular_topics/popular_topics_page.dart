@@ -43,7 +43,7 @@ class PopularTopicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    final title = i18n.popularTopics.section_name;
+    final title = i18n.popularTopics.sectionName;
     var ranking = 0;
     return Scaffold(
       appBar: AppBar(

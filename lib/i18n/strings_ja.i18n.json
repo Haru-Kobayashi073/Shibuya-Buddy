@@ -138,7 +138,7 @@
         }
     },
     "popularTopics":{
-        "section_name" :"人気のトピック"
+        "sectionName" :"人気のトピック"
     },
     "locales(map)": {
         "en": "英語",
