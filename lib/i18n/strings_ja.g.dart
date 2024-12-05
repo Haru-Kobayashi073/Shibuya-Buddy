@@ -40,6 +40,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
 	@override late final _TranslationsChangeLanguagePageJa changeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
 	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
+	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -141,6 +142,16 @@ class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => 'マイプラン';
 	@override late final _TranslationsMyPlanPageTabsJa tabs = _TranslationsMyPlanPageTabsJa._(_root);
+}
+
+// Path: popularTopics
+class _TranslationsPopularTopicsJa implements TranslationsPopularTopicsEn {
+	_TranslationsPopularTopicsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get sectionName => '人気のトピック';
 }
 
 // Path: navigationBar.items
@@ -527,6 +538,7 @@ extension on TranslationsJa {
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
+			case 'popularTopics.sectionName': return '人気のトピック';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

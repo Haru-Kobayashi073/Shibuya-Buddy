@@ -40,6 +40,7 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsMyPageZhHant myPage = _TranslationsMyPageZhHant._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHant changeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
 	@override late final _TranslationsMyPlanPageZhHant myPlanPage = _TranslationsMyPlanPageZhHant._(_root);
+	@override late final _TranslationsPopularTopicsZhHant popularTopics = _TranslationsPopularTopicsZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -141,6 +142,16 @@ class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => '我的計劃';
 	@override late final _TranslationsMyPlanPageTabsZhHant tabs = _TranslationsMyPlanPageTabsZhHant._(_root);
+}
+
+// Path: popularTopics
+class _TranslationsPopularTopicsZhHant implements TranslationsPopularTopicsEn {
+	_TranslationsPopularTopicsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get sectionName => '熱門話題';
 }
 
 // Path: navigationBar.items
@@ -527,6 +538,7 @@ extension on TranslationsZhHant {
 			case 'myPlanPage.title': return '我的計劃';
 			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
 			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'popularTopics.sectionName': return '熱門話題';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

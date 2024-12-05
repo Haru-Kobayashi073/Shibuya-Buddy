@@ -144,6 +144,9 @@
             "bookmark": "書籤"
         }
     },
+    "popularTopics":{
+        "sectionName" :"熱門話題"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日語",

@@ -134,7 +134,31 @@ extension $StartUpPageRouteDataExtension on StartUpPageRouteData {
 RouteBase get $homeScreenRouteData => GoRouteData.$route(
       path: '/home',
       factory: $HomeScreenRouteDataExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'popularTopicsPage',
+          factory: $PopularTopicsPageRouteDataExtension._fromState,
+        ),
+      ],
     );
+
+extension $PopularTopicsPageRouteDataExtension on PopularTopicsPageRouteData {
+  static PopularTopicsPageRouteData _fromState(GoRouterState state) =>
+      const PopularTopicsPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/home/popularTopicsPage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 RouteBase get $myPlanPageRouteData => GoRouteData.$route(
       path: '/myPlan',
