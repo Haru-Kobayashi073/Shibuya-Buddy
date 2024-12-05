@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -78,9 +79,10 @@ class TopicCard extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         child: Row(
                           children: [
-                            Expanded(
+                            Flexible(
                               child: Text(
                                 title,
+                                maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: AppTextStyle.textStyle.copyWith(
                                   fontSize: 14,
@@ -89,14 +91,12 @@ class TopicCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: Text(
-                                '$numberOfTopics件~',
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            const Gap(4),
+                            Text(
+                              '$numberOfTopics件~',
+                              style: AppTextStyle.textStyle.copyWith(
+                                fontSize: 12,
+                                color: AppColor.black,
                               ),
                             ),
                           ],
