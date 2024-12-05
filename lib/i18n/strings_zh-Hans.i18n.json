@@ -137,6 +137,9 @@
             "bookmark": "收藏夹"
         }
     },
+    "popularTopics":{
+        "sectionName" :"热门话题"
+    },
     "locales(map)": {
         "en": "英语",
         "ja": "日语",

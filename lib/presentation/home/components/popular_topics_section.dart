@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/gen/assets.gen.dart';
 import '../../../i18n/strings.g.dart';
+import '../../../utils/routes/app_router.dart';
 import '../../components/topic_card.dart';
 import 'section_title.dart';
 
@@ -37,7 +38,9 @@ class PopularTopics extends StatelessWidget {
         children: [
           SectionTitle.medium(
             label: i18n.homePage.popularTopics.title,
-            onPressed: () {},
+            onPressed: () async {
+              await const PopularTopicsPageRouteData().push<void>(context);
+            },
           ),
           const SizedBox(height: 8),
           SingleChildScrollView(
@@ -50,12 +53,11 @@ class PopularTopics extends StatelessWidget {
                   final path = entry.value;
                   final imagePath = path.values.first;
                   final numberOfTopics = path.keys.first;
-
                   return TopicCard(
                     title: title,
                     imagePath: imagePath,
                     numberOfTopics: numberOfTopics,
-                    onTap: () {},
+                    ranking: null,
                   );
                 },
               ).toList(),

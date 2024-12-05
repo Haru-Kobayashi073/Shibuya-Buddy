@@ -137,6 +137,9 @@
             "bookmark": "Bookmarks"
         }
     },
+    "popularTopics":{
+        "sectionName" : "Popular Topics"
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",
