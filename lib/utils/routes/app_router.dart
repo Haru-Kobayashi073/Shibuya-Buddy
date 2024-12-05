@@ -121,7 +121,7 @@ class StartUpPageRouteData extends GoRouteData {
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
   routes: [
-    TypedGoRoute<PopularTopicsRouteData>(
+    TypedGoRoute<PopularTopicsPageRouteData>(
       path: Routes.popularTopicsPage,
     ),
   ],
@@ -147,8 +147,8 @@ class MyPlanPageRouteData extends GoRouteData {
   }
 }
 
-class PopularTopicsRouteData extends GoRouteData {
-  const PopularTopicsRouteData();
+class PopularTopicsPageRouteData extends GoRouteData {
+  const PopularTopicsPageRouteData();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
