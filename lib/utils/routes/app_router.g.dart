@@ -137,14 +137,14 @@ RouteBase get $homeScreenRouteData => GoRouteData.$route(
       routes: [
         GoRouteData.$route(
           path: 'popularTopicsPage',
-          factory: $PopularTopicsRouteDataExtension._fromState,
+          factory: $PopularTopicsPageRouteDataExtension._fromState,
         ),
       ],
     );
 
-extension $PopularTopicsRouteDataExtension on PopularTopicsRouteData {
-  static PopularTopicsRouteData _fromState(GoRouterState state) =>
-      const PopularTopicsRouteData();
+extension $PopularTopicsPageRouteDataExtension on PopularTopicsPageRouteData {
+  static PopularTopicsPageRouteData _fromState(GoRouterState state) =>
+      const PopularTopicsPageRouteData();
 
   String get location => GoRouteData.$location(
         '/home/popularTopicsPage',
