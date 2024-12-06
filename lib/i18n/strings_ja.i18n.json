@@ -1,20 +1,144 @@
 {
-    "NavigationBar": {
+    "navigationBar": {
         "items": {
             "home": "ホーム",
             "myPlan": "マイプラン",
             "myPage": "マイページ"
         }
     },
-    "ChangeLanguagePage":{
-        "title": "言語",
-        "items":{
-            "japanese": "日本語",
-            "english":"英語",
-            "chinese_simplified":"中国語（簡体字）",
-
-            "chinese_traditional":"中国語（繁体字）"
+    "homePage": {
+        "popularPlans": {
+            "title": "人気のプラン"
+        },
+        "popularTopics": {
+            "title": "人気のトピック",
+            "numberOfTopics": "${number}件~"
+        },
+        "recentPlans": {
+            "title": "最近作成したプラン"
         }
+    },
+    "authentication": {
+        "signInPage": {
+            "title": "ログイン",
+            "optionText": " または ",
+            "textFields": {
+                "email": "メールアドレス",
+                "password": "パスワード"
+            },
+            "buttons": {
+                "signIn": "ログイン",
+                "signUp": "新規登録",
+                "resetPassword": "パスワードを忘れた方はこちら",
+                "appleSignIn": "Appleでログイン",
+                "googleSignIn": "Googleでログイン",
+                "signInAfter": "後で登録"
+            }
+        },
+        "resetPasswordPage": {
+            "title": "パスワードのリセット",
+            "description": "入力されたメールアドレスにパスワードリセットのメールを送信します",
+            "textFields": {
+                "email": "メールアドレス"
+            },
+            "buttons": {
+                "submit": "送信"
+            }
+        },
+        "signUpPage": {
+            "title": "新規登録",
+            "textFields": {
+                "email": "メールアドレス",
+                "password": "パスワード"
+            },
+            "button": "新規登録"
+        },
+        "emailVerificationPage": {
+            "title": "メールアドレスの確認",
+            "descriptionForDestination": "入力された${email}に確認メールを送信します",
+            "descriptionForCoolDown": "確認メールの再送信は、60秒ごとに1回可能です。",
+            "buttons": {
+                "sendEmail": "確認メールを送信",
+                "resendEmail": "確認メールを再送信",
+                "toNext": "次へ",
+                "retypeEmail": "メールアドレスの修正"
+            },
+            "snackBar": {
+                "success": "送信が完了しました",
+                "error": {
+                    "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
+                }
+            }
+        },
+        "registerProfilePage": {
+            "title": "プロフィールの登録",
+            "textFields": "名前",
+            "buttons": {
+                "submit": "完了",
+                "skip": "スキップ"
+            }
+        },
+        "completeSendEmailPage": {
+            "title": "送信完了",
+            "description": "パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください",
+            "successResendEmail": "確認メールを再送信しました",
+            "buttons": {
+                "toSignIn": "ログイン画面へ",
+                "resendEmail": "確認メールを再送信",
+                "changeEmail": "メールアドレスの変更"
+            }
+        },
+        "firebaseAuth": {
+            "error": {
+                "networkRequestFailed": "通信環境がいい所で再度やり直してください",
+                "weakPassword": "パスワードが短すぎます。6文字以上を入力してください",
+                "invalidEmail": "メールアドレスの形式が正しくありません",
+                "userNotFound": "アカウントが見つかりません",
+                "wrongPassword": "パスワードが正しくありません",
+                "emailAlreadyInUse": "メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください",
+                "unexpected": "エラーが発生しました。通信環境がいい所で再度やり直してください。"
+            }
+        }
+    },
+    "validation": {
+        "emailRequired": "メールアドレスを入力してください",
+        "emailInvalid": "メールアドレスの形式が正しくありません",
+        "passwordRequired": "パスワードを入力してください",
+        "passwordShort": "パスワードは少なくとも8文字以上である必要があります",
+        "passwordWeak": "パスワードは半角英数字を組み合わせてください",
+        "passwordMatch": "パスワードが一致しません",
+        "informationRequired": "情報を入力してください",
+        "urlInvalid": "URLの形式が正しくありません"
+    },
+    "myPage": {
+        "aboutAIFunction": "AIの機能について",
+        "details": "詳細",
+        "settings": "設定",
+        "account": "アカウント",
+        "language": "言語",
+        "theme": "テーマ",
+        "termsOfUsePrivacyPolicy": "利用規約・プライバシーポリシー",
+        "aboutThisApp": "このアプリについて",
+        "aboutTheDeveloper": "開発者について"
+    },
+    "changeLanguagePage": {
+        "title": "言語",
+        "items": {
+            "japanese": "日本語",
+            "english": "英語",
+            "simplifiedChinese": "中国語（簡体字）",
+            "traditionalChinese": "中国語（繁体字）"
+        }
+    },
+    "myPlanPage": {
+        "title": "マイプラン",
+        "tabs": {
+            "createdPlans": "作成したプラン",
+            "bookmark": "ブックマーク"
+        }
+    },
+    "popularTopics":{
+        "sectionName" :"人気のトピック"
     },
     "locales(map)": {
         "en": "英語",

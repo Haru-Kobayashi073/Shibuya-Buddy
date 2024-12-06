@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
-import 'components/complicated_image_carousel.dart';
+import 'components/popular_plans_carousel.dart';
+import 'components/popular_topics_section.dart';
 import 'components/recent_plans_section.dart';
-import 'popular_topics.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({
-    super.key,
-  });
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ComplicatedImageCarousel(),
-              PopularTopics(),
-              RecentPlansSection(),
-            ],
-          ),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: PopularPlansCarousel()),
+            SliverGap(16),
+            SliverToBoxAdapter(child: PopularTopics()),
+            SliverToBoxAdapter(child: RecentPlansSection()),
+          ],
         ),
       ),
     );
