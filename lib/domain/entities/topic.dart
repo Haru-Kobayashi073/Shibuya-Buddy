@@ -10,7 +10,7 @@ abstract class Topic with _$Topic {
   const factory Topic({
     required String id,
     required String name,
-    required Uri thumbnailUrl,
+    required String thumbnailUrl,
     required int totalCount,
     int? ranking,
     @DateTimeConverter() required DateTime createdAt,

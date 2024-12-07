@@ -114,6 +114,7 @@ class TranslationsMyPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get unregisteredUserName => 'Unregistered';
 	String get aboutAIFunction => 'About AI Features';
 	String get details => 'Details';
 	String get settings => 'Settings';
@@ -527,6 +528,7 @@ extension on Translations {
 			case 'validation.passwordMatch': return 'Passwords do not match';
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
+			case 'myPage.unregisteredUserName': return 'Unregistered';
 			case 'myPage.aboutAIFunction': return 'About AI Features';
 			case 'myPage.details': return 'Details';
 			case 'myPage.settings': return 'Settings';

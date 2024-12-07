@@ -116,6 +116,7 @@
         "urlInvalid": "URL格式不正確"
     },
     "myPage": {
+        "unregisteredUserName": "未註冊",
         "aboutAIFunction": "關於AI功能",
         "details": "詳細",
         "settings": "設定",

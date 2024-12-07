@@ -116,6 +116,7 @@
         "urlInvalid": "The URL format is incorrect"
     },
     "myPage": {
+        "unregisteredUserName": "Unregistered",
         "aboutAIFunction": "About AI Features",
         "details": "Details",
         "settings": "Settings",

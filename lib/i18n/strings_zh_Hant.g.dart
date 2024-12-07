@@ -110,6 +110,7 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
+	@override String get unregisteredUserName => '未註冊';
 	@override String get aboutAIFunction => '關於AI功能';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
@@ -523,6 +524,7 @@ extension on TranslationsZhHant {
 			case 'validation.passwordMatch': return '密碼不匹配';
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
+			case 'myPage.unregisteredUserName': return '未註冊';
 			case 'myPage.aboutAIFunction': return '關於AI功能';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';

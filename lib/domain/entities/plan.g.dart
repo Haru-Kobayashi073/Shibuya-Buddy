@@ -10,7 +10,7 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
       id: json['id'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
-      thumbnailUrl: Uri.parse(json['thumbnailUrl'] as String),
+      thumbnailUrl: json['thumbnailUrl'] as String,
       topicIds:
           (json['topicIds'] as List<dynamic>).map((e) => e as String).toList(),
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -28,7 +28,7 @@ Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
-      'thumbnailUrl': instance.thumbnailUrl.toString(),
+      'thumbnailUrl': instance.thumbnailUrl,
       'topicIds': instance.topicIds,
       'tags': instance.tags,
       'authorId': instance.authorId,

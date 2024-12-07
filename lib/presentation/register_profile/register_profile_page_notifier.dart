@@ -101,14 +101,14 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
     }
   }
 
-  Future<Uri?> _getUploadedImageUri() async {
+  Future<String?> _getUploadedImageUri() async {
     if (state.pickedFile == null) {
       return null;
     }
     try {
       final url =
           await fileDataSource.getUploadedImageUrl(file: state.pickedFile!);
-      return Uri.parse(url);
+      return url;
     } on Exception catch (e) {
       debugPrint(e.toString());
       ref

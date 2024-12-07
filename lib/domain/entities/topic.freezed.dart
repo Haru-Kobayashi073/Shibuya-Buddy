@@ -22,7 +22,7 @@ Topic _$TopicFromJson(Map<String, dynamic> json) {
 mixin _$Topic {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  Uri get thumbnailUrl => throw _privateConstructorUsedError;
+  String get thumbnailUrl => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   @DateTimeConverter()
@@ -45,7 +45,7 @@ abstract class $TopicCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      Uri thumbnailUrl,
+      String thumbnailUrl,
       int totalCount,
       int? ranking,
       @DateTimeConverter() DateTime createdAt});
@@ -85,7 +85,7 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as Uri,
+              as String,
       totalCount: null == totalCount
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ abstract class _$$TopicImplCopyWith<$Res> implements $TopicCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      Uri thumbnailUrl,
+      String thumbnailUrl,
       int totalCount,
       int? ranking,
       @DateTimeConverter() DateTime createdAt});
@@ -150,7 +150,7 @@ class __$$TopicImplCopyWithImpl<$Res>
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as Uri,
+              as String,
       totalCount: null == totalCount
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
@@ -186,7 +186,7 @@ class _$TopicImpl implements _Topic {
   @override
   final String name;
   @override
-  final Uri thumbnailUrl;
+  final String thumbnailUrl;
   @override
   final int totalCount;
   @override
@@ -241,7 +241,7 @@ abstract class _Topic implements Topic {
   const factory _Topic(
       {required final String id,
       required final String name,
-      required final Uri thumbnailUrl,
+      required final String thumbnailUrl,
       required final int totalCount,
       final int? ranking,
       @DateTimeConverter() required final DateTime createdAt}) = _$TopicImpl;
@@ -253,7 +253,7 @@ abstract class _Topic implements Topic {
   @override
   String get name;
   @override
-  Uri get thumbnailUrl;
+  String get thumbnailUrl;
   @override
   int get totalCount;
   @override
