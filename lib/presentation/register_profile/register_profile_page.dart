@@ -8,6 +8,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/hooks/use_form_state_key.dart';
+import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -29,7 +30,13 @@ class RegisterProfilePage extends HookConsumerWidget {
     final notifier = ref.read(registerProfilePageNotifierProvider.notifier);
 
     Future<void> registerProfile() async {
-      if (formKey.currentState!.validate()) {
+      if (state.pickedFile == null && nameController.text.isEmpty) {
+        ref.read(scaffoldMessengerProvider.notifier).showExceptionSnackBar(
+              i18nRegisterProfilePage.snackBar.error.submitIfAllEmpty,
+            );
+        return;
+      }
+      if (state.pickedFile != null || formKey.currentState!.validate()) {
         await notifier.registerInformation(
           name: nameController.text,
           onSuccess: () => context.go(
