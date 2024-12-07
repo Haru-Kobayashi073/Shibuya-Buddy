@@ -110,6 +110,7 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+	@override String get unregisteredUserName => '未注册';
 	@override String get aboutAIFunction => '关于AI功能';
 	@override String get details => '详细';
 	@override String get settings => '设置';
@@ -268,6 +269,7 @@ class _TranslationsAuthenticationRegisterProfilePageZhHans implements Translatio
 	@override String get title => '注册个人信息';
 	@override String get textFields => '姓名';
 	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHans buttons = _TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -415,6 +417,16 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsZhHans implements Tra
 	@override String get skip => '跳过';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(this._root);
@@ -434,6 +446,17 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans implem
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+	@override String get unexpected => '发生错误，请稍后再试。';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get submitIfAllEmpty => '请输入信息';
 	@override String get unexpected => '发生错误，请稍后再试。';
 }
 
@@ -487,6 +510,8 @@ extension on TranslationsZhHans {
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';
 			case 'authentication.registerProfilePage.buttons.skip': return '跳过';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '请输入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
 			case 'authentication.completeSendEmailPage.title': return '发送完成';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '确认邮件已重新发送';
@@ -501,6 +526,7 @@ extension on TranslationsZhHans {
 			case 'validation.passwordMatch': return '密码不匹配';
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'myPage.unregisteredUserName': return '未注册';
 			case 'myPage.aboutAIFunction': return '关于AI功能';
 			case 'myPage.details': return '详细';
 			case 'myPage.settings': return '设置';

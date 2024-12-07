@@ -22,7 +22,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   String get uid => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  Uri? get imageUrl => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
   List<String> get bookmarkedPlanIds => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $UserCopyWith<$Res> {
   $Res call(
       {String uid,
       String? name,
-      Uri? imageUrl,
+      String? imageUrl,
       List<String> bookmarkedPlanIds,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime? updateAt});
@@ -86,7 +86,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as Uri?,
+              as String?,
       bookmarkedPlanIds: null == bookmarkedPlanIds
           ? _value.bookmarkedPlanIds
           : bookmarkedPlanIds // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   $Res call(
       {String uid,
       String? name,
-      Uri? imageUrl,
+      String? imageUrl,
       List<String> bookmarkedPlanIds,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime? updateAt});
@@ -150,7 +150,7 @@ class __$$UserImplCopyWithImpl<$Res>
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as Uri?,
+              as String?,
       bookmarkedPlanIds: null == bookmarkedPlanIds
           ? _value._bookmarkedPlanIds
           : bookmarkedPlanIds // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$UserImpl implements _User {
   @override
   final String? name;
   @override
-  final Uri? imageUrl;
+  final String? imageUrl;
   final List<String> _bookmarkedPlanIds;
   @override
   @JsonKey()
@@ -258,7 +258,7 @@ abstract class _User implements User {
   const factory _User(
       {required final String uid,
       final String? name,
-      final Uri? imageUrl,
+      final String? imageUrl,
       final List<String> bookmarkedPlanIds,
       @DateTimeConverter() required final DateTime createdAt,
       @DateTimeConverter() final DateTime? updateAt}) = _$UserImpl;
@@ -270,7 +270,7 @@ abstract class _User implements User {
   @override
   String? get name;
   @override
-  Uri? get imageUrl;
+  String? get imageUrl;
   @override
   List<String> get bookmarkedPlanIds;
   @override

@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_data_source.dart';
+part of 'firebase_storage_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userDataSourceHash() => r'33112cfa1492dc7af22c791ee5ef2efacc52d367';
+String _$firebaseStorageHash() => r'ddec157566e3f96dac39d44de2cd99f9d71f9b54';
 
-/// See also [UserDataSource].
-@ProviderFor(UserDataSource)
-final userDataSourceProvider =
-    AutoDisposeNotifierProvider<UserDataSource, void>.internal(
-  UserDataSource.new,
-  name: r'userDataSourceProvider',
+/// See also [firebaseStorage].
+@ProviderFor(firebaseStorage)
+final firebaseStorageProvider = Provider<FirebaseStorage>.internal(
+  firebaseStorage,
+  name: r'firebaseStorageProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$userDataSourceHash,
+      : _$firebaseStorageHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$UserDataSource = AutoDisposeNotifier<void>;
+typedef FirebaseStorageRef = ProviderRef<FirebaseStorage>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

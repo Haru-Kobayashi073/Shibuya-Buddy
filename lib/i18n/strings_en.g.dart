@@ -114,6 +114,7 @@ class TranslationsMyPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get unregisteredUserName => 'Unregistered';
 	String get aboutAIFunction => 'About AI Features';
 	String get details => 'Details';
 	String get settings => 'Settings';
@@ -272,6 +273,7 @@ class TranslationsAuthenticationRegisterProfilePageEn {
 	String get title => 'Profile Registration';
 	String get textFields => 'Name';
 	late final TranslationsAuthenticationRegisterProfilePageButtonsEn buttons = TranslationsAuthenticationRegisterProfilePageButtonsEn._(_root);
+	late final TranslationsAuthenticationRegisterProfilePageSnackBarEn snackBar = TranslationsAuthenticationRegisterProfilePageSnackBarEn._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -419,6 +421,16 @@ class TranslationsAuthenticationRegisterProfilePageButtonsEn {
 	String get skip => 'Skip';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	TranslationsAuthenticationRegisterProfilePageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn error = TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
@@ -438,6 +450,17 @@ class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get unexpected => 'An error occurred. Please try again later.';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submitIfAllEmpty => 'Please enter the information';
 	String get unexpected => 'An error occurred. Please try again later.';
 }
 
@@ -491,6 +514,8 @@ extension on Translations {
 			case 'authentication.registerProfilePage.textFields': return 'Name';
 			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
 			case 'authentication.registerProfilePage.buttons.skip': return 'Skip';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return 'Please enter the information';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
 			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
 			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';
@@ -505,6 +530,7 @@ extension on Translations {
 			case 'validation.passwordMatch': return 'Passwords do not match';
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
+			case 'myPage.unregisteredUserName': return 'Unregistered';
 			case 'myPage.aboutAIFunction': return 'About AI Features';
 			case 'myPage.details': return 'Details';
 			case 'myPage.settings': return 'Settings';
