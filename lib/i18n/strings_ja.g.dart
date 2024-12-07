@@ -456,6 +456,7 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa implements T
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get submitIfAllEmpty => '入力してください';
 	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
 }
 
@@ -502,6 +503,7 @@ extension on TranslationsJa {
 			case 'authentication.registerProfilePage.textFields': return '名前';
 			case 'authentication.registerProfilePage.buttons.submit': return '完了';
 			case 'authentication.registerProfilePage.buttons.skip': return 'スキップ';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '入力してください';
 			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'エラーが発生しました。時間をおいて再度お試しください';
 			case 'authentication.completeSendEmailPage.title': return '送信完了';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';

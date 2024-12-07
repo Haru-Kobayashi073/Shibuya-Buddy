@@ -90,6 +90,7 @@
             },
             "snackBar": {
                 "error": {
+                    "submitIfAllEmpty": "请输入信息",
                     "unexpected": "发生错误，请稍后再试。"
                 }
             }

@@ -90,6 +90,7 @@
             },
             "snackBar": {
                 "error": {
+                    "submitIfAllEmpty": "Please enter the information",
                     "unexpected": "An error occurred. Please try again later."
                 }
             }

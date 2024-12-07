@@ -456,6 +456,7 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant implemen
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
+	@override String get submitIfAllEmpty => '請輸入信息';
 	@override String get unexpected => '發生錯誤，請稍後再試。';
 }
 
@@ -509,6 +510,7 @@ extension on TranslationsZhHant {
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';
 			case 'authentication.registerProfilePage.buttons.skip': return '跳過';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '請輸入信息';
 			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
 			case 'authentication.completeSendEmailPage.title': return '發送完成';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';

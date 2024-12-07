@@ -460,6 +460,7 @@ class TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get submitIfAllEmpty => 'Please enter the information';
 	String get unexpected => 'An error occurred. Please try again later.';
 }
 
@@ -513,6 +514,7 @@ extension on Translations {
 			case 'authentication.registerProfilePage.textFields': return 'Name';
 			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
 			case 'authentication.registerProfilePage.buttons.skip': return 'Skip';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return 'Please enter the information';
 			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
 			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';

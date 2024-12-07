@@ -79,6 +79,7 @@
             },
             "snackBar": {
                 "error": {
+                    "submitIfAllEmpty": "入力してください",
                     "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
                 }
             }
