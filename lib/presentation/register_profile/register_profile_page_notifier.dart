@@ -85,6 +85,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   }
 
   Future<void> pickImage() async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       final pickedImageFile = await fileDataSource.pickImage();
       if (pickedImageFile != null) {
@@ -95,6 +96,8 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(i18nSnackBarError);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
