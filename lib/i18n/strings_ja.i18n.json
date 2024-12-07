@@ -116,6 +116,7 @@
         "urlInvalid": "URLの形式が正しくありません"
     },
     "myPage": {
+        "unregisteredUserName": "未登録",
         "aboutAIFunction": "AIの機能について",
         "details": "詳細",
         "settings": "設定",

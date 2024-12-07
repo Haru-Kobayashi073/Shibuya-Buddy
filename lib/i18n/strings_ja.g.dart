@@ -110,6 +110,7 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get unregisteredUserName => '未登録';
 	@override String get aboutAIFunction => 'AIの機能について';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
@@ -523,6 +524,7 @@ extension on TranslationsJa {
 			case 'validation.passwordMatch': return 'パスワードが一致しません';
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
+			case 'myPage.unregisteredUserName': return '未登録';
 			case 'myPage.aboutAIFunction': return 'AIの機能について';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
