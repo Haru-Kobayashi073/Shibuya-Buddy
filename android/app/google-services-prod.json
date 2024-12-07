@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "416095109609",
     "project_id": "shibuya-buddy",
-    "storage_bucket": "shibuya-buddy.appspot.com"
+    "storage_bucket": "shibuya-buddy.firebasestorage.app"
   },
   "client": [
     {
