@@ -268,6 +268,7 @@ class _TranslationsAuthenticationRegisterProfilePageZhHant implements Translatio
 	@override String get title => '註冊個人資訊';
 	@override String get textFields => '姓名';
 	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHant buttons = _TranslationsAuthenticationRegisterProfilePageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarZhHant snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarZhHant._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -415,6 +416,16 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsZhHant implements Tra
 	@override String get skip => '跳過';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarZhHant implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(this._root);
@@ -430,6 +441,16 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get unexpected => '發生錯誤，請稍後再試。';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
@@ -487,6 +508,7 @@ extension on TranslationsZhHant {
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';
 			case 'authentication.registerProfilePage.buttons.skip': return '跳過';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
 			case 'authentication.completeSendEmailPage.title': return '發送完成';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '確認郵件已重新發送';

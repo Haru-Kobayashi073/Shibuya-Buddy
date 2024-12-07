@@ -87,6 +87,11 @@
             "buttons": {
                 "submit": "完成",
                 "skip": "跳過"
+            },
+            "snackBar": {
+                "error": {
+                    "unexpected": "發生錯誤，請稍後再試。"
+                }
             }
         },
         "completeSendEmailPage": {
@@ -137,8 +142,8 @@
             "bookmark": "書籤"
         }
     },
-    "popularTopics":{
-        "sectionName" :"熱門話題"
+    "popularTopics": {
+        "sectionName": "熱門話題"
     },
     "locales(map)": {
         "en": "英語",

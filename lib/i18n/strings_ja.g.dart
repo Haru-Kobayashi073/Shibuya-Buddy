@@ -258,6 +258,7 @@ class _TranslationsAuthenticationRegisterProfilePageJa implements TranslationsAu
 	@override String get title => 'プロフィールの登録';
 	@override String get textFields => '名前';
 	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsJa buttons = _TranslationsAuthenticationRegisterProfilePageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarJa snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -399,6 +400,16 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsJa implements Transla
 	@override String get skip => 'スキップ';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarJa implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(this._root);
@@ -430,6 +441,16 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
@@ -480,6 +501,7 @@ extension on TranslationsJa {
 			case 'authentication.registerProfilePage.textFields': return '名前';
 			case 'authentication.registerProfilePage.buttons.submit': return '完了';
 			case 'authentication.registerProfilePage.buttons.skip': return 'スキップ';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'エラーが発生しました。時間をおいて再度お試しください';
 			case 'authentication.completeSendEmailPage.title': return '送信完了';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '確認メールを再送信しました';

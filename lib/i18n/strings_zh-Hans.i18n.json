@@ -87,6 +87,11 @@
             "buttons": {
                 "submit": "完成",
                 "skip": "跳过"
+            },
+            "snackBar": {
+                "error": {
+                    "unexpected": "发生错误，请稍后再试。"
+                }
             }
         },
         "completeSendEmailPage": {

@@ -76,6 +76,11 @@
             "buttons": {
                 "submit": "完了",
                 "skip": "スキップ"
+            },
+            "snackBar": {
+                "error": {
+                    "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
+                }
             }
         },
         "completeSendEmailPage": {
@@ -137,8 +142,8 @@
             "bookmark": "ブックマーク"
         }
     },
-    "popularTopics":{
-        "sectionName" :"人気のトピック"
+    "popularTopics": {
+        "sectionName": "人気のトピック"
     },
     "locales(map)": {
         "en": "英語",

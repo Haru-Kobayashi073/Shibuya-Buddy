@@ -272,6 +272,7 @@ class TranslationsAuthenticationRegisterProfilePageEn {
 	String get title => 'Profile Registration';
 	String get textFields => 'Name';
 	late final TranslationsAuthenticationRegisterProfilePageButtonsEn buttons = TranslationsAuthenticationRegisterProfilePageButtonsEn._(_root);
+	late final TranslationsAuthenticationRegisterProfilePageSnackBarEn snackBar = TranslationsAuthenticationRegisterProfilePageSnackBarEn._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -419,6 +420,16 @@ class TranslationsAuthenticationRegisterProfilePageButtonsEn {
 	String get skip => 'Skip';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	TranslationsAuthenticationRegisterProfilePageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn error = TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
@@ -434,6 +445,16 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 // Path: authentication.emailVerificationPage.snackBar.error
 class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get unexpected => 'An error occurred. Please try again later.';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -491,6 +512,7 @@ extension on Translations {
 			case 'authentication.registerProfilePage.textFields': return 'Name';
 			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
 			case 'authentication.registerProfilePage.buttons.skip': return 'Skip';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
 			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
 			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';

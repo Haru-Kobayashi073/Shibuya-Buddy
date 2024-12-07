@@ -87,6 +87,11 @@
             "buttons": {
                 "submit": "Complete",
                 "skip": "Skip"
+            },
+            "snackBar": {
+                "error": {
+                    "unexpected": "An error occurred. Please try again later."
+                }
             }
         },
         "completeSendEmailPage": {
@@ -137,8 +142,8 @@
             "bookmark": "Bookmarks"
         }
     },
-    "popularTopics":{
-        "sectionName" : "Popular Topics"
+    "popularTopics": {
+        "sectionName": "Popular Topics"
     },
     "locales(map)": {
         "en": "English",
