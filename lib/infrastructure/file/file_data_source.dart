@@ -43,7 +43,10 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
         .child(uid)
         .child('profile_image')
         .child(fileName);
-    await storageRef.putFile(file);
+
+    final metadata = SettableMetadata(contentType: 'images/jpeg');
+
+    await storageRef.putFile(file, metadata);
     final imageUrl = await storageRef.getDownloadURL();
     return imageUrl;
   }
