@@ -33,8 +33,10 @@ dependencies:
   cloud_firestore: ^5.5.0
   cupertino_icons: ^1.0.8
   email_validator: ^3.0.0
+  firebase_analytics: ^11.3.6
   firebase_auth: ^5.3.3
   firebase_core: ^3.8.0
+  firebase_crashlytics: ^4.2.0
   firebase_storage: ^12.3.7
   flutter:
     sdk: flutter
