@@ -37,7 +37,12 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
     final uid = currentUser.uid;
 
     final fileName = '${const Uuid().v4()}.jpg';
-    final storageRef = _storage.ref().child('users').child(uid).child(fileName);
+    final storageRef = _storage
+        .ref()
+        .child('users')
+        .child(uid)
+        .child('profile_image')
+        .child(fileName);
     await storageRef.putFile(file);
     final imageUrl = await storageRef.getDownloadURL();
     return imageUrl;
