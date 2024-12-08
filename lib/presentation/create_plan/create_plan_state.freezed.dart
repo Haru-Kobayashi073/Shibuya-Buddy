@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CreatePlanState {
   String get location => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
   String get numberOfPeople => throw _privateConstructorUsedError;
   String get transport => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $CreatePlanStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String location,
-      String date,
+      DateTime? date,
       String numberOfPeople,
       String transport,
       String category,
@@ -61,7 +61,7 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
   @override
   $Res call({
     Object? location = null,
-    Object? date = null,
+    Object? date = freezed,
     Object? numberOfPeople = null,
     Object? transport = null,
     Object? category = null,
@@ -72,10 +72,10 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
       numberOfPeople: null == numberOfPeople
           ? _value.numberOfPeople
           : numberOfPeople // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String location,
-      String date,
+      DateTime? date,
       String numberOfPeople,
       String transport,
       String category,
@@ -127,7 +127,7 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? location = null,
-    Object? date = null,
+    Object? date = freezed,
     Object? numberOfPeople = null,
     Object? transport = null,
     Object? category = null,
@@ -138,10 +138,10 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
       numberOfPeople: null == numberOfPeople
           ? _value.numberOfPeople
           : numberOfPeople // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
 class _$CreatePlanStateImpl implements _CreatePlanState {
   const _$CreatePlanStateImpl(
       {this.location = '渋谷',
-      this.date = '',
+      this.date,
       this.numberOfPeople = '',
       this.transport = '',
       this.category = '',
@@ -178,8 +178,7 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
   @JsonKey()
   final String location;
   @override
-  @JsonKey()
-  final String date;
+  final DateTime? date;
   @override
   @JsonKey()
   final String numberOfPeople;
@@ -244,7 +243,7 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
 abstract class _CreatePlanState implements CreatePlanState {
   const factory _CreatePlanState(
       {final String location,
-      final String date,
+      final DateTime? date,
       final String numberOfPeople,
       final String transport,
       final String category,
@@ -253,7 +252,7 @@ abstract class _CreatePlanState implements CreatePlanState {
   @override
   String get location;
   @override
-  String get date;
+  DateTime? get date;
   @override
   String get numberOfPeople;
   @override
