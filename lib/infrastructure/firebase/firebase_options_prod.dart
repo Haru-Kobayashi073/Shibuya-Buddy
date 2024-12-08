@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'shibuya-buddy.firebasestorage.app',
     iosBundleId: 'com.shibuya.buddy',
   );
-
 }
