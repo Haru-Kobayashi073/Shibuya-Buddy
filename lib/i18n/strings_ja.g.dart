@@ -39,6 +39,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsValidationJa validation = _TranslationsValidationJa._(_root);
 	@override late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
 	@override late final _TranslationsChangeLanguagePageJa changeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
+	@override late final _TranslationsChangeThemePageJa changeThemePage = _TranslationsChangeThemePageJa._(_root);
 	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
 	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override Map<String, String> get locales => {
@@ -130,6 +131,17 @@ class _TranslationsChangeLanguagePageJa implements TranslationsChangeLanguagePag
 	// Translations
 	@override String get title => '言語';
 	@override late final _TranslationsChangeLanguagePageItemsJa items = _TranslationsChangeLanguagePageItemsJa._(_root);
+}
+
+// Path: changeThemePage
+class _TranslationsChangeThemePageJa implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'テーマ';
+	@override late final _TranslationsChangeThemePageItemsJa items = _TranslationsChangeThemePageItemsJa._(_root);
 }
 
 // Path: myPlanPage
@@ -294,6 +306,18 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 	@override String get english => '英語';
 	@override String get simplifiedChinese => '中国語（簡体字）';
 	@override String get traditionalChinese => '中国語（繁体字）';
+}
+
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsJa implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'システム';
+	@override String get light => 'ライト';
+	@override String get dark => 'ダーク';
 }
 
 // Path: myPlanPage.tabs
@@ -515,6 +539,10 @@ extension on TranslationsJa {
 			case 'changeLanguagePage.items.english': return '英語';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
+			case 'changeThemePage.title': return 'テーマ';
+			case 'changeThemePage.items.system': return 'システム';
+			case 'changeThemePage.items.light': return 'ライト';
+			case 'changeThemePage.items.dark': return 'ダーク';
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';

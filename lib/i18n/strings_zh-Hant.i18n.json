@@ -130,6 +130,14 @@
             "traditionalChinese": "中文(繁体字)"
         }
     },
+    "changeThemePage": {
+        "title": "主题",
+        "items": {
+            "system": "系统",
+            "light": "光",
+            "dark": "黑暗"
+        }
+    },
     "myPlanPage": {
         "title": "我的計劃",
         "tabs": {

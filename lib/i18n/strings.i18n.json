@@ -130,6 +130,14 @@
             "traditionalChinese": "Chinese (Traditional)"
         }
     },
+    "changeThemePage": {
+        "title": "Theme",
+        "items": {
+            "system": "System",
+            "light": "Light",
+            "dark": "Dark"
+        }
+    },
     "myPlanPage": {
         "title": "My Plans",
         "tabs": {
