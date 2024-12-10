@@ -42,7 +42,7 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
                   groupValue: _selectedTheme, 
                   onChanged: (value) {
                     setState(() {
-                      _selectedTheme = value!;
+                      _selectedTheme = value;
                     });
                   },
                 ),
