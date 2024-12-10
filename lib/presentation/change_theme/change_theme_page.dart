@@ -15,11 +15,10 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
 
   @override
   Widget build(BuildContext context) {
-
     final i18n = Translations.of(context);
     final titlei18n = i18n.changeThemePage.title;
     final itemsi18n = i18n.changeThemePage.items;
-    final themes = <String>[itemsi18n.system,itemsi18n.light,itemsi18n.dark];
+    final themes = <String>[itemsi18n.system, itemsi18n.light, itemsi18n.dark];
 
     return Scaffold(
       appBar: AppBar(
@@ -37,9 +36,9 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
           children: themes
               .map(
                 (theme) => RadioButtonWithText<String>(
-                  title: theme, 
-                  value: theme, 
-                  groupValue: _selectedTheme, 
+                  title: theme,
+                  value: theme,
+                  groupValue: _selectedTheme,
                   onChanged: (value) {
                     setState(() {
                       _selectedTheme = value;
