@@ -10,7 +10,7 @@ abstract class User with _$User {
   const factory User({
     required String uid,
     String? name,
-    Uri? imageUrl,
+    String? imageUrl,
     @Default([]) List<String> bookmarkedPlanIds,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverter() DateTime? updateAt,

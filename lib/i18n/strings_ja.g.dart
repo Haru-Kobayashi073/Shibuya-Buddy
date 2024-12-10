@@ -46,6 +46,39 @@ class TranslationsJa implements Translations {
   late final _TranslationsHomePageJa homePage =
       _TranslationsHomePageJa._(_root);
   @override
+  late final _TranslationsAuthenticationJa authentication =
+      _TranslationsAuthenticationJa._(_root);
+  @override
+  late final _TranslationsValidationJa validation =
+      _TranslationsValidationJa._(_root);
+  @override
+  late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
+  @override
+  late final _TranslationsChangeLanguagePageJa changeLanguagePage =
+      _TranslationsChangeLanguagePageJa._(_root);
+  @override
+  late final _TranslationsChangeThemePageJa changeThemePage =
+      _TranslationsChangeThemePageJa._(_root);
+  @override
+  late final _TranslationsMyPlanPageJa myPlanPage =
+      _TranslationsMyPlanPageJa._(_root);
+  @override
+  late final _TranslationsPopularTopicsJa popularTopics =
+      _TranslationsPopularTopicsJa._(_root);
+  @override
+  Map<String, String> get locales => {
+        'en': '英語',
+        'ja': '日本語',
+        'zh': '中国語',
+      };
+  // Translations
+  @override
+  late final _TranslationsNavigationBarJa navigationBar =
+      _TranslationsNavigationBarJa._(_root);
+  @override
+  late final _TranslationsHomePageJa homePage =
+      _TranslationsHomePageJa._(_root);
+  @override
   late final _TranslationsAccountPageJa accountPage =
       _TranslationsAccountPageJa._(_root);
   @override
@@ -186,6 +219,8 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 
   // Translations
   @override
+  String get unregisteredUserName => '未登録';
+  @override
   String get aboutAIFunction => 'AIの機能について';
   @override
   String get details => '詳細';
@@ -218,6 +253,20 @@ class _TranslationsChangeLanguagePageJa
   @override
   late final _TranslationsChangeLanguagePageItemsJa items =
       _TranslationsChangeLanguagePageItemsJa._(_root);
+}
+
+// Path: changeThemePage
+class _TranslationsChangeThemePageJa implements TranslationsChangeThemePageEn {
+  _TranslationsChangeThemePageJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => 'テーマ';
+  @override
+  late final _TranslationsChangeThemePageItemsJa items =
+      _TranslationsChangeThemePageItemsJa._(_root);
 }
 
 // Path: myPlanPage
@@ -442,6 +491,9 @@ class _TranslationsAuthenticationRegisterProfilePageJa
   @override
   late final _TranslationsAuthenticationRegisterProfilePageButtonsJa buttons =
       _TranslationsAuthenticationRegisterProfilePageButtonsJa._(_root);
+  @override
+  late final _TranslationsAuthenticationRegisterProfilePageSnackBarJa snackBar =
+      _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -493,6 +545,22 @@ class _TranslationsChangeLanguagePageItemsJa
   String get simplifiedChinese => '中国語（簡体字）';
   @override
   String get traditionalChinese => '中国語（繁体字）';
+}
+
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsJa
+    implements TranslationsChangeThemePageItemsEn {
+  _TranslationsChangeThemePageItemsJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get system => 'システム';
+  @override
+  String get light => 'ライト';
+  @override
+  String get dark => 'ダーク';
 }
 
 // Path: myPlanPage.tabs
@@ -630,6 +698,20 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsJa
   String get skip => 'スキップ';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarJa
+    implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+  _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa
+      error =
+      _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa
     implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
@@ -683,9 +765,205 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa
   String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
 }
 
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa
+    implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+  _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get submitIfAllEmpty => '入力してください';
+  @override
+  String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsJa {
+  dynamic _flatMapFunction(String path) {
+    switch (path) {
+      case 'navigationBar.items.home':
+        return 'ホーム';
+      case 'navigationBar.items.myPlan':
+        return 'マイプラン';
+      case 'navigationBar.items.myPage':
+        return 'マイページ';
+      case 'homePage.popularPlans.title':
+        return '人気のプラン';
+      case 'homePage.popularTopics.title':
+        return '人気のトピック';
+      case 'homePage.popularTopics.numberOfTopics':
+        return ({required Object number}) => '${number}件~';
+      case 'homePage.recentPlans.title':
+        return '最近作成したプラン';
+      case 'authentication.signInPage.title':
+        return 'ログイン';
+      case 'authentication.signInPage.optionText':
+        return ' または ';
+      case 'authentication.signInPage.textFields.email':
+        return 'メールアドレス';
+      case 'authentication.signInPage.textFields.password':
+        return 'パスワード';
+      case 'authentication.signInPage.buttons.signIn':
+        return 'ログイン';
+      case 'authentication.signInPage.buttons.signUp':
+        return '新規登録';
+      case 'authentication.signInPage.buttons.resetPassword':
+        return 'パスワードを忘れた方はこちら';
+      case 'authentication.signInPage.buttons.appleSignIn':
+        return 'Appleでログイン';
+      case 'authentication.signInPage.buttons.googleSignIn':
+        return 'Googleでログイン';
+      case 'authentication.signInPage.buttons.signInAfter':
+        return '後で登録';
+      case 'authentication.resetPasswordPage.title':
+        return 'パスワードのリセット';
+      case 'authentication.resetPasswordPage.description':
+        return '入力されたメールアドレスにパスワードリセットのメールを送信します';
+      case 'authentication.resetPasswordPage.textFields.email':
+        return 'メールアドレス';
+      case 'authentication.resetPasswordPage.buttons.submit':
+        return '送信';
+      case 'authentication.signUpPage.title':
+        return '新規登録';
+      case 'authentication.signUpPage.textFields.email':
+        return 'メールアドレス';
+      case 'authentication.signUpPage.textFields.password':
+        return 'パスワード';
+      case 'authentication.signUpPage.button':
+        return '新規登録';
+      case 'authentication.emailVerificationPage.title':
+        return 'メールアドレスの確認';
+      case 'authentication.emailVerificationPage.descriptionForDestination':
+        return ({required Object email}) => '入力された${email}に確認メールを送信します';
+      case 'authentication.emailVerificationPage.descriptionForCoolDown':
+        return '確認メールの再送信は、60秒ごとに1回可能です。';
+      case 'authentication.emailVerificationPage.buttons.sendEmail':
+        return '確認メールを送信';
+      case 'authentication.emailVerificationPage.buttons.resendEmail':
+        return '確認メールを再送信';
+      case 'authentication.emailVerificationPage.buttons.toNext':
+        return '次へ';
+      case 'authentication.emailVerificationPage.buttons.retypeEmail':
+        return 'メールアドレスの修正';
+      case 'authentication.emailVerificationPage.snackBar.success':
+        return '送信が完了しました';
+      case 'authentication.emailVerificationPage.snackBar.error.unexpected':
+        return 'エラーが発生しました。時間をおいて再度お試しください';
+      case 'authentication.registerProfilePage.title':
+        return 'プロフィールの登録';
+      case 'authentication.registerProfilePage.textFields':
+        return '名前';
+      case 'authentication.registerProfilePage.buttons.submit':
+        return '完了';
+      case 'authentication.registerProfilePage.buttons.skip':
+        return 'スキップ';
+      case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty':
+        return '入力してください';
+      case 'authentication.registerProfilePage.snackBar.error.unexpected':
+        return 'エラーが発生しました。時間をおいて再度お試しください';
+      case 'authentication.completeSendEmailPage.title':
+        return '送信完了';
+      case 'authentication.completeSendEmailPage.description':
+        return ({required Object email}) =>
+            'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
+      case 'authentication.completeSendEmailPage.successResendEmail':
+        return '確認メールを再送信しました';
+      case 'authentication.completeSendEmailPage.buttons.toSignIn':
+        return 'ログイン画面へ';
+      case 'authentication.completeSendEmailPage.buttons.resendEmail':
+        return '確認メールを再送信';
+      case 'authentication.completeSendEmailPage.buttons.changeEmail':
+        return 'メールアドレスの変更';
+      case 'authentication.firebaseAuth.error.networkRequestFailed':
+        return '通信環境がいい所で再度やり直してください';
+      case 'authentication.firebaseAuth.error.weakPassword':
+        return 'パスワードが短すぎます。6文字以上を入力してください';
+      case 'authentication.firebaseAuth.error.invalidEmail':
+        return 'メールアドレスの形式が正しくありません';
+      case 'authentication.firebaseAuth.error.userNotFound':
+        return 'アカウントが見つかりません';
+      case 'authentication.firebaseAuth.error.wrongPassword':
+        return 'パスワードが正しくありません';
+      case 'authentication.firebaseAuth.error.emailAlreadyInUse':
+        return 'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
+      case 'authentication.firebaseAuth.error.unexpected':
+        return 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
+      case 'validation.emailRequired':
+        return 'メールアドレスを入力してください';
+      case 'validation.emailInvalid':
+        return 'メールアドレスの形式が正しくありません';
+      case 'validation.passwordRequired':
+        return 'パスワードを入力してください';
+      case 'validation.passwordShort':
+        return 'パスワードは少なくとも8文字以上である必要があります';
+      case 'validation.passwordWeak':
+        return 'パスワードは半角英数字を組み合わせてください';
+      case 'validation.passwordMatch':
+        return 'パスワードが一致しません';
+      case 'validation.informationRequired':
+        return '情報を入力してください';
+      case 'validation.urlInvalid':
+        return 'URLの形式が正しくありません';
+      case 'myPage.unregisteredUserName':
+        return '未登録';
+      case 'myPage.aboutAIFunction':
+        return 'AIの機能について';
+      case 'myPage.details':
+        return '詳細';
+      case 'myPage.settings':
+        return '設定';
+      case 'myPage.account':
+        return 'アカウント';
+      case 'myPage.language':
+        return '言語';
+      case 'myPage.theme':
+        return 'テーマ';
+      case 'myPage.termsOfUsePrivacyPolicy':
+        return '利用規約・プライバシーポリシー';
+      case 'myPage.aboutThisApp':
+        return 'このアプリについて';
+      case 'myPage.aboutTheDeveloper':
+        return '開発者について';
+      case 'changeLanguagePage.title':
+        return '言語';
+      case 'changeLanguagePage.items.japanese':
+        return '日本語';
+      case 'changeLanguagePage.items.english':
+        return '英語';
+      case 'changeLanguagePage.items.simplifiedChinese':
+        return '中国語（簡体字）';
+      case 'changeLanguagePage.items.traditionalChinese':
+        return '中国語（繁体字）';
+      case 'changeThemePage.title':
+        return 'テーマ';
+      case 'changeThemePage.items.system':
+        return 'システム';
+      case 'changeThemePage.items.light':
+        return 'ライト';
+      case 'changeThemePage.items.dark':
+        return 'ダーク';
+      case 'myPlanPage.title':
+        return 'マイプラン';
+      case 'myPlanPage.tabs.createdPlans':
+        return '作成したプラン';
+      case 'myPlanPage.tabs.bookmark':
+        return 'ブックマーク';
+      case 'popularTopics.sectionName':
+        return '人気のトピック';
+      case 'locales.en':
+        return '英語';
+      case 'locales.ja':
+        return '日本語';
+      case 'locales.zh':
+        return '中国語';
+      default:
+        return null;
+    }
+  }
+
   dynamic _flatMapFunction(String path) {
     switch (path) {
       case 'navigationBar.items.home':

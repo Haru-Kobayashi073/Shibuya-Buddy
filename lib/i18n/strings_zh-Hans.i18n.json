@@ -107,6 +107,12 @@
             "buttons": {
                 "submit": "完成",
                 "skip": "跳过"
+            },
+            "snackBar": {
+                "error": {
+                    "submitIfAllEmpty": "请输入信息",
+                    "unexpected": "发生错误，请稍后再试。"
+                }
             }
         },
         "completeSendEmailPage": {
@@ -131,6 +137,7 @@
         "urlInvalid": "URL格式不正确"
     },
     "myPage": {
+        "unregisteredUserName": "未注册",
         "aboutAIFunction": "关于AI功能",
         "details": "详细",
         "settings": "设置",
@@ -148,6 +155,14 @@
             "english": "英语",
             "simplifiedChinese": "中文（简体）",
             "traditionalChinese": "中文（繁体）"
+        }
+    },
+    "changeThemePage": {
+        "title": "主题",
+        "items": {
+            "system": "系统",
+            "light": "光",
+            "dark": "暗处"
         }
     },
     "myPlanPage": {

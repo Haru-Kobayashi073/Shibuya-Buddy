@@ -107,6 +107,12 @@
             "buttons": {
                 "submit": "完成",
                 "skip": "跳過"
+            },
+            "snackBar": {
+                "error": {
+                    "submitIfAllEmpty": "請輸入信息",
+                    "unexpected": "發生錯誤，請稍後再試。"
+                }
             }
         },
         "completeSendEmailPage": {
@@ -131,6 +137,7 @@
         "urlInvalid": "URL格式不正確"
     },
     "myPage": {
+        "unregisteredUserName": "未註冊",
         "aboutAIFunction": "關於AI功能",
         "details": "詳細",
         "settings": "設定",
@@ -150,6 +157,14 @@
             "traditionalChinese": "中文(繁体字)"
         }
     },
+    "changeThemePage": {
+        "title": "主题",
+        "items": {
+            "system": "系统",
+            "light": "光",
+            "dark": "黑暗"
+        }
+    },
     "myPlanPage": {
         "title": "我的計劃",
         "tabs": {
@@ -157,8 +172,8 @@
             "bookmark": "書籤"
         }
     },
-    "popularTopics":{
-        "sectionName" :"熱門話題"
+    "popularTopics": {
+        "sectionName": "熱門話題"
     },
     "locales(map)": {
         "en": "英語",

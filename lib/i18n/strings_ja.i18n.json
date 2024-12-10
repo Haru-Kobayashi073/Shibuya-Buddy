@@ -96,6 +96,12 @@
             "buttons": {
                 "submit": "完了",
                 "skip": "スキップ"
+            },
+            "snackBar": {
+                "error": {
+                    "submitIfAllEmpty": "入力してください",
+                    "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
+                }
             }
         },
         "completeSendEmailPage": {
@@ -131,6 +137,7 @@
         "urlInvalid": "URLの形式が正しくありません"
     },
     "myPage": {
+        "unregisteredUserName": "未登録",
         "aboutAIFunction": "AIの機能について",
         "details": "詳細",
         "settings": "設定",
@@ -150,6 +157,14 @@
             "traditionalChinese": "中国語（繁体字）"
         }
     },
+    "changeThemePage": {
+        "title": "テーマ",
+        "items": {
+            "system": "システム",
+            "light": "ライト",
+            "dark": "ダーク"
+        }
+    },
     "myPlanPage": {
         "title": "マイプラン",
         "tabs": {
@@ -157,8 +172,8 @@
             "bookmark": "ブックマーク"
         }
     },
-    "popularTopics":{
-        "sectionName" :"人気のトピック"
+    "popularTopics": {
+        "sectionName": "人気のトピック"
     },
     "locales(map)": {
         "en": "英語",
