@@ -1,42 +1,95 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 
-class AccountPage extends StatefulWidget {
+class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
 
   @override
-  State<AccountPage> createState() => _AccountPageState();
+  ConsumerState<AccountPage> createState() => _AccountPageState();
 }
 
-class _AccountPageState extends State<AccountPage> {
-  final auth = FirebaseAuth.instance;
+class _AccountPageState extends ConsumerState<AccountPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  bool _isGoogleLinked = false;
 
-  final _googleSignIn = GoogleSignIn();
+  @override
+  void initState() {
+    super.initState();
+    final user = _auth.currentUser;
+    _isGoogleLinked = googleLinkageConfirmation(user);
+  }
 
-  User? _user;
+  bool googleLinkageConfirmation(User? user) {
+    if (user != null) {
+      for (final provider in user.providerData) {
+        if (provider.providerId == 'google.com') {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  bool appleLinkageConfirmation(User? user) {
+    if (user != null) {
+      for (final provider in user.providerData) {
+        if (provider.providerId == 'apple.com') {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  Future<void> unLnkGoogle(User? user) async {
+    final snack = ref.watch(scaffoldMessengerProvider.notifier);
+    final snackBar = t.accountPage.snackBar;
+    if (user != null) {
+      try {
+        await user.unlink('google.com');
+        setState(() {
+          _isGoogleLinked = false;
+        });
+        snack.showSuccessSnackBar(snackBar.accountDeactivation);
+      } on FirebaseAuthException {
+        snack.showExceptionSnackBar(snackBar.unlinkageFailure);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
-    final i18nSignInPage = i18n.authentication.accountPage;
+    final titlei18n = i18n.accountPage.title;
+    final itemi18n = i18n.accountPage.items;
+    final snackBari18n = i18n.accountPage.snackBar;
+    final snack = ref.watch(scaffoldMessengerProvider.notifier);
+    final auth = FirebaseAuth.instance;
+    final user = auth.currentUser;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          i18n.myPage.account,
+          titlei18n,
           style: AppTextStyle.textStyle.copyWith(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            fontWeight: FontWeight.w100,
           ),
         ),
       ),
@@ -44,36 +97,54 @@ class _AccountPageState extends State<AccountPage> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            WideButton.icon(
-              label: false
-                  ? i18nSignInPage.linkedWithApple
-                  : i18nSignInPage.alreadyLinkedApple,
-              color: AppColor.blue50Background,
-              icon: SvgPicture.asset(Assets.icons.appleIcon),
-              onPressed: () {},
+            Opacity(
+              opacity: 1,
+              child: WideButton.icon(
+                label: appleLinkageConfirmation(user)
+                    ? itemi18n.alreadyLinkedApple
+                    : itemi18n.linkedWithApple,
+                color: AppColor.blue50Background,
+                icon: SvgPicture.asset(Assets.icons.appleIcon),
+                onPressed: () {},
+              ),
             ),
             const SizedBox(height: 16),
-            WideButton.icon(
-              label: true
-                  ? i18nSignInPage.linkedWithGoogle
-                  : i18nSignInPage.alreadyLinkedApple,
-              color: AppColor.blue50Background,
-              icon: SvgPicture.asset(Assets.icons.googleIcon),
-              onPressed: _linkWithGoogle,
+            Opacity(
+              opacity: _isGoogleLinked ? 0.5 : 1,
+              child: WideButton.icon(
+                label: _isGoogleLinked
+                    ? itemi18n.alreadyLinkedGoogle
+                    : itemi18n.linkedWithGoogle,
+                color: AppColor.blue50Background,
+                icon: SvgPicture.asset(Assets.icons.googleIcon),
+                onPressed: () async {
+                  if (_isGoogleLinked) {
+                    // Google連携を解除
+                    await unLnkGoogle(user);
+                  } else {
+                    // Googleでサインインして連携
+                    final result = await linkedWithGoogle();
+                    if (result != null) {
+                      setState(() {
+                        _isGoogleLinked = true;
+                      });
+                    }
+                  }
+                },
+              ),
             ),
             const SizedBox(height: 32),
+            // サインアウトボタン
             TextButton(
               onPressed: () async {
-                await FirebaseAuth.instance
-                    .signOut(); //ログアウトしたことがユーザーに伝わるようにする。
-                debugPrint('ログアウト');
-                debugPrint(_user.toString());
-                if (_user != null) {
+                if (user != null) {
                   context.go(const SignInPageRouteData().location);
+                  await signOut();
+                  snack.showSuccessSnackBar(snackBari18n.loggedOut);
                 }
               },
               child: Text(
-                i18nSignInPage.signOut,
+                itemi18n.signOut,
                 style: AppTextStyle.textStyle.copyWith(
                   color: Colors.red,
                   fontSize: 14,
@@ -87,34 +158,57 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 
-  Future<void> _linkWithGoogle() async {
-    if (_user == null) {
-      debugPrint('User is not signed in');
-      return;
-    }
-
+  // Googleサインインメソッド
+  Future<User?> linkedWithGoogle() async {
+    final snackBar = t.accountPage.snackBar;
+    final snack = ref.watch(scaffoldMessengerProvider.notifier);
     try {
-      // Googleサインインの処理
       final googleUser = await _googleSignIn.signIn();
+
       if (googleUser == null) {
-        debugPrint('Google sign-in failed');
-        return;
+        return null;
       }
 
       final googleAuth = await googleUser.authentication;
 
-      // Google認証情報をFirebaseにリンク
+      // Firebase用の資格情報を作成
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
-      // 現在ログインしているユーザーにGoogleアカウントをリンク
-      final userCredential = await _user!.linkWithCredential(credential);
+      final currentUser = _auth.currentUser;
 
-      debugPrint('Google account linked: ${_user?.displayName}');
-    } catch (e) {
-      debugPrint('Error linking Google account: $e');
+      if (currentUser != null) {
+        try {
+          await currentUser.linkWithCredential(credential);
+          snack.showSuccessSnackBar(snackBar.successfulLinkage);
+          return currentUser;
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'provider-already-linked') {
+            snack.showExceptionSnackBar(snackBar.accountLinked);
+          } else if (e.code == 'invalid-credential') {
+            snack.showExceptionSnackBar(snackBar.nvalidCredential);
+          }
+          return null;
+        }
+      } else {
+        try {
+          final userCredential = await _auth.signInWithCredential(credential);
+          final user = userCredential.user;
+          return user;
+        } on FirebaseAuthException {
+          return null;
+        }
+      }
+    } on PlatformException {
+      snack.showExceptionSnackBar(snackBar.linkageCancelled);
     }
+    return null;
+  }
+
+  Future<void> signOut() async {
+    await _googleSignIn.signOut();
+    await _auth.signOut();
   }
 }
