@@ -32,40 +32,22 @@ class TranslationsZhHans implements Translations {
 
 	late final TranslationsZhHans _root = this; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarZhHans navigationBar =
-      _TranslationsNavigationBarZhHans._(_root);
-  @override
-  late final _TranslationsHomePageZhHans homePage =
-      _TranslationsHomePageZhHans._(_root);
-  @override
-  late final _TranslationsAccountPageZhHans accountPage =
-      _TranslationsAccountPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationZhHans authentication =
-      _TranslationsAuthenticationZhHans._(_root);
-  @override
-  late final _TranslationsValidationZhHans validation =
-      _TranslationsValidationZhHans._(_root);
-  @override
-  late final _TranslationsMyPageZhHans myPage =
-      _TranslationsMyPageZhHans._(_root);
-  @override
-  late final _TranslationsChangeLanguagePageZhHans changeLanguagePage =
-      _TranslationsChangeLanguagePageZhHans._(_root);
-  @override
-  late final _TranslationsMyPlanPageZhHans myPlanPage =
-      _TranslationsMyPlanPageZhHans._(_root);
-  @override
-  late final _TranslationsPopularTopicsZhHans popularTopics =
-      _TranslationsPopularTopicsZhHans._(_root);
-  @override
-  Map<String, String> get locales => {
-        'en': '英语',
-        'ja': '日语',
-        'zh': '中文',
-      };
+	// Translations
+	@override late final _TranslationsNavigationBarZhHans navigationBar = _TranslationsNavigationBarZhHans._(_root);
+	@override late final _TranslationsHomePageZhHans homePage = _TranslationsHomePageZhHans._(_root);
+	@override late final _TranslationsAccountPageZhHans accountPage = _TranslationsAccountPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationZhHans authentication = _TranslationsAuthenticationZhHans._(_root);
+	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
+	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
+	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
+	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
+	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
+	@override Map<String, String> get locales => {
+		'en': '英语',
+		'ja': '日语',
+		'zh': '中文',
+	};
 }
 
 // Path: navigationBar
@@ -80,37 +62,26 @@ class _TranslationsNavigationBarZhHans implements TranslationsNavigationBarEn {
 
 // Path: homePage
 class _TranslationsHomePageZhHans implements TranslationsHomePageEn {
-  _TranslationsHomePageZhHans._(this._root);
+	_TranslationsHomePageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsHomePagePopularPlansZhHans popularPlans =
-      _TranslationsHomePagePopularPlansZhHans._(_root);
-  @override
-  late final _TranslationsHomePagePopularTopicsZhHans popularTopics =
-      _TranslationsHomePagePopularTopicsZhHans._(_root);
-  @override
-  late final _TranslationsHomePageRecentPlansZhHans recentPlans =
-      _TranslationsHomePageRecentPlansZhHans._(_root);
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansZhHans popularPlans = _TranslationsHomePagePopularPlansZhHans._(_root);
+	@override late final _TranslationsHomePagePopularTopicsZhHans popularTopics = _TranslationsHomePagePopularTopicsZhHans._(_root);
+	@override late final _TranslationsHomePageRecentPlansZhHans recentPlans = _TranslationsHomePageRecentPlansZhHans._(_root);
 }
 
 // Path: accountPage
 class _TranslationsAccountPageZhHans implements TranslationsAccountPageEn {
-  _TranslationsAccountPageZhHans._(this._root);
+	_TranslationsAccountPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '账户';
-  @override
-  late final _TranslationsAccountPageItemsZhHans items =
-      _TranslationsAccountPageItemsZhHans._(_root);
-  @override
-  late final _TranslationsAccountPageSnackBarZhHans snackBar =
-      _TranslationsAccountPageSnackBarZhHans._(_root);
+	// Translations
+	@override String get title => '账户';
+	@override late final _TranslationsAccountPageItemsZhHans items = _TranslationsAccountPageItemsZhHans._(_root);
+	@override late final _TranslationsAccountPageSnackBarZhHans snackBar = _TranslationsAccountPageSnackBarZhHans._(_root);
 }
 
 // Path: authentication
@@ -242,81 +213,57 @@ class _TranslationsHomePagePopularTopicsZhHans implements TranslationsHomePagePo
 }
 
 // Path: homePage.recentPlans
-class _TranslationsHomePageRecentPlansZhHans
-    implements TranslationsHomePageRecentPlansEn {
-  _TranslationsHomePageRecentPlansZhHans._(this._root);
+class _TranslationsHomePageRecentPlansZhHans implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '最近创建的计划';
+	// Translations
+	@override String get title => '最近创建的计划';
 }
 
 // Path: accountPage.items
-class _TranslationsAccountPageItemsZhHans
-    implements TranslationsAccountPageItemsEn {
-  _TranslationsAccountPageItemsZhHans._(this._root);
+class _TranslationsAccountPageItemsZhHans implements TranslationsAccountPageItemsEn {
+	_TranslationsAccountPageItemsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signOut => '退出登录';
-  @override
-  String get linkedWithGoogle => '与Google连接';
-  @override
-  String get linkedWithApple => '与Apple连接';
-  @override
-  String get alreadyLinkedGoogle => '已与Google连接';
-  @override
-  String get alreadyLinkedApple => '已与Apple连接';
+	// Translations
+	@override String get signOut => '退出登录';
+	@override String get linkedWithGoogle => '与Google连接';
+	@override String get linkedWithApple => '与Apple连接';
+	@override String get alreadyLinkedGoogle => '已与Google连接';
+	@override String get alreadyLinkedApple => '已与Apple连接';
 }
 
 // Path: accountPage.snackBar
-class _TranslationsAccountPageSnackBarZhHans
-    implements TranslationsAccountPageSnackBarEn {
-  _TranslationsAccountPageSnackBarZhHans._(this._root);
+class _TranslationsAccountPageSnackBarZhHans implements TranslationsAccountPageSnackBarEn {
+	_TranslationsAccountPageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get loggedOut => '已成功退出。';
-  @override
-  String get successfulLinkage => '账户连接成功。';
-  @override
-  String get linkageFailure => '账户连接失败。';
-  @override
-  String get accountLinked => '此账户已连接。';
-  @override
-  String get accountDeactivation => '已解除账户连接。';
-  @override
-  String get nvalidCredential => '无效链接';
-  @override
-  String get linkageCancelled => '已取消账户连接。';
-  @override
-  String get unlinkageFailure => '解除账户连接失败。';
+	// Translations
+	@override String get loggedOut => '已成功退出。';
+	@override String get successfulLinkage => '账户连接成功。';
+	@override String get linkageFailure => '账户连接失败。';
+	@override String get accountLinked => '此账户已连接。';
+	@override String get accountDeactivation => '已解除账户连接。';
+	@override String get nvalidCredential => '无效链接';
+	@override String get linkageCancelled => '已取消账户连接。';
+	@override String get unlinkageFailure => '解除账户连接失败。';
 }
 
 // Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageZhHans
-    implements TranslationsAuthenticationSignInPageEn {
-  _TranslationsAuthenticationSignInPageZhHans._(this._root);
+class _TranslationsAuthenticationSignInPageZhHans implements TranslationsAuthenticationSignInPageEn {
+	_TranslationsAuthenticationSignInPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '登录';
-  @override
-  String get optionText => ' 或 ';
-  @override
-  late final _TranslationsAuthenticationSignInPageTextFieldsZhHans textFields =
-      _TranslationsAuthenticationSignInPageTextFieldsZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationSignInPageButtonsZhHans buttons =
-      _TranslationsAuthenticationSignInPageButtonsZhHans._(_root);
+	// Translations
+	@override String get title => '登录';
+	@override String get optionText => ' 或 ';
+	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsAuthenticationSignInPageButtonsZhHans buttons = _TranslationsAuthenticationSignInPageButtonsZhHans._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -584,199 +531,111 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans implemen
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHans {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'navigationBar.items.home':
-        return '首页';
-      case 'navigationBar.items.myPlan':
-        return '我的计划';
-      case 'navigationBar.items.myPage':
-        return '我的页面';
-      case 'homePage.popularPlans.title':
-        return '热门计划';
-      case 'homePage.popularTopics.title':
-        return '热门话题';
-      case 'homePage.popularTopics.numberOfTopics':
-        return ({required Object number}) => '${number}件~';
-      case 'homePage.recentPlans.title':
-        return '最近创建的计划';
-      case 'accountPage.title':
-        return '账户';
-      case 'accountPage.items.signOut':
-        return '退出登录';
-      case 'accountPage.items.linkedWithGoogle':
-        return '与Google连接';
-      case 'accountPage.items.linkedWithApple':
-        return '与Apple连接';
-      case 'accountPage.items.alreadyLinkedGoogle':
-        return '已与Google连接';
-      case 'accountPage.items.alreadyLinkedApple':
-        return '已与Apple连接';
-      case 'accountPage.snackBar.loggedOut':
-        return '已成功退出。';
-      case 'accountPage.snackBar.successfulLinkage':
-        return '账户连接成功。';
-      case 'accountPage.snackBar.linkageFailure':
-        return '账户连接失败。';
-      case 'accountPage.snackBar.accountLinked':
-        return '此账户已连接。';
-      case 'accountPage.snackBar.accountDeactivation':
-        return '已解除账户连接。';
-      case 'accountPage.snackBar.nvalidCredential':
-        return '无效链接';
-      case 'accountPage.snackBar.linkageCancelled':
-        return '已取消账户连接。';
-      case 'accountPage.snackBar.unlinkageFailure':
-        return '解除账户连接失败。';
-      case 'authentication.signInPage.title':
-        return '登录';
-      case 'authentication.signInPage.optionText':
-        return ' 或 ';
-      case 'authentication.signInPage.textFields.email':
-        return '电子邮件地址';
-      case 'authentication.signInPage.textFields.password':
-        return '密码';
-      case 'authentication.signInPage.buttons.signIn':
-        return '登录';
-      case 'authentication.signInPage.buttons.signUp':
-        return '注册';
-      case 'authentication.signInPage.buttons.resetPassword':
-        return '忘记密码？';
-      case 'authentication.signInPage.buttons.appleSignIn':
-        return '使用Apple登录';
-      case 'authentication.signInPage.buttons.googleSignIn':
-        return '使用Google登录';
-      case 'authentication.signInPage.buttons.signInAfter':
-        return '稍后注册';
-      case 'authentication.firebaseAuth.error.networkRequestFailed':
-        return '请在良好的网络环境中重试';
-      case 'authentication.firebaseAuth.error.weakPassword':
-        return '密码太短。请输入6个字符或更多';
-      case 'authentication.firebaseAuth.error.invalidEmail':
-        return '电子邮件地址格式不正确';
-      case 'authentication.firebaseAuth.error.userNotFound':
-        return '找不到帐户';
-      case 'authentication.firebaseAuth.error.wrongPassword':
-        return '密码错误';
-      case 'authentication.firebaseAuth.error.emailAlreadyInUse':
-        return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
-      case 'authentication.firebaseAuth.error.unexpected':
-        return '发生错误。请在良好的网络环境中重试';
-      case 'authentication.resetPasswordPage.title':
-        return '重置密码';
-      case 'authentication.resetPasswordPage.description':
-        return '将向输入的电子邮件地址发送密码重置邮件';
-      case 'authentication.resetPasswordPage.textFields.email':
-        return '电子邮件地址';
-      case 'authentication.resetPasswordPage.buttons.submit':
-        return '发送';
-      case 'authentication.signUpPage.title':
-        return '注册';
-      case 'authentication.signUpPage.textFields.email':
-        return '邮箱地址';
-      case 'authentication.signUpPage.textFields.password':
-        return '密码';
-      case 'authentication.signUpPage.button':
-        return '注册';
-      case 'authentication.emailVerificationPage.title':
-        return '邮箱地址验证';
-      case 'authentication.emailVerificationPage.descriptionForDestination':
-        return ({required Object email}) => '将向输入的${email}发送确认邮件。';
-      case 'authentication.emailVerificationPage.descriptionForCoolDown':
-        return '确认邮件每60秒只能重新发送一次。';
-      case 'authentication.emailVerificationPage.buttons.sendEmail':
-        return '发送确认邮件';
-      case 'authentication.emailVerificationPage.buttons.resendEmail':
-        return '重新发送确认邮件';
-      case 'authentication.emailVerificationPage.buttons.toNext':
-        return '下一步';
-      case 'authentication.emailVerificationPage.buttons.retypeEmail':
-        return '修改邮箱地址';
-      case 'authentication.emailVerificationPage.snackBar.success':
-        return '发送成功';
-      case 'authentication.emailVerificationPage.snackBar.error.unexpected':
-        return '发生错误，请稍后再试。';
-      case 'authentication.registerProfilePage.title':
-        return '注册个人信息';
-      case 'authentication.registerProfilePage.textFields':
-        return '姓名';
-      case 'authentication.registerProfilePage.buttons.submit':
-        return '完成';
-      case 'authentication.registerProfilePage.buttons.skip':
-        return '跳过';
-      case 'authentication.completeSendEmailPage.title':
-        return '发送完成';
-      case 'authentication.completeSendEmailPage.description':
-        return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
-      case 'authentication.completeSendEmailPage.successResendEmail':
-        return '确认邮件已重新发送';
-      case 'authentication.completeSendEmailPage.buttons.toSignIn':
-        return '前往登录页面';
-      case 'authentication.completeSendEmailPage.buttons.resendEmail':
-        return '重新发送确认邮件';
-      case 'authentication.completeSendEmailPage.buttons.changeEmail':
-        return '更改电子邮件地址';
-      case 'validation.emailRequired':
-        return '请输入电子邮件地址';
-      case 'validation.emailInvalid':
-        return '电子邮件地址格式不正确';
-      case 'validation.passwordRequired':
-        return '请输入密码';
-      case 'validation.passwordShort':
-        return '密码至少需要8个字符';
-      case 'validation.passwordWeak':
-        return '密码应包含字母和数字的组合';
-      case 'validation.passwordMatch':
-        return '密码不匹配';
-      case 'validation.informationRequired':
-        return '请输入信息';
-      case 'validation.urlInvalid':
-        return 'URL格式不正确';
-      case 'myPage.aboutAIFunction':
-        return '关于AI功能';
-      case 'myPage.details':
-        return '详细';
-      case 'myPage.settings':
-        return '设置';
-      case 'myPage.account':
-        return '账户';
-      case 'myPage.language':
-        return '语言';
-      case 'myPage.theme':
-        return '主题';
-      case 'myPage.termsOfUsePrivacyPolicy':
-        return '使用条款和隐私政策';
-      case 'myPage.aboutThisApp':
-        return '关于本应用';
-      case 'myPage.aboutTheDeveloper':
-        return '关于开发者';
-      case 'changeLanguagePage.title':
-        return '语言';
-      case 'changeLanguagePage.items.japanese':
-        return '日本人';
-      case 'changeLanguagePage.items.english':
-        return '英语';
-      case 'changeLanguagePage.items.simplifiedChinese':
-        return '中文（简体）';
-      case 'changeLanguagePage.items.traditionalChinese':
-        return '中文（繁体）';
-      case 'myPlanPage.title':
-        return '我的计划';
-      case 'myPlanPage.tabs.createdPlans':
-        return '已创建的计划';
-      case 'myPlanPage.tabs.bookmark':
-        return '收藏夹';
-      case 'popularTopics.sectionName':
-        return '热门话题';
-      case 'locales.en':
-        return '英语';
-      case 'locales.ja':
-        return '日语';
-      case 'locales.zh':
-        return '中文';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'navigationBar.items.home': return '首页';
+			case 'navigationBar.items.myPlan': return '我的计划';
+			case 'navigationBar.items.myPage': return '我的页面';
+			case 'homePage.popularPlans.title': return '热门计划';
+			case 'homePage.popularTopics.title': return '热门话题';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近创建的计划';
+			case 'accountPage.title': return '账户';
+			case 'accountPage.items.signOut': return '退出登录';
+			case 'accountPage.items.linkedWithGoogle': return '与Google连接';
+			case 'accountPage.items.linkedWithApple': return '与Apple连接';
+			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
+			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
+			case 'accountPage.snackBar.loggedOut': return '已成功退出。';
+			case 'accountPage.snackBar.successfulLinkage': return '账户连接成功。';
+			case 'accountPage.snackBar.linkageFailure': return '账户连接失败。';
+			case 'accountPage.snackBar.accountLinked': return '此账户已连接。';
+			case 'accountPage.snackBar.accountDeactivation': return '已解除账户连接。';
+			case 'accountPage.snackBar.nvalidCredential': return '无效链接';
+			case 'accountPage.snackBar.linkageCancelled': return '已取消账户连接。';
+			case 'accountPage.snackBar.unlinkageFailure': return '解除账户连接失败。';
+			case 'authentication.signInPage.title': return '登录';
+			case 'authentication.signInPage.optionText': return ' 或 ';
+			case 'authentication.signInPage.textFields.email': return '电子邮件地址';
+			case 'authentication.signInPage.textFields.password': return '密码';
+			case 'authentication.signInPage.buttons.signIn': return '登录';
+			case 'authentication.signInPage.buttons.signUp': return '注册';
+			case 'authentication.signInPage.buttons.resetPassword': return '忘记密码？';
+			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登录';
+			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登录';
+			case 'authentication.signInPage.buttons.signInAfter': return '稍后注册';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请在良好的网络环境中重试';
+			case 'authentication.firebaseAuth.error.weakPassword': return '密码太短。请输入6个字符或更多';
+			case 'authentication.firebaseAuth.error.invalidEmail': return '电子邮件地址格式不正确';
+			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帐户';
+			case 'authentication.firebaseAuth.error.wrongPassword': return '密码错误';
+			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
+			case 'authentication.firebaseAuth.error.unexpected': return '发生错误。请在良好的网络环境中重试';
+			case 'authentication.resetPasswordPage.title': return '重置密码';
+			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
+			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
+			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
+			case 'authentication.signUpPage.title': return '注册';
+			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
+			case 'authentication.signUpPage.textFields.password': return '密码';
+			case 'authentication.signUpPage.button': return '注册';
+			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的${email}发送确认邮件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '发送成功';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
+			case 'authentication.registerProfilePage.title': return '注册个人信息';
+			case 'authentication.registerProfilePage.textFields': return '姓名';
+			case 'authentication.registerProfilePage.buttons.submit': return '完成';
+			case 'authentication.registerProfilePage.buttons.skip': return '跳过';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '请输入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
+			case 'authentication.completeSendEmailPage.title': return '发送完成';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '确认邮件已重新发送';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登录页面';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改电子邮件地址';
+			case 'validation.emailRequired': return '请输入电子邮件地址';
+			case 'validation.emailInvalid': return '电子邮件地址格式不正确';
+			case 'validation.passwordRequired': return '请输入密码';
+			case 'validation.passwordShort': return '密码至少需要8个字符';
+			case 'validation.passwordWeak': return '密码应包含字母和数字的组合';
+			case 'validation.passwordMatch': return '密码不匹配';
+			case 'validation.informationRequired': return '请输入信息';
+			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'myPage.unregisteredUserName': return '未注册';
+			case 'myPage.aboutAIFunction': return '关于AI功能';
+			case 'myPage.details': return '详细';
+			case 'myPage.settings': return '设置';
+			case 'myPage.account': return '账户';
+			case 'myPage.language': return '语言';
+			case 'myPage.theme': return '主题';
+			case 'myPage.termsOfUsePrivacyPolicy': return '使用条款和隐私政策';
+			case 'myPage.aboutThisApp': return '关于本应用';
+			case 'myPage.aboutTheDeveloper': return '关于开发者';
+			case 'changeLanguagePage.title': return '语言';
+			case 'changeLanguagePage.items.japanese': return '日本人';
+			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '暗处';
+			case 'myPlanPage.title': return '我的计划';
+			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
+			case 'myPlanPage.tabs.bookmark': return '收藏夹';
+			case 'popularTopics.sectionName': return '热门话题';
+			case 'locales.en': return '英语';
+			case 'locales.ja': return '日语';
+			case 'locales.zh': return '中文';
+			default: return null;
+		}
+	}
 }
 

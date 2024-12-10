@@ -39,6 +39,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsNavigationBarEn navigationBar = TranslationsNavigationBarEn._(_root);
 	late final TranslationsHomePageEn homePage = TranslationsHomePageEn._(_root);
+	late final TranslationsAccountPageEn accountPage = TranslationsAccountPageEn._(_root);
 	late final TranslationsAuthenticationEn authentication = TranslationsAuthenticationEn._(_root);
 	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
 	late final TranslationsMyPageEn myPage = TranslationsMyPageEn._(_root);
@@ -73,6 +74,18 @@ class TranslationsHomePageEn {
 	late final TranslationsHomePagePopularPlansEn popularPlans = TranslationsHomePagePopularPlansEn._(_root);
 	late final TranslationsHomePagePopularTopicsEn popularTopics = TranslationsHomePagePopularTopicsEn._(_root);
 	late final TranslationsHomePageRecentPlansEn recentPlans = TranslationsHomePageRecentPlansEn._(_root);
+}
+
+// Path: accountPage
+class TranslationsAccountPageEn {
+	TranslationsAccountPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Account';
+	late final TranslationsAccountPageItemsEn items = TranslationsAccountPageItemsEn._(_root);
+	late final TranslationsAccountPageSnackBarEn snackBar = TranslationsAccountPageSnackBarEn._(_root);
 }
 
 // Path: authentication
@@ -215,33 +228,33 @@ class TranslationsHomePageRecentPlansEn {
 
 // Path: accountPage.items
 class TranslationsAccountPageItemsEn {
-  TranslationsAccountPageItemsEn._(this._root);
+	TranslationsAccountPageItemsEn._(this._root);
 
-  final Translations _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
-  // Translations
-  String get signOut => 'Sign Out';
-  String get linkedWithGoogle => 'Linked with Google';
-  String get linkedWithApple => 'Linked with Apple';
-  String get alreadyLinkedGoogle => 'Already Linked with Google';
-  String get alreadyLinkedApple => 'Already Linked with Apple';
+	// Translations
+	String get signOut => 'Sign Out';
+	String get linkedWithGoogle => 'Linked with Google';
+	String get linkedWithApple => 'Linked with Apple';
+	String get alreadyLinkedGoogle => 'Already Linked with Google';
+	String get alreadyLinkedApple => 'Already Linked with Apple';
 }
 
 // Path: accountPage.snackBar
 class TranslationsAccountPageSnackBarEn {
-  TranslationsAccountPageSnackBarEn._(this._root);
+	TranslationsAccountPageSnackBarEn._(this._root);
 
-  final Translations _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
-  // Translations
-  String get loggedOut => 'Logged out successfully.';
-  String get successfulLinkage => 'Account linkage successful.';
-  String get linkageFailure => 'Account linkage failed.';
-  String get accountLinked => 'This account is already linked.';
-  String get accountDeactivation => 'Account linkage has been removed.';
-  String get nvalidCredential => 'Invalid Link';
-  String get linkageCancelled => 'Account linkage cancelled.';
-  String get unlinkageFailure => 'Failed to unlink account.';
+	// Translations
+	String get loggedOut => 'Logged out successfully.';
+	String get successfulLinkage => 'Account linkage successful.';
+	String get linkageFailure => 'Account linkage failed.';
+	String get accountLinked => 'This account is already linked.';
+	String get accountDeactivation => 'Account linkage has been removed.';
+	String get nvalidCredential => 'Invalid Link';
+	String get linkageCancelled => 'Account linkage cancelled.';
+	String get unlinkageFailure => 'Failed to unlink account.';
 }
 
 // Path: authentication.signInPage
@@ -531,6 +544,20 @@ extension on Translations {
 			case 'homePage.popularTopics.title': return 'Popular Topics';
 			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number} items~';
 			case 'homePage.recentPlans.title': return 'Recently Created Plans';
+			case 'accountPage.title': return 'Account';
+			case 'accountPage.items.signOut': return 'Sign Out';
+			case 'accountPage.items.linkedWithGoogle': return 'Linked with Google';
+			case 'accountPage.items.linkedWithApple': return 'Linked with Apple';
+			case 'accountPage.items.alreadyLinkedGoogle': return 'Already Linked with Google';
+			case 'accountPage.items.alreadyLinkedApple': return 'Already Linked with Apple';
+			case 'accountPage.snackBar.loggedOut': return 'Logged out successfully.';
+			case 'accountPage.snackBar.successfulLinkage': return 'Account linkage successful.';
+			case 'accountPage.snackBar.linkageFailure': return 'Account linkage failed.';
+			case 'accountPage.snackBar.accountLinked': return 'This account is already linked.';
+			case 'accountPage.snackBar.accountDeactivation': return 'Account linkage has been removed.';
+			case 'accountPage.snackBar.nvalidCredential': return 'Invalid Link';
+			case 'accountPage.snackBar.linkageCancelled': return 'Account linkage cancelled.';
+			case 'accountPage.snackBar.unlinkageFailure': return 'Failed to unlink account.';
 			case 'authentication.signInPage.title': return 'Sign In';
 			case 'authentication.signInPage.optionText': return ' or ';
 			case 'authentication.signInPage.textFields.email': return 'Email Address';
