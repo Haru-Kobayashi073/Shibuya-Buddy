@@ -6,10 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../presentation/about_app/about_app_page.dart';
+import '../../presentation/about_dev/about_dev_page.dart';
+import '../../presentation/account/account_page.dart';
+import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
+import '../../presentation/change_language/change_language_page.dart';
+import '../../presentation/change_theme/change_theme_page.dart';
+import '../../presentation/complete_send_email/complete_send_email_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
+import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/popular_topics/popular_topics_page.dart';
+import '../../presentation/register_profile/register_profile_page.dart';
+import '../../presentation/reset_password/reset_password_page.dart';
+import '../../presentation/sign_in/sign_in_page.dart';
+import '../../presentation/sign_up/sign_up_page.dart';
+import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
+import '../../start_up_page.dart';
 import 'routes.dart';
 
 part 'app_router.g.dart';
@@ -22,7 +37,7 @@ final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'my_page');
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
-    initialLocation: Routes.home,
+    initialLocation: Routes.root,
     navigatorKey: rootNavigatorKey,
     routes: $appRoutes,
     debugLogDiagnostics: kDebugMode,
@@ -91,8 +106,25 @@ class MyPageBranch extends StatefulShellBranchData {
 }
 
 // TOPレベルのパスには、@TypedGoRouteをつける
+@TypedGoRoute<StartUpPageRouteData>(
+  path: Routes.root,
+)
+class StartUpPageRouteData extends GoRouteData {
+  const StartUpPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const StartUpPage();
+  }
+}
+
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
+  routes: [
+    TypedGoRoute<PopularTopicsPageRouteData>(
+      path: Routes.popularTopicsPage,
+    ),
+  ],
 )
 class HomeScreenRouteData extends GoRouteData {
   const HomeScreenRouteData();
@@ -115,8 +147,40 @@ class MyPlanPageRouteData extends GoRouteData {
   }
 }
 
+class PopularTopicsPageRouteData extends GoRouteData {
+  const PopularTopicsPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PopularTopicsPage();
+  }
+}
+
 @TypedGoRoute<MyPageRouteData>(
   path: Routes.myPage,
+  routes: [
+    TypedGoRoute<AboutAppPageRouteData>(
+      path: Routes.aboutApp,
+    ),
+    TypedGoRoute<AboutDevPageRouteData>(
+      path: Routes.aboutDev,
+    ),
+    TypedGoRoute<AccountPageRouteData>(
+      path: Routes.account,
+    ),
+    TypedGoRoute<AiFunctionsDetailPageRouteData>(
+      path: Routes.aiFunctionsDetail,
+    ),
+    TypedGoRoute<ChangeLanguagePageRouteData>(
+      path: Routes.changeLanguage,
+    ),
+    TypedGoRoute<TermsofUsePrivacyPolicyPageRouteData>(
+      path: Routes.termsOfUsePrivacyPolicy,
+    ),
+    TypedGoRoute<ChangeThemePageRouteData>(
+      path: Routes.changeTheme,
+    ),
+  ],
 )
 class MyPageRouteData extends GoRouteData {
   const MyPageRouteData();
@@ -124,5 +188,152 @@ class MyPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MyPage();
+  }
+}
+
+class AboutAppPageRouteData extends GoRouteData {
+  const AboutAppPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AboutAppPage();
+  }
+}
+
+class AboutDevPageRouteData extends GoRouteData {
+  const AboutDevPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AboutDevPage();
+  }
+}
+
+class AccountPageRouteData extends GoRouteData {
+  const AccountPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AccountPage();
+  }
+}
+
+class AiFunctionsDetailPageRouteData extends GoRouteData {
+  const AiFunctionsDetailPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AiFunctionsDetailPage();
+  }
+}
+
+class ChangeLanguagePageRouteData extends GoRouteData {
+  const ChangeLanguagePageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ChangeLanguagePage();
+  }
+}
+
+class TermsofUsePrivacyPolicyPageRouteData extends GoRouteData {
+  const TermsofUsePrivacyPolicyPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const TermsOfUsePrivacyPolicyPage();
+  }
+}
+
+class ChangeThemePageRouteData extends GoRouteData {
+  const ChangeThemePageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ChangeThemePage();
+  }
+}
+
+@TypedGoRoute<SignInPageRouteData>(
+  path: Routes.signIn,
+  routes: [
+    TypedGoRoute<ResetPasswordPageRouteData>(
+      path: Routes.resetPassword,
+      routes: [
+        TypedGoRoute<CompleteSendEmailPageRouteData>(
+          path: Routes.completeSendEmail,
+        ),
+      ],
+    ),
+    TypedGoRoute<SignUpPageRouteData>(
+      path: Routes.signUp,
+      routes: [
+        TypedGoRoute<EmailVerificationPageRouteData>(
+          path: Routes.emailVerification,
+        ),
+      ],
+    ),
+  ],
+)
+class SignInPageRouteData extends GoRouteData {
+  const SignInPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SignInPage();
+  }
+}
+
+class ResetPasswordPageRouteData extends GoRouteData {
+  const ResetPasswordPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ResetPasswordPage();
+  }
+}
+
+class CompleteSendEmailPageRouteData extends GoRouteData {
+  const CompleteSendEmailPageRouteData({
+    required this.email,
+  });
+  final String email;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return CompleteSendEmailPage(email: email);
+  }
+}
+
+class SignUpPageRouteData extends GoRouteData {
+  const SignUpPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SignUpPage();
+  }
+}
+
+class EmailVerificationPageRouteData extends GoRouteData {
+  const EmailVerificationPageRouteData({
+    required this.email,
+  });
+  final String email;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return EmailVerificationPage(email: email);
+  }
+}
+
+@TypedGoRoute<RegisterProfilePageRouteData>(
+  path: Routes.registerProfile,
+)
+class RegisterProfilePageRouteData extends GoRouteData {
+  const RegisterProfilePageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const RegisterProfilePage();
   }
 }

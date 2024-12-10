@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:416095109609:android:dca54b93e0fe36798d0b78',
     messagingSenderId: '416095109609',
     projectId: 'shibuya-buddy',
-    storageBucket: 'shibuya-buddy.appspot.com',
+    storageBucket: 'shibuya-buddy.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -62,7 +62,7 @@ class DefaultFirebaseOptions {
     appId: '1:416095109609:ios:1d4bc6f8883713b28d0b78',
     messagingSenderId: '416095109609',
     projectId: 'shibuya-buddy',
-    storageBucket: 'shibuya-buddy.appspot.com',
+    storageBucket: 'shibuya-buddy.firebasestorage.app',
     iosBundleId: 'com.shibuya.buddy',
   );
 }

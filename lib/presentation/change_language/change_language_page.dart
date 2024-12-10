@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../i18n/strings.g.dart';
+import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/radio_button_with_text.dart';
 
-class ChangeLanguagePage extends StatefulWidget {
+class ChangeLanguagePage extends ConsumerWidget {
   const ChangeLanguagePage({super.key});
 
   @override
-  State<ChangeLanguagePage> createState() => _ChangeLanguagePageState();
-}
-
-class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
-  AppLocale selectLanguage = AppLocale.ja;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final localeState =
+        ref.watch(localeServiceProvider.notifier).getTranslationLocale();
+    final notifier = ref.read(localeServiceProvider.notifier);
     final i18n = Translations.of(context);
-    final itemi18n = i18n.ChangeLanguagePage.items;
-    final titlei18n = i18n.ChangeLanguagePage.title;
+    final itemi18n = i18n.changeLanguagePage.items;
+    final titlei18n = i18n.changeLanguagePage.title;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,62 +29,26 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 8, left: 16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            RadioButtonWithText<AppLocale>(
-              title: itemi18n.japanese,
-              value: AppLocale.ja,
-              groupValue: selectLanguage,
-              onChanged: (value) {
-                setState(() {
-                  if (value != null) {
-                    debugPrint('TapJapanese');
-                    selectLanguage = value;
-                  }
-                });
-              },
-            ),
-            RadioButtonWithText<AppLocale>(
-              title: itemi18n.english,
-              value: AppLocale.en,
-              groupValue: selectLanguage,
-              onChanged: (value) {
-                setState(() {
-                  if (value != null) {
-                    debugPrint('TapEnglish');
-                    selectLanguage = value;
-                  }
-                });
-              },
-            ),
-            RadioButtonWithText<AppLocale>(
-              title: itemi18n.chinese_simplified,
-              value: AppLocale.zhHans,
-              groupValue: selectLanguage,
-              onChanged: (value) {
-                setState(() {
-                  if (value != null) {
-                    debugPrint('TapSimplified');
-                    selectLanguage = value;
-                  }
-                });
-              },
-            ),
-            RadioButtonWithText<AppLocale>(
-              title: itemi18n.chinese_traditional,
-              value: AppLocale.zhHant,
-              groupValue: selectLanguage,
-              onChanged: (value) {
-                setState(() {
-                  if (value != null) {
-                    debugPrint('TapTraditional');
-                    selectLanguage = value;
-                  }
-                });
-              },
-            ),
-          ],
+            itemi18n.japanese,
+            itemi18n.english,
+            itemi18n.simplifiedChinese,
+            itemi18n.traditionalChinese,
+          ]
+              .map(
+                (locale) => RadioButtonWithText<String>(
+                  title: locale,
+                  value: locale,
+                  groupValue: localeState,
+                  onChanged: (value) async {
+                    final appLocale = notifier.getLocaleFromString(value);
+                    await notifier.changeLocale(appLocale);
+                  },
+                ),
+              )
+              .toList(),
         ),
       ),
     );

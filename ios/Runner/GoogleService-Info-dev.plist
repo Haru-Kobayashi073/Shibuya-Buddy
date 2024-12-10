@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>346265803262-e0lp7h85rep4cjareko3no2ir79g86u9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.346265803262-e0lp7h85rep4cjareko3no2ir79g86u9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>346265803262-dpa47ijsevjiv60mup2ba2epv849s6uv.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAADyxmCZweM0U9yNQeFI6FxJ7OKJ8uD4w</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +19,7 @@
 	<key>PROJECT_ID</key>
 	<string>shibuya-buddy-dev</string>
 	<key>STORAGE_BUCKET</key>
-	<string>shibuya-buddy-dev.appspot.com</string>
+	<string>shibuya-buddy-dev.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
