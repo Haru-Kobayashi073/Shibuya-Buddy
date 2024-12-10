@@ -18,6 +18,26 @@
             "title": "最近创建的计划"
         }
     },
+    "accountPage": {
+        "title": "账户",
+        "items": {
+            "signOut": "退出登录",
+            "linkedWithGoogle": "与Google连接",
+            "linkedWithApple": "与Apple连接",
+            "alreadyLinkedGoogle": "已与Google连接",
+            "alreadyLinkedApple": "已与Apple连接"
+        },
+        "snackBar": {
+            "loggedOut": "已成功退出。",
+            "successfulLinkage": "账户连接成功。",
+            "linkageFailure": "账户连接失败。",
+            "accountLinked": "此账户已连接。",
+            "accountDeactivation": "已解除账户连接。",
+            "nvalidCredential": "无效链接",
+            "linkageCancelled": "已取消账户连接。",
+            "unlinkageFailure": "解除账户连接失败。"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "登录",
@@ -34,13 +54,6 @@
                 "googleSignIn": "使用Google登录",
                 "signInAfter": "稍后注册"
             }
-        },
-        "accountPage": {
-            "signOut": "退出登录",
-            "linkedWithGoogle": "与Google关联",
-            "linkedWithApple": "与Apple关联",
-            "alreadyLinkedGoogle": "已连接Google",
-            "alreadyLinkedApple": "已连接Apple"
         },
         "firebaseAuth": {
             "error": {

@@ -18,6 +18,26 @@
             "title": "最近作成したプラン"
         }
     },
+    "accountPage": {
+        "title":"アカウント",
+        "items":{
+            "signOut": "ログアウト",
+            "linkedWithGoogle": "Googleで連携",
+            "linkedWithApple": "Appleで連携",
+            "alreadyLinkedGoogle": "Google連携済み",
+            "alreadyLinkedApple": "Appleで連携済み"
+        },
+        "snackBar":{
+            "loggedOut":"ログアウトしました。",
+            "successfulLinkage":"アカウント連携に成功しました。",
+            "linkageFailure":"アカウント連携に失敗しました。",
+            "accountLinked":"このアカウントはすでに連携済みです。",
+            "accountDeactivation":"アカウントの連携を解除しました。",
+            "nvalidCredential":"無効なリンク",
+            "linkageCancelled":"アカウントの連携をキャンセルしました。",
+            "unlinkageFailure":"アカウントの連携解除に失敗しました。"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "ログイン",
@@ -34,13 +54,6 @@
                 "googleSignIn": "Googleでログイン",
                 "signInAfter": "後で登録"
             }
-        },
-        "accountPage": {
-            "signOut": "ログアウト",
-            "linkedWithGoogle": "Googleで連携",
-            "linkedWithApple": "Appleで連携",
-            "alreadyLinkedGoogle": "Google連携済み",
-            "alreadyLinkedApple": "Appleで連携済み"
         },
         "resetPasswordPage": {
             "title": "パスワードのリセット",

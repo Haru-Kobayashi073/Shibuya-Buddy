@@ -18,6 +18,26 @@
             "title": "最近創建的計畫"
         }
     },
+    "accountPage": {
+        "title": "帳戶",
+        "items": {
+            "signOut": "登出",
+            "linkedWithGoogle": "與Google連結",
+            "linkedWithApple": "與Apple連結",
+            "alreadyLinkedGoogle": "已與Google連結",
+            "alreadyLinkedApple": "已與Apple連結"
+        },
+        "snackBar": {
+            "loggedOut": "已成功登出。",
+            "successfulLinkage": "帳戶連結成功。",
+            "linkageFailure": "帳戶連結失敗。",
+            "accountLinked": "此帳戶已連結。",
+            "accountDeactivation": "已解除帳戶連結。",
+            "nvalidCredential": "無效連結",
+            "linkageCancelled": "已取消帳戶連結。",
+            "unlinkageFailure": "解除帳戶連結失敗。"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "登入",
@@ -34,13 +54,6 @@
                 "googleSignIn": "使用Google登入",
                 "signInAfter": "稍後註冊"
             }
-        },
-        "accountPage": {
-            "signOut": "登出",
-            "linkedWithGoogle": "與Google連結",
-            "linkedWithApple": "與Apple連結",
-            "alreadyLinkedGoogle": "已連接Google",
-            "alreadyLinkedApple": "已連接Apple"
         },
         "firebaseAuth": {
             "error": {

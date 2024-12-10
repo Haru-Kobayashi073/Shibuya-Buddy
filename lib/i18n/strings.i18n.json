@@ -18,6 +18,26 @@
             "title": "Recently Created Plans"
         }
     },
+    "accountPage": {
+        "title": "Account",
+        "items": {
+            "signOut": "Sign Out",
+            "linkedWithGoogle": "Linked with Google",
+            "linkedWithApple": "Linked with Apple",
+            "alreadyLinkedGoogle": "Already Linked with Google",
+            "alreadyLinkedApple": "Already Linked with Apple"
+        },
+        "snackBar": {
+            "loggedOut": "Logged out successfully.",
+            "successfulLinkage": "Account linkage successful.",
+            "linkageFailure": "Account linkage failed.",
+            "accountLinked": "This account is already linked.",
+            "accountDeactivation": "Account linkage has been removed.",
+            "nvalidCredential": "Invalid Link",
+            "linkageCancelled": "Account linkage cancelled.",
+            "unlinkageFailure": "Failed to unlink account."
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "Sign In",
@@ -34,13 +54,6 @@
                 "googleSignIn": "Sign in with Google",
                 "signInAfter": "Register Later"
             }
-        },
-        "accountPage": {
-            "signOut": "Log out",
-            "linkedWithGoogle": "Linked with Google",
-            "linkedWithApple": "Linked with Apple",
-            "alreadyLinkedGoogle": "Linked with Google",
-            "alreadyLinkedApple": "Linked with Apple"
         },
         "firebaseAuth": {
             "error": {
