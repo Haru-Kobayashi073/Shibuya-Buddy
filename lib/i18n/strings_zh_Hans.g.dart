@@ -39,6 +39,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
 	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
 	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override Map<String, String> get locales => {
@@ -131,6 +132,17 @@ class _TranslationsChangeLanguagePageZhHans implements TranslationsChangeLanguag
 	// Translations
 	@override String get title => '语言';
 	@override late final _TranslationsChangeLanguagePageItemsZhHans items = _TranslationsChangeLanguagePageItemsZhHans._(_root);
+}
+
+// Path: changeThemePage
+class _TranslationsChangeThemePageZhHans implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '主题';
+	@override late final _TranslationsChangeThemePageItemsZhHans items = _TranslationsChangeThemePageItemsZhHans._(_root);
 }
 
 // Path: myPlanPage
@@ -296,6 +308,18 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get simplifiedChinese => '中文（简体）';
 	@override String get traditionalChinese => '中文（繁体）';
+}
+
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsZhHans implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => '系统';
+	@override String get light => '光';
+	@override String get dark => '暗处';
 }
 
 // Path: myPlanPage.tabs
@@ -541,6 +565,10 @@ extension on TranslationsZhHans {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '暗处';
 			case 'myPlanPage.title': return '我的计划';
 			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
 			case 'myPlanPage.tabs.bookmark': return '收藏夹';

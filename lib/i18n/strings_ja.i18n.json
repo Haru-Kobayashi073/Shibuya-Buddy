@@ -137,6 +137,14 @@
             "traditionalChinese": "中国語（繁体字）"
         }
     },
+    "changeThemePage": {
+        "title": "テーマ",
+        "items": {
+            "system": "システム",
+            "light": "ライト",
+            "dark": "ダーク"
+        }
+    },
     "myPlanPage": {
         "title": "マイプラン",
         "tabs": {

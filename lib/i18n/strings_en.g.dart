@@ -43,6 +43,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
 	late final TranslationsMyPageEn myPage = TranslationsMyPageEn._(_root);
 	late final TranslationsChangeLanguagePageEn changeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
+	late final TranslationsChangeThemePageEn changeThemePage = TranslationsChangeThemePageEn._(_root);
 	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	Map<String, String> get locales => {
@@ -135,6 +136,17 @@ class TranslationsChangeLanguagePageEn {
 	// Translations
 	String get title => 'Language';
 	late final TranslationsChangeLanguagePageItemsEn items = TranslationsChangeLanguagePageItemsEn._(_root);
+}
+
+// Path: changeThemePage
+class TranslationsChangeThemePageEn {
+	TranslationsChangeThemePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Theme';
+	late final TranslationsChangeThemePageItemsEn items = TranslationsChangeThemePageItemsEn._(_root);
 }
 
 // Path: myPlanPage
@@ -300,6 +312,18 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get english => 'English';
 	String get simplifiedChinese => 'Chinese (Simplified)';
 	String get traditionalChinese => 'Chinese (Traditional)';
+}
+
+// Path: changeThemePage.items
+class TranslationsChangeThemePageItemsEn {
+	TranslationsChangeThemePageItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get system => 'System';
+	String get light => 'Light';
+	String get dark => 'Dark';
 }
 
 // Path: myPlanPage.tabs
@@ -545,6 +569,10 @@ extension on Translations {
 			case 'changeLanguagePage.items.english': return 'English';
 			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
 			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
+			case 'changeThemePage.title': return 'Theme';
+			case 'changeThemePage.items.system': return 'System';
+			case 'changeThemePage.items.light': return 'Light';
+			case 'changeThemePage.items.dark': return 'Dark';
 			case 'myPlanPage.title': return 'My Plans';
 			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
 			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
