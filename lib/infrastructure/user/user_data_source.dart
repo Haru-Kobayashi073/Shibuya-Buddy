@@ -18,6 +18,12 @@ class UserDataSource extends _$UserDataSource implements UserRepository {
 
   @override
   Future<void> createUser({required User user}) async {
-    await firestore.collection('users').add(user.toJson());
+    await firestore.collection('users').doc(user.uid).set(user.toJson());
+  }
+
+  @override
+  Future<User> fetchUser({required String userId}) async {
+    final snapshot = await firestore.collection('users').doc(userId).get();
+    return User.fromJson(snapshot.data()!);
   }
 }

@@ -11,7 +11,7 @@ abstract class Plan with _$Plan {
     required String id,
     required String title,
     required String description,
-    required Uri thumbnailUrl,
+    required String thumbnailUrl,
     required List<String> topicIds,
     List<String>? tags,
     required String authorId,

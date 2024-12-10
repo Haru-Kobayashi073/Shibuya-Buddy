@@ -87,6 +87,12 @@
             "buttons": {
                 "submit": "完成",
                 "skip": "跳過"
+            },
+            "snackBar": {
+                "error": {
+                    "submitIfAllEmpty": "請輸入信息",
+                    "unexpected": "發生錯誤，請稍後再試。"
+                }
             }
         },
         "completeSendEmailPage": {
@@ -111,6 +117,7 @@
         "urlInvalid": "URL格式不正確"
     },
     "myPage": {
+        "unregisteredUserName": "未註冊",
         "aboutAIFunction": "關於AI功能",
         "details": "詳細",
         "settings": "設定",
@@ -145,8 +152,8 @@
             "bookmark": "書籤"
         }
     },
-    "popularTopics":{
-        "sectionName" :"熱門話題"
+    "popularTopics": {
+        "sectionName": "熱門話題"
     },
     "locales(map)": {
         "en": "英語",

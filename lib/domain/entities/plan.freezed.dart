@@ -23,7 +23,7 @@ mixin _$Plan {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  Uri get thumbnailUrl => throw _privateConstructorUsedError;
+  String get thumbnailUrl => throw _privateConstructorUsedError;
   List<String> get topicIds => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   String get authorId => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $PlanCopyWith<$Res> {
       {String id,
       String title,
       String description,
-      Uri thumbnailUrl,
+      String thumbnailUrl,
       List<String> topicIds,
       List<String>? tags,
       String authorId,
@@ -105,7 +105,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as Uri,
+              as String,
       topicIds: null == topicIds
           ? _value.topicIds
           : topicIds // ignore: cast_nullable_to_non_nullable
@@ -149,7 +149,7 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       {String id,
       String title,
       String description,
-      Uri thumbnailUrl,
+      String thumbnailUrl,
       List<String> topicIds,
       List<String>? tags,
       String authorId,
@@ -199,7 +199,7 @@ class __$$PlanImplCopyWithImpl<$Res>
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as Uri,
+              as String,
       topicIds: null == topicIds
           ? _value._topicIds
           : topicIds // ignore: cast_nullable_to_non_nullable
@@ -260,7 +260,7 @@ class _$PlanImpl implements _Plan {
   @override
   final String description;
   @override
-  final Uri thumbnailUrl;
+  final String thumbnailUrl;
   final List<String> _topicIds;
   @override
   List<String> get topicIds {
@@ -359,7 +359,7 @@ abstract class _Plan implements Plan {
       {required final String id,
       required final String title,
       required final String description,
-      required final Uri thumbnailUrl,
+      required final String thumbnailUrl,
       required final List<String> topicIds,
       final List<String>? tags,
       required final String authorId,
@@ -377,7 +377,7 @@ abstract class _Plan implements Plan {
   @override
   String get description;
   @override
-  Uri get thumbnailUrl;
+  String get thumbnailUrl;
   @override
   List<String> get topicIds;
   @override
