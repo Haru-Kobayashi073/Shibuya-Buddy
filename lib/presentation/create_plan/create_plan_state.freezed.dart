@@ -22,6 +22,9 @@ mixin _$CreatePlanState {
   String get transport => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   List<String> get selectedTopics => throw _privateConstructorUsedError;
+  List<String> get selectedNumberofPeople => throw _privateConstructorUsedError;
+  List<String> get selectedTransport => throw _privateConstructorUsedError;
+  List<String> get selectedCategory => throw _privateConstructorUsedError;
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,7 +45,10 @@ abstract class $CreatePlanStateCopyWith<$Res> {
       String numberOfPeople,
       String transport,
       String category,
-      List<String> selectedTopics});
+      List<String> selectedTopics,
+      List<String> selectedNumberofPeople,
+      List<String> selectedTransport,
+      List<String> selectedCategory});
 }
 
 /// @nodoc
@@ -66,6 +72,9 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
     Object? transport = null,
     Object? category = null,
     Object? selectedTopics = null,
+    Object? selectedNumberofPeople = null,
+    Object? selectedTransport = null,
+    Object? selectedCategory = null,
   }) {
     return _then(_value.copyWith(
       location: null == location
@@ -92,6 +101,18 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.selectedTopics
           : selectedTopics // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectedNumberofPeople: null == selectedNumberofPeople
+          ? _value.selectedNumberofPeople
+          : selectedNumberofPeople // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedTransport: null == selectedTransport
+          ? _value.selectedTransport
+          : selectedTransport // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedCategory: null == selectedCategory
+          ? _value.selectedCategory
+          : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -110,7 +131,10 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
       String numberOfPeople,
       String transport,
       String category,
-      List<String> selectedTopics});
+      List<String> selectedTopics,
+      List<String> selectedNumberofPeople,
+      List<String> selectedTransport,
+      List<String> selectedCategory});
 }
 
 /// @nodoc
@@ -132,6 +156,9 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
     Object? transport = null,
     Object? category = null,
     Object? selectedTopics = null,
+    Object? selectedNumberofPeople = null,
+    Object? selectedTransport = null,
+    Object? selectedCategory = null,
   }) {
     return _then(_$CreatePlanStateImpl(
       location: null == location
@@ -158,6 +185,18 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value._selectedTopics
           : selectedTopics // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectedNumberofPeople: null == selectedNumberofPeople
+          ? _value._selectedNumberofPeople
+          : selectedNumberofPeople // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedTransport: null == selectedTransport
+          ? _value._selectedTransport
+          : selectedTransport // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedCategory: null == selectedCategory
+          ? _value._selectedCategory
+          : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -171,8 +210,14 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
       this.numberOfPeople = '',
       this.transport = '',
       this.category = '',
-      final List<String> selectedTopics = const []})
-      : _selectedTopics = selectedTopics;
+      final List<String> selectedTopics = const [],
+      final List<String> selectedNumberofPeople = const [],
+      final List<String> selectedTransport = const [],
+      final List<String> selectedCategory = const []})
+      : _selectedTopics = selectedTopics,
+        _selectedNumberofPeople = selectedNumberofPeople,
+        _selectedTransport = selectedTransport,
+        _selectedCategory = selectedCategory;
 
   @override
   @JsonKey()
@@ -197,9 +242,39 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
     return EqualUnmodifiableListView(_selectedTopics);
   }
 
+  final List<String> _selectedNumberofPeople;
+  @override
+  @JsonKey()
+  List<String> get selectedNumberofPeople {
+    if (_selectedNumberofPeople is EqualUnmodifiableListView)
+      return _selectedNumberofPeople;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedNumberofPeople);
+  }
+
+  final List<String> _selectedTransport;
+  @override
+  @JsonKey()
+  List<String> get selectedTransport {
+    if (_selectedTransport is EqualUnmodifiableListView)
+      return _selectedTransport;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedTransport);
+  }
+
+  final List<String> _selectedCategory;
+  @override
+  @JsonKey()
+  List<String> get selectedCategory {
+    if (_selectedCategory is EqualUnmodifiableListView)
+      return _selectedCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedCategory);
+  }
+
   @override
   String toString() {
-    return 'CreatePlanState(location: $location, date: $date, numberOfPeople: $numberOfPeople, transport: $transport, category: $category, selectedTopics: $selectedTopics)';
+    return 'CreatePlanState(location: $location, date: $date, numberOfPeople: $numberOfPeople, transport: $transport, category: $category, selectedTopics: $selectedTopics, selectedNumberofPeople: $selectedNumberofPeople, selectedTransport: $selectedTransport, selectedCategory: $selectedCategory)';
   }
 
   @override
@@ -217,7 +292,13 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
             (identical(other.category, category) ||
                 other.category == category) &&
             const DeepCollectionEquality()
-                .equals(other._selectedTopics, _selectedTopics));
+                .equals(other._selectedTopics, _selectedTopics) &&
+            const DeepCollectionEquality().equals(
+                other._selectedNumberofPeople, _selectedNumberofPeople) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedTransport, _selectedTransport) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedCategory, _selectedCategory));
   }
 
   @override
@@ -228,7 +309,10 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
       numberOfPeople,
       transport,
       category,
-      const DeepCollectionEquality().hash(_selectedTopics));
+      const DeepCollectionEquality().hash(_selectedTopics),
+      const DeepCollectionEquality().hash(_selectedNumberofPeople),
+      const DeepCollectionEquality().hash(_selectedTransport),
+      const DeepCollectionEquality().hash(_selectedCategory));
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -247,7 +331,10 @@ abstract class _CreatePlanState implements CreatePlanState {
       final String numberOfPeople,
       final String transport,
       final String category,
-      final List<String> selectedTopics}) = _$CreatePlanStateImpl;
+      final List<String> selectedTopics,
+      final List<String> selectedNumberofPeople,
+      final List<String> selectedTransport,
+      final List<String> selectedCategory}) = _$CreatePlanStateImpl;
 
   @override
   String get location;
@@ -261,6 +348,12 @@ abstract class _CreatePlanState implements CreatePlanState {
   String get category;
   @override
   List<String> get selectedTopics;
+  @override
+  List<String> get selectedNumberofPeople;
+  @override
+  List<String> get selectedTransport;
+  @override
+  List<String> get selectedCategory;
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.
