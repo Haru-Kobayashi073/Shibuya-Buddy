@@ -1,4 +1,4 @@
-package com.shibuya.buddy.shibuya_buddy
+package com.shibuya.buddy
 
 import io.flutter.embedding.android.FlutterActivity
 
