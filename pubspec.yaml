@@ -68,6 +68,7 @@ dependencies:
 dev_dependencies:
   altive_lints:
   build_runner: ^2.4.13
+  cider: ^0.2.8
   flutter_gen_runner: ^5.8.0
   flutter_launcher_icons: ^0.14.1
   flutter_lints: ^4.0.0
