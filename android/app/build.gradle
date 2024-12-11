@@ -1,12 +1,28 @@
 plugins {
     id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    // END: FlutterFire Configuration
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+// dart-define を入れる変数を宣言しています。
+def dartDefines = [:];
+if (project.hasProperty('dart-defines')) {
+    // カンマ区切りかつBase64でエンコードされている dart-defines をデコードして変数に格納します。
+    dartDefines = dartDefines + project.property('dart-defines')
+        .split(',')
+        .collectEntries { entry ->
+            def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+            pair.length == 2 ? [(pair.first()): pair.last()] : [:]
+        }
+}
+
 android {
-    namespace = "com.shibuya.buddy.shibuya_buddy"
+    namespace = "com.shibuya.buddy"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,13 +37,14 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.shibuya.buddy.shibuya_buddy"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 23 // FirebaseAuth が 23 以上でないと動かない
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        applicationId "${dartDefines.appId}"
+        resValue "string", "app_name", "${dartDefines.appName}"
     }
 
     buildTypes {
@@ -41,4 +58,14 @@ android {
 
 flutter {
     source = "../.."
+}
+
+task copyGoogleSeviceisJson(type: Copy) {
+    from "google-services-${dartDefines.flavor}.json"
+    into '.'
+    rename("google-services-${dartDefines.flavor}.json", 'google-services.json')
+}
+
+tasks.whenTaskAdded { task ->
+    task.dependsOn copyGoogleSeviceisJson
 }
