@@ -21,7 +21,11 @@ jobs:
           flutter-version: "3.24.3"
           cache: true
 
+      - run: dart pub global activate flutterfire_cli
+
       - run: flutter pub get
+
+      - run: chmod 755 ios/scripts/extract_dart_defines.sh
 
       - name: create prod.env file
         run: |
