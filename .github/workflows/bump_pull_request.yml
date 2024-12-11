@@ -23,16 +23,16 @@ permissions:
 jobs:
     bump:
         runs-on: ubuntu-latest
-        timeout-minutes: 30
+        timeout-minutes: 10
         steps:
             - name: checkout
               uses: actions/checkout@v4
 
-            - name: install flutter
+            - name: Set up Flutter
               uses: subosito/flutter-action@v2
               with:
-                channel: "stable"
-                flutter-version: "3.22.2"
+                channel: stable
+                flutter-version: 3.24.3
                 cache: true
 
             - name: run flutter pub get
