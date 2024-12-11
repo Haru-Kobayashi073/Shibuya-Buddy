@@ -67,4 +67,4 @@ jobs:
               env:
                 GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: | 
-                gh pr create -B main -t "Release $BUMP_VERSION" -b "Release $BUMP_VERSION" --head $RELEASE_BRANCH
+                gh pr create -B develop -t "Release $BUMP_VERSION" -b "Release $BUMP_VERSION" --head $RELEASE_BRANCH
