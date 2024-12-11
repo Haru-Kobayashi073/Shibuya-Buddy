@@ -1,10 +1,9 @@
 name: ios-deliver
 
 on:
-  pull_request:
-    branches:
-      - "releases/**"
-    types: closed
+  release:
+    types:
+      - created
 
 jobs:
   ios-deliver:
