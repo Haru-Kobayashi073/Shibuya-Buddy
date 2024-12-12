@@ -210,9 +210,7 @@ class CreatePlanPage extends ConsumerWidget {
                 label: 'プランをAIに伝える',
                 color: AppColor.yellow600Primary,
                 onPressed: () {
-                  print(
-                    '旅のトピック: ${planState.selectedTopics}, カテゴリ: ${planState.selectedCategory}, 交通手段: ${planState.selectedTransport}, 人数: ${planState.selectedNumberofPeople}, 初日: ${planNotifier.startDateController}',
-                  );
+                
                 },
               ),
             ],
