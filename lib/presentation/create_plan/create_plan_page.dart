@@ -94,7 +94,7 @@ class CreatePlanPage extends ConsumerWidget {
                 hintText: '4人',
                 prefixIcon: const Icon(Symbols.supervisor_account),
                 controller: planNotifier.numberOfPeopleController,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.none,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 onTap: () async {
                   final selectedNumberOfPeopleValue =
