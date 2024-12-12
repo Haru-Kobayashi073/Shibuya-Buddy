@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../utils/styles/app_color.dart';
 import 'create_plan_state.dart';
 
 part 'create_plan_notifier.g.dart';
@@ -122,12 +125,49 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     await showCupertinoModalPopup<void>(
       context: context,
       builder: (context) {
-        return SizedBox(
-          height: 300,
-          child: CupertinoDatePicker(
-            initialDateTime: selectedDate ?? DateTime.now(),
-            mode: CupertinoDatePickerMode.date,
-            onDateTimeChanged: (date) => updateDate(date, targetController),
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Container(
+            color: AppColor.white, // 背景色
+            height: 350, // モーダル全体の高さ
+            child: Column(
+              children: [
+                // タイトル部分
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        '日付を選択',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.black,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(Symbols.close),
+                      ),
+                    ],
+                  ),
+                ),
+                const Divider(height: 1), // タイトルとピッカーの区切り線
+                // DatePicker部分
+                Expanded(
+                  child: CupertinoDatePicker(
+                    initialDateTime: DateTime.now(),
+                    mode: CupertinoDatePickerMode.date,
+                    onDateTimeChanged: (date) {
+                      updateDate(date, targetController);
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
