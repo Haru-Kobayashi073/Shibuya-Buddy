@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'firebase_auth_provider.dart';
+part of 'account_page_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$firebaseAuthHash() => r'46c40b7c5cf8ab936c0daa96a6af106bd2ae5d51';
+String _$accountLogicHash() => r'91080427ecc1c7ca8f4a494e2b1dab95cf3885b1';
 
-/// See also [firebaseAuth].
-@ProviderFor(firebaseAuth)
-final firebaseAuthProvider = Provider<FirebaseAuth>.internal(
-  firebaseAuth,
-  name: r'firebaseAuthProvider',
+/// See also [accountLogic].
+@ProviderFor(accountLogic)
+final accountLogicProvider = AutoDisposeProvider<AccountLogic>.internal(
+  accountLogic,
+  name: r'accountLogicProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$firebaseAuthHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$accountLogicHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef FirebaseAuthRef = ProviderRef<FirebaseAuth>;
+typedef AccountLogicRef = AutoDisposeProviderRef<AccountLogic>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

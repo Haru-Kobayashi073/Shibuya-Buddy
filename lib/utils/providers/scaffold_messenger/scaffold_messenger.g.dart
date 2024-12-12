@@ -22,6 +22,8 @@ final scaffoldMessengerKeyProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ScaffoldMessengerKeyRef
     = ProviderRef<GlobalKey<ScaffoldMessengerState>>;
 String _$scaffoldMessengerHash() => r'1c1bf4590526c1017dc73d84f962d0a4a5a897e7';
@@ -41,4 +43,4 @@ final scaffoldMessengerProvider =
 
 typedef _$ScaffoldMessenger = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
