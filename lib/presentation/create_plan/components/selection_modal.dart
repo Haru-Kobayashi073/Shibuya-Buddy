@@ -46,7 +46,7 @@ class SelectionModal extends ConsumerWidget {
               Text(
                 title,
                 style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
