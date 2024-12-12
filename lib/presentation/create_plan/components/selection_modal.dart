@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../utils/styles/app_text_style.dart';
 import '../create_plan_notifier.dart';
@@ -51,7 +52,7 @@ class SelectionModal extends ConsumerWidget {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.close),
+                icon: const Icon(Symbols.close),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -80,7 +81,12 @@ class SelectionModal extends ConsumerWidget {
                   child: ListTile(
                     contentPadding: EdgeInsets.zero,
                     dense: true,
-                    title: Text(item),
+                    title: Text(
+                      item,
+                      style: AppTextStyle.textStyle.copyWith(
+                        fontSize: 14,
+                      ),
+                    ),
                     leading: isSingleSelect
                         ? Checkbox(
                             value: selectedItems.contains(item),

@@ -27,7 +27,9 @@ class TopicChipField extends StatelessWidget {
           return FilterChip(
             side: BorderSide.none,
             backgroundColor: AppColor.blue50Background,
-            label: Text(topic),
+            label: Text(
+              topic,
+            ),
             selected: selectedTopics.contains(topic),
             onSelected: (isSelected) {
               final updatedTopics = List<String>.from(selectedTopics);

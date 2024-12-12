@@ -5,6 +5,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../utils/styles/app_color.dart';
+import '../../utils/styles/app_text_style.dart';
 import 'create_plan_state.dart';
 
 part 'create_plan_notifier.g.dart';
@@ -128,19 +129,18 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
         return ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Container(
-            color: AppColor.white, // 背景色
-            height: 350, // モーダル全体の高さ
+            color: AppColor.white,
+            height: 350,
             child: Column(
               children: [
-                // タイトル部分
                 Container(
                   padding: const EdgeInsets.all(16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         '日付を選択',
-                        style: TextStyle(
+                        style: AppTextStyle.textStyle.copyWith(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: AppColor.black,
@@ -155,8 +155,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
                     ],
                   ),
                 ),
-                const Divider(height: 1), // タイトルとピッカーの区切り線
-                // DatePicker部分
+                const Divider(),
                 Expanded(
                   child: CupertinoDatePicker(
                     initialDateTime: DateTime.now(),

@@ -37,7 +37,6 @@ class CreatePlanPage extends ConsumerWidget {
             children: [
               PlanTextField(
                 label: '目的地',
-                hintText: '渋谷',
                 readOnly: true,
                 prefixIcon: const Icon(Symbols.location_on),
                 controller: planNotifier.locationController,
