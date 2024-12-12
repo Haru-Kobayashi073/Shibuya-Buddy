@@ -4,22 +4,24 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../i18n/strings.g.dart';
+import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
+
+part 'account_page_notifier.g.dart';
+
 @riverpod
-class AccountPageNotifier {
-  
+AccountLogic accountLogic(AccountLogicRef ref) {
+  return AccountLogic(ref);
 }
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
-final GoogleSignIn _googleSignIn = GoogleSignIn();
-
-final accountLogicProvider = Provider(AccountLogic.new);
 
 class AccountLogic {
   AccountLogic(this.ref);
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   final Ref ref;
 
-  bool appleLinkageConfirmationnfirmation(User? user) {
+  bool appleLinkageConfirmation(User? user) {
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == 'apple.com',
         ) ??
@@ -47,6 +49,8 @@ class AccountLogic {
   }
 
   Future<User?> linkedWithGoogle() async {
+    final snackBari18n = t.accountPage.snackBar;
+    final snack = ref.watch(scaffoldMessengerProvider.notifier);
     try {
       final googleUser = await _googleSignIn.signIn();
 
@@ -67,27 +71,23 @@ class AccountLogic {
       if (currentUser != null) {
         try {
           await currentUser.linkWithCredential(credential);
-          // snack.showExceptionSnackBar(snackBar.successfulLinkage);
+          snack.showExceptionSnackBar(snackBari18n.successfulLinkage);
           return currentUser;
         } on FirebaseAuthException catch (e) {
           if (e.code == 'provider-already-linked') {
-            // snack.showExceptionSnackBar(snackBar.accountLinked);
+            snack.showExceptionSnackBar(snackBari18n.accountLinked);
           } else if (e.code == 'invalid-credential') {
-            // snack.showExceptionSnackBar(snackBar.nvalidCredential);
+            snack.showExceptionSnackBar(snackBari18n.nvalidCredential);
           }
           return null;
         }
       } else {
-        try {
-          final userCredential = await _auth.signInWithCredential(credential);
-          final user = userCredential.user;
-          return user;
-        } on FirebaseAuthException {
-          return null;
-        }
+        final userCredential = await _auth.signInWithCredential(credential);
+        final user = userCredential.user;
+        return user;
       }
     } on PlatformException {
-      // snack.showExceptionSnackBar(snackBar.linkageCancelled);
+      snack.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
     return null;
   }

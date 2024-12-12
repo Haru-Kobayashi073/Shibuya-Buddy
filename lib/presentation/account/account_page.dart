@@ -66,7 +66,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             Opacity(
               opacity: 1,
               child: WideButton.icon(
-                label: accountLogic.appleLinkageConfirmationnfirmation(user)
+                label: accountLogic.appleLinkageConfirmation(user)
                     ? itemi18n.alreadyLinkedApple
                     : itemi18n.linkedWithApple,
                 color: AppColor.blue50Background,
@@ -85,6 +85,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 icon: SvgPicture.asset(Assets.icons.googleIcon),
                 onPressed: () async {
                   if (_isGoogleLinked) {
+                    //仮ダイアログ
                     await showDialog<void>(
                       context: context,
                       builder: (context) {
@@ -112,9 +113,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                             ),
                           ],
                         );
+
                       },
                     );
-                    debugPrint('連携解除');
+                    snack.showSuccessSnackBar(snackBari18n.accountDeactivation);
                   } else {
                     // Googleでサインインして連携
                     final result = await accountLogic.linkedWithGoogle();
@@ -122,6 +124,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       setState(() {
                         _isGoogleLinked = true;
                       });
+                      snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
                     }
                   }
                 },
