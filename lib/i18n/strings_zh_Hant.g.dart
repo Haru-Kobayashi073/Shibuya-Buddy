@@ -39,7 +39,9 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsValidationZhHant validation = _TranslationsValidationZhHant._(_root);
 	@override late final _TranslationsMyPageZhHant myPage = _TranslationsMyPageZhHant._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHant changeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
+	@override late final _TranslationsChangeThemePageZhHant changeThemePage = _TranslationsChangeThemePageZhHant._(_root);
 	@override late final _TranslationsMyPlanPageZhHant myPlanPage = _TranslationsMyPlanPageZhHant._(_root);
+	@override late final _TranslationsPopularTopicsZhHant popularTopics = _TranslationsPopularTopicsZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -109,6 +111,7 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
+	@override String get unregisteredUserName => '未註冊';
 	@override String get aboutAIFunction => '關於AI功能';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
@@ -131,6 +134,17 @@ class _TranslationsChangeLanguagePageZhHant implements TranslationsChangeLanguag
 	@override late final _TranslationsChangeLanguagePageItemsZhHant items = _TranslationsChangeLanguagePageItemsZhHant._(_root);
 }
 
+// Path: changeThemePage
+class _TranslationsChangeThemePageZhHant implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '主题';
+	@override late final _TranslationsChangeThemePageItemsZhHant items = _TranslationsChangeThemePageItemsZhHant._(_root);
+}
+
 // Path: myPlanPage
 class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	_TranslationsMyPlanPageZhHant._(this._root);
@@ -140,6 +154,16 @@ class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => '我的計劃';
 	@override late final _TranslationsMyPlanPageTabsZhHant tabs = _TranslationsMyPlanPageTabsZhHant._(_root);
+}
+
+// Path: popularTopics
+class _TranslationsPopularTopicsZhHant implements TranslationsPopularTopicsEn {
+	_TranslationsPopularTopicsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get sectionName => '熱門話題';
 }
 
 // Path: navigationBar.items
@@ -257,6 +281,7 @@ class _TranslationsAuthenticationRegisterProfilePageZhHant implements Translatio
 	@override String get title => '註冊個人資訊';
 	@override String get textFields => '姓名';
 	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHant buttons = _TranslationsAuthenticationRegisterProfilePageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarZhHant snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarZhHant._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -283,6 +308,18 @@ class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get simplifiedChinese => '中文(简体字)';
 	@override String get traditionalChinese => '中文(繁体字)';
+}
+
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsZhHant implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => '系统';
+	@override String get light => '光';
+	@override String get dark => '黑暗';
 }
 
 // Path: myPlanPage.tabs
@@ -404,6 +441,16 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsZhHant implements Tra
 	@override String get skip => '跳過';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarZhHant implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(this._root);
@@ -423,6 +470,17 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implem
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
+	@override String get unexpected => '發生錯誤，請稍後再試。';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get submitIfAllEmpty => '請輸入信息';
 	@override String get unexpected => '發生錯誤，請稍後再試。';
 }
 
@@ -476,6 +534,8 @@ extension on TranslationsZhHant {
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';
 			case 'authentication.registerProfilePage.buttons.skip': return '跳過';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '請輸入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
 			case 'authentication.completeSendEmailPage.title': return '發送完成';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '確認郵件已重新發送';
@@ -490,6 +550,7 @@ extension on TranslationsZhHant {
 			case 'validation.passwordMatch': return '密碼不匹配';
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
+			case 'myPage.unregisteredUserName': return '未註冊';
 			case 'myPage.aboutAIFunction': return '關於AI功能';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
@@ -504,9 +565,14 @@ extension on TranslationsZhHant {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文(简体字)';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '黑暗';
 			case 'myPlanPage.title': return '我的計劃';
 			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
 			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'popularTopics.sectionName': return '熱門話題';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

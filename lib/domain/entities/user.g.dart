@@ -9,9 +9,7 @@ part of 'user.dart';
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       uid: json['uid'] as String,
       name: json['name'] as String?,
-      imageUrl: json['imageUrl'] == null
-          ? null
-          : Uri.parse(json['imageUrl'] as String),
+      imageUrl: json['imageUrl'] as String?,
       bookmarkedPlanIds: (json['bookmarkedPlanIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -26,7 +24,7 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
-      'imageUrl': instance.imageUrl?.toString(),
+      'imageUrl': instance.imageUrl,
       'bookmarkedPlanIds': instance.bookmarkedPlanIds,
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'updateAt': _$JsonConverterToJson<String, DateTime>(

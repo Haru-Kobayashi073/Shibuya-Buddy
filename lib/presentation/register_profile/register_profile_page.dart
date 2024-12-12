@@ -8,6 +8,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/hooks/use_form_state_key.dart';
+import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -25,10 +26,17 @@ class RegisterProfilePage extends HookConsumerWidget {
     final i18nRegisterProfilePage = i18n.authentication.registerProfilePage;
     final nameController = useTextEditingController();
     final formKey = useFormStateKey();
+    final state = ref.watch(registerProfilePageNotifierProvider);
     final notifier = ref.read(registerProfilePageNotifierProvider.notifier);
 
     Future<void> registerProfile() async {
-      if (formKey.currentState!.validate()) {
+      if (state.pickedFile == null && nameController.text.isEmpty) {
+        ref.read(scaffoldMessengerProvider.notifier).showExceptionSnackBar(
+              i18nRegisterProfilePage.snackBar.error.submitIfAllEmpty,
+            );
+        return;
+      }
+      if (state.pickedFile != null || formKey.currentState!.validate()) {
         await notifier.registerInformation(
           name: nameController.text,
           onSuccess: () => context.go(
@@ -63,16 +71,27 @@ class RegisterProfilePage extends HookConsumerWidget {
                 const Gap(24),
                 Align(
                   child: ClipOval(
-                    child: InkWell(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: InkResponse(
+                      onTap: () async {
+                        await notifier.pickImage();
+                      },
+                      containedInkWell: true,
+                      borderRadius: BorderRadius.circular(100),
                       child: Container(
                         color: AppColor.blue50Background,
                         width: context.deviceWidth * 0.3,
                         height: context.deviceWidth * 0.3,
-                        child: Icon(
-                          Symbols.add_photo_alternate,
-                          size: context.deviceWidth * 0.12,
-                          color: AppColor.blue900Tertiary,
-                        ),
+                        child: state.pickedFile != null
+                            ? Image.file(
+                                state.pickedFile!,
+                                fit: BoxFit.cover,
+                              )
+                            : Icon(
+                                Symbols.add_photo_alternate,
+                                size: context.deviceWidth * 0.12,
+                                color: AppColor.blue900Tertiary,
+                              ),
                       ),
                     ),
                   ),

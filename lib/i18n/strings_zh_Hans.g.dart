@@ -39,7 +39,9 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
 	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
 	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
+	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -109,6 +111,7 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+	@override String get unregisteredUserName => '未注册';
 	@override String get aboutAIFunction => '关于AI功能';
 	@override String get details => '详细';
 	@override String get settings => '设置';
@@ -131,6 +134,17 @@ class _TranslationsChangeLanguagePageZhHans implements TranslationsChangeLanguag
 	@override late final _TranslationsChangeLanguagePageItemsZhHans items = _TranslationsChangeLanguagePageItemsZhHans._(_root);
 }
 
+// Path: changeThemePage
+class _TranslationsChangeThemePageZhHans implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '主题';
+	@override late final _TranslationsChangeThemePageItemsZhHans items = _TranslationsChangeThemePageItemsZhHans._(_root);
+}
+
 // Path: myPlanPage
 class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
 	_TranslationsMyPlanPageZhHans._(this._root);
@@ -140,6 +154,16 @@ class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => '我的计划';
 	@override late final _TranslationsMyPlanPageTabsZhHans tabs = _TranslationsMyPlanPageTabsZhHans._(_root);
+}
+
+// Path: popularTopics
+class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
+	_TranslationsPopularTopicsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get sectionName => '热门话题';
 }
 
 // Path: navigationBar.items
@@ -257,6 +281,7 @@ class _TranslationsAuthenticationRegisterProfilePageZhHans implements Translatio
 	@override String get title => '注册个人信息';
 	@override String get textFields => '姓名';
 	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHans buttons = _TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -283,6 +308,18 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get simplifiedChinese => '中文（简体）';
 	@override String get traditionalChinese => '中文（繁体）';
+}
+
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsZhHans implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => '系统';
+	@override String get light => '光';
+	@override String get dark => '暗处';
 }
 
 // Path: myPlanPage.tabs
@@ -404,6 +441,16 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsZhHans implements Tra
 	@override String get skip => '跳过';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(this._root);
@@ -423,6 +470,17 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans implem
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+	@override String get unexpected => '发生错误，请稍后再试。';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get submitIfAllEmpty => '请输入信息';
 	@override String get unexpected => '发生错误，请稍后再试。';
 }
 
@@ -476,6 +534,8 @@ extension on TranslationsZhHans {
 			case 'authentication.registerProfilePage.textFields': return '姓名';
 			case 'authentication.registerProfilePage.buttons.submit': return '完成';
 			case 'authentication.registerProfilePage.buttons.skip': return '跳过';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '请输入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
 			case 'authentication.completeSendEmailPage.title': return '发送完成';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '确认邮件已重新发送';
@@ -490,6 +550,7 @@ extension on TranslationsZhHans {
 			case 'validation.passwordMatch': return '密码不匹配';
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'myPage.unregisteredUserName': return '未注册';
 			case 'myPage.aboutAIFunction': return '关于AI功能';
 			case 'myPage.details': return '详细';
 			case 'myPage.settings': return '设置';
@@ -504,9 +565,14 @@ extension on TranslationsZhHans {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '暗处';
 			case 'myPlanPage.title': return '我的计划';
 			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
 			case 'myPlanPage.tabs.bookmark': return '收藏夹';
+			case 'popularTopics.sectionName': return '热门话题';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

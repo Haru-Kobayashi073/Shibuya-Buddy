@@ -87,6 +87,12 @@
             "buttons": {
                 "submit": "Complete",
                 "skip": "Skip"
+            },
+            "snackBar": {
+                "error": {
+                    "submitIfAllEmpty": "Please enter the information",
+                    "unexpected": "An error occurred. Please try again later."
+                }
             }
         },
         "completeSendEmailPage": {
@@ -111,6 +117,7 @@
         "urlInvalid": "The URL format is incorrect"
     },
     "myPage": {
+        "unregisteredUserName": "Unregistered",
         "aboutAIFunction": "About AI Features",
         "details": "Details",
         "settings": "Settings",
@@ -130,12 +137,23 @@
             "traditionalChinese": "Chinese (Traditional)"
         }
     },
+    "changeThemePage": {
+        "title": "Theme",
+        "items": {
+            "system": "System",
+            "light": "Light",
+            "dark": "Dark"
+        }
+    },
     "myPlanPage": {
         "title": "My Plans",
         "tabs": {
             "createdPlans": "Created Plans",
             "bookmark": "Bookmarks"
         }
+    },
+    "popularTopics": {
+        "sectionName": "Popular Topics"
     },
     "locales(map)": {
         "en": "English",

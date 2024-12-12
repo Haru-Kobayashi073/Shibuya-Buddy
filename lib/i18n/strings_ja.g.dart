@@ -39,7 +39,9 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsValidationJa validation = _TranslationsValidationJa._(_root);
 	@override late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
 	@override late final _TranslationsChangeLanguagePageJa changeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
+	@override late final _TranslationsChangeThemePageJa changeThemePage = _TranslationsChangeThemePageJa._(_root);
 	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
+	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -109,6 +111,7 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get unregisteredUserName => '未登録';
 	@override String get aboutAIFunction => 'AIの機能について';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
@@ -131,6 +134,17 @@ class _TranslationsChangeLanguagePageJa implements TranslationsChangeLanguagePag
 	@override late final _TranslationsChangeLanguagePageItemsJa items = _TranslationsChangeLanguagePageItemsJa._(_root);
 }
 
+// Path: changeThemePage
+class _TranslationsChangeThemePageJa implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'テーマ';
+	@override late final _TranslationsChangeThemePageItemsJa items = _TranslationsChangeThemePageItemsJa._(_root);
+}
+
 // Path: myPlanPage
 class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
 	_TranslationsMyPlanPageJa._(this._root);
@@ -140,6 +154,16 @@ class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => 'マイプラン';
 	@override late final _TranslationsMyPlanPageTabsJa tabs = _TranslationsMyPlanPageTabsJa._(_root);
+}
+
+// Path: popularTopics
+class _TranslationsPopularTopicsJa implements TranslationsPopularTopicsEn {
+	_TranslationsPopularTopicsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get sectionName => '人気のトピック';
 }
 
 // Path: navigationBar.items
@@ -247,6 +271,7 @@ class _TranslationsAuthenticationRegisterProfilePageJa implements TranslationsAu
 	@override String get title => 'プロフィールの登録';
 	@override String get textFields => '名前';
 	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsJa buttons = _TranslationsAuthenticationRegisterProfilePageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarJa snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
@@ -283,6 +308,18 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 	@override String get english => '英語';
 	@override String get simplifiedChinese => '中国語（簡体字）';
 	@override String get traditionalChinese => '中国語（繁体字）';
+}
+
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsJa implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'システム';
+	@override String get light => 'ライト';
+	@override String get dark => 'ダーク';
 }
 
 // Path: myPlanPage.tabs
@@ -388,6 +425,16 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsJa implements Transla
 	@override String get skip => 'スキップ';
 }
 
+// Path: authentication.registerProfilePage.snackBar
+class _TranslationsAuthenticationRegisterProfilePageSnackBarJa implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(_root);
+}
+
 // Path: authentication.completeSendEmailPage.buttons
 class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	_TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(this._root);
@@ -423,6 +470,17 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
+}
+
+// Path: authentication.registerProfilePage.snackBar.error
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get submitIfAllEmpty => '入力してください';
 	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
 }
 
@@ -469,6 +527,8 @@ extension on TranslationsJa {
 			case 'authentication.registerProfilePage.textFields': return '名前';
 			case 'authentication.registerProfilePage.buttons.submit': return '完了';
 			case 'authentication.registerProfilePage.buttons.skip': return 'スキップ';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '入力してください';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'エラーが発生しました。時間をおいて再度お試しください';
 			case 'authentication.completeSendEmailPage.title': return '送信完了';
 			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
 			case 'authentication.completeSendEmailPage.successResendEmail': return '確認メールを再送信しました';
@@ -490,6 +550,7 @@ extension on TranslationsJa {
 			case 'validation.passwordMatch': return 'パスワードが一致しません';
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
+			case 'myPage.unregisteredUserName': return '未登録';
 			case 'myPage.aboutAIFunction': return 'AIの機能について';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
@@ -504,9 +565,14 @@ extension on TranslationsJa {
 			case 'changeLanguagePage.items.english': return '英語';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
+			case 'changeThemePage.title': return 'テーマ';
+			case 'changeThemePage.items.system': return 'システム';
+			case 'changeThemePage.items.light': return 'ライト';
+			case 'changeThemePage.items.dark': return 'ダーク';
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
+			case 'popularTopics.sectionName': return '人気のトピック';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
