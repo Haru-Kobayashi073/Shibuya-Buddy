@@ -9,7 +9,7 @@ part 'create_plan_notifier.g.dart';
 @riverpod
 class CreatePlanNotifier extends _$CreatePlanNotifier {
   CreatePlanNotifier() {
-    locationController = TextEditingController();
+    locationController = TextEditingController(text: '渋谷');
     startDateController = TextEditingController();
     endDateController = TextEditingController();
     numberOfPeopleController = TextEditingController();
@@ -17,6 +17,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     categoryController = TextEditingController();
     topicsController = TextEditingController();
   }
+
   late final TextEditingController locationController;
   late final TextEditingController startDateController;
   late final TextEditingController endDateController;
@@ -24,6 +25,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
   late final TextEditingController transportController;
   late final TextEditingController categoryController;
   late final TextEditingController topicsController;
+
   DateTime? selectedDate;
 
   @override
@@ -47,6 +49,70 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     selectedDate = newDate;
     final formatter = DateFormat('M/d(E)', 'ja');
     targetController.text = formatter.format(newDate);
+  }
+
+  void updateSingleSelection(SelectionField field, String item) {
+    switch (field) {
+      case SelectionField.transport:
+        state = state.copyWith(selectedTransport: [item]);
+        _updateController(transportController, state.selectedTransport);
+      case SelectionField.numberOfPeople:
+        state = state.copyWith(selectedNumberofPeople: [item]);
+        _updateController(
+          numberOfPeopleController,
+          state.selectedNumberofPeople,
+        );
+      case SelectionField.category:
+        state = state.copyWith(selectedCategory: [item]);
+        _updateController(categoryController, state.selectedCategory);
+    }
+  }
+
+  void toggleSelection(SelectionField field, String item) {
+    switch (field) {
+      case SelectionField.transport:
+        _toggleListField(
+          selectedItems: state.selectedTransport,
+          item: item,
+          updateField: (updatedList) =>
+              state = state.copyWith(selectedTransport: updatedList),
+        );
+        _updateController(transportController, state.selectedTransport);
+      case SelectionField.numberOfPeople:
+        _toggleListField(
+          selectedItems: state.selectedNumberofPeople,
+          item: item,
+          updateField: (updatedList) =>
+              state = state.copyWith(selectedNumberofPeople: updatedList),
+        );
+        _updateController(
+          numberOfPeopleController,
+          state.selectedNumberofPeople,
+        );
+      case SelectionField.category:
+        _toggleListField(
+          selectedItems: state.selectedCategory,
+          item: item,
+          updateField: (updatedList) =>
+              state = state.copyWith(selectedCategory: updatedList),
+        );
+        _updateController(categoryController, state.selectedCategory);
+    }
+  }
+
+  void _toggleListField({
+    required List<String> selectedItems,
+    required String item,
+    required void Function(List<String>) updateField,
+  }) {
+    final updatedList = selectedItems.contains(item)
+        ? selectedItems.where((i) => i != item).toList()
+        : [...selectedItems, item];
+    updateField(updatedList);
+  }
+
+  void _updateController(TextEditingController controller, List<String> items) {
+    controller.text = items.join(', ');
   }
 
   Future<void> showCupertinoDatePicker(
