@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
+import '../../i18n/strings.g.dart';
 
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -20,10 +21,13 @@ class CreatePlanPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final planState = ref.watch(createPlanNotifierProvider);
     final planNotifier = ref.watch(createPlanNotifierProvider.notifier);
+    final i18n = Translations.of(context);
+    final i18nCreatePlanPage = i18n.createPlanPage;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'プランの作成',
+          i18nCreatePlanPage.title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -36,7 +40,7 @@ class CreatePlanPage extends ConsumerWidget {
           child: Column(
             children: [
               PlanTextField(
-                label: '目的地',
+                label: i18nCreatePlanPage.label.location,
                 readOnly: true,
                 prefixIcon: const Icon(Symbols.location_on),
                 controller: planNotifier.locationController,
@@ -46,8 +50,8 @@ class CreatePlanPage extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: PlanTextField(
-                      label: '初日',
-                      hintText: '1月1日（月）',
+                      label: i18nCreatePlanPage.label.scheduleStart,
+                      hintText: i18nCreatePlanPage.hintText.startDate,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.startDateController,
                       keyboardType: TextInputType.none,
@@ -71,8 +75,8 @@ class CreatePlanPage extends ConsumerWidget {
                   const Gap(8),
                   Expanded(
                     child: PlanTextField(
-                      label: '最終日',
-                      hintText: '1月3日（水）',
+                      label: i18nCreatePlanPage.label.scheduleEnd,
+                      hintText: i18nCreatePlanPage.hintText.endDate,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.endDateController,
                       keyboardType: TextInputType.none,
@@ -89,45 +93,37 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               PlanTextField(
-                label: '人数',
-                hintText: '4人',
+                label: i18nCreatePlanPage.label.numberOfPeople,
+                hintText: i18nCreatePlanPage.hintText.numberOfPeople,
                 prefixIcon: const Icon(Symbols.supervisor_account),
                 controller: planNotifier.numberOfPeopleController,
                 keyboardType: TextInputType.none,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 onTap: () async {
-                  final selectedNumberOfPeopleValue =
-                      await showModalBottomSheet<String>(
+                  final selectedValue = await showModalBottomSheet<String>(
                     context: context,
                     builder: (BuildContext context) {
-                      return const SizedBox(
+                      return SizedBox(
                         height: 300,
                         child: SelectionModal(
-                          selectionList: [
-                            '1人',
-                            '2人',
-                            '3人',
-                            '4人',
-                            '5人',
-                            '6人以上',
-                          ],
+                          selectionList:
+                              i18nCreatePlanPage.numberOfPeopleOptions,
                           field: SelectionField.numberOfPeople,
-                          title: '人数',
+                          title: i18nCreatePlanPage.label.numberOfPeople,
                           isSingleSelect: true,
                         ),
                       );
                     },
                   );
-                  if (selectedNumberOfPeopleValue != null) {
-                    planNotifier.numberOfPeopleController.text =
-                        selectedNumberOfPeopleValue;
+                  if (selectedValue != null) {
+                    planNotifier.numberOfPeopleController.text = selectedValue;
                   }
                 },
               ),
               const Gap(16),
               PlanTextField(
-                label: '交通手段',
-                hintText: '選択してください',
+                label: i18nCreatePlanPage.label.transport,
+                hintText: i18nCreatePlanPage.hintText.transport,
                 prefixIcon: const Icon(Icons.commute),
                 controller: planNotifier.transportController,
                 readOnly: true,
@@ -135,12 +131,12 @@ class CreatePlanPage extends ConsumerWidget {
                   await showModalBottomSheet<void>(
                     context: context,
                     builder: (BuildContext context) {
-                      return const SizedBox(
+                      return SizedBox(
                         height: 300,
                         child: SelectionModal(
-                          selectionList: ['電車', '徒歩', '車', 'バス'],
+                          selectionList: i18nCreatePlanPage.transportOptions,
                           field: SelectionField.transport,
-                          title: '交通手段',
+                          title: i18nCreatePlanPage.label.transport,
                         ),
                       );
                     },
@@ -149,42 +145,34 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               PlanTextField(
-                label: 'カテゴリ',
-                hintText: '子連れ向け',
+                label: i18nCreatePlanPage.label.category,
+                hintText: i18nCreatePlanPage.hintText.category,
                 prefixIcon: const Icon(Symbols.category),
                 controller: planNotifier.categoryController,
                 readOnly: true,
                 onTap: () async {
-                  final selectedCategoryValue =
-                      await showModalBottomSheet<String>(
+                  final selectedValue = await showModalBottomSheet<String>(
                     context: context,
                     builder: (BuildContext context) {
-                      return const SizedBox(
+                      return SizedBox(
                         height: 300,
                         child: SelectionModal(
-                          selectionList: [
-                            '子連れ向け',
-                            '大人向け',
-                            'エンタメ',
-                            'アクティビティ',
-                            '歴史',
-                          ],
+                          selectionList: i18nCreatePlanPage.categoryOptions,
                           field: SelectionField.category,
-                          title: 'カテゴリ',
+                          title: i18nCreatePlanPage.label.category,
                         ),
                       );
                     },
                   );
-                  if (selectedCategoryValue != null) {
-                    planNotifier.categoryController.text =
-                        selectedCategoryValue;
+                  if (selectedValue != null) {
+                    planNotifier.categoryController.text = selectedValue;
                   }
                 },
               ),
               const Gap(16),
               PlanTextField(
-                label: '旅のトピック',
-                hintText: '旅のプラン',
+                label: i18nCreatePlanPage.label.topics,
+                hintText: i18nCreatePlanPage.hintText.topics,
                 prefixIcon: const Icon(Symbols.emoji_objects),
                 suffixIcon: const Icon(Symbols.close),
                 controller: planNotifier.topicsController,
@@ -192,12 +180,7 @@ class CreatePlanPage extends ConsumerWidget {
                 onClear: planNotifier.clearTopics,
               ),
               TopicChipField(
-                topics: const [
-                  'グルメ',
-                  'ショッピング',
-                  'アクティビティ',
-                  '映画',
-                ],
+                topics: i18nCreatePlanPage.defaultTopics,
                 selectedTopics: planState.selectedTopics,
                 onChange: (updatedTopics) {
                   planNotifier
@@ -207,10 +190,10 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               WideButton(
-                label: 'プランをAIに伝える',
+                label: i18nCreatePlanPage.submitButton,
                 color: AppColor.yellow600Primary,
                 onPressed: () {
-                
+                  // ボタンの処理を追加
                 },
               ),
             ],
