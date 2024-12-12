@@ -42,6 +42,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsChangeThemePageJa changeThemePage = _TranslationsChangeThemePageJa._(_root);
 	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
 	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
+	@override late final _TranslationsCreatePlanPageJa createPlanPage = _TranslationsCreatePlanPageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -164,6 +165,46 @@ class _TranslationsPopularTopicsJa implements TranslationsPopularTopicsEn {
 
 	// Translations
 	@override String get sectionName => '人気のトピック';
+}
+
+// Path: createPlanPage
+class _TranslationsCreatePlanPageJa implements TranslationsCreatePlanPageEn {
+	_TranslationsCreatePlanPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プランの作成';
+	@override late final _TranslationsCreatePlanPageLabelJa label = _TranslationsCreatePlanPageLabelJa._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextJa hintText = _TranslationsCreatePlanPageHintTextJa._(_root);
+	@override List<String> get numberOfPeopleOptions => [
+		'1人',
+		'2人',
+		'3人',
+		'4人',
+		'5人',
+		'6人以上',
+	];
+	@override List<String> get transportOptions => [
+		'電車',
+		'徒歩',
+		'車',
+		'バス',
+	];
+	@override List<String> get categoryOptions => [
+		'子連れ向け',
+		'大人向け',
+		'エンタメ',
+		'アクティビティ',
+		'歴史',
+	];
+	@override List<String> get defaultTopics => [
+		'グルメ',
+		'ショッピング',
+		'アクティビティ',
+		'映画',
+	];
+	@override String get submitButton => 'プランをAIに伝える';
 }
 
 // Path: navigationBar.items
@@ -331,6 +372,38 @@ class _TranslationsMyPlanPageTabsJa implements TranslationsMyPlanPageTabsEn {
 	// Translations
 	@override String get createdPlans => '作成したプラン';
 	@override String get bookmark => 'ブックマーク';
+}
+
+// Path: createPlanPage.label
+class _TranslationsCreatePlanPageLabelJa implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '開始日';
+	@override String get scheduleEnd => '終了日';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通手段';
+	@override String get category => 'カテゴリ';
+	@override String get topics => '旅のトピック';
+}
+
+// Path: createPlanPage.hintText
+class _TranslationsCreatePlanPageHintTextJa implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '1月1日 (月)';
+	@override String get scheduleEnd => '1月3日 (水)';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通手段';
+	@override String get category => 'カテゴリ';
+	@override String get topics => '旅のトピック';
 }
 
 // Path: authentication.signInPage.textFields
@@ -573,6 +646,41 @@ extension on TranslationsJa {
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
 			case 'popularTopics.sectionName': return '人気のトピック';
+			case 'createPlanPage.title': return 'プランの作成';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '開始日';
+			case 'createPlanPage.label.scheduleEnd': return '終了日';
+			case 'createPlanPage.label.numberOfPeople': return '人数';
+			case 'createPlanPage.label.transport': return '交通手段';
+			case 'createPlanPage.label.category': return 'カテゴリ';
+			case 'createPlanPage.label.topics': return '旅のトピック';
+			case 'createPlanPage.hintText.location': return '目的地';
+			case 'createPlanPage.hintText.scheduleStart': return '1月1日 (月)';
+			case 'createPlanPage.hintText.scheduleEnd': return '1月3日 (水)';
+			case 'createPlanPage.hintText.numberOfPeople': return '人数';
+			case 'createPlanPage.hintText.transport': return '交通手段';
+			case 'createPlanPage.hintText.category': return 'カテゴリ';
+			case 'createPlanPage.hintText.topics': return '旅のトピック';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '電車';
+			case 'createPlanPage.transportOptions.1': return '徒歩';
+			case 'createPlanPage.transportOptions.2': return '車';
+			case 'createPlanPage.transportOptions.3': return 'バス';
+			case 'createPlanPage.categoryOptions.0': return '子連れ向け';
+			case 'createPlanPage.categoryOptions.1': return '大人向け';
+			case 'createPlanPage.categoryOptions.2': return 'エンタメ';
+			case 'createPlanPage.categoryOptions.3': return 'アクティビティ';
+			case 'createPlanPage.categoryOptions.4': return '歴史';
+			case 'createPlanPage.defaultTopics.0': return 'グルメ';
+			case 'createPlanPage.defaultTopics.1': return 'ショッピング';
+			case 'createPlanPage.defaultTopics.2': return 'アクティビティ';
+			case 'createPlanPage.defaultTopics.3': return '映画';
+			case 'createPlanPage.submitButton': return 'プランをAIに伝える';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

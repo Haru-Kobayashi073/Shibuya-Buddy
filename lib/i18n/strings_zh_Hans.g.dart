@@ -42,6 +42,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
 	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -164,6 +165,46 @@ class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
 
 	// Translations
 	@override String get sectionName => '热门话题';
+}
+
+// Path: createPlanPage
+class _TranslationsCreatePlanPageZhHans implements TranslationsCreatePlanPageEn {
+	_TranslationsCreatePlanPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '创建计划';
+	@override late final _TranslationsCreatePlanPageLabelZhHans label = _TranslationsCreatePlanPageLabelZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextZhHans hintText = _TranslationsCreatePlanPageHintTextZhHans._(_root);
+	@override List<String> get numberOfPeopleOptions => [
+		'1人',
+		'2人',
+		'3人',
+		'4人',
+		'5人',
+		'6人以上',
+	];
+	@override List<String> get transportOptions => [
+		'火车',
+		'步行',
+		'汽车',
+		'巴士',
+	];
+	@override List<String> get categoryOptions => [
+		'亲子',
+		'成人',
+		'娱乐',
+		'活动',
+		'历史',
+	];
+	@override List<String> get defaultTopics => [
+		'美食',
+		'购物',
+		'活动',
+		'电影',
+	];
+	@override String get submitButton => '提交计划给AI';
 }
 
 // Path: navigationBar.items
@@ -331,6 +372,38 @@ class _TranslationsMyPlanPageTabsZhHans implements TranslationsMyPlanPageTabsEn 
 	// Translations
 	@override String get createdPlans => '已创建的计划';
 	@override String get bookmark => '收藏夹';
+}
+
+// Path: createPlanPage.label
+class _TranslationsCreatePlanPageLabelZhHans implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '开始日期';
+	@override String get scheduleEnd => '结束日期';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通方式';
+	@override String get category => '类别';
+	@override String get topics => '旅行主题';
+}
+
+// Path: createPlanPage.hintText
+class _TranslationsCreatePlanPageHintTextZhHans implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '1月1日 (周一)';
+	@override String get scheduleEnd => '1月3日 (周三)';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通方式';
+	@override String get category => '类别';
+	@override String get topics => '旅行主题';
 }
 
 // Path: authentication.signInPage.textFields
@@ -573,6 +646,41 @@ extension on TranslationsZhHans {
 			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
 			case 'myPlanPage.tabs.bookmark': return '收藏夹';
 			case 'popularTopics.sectionName': return '热门话题';
+			case 'createPlanPage.title': return '创建计划';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '开始日期';
+			case 'createPlanPage.label.scheduleEnd': return '结束日期';
+			case 'createPlanPage.label.numberOfPeople': return '人数';
+			case 'createPlanPage.label.transport': return '交通方式';
+			case 'createPlanPage.label.category': return '类别';
+			case 'createPlanPage.label.topics': return '旅行主题';
+			case 'createPlanPage.hintText.location': return '目的地';
+			case 'createPlanPage.hintText.scheduleStart': return '1月1日 (周一)';
+			case 'createPlanPage.hintText.scheduleEnd': return '1月3日 (周三)';
+			case 'createPlanPage.hintText.numberOfPeople': return '人数';
+			case 'createPlanPage.hintText.transport': return '交通方式';
+			case 'createPlanPage.hintText.category': return '类别';
+			case 'createPlanPage.hintText.topics': return '旅行主题';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '火车';
+			case 'createPlanPage.transportOptions.1': return '步行';
+			case 'createPlanPage.transportOptions.2': return '汽车';
+			case 'createPlanPage.transportOptions.3': return '巴士';
+			case 'createPlanPage.categoryOptions.0': return '亲子';
+			case 'createPlanPage.categoryOptions.1': return '成人';
+			case 'createPlanPage.categoryOptions.2': return '娱乐';
+			case 'createPlanPage.categoryOptions.3': return '活动';
+			case 'createPlanPage.categoryOptions.4': return '历史';
+			case 'createPlanPage.defaultTopics.0': return '美食';
+			case 'createPlanPage.defaultTopics.1': return '购物';
+			case 'createPlanPage.defaultTopics.2': return '活动';
+			case 'createPlanPage.defaultTopics.3': return '电影';
+			case 'createPlanPage.submitButton': return '提交计划给AI';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

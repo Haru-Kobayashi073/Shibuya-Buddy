@@ -155,6 +155,33 @@
     "popularTopics":{
         "sectionName" :"热门话题"
     },
+        "createPlanPage": {
+        "title": "创建计划",
+        "label": {
+            "location": "目的地",
+            "scheduleStart": "开始日期",
+            "scheduleEnd": "结束日期",
+            "numberOfPeople": "人数",
+            "transport": "交通方式",
+            "category": "类别",
+            "topics": "旅行主题"
+        },
+        "hintText": {
+            "location": "目的地",
+            "scheduleStart": "1月1日 (周一)",
+            "scheduleEnd": "1月3日 (周三)",
+            "numberOfPeople": "人数",
+            "transport": "交通方式",
+            "category": "类别",
+            "topics": "旅行主题"
+        },
+        "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
+        "transportOptions": ["火车", "步行", "汽车", "巴士"],
+        "categoryOptions": ["亲子", "成人", "娱乐", "活动", "历史"],
+        "defaultTopics": ["美食", "购物", "活动", "电影"],
+        "submitButton": "提交计划给AI"
+        },
+    
     "locales(map)": {
         "en": "英语",
         "ja": "日语",

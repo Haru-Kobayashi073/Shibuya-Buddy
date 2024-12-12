@@ -155,6 +155,32 @@
     "popularTopics": {
         "sectionName": "人気のトピック"
     },
+    "createPlanPage": {
+        "title": "プランの作成",
+        "label": {
+            "location": "目的地",
+            "scheduleStart": "開始日",
+            "scheduleEnd": "終了日",
+            "numberOfPeople": "人数",
+            "transport": "交通手段",
+            "category": "カテゴリ",
+            "topics": "旅のトピック"
+        },
+        "hintText": {
+            "location": "目的地",
+            "scheduleStart": "1月1日 (月)",
+            "scheduleEnd": "1月3日 (水)",
+            "numberOfPeople": "人数",
+            "transport": "交通手段",
+            "category": "カテゴリ",
+            "topics": "旅のトピック"
+        },
+        "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
+        "transportOptions": ["電車", "徒歩", "車", "バス"],
+        "categoryOptions": ["子連れ向け", "大人向け", "エンタメ", "アクティビティ", "歴史"],
+        "defaultTopics": ["グルメ", "ショッピング", "アクティビティ", "映画"],
+        "submitButton": "プランをAIに伝える"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",
