@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../gen/assets.gen.dart';
@@ -15,62 +13,28 @@ import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
+import 'account_page_notifier.dart';
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
 
   @override
-  ConsumerState<AccountPage> createState() => _AccountPageState();
+  _AccountPageState createState() => _AccountPageState();
 }
 
 class _AccountPageState extends ConsumerState<AccountPage> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
   bool _isGoogleLinked = false;
 
   @override
   void initState() {
     super.initState();
-    final user = _auth.currentUser;
-    _isGoogleLinked = googleLinkageConfirmation(user);
-  }
 
-  bool googleLinkageConfirmation(User? user) {
-    if (user != null) {
-      for (final provider in user.providerData) {
-        if (provider.providerId == 'google.com') {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
+    final accountLogic = ref.read(accountLogicProvider);
+    final user = FirebaseAuth.instance.currentUser;
 
-  bool appleLinkageConfirmation(User? user) {
-    if (user != null) {
-      for (final provider in user.providerData) {
-        if (provider.providerId == 'apple.com') {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
-  Future<void> unLnkGoogle(User? user) async {
-    final snack = ref.watch(scaffoldMessengerProvider.notifier);
-    final snackBar = t.accountPage.snackBar;
-    if (user != null) {
-      try {
-        await user.unlink('google.com');
-        setState(() {
-          _isGoogleLinked = false;
-        });
-        snack.showSuccessSnackBar(snackBar.accountDeactivation);
-      } on FirebaseAuthException {
-        snack.showExceptionSnackBar(snackBar.unlinkageFailure);
-      }
-    }
+    setState(() {
+      _isGoogleLinked = accountLogic.googleLinkageConfirmation(user);
+    });
   }
 
   @override
@@ -79,9 +43,11 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     final titlei18n = i18n.accountPage.title;
     final itemi18n = i18n.accountPage.items;
     final snackBari18n = i18n.accountPage.snackBar;
+    final diaLogi18n = i18n.accountPage.diaLog;
     final snack = ref.watch(scaffoldMessengerProvider.notifier);
     final auth = FirebaseAuth.instance;
     final user = auth.currentUser;
+    final accountLogic = ref.read(accountLogicProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -100,7 +66,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             Opacity(
               opacity: 1,
               child: WideButton.icon(
-                label: appleLinkageConfirmation(user)
+                label: accountLogic.appleLinkageConfirmationnfirmation(user)
                     ? itemi18n.alreadyLinkedApple
                     : itemi18n.linkedWithApple,
                 color: AppColor.blue50Background,
@@ -119,11 +85,39 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 icon: SvgPicture.asset(Assets.icons.googleIcon),
                 onPressed: () async {
                   if (_isGoogleLinked) {
-                    // Google連携を解除
-                    await unLnkGoogle(user);
+                    await showDialog<void>(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(diaLogi18n.title),
+                          content: Text(diaLogi18n.text),
+                          actions: [
+                            TextButton(
+                              child: Text(diaLogi18n.cancel),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                            TextButton(
+                              child: Text(diaLogi18n.ok),
+                              onPressed: () async {
+                                // Google連携を解除
+                                final result =
+                                    await accountLogic.unlinkGoogle(user);
+                                if (result) {
+                                  setState(() {
+                                    _isGoogleLinked = false;
+                                    Navigator.pop(context);
+                                  });
+                                }
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    debugPrint('連携解除');
                   } else {
                     // Googleでサインインして連携
-                    final result = await linkedWithGoogle();
+                    final result = await accountLogic.linkedWithGoogle();
                     if (result != null) {
                       setState(() {
                         _isGoogleLinked = true;
@@ -139,7 +133,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               onPressed: () async {
                 if (user != null) {
                   context.go(const SignInPageRouteData().location);
-                  await signOut();
+                  await accountLogic.signOut();
                   snack.showSuccessSnackBar(snackBari18n.loggedOut);
                 }
               },
@@ -156,59 +150,5 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         ),
       ),
     );
-  }
-
-  // Googleサインインメソッド
-  Future<User?> linkedWithGoogle() async {
-    final snackBar = t.accountPage.snackBar;
-    final snack = ref.watch(scaffoldMessengerProvider.notifier);
-    try {
-      final googleUser = await _googleSignIn.signIn();
-
-      if (googleUser == null) {
-        return null;
-      }
-
-      final googleAuth = await googleUser.authentication;
-
-      // Firebase用の資格情報を作成
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      final currentUser = _auth.currentUser;
-
-      if (currentUser != null) {
-        try {
-          await currentUser.linkWithCredential(credential);
-          snack.showSuccessSnackBar(snackBar.successfulLinkage);
-          return currentUser;
-        } on FirebaseAuthException catch (e) {
-          if (e.code == 'provider-already-linked') {
-            snack.showExceptionSnackBar(snackBar.accountLinked);
-          } else if (e.code == 'invalid-credential') {
-            snack.showExceptionSnackBar(snackBar.nvalidCredential);
-          }
-          return null;
-        }
-      } else {
-        try {
-          final userCredential = await _auth.signInWithCredential(credential);
-          final user = userCredential.user;
-          return user;
-        } on FirebaseAuthException {
-          return null;
-        }
-      }
-    } on PlatformException {
-      snack.showExceptionSnackBar(snackBar.linkageCancelled);
-    }
-    return null;
-  }
-
-  Future<void> signOut() async {
-    await _googleSignIn.signOut();
-    await _auth.signOut();
   }
 }
