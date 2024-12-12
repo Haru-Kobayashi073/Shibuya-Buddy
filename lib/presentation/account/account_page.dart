@@ -113,7 +113,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                             ),
                           ],
                         );
-
                       },
                     );
                     snack.showSuccessSnackBar(snackBari18n.accountDeactivation);

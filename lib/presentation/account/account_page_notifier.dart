@@ -51,7 +51,8 @@ class AccountLogic {
   Future<User?> linkedWithGoogle() async {
     final snackBari18n = t.accountPage.snackBar;
     final snack = ref.watch(
-        scaffoldMessengerProvider.notifier as AlwaysAliveProviderListenable,);
+      scaffoldMessengerProvider.notifier as AlwaysAliveProviderListenable,
+    );
     try {
       final googleUser = await _googleSignIn.signIn();
 
