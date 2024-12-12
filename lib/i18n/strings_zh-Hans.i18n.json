@@ -36,6 +36,12 @@
             "nvalidCredential": "无效链接",
             "linkageCancelled": "已取消账户连接。",
             "unlinkageFailure": "解除账户连接失败。"
+        },
+        "diaLog": {
+            "ok": "是",
+            "cancel": "否",
+            "title": "确认解除账户连接",
+            "text": "是否要解除当前账户与Google账户的连接？"
         }
     },
     "authentication": {

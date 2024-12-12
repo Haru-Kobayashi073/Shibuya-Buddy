@@ -82,6 +82,7 @@ class _TranslationsAccountPageZhHant implements TranslationsAccountPageEn {
 	@override String get title => '帳戶';
 	@override late final _TranslationsAccountPageItemsZhHant items = _TranslationsAccountPageItemsZhHant._(_root);
 	@override late final _TranslationsAccountPageSnackBarZhHant snackBar = _TranslationsAccountPageSnackBarZhHant._(_root);
+	@override late final _TranslationsAccountPageDiaLogZhHant diaLog = _TranslationsAccountPageDiaLogZhHant._(_root);
 }
 
 // Path: authentication
@@ -251,6 +252,19 @@ class _TranslationsAccountPageSnackBarZhHant implements TranslationsAccountPageS
 	@override String get nvalidCredential => '無效連結';
 	@override String get linkageCancelled => '已取消帳戶連結。';
 	@override String get unlinkageFailure => '解除帳戶連結失敗。';
+}
+
+// Path: accountPage.diaLog
+class _TranslationsAccountPageDiaLogZhHant implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get ok => '是';
+	@override String get cancel => '否';
+	@override String get title => '確認解除帳戶連結';
+	@override String get text => '是否要解除目前帳戶與Google帳戶的連結？';
 }
 
 // Path: authentication.signInPage
@@ -554,6 +568,10 @@ extension on TranslationsZhHant {
 			case 'accountPage.snackBar.nvalidCredential': return '無效連結';
 			case 'accountPage.snackBar.linkageCancelled': return '已取消帳戶連結。';
 			case 'accountPage.snackBar.unlinkageFailure': return '解除帳戶連結失敗。';
+			case 'accountPage.diaLog.ok': return '是';
+			case 'accountPage.diaLog.cancel': return '否';
+			case 'accountPage.diaLog.title': return '確認解除帳戶連結';
+			case 'accountPage.diaLog.text': return '是否要解除目前帳戶與Google帳戶的連結？';
 			case 'authentication.signInPage.title': return '登入';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '電子郵件地址';

@@ -36,6 +36,12 @@
             "nvalidCredential": "Invalid Link",
             "linkageCancelled": "Account linkage cancelled.",
             "unlinkageFailure": "Failed to unlink account."
+        },
+        "diaLog": {
+            "ok": "Yes",
+            "cancel": "No",
+            "title": "Confirm Account Unlinking",
+            "text": "Do you want to unlink the current account from your Google account?"
         }
     },
     "authentication": {

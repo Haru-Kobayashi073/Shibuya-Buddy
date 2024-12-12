@@ -86,6 +86,7 @@ class TranslationsAccountPageEn {
 	String get title => 'Account';
 	late final TranslationsAccountPageItemsEn items = TranslationsAccountPageItemsEn._(_root);
 	late final TranslationsAccountPageSnackBarEn snackBar = TranslationsAccountPageSnackBarEn._(_root);
+	late final TranslationsAccountPageDiaLogEn diaLog = TranslationsAccountPageDiaLogEn._(_root);
 }
 
 // Path: authentication
@@ -255,6 +256,19 @@ class TranslationsAccountPageSnackBarEn {
 	String get nvalidCredential => 'Invalid Link';
 	String get linkageCancelled => 'Account linkage cancelled.';
 	String get unlinkageFailure => 'Failed to unlink account.';
+}
+
+// Path: accountPage.diaLog
+class TranslationsAccountPageDiaLogEn {
+	TranslationsAccountPageDiaLogEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get ok => 'Yes';
+	String get cancel => 'No';
+	String get title => 'Confirm Account Unlinking';
+	String get text => 'Do you want to unlink the current account from your Google account?';
 }
 
 // Path: authentication.signInPage
@@ -558,6 +572,10 @@ extension on Translations {
 			case 'accountPage.snackBar.nvalidCredential': return 'Invalid Link';
 			case 'accountPage.snackBar.linkageCancelled': return 'Account linkage cancelled.';
 			case 'accountPage.snackBar.unlinkageFailure': return 'Failed to unlink account.';
+			case 'accountPage.diaLog.ok': return 'Yes';
+			case 'accountPage.diaLog.cancel': return 'No';
+			case 'accountPage.diaLog.title': return 'Confirm Account Unlinking';
+			case 'accountPage.diaLog.text': return 'Do you want to unlink the current account from your Google account?';
 			case 'authentication.signInPage.title': return 'Sign In';
 			case 'authentication.signInPage.optionText': return ' or ';
 			case 'authentication.signInPage.textFields.email': return 'Email Address';

@@ -82,6 +82,7 @@ class _TranslationsAccountPageJa implements TranslationsAccountPageEn {
 	@override String get title => 'アカウント';
 	@override late final _TranslationsAccountPageItemsJa items = _TranslationsAccountPageItemsJa._(_root);
 	@override late final _TranslationsAccountPageSnackBarJa snackBar = _TranslationsAccountPageSnackBarJa._(_root);
+	@override late final _TranslationsAccountPageDiaLogJa diaLog = _TranslationsAccountPageDiaLogJa._(_root);
 }
 
 // Path: authentication
@@ -251,6 +252,19 @@ class _TranslationsAccountPageSnackBarJa implements TranslationsAccountPageSnack
 	@override String get nvalidCredential => '無効なリンク';
 	@override String get linkageCancelled => 'アカウントの連携をキャンセルしました。';
 	@override String get unlinkageFailure => 'アカウントの連携解除に失敗しました。';
+}
+
+// Path: accountPage.diaLog
+class _TranslationsAccountPageDiaLogJa implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get ok => 'はい';
+	@override String get cancel => 'いいえ';
+	@override String get title => 'アカウント連携解除の確認';
+	@override String get text => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
 }
 
 // Path: authentication.signInPage
@@ -554,6 +568,10 @@ extension on TranslationsJa {
 			case 'accountPage.snackBar.nvalidCredential': return '無効なリンク';
 			case 'accountPage.snackBar.linkageCancelled': return 'アカウントの連携をキャンセルしました。';
 			case 'accountPage.snackBar.unlinkageFailure': return 'アカウントの連携解除に失敗しました。';
+			case 'accountPage.diaLog.ok': return 'はい';
+			case 'accountPage.diaLog.cancel': return 'いいえ';
+			case 'accountPage.diaLog.title': return 'アカウント連携解除の確認';
+			case 'accountPage.diaLog.text': return '現在のアカウントとGoogleアカウントの連携を解除しますか？';
 			case 'authentication.signInPage.title': return 'ログイン';
 			case 'authentication.signInPage.optionText': return ' または ';
 			case 'authentication.signInPage.textFields.email': return 'メールアドレス';

@@ -36,6 +36,12 @@
             "nvalidCredential":"無効なリンク",
             "linkageCancelled":"アカウントの連携をキャンセルしました。",
             "unlinkageFailure":"アカウントの連携解除に失敗しました。"
+        },
+        "diaLog":{
+            "ok":"はい",
+            "cancel":"いいえ",
+            "title":"アカウント連携解除の確認",
+            "text":"現在のアカウントとGoogleアカウントの連携を解除しますか？"
         }
     },
     "authentication": {
