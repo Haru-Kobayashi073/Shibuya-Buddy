@@ -136,10 +136,13 @@ class CreatePlanPage extends ConsumerWidget {
                   await showModalBottomSheet<void>(
                     context: context,
                     builder: (BuildContext context) {
-                      return const SelectionModal(
-                        selectionList: ['電車', '徒歩', '車', 'バス'],
-                        field: SelectionField.transport,
-                        title: '交通手段',
+                      return const SizedBox(
+                        height: 300,
+                        child: SelectionModal(
+                          selectionList: ['電車', '徒歩', '車', 'バス'],
+                          field: SelectionField.transport,
+                          title: '交通手段',
+                        ),
                       );
                     },
                   );
