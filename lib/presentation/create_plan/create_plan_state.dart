@@ -15,5 +15,10 @@ class CreatePlanState with _$CreatePlanState {
     @Default([]) List<String> selectedTransport,
     @Default([]) List<String> selectedCategory,
   }) = _CreatePlanState;
+}
 
+enum SelectionField {
+  transport,
+  numberOfPeople,
+  category,
 }
