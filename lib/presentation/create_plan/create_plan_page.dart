@@ -207,7 +207,6 @@ class CreatePlanPage extends ConsumerWidget {
                 },
               ),
               const Gap(16),
-// ... existing code ...
               WideButton(
                 label: 'プランをAIに伝える',
                 color: AppColor.yellow600Primary,
@@ -217,7 +216,6 @@ class CreatePlanPage extends ConsumerWidget {
                   );
                 },
               ),
-// ... existing code ...
             ],
           ),
         ),
