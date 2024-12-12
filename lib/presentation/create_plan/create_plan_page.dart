@@ -8,8 +8,10 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 import 'components/plan_text_field.dart';
+import 'components/selection_modal.dart';
 import 'components/topic_chip_field.dart';
 import 'create_plan_notifier.dart';
+import 'create_plan_state.dart';
 
 class CreatePlanPage extends ConsumerWidget {
   const CreatePlanPage({super.key});
@@ -38,7 +40,7 @@ class CreatePlanPage extends ConsumerWidget {
                 hintText: '渋谷',
                 readOnly: true,
                 prefixIcon: const Icon(Symbols.location_on),
-                initialValue: planState.location,
+                controller: planNotifier.locationController,
               ),
               const Gap(16),
               Row(
@@ -50,6 +52,7 @@ class CreatePlanPage extends ConsumerWidget {
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.startDateController,
                       keyboardType: TextInputType.none,
+                      readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
                           context,
@@ -74,6 +77,7 @@ class CreatePlanPage extends ConsumerWidget {
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.endDateController,
                       keyboardType: TextInputType.none,
+                      readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
                           context,
@@ -89,23 +93,91 @@ class CreatePlanPage extends ConsumerWidget {
                 label: '人数',
                 hintText: '4人',
                 prefixIcon: const Icon(Symbols.supervisor_account),
-                initialValue: planState.numberOfPeople,
+                controller: planNotifier.numberOfPeopleController,
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                onTap: () async {
+                  final selectedNumberOfPeopleValue =
+                      await showModalBottomSheet<String>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const SizedBox(
+                        height: 300,
+                        child: SelectionModal(
+                          selectionList: [
+                            '1人',
+                            '2人',
+                            '3人',
+                            '4人',
+                            '5人',
+                            '6人以上',
+                          ],
+                          field: SelectionField.numberOfPeople,
+                          title: '人数',
+                          isSingleSelect: true,
+                        ),
+                      );
+                    },
+                  );
+                  if (selectedNumberOfPeopleValue != null) {
+                    planNotifier.numberOfPeopleController.text =
+                        selectedNumberOfPeopleValue;
+                  }
+                },
               ),
               const Gap(16),
               PlanTextField(
                 label: '交通手段',
-                hintText: '電車・徒歩',
-                prefixIcon: const Icon(Symbols.commute),
-                initialValue: planState.transport,
+                hintText: '選択してください',
+                prefixIcon: const Icon(Icons.commute),
+                controller: planNotifier.transportController,
+                readOnly: true,
+                onTap: () async {
+                  await showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const SelectionModal(
+                        selectionList: ['電車', '徒歩', '車', 'バス'],
+                        field: SelectionField.transport,
+                        title: '交通手段',
+                      );
+                    },
+                  );
+                },
               ),
               const Gap(16),
               PlanTextField(
                 label: 'カテゴリ',
                 hintText: '子連れ向け',
                 prefixIcon: const Icon(Symbols.category),
-                initialValue: planState.category,
+                controller: planNotifier.categoryController,
+                readOnly: true,
+                onTap: () async {
+                  final selectedCategoryValue =
+                      await showModalBottomSheet<String>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const SizedBox(
+                        height: 300,
+                        child: SelectionModal(
+                          selectionList: [
+                            '子連れ向け',
+                            '大人向け',
+                            'エンタメ',
+                            'アクティビティ',
+                            '歴史',
+                          ],
+                          field: SelectionField.category,
+                          title: 'カテゴリ',
+                        ),
+                      );
+                    },
+                  );
+                  if (selectedCategoryValue != null) {
+                    planNotifier.categoryController.text =
+                        selectedCategoryValue;
+                  }
+                },
               ),
               const Gap(16),
               PlanTextField(
@@ -132,11 +204,17 @@ class CreatePlanPage extends ConsumerWidget {
                 },
               ),
               const Gap(16),
+// ... existing code ...
               WideButton(
                 label: 'プランをAIに伝える',
                 color: AppColor.yellow600Primary,
-                onPressed: () {},
+                onPressed: () {
+                  print(
+                    '旅のトピック: ${planState.selectedTopics}, カテゴリ: ${planState.selectedCategory}, 交通手段: ${planState.selectedTransport}, 人数: ${planState.selectedNumberofPeople}, 初日: ${planNotifier.startDateController}',
+                  );
+                },
               ),
+// ... existing code ...
             ],
           ),
         ),
