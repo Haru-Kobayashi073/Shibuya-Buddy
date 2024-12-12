@@ -78,6 +78,8 @@ class SelectionModal extends ConsumerWidget {
                     }
                   },
                   child: ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    dense: true,
                     title: Text(item),
                     leading: isSingleSelect
                         ? Checkbox(
