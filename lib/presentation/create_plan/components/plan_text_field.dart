@@ -10,7 +10,6 @@ class PlanTextField extends StatelessWidget {
     this.hintText,
     this.initialValue,
     this.prefixIcon,
-    this.suffixIcon,
     this.controller,
     this.readOnly = false,
     this.keyboardType,
@@ -23,7 +22,6 @@ class PlanTextField extends StatelessWidget {
   final String? hintText;
   final String? initialValue;
   final Icon? prefixIcon;
-  final Icon? suffixIcon;
   final TextEditingController? controller;
   final bool readOnly;
   final TextInputType? keyboardType;
@@ -36,30 +34,23 @@ class PlanTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextField(
-          controller: controller,
+        GestureDetector(
           onTap: onTap,
-          readOnly: readOnly,
-          keyboardType: keyboardType,
-          textInputAction: TextInputAction.next,
-          inputFormatters: inputFormatters,
-          decoration: InputDecoration(
-            border: const OutlineInputBorder(),
-            fillColor: AppColor.blue800Secondary,
-            hintText: hintText,
-            labelText: label,
-            prefixIcon: prefixIcon,
-            suffixIcon: (controller != null &&
-                    controller!.text.isNotEmpty &&
-                    suffixIcon != null)
-                ? IconButton(
-                    onPressed: () {
-                      controller?.clear();
-                      onClear?.call();
-                    },
-                    icon: suffixIcon!,
-                  )
-                : null,
+          child: AbsorbPointer(
+            child: TextField(
+              controller: controller,
+              readOnly: readOnly,
+              keyboardType: keyboardType,
+              textInputAction: TextInputAction.next,
+              inputFormatters: inputFormatters,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                fillColor: AppColor.blue800Secondary,
+                hintText: hintText,
+                labelText: label,
+                prefixIcon: prefixIcon,
+              ),
+            ),
           ),
         ),
       ],
