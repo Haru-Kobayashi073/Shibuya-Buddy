@@ -24,7 +24,6 @@ class SelectionModal extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(createPlanNotifierProvider);
 
-    // Retrieve the selected items for the given field
     List<String> selectedItems;
     switch (field) {
       case SelectionField.transport:
