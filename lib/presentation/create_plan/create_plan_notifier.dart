@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import 'create_plan_state.dart';
@@ -13,7 +14,8 @@ part 'create_plan_notifier.g.dart';
 @riverpod
 class CreatePlanNotifier extends _$CreatePlanNotifier {
   CreatePlanNotifier() {
-    locationController = TextEditingController(text: '渋谷');
+    locationController =
+        TextEditingController(text: t.createPlanPage.hintText.location);
     startDateController = TextEditingController();
     endDateController = TextEditingController();
     numberOfPeopleController = TextEditingController();
@@ -139,7 +141,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '日付を選択',
+                        t.createPlanPage.modal.title,
                         style: AppTextStyle.textStyle.copyWith(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

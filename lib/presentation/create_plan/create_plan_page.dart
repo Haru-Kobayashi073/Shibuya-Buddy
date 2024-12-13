@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
-import '../../i18n/strings.g.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
@@ -21,13 +21,11 @@ class CreatePlanPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final planState = ref.watch(createPlanNotifierProvider);
     final planNotifier = ref.watch(createPlanNotifierProvider.notifier);
-    final i18n = Translations.of(context);
-    final i18nCreatePlanPage = i18n.createPlanPage;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          i18nCreatePlanPage.title,
+          t.createPlanPage.title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -40,7 +38,7 @@ class CreatePlanPage extends ConsumerWidget {
           child: Column(
             children: [
               PlanTextField(
-                label: i18nCreatePlanPage.label.location,
+                label: t.createPlanPage.label.location,
                 readOnly: true,
                 prefixIcon: const Icon(Symbols.location_on),
                 controller: planNotifier.locationController,
@@ -50,8 +48,8 @@ class CreatePlanPage extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: PlanTextField(
-                      label: i18nCreatePlanPage.label.scheduleStart,
-                      hintText: i18nCreatePlanPage.hintText.startDate,
+                      label: t.createPlanPage.label.scheduleStart,
+                      hintText: t.createPlanPage.hintText.scheduleStart,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.startDateController,
                       keyboardType: TextInputType.none,
@@ -75,8 +73,8 @@ class CreatePlanPage extends ConsumerWidget {
                   const Gap(8),
                   Expanded(
                     child: PlanTextField(
-                      label: i18nCreatePlanPage.label.scheduleEnd,
-                      hintText: i18nCreatePlanPage.hintText.endDate,
+                      label: t.createPlanPage.label.scheduleStart,
+                      hintText: t.createPlanPage.hintText.scheduleStart,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.endDateController,
                       keyboardType: TextInputType.none,
@@ -93,8 +91,8 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               PlanTextField(
-                label: i18nCreatePlanPage.label.numberOfPeople,
-                hintText: i18nCreatePlanPage.hintText.numberOfPeople,
+                label: t.createPlanPage.label.numberOfPeople,
+                hintText: t.createPlanPage.hintText.numberOfPeople,
                 prefixIcon: const Icon(Symbols.supervisor_account),
                 controller: planNotifier.numberOfPeopleController,
                 keyboardType: TextInputType.none,
@@ -106,10 +104,9 @@ class CreatePlanPage extends ConsumerWidget {
                       return SizedBox(
                         height: 300,
                         child: SelectionModal(
-                          selectionList:
-                              i18nCreatePlanPage.numberOfPeopleOptions,
+                          selectionList: t.createPlanPage.numberOfPeopleOptions,
                           field: SelectionField.numberOfPeople,
-                          title: i18nCreatePlanPage.label.numberOfPeople,
+                          title: t.createPlanPage.label.numberOfPeople,
                           isSingleSelect: true,
                         ),
                       );
@@ -122,8 +119,8 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               PlanTextField(
-                label: i18nCreatePlanPage.label.transport,
-                hintText: i18nCreatePlanPage.hintText.transport,
+                label: t.createPlanPage.label.transport,
+                hintText: t.createPlanPage.hintText.transport,
                 prefixIcon: const Icon(Icons.commute),
                 controller: planNotifier.transportController,
                 readOnly: true,
@@ -134,9 +131,9 @@ class CreatePlanPage extends ConsumerWidget {
                       return SizedBox(
                         height: 300,
                         child: SelectionModal(
-                          selectionList: i18nCreatePlanPage.transportOptions,
+                          selectionList: t.createPlanPage.transportOptions,
                           field: SelectionField.transport,
-                          title: i18nCreatePlanPage.label.transport,
+                          title: t.createPlanPage.label.transport,
                         ),
                       );
                     },
@@ -145,8 +142,8 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               PlanTextField(
-                label: i18nCreatePlanPage.label.category,
-                hintText: i18nCreatePlanPage.hintText.category,
+                label: t.createPlanPage.label.category,
+                hintText: t.createPlanPage.hintText.category,
                 prefixIcon: const Icon(Symbols.category),
                 controller: planNotifier.categoryController,
                 readOnly: true,
@@ -157,9 +154,9 @@ class CreatePlanPage extends ConsumerWidget {
                       return SizedBox(
                         height: 300,
                         child: SelectionModal(
-                          selectionList: i18nCreatePlanPage.categoryOptions,
+                          selectionList: t.createPlanPage.categoryOptions,
                           field: SelectionField.category,
-                          title: i18nCreatePlanPage.label.category,
+                          title: t.createPlanPage.label.category,
                         ),
                       );
                     },
@@ -171,8 +168,8 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               PlanTextField(
-                label: i18nCreatePlanPage.label.topics,
-                hintText: i18nCreatePlanPage.hintText.topics,
+                label: t.createPlanPage.label.topics,
+                hintText: t.createPlanPage.hintText.topics,
                 prefixIcon: const Icon(Symbols.emoji_objects),
                 suffixIcon: const Icon(Symbols.close),
                 controller: planNotifier.topicsController,
@@ -180,7 +177,7 @@ class CreatePlanPage extends ConsumerWidget {
                 onClear: planNotifier.clearTopics,
               ),
               TopicChipField(
-                topics: i18nCreatePlanPage.defaultTopics,
+                topics: t.createPlanPage.defaultTopics,
                 selectedTopics: planState.selectedTopics,
                 onChange: (updatedTopics) {
                   planNotifier
@@ -190,10 +187,9 @@ class CreatePlanPage extends ConsumerWidget {
               ),
               const Gap(16),
               WideButton(
-                label: i18nCreatePlanPage.submitButton,
+                label: t.createPlanPage.submitButton,
                 color: AppColor.yellow600Primary,
                 onPressed: () {
-                  // ボタンの処理を追加
                 },
               ),
             ],
