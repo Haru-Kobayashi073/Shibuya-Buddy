@@ -11,6 +11,7 @@ import '../components/wide_button.dart';
 import 'components/plan_text_field.dart';
 import 'components/selection_modal.dart';
 import 'components/topic_chip_field.dart';
+import 'components/topic_text_field.dart';
 import 'create_plan_notifier.dart';
 import 'create_plan_state.dart';
 
@@ -96,6 +97,7 @@ class CreatePlanPage extends ConsumerWidget {
                 prefixIcon: const Icon(Symbols.supervisor_account),
                 controller: planNotifier.numberOfPeopleController,
                 keyboardType: TextInputType.none,
+                readOnly: true,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 onTap: () async {
                   final selectedValue = await showModalBottomSheet<String>(
@@ -167,7 +169,7 @@ class CreatePlanPage extends ConsumerWidget {
                 },
               ),
               const Gap(16),
-              PlanTextField(
+              TopicTextField(
                 label: t.createPlanPage.label.topics,
                 hintText: t.createPlanPage.hintText.topics,
                 prefixIcon: const Icon(Symbols.emoji_objects),
@@ -189,8 +191,7 @@ class CreatePlanPage extends ConsumerWidget {
               WideButton(
                 label: t.createPlanPage.submitButton,
                 color: AppColor.yellow600Primary,
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
             ],
           ),
