@@ -167,13 +167,16 @@
             "topics": "旅行主題"
         },
         "hintText": {
-            "location": "目的地",
+            "location": "澀谷",
             "scheduleStart": "1月1日 (週一)",
             "scheduleEnd": "1月3日 (週三)",
             "numberOfPeople": "人數",
             "transport": "交通方式",
             "category": "類別",
             "topics": "旅行主題"
+        },
+        "modal": {
+            "title": "Select a date"
         },
         "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
         "transportOptions": ["火車", "步行", "汽車", "巴士"],

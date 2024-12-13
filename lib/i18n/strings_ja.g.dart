@@ -177,6 +177,7 @@ class _TranslationsCreatePlanPageJa implements TranslationsCreatePlanPageEn {
 	@override String get title => 'プランの作成';
 	@override late final _TranslationsCreatePlanPageLabelJa label = _TranslationsCreatePlanPageLabelJa._(_root);
 	@override late final _TranslationsCreatePlanPageHintTextJa hintText = _TranslationsCreatePlanPageHintTextJa._(_root);
+	@override late final _TranslationsCreatePlanPageModalJa modal = _TranslationsCreatePlanPageModalJa._(_root);
 	@override List<String> get numberOfPeopleOptions => [
 		'1人',
 		'2人',
@@ -397,13 +398,23 @@ class _TranslationsCreatePlanPageHintTextJa implements TranslationsCreatePlanPag
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get location => '目的地';
+	@override String get location => '渋谷';
 	@override String get scheduleStart => '1月1日 (月)';
 	@override String get scheduleEnd => '1月3日 (水)';
 	@override String get numberOfPeople => '人数';
 	@override String get transport => '交通手段';
 	@override String get category => 'カテゴリ';
 	@override String get topics => '旅のトピック';
+}
+
+// Path: createPlanPage.modal
+class _TranslationsCreatePlanPageModalJa implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '日付を選択';
 }
 
 // Path: authentication.signInPage.textFields
@@ -654,13 +665,14 @@ extension on TranslationsJa {
 			case 'createPlanPage.label.transport': return '交通手段';
 			case 'createPlanPage.label.category': return 'カテゴリ';
 			case 'createPlanPage.label.topics': return '旅のトピック';
-			case 'createPlanPage.hintText.location': return '目的地';
+			case 'createPlanPage.hintText.location': return '渋谷';
 			case 'createPlanPage.hintText.scheduleStart': return '1月1日 (月)';
 			case 'createPlanPage.hintText.scheduleEnd': return '1月3日 (水)';
 			case 'createPlanPage.hintText.numberOfPeople': return '人数';
 			case 'createPlanPage.hintText.transport': return '交通手段';
 			case 'createPlanPage.hintText.category': return 'カテゴリ';
 			case 'createPlanPage.hintText.topics': return '旅のトピック';
+			case 'createPlanPage.modal.title': return '日付を選択';
 			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
 			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
 			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';

@@ -177,6 +177,7 @@ class _TranslationsCreatePlanPageZhHant implements TranslationsCreatePlanPageEn 
 	@override String get title => '建立計劃';
 	@override late final _TranslationsCreatePlanPageLabelZhHant label = _TranslationsCreatePlanPageLabelZhHant._(_root);
 	@override late final _TranslationsCreatePlanPageHintTextZhHant hintText = _TranslationsCreatePlanPageHintTextZhHant._(_root);
+	@override late final _TranslationsCreatePlanPageModalZhHant modal = _TranslationsCreatePlanPageModalZhHant._(_root);
 	@override List<String> get numberOfPeopleOptions => [
 		'1人',
 		'2人',
@@ -397,13 +398,23 @@ class _TranslationsCreatePlanPageHintTextZhHant implements TranslationsCreatePla
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get location => '目的地';
+	@override String get location => '澀谷';
 	@override String get scheduleStart => '1月1日 (週一)';
 	@override String get scheduleEnd => '1月3日 (週三)';
 	@override String get numberOfPeople => '人數';
 	@override String get transport => '交通方式';
 	@override String get category => '類別';
 	@override String get topics => '旅行主題';
+}
+
+// Path: createPlanPage.modal
+class _TranslationsCreatePlanPageModalZhHant implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Select a date';
 }
 
 // Path: authentication.signInPage.textFields
@@ -654,13 +665,14 @@ extension on TranslationsZhHant {
 			case 'createPlanPage.label.transport': return '交通方式';
 			case 'createPlanPage.label.category': return '類別';
 			case 'createPlanPage.label.topics': return '旅行主題';
-			case 'createPlanPage.hintText.location': return '目的地';
+			case 'createPlanPage.hintText.location': return '澀谷';
 			case 'createPlanPage.hintText.scheduleStart': return '1月1日 (週一)';
 			case 'createPlanPage.hintText.scheduleEnd': return '1月3日 (週三)';
 			case 'createPlanPage.hintText.numberOfPeople': return '人數';
 			case 'createPlanPage.hintText.transport': return '交通方式';
 			case 'createPlanPage.hintText.category': return '類別';
 			case 'createPlanPage.hintText.topics': return '旅行主題';
+			case 'createPlanPage.modal.title': return 'Select a date';
 			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
 			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
 			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';

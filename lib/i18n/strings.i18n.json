@@ -167,13 +167,16 @@
             "topics": "Travel Topics"
         },
         "hintText": {
-            "location": "Destination",
+            "location": "Shibuya",
             "scheduleStart": "January 1 (Mon)",
             "scheduleEnd": "January 3 (Wed)",
             "numberOfPeople": "Number of People",
             "transport": "Transportation",
             "category": "Category",
             "topics": "Travel Topics"
+        },
+        "modal": {
+            "title": "Select a date"
         },
         "numberOfPeopleOptions": ["1 person", "2 people", "3 people", "4 people", "5 people", "6 or more"],
         "transportOptions": ["Train", "Walking", "Car", "Bus"],

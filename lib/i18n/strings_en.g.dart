@@ -181,6 +181,7 @@ class TranslationsCreatePlanPageEn {
 	String get title => 'Create Plan';
 	late final TranslationsCreatePlanPageLabelEn label = TranslationsCreatePlanPageLabelEn._(_root);
 	late final TranslationsCreatePlanPageHintTextEn hintText = TranslationsCreatePlanPageHintTextEn._(_root);
+	late final TranslationsCreatePlanPageModalEn modal = TranslationsCreatePlanPageModalEn._(_root);
 	List<String> get numberOfPeopleOptions => [
 		'1 person',
 		'2 people',
@@ -401,13 +402,23 @@ class TranslationsCreatePlanPageHintTextEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get location => 'Destination';
+	String get location => 'Shibuya';
 	String get scheduleStart => 'January 1 (Mon)';
 	String get scheduleEnd => 'January 3 (Wed)';
 	String get numberOfPeople => 'Number of People';
 	String get transport => 'Transportation';
 	String get category => 'Category';
 	String get topics => 'Travel Topics';
+}
+
+// Path: createPlanPage.modal
+class TranslationsCreatePlanPageModalEn {
+	TranslationsCreatePlanPageModalEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select a date';
 }
 
 // Path: authentication.signInPage.textFields
@@ -658,13 +669,14 @@ extension on Translations {
 			case 'createPlanPage.label.transport': return 'Transportation';
 			case 'createPlanPage.label.category': return 'Category';
 			case 'createPlanPage.label.topics': return 'Travel Topics';
-			case 'createPlanPage.hintText.location': return 'Destination';
+			case 'createPlanPage.hintText.location': return 'Shibuya';
 			case 'createPlanPage.hintText.scheduleStart': return 'January 1 (Mon)';
 			case 'createPlanPage.hintText.scheduleEnd': return 'January 3 (Wed)';
 			case 'createPlanPage.hintText.numberOfPeople': return 'Number of People';
 			case 'createPlanPage.hintText.transport': return 'Transportation';
 			case 'createPlanPage.hintText.category': return 'Category';
 			case 'createPlanPage.hintText.topics': return 'Travel Topics';
+			case 'createPlanPage.modal.title': return 'Select a date';
 			case 'createPlanPage.numberOfPeopleOptions.0': return '1 person';
 			case 'createPlanPage.numberOfPeopleOptions.1': return '2 people';
 			case 'createPlanPage.numberOfPeopleOptions.2': return '3 people';
