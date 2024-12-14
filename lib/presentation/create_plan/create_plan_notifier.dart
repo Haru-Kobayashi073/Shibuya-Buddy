@@ -177,7 +177,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
                 Expanded(
                   child: CupertinoDatePicker(
                     initialDateTime: DateTime.now(),
-                    mode: CupertinoDatePickerMode.date,
                     onDateTimeChanged: (date) {
                       updateDate(date, targetController);
                     },
