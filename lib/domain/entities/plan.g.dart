@@ -19,8 +19,8 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
       isBookmarked: json['isBookmarked'] as bool? ?? false,
       createdAt:
           const DateTimeConverter().fromJson(json['createdAt'] as String),
-      updatedAt:
-          const DateTimeConverter().fromJson(json['updatedAt'] as String),
+      updatedAt: _$JsonConverterFromJson<String, DateTime>(
+          json['updatedAt'], const DateTimeConverter().fromJson),
     );
 
 Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
@@ -35,5 +35,18 @@ Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
       'ranking': instance.ranking,
       'isBookmarked': instance.isBookmarked,
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
-      'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
+      'updatedAt': _$JsonConverterToJson<String, DateTime>(
+          instance.updatedAt, const DateTimeConverter().toJson),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
