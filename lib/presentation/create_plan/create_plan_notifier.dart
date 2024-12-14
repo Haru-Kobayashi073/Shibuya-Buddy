@@ -58,12 +58,12 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     final currentLocale = LocaleSettings.currentLocale.languageCode;
 
     final pattern = {
-          'ja': 'M/d(E)',
-          'en': 'MMM d, E',
-          'zh-Hant': 'M月d日 EEEE',
-          'zh-Hans': 'M月d日 EEEE',
+          'ja': 'M/d(E) hh:mm a',
+          'en': 'MMM d, E hh:mm a',
+          'zh-Hant': 'M月d日 EEEE hh:mm a',
+          'zh-Hans': 'M月d日 EEEE hh:mm a',
         }[currentLocale] ??
-        'MMM d, EEEE';
+        'MMM d, EEEE HH:mm';
 
     final formatter = DateFormat(
       pattern,
