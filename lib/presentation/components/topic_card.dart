@@ -77,7 +77,7 @@ class TopicCard extends StatelessWidget {
                       ),
                     ),
                     AspectRatio(
-                      aspectRatio: 16 / (tags == null ? 3 : 5),
+                      aspectRatio: 16 / (tags == null ? 3 : 7),
                       child: DecoratedBox(
                         decoration: const BoxDecoration(
                           color: AppColor.blue50Background,
