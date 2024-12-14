@@ -129,7 +129,6 @@ class PopularPlansCarousel extends HookWidget {
             ),
           ),
           const SizedBox(height: 4),
-          // 複数のタグを表示する部分
           CategoryTags(
             tags: tags,
             tagColor: AppColor.white,
