@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/topic_card.dart';
 
@@ -21,57 +22,66 @@ class _PopularPlansPageState extends State<PopularPlansPage> {
     {
       'url': 'https://placehold.jp/320x180.png',
       'title': '画像2のタイトル',
-      'tags': ['タグ2', 'タグC'],
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '所要時間:1時間〜', '所要時間:1時間〜'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3タグ3タグ3タグ3', 'タグDタグDタグDタグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像3のタイトル',
-      'tags': ['タグ3', 'タグD', 'タグE'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
   ];
 
   @override
   Widget build(BuildContext context) {
+    final titlei18n = t.homePage.popularPlans.title;
     var ranking = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '人気のプラン',
+          titlei18n,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -88,7 +98,6 @@ class _PopularPlansPageState extends State<PopularPlansPage> {
               final title = entry.value['title']! as String;
               final tags = entry.value['tags']! as List<String>;
               final pathWidgets = <Widget>[];
-              // debugPrint(entry.value['tags']);
               ranking++;
               pathWidgets.add(
                 TopicCard(
