@@ -18,4 +18,5 @@ class Routes {
   static const termsOfUsePrivacyPolicy = 'termsOfUsePrivacyPolicy';
   static const changeTheme = 'changeTheme';
   static const popularTopicsPage = 'popularTopicsPage';
+  static const buddyChatPage = '/buddyChatPage';
 }
