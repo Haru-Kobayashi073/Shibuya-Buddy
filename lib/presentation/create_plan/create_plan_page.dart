@@ -74,8 +74,8 @@ class CreatePlanPage extends ConsumerWidget {
                   const Gap(8),
                   Expanded(
                     child: PlanTextField(
-                      label: t.createPlanPage.label.scheduleStart,
-                      hintText: t.createPlanPage.hintText.scheduleStart,
+                      label: t.createPlanPage.label.scheduleEnd,
+                      hintText: t.createPlanPage.hintText.scheduleEnd,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.endDateController,
                       keyboardType: TextInputType.none,
