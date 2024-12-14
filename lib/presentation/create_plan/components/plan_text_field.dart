@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../utils/styles/app_color.dart';
+import '../../../utils/styles/app_text_style.dart';
 
 class PlanTextField extends StatelessWidget {
   const PlanTextField({
@@ -44,8 +45,21 @@ class PlanTextField extends StatelessWidget {
               textInputAction: TextInputAction.next,
               inputFormatters: inputFormatters,
               decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                fillColor: AppColor.blue800Secondary,
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.blue800Secondary),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.blue800Secondary),
+                ),
+                disabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.blue800Secondary),
+                ),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.blue800Secondary),
+                ),
+                labelStyle: AppTextStyle.textStyle.copyWith(
+                  color: AppColor.black,
+                ),
                 hintText: hintText,
                 labelText: label,
                 prefixIcon: prefixIcon,
