@@ -51,9 +51,25 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     topicsController.text = state.selectedTopics.join(', ');
   }
 
-  void updateDate(DateTime newDate, TextEditingController targetController) {
-    selectedDate = newDate;
-    final formatter = DateFormat('M/d(E)', 'ja');
+  void updateDate(
+    DateTime newDate,
+    TextEditingController targetController,
+  ) {
+    final currentLocale = LocaleSettings.currentLocale.languageCode;
+
+    final pattern = {
+          'ja': 'M/d(E)',
+          'en': 'MMM d, E',
+          'zh-Hant': 'M月d日 EEEE',
+          'zh-Hans': 'M月d日 EEEE',
+        }[currentLocale] ??
+        'MMM d, EEEE';
+
+    final formatter = DateFormat(
+      pattern,
+      LocaleSettings.currentLocale.languageCode,
+    );
+
     targetController.text = formatter.format(newDate);
   }
 
