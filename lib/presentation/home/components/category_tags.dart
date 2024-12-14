@@ -14,24 +14,71 @@ class CategoryTags extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: tags.map((tag) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-          decoration: BoxDecoration(
-            color: tagColor,
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: Text(
-            tag,
-            style: AppTextStyle.textStyle.copyWith(
-              fontSize: 10,
-            ),
-          ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Wrap(
+          spacing: 3,
+          runSpacing: 3,
+          children: _buildTagWidgets(constraints.maxWidth),
         );
-      }).toList(),
+      },
+    );
+  }
+
+  List<Widget> _buildTagWidgets(double maxWidth) {
+    final tagWidgets = <Widget>[];
+    var currentLineWidth = 0;
+
+    for (final tag in tags) {
+      final tagWidth = _calculateTagWidth(tag);
+      if (currentLineWidth + tagWidth > maxWidth) {
+        tagWidgets.add(_buildEllipsisTag());
+        break;
+      }
+
+      tagWidgets.add(_buildTag(tag));
+      currentLineWidth += tagWidth.toInt();
+    }
+
+    return tagWidgets;
+  }
+
+  double _calculateTagWidth(String tag) {
+    return (tag.length * 6.0) + 16;
+  }
+
+  Widget _buildTag(String tag) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+      decoration: BoxDecoration(
+        color: tagColor,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(
+        tag,
+        style: AppTextStyle.textStyle.copyWith(
+          fontSize: 10,
+          fontWeight: FontWeight.w800,
+        ),
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
+      ),
+    );
+  }
+
+  Widget _buildEllipsisTag() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 3),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(
+        '...',
+        style: AppTextStyle.textStyle.copyWith(
+          fontSize: 16,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
     );
   }
 }
