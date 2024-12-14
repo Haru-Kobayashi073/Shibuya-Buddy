@@ -176,7 +176,7 @@
             "topics": "旅行主題"
         },
         "modal": {
-            "title": "Select a date"
+            "title": "選擇日期"
         },
         "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
         "transportOptions": ["火車", "步行", "汽車", "巴士"],

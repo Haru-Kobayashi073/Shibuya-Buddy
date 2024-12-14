@@ -414,7 +414,7 @@ class _TranslationsCreatePlanPageModalZhHant implements TranslationsCreatePlanPa
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Select a date';
+	@override String get title => '選擇日期';
 }
 
 // Path: authentication.signInPage.textFields
@@ -672,7 +672,7 @@ extension on TranslationsZhHant {
 			case 'createPlanPage.hintText.transport': return '交通方式';
 			case 'createPlanPage.hintText.category': return '類別';
 			case 'createPlanPage.hintText.topics': return '旅行主題';
-			case 'createPlanPage.modal.title': return 'Select a date';
+			case 'createPlanPage.modal.title': return '選擇日期';
 			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
 			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
 			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
