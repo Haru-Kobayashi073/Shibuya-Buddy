@@ -20,9 +20,10 @@ class _PopularPlansPageState extends State<PopularPlansPage> {
       'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
-      'url': 'https://placehold.jp/320x180.png',
-      'title': '画像2のタイトル',
-      'tags': ['人数:1人〜', '所要時間:1時間〜', '所要時間:1時間〜', '所要時間:1時間〜'],
+      'url':
+          'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
+      'title': '宮下パークでショッピング',
+      'tags': ['人数:1人〜', '所要時間:1時間〜', '#ショッピング', '#アクティビティ'],
     },
     {
       'url':
