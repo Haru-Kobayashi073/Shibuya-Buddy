@@ -38,6 +38,8 @@ class TopicTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextField(
+          minLines: 1,
+          maxLines: 2,
           onTap: onTap,
           controller: controller,
           readOnly: readOnly,

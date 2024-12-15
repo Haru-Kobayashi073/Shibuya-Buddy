@@ -39,6 +39,8 @@ class PlanTextField extends StatelessWidget {
           onTap: onTap,
           child: AbsorbPointer(
             child: TextField(
+              minLines: 1,
+              maxLines: 2,
               controller: controller,
               readOnly: readOnly,
               keyboardType: keyboardType,
