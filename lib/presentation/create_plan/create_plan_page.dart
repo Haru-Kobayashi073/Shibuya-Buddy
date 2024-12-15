@@ -50,7 +50,6 @@ class CreatePlanPage extends ConsumerWidget {
                   Expanded(
                     child: PlanTextField(
                       label: t.createPlanPage.label.scheduleStart,
-                      hintText: t.createPlanPage.hintText.scheduleStart,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.startDateController,
                       keyboardType: TextInputType.none,
@@ -75,7 +74,6 @@ class CreatePlanPage extends ConsumerWidget {
                   Expanded(
                     child: PlanTextField(
                       label: t.createPlanPage.label.scheduleEnd,
-                      hintText: t.createPlanPage.hintText.scheduleEnd,
                       prefixIcon: const Icon(Symbols.calendar_month),
                       controller: planNotifier.endDateController,
                       keyboardType: TextInputType.none,
@@ -93,7 +91,6 @@ class CreatePlanPage extends ConsumerWidget {
               const Gap(16),
               PlanTextField(
                 label: t.createPlanPage.label.numberOfPeople,
-                hintText: t.createPlanPage.hintText.numberOfPeople,
                 prefixIcon: const Icon(Symbols.supervisor_account),
                 controller: planNotifier.numberOfPeopleController,
                 keyboardType: TextInputType.none,
@@ -122,7 +119,6 @@ class CreatePlanPage extends ConsumerWidget {
               const Gap(16),
               PlanTextField(
                 label: t.createPlanPage.label.transport,
-                hintText: t.createPlanPage.hintText.transport,
                 prefixIcon: const Icon(Icons.commute),
                 controller: planNotifier.transportController,
                 readOnly: true,
@@ -145,7 +141,6 @@ class CreatePlanPage extends ConsumerWidget {
               const Gap(16),
               PlanTextField(
                 label: t.createPlanPage.label.category,
-                hintText: t.createPlanPage.hintText.category,
                 prefixIcon: const Icon(Symbols.category),
                 controller: planNotifier.categoryController,
                 readOnly: true,
@@ -171,7 +166,6 @@ class CreatePlanPage extends ConsumerWidget {
               const Gap(16),
               TopicTextField(
                 label: t.createPlanPage.label.topics,
-                hintText: t.createPlanPage.hintText.topics,
                 prefixIcon: const Icon(Symbols.emoji_objects),
                 suffixIcon: const Icon(Symbols.close),
                 controller: planNotifier.topicsController,
