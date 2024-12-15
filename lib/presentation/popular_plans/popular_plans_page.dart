@@ -106,6 +106,7 @@ class _PopularPlansPageState extends State<PopularPlansPage> {
                   imagePath: url.toString(),
                   tags: tags,
                   ranking: ranking,
+                  
                 ),
               );
 

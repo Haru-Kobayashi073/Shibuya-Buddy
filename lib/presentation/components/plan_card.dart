@@ -112,6 +112,7 @@ class PlanCard extends StatelessWidget {
                                     child: CategoryTags(
                                       tags: tags ?? [],
                                       tagColor: AppColor.white,
+                                      spacing: 4,
                                     ),
                                   ),
                                 ),

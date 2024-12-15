@@ -7,17 +7,19 @@ class CategoryTags extends StatelessWidget {
     super.key,
     required this.tags,
     required this.tagColor,
+    required this.spacing,
   });
 
   final List<String> tags;
   final Color tagColor;
+  final int spacing;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Wrap(
-          spacing: 3,
+          spacing: spacing.toDouble(),
           runSpacing: 3,
           children: _buildTagWidgets(constraints.maxWidth),
         );
@@ -44,7 +46,8 @@ class CategoryTags extends StatelessWidget {
   }
 
   double _calculateTagWidth(String tag) {
-    return (tag.length * 6.0) + 16;
+    // タグの幅を計算するための定数を明確に定義
+    return (tag.length * 6.0) + spacing * 2;
   }
 
   Widget _buildTag(String tag) {

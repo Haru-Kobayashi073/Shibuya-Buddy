@@ -132,6 +132,7 @@ class PopularPlansCarousel extends HookWidget {
           CategoryTags(
             tags: tags,
             tagColor: AppColor.white,
+            spacing: 8,
           ),
         ],
       ),
