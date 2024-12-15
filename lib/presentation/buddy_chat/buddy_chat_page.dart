@@ -33,31 +33,26 @@ class BuddyChatPage extends HookConsumerWidget {
         .read(buddyChatPageNotifierProvider(planPrompt: planPrompt).notifier);
     final textController = useTextEditingController();
 
+    Future<void> sendMessage() async {
+      if (textController.text.isEmpty) {
+        return;
+      }
+      await notifier
+          .sendMessage(
+        message: textController.text,
+      )
+          .then((value) async {
+        textController.clear();
+        await notifier.animateControllerWhenMessaging();
+      });
+      await notifier.recieveMessage(message: textController.text).then((value) {
+        notifier.animateControllerWhenMessaging();
+      });
+    }
+
     return state.when(
       data: (value) {
-        // useEffect(
-        //   () {
-        //     if (value.scrollController.hasClients) {
-        //       value.scrollController.jumpTo(
-        //         value.scrollController.position.maxScrollExtent,
-        //       );
-        //     }
-        //     return null;
-        //   },
-        //   [value.messages],
-        // );
-
         return Scaffold(
-          // floatingActionButton: FloatingActionButton(
-          //   onPressed: () {
-          //     if (value.scrollController.hasClients) {
-          //       value.scrollController.jumpTo(
-          //         value.scrollController.position.maxScrollExtent,
-          //       );
-          //     }
-          //   },
-          //   child: const Icon(Icons.add),
-          // ),
           appBar: AppBar(
             centerTitle: false,
             title: Text(
@@ -121,6 +116,7 @@ class BuddyChatPage extends HookConsumerWidget {
                             keyboardType: TextInputType.multiline,
                             maxLength: 256,
                             controller: textController,
+                            onFieldSubmitted: (_) async => sendMessage(),
                             decoration: const InputDecoration(
                               counter: SizedBox.shrink(),
                               filled: true,
@@ -135,11 +131,7 @@ class BuddyChatPage extends HookConsumerWidget {
                       ),
                       const SizedBox(width: 8),
                       IconButton(
-                        onPressed: () async {
-                          await notifier.sendMessage(
-                            message: textController.text,
-                          );
-                        },
+                        onPressed: () async => sendMessage(),
                         icon: const Icon(Icons.send),
                       ),
                     ],

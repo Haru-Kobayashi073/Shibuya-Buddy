@@ -25,6 +25,7 @@ class MessageCard extends StatelessWidget {
       margin: isBuddy
           ? const EdgeInsets.only(right: 64, bottom: 16)
           : const EdgeInsets.only(left: 64, bottom: 16),
+      alignment: isBuddy ? Alignment.centerLeft : Alignment.centerRight,
       child: Column(
         children: [
           Container(
@@ -44,7 +45,7 @@ class MessageCard extends StatelessWidget {
                     ),
             ),
             child: Text(
-              'こんなプランを考えてみました！いかがですか？',
+              chatMessage.message,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 16,
                 color: AppColor.black,
