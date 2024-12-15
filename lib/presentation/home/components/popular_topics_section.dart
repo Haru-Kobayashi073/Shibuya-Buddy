@@ -57,6 +57,7 @@ class PopularTopics extends StatelessWidget {
                     title: title,
                     imagePath: imagePath,
                     numberOfTopics: numberOfTopics,
+                    ranking: null,
                   );
                 },
               ).toList(),

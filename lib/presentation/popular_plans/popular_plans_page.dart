@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../components/topic_card.dart';
+import '../components/plan_card.dart';
 
 class PopularPlansPage extends StatefulWidget {
   const PopularPlansPage({super.key});
@@ -101,11 +101,11 @@ class _PopularPlansPageState extends State<PopularPlansPage> {
               final pathWidgets = <Widget>[];
               ranking++;
               pathWidgets.add(
-                TopicCard(
+                PlanCard(
                   title: title,
                   imagePath: url.toString(),
-                  ranking: ranking,
                   tags: tags,
+                  ranking: ranking,
                 ),
               );
 
