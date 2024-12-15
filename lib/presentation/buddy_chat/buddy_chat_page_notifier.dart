@@ -28,17 +28,28 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
 
+    final messages = [
+      ChatMessage(
+        id: res.id,
+        author: res.author,
+        plan: res.plan,
+        places: res.places,
+        createdAt: res.createdAt,
+        message: res.message,
+      ),
+    ];
+
+    final message = ChatMessage(
+      id: res.id,
+      message: res.plan!.description,
+      author: ChatAuthor.buddy,
+      createdAt: res.createdAt,
+    );
+
+    messages.add(message);
+
     return BuddyChatPageState(
-      messages: [
-        ChatMessage(
-          id: res.id,
-          author: res.author,
-          plan: res.plan,
-          places: res.places,
-          createdAt: res.createdAt,
-          message: res.message,
-        ),
-      ],
+      messages: messages,
       scrollController: scrollController,
     );
   }
@@ -51,6 +62,16 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       createdAt: DateTime.now(),
     );
 
+    state = AsyncValue.data(
+      state.requireValue.copyWith(
+        messages: [...state.requireValue.messages, userMessage],
+      ),
+    );
+  }
+
+  Future<void> recieveMessage({required String message}) async {
+    await Future.delayed(const Duration(seconds: 1), () {});
+
     final res = await geminiDataSource.sendMessage(message: message);
 
     final buddyMessage = ChatMessage(
@@ -62,11 +83,23 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
     state = AsyncValue.data(
       state.requireValue.copyWith(
-        messages: [...state.requireValue.messages, userMessage, buddyMessage],
+        messages: [...state.requireValue.messages, buddyMessage],
       ),
     );
+  }
 
-    state.requireValue.scrollController
-        .jumpTo(state.requireValue.scrollController.position.maxScrollExtent);
+  Future<void> animateControllerWhenMessaging() async {
+    Future.delayed(
+      const Duration(milliseconds: 100),
+      () async {
+        if (state.requireValue.scrollController.hasClients) {
+          await state.requireValue.scrollController.animateTo(
+            state.requireValue.scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+      },
+    );
   }
 }
