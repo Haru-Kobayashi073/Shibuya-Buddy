@@ -92,10 +92,7 @@ class TopicCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Offstage(
-                offstage: ranking == null,
-                child: RankingLabel(ranking: ranking),
-              ),
+              RankingLabel(ranking: ranking),
             ],
           ),
         ),
