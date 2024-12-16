@@ -47,7 +47,7 @@ class CategoryTags extends StatelessWidget {
 
   double _calculateTagWidth(String tag) {
     // タグの幅を計算するための定数を明確に定義
-    return (tag.length * 6.0) + spacing * 2;
+    return (tag.length * 8.0) + (spacing * 2);
   }
 
   Widget _buildTag(String tag) {
