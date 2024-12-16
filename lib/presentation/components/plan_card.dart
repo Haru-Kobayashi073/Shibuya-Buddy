@@ -112,11 +112,7 @@ class PlanCard extends StatelessWidget {
                 ),
                 Offstage(
                   offstage: ranking == null,
-                  child: Align(
-                      alignment: Alignment.topLeft,
-                      child: RankingLabel(
-                        ranking: ranking,
-                      )),
+                  child: RankingLabel(ranking: ranking),
                 ),
               ],
             ),
