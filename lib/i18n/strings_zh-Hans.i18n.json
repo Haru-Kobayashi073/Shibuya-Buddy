@@ -167,13 +167,7 @@
             "topics": "旅行主题"
         },
         "hintText": {
-            "location": "涩谷",
-            "scheduleStart": "1月1日 (周一)",
-            "scheduleEnd": "1月3日 (周三)",
-            "numberOfPeople": "人数",
-            "transport": "交通方式",
-            "category": "类别",
-            "topics": "旅行主题"
+            "location": "涩谷"
         },
         "modal": {
             "title": "选择日期"

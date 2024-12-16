@@ -167,13 +167,7 @@
             "topics": "Travel Topics"
         },
         "hintText": {
-            "location": "Shibuya",
-            "scheduleStart": "January 1 (Mon)",
-            "scheduleEnd": "January 3 (Wed)",
-            "numberOfPeople": "Number of People",
-            "transport": "Transportation",
-            "category": "Category",
-            "topics": "Travel Topics"
+            "location": "Shibuya"
         },
         "modal": {
             "title": "Select a date"

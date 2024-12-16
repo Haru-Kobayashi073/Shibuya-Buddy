@@ -403,12 +403,6 @@ class TranslationsCreatePlanPageHintTextEn {
 
 	// Translations
 	String get location => 'Shibuya';
-	String get scheduleStart => 'January 1 (Mon)';
-	String get scheduleEnd => 'January 3 (Wed)';
-	String get numberOfPeople => 'Number of People';
-	String get transport => 'Transportation';
-	String get category => 'Category';
-	String get topics => 'Travel Topics';
 }
 
 // Path: createPlanPage.modal
@@ -670,12 +664,6 @@ extension on Translations {
 			case 'createPlanPage.label.category': return 'Category';
 			case 'createPlanPage.label.topics': return 'Travel Topics';
 			case 'createPlanPage.hintText.location': return 'Shibuya';
-			case 'createPlanPage.hintText.scheduleStart': return 'January 1 (Mon)';
-			case 'createPlanPage.hintText.scheduleEnd': return 'January 3 (Wed)';
-			case 'createPlanPage.hintText.numberOfPeople': return 'Number of People';
-			case 'createPlanPage.hintText.transport': return 'Transportation';
-			case 'createPlanPage.hintText.category': return 'Category';
-			case 'createPlanPage.hintText.topics': return 'Travel Topics';
 			case 'createPlanPage.modal.title': return 'Select a date';
 			case 'createPlanPage.numberOfPeopleOptions.0': return '1 person';
 			case 'createPlanPage.numberOfPeopleOptions.1': return '2 people';

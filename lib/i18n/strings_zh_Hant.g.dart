@@ -399,12 +399,6 @@ class _TranslationsCreatePlanPageHintTextZhHant implements TranslationsCreatePla
 
 	// Translations
 	@override String get location => '澀谷';
-	@override String get scheduleStart => '1月1日 (週一)';
-	@override String get scheduleEnd => '1月3日 (週三)';
-	@override String get numberOfPeople => '人數';
-	@override String get transport => '交通方式';
-	@override String get category => '類別';
-	@override String get topics => '旅行主題';
 }
 
 // Path: createPlanPage.modal
@@ -666,12 +660,6 @@ extension on TranslationsZhHant {
 			case 'createPlanPage.label.category': return '類別';
 			case 'createPlanPage.label.topics': return '旅行主題';
 			case 'createPlanPage.hintText.location': return '澀谷';
-			case 'createPlanPage.hintText.scheduleStart': return '1月1日 (週一)';
-			case 'createPlanPage.hintText.scheduleEnd': return '1月3日 (週三)';
-			case 'createPlanPage.hintText.numberOfPeople': return '人數';
-			case 'createPlanPage.hintText.transport': return '交通方式';
-			case 'createPlanPage.hintText.category': return '類別';
-			case 'createPlanPage.hintText.topics': return '旅行主題';
 			case 'createPlanPage.modal.title': return '選擇日期';
 			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
 			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';

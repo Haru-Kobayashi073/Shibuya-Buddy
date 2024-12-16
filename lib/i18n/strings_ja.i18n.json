@@ -167,13 +167,7 @@
             "topics": "旅のトピック"
         },
         "hintText": {
-            "location": "渋谷",
-            "scheduleStart": "1月1日 (月)",
-            "scheduleEnd": "1月3日 (水)",
-            "numberOfPeople": "人数",
-            "transport": "交通手段",
-            "category": "カテゴリ",
-            "topics": "旅のトピック"
+            "location": "渋谷"
         },
         "modal": {
             "title": "日付を選択"
