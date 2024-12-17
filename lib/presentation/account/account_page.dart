@@ -14,7 +14,6 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 import 'account_page_notifier.dart';
-import 'account_page_state.dart';
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
@@ -35,15 +34,16 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     final snack = ref.watch(scaffoldMessengerProvider.notifier);
     final auth = FirebaseAuth.instance;
     final user = auth.currentUser;
-    final accountState = ref.watch(accountPageStateProvider);
-
+    final accountLinkage = ref.watch(
+      accountPageNotifierProvider.select((state) => state..googleLinkage),
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(
           titlei18n,
           style: AppTextStyle.textStyle.copyWith(
-            fontSize: 16,
-            fontWeight: FontWeight.w100,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
@@ -52,27 +52,15 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         child: Column(
           children: [
             Opacity(
-              opacity: 1,
+              opacity: accountLinkage.appleLinkage ? 0.4 : 1,
               child: WideButton.icon(
-                label: false
+                label: accountLinkage.appleLinkage
                     ? itemi18n.alreadyLinkedApple
                     : itemi18n.linkedWithApple,
                 color: AppColor.blue50Background,
                 icon: SvgPicture.asset(Assets.icons.appleIcon),
-                onPressed: () {},
-              ),
-            ),
-            const SizedBox(height: 16),
-            Opacity(
-              opacity: accountState.isGoogleSignedIn ? 0.5 : 1,
-              child: WideButton.icon(
-                label: accountState.isGoogleSignedIn
-                    ? itemi18n.alreadyLinkedGoogle
-                    : itemi18n.linkedWithGoogle,
-                color: AppColor.blue50Background,
-                icon: SvgPicture.asset(Assets.icons.googleIcon),
                 onPressed: () async {
-                  if (accountState.isGoogleSignedIn) {
+                  if (accountLinkage.appleLinkage) {
                     //仮ダイアログ
                     await showDialog<void>(
                       context: context,
@@ -82,17 +70,68 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                           content: Text(diaLogi18n.text),
                           actions: [
                             TextButton(
-                              child: Text(diaLogi18n.cancel),
+                              child: Text(diaLogi18n.ok),
                               onPressed: () => Navigator.pop(context),
                             ),
                             TextButton(
+                              child: Text(diaLogi18n.cancel),
+                              onPressed: () async {
+                                Navigator.pop(context);
+                                await notifier.unlinkApple(user);
+                                await notifier.updateAppleLinkStatus(
+                                  link: false,
+                                );
+                                snack.showSuccessSnackBar(
+                                  snackBari18n.accountDeactivation,
+                                );
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else {
+                    final result = await notifier.linkedWithApple();
+                    if (result == null) {
+                      //Appleのアカウント連携機能が完成したら'!='に修正
+                      snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
+                      await notifier.updateAppleLinkStatus(link: true);
+                    }
+                  }
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Opacity(
+              opacity: accountLinkage.googleLinkage ? 0.4 : 1,
+              child: WideButton.icon(
+                label: accountLinkage.googleLinkage
+                    ? itemi18n.alreadyLinkedGoogle
+                    : itemi18n.linkedWithGoogle,
+                color: AppColor.blue50Background,
+                icon: SvgPicture.asset(Assets.icons.googleIcon),
+                onPressed: () async {
+                  if (accountLinkage.googleLinkage) {
+                    //仮ダイアログ
+                    await showDialog<void>(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(diaLogi18n.title),
+                          content: Text(diaLogi18n.text),
+                          actions: [
+                            TextButton(
                               child: Text(diaLogi18n.ok),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                            TextButton(
+                              child: Text(diaLogi18n.cancel),
                               onPressed: () async {
                                 Navigator.pop(context);
                                 await notifier.unlinkGoogle(user);
-                                ref
-                                    .read(accountPageStateProvider.notifier)
-                                    .setGoogleSignedInFalse();
+                                await notifier.updateGoogleLinkStatus(
+                                  link: false,
+                                );
                                 snack.showSuccessSnackBar(
                                   snackBari18n.accountDeactivation,
                                 );
@@ -107,15 +146,13 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     final result = await notifier.linkedWithGoogle();
                     if (result != null) {
                       snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
-                      ref
-                          .read(accountPageStateProvider.notifier)
-                          .setGoogleSignedInTrue();
+                      await notifier.updateGoogleLinkStatus(link: true);
                     }
                   }
                 },
               ),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 16),
             TextButton(
               onPressed: () async {
                 if (user != null) {
