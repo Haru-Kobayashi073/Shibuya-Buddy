@@ -5,21 +5,23 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
+import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 
 part 'account_page_notifier.g.dart';
 
 @riverpod
-AccountLogic accountLogic(AccountLogicRef ref) {
-  return AccountLogic(ref);
-}
+class AccountPageNotifier extends _$AccountPageNotifier {
+  AuthenticationDataSource get authenticationDataSource =>
+      ref.read(authenticationDataSourceProvider.notifier);
 
-class AccountLogic {
-  AccountLogic(this.ref);
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  @override
+  void build() {
+    return;
+  }
+
   final GoogleSignIn _googleSignIn = GoogleSignIn();
-
-  final Ref ref;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   bool appleLinkageConfirmation(User? user) {
     return user?.providerData.any(
@@ -54,7 +56,7 @@ class AccountLogic {
       scaffoldMessengerProvider.notifier as AlwaysAliveProviderListenable,
     );
     try {
-      final googleUser = await _googleSignIn.signIn();
+      final googleUser = await GoogleSignIn().signIn();
 
       if (googleUser == null) {
         return null;
