@@ -14,31 +14,19 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 import 'account_page_notifier.dart';
+import 'account_page_state.dart';
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
 
   @override
-  _AccountPageState createState() => _AccountPageState();
+  ConsumerState<AccountPage> createState() => _AccountPageState();
 }
 
 class _AccountPageState extends ConsumerState<AccountPage> {
-  bool _isGoogleLinked = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    final accountLogic = ref.read(accountLogicProvider);
-    final user = FirebaseAuth.instance.currentUser;
-
-    setState(() {
-      _isGoogleLinked = accountLogic.googleLinkageConfirmation(user);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final notifier = ref.watch(accountPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
     final titlei18n = i18n.accountPage.title;
     final itemi18n = i18n.accountPage.items;
@@ -47,7 +35,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     final snack = ref.watch(scaffoldMessengerProvider.notifier);
     final auth = FirebaseAuth.instance;
     final user = auth.currentUser;
-    final accountLogic = ref.read(accountLogicProvider);
+    final accountState = ref.watch(accountPageStateProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -66,7 +54,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             Opacity(
               opacity: 1,
               child: WideButton.icon(
-                label: accountLogic.appleLinkageConfirmation(user)
+                label: false
                     ? itemi18n.alreadyLinkedApple
                     : itemi18n.linkedWithApple,
                 color: AppColor.blue50Background,
@@ -76,15 +64,15 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
             const SizedBox(height: 16),
             Opacity(
-              opacity: _isGoogleLinked ? 0.5 : 1,
+              opacity: accountState.isGoogleSignedIn ? 0.5 : 1,
               child: WideButton.icon(
-                label: _isGoogleLinked
+                label: accountState.isGoogleSignedIn
                     ? itemi18n.alreadyLinkedGoogle
                     : itemi18n.linkedWithGoogle,
                 color: AppColor.blue50Background,
                 icon: SvgPicture.asset(Assets.icons.googleIcon),
                 onPressed: () async {
-                  if (_isGoogleLinked) {
+                  if (accountState.isGoogleSignedIn) {
                     //仮ダイアログ
                     await showDialog<void>(
                       context: context,
@@ -100,42 +88,39 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                             TextButton(
                               child: Text(diaLogi18n.ok),
                               onPressed: () async {
-                                // Google連携を解除
-                                final result =
-                                    await accountLogic.unlinkGoogle(user);
-                                if (result) {
-                                  setState(() {
-                                    _isGoogleLinked = false;
-                                    Navigator.pop(context);
-                                  });
-                                }
+                                Navigator.pop(context);
+                                await notifier.unlinkGoogle(user);
+                                ref
+                                    .read(accountPageStateProvider.notifier)
+                                    .setGoogleSignedInFalse();
+                                snack.showSuccessSnackBar(
+                                  snackBari18n.accountDeactivation,
+                                );
                               },
                             ),
                           ],
                         );
                       },
                     );
-                    snack.showSuccessSnackBar(snackBari18n.accountDeactivation);
                   } else {
                     // Googleでサインインして連携
-                    final result = await accountLogic.linkedWithGoogle();
+                    final result = await notifier.linkedWithGoogle();
                     if (result != null) {
-                      setState(() {
-                        _isGoogleLinked = true;
-                      });
                       snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
+                      ref
+                          .read(accountPageStateProvider.notifier)
+                          .setGoogleSignedInTrue();
                     }
                   }
                 },
               ),
             ),
             const SizedBox(height: 32),
-            // サインアウトボタン
             TextButton(
               onPressed: () async {
                 if (user != null) {
                   context.go(const SignInPageRouteData().location);
-                  await accountLogic.signOut();
+                  await notifier.signOut();
                   snack.showSuccessSnackBar(snackBari18n.loggedOut);
                 }
               },
