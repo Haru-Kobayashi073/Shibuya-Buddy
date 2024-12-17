@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:material_symbols_icons/symbols.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
-import '../../utils/styles/app_color.dart';
-import '../../utils/styles/app_text_style.dart';
+import 'components/custom_cupertino_date_picker.dart';
 import 'create_plan_state.dart';
 
 part 'create_plan_notifier.g.dart';
@@ -144,47 +141,11 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     await showCupertinoModalPopup<void>(
       context: context,
       builder: (context) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Container(
-            color: AppColor.white,
-            height: 350,
-            child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        t.createPlanPage.modal.title,
-                        style: AppTextStyle.textStyle.copyWith(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.black,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: const Icon(Symbols.close),
-                      ),
-                    ],
-                  ),
-                ),
-                const Divider(),
-                Expanded(
-                  child: CupertinoDatePicker(
-                    initialDateTime: DateTime.now(),
-                    onDateTimeChanged: (date) {
-                      updateDate(date, targetController);
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
+        return CustomCupertinoDatePicker(
+          onDateTimeChanged: (date) {
+            updateDate(date, targetController);
+          },
+          targetController: targetController,
         );
       },
     );
