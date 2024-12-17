@@ -1,0 +1,4 @@
+Analyzing Shibuya-Buddy...                                      
+
+   info • Missing a required trailing comma • lib/presentation/components/plan_card.dart:114:15 • require_trailing_commas
+
