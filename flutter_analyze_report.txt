@@ -1,5 +1,1 @@
-Analyzing Shibuya-Buddy...
-
-   info - lib/presentation/components/plan_card.dart:114:15 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
-
-1 issue found.
+lib/presentation/components/plan_card.dart:114:15 - Missing a required trailing comma. - require_trailing_commas
