@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AccountPageState {
-// Googleログイン状態を管理するプロパティ
-  bool get isGoogleSignedIn => throw _privateConstructorUsedError;
+  bool get googleLinkage => throw _privateConstructorUsedError;
+  bool get appleLinkage => throw _privateConstructorUsedError;
 
   /// Create a copy of AccountPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +32,7 @@ abstract class $AccountPageStateCopyWith<$Res> {
           AccountPageState value, $Res Function(AccountPageState) then) =
       _$AccountPageStateCopyWithImpl<$Res, AccountPageState>;
   @useResult
-  $Res call({bool isGoogleSignedIn});
+  $Res call({bool googleLinkage, bool appleLinkage});
 }
 
 /// @nodoc
@@ -50,12 +50,17 @@ class _$AccountPageStateCopyWithImpl<$Res, $Val extends AccountPageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isGoogleSignedIn = null,
+    Object? googleLinkage = null,
+    Object? appleLinkage = null,
   }) {
     return _then(_value.copyWith(
-      isGoogleSignedIn: null == isGoogleSignedIn
-          ? _value.isGoogleSignedIn
-          : isGoogleSignedIn // ignore: cast_nullable_to_non_nullable
+      googleLinkage: null == googleLinkage
+          ? _value.googleLinkage
+          : googleLinkage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      appleLinkage: null == appleLinkage
+          ? _value.appleLinkage
+          : appleLinkage // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -69,7 +74,7 @@ abstract class _$$AccountPageStateImplCopyWith<$Res>
       __$$AccountPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isGoogleSignedIn});
+  $Res call({bool googleLinkage, bool appleLinkage});
 }
 
 /// @nodoc
@@ -85,12 +90,17 @@ class __$$AccountPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isGoogleSignedIn = null,
+    Object? googleLinkage = null,
+    Object? appleLinkage = null,
   }) {
     return _then(_$AccountPageStateImpl(
-      isGoogleSignedIn: null == isGoogleSignedIn
-          ? _value.isGoogleSignedIn
-          : isGoogleSignedIn // ignore: cast_nullable_to_non_nullable
+      googleLinkage: null == googleLinkage
+          ? _value.googleLinkage
+          : googleLinkage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      appleLinkage: null == appleLinkage
+          ? _value.appleLinkage
+          : appleLinkage // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -99,16 +109,19 @@ class __$$AccountPageStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AccountPageStateImpl implements _AccountPageState {
-  const _$AccountPageStateImpl({this.isGoogleSignedIn = false});
+  const _$AccountPageStateImpl(
+      {this.googleLinkage = false, this.appleLinkage = false});
 
-// Googleログイン状態を管理するプロパティ
   @override
   @JsonKey()
-  final bool isGoogleSignedIn;
+  final bool googleLinkage;
+  @override
+  @JsonKey()
+  final bool appleLinkage;
 
   @override
   String toString() {
-    return 'AccountPageState(isGoogleSignedIn: $isGoogleSignedIn)';
+    return 'AccountPageState(googleLinkage: $googleLinkage, appleLinkage: $appleLinkage)';
   }
 
   @override
@@ -116,12 +129,14 @@ class _$AccountPageStateImpl implements _AccountPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountPageStateImpl &&
-            (identical(other.isGoogleSignedIn, isGoogleSignedIn) ||
-                other.isGoogleSignedIn == isGoogleSignedIn));
+            (identical(other.googleLinkage, googleLinkage) ||
+                other.googleLinkage == googleLinkage) &&
+            (identical(other.appleLinkage, appleLinkage) ||
+                other.appleLinkage == appleLinkage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isGoogleSignedIn);
+  int get hashCode => Object.hash(runtimeType, googleLinkage, appleLinkage);
 
   /// Create a copy of AccountPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -134,12 +149,14 @@ class _$AccountPageStateImpl implements _AccountPageState {
 }
 
 abstract class _AccountPageState implements AccountPageState {
-  const factory _AccountPageState({final bool isGoogleSignedIn}) =
-      _$AccountPageStateImpl;
+  const factory _AccountPageState(
+      {final bool googleLinkage,
+      final bool appleLinkage}) = _$AccountPageStateImpl;
 
-// Googleログイン状態を管理するプロパティ
   @override
-  bool get isGoogleSignedIn;
+  bool get googleLinkage;
+  @override
+  bool get appleLinkage;
 
   /// Create a copy of AccountPageState
   /// with the given fields replaced by the non-null parameter values.

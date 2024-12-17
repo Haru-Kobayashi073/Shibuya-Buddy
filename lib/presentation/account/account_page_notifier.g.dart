@@ -7,12 +7,12 @@ part of 'account_page_notifier.dart';
 // **************************************************************************
 
 String _$accountPageNotifierHash() =>
-    r'54913e55f140e1b94bba0b749ab75ad36a95356d';
+    r'fbbc02beed99bfcd1a37058b47cc607a55999e0f';
 
 /// See also [AccountPageNotifier].
 @ProviderFor(AccountPageNotifier)
 final accountPageNotifierProvider =
-    AutoDisposeNotifierProvider<AccountPageNotifier, void>.internal(
+    AutoDisposeNotifierProvider<AccountPageNotifier, AccountPageState>.internal(
   AccountPageNotifier.new,
   name: r'accountPageNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final accountPageNotifierProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$AccountPageNotifier = AutoDisposeNotifier<void>;
+typedef _$AccountPageNotifier = AutoDisposeNotifier<AccountPageState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
