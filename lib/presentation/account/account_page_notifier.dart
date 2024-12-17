@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
+import 'account_page_state.dart';
 
 part 'account_page_notifier.g.dart';
 
@@ -16,21 +17,33 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       ref.read(authenticationDataSourceProvider.notifier);
 
   @override
-  void build() {
-    return;
+  AccountPageState build() {
+    final currentUser = _auth.currentUser;
+    return AccountPageState(
+      googleLinkage: checkGoogleLink(currentUser),
+      appleLinkage: checkAppleLink(currentUser),
+    );
   }
 
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  bool appleLinkageConfirmation(User? user) {
+  Future<void> updateGoogleLinkStatus({required bool link}) async {
+    state = state.copyWith(googleLinkage: link);
+  }
+
+  Future<void> updateAppleLinkStatus({required bool link}) async {
+    state = state.copyWith(appleLinkage: link);
+  }
+
+  bool checkAppleLink(User? user) {
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == 'apple.com',
         ) ??
         false;
   }
 
-  bool googleLinkageConfirmation(User? user) {
+  bool checkGoogleLink(User? user) {
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == 'google.com',
         ) ??
@@ -50,11 +63,28 @@ class AccountPageNotifier extends _$AccountPageNotifier {
     }
   }
 
+  Future<bool> unlinkApple(User? user) async {
+    if (user == null) {
+      return false;
+    }
+
+    try {
+      await user.unlink('apple.com');
+      return true;
+    } on FirebaseAuthException {
+      return false;
+    }
+  }
+
+  Future<User?> linkedWithApple() async {
+    debugPrint('ダミー');
+    return null;
+  }
+
   Future<User?> linkedWithGoogle() async {
     final snackBari18n = t.accountPage.snackBar;
-    final snack = ref.watch(
-      scaffoldMessengerProvider.notifier as AlwaysAliveProviderListenable,
-    );
+    final snack = ref.watch(scaffoldMessengerProvider.notifier);
+
     try {
       final googleUser = await GoogleSignIn().signIn();
 
