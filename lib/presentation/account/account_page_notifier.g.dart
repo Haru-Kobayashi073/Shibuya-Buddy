@@ -7,7 +7,7 @@ part of 'account_page_notifier.dart';
 // **************************************************************************
 
 String _$accountPageNotifierHash() =>
-    r'fbbc02beed99bfcd1a37058b47cc607a55999e0f';
+    r'2852130db6b63e7a188f57299399048c097cbd97';
 
 /// See also [AccountPageNotifier].
 @ProviderFor(AccountPageNotifier)
