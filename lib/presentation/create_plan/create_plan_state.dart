@@ -6,7 +6,8 @@ part 'create_plan_state.freezed.dart';
 class CreatePlanState with _$CreatePlanState {
   const factory CreatePlanState({
     @Default('渋谷') String location,
-    DateTime? date,
+    DateTime? startDate,
+    DateTime? endDate,
     @Default('') String numberOfPeople,
     @Default('') String transport,
     @Default('') String category,
@@ -14,6 +15,7 @@ class CreatePlanState with _$CreatePlanState {
     @Default([]) List<String> selectedNumberofPeople,
     @Default([]) List<String> selectedTransport,
     @Default([]) List<String> selectedCategory,
+    
   }) = _CreatePlanState;
 }
 

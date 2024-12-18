@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CreatePlanState {
   String get location => throw _privateConstructorUsedError;
-  DateTime? get date => throw _privateConstructorUsedError;
+  DateTime? get startDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
   String get numberOfPeople => throw _privateConstructorUsedError;
   String get transport => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $CreatePlanStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String location,
-      DateTime? date,
+      DateTime? startDate,
+      DateTime? endDate,
       String numberOfPeople,
       String transport,
       String category,
@@ -67,7 +69,8 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
   @override
   $Res call({
     Object? location = null,
-    Object? date = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
     Object? numberOfPeople = null,
     Object? transport = null,
     Object? category = null,
@@ -81,9 +84,13 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       numberOfPeople: null == numberOfPeople
           ? _value.numberOfPeople
@@ -127,7 +134,8 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String location,
-      DateTime? date,
+      DateTime? startDate,
+      DateTime? endDate,
       String numberOfPeople,
       String transport,
       String category,
@@ -151,7 +159,8 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? location = null,
-    Object? date = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
     Object? numberOfPeople = null,
     Object? transport = null,
     Object? category = null,
@@ -165,9 +174,13 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       numberOfPeople: null == numberOfPeople
           ? _value.numberOfPeople
@@ -206,7 +219,8 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
 class _$CreatePlanStateImpl implements _CreatePlanState {
   const _$CreatePlanStateImpl(
       {this.location = '渋谷',
-      this.date,
+      this.startDate,
+      this.endDate,
       this.numberOfPeople = '',
       this.transport = '',
       this.category = '',
@@ -223,7 +237,9 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
   @JsonKey()
   final String location;
   @override
-  final DateTime? date;
+  final DateTime? startDate;
+  @override
+  final DateTime? endDate;
   @override
   @JsonKey()
   final String numberOfPeople;
@@ -274,7 +290,7 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
 
   @override
   String toString() {
-    return 'CreatePlanState(location: $location, date: $date, numberOfPeople: $numberOfPeople, transport: $transport, category: $category, selectedTopics: $selectedTopics, selectedNumberofPeople: $selectedNumberofPeople, selectedTransport: $selectedTransport, selectedCategory: $selectedCategory)';
+    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, transport: $transport, category: $category, selectedTopics: $selectedTopics, selectedNumberofPeople: $selectedNumberofPeople, selectedTransport: $selectedTransport, selectedCategory: $selectedCategory)';
   }
 
   @override
@@ -284,7 +300,9 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
             other is _$CreatePlanStateImpl &&
             (identical(other.location, location) ||
                 other.location == location) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.numberOfPeople, numberOfPeople) ||
                 other.numberOfPeople == numberOfPeople) &&
             (identical(other.transport, transport) ||
@@ -305,7 +323,8 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
   int get hashCode => Object.hash(
       runtimeType,
       location,
-      date,
+      startDate,
+      endDate,
       numberOfPeople,
       transport,
       category,
@@ -327,7 +346,8 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
 abstract class _CreatePlanState implements CreatePlanState {
   const factory _CreatePlanState(
       {final String location,
-      final DateTime? date,
+      final DateTime? startDate,
+      final DateTime? endDate,
       final String numberOfPeople,
       final String transport,
       final String category,
@@ -339,7 +359,9 @@ abstract class _CreatePlanState implements CreatePlanState {
   @override
   String get location;
   @override
-  DateTime? get date;
+  DateTime? get startDate;
+  @override
+  DateTime? get endDate;
   @override
   String get numberOfPeople;
   @override
