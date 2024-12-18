@@ -360,15 +360,19 @@ class _TranslationsAccountPageSnackBarZhHant
   @override
   String get linkageFailure => '帳戶連結失敗。';
   @override
-  String get accountLinked => '此帳戶已連結。';
+  String get providerAlreadyLinked => '此帳戶已經連結。';
   @override
   String get accountDeactivation => '已解除帳戶連結。';
   @override
-  String get nvalidCredential => '無效連結';
+  String get invalidCredential => '請重新登入。';
   @override
-  String get linkageCancelled => '已取消帳戶連結。';
+  String get linkageCancelled => '帳戶連結已取消。';
   @override
   String get unlinkageFailure => '解除帳戶連結失敗。';
+  @override
+  String get operationNotAllowed => '提供者無效。請聯絡開發者。';
+  @override
+  String get unknownError => '發生未知錯誤。';
 }
 
 // Path: accountPage.diaLog
@@ -821,16 +825,20 @@ extension on TranslationsZhHant {
         return '帳戶連結成功。';
       case 'accountPage.snackBar.linkageFailure':
         return '帳戶連結失敗。';
-      case 'accountPage.snackBar.accountLinked':
-        return '此帳戶已連結。';
+      case 'accountPage.snackBar.providerAlreadyLinked':
+        return '此帳戶已經連結。';
       case 'accountPage.snackBar.accountDeactivation':
         return '已解除帳戶連結。';
-      case 'accountPage.snackBar.nvalidCredential':
-        return '無效連結';
+      case 'accountPage.snackBar.invalidCredential':
+        return '請重新登入。';
       case 'accountPage.snackBar.linkageCancelled':
-        return '已取消帳戶連結。';
+        return '帳戶連結已取消。';
       case 'accountPage.snackBar.unlinkageFailure':
         return '解除帳戶連結失敗。';
+      case 'accountPage.snackBar.operationNotAllowed':
+        return '提供者無效。請聯絡開發者。';
+      case 'accountPage.snackBar.unknownError':
+        return '發生未知錯誤。';
       case 'accountPage.diaLog.yes':
         return '是';
       case 'accountPage.diaLog.no':

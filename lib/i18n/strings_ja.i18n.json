@@ -31,11 +31,13 @@
             "loggedOut":"ログアウトしました。",
             "successfulLinkage":"アカウント連携に成功しました。",
             "linkageFailure":"アカウント連携に失敗しました。",
-            "accountLinked":"このアカウントはすでに連携済みです。",
+            "providerAlreadyLinked":"このアカウントはすでに連携済みです。",
             "accountDeactivation":"アカウントの連携を解除しました。",
-            "nvalidCredential":"無効なリンク",
+            "invalidCredential":"再度ログインをやり直してください。",
             "linkageCancelled":"アカウントの連携をキャンセルしました。",
-            "unlinkageFailure":"アカウントの連携解除に失敗しました。"
+            "unlinkageFailure":"アカウントの連携解除に失敗しました。",
+            "operationNotAllowed":"プロパイダーが無効です。開発者にお問い合わせください。",
+            "unknownError":"不明なエラーが発生しました。"
         },
         "diaLog":{
             "yes":"はい",

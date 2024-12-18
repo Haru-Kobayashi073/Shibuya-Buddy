@@ -31,11 +31,13 @@
             "loggedOut": "已成功登出。",
             "successfulLinkage": "帳戶連結成功。",
             "linkageFailure": "帳戶連結失敗。",
-            "accountLinked": "此帳戶已連結。",
+            "providerAlreadyLinked": "此帳戶已經連結。",
             "accountDeactivation": "已解除帳戶連結。",
-            "nvalidCredential": "無效連結",
-            "linkageCancelled": "已取消帳戶連結。",
-            "unlinkageFailure": "解除帳戶連結失敗。"
+            "invalidCredential": "請重新登入。",
+            "linkageCancelled": "帳戶連結已取消。",
+            "unlinkageFailure": "解除帳戶連結失敗。",
+            "operationNotAllowed": "提供者無效。請聯絡開發者。",
+            "unknownError": "發生未知錯誤。"
         },
             "diaLog": {
             "yes": "是",

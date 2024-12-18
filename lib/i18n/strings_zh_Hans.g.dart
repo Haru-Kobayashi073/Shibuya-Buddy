@@ -354,21 +354,25 @@ class _TranslationsAccountPageSnackBarZhHans
 
   // Translations
   @override
-  String get loggedOut => '已成功退出。';
+  String get loggedOut => '已成功退出登录。';
   @override
-  String get successfulLinkage => '账户连接成功。';
+  String get successfulLinkage => '账户关联成功。';
   @override
-  String get linkageFailure => '账户连接失败。';
+  String get linkageFailure => '账户关联失败。';
   @override
-  String get accountLinked => '此账户已连接。';
+  String get providerAlreadyLinked => '此账户已经关联。';
   @override
-  String get accountDeactivation => '已解除账户连接。';
+  String get accountDeactivation => '已解除账户关联。';
   @override
-  String get nvalidCredential => '无效链接';
+  String get invalidCredential => '请重新登录。';
   @override
-  String get linkageCancelled => '已取消账户连接。';
+  String get linkageCancelled => '账户关联已取消。';
   @override
-  String get unlinkageFailure => '解除账户连接失败。';
+  String get unlinkageFailure => '解除账户关联失败。';
+  @override
+  String get operationNotAllowed => '提供者无效。请联系开发者。';
+  @override
+  String get unknownError => '发生未知错误。';
 }
 
 // Path: accountPage.diaLog
@@ -816,21 +820,25 @@ extension on TranslationsZhHans {
       case 'accountPage.items.alreadyLinkedApple':
         return '已与Apple连接';
       case 'accountPage.snackBar.loggedOut':
-        return '已成功退出。';
+        return '已成功退出登录。';
       case 'accountPage.snackBar.successfulLinkage':
-        return '账户连接成功。';
+        return '账户关联成功。';
       case 'accountPage.snackBar.linkageFailure':
-        return '账户连接失败。';
-      case 'accountPage.snackBar.accountLinked':
-        return '此账户已连接。';
+        return '账户关联失败。';
+      case 'accountPage.snackBar.providerAlreadyLinked':
+        return '此账户已经关联。';
       case 'accountPage.snackBar.accountDeactivation':
-        return '已解除账户连接。';
-      case 'accountPage.snackBar.nvalidCredential':
-        return '无效链接';
+        return '已解除账户关联。';
+      case 'accountPage.snackBar.invalidCredential':
+        return '请重新登录。';
       case 'accountPage.snackBar.linkageCancelled':
-        return '已取消账户连接。';
+        return '账户关联已取消。';
       case 'accountPage.snackBar.unlinkageFailure':
-        return '解除账户连接失败。';
+        return '解除账户关联失败。';
+      case 'accountPage.snackBar.operationNotAllowed':
+        return '提供者无效。请联系开发者。';
+      case 'accountPage.snackBar.unknownError':
+        return '发生未知错误。';
       case 'accountPage.diaLog.yes':
         return '是';
       case 'accountPage.diaLog.no':

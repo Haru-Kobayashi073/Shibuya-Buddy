@@ -284,14 +284,17 @@ class TranslationsAccountPageSnackBarEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
-  String get loggedOut => 'Logged out successfully.';
-  String get successfulLinkage => 'Account linkage successful.';
-  String get linkageFailure => 'Account linkage failed.';
-  String get accountLinked => 'This account is already linked.';
+  String get loggedOut => 'You have been logged out.';
+  String get successfulLinkage => 'Account linked successfully.';
+  String get linkageFailure => 'Failed to link account.';
+  String get providerAlreadyLinked => 'This account is already linked.';
   String get accountDeactivation => 'Account linkage has been removed.';
-  String get nvalidCredential => 'Invalid Link';
-  String get linkageCancelled => 'Account linkage cancelled.';
-  String get unlinkageFailure => 'Failed to unlink account.';
+  String get invalidCredential => 'Please try logging in again.';
+  String get linkageCancelled => 'Account linking was cancelled.';
+  String get unlinkageFailure => 'Failed to remove account linkage.';
+  String get operationNotAllowed =>
+      'Provider is invalid. Please contact the developer.';
+  String get unknownError => 'An unknown error occurred.';
 }
 
 // Path: accountPage.diaLog
@@ -642,21 +645,25 @@ extension on Translations {
       case 'accountPage.items.alreadyLinkedApple':
         return 'Already Linked with Apple';
       case 'accountPage.snackBar.loggedOut':
-        return 'Logged out successfully.';
+        return 'You have been logged out.';
       case 'accountPage.snackBar.successfulLinkage':
-        return 'Account linkage successful.';
+        return 'Account linked successfully.';
       case 'accountPage.snackBar.linkageFailure':
-        return 'Account linkage failed.';
-      case 'accountPage.snackBar.accountLinked':
+        return 'Failed to link account.';
+      case 'accountPage.snackBar.providerAlreadyLinked':
         return 'This account is already linked.';
       case 'accountPage.snackBar.accountDeactivation':
         return 'Account linkage has been removed.';
-      case 'accountPage.snackBar.nvalidCredential':
-        return 'Invalid Link';
+      case 'accountPage.snackBar.invalidCredential':
+        return 'Please try logging in again.';
       case 'accountPage.snackBar.linkageCancelled':
-        return 'Account linkage cancelled.';
+        return 'Account linking was cancelled.';
       case 'accountPage.snackBar.unlinkageFailure':
-        return 'Failed to unlink account.';
+        return 'Failed to remove account linkage.';
+      case 'accountPage.snackBar.operationNotAllowed':
+        return 'Provider is invalid. Please contact the developer.';
+      case 'accountPage.snackBar.unknownError':
+        return 'An unknown error occurred.';
       case 'accountPage.diaLog.yes':
         return 'Yes';
       case 'accountPage.diaLog.no':

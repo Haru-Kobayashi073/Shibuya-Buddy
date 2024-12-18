@@ -356,15 +356,19 @@ class _TranslationsAccountPageSnackBarJa
   @override
   String get linkageFailure => 'アカウント連携に失敗しました。';
   @override
-  String get accountLinked => 'このアカウントはすでに連携済みです。';
+  String get providerAlreadyLinked => 'このアカウントはすでに連携済みです。';
   @override
   String get accountDeactivation => 'アカウントの連携を解除しました。';
   @override
-  String get nvalidCredential => '無効なリンク';
+  String get invalidCredential => '再度ログインをやり直してください。';
   @override
   String get linkageCancelled => 'アカウントの連携をキャンセルしました。';
   @override
   String get unlinkageFailure => 'アカウントの連携解除に失敗しました。';
+  @override
+  String get operationNotAllowed => 'プロパイダーが無効です。開発者にお問い合わせください。';
+  @override
+  String get unknownError => '不明なエラーが発生しました。';
 }
 
 // Path: accountPage.diaLog
@@ -809,16 +813,20 @@ extension on TranslationsJa {
         return 'アカウント連携に成功しました。';
       case 'accountPage.snackBar.linkageFailure':
         return 'アカウント連携に失敗しました。';
-      case 'accountPage.snackBar.accountLinked':
+      case 'accountPage.snackBar.providerAlreadyLinked':
         return 'このアカウントはすでに連携済みです。';
       case 'accountPage.snackBar.accountDeactivation':
         return 'アカウントの連携を解除しました。';
-      case 'accountPage.snackBar.nvalidCredential':
-        return '無効なリンク';
+      case 'accountPage.snackBar.invalidCredential':
+        return '再度ログインをやり直してください。';
       case 'accountPage.snackBar.linkageCancelled':
         return 'アカウントの連携をキャンセルしました。';
       case 'accountPage.snackBar.unlinkageFailure':
         return 'アカウントの連携解除に失敗しました。';
+      case 'accountPage.snackBar.operationNotAllowed':
+        return 'プロパイダーが無効です。開発者にお問い合わせください。';
+      case 'accountPage.snackBar.unknownError':
+        return '不明なエラーが発生しました。';
       case 'accountPage.diaLog.yes':
         return 'はい';
       case 'accountPage.diaLog.no':

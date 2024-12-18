@@ -28,14 +28,16 @@
             "alreadyLinkedApple": "已与Apple连接"
         },
         "snackBar": {
-            "loggedOut": "已成功退出。",
-            "successfulLinkage": "账户连接成功。",
-            "linkageFailure": "账户连接失败。",
-            "accountLinked": "此账户已连接。",
-            "accountDeactivation": "已解除账户连接。",
-            "nvalidCredential": "无效链接",
-            "linkageCancelled": "已取消账户连接。",
-            "unlinkageFailure": "解除账户连接失败。"
+            "loggedOut": "已成功退出登录。",
+            "successfulLinkage": "账户关联成功。",
+            "linkageFailure": "账户关联失败。",
+            "providerAlreadyLinked": "此账户已经关联。",
+            "accountDeactivation": "已解除账户关联。",
+            "invalidCredential": "请重新登录。",
+            "linkageCancelled": "账户关联已取消。",
+            "unlinkageFailure": "解除账户关联失败。",
+            "operationNotAllowed": "提供者无效。请联系开发者。",
+            "unknownError": "发生未知错误。"
         },
         "diaLog": {
             "yes": "是",

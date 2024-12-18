@@ -28,14 +28,16 @@
             "alreadyLinkedApple": "Already Linked with Apple"
         },
         "snackBar": {
-            "loggedOut": "Logged out successfully.",
-            "successfulLinkage": "Account linkage successful.",
-            "linkageFailure": "Account linkage failed.",
-            "accountLinked": "This account is already linked.",
+            "loggedOut": "You have been logged out.",
+            "successfulLinkage": "Account linked successfully.",
+            "linkageFailure": "Failed to link account.",
+            "providerAlreadyLinked": "This account is already linked.",
             "accountDeactivation": "Account linkage has been removed.",
-            "nvalidCredential": "Invalid Link",
-            "linkageCancelled": "Account linkage cancelled.",
-            "unlinkageFailure": "Failed to unlink account."
+            "invalidCredential": "Please try logging in again.",
+            "linkageCancelled": "Account linking was cancelled.",
+            "unlinkageFailure": "Failed to remove account linkage.",
+            "operationNotAllowed": "Provider is invalid. Please contact the developer.",
+            "unknownError": "An unknown error occurred."
         },
         "diaLog": {
             "yes": "Yes",
