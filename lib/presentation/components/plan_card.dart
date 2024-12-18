@@ -110,7 +110,7 @@ class PlanCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                RankingLabel(ranking: ranking)
+                RankingLabel(ranking: ranking),
               ],
             ),
           ),
