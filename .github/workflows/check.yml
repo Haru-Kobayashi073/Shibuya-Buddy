@@ -22,6 +22,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
       # You can specify other versions if desired, see documentation here:
@@ -46,10 +48,10 @@ jobs:
         run: echo "::add-matcher::.github/analyzer-problem-matcher.json"
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Run dart analyze
+      - name: Run flutter analyze
         shell: bash
         run: |
-          dart analyze --fatal-infos | tee ./flutter_analyze_report.txt
+          flutter analyze --fatal-infos | tee ./flutter_analyze_report.txt
 
       - name: Remove matcher
         if: always()
