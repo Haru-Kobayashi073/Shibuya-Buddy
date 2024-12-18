@@ -123,7 +123,7 @@ class StartUpPageRouteData extends GoRouteData {
 
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
-    routes: [
+  routes: [
     TypedGoRoute<CreatePlanPageRouteData>(path: Routes.createPlan),
     TypedGoRoute<PopularTopicsPageRouteData>(
       path: Routes.popularTopicsPage,

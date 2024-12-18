@@ -15,7 +15,6 @@ class CreatePlanState with _$CreatePlanState {
     @Default([]) List<String> selectedNumberofPeople,
     @Default([]) List<String> selectedTransport,
     @Default([]) List<String> selectedCategory,
-    
   }) = _CreatePlanState;
 }
 
