@@ -46,9 +46,6 @@ class TranslationsZhHant implements Translations {
   late final _TranslationsHomePageZhHant homePage =
       _TranslationsHomePageZhHant._(_root);
   @override
-  late final _TranslationsAccountPageZhHant accountPage =
-      _TranslationsAccountPageZhHant._(_root);
-  @override
   late final _TranslationsAuthenticationZhHant authentication =
       _TranslationsAuthenticationZhHant._(_root);
   @override
@@ -105,26 +102,6 @@ class _TranslationsHomePageZhHant implements TranslationsHomePageEn {
   @override
   late final _TranslationsHomePageRecentPlansZhHant recentPlans =
       _TranslationsHomePageRecentPlansZhHant._(_root);
-}
-
-// Path: accountPage
-class _TranslationsAccountPageZhHant implements TranslationsAccountPageEn {
-  _TranslationsAccountPageZhHant._(this._root);
-
-  final TranslationsZhHant _root; // ignore: unused_field
-
-  // Translations
-  @override
-  String get title => '帳戶';
-  @override
-  late final _TranslationsAccountPageItemsZhHant items =
-      _TranslationsAccountPageItemsZhHant._(_root);
-  @override
-  late final _TranslationsAccountPageSnackBarZhHant snackBar =
-      _TranslationsAccountPageSnackBarZhHant._(_root);
-  @override
-  late final _TranslationsAccountPageDiaLogZhHant diaLog =
-      _TranslationsAccountPageDiaLogZhHant._(_root);
 }
 
 // Path: authentication
@@ -323,72 +300,6 @@ class _TranslationsHomePageRecentPlansZhHant
   // Translations
   @override
   String get title => '最近創建的計畫';
-}
-
-// Path: accountPage.items
-class _TranslationsAccountPageItemsZhHant
-    implements TranslationsAccountPageItemsEn {
-  _TranslationsAccountPageItemsZhHant._(this._root);
-
-  final TranslationsZhHant _root; // ignore: unused_field
-
-  // Translations
-  @override
-  String get signOut => '登出';
-  @override
-  String get linkedWithGoogle => '與Google連結';
-  @override
-  String get linkedWithApple => '與Apple連結';
-  @override
-  String get alreadyLinkedGoogle => '已與Google連結';
-  @override
-  String get alreadyLinkedApple => '已與Apple連結';
-}
-
-// Path: accountPage.snackBar
-class _TranslationsAccountPageSnackBarZhHant
-    implements TranslationsAccountPageSnackBarEn {
-  _TranslationsAccountPageSnackBarZhHant._(this._root);
-
-  final TranslationsZhHant _root; // ignore: unused_field
-
-  // Translations
-  @override
-  String get loggedOut => '已成功登出。';
-  @override
-  String get successfulLinkage => '帳戶連結成功。';
-  @override
-  String get linkageFailure => '帳戶連結失敗。';
-  @override
-  String get accountLinked => '此帳戶已連結。';
-  @override
-  String get accountDeactivation => '已解除帳戶連結。';
-  @override
-  String get nvalidCredential => '無效連結';
-  @override
-  String get linkageCancelled => '已取消帳戶連結。';
-  @override
-  String get unlinkageFailure => '解除帳戶連結失敗。';
-}
-
-// Path: accountPage.diaLog
-class _TranslationsAccountPageDiaLogZhHant
-    implements TranslationsAccountPageDiaLogEn {
-  _TranslationsAccountPageDiaLogZhHant._(this._root);
-
-  final TranslationsZhHant _root; // ignore: unused_field
-
-  // Translations
-  @override
-  String get yes => '是';
-  @override
-  String get no => '否';
-  @override
-  String get title => '確認解除帳戶連結';
-  @override
-  String get google_text => '是否要解除目前帳戶與Google帳戶的連結？';
-  @override
-  String get apple_text => '是否要解除目前帳戶與Apple帳戶的連結？';
 }
 
 // Path: authentication.signInPage
@@ -803,44 +714,6 @@ extension on TranslationsZhHant {
         return ({required Object number}) => '${number}件~';
       case 'homePage.recentPlans.title':
         return '最近創建的計畫';
-      case 'accountPage.title':
-        return '帳戶';
-      case 'accountPage.items.signOut':
-        return '登出';
-      case 'accountPage.items.linkedWithGoogle':
-        return '與Google連結';
-      case 'accountPage.items.linkedWithApple':
-        return '與Apple連結';
-      case 'accountPage.items.alreadyLinkedGoogle':
-        return '已與Google連結';
-      case 'accountPage.items.alreadyLinkedApple':
-        return '已與Apple連結';
-      case 'accountPage.snackBar.loggedOut':
-        return '已成功登出。';
-      case 'accountPage.snackBar.successfulLinkage':
-        return '帳戶連結成功。';
-      case 'accountPage.snackBar.linkageFailure':
-        return '帳戶連結失敗。';
-      case 'accountPage.snackBar.accountLinked':
-        return '此帳戶已連結。';
-      case 'accountPage.snackBar.accountDeactivation':
-        return '已解除帳戶連結。';
-      case 'accountPage.snackBar.nvalidCredential':
-        return '無效連結';
-      case 'accountPage.snackBar.linkageCancelled':
-        return '已取消帳戶連結。';
-      case 'accountPage.snackBar.unlinkageFailure':
-        return '解除帳戶連結失敗。';
-      case 'accountPage.diaLog.yes':
-        return '是';
-      case 'accountPage.diaLog.no':
-        return '否';
-      case 'accountPage.diaLog.title':
-        return '確認解除帳戶連結';
-      case 'accountPage.diaLog.google_text':
-        return '是否要解除目前帳戶與Google帳戶的連結？';
-      case 'accountPage.diaLog.apple_text':
-        return '是否要解除目前帳戶與Apple帳戶的連結？';
       case 'authentication.signInPage.title':
         return '登入';
       case 'authentication.signInPage.optionText':
