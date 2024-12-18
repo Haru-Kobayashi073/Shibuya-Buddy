@@ -5,6 +5,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'i18n/strings.g.dart';
 import 'infrastructure/firebase/firebase_options_dev.dart' as dev;
 import 'infrastructure/firebase/firebase_options_prod.dart' as prod;
