@@ -38,10 +38,11 @@
             "unlinkageFailure":"アカウントの連携解除に失敗しました。"
         },
         "diaLog":{
-            "ok":"はい",
-            "cancel":"いいえ",
+            "yes":"はい",
+            "no":"いいえ",
             "title":"アカウント連携解除の確認",
-            "text":"現在のアカウントとGoogleアカウントの連携を解除しますか？"
+            "google_text":"現在のアカウントとGoogleアカウントの連携を解除しますか？",
+            "apple_text": "現在のアカウントとAppleアカウントの連携を解除しますか？"
         }
     },
     "authentication": {

@@ -38,10 +38,11 @@
             "unlinkageFailure": "Failed to unlink account."
         },
         "diaLog": {
-            "ok": "Yes",
-            "cancel": "No",
+            "yes": "Yes",
+            "no": "No",
             "title": "Confirm Account Unlinking",
-            "text": "Do you want to unlink the current account from your Google account?"
+            "google_text": "Do you want to unlink the current account from your Google account?",
+            "apple_text": "Do you want to unlink the current account from your Apple account?"
         }
     },
     "authentication": {

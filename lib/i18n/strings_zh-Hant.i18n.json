@@ -38,10 +38,11 @@
             "unlinkageFailure": "解除帳戶連結失敗。"
         },
             "diaLog": {
-            "ok": "是",
-            "cancel": "否",
+            "yes": "是",
+            "no": "否",
             "title": "確認解除帳戶連結",
-            "text": "是否要解除目前帳戶與Google帳戶的連結？"
+            "google_text": "是否要解除目前帳戶與Google帳戶的連結？",
+            "apple_text": "是否要解除目前帳戶與Apple帳戶的連結？"
         }
     },
     "authentication": {

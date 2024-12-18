@@ -67,14 +67,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       builder: (context) {
                         return AlertDialog(
                           title: Text(diaLogi18n.title),
-                          content: Text(diaLogi18n.text),
+                          content: Text(diaLogi18n.apple_text),
                           actions: [
                             TextButton(
-                              child: Text(diaLogi18n.ok),
+                              child: Text(diaLogi18n.no),
                               onPressed: () => Navigator.pop(context),
                             ),
                             TextButton(
-                              child: Text(diaLogi18n.cancel),
+                              child: Text(diaLogi18n.yes),
                               onPressed: () async {
                                 Navigator.pop(context);
                                 await notifier.unlinkApple(user);
@@ -118,14 +118,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       builder: (context) {
                         return AlertDialog(
                           title: Text(diaLogi18n.title),
-                          content: Text(diaLogi18n.text),
+                          content: Text(diaLogi18n.google_text),
                           actions: [
                             TextButton(
-                              child: Text(diaLogi18n.ok),
+                              child: Text(diaLogi18n.no),
                               onPressed: () => Navigator.pop(context),
                             ),
                             TextButton(
-                              child: Text(diaLogi18n.cancel),
+                              child: Text(diaLogi18n.yes),
                               onPressed: () async {
                                 Navigator.pop(context);
                                 await notifier.unlinkGoogle(user);
