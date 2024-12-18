@@ -10,27 +10,6 @@ part 'create_plan_notifier.g.dart';
 
 @riverpod
 class CreatePlanNotifier extends _$CreatePlanNotifier {
-  CreatePlanNotifier() {
-    locationController =
-        TextEditingController(text: t.createPlanPage.hintText.location);
-    startDateController = TextEditingController();
-    endDateController = TextEditingController();
-    numberOfPeopleController = TextEditingController();
-    transportController = TextEditingController();
-    categoryController = TextEditingController();
-    topicsController = TextEditingController();
-  }
-
-  late final TextEditingController locationController;
-  late final TextEditingController startDateController;
-  late final TextEditingController endDateController;
-  late final TextEditingController numberOfPeopleController;
-  late final TextEditingController transportController;
-  late final TextEditingController categoryController;
-  late final TextEditingController topicsController;
-
-  DateTime? selectedDate;
-
   @override
   CreatePlanState build() {
     return const CreatePlanState();
@@ -41,19 +20,19 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
   }
 
   void updateSelectedTopics(List<String> topics) {
-    state = state.copyWith(selectedTopics: topics)..selectedTopics.join(', ');
+    state = state.copyWith(selectedTopics: topics);
   }
 
-  void updateTopicsController() {
-    topicsController.text = state.selectedTopics.join(', ');
+  void setStartDate(DateTime date) {
+    state = state.copyWith(startDate: date);
   }
 
-  void updateDate(
-    DateTime newDate,
-    TextEditingController targetController,
-  ) {
+  void setEndDate(DateTime date) {
+    state = state.copyWith(endDate: date);
+  }
+
+  String formatDate(DateTime date) {
     final currentLocale = LocaleSettings.currentLocale.languageCode;
-
     final pattern = {
           'ja': 'M/d(E) hh:mm a',
           'en': 'MMM d, E hh:mm a',
@@ -62,28 +41,18 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
         }[currentLocale] ??
         'MMM d, EEEE HH:mm';
 
-    final formatter = DateFormat(
-      pattern,
-      LocaleSettings.currentLocale.languageCode,
-    );
-
-    targetController.text = formatter.format(newDate);
+    final formatter = DateFormat(pattern, currentLocale);
+    return formatter.format(date);
   }
 
   void updateSingleSelection(SelectionField field, String item) {
     switch (field) {
       case SelectionField.transport:
         state = state.copyWith(selectedTransport: [item]);
-        _updateController(transportController, state.selectedTransport);
       case SelectionField.numberOfPeople:
         state = state.copyWith(selectedNumberofPeople: [item]);
-        _updateController(
-          numberOfPeopleController,
-          state.selectedNumberofPeople,
-        );
       case SelectionField.category:
         state = state.copyWith(selectedCategory: [item]);
-        _updateController(categoryController, state.selectedCategory);
     }
   }
 
@@ -96,17 +65,12 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
           updateField: (updatedList) =>
               state = state.copyWith(selectedTransport: updatedList),
         );
-        _updateController(transportController, state.selectedTransport);
       case SelectionField.numberOfPeople:
         _toggleListField(
           selectedItems: state.selectedNumberofPeople,
           item: item,
           updateField: (updatedList) =>
               state = state.copyWith(selectedNumberofPeople: updatedList),
-        );
-        _updateController(
-          numberOfPeopleController,
-          state.selectedNumberofPeople,
         );
       case SelectionField.category:
         _toggleListField(
@@ -115,7 +79,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
           updateField: (updatedList) =>
               state = state.copyWith(selectedCategory: updatedList),
         );
-        _updateController(categoryController, state.selectedCategory);
     }
   }
 
@@ -130,24 +93,30 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     updateField(updatedList);
   }
 
-  void _updateController(TextEditingController controller, List<String> items) {
-    controller.text = items.join(', ');
-  }
-
   Future<void> showCupertinoDatePicker(
     BuildContext context,
-    TextEditingController targetController,
-  ) async {
+    TextEditingController targetController, {
+    required bool isStartDate,
+  }) async {
+    var chosenDate = DateTime.now();
+
     await showCupertinoModalPopup<void>(
       context: context,
       builder: (context) {
         return CustomCupertinoDatePicker(
-          onDateTimeChanged: (date) {
-            updateDate(date, targetController);
-          },
           targetController: targetController,
+          onDateTimeChanged: (date) {
+            chosenDate = date;
+            targetController.text = formatDate(date);
+          },
         );
       },
     );
+
+    if (isStartDate) {
+      setStartDate(chosenDate);
+    } else {
+      setEndDate(chosenDate);
+    }
   }
 }
