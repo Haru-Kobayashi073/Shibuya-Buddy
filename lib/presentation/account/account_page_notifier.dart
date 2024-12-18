@@ -104,24 +104,32 @@ class AccountPageNotifier extends _$AccountPageNotifier {
 
       if (currentUser != null) {
         try {
+          //アカウント連携
           await currentUser.linkWithCredential(credential);
-          snack.showExceptionSnackBar(snackBari18n.successfulLinkage);
           return currentUser;
         } on FirebaseAuthException catch (e) {
-          if (e.code == 'provider-already-linked') {
-            snack.showExceptionSnackBar(snackBari18n.accountLinked);
-          } else if (e.code == 'invalid-credential') {
-            snack.showExceptionSnackBar(snackBari18n.nvalidCredential);
+          switch (e.code) {
+            case 'provider-already-linked':
+              //  連携済み
+              snack.showExceptionSnackBar(snackBari18n.providerAlreadyLinked);
+            case 'invalid-credential':
+              //googleのサインインが期限切れ
+              snack.showExceptionSnackBar(snackBari18n.invalidCredential);
+            case 'operation-not-allowed':
+              //プロパイダーが無効
+              snack.showExceptionSnackBar(snackBari18n.operationNotAllowed);
+            default:
+              snack.showExceptionSnackBar(
+                '${snackBari18n.unknownError}:$e',
+              );
           }
           return null;
         }
-      } else {
-        final userCredential = await _auth.signInWithCredential(credential);
-        final user = userCredential.user;
-        return user;
       }
     } on PlatformException {
+      //アカウント連携キャンセル
       snack.showExceptionSnackBar(snackBari18n.linkageCancelled);
+      return null;
     }
     return null;
   }
