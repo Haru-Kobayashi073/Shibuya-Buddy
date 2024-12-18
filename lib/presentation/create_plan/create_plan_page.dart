@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
@@ -15,13 +16,40 @@ import 'components/topic_text_field.dart';
 import 'create_plan_notifier.dart';
 import 'create_plan_state.dart';
 
-class CreatePlanPage extends ConsumerWidget {
+class CreatePlanPage extends HookConsumerWidget {
   const CreatePlanPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final planState = ref.watch(createPlanNotifierProvider);
     final planNotifier = ref.watch(createPlanNotifierProvider.notifier);
+
+    final locationController =
+        useTextEditingController(text: t.createPlanPage.hintText.location);
+    final startDateController = useTextEditingController();
+    final endDateController = useTextEditingController();
+    final numberOfPeopleController = useTextEditingController();
+    final transportController = useTextEditingController();
+    final categoryController = useTextEditingController();
+    final topicsController = useTextEditingController();
+
+    useEffect(
+      () {
+        topicsController.text = planState.selectedTopics.join(', ');
+        numberOfPeopleController.text =
+            planState.selectedNumberofPeople.join(', ');
+        transportController.text = planState.selectedTransport.join(', ');
+        categoryController.text = planState.selectedCategory.join(', ');
+        startDateController.text = planState.startDate != null
+            ? planNotifier.formatDate(planState.startDate!)
+            : '';
+        endDateController.text = planState.endDate != null
+            ? planNotifier.formatDate(planState.endDate!)
+            : '';
+        return null;
+      },
+      [planState],
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -42,7 +70,7 @@ class CreatePlanPage extends ConsumerWidget {
                 label: t.createPlanPage.label.location,
                 readOnly: true,
                 prefixIcon: const Icon(Symbols.location_on),
-                controller: planNotifier.locationController,
+                controller: locationController,
               ),
               const Gap(16),
               Row(
@@ -50,14 +78,13 @@ class CreatePlanPage extends ConsumerWidget {
                   Expanded(
                     child: PlanTextField(
                       label: t.createPlanPage.label.scheduleStart,
-                      prefixIcon: const Icon(Symbols.calendar_month),
-                      controller: planNotifier.startDateController,
-                      keyboardType: TextInputType.none,
+                      controller: startDateController,
                       readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
                           context,
-                          planNotifier.startDateController,
+                          startDateController,
+                          isStartDate: true,
                         );
                       },
                     ),
@@ -74,14 +101,13 @@ class CreatePlanPage extends ConsumerWidget {
                   Expanded(
                     child: PlanTextField(
                       label: t.createPlanPage.label.scheduleEnd,
-                      prefixIcon: const Icon(Symbols.calendar_month),
-                      controller: planNotifier.endDateController,
-                      keyboardType: TextInputType.none,
+                      controller: endDateController,
                       readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
                           context,
-                          planNotifier.endDateController,
+                          endDateController,
+                          isStartDate: false,
                         );
                       },
                     ),
@@ -92,7 +118,7 @@ class CreatePlanPage extends ConsumerWidget {
               PlanTextField(
                 label: t.createPlanPage.label.numberOfPeople,
                 prefixIcon: const Icon(Symbols.supervisor_account),
-                controller: planNotifier.numberOfPeopleController,
+                controller: numberOfPeopleController,
                 keyboardType: TextInputType.none,
                 readOnly: true,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -112,7 +138,7 @@ class CreatePlanPage extends ConsumerWidget {
                     },
                   );
                   if (selectedValue != null) {
-                    planNotifier.numberOfPeopleController.text = selectedValue;
+                    numberOfPeopleController.text = selectedValue;
                   }
                 },
               ),
@@ -120,7 +146,7 @@ class CreatePlanPage extends ConsumerWidget {
               PlanTextField(
                 label: t.createPlanPage.label.transport,
                 prefixIcon: const Icon(Icons.commute),
-                controller: planNotifier.transportController,
+                controller: transportController,
                 readOnly: true,
                 onTap: () async {
                   await showModalBottomSheet<void>(
@@ -142,7 +168,7 @@ class CreatePlanPage extends ConsumerWidget {
               PlanTextField(
                 label: t.createPlanPage.label.category,
                 prefixIcon: const Icon(Symbols.category),
-                controller: planNotifier.categoryController,
+                controller: categoryController,
                 readOnly: true,
                 onTap: () async {
                   final selectedValue = await showModalBottomSheet<String>(
@@ -159,7 +185,7 @@ class CreatePlanPage extends ConsumerWidget {
                     },
                   );
                   if (selectedValue != null) {
-                    planNotifier.categoryController.text = selectedValue;
+                    categoryController.text = selectedValue;
                   }
                 },
               ),
@@ -168,18 +194,14 @@ class CreatePlanPage extends ConsumerWidget {
                 label: t.createPlanPage.label.topics,
                 prefixIcon: const Icon(Symbols.emoji_objects),
                 suffixIcon: const Icon(Symbols.close),
-                controller: planNotifier.topicsController,
+                controller: topicsController,
                 readOnly: true,
                 onClear: planNotifier.clearTopics,
               ),
               TopicChipField(
                 topics: t.createPlanPage.defaultTopics,
                 selectedTopics: planState.selectedTopics,
-                onChange: (updatedTopics) {
-                  planNotifier
-                    ..updateSelectedTopics(updatedTopics)
-                    ..updateTopicsController();
-                },
+                onChange: planNotifier.updateSelectedTopics,
               ),
               const Gap(16),
               WideButton(
