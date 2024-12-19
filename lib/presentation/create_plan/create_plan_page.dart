@@ -77,6 +77,7 @@ class CreatePlanPage extends HookConsumerWidget {
                 children: [
                   Expanded(
                     child: PlanTextField(
+                      prefixIcon: const Icon(Symbols.calendar_month),
                       label: t.createPlanPage.label.scheduleStart,
                       controller: startDateController,
                       readOnly: true,
@@ -102,6 +103,7 @@ class CreatePlanPage extends HookConsumerWidget {
                     child: PlanTextField(
                       label: t.createPlanPage.label.scheduleEnd,
                       controller: endDateController,
+                      prefixIcon: const Icon(Symbols.calendar_month),
                       readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
