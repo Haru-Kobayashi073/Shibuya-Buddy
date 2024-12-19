@@ -68,7 +68,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       final credential = await authenticationDataSource.signInWithGoogle();
       await linkedSocialAccount(credential);
       state = state.copyWith(googleLinkage: true);
-    } catch (e) {
+    } on Exception {
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
   }
