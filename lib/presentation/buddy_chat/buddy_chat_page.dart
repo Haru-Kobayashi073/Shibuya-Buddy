@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/hooks/use_form_state_key.dart';
 import '../../utils/styles/app_color.dart';
@@ -106,6 +108,8 @@ class BuddyChatPage extends HookConsumerWidget {
                         controller: value.scrollController,
                         slivers: [
                           ...value.messages.map(_buildChatMessage),
+                          if (value.possibleChatCount != null)
+                            _possibleChatCountText(value.possibleChatCount!),
                         ],
                       ),
                     ),
@@ -143,10 +147,17 @@ class BuddyChatPage extends HookConsumerWidget {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        IconButton(
-                          onPressed: () async => sendMessage(),
-                          icon: const Icon(Icons.send),
-                        ),
+                        if (value.isLoadingForMessage)
+                          Lottie.asset(
+                            Assets.lottie.animation1734615191322,
+                            width: 48,
+                            height: 48,
+                          )
+                        else
+                          IconButton(
+                            onPressed: () async => sendMessage(),
+                            icon: const Icon(Icons.send),
+                          ),
                       ],
                     ),
                   ),
@@ -165,5 +176,30 @@ class BuddyChatPage extends HookConsumerWidget {
 Widget _buildChatMessage(ChatMessage chatMessage) {
   return SliverToBoxAdapter(
     child: MessageCard(chatMessage: chatMessage),
+  );
+}
+
+Widget _possibleChatCountText(int possibleChatCount) {
+  return SliverToBoxAdapter(
+    child: Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          const Expanded(
+            child: Divider(color: AppColor.grey600),
+          ),
+          Text(
+            t.buddyChatPage
+                .possibleChatCount(possibleChatCount: possibleChatCount),
+            style: AppTextStyle.textStyle.copyWith(
+              color: AppColor.grey600,
+            ),
+          ),
+          const Expanded(
+            child: Divider(color: AppColor.grey600),
+          ),
+        ],
+      ),
+    ),
   );
 }

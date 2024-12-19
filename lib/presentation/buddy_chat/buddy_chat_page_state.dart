@@ -9,6 +9,8 @@ part 'buddy_chat_page_state.freezed.dart';
 abstract class BuddyChatPageState with _$BuddyChatPageState {
   const factory BuddyChatPageState({
     required List<ChatMessage> messages,
+    required int? possibleChatCount,
     required ScrollController scrollController,
+    @Default(false) bool isLoadingForMessage,
   }) = _BuddyChatPageState;
 }

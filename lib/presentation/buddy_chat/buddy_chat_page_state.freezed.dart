@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$BuddyChatPageState {
   List<ChatMessage> get messages => throw _privateConstructorUsedError;
+  int? get possibleChatCount => throw _privateConstructorUsedError;
   ScrollController get scrollController => throw _privateConstructorUsedError;
+  bool get isLoadingForMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of BuddyChatPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +34,11 @@ abstract class $BuddyChatPageStateCopyWith<$Res> {
           BuddyChatPageState value, $Res Function(BuddyChatPageState) then) =
       _$BuddyChatPageStateCopyWithImpl<$Res, BuddyChatPageState>;
   @useResult
-  $Res call({List<ChatMessage> messages, ScrollController scrollController});
+  $Res call(
+      {List<ChatMessage> messages,
+      int? possibleChatCount,
+      ScrollController scrollController,
+      bool isLoadingForMessage});
 }
 
 /// @nodoc
@@ -51,17 +57,27 @@ class _$BuddyChatPageStateCopyWithImpl<$Res, $Val extends BuddyChatPageState>
   @override
   $Res call({
     Object? messages = null,
+    Object? possibleChatCount = freezed,
     Object? scrollController = null,
+    Object? isLoadingForMessage = null,
   }) {
     return _then(_value.copyWith(
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<ChatMessage>,
+      possibleChatCount: freezed == possibleChatCount
+          ? _value.possibleChatCount
+          : possibleChatCount // ignore: cast_nullable_to_non_nullable
+              as int?,
       scrollController: null == scrollController
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
+      isLoadingForMessage: null == isLoadingForMessage
+          ? _value.isLoadingForMessage
+          : isLoadingForMessage // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -74,7 +90,11 @@ abstract class _$$BuddyChatPageStateImplCopyWith<$Res>
       __$$BuddyChatPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ChatMessage> messages, ScrollController scrollController});
+  $Res call(
+      {List<ChatMessage> messages,
+      int? possibleChatCount,
+      ScrollController scrollController,
+      bool isLoadingForMessage});
 }
 
 /// @nodoc
@@ -91,17 +111,27 @@ class __$$BuddyChatPageStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? messages = null,
+    Object? possibleChatCount = freezed,
     Object? scrollController = null,
+    Object? isLoadingForMessage = null,
   }) {
     return _then(_$BuddyChatPageStateImpl(
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<ChatMessage>,
+      possibleChatCount: freezed == possibleChatCount
+          ? _value.possibleChatCount
+          : possibleChatCount // ignore: cast_nullable_to_non_nullable
+              as int?,
       scrollController: null == scrollController
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
+      isLoadingForMessage: null == isLoadingForMessage
+          ? _value.isLoadingForMessage
+          : isLoadingForMessage // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -111,7 +141,9 @@ class __$$BuddyChatPageStateImplCopyWithImpl<$Res>
 class _$BuddyChatPageStateImpl implements _BuddyChatPageState {
   const _$BuddyChatPageStateImpl(
       {required final List<ChatMessage> messages,
-      required this.scrollController})
+      required this.possibleChatCount,
+      required this.scrollController,
+      this.isLoadingForMessage = false})
       : _messages = messages;
 
   final List<ChatMessage> _messages;
@@ -123,11 +155,16 @@ class _$BuddyChatPageStateImpl implements _BuddyChatPageState {
   }
 
   @override
+  final int? possibleChatCount;
+  @override
   final ScrollController scrollController;
+  @override
+  @JsonKey()
+  final bool isLoadingForMessage;
 
   @override
   String toString() {
-    return 'BuddyChatPageState(messages: $messages, scrollController: $scrollController)';
+    return 'BuddyChatPageState(messages: $messages, possibleChatCount: $possibleChatCount, scrollController: $scrollController, isLoadingForMessage: $isLoadingForMessage)';
   }
 
   @override
@@ -136,13 +173,21 @@ class _$BuddyChatPageStateImpl implements _BuddyChatPageState {
         (other.runtimeType == runtimeType &&
             other is _$BuddyChatPageStateImpl &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
+            (identical(other.possibleChatCount, possibleChatCount) ||
+                other.possibleChatCount == possibleChatCount) &&
             (identical(other.scrollController, scrollController) ||
-                other.scrollController == scrollController));
+                other.scrollController == scrollController) &&
+            (identical(other.isLoadingForMessage, isLoadingForMessage) ||
+                other.isLoadingForMessage == isLoadingForMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_messages), scrollController);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_messages),
+      possibleChatCount,
+      scrollController,
+      isLoadingForMessage);
 
   /// Create a copy of BuddyChatPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -156,14 +201,19 @@ class _$BuddyChatPageStateImpl implements _BuddyChatPageState {
 
 abstract class _BuddyChatPageState implements BuddyChatPageState {
   const factory _BuddyChatPageState(
-          {required final List<ChatMessage> messages,
-          required final ScrollController scrollController}) =
-      _$BuddyChatPageStateImpl;
+      {required final List<ChatMessage> messages,
+      required final int? possibleChatCount,
+      required final ScrollController scrollController,
+      final bool isLoadingForMessage}) = _$BuddyChatPageStateImpl;
 
   @override
   List<ChatMessage> get messages;
   @override
+  int? get possibleChatCount;
+  @override
   ScrollController get scrollController;
+  @override
+  bool get isLoadingForMessage;
 
   /// Create a copy of BuddyChatPageState
   /// with the given fields replaced by the non-null parameter values.

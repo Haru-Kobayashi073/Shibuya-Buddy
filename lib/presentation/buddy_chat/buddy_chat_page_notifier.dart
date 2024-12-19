@@ -4,7 +4,11 @@ import 'package:uuid/uuid.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/user.dart';
+import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_mock_data_source.dart';
+import '../../utils/billing_grade_options.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
 import 'buddy_chat_page_state.dart';
@@ -17,6 +21,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       ref.read(geminiMockDataSourceProvider.notifier);
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
+  bool get isStandardGradeUser =>
+      ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
@@ -50,6 +56,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
     return BuddyChatPageState(
       messages: messages,
+      possibleChatCount:
+          isStandardGradeUser ? BillingGradeOptions.possibleChatCount : null,
       scrollController: scrollController,
     );
   }
@@ -70,22 +78,38 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }
 
   Future<void> recieveMessage({required String message}) async {
-    await Future.delayed(const Duration(seconds: 1), () {});
-
-    final res = await geminiDataSource.sendMessage(message: message);
-
-    final buddyMessage = ChatMessage(
-      id: res.id,
-      author: res.author,
-      message: res.message,
-      createdAt: res.createdAt,
-    );
-
     state = AsyncValue.data(
-      state.requireValue.copyWith(
-        messages: [...state.requireValue.messages, buddyMessage],
-      ),
+      state.requireValue.copyWith(isLoadingForMessage: true),
     );
+    try {
+      await Future.delayed(const Duration(seconds: 3), () {});
+
+      final res = await geminiDataSource.sendMessage(message: message);
+
+      final buddyMessage = ChatMessage(
+        id: res.id,
+        author: res.author,
+        message: res.message,
+        createdAt: res.createdAt,
+      );
+
+      state = AsyncValue.data(
+        state.requireValue.copyWith(
+          messages: [...state.requireValue.messages, buddyMessage],
+          possibleChatCount: isStandardGradeUser
+              ? state.requireValue.possibleChatCount! - 1
+              : null,
+        ),
+      );
+    } on Exception catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(
+        t.buddyChatPage.snackBar.error.failedRecieveMessage,
+      );
+    } finally {
+      state = AsyncValue.data(
+        state.requireValue.copyWith(isLoadingForMessage: false),
+      );
+    }
   }
 
   Future<void> animateControllerWhenMessaging() async {
