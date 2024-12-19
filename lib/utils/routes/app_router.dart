@@ -14,6 +14,7 @@ import '../../presentation/change_language/change_language_page.dart';
 import '../../presentation/change_theme/change_theme_page.dart';
 import '../../presentation/complete_send_email/complete_send_email_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
+import '../../presentation/create_plan/create_plan_page.dart';
 import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
@@ -34,6 +35,8 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 final homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'home');
 final myPlanNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'my_plan');
 final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'my_page');
+final createPlanNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'create_plan');
 
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
@@ -122,6 +125,7 @@ class StartUpPageRouteData extends GoRouteData {
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
   routes: [
+    TypedGoRoute<CreatePlanPageRouteData>(path: Routes.createPlan),
     TypedGoRoute<PopularTopicsPageRouteData>(
       path: Routes.popularTopicsPage,
     ),
@@ -136,6 +140,15 @@ class HomeScreenRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const HomePage();
+  }
+}
+
+class CreatePlanPageRouteData extends GoRouteData {
+  const CreatePlanPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const CreatePlanPage();
   }
 }
 

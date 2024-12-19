@@ -156,6 +156,29 @@
     "popularTopics": {
         "sectionName": "Popular Topics"
     },
+    "createPlanPage": {
+        "title": "Create Plan",
+        "label": {
+            "location": "Destination",
+            "scheduleStart": "Start Date",
+            "scheduleEnd": "End Date",
+            "numberOfPeople": "Number of People",
+            "transport": "Transportation",
+            "category": "Category",
+            "topics": "Travel Topics"
+        },
+        "hintText": {
+            "location": "Shibuya"
+        },
+        "modal": {
+            "title": "Select a date"
+        },
+        "numberOfPeopleOptions": ["1 person", "2 people", "3 people", "4 people", "5 people", "6 or more"],
+        "transportOptions": ["Train", "Walking", "Car", "Bus"],
+        "categoryOptions": ["Family-friendly", "Adult", "Entertainment", "Activity", "History"],
+        "defaultTopics": ["Gourmet", "Shopping", "Activities", "Movies"],
+        "submitButton": "Submit Plan to AI"
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",

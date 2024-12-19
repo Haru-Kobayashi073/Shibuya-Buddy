@@ -136,6 +136,10 @@ RouteBase get $homeScreenRouteData => GoRouteData.$route(
       factory: $HomeScreenRouteDataExtension._fromState,
       routes: [
         GoRouteData.$route(
+          path: 'createPlan',
+          factory: $CreatePlanPageRouteDataExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'popularTopicsPage',
           factory: $PopularTopicsPageRouteDataExtension._fromState,
         ),
@@ -145,6 +149,24 @@ RouteBase get $homeScreenRouteData => GoRouteData.$route(
         ),
       ],
     );
+
+extension $CreatePlanPageRouteDataExtension on CreatePlanPageRouteData {
+  static CreatePlanPageRouteData _fromState(GoRouterState state) =>
+      const CreatePlanPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/home/createPlan',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 extension $PopularTopicsPageRouteDataExtension on PopularTopicsPageRouteData {
   static PopularTopicsPageRouteData _fromState(GoRouterState state) =>
