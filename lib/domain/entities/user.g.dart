@@ -10,6 +10,7 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       uid: json['uid'] as String,
       name: json['name'] as String?,
       imageUrl: json['imageUrl'] as String?,
+      billingGrade: $enumDecode(_$BillingGradeEnumMap, json['billingGrade']),
       bookmarkedPlanIds: (json['bookmarkedPlanIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -25,11 +26,18 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'uid': instance.uid,
       'name': instance.name,
       'imageUrl': instance.imageUrl,
+      'billingGrade': _$BillingGradeEnumMap[instance.billingGrade]!,
       'bookmarkedPlanIds': instance.bookmarkedPlanIds,
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'updateAt': _$JsonConverterToJson<String, DateTime>(
           instance.updateAt, const DateTimeConverter().toJson),
     };
+
+const _$BillingGradeEnumMap = {
+  BillingGrade.standard: 'standard',
+  BillingGrade.premiumWithPeriod: 'premiumWithPeriod',
+  BillingGrade.premiumWithUnlimited: 'premiumWithUnlimited',
+};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
