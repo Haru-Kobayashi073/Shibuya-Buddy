@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'file_data_source.dart';
+part of 'current_auth_user.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fileDataSourceHash() => r'223cf0ac59c0c2ab1d8633abf1c0613091533e87';
+String _$currentAuthUserHash() => r'b91170c4f6899f2ce2b547fe7a1e84b36421fe15';
 
-/// See also [FileDataSource].
-@ProviderFor(FileDataSource)
-final fileDataSourceProvider =
-    AutoDisposeNotifierProvider<FileDataSource, void>.internal(
-  FileDataSource.new,
-  name: r'fileDataSourceProvider',
+/// See also [currentAuthUser].
+@ProviderFor(currentAuthUser)
+final currentAuthUserProvider = Provider<User>.internal(
+  currentAuthUser,
+  name: r'currentAuthUserProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$fileDataSourceHash,
+      : _$currentAuthUserHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$FileDataSource = AutoDisposeNotifier<void>;
+typedef CurrentAuthUserRef = ProviderRef<User>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
