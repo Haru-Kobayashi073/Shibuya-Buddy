@@ -6,7 +6,7 @@ part of 'my_page_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myPageNotifierHash() => r'96ad4e412a14eafc1824272ea2a96069b61d105f';
+String _$myPageNotifierHash() => r'61f8aecf5c705ad89dd0d067d03670d960ead474';
 
 /// See also [MyPageNotifier].
 @ProviderFor(MyPageNotifier)
