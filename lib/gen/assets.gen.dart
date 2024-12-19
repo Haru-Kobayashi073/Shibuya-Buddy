@@ -51,11 +51,23 @@ class $AssetsImagesGen {
       [activity, anime, gourmet, sample, shopping, userIcon];
 }
 
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/Animation - 1734615191322.json
+  String get animation1734615191322 =>
+      'assets/lottie/Animation - 1734615191322.json';
+
+  /// List of all assets
+  List<String> get values => [animation1734615191322];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage {
