@@ -6,6 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'account_page_state.dart';
 
@@ -15,10 +16,11 @@ part 'account_page_notifier.g.dart';
 class AccountPageNotifier extends _$AccountPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
+  FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
 
   @override
   AccountPageState build() {
-    final currentUser = _auth.currentUser;
+    final currentUser = firebaseAuth.currentUser;
     return AccountPageState(
       googleLinkage: checkGoogleLink(currentUser),
       appleLinkage: checkAppleLink(currentUser),

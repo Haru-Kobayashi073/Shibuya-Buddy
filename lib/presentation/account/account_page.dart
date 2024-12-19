@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
+import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
@@ -31,8 +31,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     final snackBari18n = i18n.accountPage.snackBar;
     final diaLogi18n = i18n.accountPage.diaLog;
     final snack = ref.watch(scaffoldMessengerProvider.notifier);
-    final auth = FirebaseAuth.instance;
-    final user = auth.currentUser;
+    final firebaseAuth = ref.watch(firebaseAuthProvider);
+    final user = firebaseAuth.currentUser;
     final accountLinkage = ref.watch(
       accountPageNotifierProvider.select((state) => state..googleLinkage),
     );
@@ -141,7 +141,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       },
                     );
                   } else {
-                    // Googleでサインインして連携
                     final result = await notifier.linkedWithGoogle();
                     if (result != null) {
                       snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
@@ -165,7 +164,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 style: AppTextStyle.textStyle.copyWith(
                   color: Colors.red,
                   fontSize: 14,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
             ),
