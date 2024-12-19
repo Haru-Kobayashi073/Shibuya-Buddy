@@ -18,6 +18,7 @@
             "title": "Recently Created Plans"
         }
     },
+
     "authentication": {
         "signInPage": {
             "title": "Sign In",

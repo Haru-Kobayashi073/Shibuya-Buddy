@@ -9,7 +9,14 @@ part of 'strings.g.dart';
 // Path: <root>
 typedef TranslationsEn = Translations; // ignore: unused_element
 
+
 class Translations implements BaseTranslations<AppLocale, Translations> {
+  /// Returns the current translations of the given [context].
+  ///
+  /// Usage:
+  /// final t = Translations.of(context);
+  static Translations of(BuildContext context) =>
+      InheritedLocaleData.of<AppLocale, Translations>(context).translations;
   /// Returns the current translations of the given [context].
   ///
   /// Usage:
@@ -33,14 +40,36 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
         ) {
     $meta.setFlatMapFunction(_flatMapFunction);
   }
+  /// You can call this constructor and build your own translation instance of this locale.
+  /// Constructing via the enum [AppLocale.build] is preferred.
+  Translations(
+      {Map<String, Node>? overrides,
+      PluralResolver? cardinalResolver,
+      PluralResolver? ordinalResolver})
+      : assert(overrides == null,
+            'Set "translation_overrides: true" in order to enable this feature.'),
+        $meta = TranslationMetadata(
+          locale: AppLocale.en,
+          overrides: overrides ?? {},
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        ) {
+    $meta.setFlatMapFunction(_flatMapFunction);
+  }
 
+  /// Metadata for the translations of <en>.
+  @override
+  final TranslationMetadata<AppLocale, Translations> $meta;
   /// Metadata for the translations of <en>.
   @override
   final TranslationMetadata<AppLocale, Translations> $meta;
 
   /// Access flat map
   dynamic operator [](String key) => $meta.getTranslation(key);
+  /// Access flat map
+  dynamic operator [](String key) => $meta.getTranslation(key);
 
+  late final Translations _root = this; // ignore: unused_field
   late final Translations _root = this; // ignore: unused_field
 
   // Translations
@@ -72,9 +101,14 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 // Path: navigationBar
 class TranslationsNavigationBarEn {
   TranslationsNavigationBarEn._(this._root);
+  TranslationsNavigationBarEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  late final TranslationsNavigationBarItemsEn items =
+      TranslationsNavigationBarItemsEn._(_root);
   // Translations
   late final TranslationsNavigationBarItemsEn items =
       TranslationsNavigationBarItemsEn._(_root);
@@ -83,9 +117,18 @@ class TranslationsNavigationBarEn {
 // Path: homePage
 class TranslationsHomePageEn {
   TranslationsHomePageEn._(this._root);
+  TranslationsHomePageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  late final TranslationsHomePagePopularPlansEn popularPlans =
+      TranslationsHomePagePopularPlansEn._(_root);
+  late final TranslationsHomePagePopularTopicsEn popularTopics =
+      TranslationsHomePagePopularTopicsEn._(_root);
+  late final TranslationsHomePageRecentPlansEn recentPlans =
+      TranslationsHomePageRecentPlansEn._(_root);
   // Translations
   late final TranslationsHomePagePopularPlansEn popularPlans =
       TranslationsHomePagePopularPlansEn._(_root);
@@ -98,9 +141,29 @@ class TranslationsHomePageEn {
 // Path: authentication
 class TranslationsAuthenticationEn {
   TranslationsAuthenticationEn._(this._root);
+  TranslationsAuthenticationEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  late final TranslationsAuthenticationSignInPageEn signInPage =
+      TranslationsAuthenticationSignInPageEn._(_root);
+  late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth =
+      TranslationsAuthenticationFirebaseAuthEn._(_root);
+  late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage =
+      TranslationsAuthenticationResetPasswordPageEn._(_root);
+  late final TranslationsAuthenticationSignUpPageEn signUpPage =
+      TranslationsAuthenticationSignUpPageEn._(_root);
+  late final TranslationsAuthenticationEmailVerificationPageEn
+      emailVerificationPage =
+      TranslationsAuthenticationEmailVerificationPageEn._(_root);
+  late final TranslationsAuthenticationRegisterProfilePageEn
+      registerProfilePage =
+      TranslationsAuthenticationRegisterProfilePageEn._(_root);
+  late final TranslationsAuthenticationCompleteSendEmailPageEn
+      completeSendEmailPage =
+      TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
   // Translations
   late final TranslationsAuthenticationSignInPageEn signInPage =
       TranslationsAuthenticationSignInPageEn._(_root);
@@ -124,9 +187,21 @@ class TranslationsAuthenticationEn {
 // Path: validation
 class TranslationsValidationEn {
   TranslationsValidationEn._(this._root);
+  TranslationsValidationEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get emailRequired => 'Please enter your email address';
+  String get emailInvalid => 'The email address format is incorrect';
+  String get passwordRequired => 'Please enter your password';
+  String get passwordShort => 'The password must be at least 8 characters long';
+  String get passwordWeak =>
+      'Please combine alphanumeric characters for the password';
+  String get passwordMatch => 'Passwords do not match';
+  String get informationRequired => 'Please enter the information';
+  String get urlInvalid => 'The URL format is incorrect';
   // Translations
   String get emailRequired => 'Please enter your email address';
   String get emailInvalid => 'The email address format is incorrect';
@@ -142,9 +217,22 @@ class TranslationsValidationEn {
 // Path: myPage
 class TranslationsMyPageEn {
   TranslationsMyPageEn._(this._root);
+  TranslationsMyPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get unregisteredUserName => 'Unregistered';
+  String get aboutAIFunction => 'About AI Features';
+  String get details => 'Details';
+  String get settings => 'Settings';
+  String get account => 'Account';
+  String get language => 'Language';
+  String get theme => 'Theme';
+  String get termsOfUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
+  String get aboutThisApp => 'About This App';
+  String get aboutTheDeveloper => 'About the Developer';
   // Translations
   String get unregisteredUserName => 'Unregistered';
   String get aboutAIFunction => 'About AI Features';
@@ -161,9 +249,15 @@ class TranslationsMyPageEn {
 // Path: changeLanguagePage
 class TranslationsChangeLanguagePageEn {
   TranslationsChangeLanguagePageEn._(this._root);
+  TranslationsChangeLanguagePageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Language';
+  late final TranslationsChangeLanguagePageItemsEn items =
+      TranslationsChangeLanguagePageItemsEn._(_root);
   // Translations
   String get title => 'Language';
   late final TranslationsChangeLanguagePageItemsEn items =
@@ -173,9 +267,15 @@ class TranslationsChangeLanguagePageEn {
 // Path: changeThemePage
 class TranslationsChangeThemePageEn {
   TranslationsChangeThemePageEn._(this._root);
+  TranslationsChangeThemePageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Theme';
+  late final TranslationsChangeThemePageItemsEn items =
+      TranslationsChangeThemePageItemsEn._(_root);
   // Translations
   String get title => 'Theme';
   late final TranslationsChangeThemePageItemsEn items =
@@ -185,9 +285,15 @@ class TranslationsChangeThemePageEn {
 // Path: myPlanPage
 class TranslationsMyPlanPageEn {
   TranslationsMyPlanPageEn._(this._root);
+  TranslationsMyPlanPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'My Plans';
+  late final TranslationsMyPlanPageTabsEn tabs =
+      TranslationsMyPlanPageTabsEn._(_root);
   // Translations
   String get title => 'My Plans';
   late final TranslationsMyPlanPageTabsEn tabs =
@@ -197,9 +303,13 @@ class TranslationsMyPlanPageEn {
 // Path: popularTopics
 class TranslationsPopularTopicsEn {
   TranslationsPopularTopicsEn._(this._root);
+  TranslationsPopularTopicsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get sectionName => 'Popular Topics';
   // Translations
   String get sectionName => 'Popular Topics';
 }
@@ -251,9 +361,15 @@ class TranslationsCreatePlanPageEn {
 // Path: navigationBar.items
 class TranslationsNavigationBarItemsEn {
   TranslationsNavigationBarItemsEn._(this._root);
+  TranslationsNavigationBarItemsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get home => 'Home';
+  String get myPlan => 'My Plan';
+  String get myPage => 'My Page';
   // Translations
   String get home => 'Home';
   String get myPlan => 'My Plan';
@@ -263,9 +379,13 @@ class TranslationsNavigationBarItemsEn {
 // Path: homePage.popularPlans
 class TranslationsHomePagePopularPlansEn {
   TranslationsHomePagePopularPlansEn._(this._root);
+  TranslationsHomePagePopularPlansEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Popular Plans';
   // Translations
   String get title => 'Popular Plans';
 }
@@ -273,9 +393,14 @@ class TranslationsHomePagePopularPlansEn {
 // Path: homePage.popularTopics
 class TranslationsHomePagePopularTopicsEn {
   TranslationsHomePagePopularTopicsEn._(this._root);
+  TranslationsHomePagePopularTopicsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Popular Topics';
+  String numberOfTopics({required Object number}) => '${number} items~';
   // Translations
   String get title => 'Popular Topics';
   String numberOfTopics({required Object number}) => '${number} items~';
@@ -284,9 +409,13 @@ class TranslationsHomePagePopularTopicsEn {
 // Path: homePage.recentPlans
 class TranslationsHomePageRecentPlansEn {
   TranslationsHomePageRecentPlansEn._(this._root);
+  TranslationsHomePageRecentPlansEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Recently Created Plans';
   // Translations
   String get title => 'Recently Created Plans';
 }
@@ -294,9 +423,18 @@ class TranslationsHomePageRecentPlansEn {
 // Path: authentication.signInPage
 class TranslationsAuthenticationSignInPageEn {
   TranslationsAuthenticationSignInPageEn._(this._root);
+  TranslationsAuthenticationSignInPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Sign In';
+  String get optionText => ' or ';
+  late final TranslationsAuthenticationSignInPageTextFieldsEn textFields =
+      TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
+  late final TranslationsAuthenticationSignInPageButtonsEn buttons =
+      TranslationsAuthenticationSignInPageButtonsEn._(_root);
   // Translations
   String get title => 'Sign In';
   String get optionText => ' or ';
@@ -309,9 +447,14 @@ class TranslationsAuthenticationSignInPageEn {
 // Path: authentication.firebaseAuth
 class TranslationsAuthenticationFirebaseAuthEn {
   TranslationsAuthenticationFirebaseAuthEn._(this._root);
+  TranslationsAuthenticationFirebaseAuthEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  late final TranslationsAuthenticationFirebaseAuthErrorEn error =
+      TranslationsAuthenticationFirebaseAuthErrorEn._(_root);
   // Translations
   late final TranslationsAuthenticationFirebaseAuthErrorEn error =
       TranslationsAuthenticationFirebaseAuthErrorEn._(_root);
@@ -320,9 +463,20 @@ class TranslationsAuthenticationFirebaseAuthEn {
 // Path: authentication.resetPasswordPage
 class TranslationsAuthenticationResetPasswordPageEn {
   TranslationsAuthenticationResetPasswordPageEn._(this._root);
+  TranslationsAuthenticationResetPasswordPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Reset Password';
+  String get description =>
+      'A password reset email will be sent to the entered email address';
+  late final TranslationsAuthenticationResetPasswordPageTextFieldsEn
+      textFields =
+      TranslationsAuthenticationResetPasswordPageTextFieldsEn._(_root);
+  late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons =
+      TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
   // Translations
   String get title => 'Reset Password';
   String get description =>
@@ -337,9 +491,16 @@ class TranslationsAuthenticationResetPasswordPageEn {
 // Path: authentication.signUpPage
 class TranslationsAuthenticationSignUpPageEn {
   TranslationsAuthenticationSignUpPageEn._(this._root);
+  TranslationsAuthenticationSignUpPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Sign Up';
+  late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields =
+      TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
+  String get button => 'Sign Up';
   // Translations
   String get title => 'Sign Up';
   late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields =
@@ -350,9 +511,22 @@ class TranslationsAuthenticationSignUpPageEn {
 // Path: authentication.emailVerificationPage
 class TranslationsAuthenticationEmailVerificationPageEn {
   TranslationsAuthenticationEmailVerificationPageEn._(this._root);
+  TranslationsAuthenticationEmailVerificationPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Email Address Verification';
+  String descriptionForDestination({required Object email}) =>
+      'A verification email will be sent to the entered ${email}.';
+  String get descriptionForCoolDown =>
+      'You can resend the verification email once every 60 seconds.';
+  late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons =
+      TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
+  late final TranslationsAuthenticationEmailVerificationPageSnackBarEn
+      snackBar =
+      TranslationsAuthenticationEmailVerificationPageSnackBarEn._(_root);
   // Translations
   String get title => 'Email Address Verification';
   String descriptionForDestination({required Object email}) =>
@@ -369,9 +543,18 @@ class TranslationsAuthenticationEmailVerificationPageEn {
 // Path: authentication.registerProfilePage
 class TranslationsAuthenticationRegisterProfilePageEn {
   TranslationsAuthenticationRegisterProfilePageEn._(this._root);
+  TranslationsAuthenticationRegisterProfilePageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Profile Registration';
+  String get textFields => 'Name';
+  late final TranslationsAuthenticationRegisterProfilePageButtonsEn buttons =
+      TranslationsAuthenticationRegisterProfilePageButtonsEn._(_root);
+  late final TranslationsAuthenticationRegisterProfilePageSnackBarEn snackBar =
+      TranslationsAuthenticationRegisterProfilePageSnackBarEn._(_root);
   // Translations
   String get title => 'Profile Registration';
   String get textFields => 'Name';
@@ -384,9 +567,18 @@ class TranslationsAuthenticationRegisterProfilePageEn {
 // Path: authentication.completeSendEmailPage
 class TranslationsAuthenticationCompleteSendEmailPageEn {
   TranslationsAuthenticationCompleteSendEmailPageEn._(this._root);
+  TranslationsAuthenticationCompleteSendEmailPageEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get title => 'Send Complete';
+  String description({required Object email}) =>
+      'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
+  String get successResendEmail => 'Confirmation email has been resent';
+  late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons =
+      TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
   // Translations
   String get title => 'Send Complete';
   String description({required Object email}) =>
@@ -399,9 +591,16 @@ class TranslationsAuthenticationCompleteSendEmailPageEn {
 // Path: changeLanguagePage.items
 class TranslationsChangeLanguagePageItemsEn {
   TranslationsChangeLanguagePageItemsEn._(this._root);
+  TranslationsChangeLanguagePageItemsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get japanese => 'Japanese';
+  String get english => 'English';
+  String get simplifiedChinese => 'Chinese (Simplified)';
+  String get traditionalChinese => 'Chinese (Traditional)';
   // Translations
   String get japanese => 'Japanese';
   String get english => 'English';
@@ -412,9 +611,15 @@ class TranslationsChangeLanguagePageItemsEn {
 // Path: changeThemePage.items
 class TranslationsChangeThemePageItemsEn {
   TranslationsChangeThemePageItemsEn._(this._root);
+  TranslationsChangeThemePageItemsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get system => 'System';
+  String get light => 'Light';
+  String get dark => 'Dark';
   // Translations
   String get system => 'System';
   String get light => 'Light';
@@ -424,9 +629,14 @@ class TranslationsChangeThemePageItemsEn {
 // Path: myPlanPage.tabs
 class TranslationsMyPlanPageTabsEn {
   TranslationsMyPlanPageTabsEn._(this._root);
+  TranslationsMyPlanPageTabsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get createdPlans => 'Created Plans';
+  String get bookmark => 'Bookmarks';
   // Translations
   String get createdPlans => 'Created Plans';
   String get bookmark => 'Bookmarks';
@@ -471,9 +681,14 @@ class TranslationsCreatePlanPageModalEn {
 // Path: authentication.signInPage.textFields
 class TranslationsAuthenticationSignInPageTextFieldsEn {
   TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
+  TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get email => 'Email Address';
+  String get password => 'Password';
   // Translations
   String get email => 'Email Address';
   String get password => 'Password';
@@ -482,9 +697,18 @@ class TranslationsAuthenticationSignInPageTextFieldsEn {
 // Path: authentication.signInPage.buttons
 class TranslationsAuthenticationSignInPageButtonsEn {
   TranslationsAuthenticationSignInPageButtonsEn._(this._root);
+  TranslationsAuthenticationSignInPageButtonsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get signIn => 'Sign In';
+  String get signUp => 'Sign Up';
+  String get resetPassword => 'Forgot Password?';
+  String get appleSignIn => 'Sign in with Apple';
+  String get googleSignIn => 'Sign in with Google';
+  String get signInAfter => 'Register Later';
   // Translations
   String get signIn => 'Sign In';
   String get signUp => 'Sign Up';
@@ -497,9 +721,23 @@ class TranslationsAuthenticationSignInPageButtonsEn {
 // Path: authentication.firebaseAuth.error
 class TranslationsAuthenticationFirebaseAuthErrorEn {
   TranslationsAuthenticationFirebaseAuthErrorEn._(this._root);
+  TranslationsAuthenticationFirebaseAuthErrorEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get networkRequestFailed =>
+      'Please try again in a good network environment';
+  String get weakPassword =>
+      'Password is too short. Please enter 6 characters or more';
+  String get invalidEmail => 'Email address is not in the correct format';
+  String get userNotFound => 'Account not found';
+  String get wrongPassword => 'Password is incorrect';
+  String get emailAlreadyInUse =>
+      'Email address is already in use. Please log in or create with another email address';
+  String get unexpected =>
+      'An error occurred. Please try again in a good network environment';
   // Translations
   String get networkRequestFailed =>
       'Please try again in a good network environment';
@@ -517,9 +755,13 @@ class TranslationsAuthenticationFirebaseAuthErrorEn {
 // Path: authentication.resetPasswordPage.textFields
 class TranslationsAuthenticationResetPasswordPageTextFieldsEn {
   TranslationsAuthenticationResetPasswordPageTextFieldsEn._(this._root);
+  TranslationsAuthenticationResetPasswordPageTextFieldsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get email => 'Email Address';
   // Translations
   String get email => 'Email Address';
 }
@@ -527,9 +769,13 @@ class TranslationsAuthenticationResetPasswordPageTextFieldsEn {
 // Path: authentication.resetPasswordPage.buttons
 class TranslationsAuthenticationResetPasswordPageButtonsEn {
   TranslationsAuthenticationResetPasswordPageButtonsEn._(this._root);
+  TranslationsAuthenticationResetPasswordPageButtonsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get submit => 'Submit';
   // Translations
   String get submit => 'Submit';
 }
@@ -537,9 +783,14 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 // Path: authentication.signUpPage.textFields
 class TranslationsAuthenticationSignUpPageTextFieldsEn {
   TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
+  TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get email => 'Email Address';
+  String get password => 'Password';
   // Translations
   String get email => 'Email Address';
   String get password => 'Password';
@@ -548,9 +799,16 @@ class TranslationsAuthenticationSignUpPageTextFieldsEn {
 // Path: authentication.emailVerificationPage.buttons
 class TranslationsAuthenticationEmailVerificationPageButtonsEn {
   TranslationsAuthenticationEmailVerificationPageButtonsEn._(this._root);
+  TranslationsAuthenticationEmailVerificationPageButtonsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get sendEmail => 'Send Verification Email';
+  String get resendEmail => 'Resend Verification Email';
+  String get toNext => 'Next';
+  String get retypeEmail => 'Edit Email Address';
   // Translations
   String get sendEmail => 'Send Verification Email';
   String get resendEmail => 'Resend Verification Email';
@@ -561,9 +819,16 @@ class TranslationsAuthenticationEmailVerificationPageButtonsEn {
 // Path: authentication.emailVerificationPage.snackBar
 class TranslationsAuthenticationEmailVerificationPageSnackBarEn {
   TranslationsAuthenticationEmailVerificationPageSnackBarEn._(this._root);
+  TranslationsAuthenticationEmailVerificationPageSnackBarEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get success => 'Email sent successfully';
+  late final TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn
+      error =
+      TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(_root);
   // Translations
   String get success => 'Email sent successfully';
   late final TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn
@@ -574,9 +839,14 @@ class TranslationsAuthenticationEmailVerificationPageSnackBarEn {
 // Path: authentication.registerProfilePage.buttons
 class TranslationsAuthenticationRegisterProfilePageButtonsEn {
   TranslationsAuthenticationRegisterProfilePageButtonsEn._(this._root);
+  TranslationsAuthenticationRegisterProfilePageButtonsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get submit => 'Complete';
+  String get skip => 'Skip';
   // Translations
   String get submit => 'Complete';
   String get skip => 'Skip';
@@ -585,9 +855,15 @@ class TranslationsAuthenticationRegisterProfilePageButtonsEn {
 // Path: authentication.registerProfilePage.snackBar
 class TranslationsAuthenticationRegisterProfilePageSnackBarEn {
   TranslationsAuthenticationRegisterProfilePageSnackBarEn._(this._root);
+  TranslationsAuthenticationRegisterProfilePageSnackBarEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  late final TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn
+      error =
+      TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(_root);
   // Translations
   late final TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn
       error =
@@ -597,9 +873,15 @@ class TranslationsAuthenticationRegisterProfilePageSnackBarEn {
 // Path: authentication.completeSendEmailPage.buttons
 class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
   TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
+  TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get toSignIn => 'To Login Screen';
+  String get resendEmail => 'Resend Confirmation Email';
+  String get changeEmail => 'Change Email Address';
   // Translations
   String get toSignIn => 'To Login Screen';
   String get resendEmail => 'Resend Confirmation Email';
@@ -609,9 +891,13 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 // Path: authentication.emailVerificationPage.snackBar.error
 class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
   TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
+  TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get unexpected => 'An error occurred. Please try again later.';
   // Translations
   String get unexpected => 'An error occurred. Please try again later.';
 }
@@ -619,9 +905,14 @@ class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 // Path: authentication.registerProfilePage.snackBar.error
 class TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
   TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(this._root);
+  TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn._(this._root);
 
   final Translations _root; // ignore: unused_field
+  final Translations _root; // ignore: unused_field
 
+  // Translations
+  String get submitIfAllEmpty => 'Please enter the information';
+  String get unexpected => 'An error occurred. Please try again later.';
   // Translations
   String get submitIfAllEmpty => 'Please enter the information';
   String get unexpected => 'An error occurred. Please try again later.';

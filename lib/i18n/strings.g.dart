@@ -33,7 +33,16 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
   ja(languageCode: 'ja'),
   zhHans(languageCode: 'zh', scriptCode: 'Hans'),
   zhHant(languageCode: 'zh', scriptCode: 'Hant');
+  en(languageCode: 'en'),
+  ja(languageCode: 'ja'),
+  zhHans(languageCode: 'zh', scriptCode: 'Hans'),
+  zhHant(languageCode: 'zh', scriptCode: 'Hant');
 
+  const AppLocale({
+    required this.languageCode,
+    this.scriptCode, // ignore: unused_element
+    this.countryCode, // ignore: unused_element
+  });
   const AppLocale({
     required this.languageCode,
     this.scriptCode, // ignore: unused_element
@@ -46,7 +55,49 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
   final String? scriptCode;
   @override
   final String? countryCode;
+  @override
+  final String languageCode;
+  @override
+  final String? scriptCode;
+  @override
+  final String? countryCode;
 
+  @override
+  Future<Translations> build({
+    Map<String, Node>? overrides,
+    PluralResolver? cardinalResolver,
+    PluralResolver? ordinalResolver,
+  }) async {
+    switch (this) {
+      case AppLocale.en:
+        return TranslationsEn(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case AppLocale.ja:
+        await l_ja.loadLibrary();
+        return l_ja.TranslationsJa(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case AppLocale.zhHans:
+        await l_zh_Hans.loadLibrary();
+        return l_zh_Hans.TranslationsZhHans(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case AppLocale.zhHant:
+        await l_zh_Hant.loadLibrary();
+        return l_zh_Hant.TranslationsZhHant(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+    }
+  }
   @override
   Future<Translations> build({
     Map<String, Node>? overrides,
@@ -117,7 +168,43 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
         );
     }
   }
+  @override
+  Translations buildSync({
+    Map<String, Node>? overrides,
+    PluralResolver? cardinalResolver,
+    PluralResolver? ordinalResolver,
+  }) {
+    switch (this) {
+      case AppLocale.en:
+        return TranslationsEn(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case AppLocale.ja:
+        return l_ja.TranslationsJa(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case AppLocale.zhHans:
+        return l_zh_Hans.TranslationsZhHans(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case AppLocale.zhHant:
+        return l_zh_Hant.TranslationsZhHant(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+    }
+  }
 
+  /// Gets current instance managed by [LocaleSettings].
+  Translations get translations =>
+      LocaleSettings.instance.getTranslations(this);
   /// Gets current instance managed by [LocaleSettings].
   Translations get translations =>
       LocaleSettings.instance.getTranslations(this);
@@ -153,7 +240,14 @@ class TranslationProvider
     extends BaseTranslationProvider<AppLocale, Translations> {
   TranslationProvider({required super.child})
       : super(settings: LocaleSettings.instance);
+class TranslationProvider
+    extends BaseTranslationProvider<AppLocale, Translations> {
+  TranslationProvider({required super.child})
+      : super(settings: LocaleSettings.instance);
 
+  static InheritedLocaleData<AppLocale, Translations> of(
+          BuildContext context) =>
+      InheritedLocaleData.of<AppLocale, Translations>(context);
   static InheritedLocaleData<AppLocale, Translations> of(
           BuildContext context) =>
       InheritedLocaleData.of<AppLocale, Translations>(context);
@@ -166,6 +260,7 @@ class TranslationProvider
 /// context.t.someKey.anotherKey
 extension BuildContextTranslationsExtension on BuildContext {
   Translations get t => TranslationProvider.of(this).translations;
+  Translations get t => TranslationProvider.of(this).translations;
 }
 
 /// Manages all translation instances and the current locale
@@ -176,9 +271,39 @@ class LocaleSettings
           utils: AppLocaleUtils.instance,
           lazy: true,
         );
+class LocaleSettings
+    extends BaseFlutterLocaleSettings<AppLocale, Translations> {
+  LocaleSettings._()
+      : super(
+          utils: AppLocaleUtils.instance,
+          lazy: true,
+        );
 
   static final instance = LocaleSettings._();
+  static final instance = LocaleSettings._();
 
+  // static aliases (checkout base methods for documentation)
+  static AppLocale get currentLocale => instance.currentLocale;
+  static Stream<AppLocale> getLocaleStream() => instance.getLocaleStream();
+  static Future<AppLocale> setLocale(AppLocale locale,
+          {bool? listenToDeviceLocale = false}) =>
+      instance.setLocale(locale, listenToDeviceLocale: listenToDeviceLocale);
+  static Future<AppLocale> setLocaleRaw(String rawLocale,
+          {bool? listenToDeviceLocale = false}) =>
+      instance.setLocaleRaw(rawLocale,
+          listenToDeviceLocale: listenToDeviceLocale);
+  static Future<AppLocale> useDeviceLocale() => instance.useDeviceLocale();
+  static Future<void> setPluralResolver(
+          {String? language,
+          AppLocale? locale,
+          PluralResolver? cardinalResolver,
+          PluralResolver? ordinalResolver}) =>
+      instance.setPluralResolver(
+        language: language,
+        locale: locale,
+        cardinalResolver: cardinalResolver,
+        ordinalResolver: ordinalResolver,
+      );
   // static aliases (checkout base methods for documentation)
   static AppLocale get currentLocale => instance.currentLocale;
   static Stream<AppLocale> getLocaleStream() => instance.getLocaleStream();
@@ -223,6 +348,27 @@ class LocaleSettings
         cardinalResolver: cardinalResolver,
         ordinalResolver: ordinalResolver,
       );
+  // synchronous versions
+  static AppLocale setLocaleSync(AppLocale locale,
+          {bool? listenToDeviceLocale = false}) =>
+      instance.setLocaleSync(locale,
+          listenToDeviceLocale: listenToDeviceLocale);
+  static AppLocale setLocaleRawSync(String rawLocale,
+          {bool? listenToDeviceLocale = false}) =>
+      instance.setLocaleRawSync(rawLocale,
+          listenToDeviceLocale: listenToDeviceLocale);
+  static AppLocale useDeviceLocaleSync() => instance.useDeviceLocaleSync();
+  static void setPluralResolverSync(
+          {String? language,
+          AppLocale? locale,
+          PluralResolver? cardinalResolver,
+          PluralResolver? ordinalResolver}) =>
+      instance.setPluralResolverSync(
+        language: language,
+        locale: locale,
+        cardinalResolver: cardinalResolver,
+        ordinalResolver: ordinalResolver,
+      );
 }
 
 /// Provides utility functions without any side effects.
@@ -232,9 +378,28 @@ class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, Translations> {
           baseLocale: AppLocale.en,
           locales: AppLocale.values,
         );
+  AppLocaleUtils._()
+      : super(
+          baseLocale: AppLocale.en,
+          locales: AppLocale.values,
+        );
 
   static final instance = AppLocaleUtils._();
+  static final instance = AppLocaleUtils._();
 
+  // static aliases (checkout base methods for documentation)
+  static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
+  static AppLocale parseLocaleParts(
+          {required String languageCode,
+          String? scriptCode,
+          String? countryCode}) =>
+      instance.parseLocaleParts(
+          languageCode: languageCode,
+          scriptCode: scriptCode,
+          countryCode: countryCode);
+  static AppLocale findDeviceLocale() => instance.findDeviceLocale();
+  static List<Locale> get supportedLocales => instance.supportedLocales;
+  static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
   // static aliases (checkout base methods for documentation)
   static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
   static AppLocale parseLocaleParts(
