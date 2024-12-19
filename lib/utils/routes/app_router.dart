@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../billing_details/billing_details_page.dart';
 import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
 import '../../presentation/account/account_page.dart';
@@ -348,5 +349,17 @@ class RegisterProfilePageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const RegisterProfilePage();
+  }
+}
+
+@TypedGoRoute<BillingDetailsPageRouteData>(
+  path: Routes.billingDetailsPage,
+)
+class BillingDetailsPageRouteData extends GoRouteData {
+  const BillingDetailsPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const BillingDetailsPage();
   }
 }

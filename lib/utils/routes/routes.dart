@@ -19,4 +19,5 @@ class Routes {
   static const changeTheme = 'changeTheme';
   static const popularTopicsPage = 'popularTopicsPage';
   static const popularPlansPage = 'popularPlansPage';
+  static const billingDetailsPage = 'billingDetailsPage';
 }
