@@ -165,9 +165,11 @@ class _TranslationsBuddyChatPageZhHant implements TranslationsBuddyChatPageEn {
 
 	// Translations
 	@override String get title => 'Buddy的建議';
+	@override String possibleChatCount({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
 	@override late final _TranslationsBuddyChatPageTextFieldsZhHant textFields = _TranslationsBuddyChatPageTextFieldsZhHant._(_root);
 	@override late final _TranslationsBuddyChatPageButtonsZhHant buttons = _TranslationsBuddyChatPageButtonsZhHant._(_root);
 	@override late final _TranslationsBuddyChatPagePlaceCardZhHant placeCard = _TranslationsBuddyChatPagePlaceCardZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarZhHant snackBar = _TranslationsBuddyChatPageSnackBarZhHant._(_root);
 }
 
 // Path: popularTopics
@@ -379,6 +381,16 @@ class _TranslationsBuddyChatPagePlaceCardZhHant implements TranslationsBuddyChat
 	@override String get website => '網站';
 }
 
+// Path: buddyChatPage.snackBar
+class _TranslationsBuddyChatPageSnackBarZhHant implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorZhHant error = _TranslationsBuddyChatPageSnackBarErrorZhHant._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHant._(this._root);
@@ -509,6 +521,16 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get changeEmail => '更改電子郵件地址';
 }
 
+// Path: buddyChatPage.snackBar.error
+class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedRecieveMessage => '無法接收回覆，請稍後再試';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
@@ -619,11 +641,13 @@ extension on TranslationsZhHant {
 			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
 			case 'myPlanPage.tabs.bookmark': return '書籤';
 			case 'buddyChatPage.title': return 'Buddy的建議';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
 			case 'buddyChatPage.textFields.message': return '輸入訊息';
 			case 'buddyChatPage.buttons.send': return '完成';
 			case 'buddyChatPage.placeCard.openingHours': return '營業時間';
 			case 'buddyChatPage.placeCard.averageAmount': return '平均預算';
 			case 'buddyChatPage.placeCard.website': return '網站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '無法接收回覆，請稍後再試';
 			case 'popularTopics.sectionName': return '熱門話題';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';

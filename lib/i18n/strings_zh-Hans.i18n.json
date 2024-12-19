@@ -154,6 +154,7 @@
     },
     "buddyChatPage": {
         "title": "Buddy的建议",
+        "possibleChatCount": "消息还可以发送${possibleChatCount}次",
         "textFields": {
             "message": "输入消息"
         },
@@ -164,6 +165,11 @@
             "openingHours": "营业时间",
             "averageAmount": "平均预算",
             "website": "网站"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "未能接收回复，请稍后再试"
+            }
         }
     },
     "popularTopics": {

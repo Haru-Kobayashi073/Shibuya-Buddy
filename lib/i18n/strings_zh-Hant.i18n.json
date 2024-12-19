@@ -154,6 +154,7 @@
     },
     "buddyChatPage": {
         "title": "Buddy的建議",
+        "possibleChatCount": "訊息還可以發送${possibleChatCount}次",
         "textFields": {
             "message": "輸入訊息"
         },
@@ -164,6 +165,11 @@
             "openingHours": "營業時間",
             "averageAmount": "平均預算",
             "website": "網站"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "無法接收回覆，請稍後再試"
+            }
         }
     },
     "popularTopics": {

@@ -165,9 +165,11 @@ class _TranslationsBuddyChatPageJa implements TranslationsBuddyChatPageEn {
 
 	// Translations
 	@override String get title => 'Buddyの提案';
+	@override String possibleChatCount({required Object possibleChatCount}) => 'メッセージは残り${possibleChatCount}回送信可能です';
 	@override late final _TranslationsBuddyChatPageTextFieldsJa textFields = _TranslationsBuddyChatPageTextFieldsJa._(_root);
 	@override late final _TranslationsBuddyChatPageButtonsJa buttons = _TranslationsBuddyChatPageButtonsJa._(_root);
 	@override late final _TranslationsBuddyChatPagePlaceCardJa placeCard = _TranslationsBuddyChatPagePlaceCardJa._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarJa snackBar = _TranslationsBuddyChatPageSnackBarJa._(_root);
 }
 
 // Path: popularTopics
@@ -379,6 +381,16 @@ class _TranslationsBuddyChatPagePlaceCardJa implements TranslationsBuddyChatPage
 	@override String get website => 'Webサイト';
 }
 
+// Path: buddyChatPage.snackBar
+class _TranslationsBuddyChatPageSnackBarJa implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorJa error = _TranslationsBuddyChatPageSnackBarErrorJa._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsJa implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsJa._(this._root);
@@ -509,6 +521,16 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 	@override String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 }
 
+// Path: buddyChatPage.snackBar.error
+class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedRecieveMessage => '返信の受信に失敗しました。時間をおいて再度お試しください';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
@@ -619,11 +641,13 @@ extension on TranslationsJa {
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
 			case 'buddyChatPage.title': return 'Buddyの提案';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => 'メッセージは残り${possibleChatCount}回送信可能です';
 			case 'buddyChatPage.textFields.message': return 'メッセージを入力';
 			case 'buddyChatPage.buttons.send': return '完了';
 			case 'buddyChatPage.placeCard.openingHours': return '営業時間';
 			case 'buddyChatPage.placeCard.averageAmount': return '平均予算';
 			case 'buddyChatPage.placeCard.website': return 'Webサイト';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '返信の受信に失敗しました。時間をおいて再度お試しください';
 			case 'popularTopics.sectionName': return '人気のトピック';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
