@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
@@ -17,6 +15,9 @@ class AccountPageNotifier extends _$AccountPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
+  ScaffoldMessenger get scaffoldMessenger =>
+      ref.read(scaffoldMessengerProvider.notifier);
+  final snackBari18n = t.accountPage.snackBar;
 
   @override
   AccountPageState build() {
@@ -27,117 +28,61 @@ class AccountPageNotifier extends _$AccountPageNotifier {
     );
   }
 
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  Future<void> updateGoogleLinkStatus({required bool link}) async {
-    state = state.copyWith(googleLinkage: link);
-  }
-
-  Future<void> updateAppleLinkStatus({required bool link}) async {
-    state = state.copyWith(appleLinkage: link);
-  }
-
-  bool checkAppleLink(User? user) {
+  bool checkAppleLink(User? currentUser) {
+    final user = firebaseAuth.currentUser;
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == 'apple.com',
         ) ??
         false;
   }
 
-  bool checkGoogleLink(User? user) {
+  bool checkGoogleLink(User? currentUser) {
+    final user = firebaseAuth.currentUser;
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == 'google.com',
         ) ??
         false;
   }
 
-  Future<bool> unlinkGoogle(User? user) async {
-    if (user == null) {
-      return false;
-    }
-
+  Future<void> unlinkSocialAccount(SocialAuthDomain domain) async {
     try {
-      await user.unlink('google.com');
-      return true;
+      await authenticationDataSource.unlink(domain);
+      scaffoldMessenger.showSuccessSnackBar(snackBari18n.accountDeactivation);
+      if (domain == SocialAuthDomain.apple) {
+        state = state.copyWith(appleLinkage: false);
+      } else if (domain == SocialAuthDomain.google) {
+        state = state.copyWith(googleLinkage: false);
+      }
     } on FirebaseAuthException {
-      return false;
+      scaffoldMessenger.showExceptionSnackBar(snackBari18n.unlinkageFailure);
     }
   }
 
-  Future<bool> unlinkApple(User? user) async {
-    if (user == null) {
-      return false;
-    }
-
-    try {
-      await user.unlink('apple.com');
-      return true;
-    } on FirebaseAuthException {
-      return false;
-    }
-  }
-
-  Future<User?> linkedWithApple() async {
+  Future<void> linkedWithApple() async {
     debugPrint('ダミー');
-    return null;
+    state = state.copyWith(appleLinkage: true);
   }
 
-  Future<User?> linkedWithGoogle() async {
-    final snackBari18n = t.accountPage.snackBar;
-    final snack = ref.watch(scaffoldMessengerProvider.notifier);
-
+  Future<void> linkedWithGoogle() async {
     try {
-      final googleUser = await GoogleSignIn().signIn();
-
-      if (googleUser == null) {
-        return null;
-      }
-
-      final googleAuth = await googleUser.authentication;
-
-      // Firebase用の資格情報を作成
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      final currentUser = _auth.currentUser;
-
-      if (currentUser != null) {
-        try {
-          //アカウント連携
-          await currentUser.linkWithCredential(credential);
-          return currentUser;
-        } on FirebaseAuthException catch (e) {
-          switch (e.code) {
-            case 'provider-already-linked':
-              //  連携済み
-              snack.showExceptionSnackBar(snackBari18n.providerAlreadyLinked);
-            case 'invalid-credential':
-              //googleのサインインが期限切れ
-              snack.showExceptionSnackBar(snackBari18n.invalidCredential);
-            case 'operation-not-allowed':
-              //プロパイダーが無効
-              snack.showExceptionSnackBar(snackBari18n.operationNotAllowed);
-            default:
-              snack.showExceptionSnackBar(
-                '${snackBari18n.unknownError}:$e',
-              );
-          }
-          return null;
-        }
-      }
-    } on PlatformException {
-      //アカウント連携キャンセル
-      snack.showExceptionSnackBar(snackBari18n.linkageCancelled);
-      return null;
+      final credential = await authenticationDataSource.signInWithGoogle();
+      await linkedSocialAccount(credential);
+      state = state.copyWith(googleLinkage: true);
+    } catch (e) {
+      scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
-    return null;
   }
 
-  Future<void> signOut() async {
-    await _googleSignIn.signOut();
-    await _auth.signOut();
+  Future<void> linkedSocialAccount(AuthCredential credential) async {
+    try {
+      //アカウント連携
+      await authenticationDataSource.linkWithCredential(credential);
+      scaffoldMessenger.showSuccessSnackBar(snackBari18n.successfulLinkage);
+    } on FirebaseAuthException catch (e) {
+      final exceptionMessage = e.toString();
+      ref
+          .read(scaffoldMessengerProvider.notifier)
+          .showExceptionSnackBar(exceptionMessage);
+    }
   }
 }

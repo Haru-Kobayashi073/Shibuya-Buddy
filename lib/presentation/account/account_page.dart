@@ -1,41 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
-import '../../infrastructure/firebase/firebase_auth_provider.dart';
-import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
-import '../../utils/routes/app_router.dart';
+import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 import 'account_page_notifier.dart';
 
-class AccountPage extends ConsumerStatefulWidget {
+class AccountPage extends ConsumerWidget {
   const AccountPage({super.key});
-
   @override
-  ConsumerState<AccountPage> createState() => _AccountPageState();
-}
-
-class _AccountPageState extends ConsumerState<AccountPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.watch(accountPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
     final titlei18n = i18n.accountPage.title;
     final itemi18n = i18n.accountPage.items;
-    final snackBari18n = i18n.accountPage.snackBar;
     final diaLogi18n = i18n.accountPage.diaLog;
-    final snack = ref.watch(scaffoldMessengerProvider.notifier);
-    final firebaseAuth = ref.watch(firebaseAuthProvider);
-    final user = firebaseAuth.currentUser;
     final accountLinkage = ref.watch(
       accountPageNotifierProvider.select((state) => state..googleLinkage),
     );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -76,12 +64,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                               child: Text(diaLogi18n.yes),
                               onPressed: () async {
                                 Navigator.pop(context);
-                                await notifier.unlinkApple(user);
-                                await notifier.updateAppleLinkStatus(
-                                  link: false,
-                                );
-                                snack.showSuccessSnackBar(
-                                  snackBari18n.accountDeactivation,
+                                await notifier.unlinkSocialAccount(
+                                  SocialAuthDomain.apple,
                                 );
                               },
                             ),
@@ -90,12 +74,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       },
                     );
                   } else {
-                    final result = await notifier.linkedWithApple();
-                    if (result == null) {
-                      //Appleのアカウント連携機能が完成したら'!='に修正
-                      snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
-                      await notifier.updateAppleLinkStatus(link: true);
-                    }
+                    await notifier.linkedWithApple();
                   }
                 },
               ),
@@ -127,12 +106,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                               child: Text(diaLogi18n.yes),
                               onPressed: () async {
                                 Navigator.pop(context);
-                                await notifier.unlinkGoogle(user);
-                                await notifier.updateGoogleLinkStatus(
-                                  link: false,
-                                );
-                                snack.showSuccessSnackBar(
-                                  snackBari18n.accountDeactivation,
+                                await notifier.unlinkSocialAccount(
+                                  SocialAuthDomain.google,
                                 );
                               },
                             ),
@@ -141,23 +116,23 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                       },
                     );
                   } else {
-                    final result = await notifier.linkedWithGoogle();
-                    if (result != null) {
-                      snack.showSuccessSnackBar(snackBari18n.successfulLinkage);
-                      await notifier.updateGoogleLinkStatus(link: true);
-                    }
+                    await notifier.linkedWithGoogle();
                   }
                 },
               ),
             ),
+            // const SizedBox(height: 16),
+            // WideButton(
+            //   label: 'アカウント削除',
+            //   color: Colors.red,
+            //   onPressed: () async {
+            //     await AuthenticationDataSource().deleteAccount();
+            //   },
+            // ),
             const SizedBox(height: 16),
             TextButton(
               onPressed: () async {
-                if (user != null) {
-                  context.go(const SignInPageRouteData().location);
-                  await notifier.signOut();
-                  snack.showSuccessSnackBar(snackBari18n.loggedOut);
-                }
+                await AuthenticationDataSource().signOut();
               },
               child: Text(
                 itemi18n.signOut,

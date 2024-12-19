@@ -28,11 +28,11 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   }
 
   @override
-  Future<void> signInWithGoogle() async {
+  Future<AuthCredential> signInWithGoogle() async {
     final googleUser = await GoogleSignIn().signIn();
     final googleAuth = await googleUser?.authentication;
 
-    GoogleAuthProvider.credential(
+    return GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
@@ -87,4 +87,33 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
       return firebaseAuth.currentUser!.emailVerified;
     }
   }
+
+  @override
+  Future<void> linkWithCredential(AuthCredential credential) async {
+    await firebaseAuth.currentUser?.linkWithCredential(credential);
+  }
+
+  @override
+  Future<void> unlink(SocialAuthDomain domain) async {
+    await firebaseAuth.currentUser?.unlink(domain.providerId);
+  }
+
+  @override
+  Future<void> signOut() async {
+    await signOut();
+    await firebaseAuth.signOut();
+  }
+
+  @override
+  Future<void> deleteAccount() async {
+    await firebaseAuth.currentUser?.delete();
+  }
+}
+
+enum SocialAuthDomain {
+  google('google.com'),
+  apple('apple.com');
+
+  const SocialAuthDomain(this.providerId);
+  final String providerId;
 }
