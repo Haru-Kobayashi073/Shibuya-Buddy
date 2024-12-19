@@ -14,6 +14,7 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $signInPageRouteData,
       $registerProfilePageRouteData,
+      $billingDetailsPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -491,6 +492,29 @@ extension $RegisterProfilePageRouteDataExtension
 
   String get location => GoRouteData.$location(
         '/registerProfile',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $billingDetailsPageRouteData => GoRouteData.$route(
+      path: 'billingDetailsPage',
+      factory: $BillingDetailsPageRouteDataExtension._fromState,
+    );
+
+extension $BillingDetailsPageRouteDataExtension on BillingDetailsPageRouteData {
+  static BillingDetailsPageRouteData _fromState(GoRouterState state) =>
+      const BillingDetailsPageRouteData();
+
+  String get location => GoRouteData.$location(
+        'billingDetailsPage',
       );
 
   void go(BuildContext context) => context.go(location);
