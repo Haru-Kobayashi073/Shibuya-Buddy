@@ -4,8 +4,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../utils/hooks/use_form_state_key.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../../utils/validator.dart';
 import '../components/loading_overlay.dart';
 import 'buddy_chat_page_notifier.dart';
 import 'components/message_card.dart';
@@ -31,23 +33,28 @@ class BuddyChatPage extends HookConsumerWidget {
         ref.watch(buddyChatPageNotifierProvider(planPrompt: planPrompt));
     final notifier = ref
         .read(buddyChatPageNotifierProvider(planPrompt: planPrompt).notifier);
+    final formKey = useFormStateKey();
     final textController = useTextEditingController();
 
     Future<void> sendMessage() async {
-      if (textController.text.isEmpty) {
-        return;
+      if (formKey.currentState!.validate()) {
+        if (textController.text.isEmpty) {
+          return;
+        }
+        await notifier
+            .sendMessage(
+          message: textController.text,
+        )
+            .then((value) async {
+          textController.clear();
+          await notifier.animateControllerWhenMessaging();
+        });
+        await notifier
+            .recieveMessage(message: textController.text)
+            .then((value) {
+          notifier.animateControllerWhenMessaging();
+        });
       }
-      await notifier
-          .sendMessage(
-        message: textController.text,
-      )
-          .then((value) async {
-        textController.clear();
-        await notifier.animateControllerWhenMessaging();
-      });
-      await notifier.recieveMessage(message: textController.text).then((value) {
-        notifier.animateControllerWhenMessaging();
-      });
     }
 
     return state.when(
@@ -85,59 +92,63 @@ class BuddyChatPage extends HookConsumerWidget {
             ],
           ),
           body: SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: CustomScrollView(
-                      controller: value.scrollController,
-                      slivers: [
-                        ...value.messages.map(_buildChatMessage),
-                      ],
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: CustomScrollView(
+                        controller: value.scrollController,
+                        slivers: [
+                          ...value.messages.map(_buildChatMessage),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  decoration: BoxDecoration(
-                    color: AppColor.grey200,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: IntrinsicHeight(
-                          child: TextFormField(
-                            expands: true,
-                            maxLines: null,
-                            cursorColor: AppColor.black,
-                            keyboardType: TextInputType.multiline,
-                            maxLength: 256,
-                            controller: textController,
-                            onFieldSubmitted: (_) async => sendMessage(),
-                            decoration: const InputDecoration(
-                              counter: SizedBox.shrink(),
-                              filled: true,
-                              fillColor: AppColor.grey200,
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    decoration: BoxDecoration(
+                      color: AppColor.grey200,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: IntrinsicHeight(
+                            child: TextFormField(
+                              expands: true,
+                              maxLines: null,
+                              cursorColor: AppColor.black,
+                              keyboardType: TextInputType.multiline,
+                              validator: Validator.common,
+                              maxLength: 256,
+                              controller: textController,
+                              onFieldSubmitted: (_) async => sendMessage(),
+                              decoration: const InputDecoration(
+                                counter: SizedBox.shrink(),
+                                filled: true,
+                                fillColor: AppColor.grey200,
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                hintText: 'メッセージを入力',
                               ),
-                              hintText: 'メッセージを入力',
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      IconButton(
-                        onPressed: () async => sendMessage(),
-                        icon: const Icon(Icons.send),
-                      ),
-                    ],
+                        const SizedBox(width: 8),
+                        IconButton(
+                          onPressed: () async => sendMessage(),
+                          icon: const Icon(Icons.send),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );
