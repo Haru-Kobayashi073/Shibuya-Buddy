@@ -41,6 +41,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsChangeLanguagePageJa changeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
 	@override late final _TranslationsChangeThemePageJa changeThemePage = _TranslationsChangeThemePageJa._(_root);
 	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
+	@override late final _TranslationsBuddyChatPageJa buddyChatPage = _TranslationsBuddyChatPageJa._(_root);
 	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
@@ -154,6 +155,19 @@ class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => 'マイプラン';
 	@override late final _TranslationsMyPlanPageTabsJa tabs = _TranslationsMyPlanPageTabsJa._(_root);
+}
+
+// Path: buddyChatPage
+class _TranslationsBuddyChatPageJa implements TranslationsBuddyChatPageEn {
+	_TranslationsBuddyChatPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Buddyの提案';
+	@override late final _TranslationsBuddyChatPageTextFieldsJa textFields = _TranslationsBuddyChatPageTextFieldsJa._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsJa buttons = _TranslationsBuddyChatPageButtonsJa._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardJa placeCard = _TranslationsBuddyChatPagePlaceCardJa._(_root);
 }
 
 // Path: popularTopics
@@ -331,6 +345,38 @@ class _TranslationsMyPlanPageTabsJa implements TranslationsMyPlanPageTabsEn {
 	// Translations
 	@override String get createdPlans => '作成したプラン';
 	@override String get bookmark => 'ブックマーク';
+}
+
+// Path: buddyChatPage.textFields
+class _TranslationsBuddyChatPageTextFieldsJa implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get message => 'メッセージを入力';
+}
+
+// Path: buddyChatPage.buttons
+class _TranslationsBuddyChatPageButtonsJa implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get send => '完了';
+}
+
+// Path: buddyChatPage.placeCard
+class _TranslationsBuddyChatPagePlaceCardJa implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get openingHours => '営業時間';
+	@override String get averageAmount => '平均予算';
+	@override String get website => 'Webサイト';
 }
 
 // Path: authentication.signInPage.textFields
@@ -572,6 +618,12 @@ extension on TranslationsJa {
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
+			case 'buddyChatPage.title': return 'Buddyの提案';
+			case 'buddyChatPage.textFields.message': return 'メッセージを入力';
+			case 'buddyChatPage.buttons.send': return '完了';
+			case 'buddyChatPage.placeCard.openingHours': return '営業時間';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均予算';
+			case 'buddyChatPage.placeCard.website': return 'Webサイト';
 			case 'popularTopics.sectionName': return '人気のトピック';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';

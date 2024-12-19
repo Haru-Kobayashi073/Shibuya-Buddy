@@ -152,6 +152,20 @@
             "bookmark": "Bookmarks"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddy's Suggestions",
+        "textFields": {
+            "message": "Enter message"
+        },
+        "buttons": {
+            "send": "Done"
+        },
+        "placeCard": {
+            "openingHours": "Opening Hours",
+            "averageAmount": "Average Budget",
+            "website": "Website"
+        }
+    },
     "popularTopics": {
         "sectionName": "Popular Topics"
     },

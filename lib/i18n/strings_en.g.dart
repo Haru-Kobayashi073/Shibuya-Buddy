@@ -45,6 +45,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsChangeLanguagePageEn changeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
 	late final TranslationsChangeThemePageEn changeThemePage = TranslationsChangeThemePageEn._(_root);
 	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
+	late final TranslationsBuddyChatPageEn buddyChatPage = TranslationsBuddyChatPageEn._(_root);
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
@@ -158,6 +159,19 @@ class TranslationsMyPlanPageEn {
 	// Translations
 	String get title => 'My Plans';
 	late final TranslationsMyPlanPageTabsEn tabs = TranslationsMyPlanPageTabsEn._(_root);
+}
+
+// Path: buddyChatPage
+class TranslationsBuddyChatPageEn {
+	TranslationsBuddyChatPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Buddy\'s Suggestions';
+	late final TranslationsBuddyChatPageTextFieldsEn textFields = TranslationsBuddyChatPageTextFieldsEn._(_root);
+	late final TranslationsBuddyChatPageButtonsEn buttons = TranslationsBuddyChatPageButtonsEn._(_root);
+	late final TranslationsBuddyChatPagePlaceCardEn placeCard = TranslationsBuddyChatPagePlaceCardEn._(_root);
 }
 
 // Path: popularTopics
@@ -335,6 +349,38 @@ class TranslationsMyPlanPageTabsEn {
 	// Translations
 	String get createdPlans => 'Created Plans';
 	String get bookmark => 'Bookmarks';
+}
+
+// Path: buddyChatPage.textFields
+class TranslationsBuddyChatPageTextFieldsEn {
+	TranslationsBuddyChatPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get message => 'Enter message';
+}
+
+// Path: buddyChatPage.buttons
+class TranslationsBuddyChatPageButtonsEn {
+	TranslationsBuddyChatPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get send => 'Done';
+}
+
+// Path: buddyChatPage.placeCard
+class TranslationsBuddyChatPagePlaceCardEn {
+	TranslationsBuddyChatPagePlaceCardEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get openingHours => 'Opening Hours';
+	String get averageAmount => 'Average Budget';
+	String get website => 'Website';
 }
 
 // Path: authentication.signInPage.textFields
@@ -576,6 +622,12 @@ extension on Translations {
 			case 'myPlanPage.title': return 'My Plans';
 			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
 			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
+			case 'buddyChatPage.title': return 'Buddy\'s Suggestions';
+			case 'buddyChatPage.textFields.message': return 'Enter message';
+			case 'buddyChatPage.buttons.send': return 'Done';
+			case 'buddyChatPage.placeCard.openingHours': return 'Opening Hours';
+			case 'buddyChatPage.placeCard.averageAmount': return 'Average Budget';
+			case 'buddyChatPage.placeCard.website': return 'Website';
 			case 'popularTopics.sectionName': return 'Popular Topics';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';

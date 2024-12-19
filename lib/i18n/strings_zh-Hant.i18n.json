@@ -152,6 +152,20 @@
             "bookmark": "書籤"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddy的建議",
+        "textFields": {
+            "message": "輸入訊息"
+        },
+        "buttons": {
+            "send": "完成"
+        },
+        "placeCard": {
+            "openingHours": "營業時間",
+            "averageAmount": "平均預算",
+            "website": "網站"
+        }
+    },
     "popularTopics": {
         "sectionName": "熱門話題"
     },

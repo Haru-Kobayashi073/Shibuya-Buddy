@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:url_launcher/link.dart';
 
 import '../../domain/entities/place.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
@@ -18,6 +19,9 @@ class PlaceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
+    final placeCardi18n = i18n.buddyChatPage.placeCard;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -85,7 +89,7 @@ class PlaceCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '営業時間',
+                          placeCardi18n.openingHours,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
@@ -110,7 +114,7 @@ class PlaceCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '平均予算',
+                          placeCardi18n.averageAmount,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
@@ -135,7 +139,7 @@ class PlaceCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Webサイト',
+                          placeCardi18n.website,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,

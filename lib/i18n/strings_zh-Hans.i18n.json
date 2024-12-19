@@ -152,8 +152,22 @@
             "bookmark": "收藏夹"
         }
     },
-    "popularTopics":{
-        "sectionName" :"热门话题"
+    "buddyChatPage": {
+        "title": "Buddy的建议",
+        "textFields": {
+            "message": "输入消息"
+        },
+        "buttons": {
+            "send": "完成"
+        },
+        "placeCard": {
+            "openingHours": "营业时间",
+            "averageAmount": "平均预算",
+            "website": "网站"
+        }
+    },
+    "popularTopics": {
+        "sectionName": "热门话题"
     },
     "locales(map)": {
         "en": "英语",

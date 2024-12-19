@@ -41,6 +41,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
 	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
 	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageZhHans buddyChatPage = _TranslationsBuddyChatPageZhHans._(_root);
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
@@ -154,6 +155,19 @@ class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => '我的计划';
 	@override late final _TranslationsMyPlanPageTabsZhHans tabs = _TranslationsMyPlanPageTabsZhHans._(_root);
+}
+
+// Path: buddyChatPage
+class _TranslationsBuddyChatPageZhHans implements TranslationsBuddyChatPageEn {
+	_TranslationsBuddyChatPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Buddy的建议';
+	@override late final _TranslationsBuddyChatPageTextFieldsZhHans textFields = _TranslationsBuddyChatPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsZhHans buttons = _TranslationsBuddyChatPageButtonsZhHans._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardZhHans placeCard = _TranslationsBuddyChatPagePlaceCardZhHans._(_root);
 }
 
 // Path: popularTopics
@@ -331,6 +345,38 @@ class _TranslationsMyPlanPageTabsZhHans implements TranslationsMyPlanPageTabsEn 
 	// Translations
 	@override String get createdPlans => '已创建的计划';
 	@override String get bookmark => '收藏夹';
+}
+
+// Path: buddyChatPage.textFields
+class _TranslationsBuddyChatPageTextFieldsZhHans implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get message => '输入消息';
+}
+
+// Path: buddyChatPage.buttons
+class _TranslationsBuddyChatPageButtonsZhHans implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get send => '完成';
+}
+
+// Path: buddyChatPage.placeCard
+class _TranslationsBuddyChatPagePlaceCardZhHans implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get openingHours => '营业时间';
+	@override String get averageAmount => '平均预算';
+	@override String get website => '网站';
 }
 
 // Path: authentication.signInPage.textFields
@@ -572,6 +618,12 @@ extension on TranslationsZhHans {
 			case 'myPlanPage.title': return '我的计划';
 			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
 			case 'myPlanPage.tabs.bookmark': return '收藏夹';
+			case 'buddyChatPage.title': return 'Buddy的建议';
+			case 'buddyChatPage.textFields.message': return '输入消息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '营业时间';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均预算';
+			case 'buddyChatPage.placeCard.website': return '网站';
 			case 'popularTopics.sectionName': return '热门话题';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';

@@ -152,6 +152,20 @@
             "bookmark": "ブックマーク"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddyの提案",
+        "textFields": {
+            "message": "メッセージを入力"
+        },
+        "buttons": {
+            "send": "完了"
+        },
+        "placeCard": {
+            "openingHours": "営業時間",
+            "averageAmount": "平均予算",
+            "website": "Webサイト"
+        }
+    },
     "popularTopics": {
         "sectionName": "人気のトピック"
     },

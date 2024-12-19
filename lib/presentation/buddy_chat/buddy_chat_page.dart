@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/hooks/use_form_state_key.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -17,6 +18,8 @@ class BuddyChatPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final i18n = Translations.of(context);
+    final buddyChatPagei18n = i18n.buddyChatPage;
     final planPrompt = PlanPrompt(
       id: '1',
       schedules: (
@@ -63,7 +66,7 @@ class BuddyChatPage extends HookConsumerWidget {
           appBar: AppBar(
             centerTitle: false,
             title: Text(
-              'Buddyの提案',
+              buddyChatPagei18n.title,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -81,7 +84,7 @@ class BuddyChatPage extends HookConsumerWidget {
                   color: AppColor.black,
                 ),
                 label: Text(
-                  '完了',
+                  buddyChatPagei18n.buttons.send,
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 14,
                     color: AppColor.black,
@@ -127,14 +130,14 @@ class BuddyChatPage extends HookConsumerWidget {
                               maxLength: 256,
                               controller: textController,
                               onFieldSubmitted: (_) async => sendMessage(),
-                              decoration: const InputDecoration(
-                                counter: SizedBox.shrink(),
+                              decoration: InputDecoration(
+                                counter: const SizedBox.shrink(),
                                 filled: true,
                                 fillColor: AppColor.grey200,
-                                border: OutlineInputBorder(
+                                border: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                 ),
-                                hintText: 'メッセージを入力',
+                                hintText: buddyChatPagei18n.textFields.message,
                               ),
                             ),
                           ),
