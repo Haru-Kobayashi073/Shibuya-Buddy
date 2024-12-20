@@ -104,7 +104,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       context: context,
       builder: (context) {
         return CustomCupertinoDatePicker(
-          targetController: targetController,
           onDateTimeChanged: (date) {
             chosenDate = date;
             targetController.text = formatDate(date);

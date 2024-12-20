@@ -9,10 +9,8 @@ import '../../../utils/styles/app_text_style.dart';
 class CustomCupertinoDatePicker extends StatelessWidget {
   const CustomCupertinoDatePicker({
     super.key,
-    required this.targetController,
     required this.onDateTimeChanged,
   });
-  final TextEditingController targetController;
   final ValueChanged<DateTime> onDateTimeChanged;
 
   @override
