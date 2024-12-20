@@ -350,7 +350,9 @@ class _TranslationsAccountPageSnackBarJa
 
   // Translations
   @override
-  String get loggedOut => 'ログアウトしました。';
+  String get signOut => 'ログアウトしました。';
+  @override
+  String get signOutFailure => 'ログアウト時にエラーが発生しました。';
   @override
   String get successfulLinkage => 'アカウント連携に成功しました。';
   @override
@@ -807,8 +809,10 @@ extension on TranslationsJa {
         return 'Google連携済み';
       case 'accountPage.items.alreadyLinkedApple':
         return 'Appleで連携済み';
-      case 'accountPage.snackBar.loggedOut':
+      case 'accountPage.snackBar.signOut':
         return 'ログアウトしました。';
+      case 'accountPage.snackBar.signOutFailure':
+        return 'ログアウト時にエラーが発生しました。';
       case 'accountPage.snackBar.successfulLinkage':
         return 'アカウント連携に成功しました。';
       case 'accountPage.snackBar.linkageFailure':

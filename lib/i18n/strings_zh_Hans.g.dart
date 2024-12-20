@@ -354,7 +354,9 @@ class _TranslationsAccountPageSnackBarZhHans
 
   // Translations
   @override
-  String get loggedOut => '已成功退出登录。';
+  String get signOut => '已成功退出登录。';
+  @override
+  String get signOutFailure => '退出登录时发生错误。';
   @override
   String get successfulLinkage => '账户关联成功。';
   @override
@@ -819,8 +821,10 @@ extension on TranslationsZhHans {
         return '已与Google连接';
       case 'accountPage.items.alreadyLinkedApple':
         return '已与Apple连接';
-      case 'accountPage.snackBar.loggedOut':
+      case 'accountPage.snackBar.signOut':
         return '已成功退出登录。';
+      case 'accountPage.snackBar.signOutFailure':
+        return '退出登录时发生错误。';
       case 'accountPage.snackBar.successfulLinkage':
         return '账户关联成功。';
       case 'accountPage.snackBar.linkageFailure':

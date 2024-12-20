@@ -28,7 +28,8 @@
             "alreadyLinkedApple": "Appleで連携済み"
         },
         "snackBar":{
-            "loggedOut":"ログアウトしました。",
+            "signOut":"ログアウトしました。",
+            "signOutFailure":"ログアウト時にエラーが発生しました。",
             "successfulLinkage":"アカウント連携に成功しました。",
             "linkageFailure":"アカウント連携に失敗しました。",
             "providerAlreadyLinked":"このアカウントはすでに連携済みです。",

@@ -284,7 +284,8 @@ class TranslationsAccountPageSnackBarEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
-  String get loggedOut => 'You have been logged out.';
+  String get signOut => 'You have been logged out.';
+  String get signOutFailure => 'An error occurred while signing out.';
   String get successfulLinkage => 'Account linked successfully.';
   String get linkageFailure => 'Failed to link account.';
   String get providerAlreadyLinked => 'This account is already linked.';
@@ -644,8 +645,10 @@ extension on Translations {
         return 'Already Linked with Google';
       case 'accountPage.items.alreadyLinkedApple':
         return 'Already Linked with Apple';
-      case 'accountPage.snackBar.loggedOut':
+      case 'accountPage.snackBar.signOut':
         return 'You have been logged out.';
+      case 'accountPage.snackBar.signOutFailure':
+        return 'An error occurred while signing out.';
       case 'accountPage.snackBar.successfulLinkage':
         return 'Account linked successfully.';
       case 'accountPage.snackBar.linkageFailure':

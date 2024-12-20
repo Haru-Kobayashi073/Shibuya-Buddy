@@ -28,7 +28,8 @@
             "alreadyLinkedApple": "已与Apple连接"
         },
         "snackBar": {
-            "loggedOut": "已成功退出登录。",
+            "signOut": "已成功退出登录。",
+            "signOutFailure": "退出登录时发生错误。",
             "successfulLinkage": "账户关联成功。",
             "linkageFailure": "账户关联失败。",
             "providerAlreadyLinked": "此账户已经关联。",

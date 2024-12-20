@@ -28,7 +28,8 @@
             "alreadyLinkedApple": "已與Apple連結"
         },
         "snackBar": {
-            "loggedOut": "已成功登出。",
+            "signOut": "已成功登出。",
+            "signOutFailure": "登出時發生錯誤。",
             "successfulLinkage": "帳戶連結成功。",
             "linkageFailure": "帳戶連結失敗。",
             "providerAlreadyLinked": "此帳戶已經連結。",

@@ -28,7 +28,8 @@
             "alreadyLinkedApple": "Already Linked with Apple"
         },
         "snackBar": {
-            "loggedOut": "You have been logged out.",
+            "signOut": "You have been logged out.",
+            "signOutFailure": "An error occurred while signing out.",
             "successfulLinkage": "Account linked successfully.",
             "linkageFailure": "Failed to link account.",
             "providerAlreadyLinked": "This account is already linked.",
