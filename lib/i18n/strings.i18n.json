@@ -18,7 +18,36 @@
             "title": "Recently Created Plans"
         }
     },
-
+    "accountPage": {
+        "title": "Account",
+        "items": {
+            "signOut": "Sign Out",
+            "linkedWithGoogle": "Linked with Google",
+            "linkedWithApple": "Linked with Apple",
+            "alreadyLinkedGoogle": "Already Linked with Google",
+            "alreadyLinkedApple": "Already Linked with Apple"
+        },
+        "snackBar": {
+            "signOut": "You have been logged out.",
+            "signOutFailure": "An error occurred while signing out.",
+            "successfulLinkage": "Account linked successfully.",
+            "linkageFailure": "Failed to link account.",
+            "providerAlreadyLinked": "This account is already linked.",
+            "accountDeactivation": "Account linkage has been removed.",
+            "invalidCredential": "Please try logging in again.",
+            "linkageCancelled": "Account linking was cancelled.",
+            "unlinkageFailure": "Failed to remove account linkage.",
+            "operationNotAllowed": "Provider is invalid. Please contact the developer.",
+            "unknownError": "An unknown error occurred."
+        },
+        "diaLog": {
+            "yes": "Yes",
+            "no": "No",
+            "title": "Confirm Account Unlinking",
+            "googleText": "Do you want to unlink the current account from your Google account?",
+            "appleText": "Do you want to unlink the current account from your Apple account?"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "Sign In",

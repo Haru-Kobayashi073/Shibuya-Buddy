@@ -46,6 +46,9 @@ class TranslationsJa implements Translations {
   late final _TranslationsHomePageJa homePage =
       _TranslationsHomePageJa._(_root);
   @override
+  late final _TranslationsAccountPageJa accountPage =
+      _TranslationsAccountPageJa._(_root);
+  @override
   late final _TranslationsAuthenticationJa authentication =
       _TranslationsAuthenticationJa._(_root);
   @override
@@ -101,6 +104,26 @@ class _TranslationsHomePageJa implements TranslationsHomePageEn {
   @override
   late final _TranslationsHomePageRecentPlansJa recentPlans =
       _TranslationsHomePageRecentPlansJa._(_root);
+}
+
+// Path: accountPage
+class _TranslationsAccountPageJa implements TranslationsAccountPageEn {
+  _TranslationsAccountPageJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => 'アカウント';
+  @override
+  late final _TranslationsAccountPageItemsJa items =
+      _TranslationsAccountPageItemsJa._(_root);
+  @override
+  late final _TranslationsAccountPageSnackBarJa snackBar =
+      _TranslationsAccountPageSnackBarJa._(_root);
+  @override
+  late final _TranslationsAccountPageDiaLogJa diaLog =
+      _TranslationsAccountPageDiaLogJa._(_root);
 }
 
 // Path: authentication
@@ -296,6 +319,78 @@ class _TranslationsHomePageRecentPlansJa
   // Translations
   @override
   String get title => '最近作成したプラン';
+}
+
+// Path: accountPage.items
+class _TranslationsAccountPageItemsJa
+    implements TranslationsAccountPageItemsEn {
+  _TranslationsAccountPageItemsJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get signOut => 'ログアウト';
+  @override
+  String get linkedWithGoogle => 'Googleで連携';
+  @override
+  String get linkedWithApple => 'Appleで連携';
+  @override
+  String get alreadyLinkedGoogle => 'Google連携済み';
+  @override
+  String get alreadyLinkedApple => 'Appleで連携済み';
+}
+
+// Path: accountPage.snackBar
+class _TranslationsAccountPageSnackBarJa
+    implements TranslationsAccountPageSnackBarEn {
+  _TranslationsAccountPageSnackBarJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get signOut => 'ログアウトしました。';
+  @override
+  String get signOutFailure => 'ログアウト時にエラーが発生しました。';
+  @override
+  String get successfulLinkage => 'アカウント連携に成功しました。';
+  @override
+  String get linkageFailure => 'アカウント連携に失敗しました。';
+  @override
+  String get providerAlreadyLinked => 'このアカウントはすでに連携済みです。';
+  @override
+  String get accountDeactivation => 'アカウントの連携を解除しました。';
+  @override
+  String get invalidCredential => '再度ログインをやり直してください。';
+  @override
+  String get linkageCancelled => 'アカウントの連携をキャンセルしました。';
+  @override
+  String get unlinkageFailure => 'アカウントの連携解除に失敗しました。';
+  @override
+  String get operationNotAllowed => 'プロパイダーが無効です。開発者にお問い合わせください。';
+  @override
+  String get unknownError => '不明なエラーが発生しました。';
+}
+
+// Path: accountPage.diaLog
+class _TranslationsAccountPageDiaLogJa
+    implements TranslationsAccountPageDiaLogEn {
+  _TranslationsAccountPageDiaLogJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get yes => 'はい';
+  @override
+  String get no => 'いいえ';
+  @override
+  String get title => 'アカウント連携解除の確認';
+  @override
+  String get googleText => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
+  @override
+  String get appleText => '現在のアカウントとAppleアカウントの連携を解除しますか？';
 }
 
 // Path: authentication.signInPage
@@ -702,6 +797,50 @@ extension on TranslationsJa {
         return ({required Object number}) => '${number}件~';
       case 'homePage.recentPlans.title':
         return '最近作成したプラン';
+      case 'accountPage.title':
+        return 'アカウント';
+      case 'accountPage.items.signOut':
+        return 'ログアウト';
+      case 'accountPage.items.linkedWithGoogle':
+        return 'Googleで連携';
+      case 'accountPage.items.linkedWithApple':
+        return 'Appleで連携';
+      case 'accountPage.items.alreadyLinkedGoogle':
+        return 'Google連携済み';
+      case 'accountPage.items.alreadyLinkedApple':
+        return 'Appleで連携済み';
+      case 'accountPage.snackBar.signOut':
+        return 'ログアウトしました。';
+      case 'accountPage.snackBar.signOutFailure':
+        return 'ログアウト時にエラーが発生しました。';
+      case 'accountPage.snackBar.successfulLinkage':
+        return 'アカウント連携に成功しました。';
+      case 'accountPage.snackBar.linkageFailure':
+        return 'アカウント連携に失敗しました。';
+      case 'accountPage.snackBar.providerAlreadyLinked':
+        return 'このアカウントはすでに連携済みです。';
+      case 'accountPage.snackBar.accountDeactivation':
+        return 'アカウントの連携を解除しました。';
+      case 'accountPage.snackBar.invalidCredential':
+        return '再度ログインをやり直してください。';
+      case 'accountPage.snackBar.linkageCancelled':
+        return 'アカウントの連携をキャンセルしました。';
+      case 'accountPage.snackBar.unlinkageFailure':
+        return 'アカウントの連携解除に失敗しました。';
+      case 'accountPage.snackBar.operationNotAllowed':
+        return 'プロパイダーが無効です。開発者にお問い合わせください。';
+      case 'accountPage.snackBar.unknownError':
+        return '不明なエラーが発生しました。';
+      case 'accountPage.diaLog.yes':
+        return 'はい';
+      case 'accountPage.diaLog.no':
+        return 'いいえ';
+      case 'accountPage.diaLog.title':
+        return 'アカウント連携解除の確認';
+      case 'accountPage.diaLog.googleText':
+        return '現在のアカウントとGoogleアカウントの連携を解除しますか？';
+      case 'accountPage.diaLog.appleText':
+        return '現在のアカウントとAppleアカウントの連携を解除しますか？';
       case 'authentication.signInPage.title':
         return 'ログイン';
       case 'authentication.signInPage.optionText':
