@@ -10,8 +10,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const SafeArea(
+    return const Scaffold(
+      body: SafeArea(
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: PopularPlansCarousel()),
