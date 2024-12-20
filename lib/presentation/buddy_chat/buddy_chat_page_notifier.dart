@@ -7,6 +7,7 @@ import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_mock_data_source.dart';
+import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
@@ -19,6 +20,8 @@ part 'buddy_chat_page_notifier.g.dart';
 class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   GeminiMockDataSource get geminiDataSource =>
       ref.read(geminiMockDataSourceProvider.notifier);
+  PlanDataSource get planDataSource =>
+      ref.read(planDataSourceProvider.notifier);
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
@@ -108,6 +111,26 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     } finally {
       state = AsyncValue.data(
         state.requireValue.copyWith(isLoadingForMessage: false),
+      );
+    }
+  }
+
+  Future<void> completeCreatePlan() async {
+    final targetMessage = state.requireValue.messages.lastWhere(
+      (message) => message.plan != null,
+      orElse: () => state.requireValue.messages.first,
+    );
+    final targetPlan = targetMessage.plan!;
+    final targetPlaces = targetMessage.places!;
+    try {
+      await planDataSource.createPlan(
+        plan: targetPlan,
+        places: targetPlaces,
+        planPrompt: planPrompt,
+      );
+    } on Exception catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(
+        t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
     }
   }
