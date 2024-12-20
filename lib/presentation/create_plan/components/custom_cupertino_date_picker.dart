@@ -35,6 +35,7 @@ class CustomCupertinoDatePicker extends StatelessWidget {
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: AppColor.black,
+                      decoration: TextDecoration.none,
                     ),
                   ),
                   IconButton(
