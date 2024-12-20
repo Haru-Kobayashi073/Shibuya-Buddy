@@ -43,6 +43,7 @@ class RecentPlan extends StatelessWidget {
             const CategoryTags(
               tags: ['所要時間: 1時間〜', '人数: １人', '＃ショッピング', '＃お出かけ'],
               tagColor: AppColor.blue50Background,
+              spacing: 8,
             ),
           ],
         ),
