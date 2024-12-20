@@ -89,9 +89,13 @@ class AccountPageNotifier extends _$AccountPageNotifier {
     }
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut({
+    required Future<void> Function() onSuccess,
+  }) async {
     try {
       await authenticationDataSource.signOut();
+      scaffoldMessenger.showSuccessSnackBar(snackBari18n.signOut);
+      await onSuccess();
     } on FirebaseAuthException {
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.signOutFailure);
     }

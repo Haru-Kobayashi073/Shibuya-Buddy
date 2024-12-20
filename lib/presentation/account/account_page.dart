@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
@@ -124,7 +125,10 @@ class AccountPage extends ConsumerWidget {
             const SizedBox(height: 16),
             TextButton(
               onPressed: () async {
-                await notifier.signOut();
+                await notifier.signOut(
+                  onSuccess: () async =>
+                      const SignInPageRouteData().go(context),
+                );
               },
               child: Text(
                 itemi18n.signOut,
