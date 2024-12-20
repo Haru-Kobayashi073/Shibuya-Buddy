@@ -116,6 +116,7 @@ class _PlanCard extends StatelessWidget {
               // 複数のタグを表示する部分
               CategoryTags(
                 tags: plan.topicIds,
+                spacing: 8,
                 tagColor: AppColor.white,
               ),
             ],
