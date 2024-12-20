@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'account_page_state.dart';
 
@@ -31,7 +32,8 @@ class AccountPageNotifier extends _$AccountPageNotifier {
   bool checkAppleLink(User? currentUser) {
     final user = firebaseAuth.currentUser;
     return user?.providerData.any(
-          (userInfo) => userInfo.providerId == 'apple.com',
+          (userInfo) =>
+              userInfo.providerId == SocialAuthDomain.apple.toString(),
         ) ??
         false;
   }
@@ -39,7 +41,8 @@ class AccountPageNotifier extends _$AccountPageNotifier {
   bool checkGoogleLink(User? currentUser) {
     final user = firebaseAuth.currentUser;
     return user?.providerData.any(
-          (userInfo) => userInfo.providerId == 'google.com',
+          (userInfo) =>
+              userInfo.providerId == SocialAuthDomain.google.toString(),
         ) ??
         false;
   }
@@ -68,7 +71,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       final credential = await authenticationDataSource.signInWithGoogle();
       await linkedSocialAccount(credential);
       state = state.copyWith(googleLinkage: true);
-    } on Exception {
+    } on Exception catch (e) {
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
   }
@@ -79,10 +82,14 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       await authenticationDataSource.linkWithCredential(credential);
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.successfulLinkage);
     } on FirebaseAuthException catch (e) {
-      final exceptionMessage = e.toString();
+      final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
     }
+  }
+
+  Future<void> signOut() async {
+    await authenticationDataSource.signOut();
   }
 }

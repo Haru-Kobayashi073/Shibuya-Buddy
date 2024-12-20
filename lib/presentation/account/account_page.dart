@@ -54,7 +54,7 @@ class AccountPage extends ConsumerWidget {
                       builder: (context) {
                         return AlertDialog(
                           title: Text(diaLogi18n.title),
-                          content: Text(diaLogi18n.apple_text),
+                          content: Text(diaLogi18n.appleText),
                           actions: [
                             TextButton(
                               child: Text(diaLogi18n.no),
@@ -96,7 +96,7 @@ class AccountPage extends ConsumerWidget {
                       builder: (context) {
                         return AlertDialog(
                           title: Text(diaLogi18n.title),
-                          content: Text(diaLogi18n.google_text),
+                          content: Text(diaLogi18n.googleText),
                           actions: [
                             TextButton(
                               child: Text(diaLogi18n.no),
@@ -121,18 +121,10 @@ class AccountPage extends ConsumerWidget {
                 },
               ),
             ),
-            // const SizedBox(height: 16),
-            // WideButton(
-            //   label: 'アカウント削除',
-            //   color: Colors.red,
-            //   onPressed: () async {
-            //     await AuthenticationDataSource().deleteAccount();
-            //   },
-            // ),
             const SizedBox(height: 16),
             TextButton(
               onPressed: () async {
-                await AuthenticationDataSource().signOut();
+                await notifier.signOut();
               },
               child: Text(
                 itemi18n.signOut,
