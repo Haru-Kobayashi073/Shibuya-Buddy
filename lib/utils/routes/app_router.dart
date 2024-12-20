@@ -35,8 +35,6 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 final homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'home');
 final myPlanNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'my_plan');
 final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'my_page');
-final createPlanNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'create_plan');
 
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
