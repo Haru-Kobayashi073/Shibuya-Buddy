@@ -100,7 +100,6 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
 
   @override
   Future<void> signOut() async {
-    await signOut();
     await firebaseAuth.signOut();
   }
 
