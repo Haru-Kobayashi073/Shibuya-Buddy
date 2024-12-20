@@ -307,9 +307,9 @@ class TranslationsAccountPageDiaLogEn {
   String get yes => 'Yes';
   String get no => 'No';
   String get title => 'Confirm Account Unlinking';
-  String get google_text =>
+  String get googleText =>
       'Do you want to unlink the current account from your Google account?';
-  String get apple_text =>
+  String get appleText =>
       'Do you want to unlink the current account from your Apple account?';
 }
 
@@ -670,9 +670,9 @@ extension on Translations {
         return 'No';
       case 'accountPage.diaLog.title':
         return 'Confirm Account Unlinking';
-      case 'accountPage.diaLog.google_text':
+      case 'accountPage.diaLog.googleText':
         return 'Do you want to unlink the current account from your Google account?';
-      case 'accountPage.diaLog.apple_text':
+      case 'accountPage.diaLog.appleText':
         return 'Do you want to unlink the current account from your Apple account?';
       case 'authentication.signInPage.title':
         return 'Sign In';

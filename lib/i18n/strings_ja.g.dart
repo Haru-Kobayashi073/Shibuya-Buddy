@@ -386,9 +386,9 @@ class _TranslationsAccountPageDiaLogJa
   @override
   String get title => 'アカウント連携解除の確認';
   @override
-  String get google_text => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
+  String get googleText => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
   @override
-  String get apple_text => '現在のアカウントとAppleアカウントの連携を解除しますか？';
+  String get appleText => '現在のアカウントとAppleアカウントの連携を解除しますか？';
 }
 
 // Path: authentication.signInPage
@@ -833,9 +833,9 @@ extension on TranslationsJa {
         return 'いいえ';
       case 'accountPage.diaLog.title':
         return 'アカウント連携解除の確認';
-      case 'accountPage.diaLog.google_text':
+      case 'accountPage.diaLog.googleText':
         return '現在のアカウントとGoogleアカウントの連携を解除しますか？';
-      case 'accountPage.diaLog.apple_text':
+      case 'accountPage.diaLog.appleText':
         return '現在のアカウントとAppleアカウントの連携を解除しますか？';
       case 'authentication.signInPage.title':
         return 'ログイン';

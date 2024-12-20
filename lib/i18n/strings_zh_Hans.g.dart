@@ -390,9 +390,9 @@ class _TranslationsAccountPageDiaLogZhHans
   @override
   String get title => '确认解除账户连接';
   @override
-  String get google_text => '是否要解除当前账户与Google账户的连接？';
+  String get googleText => '是否要解除当前账户与Google账户的连接？';
   @override
-  String get apple_text => '是否要解除当前账户与Apple账户的连接？';
+  String get appleText => '是否要解除当前账户与Apple账户的连接？';
 }
 
 // Path: authentication.signInPage
@@ -845,9 +845,9 @@ extension on TranslationsZhHans {
         return '否';
       case 'accountPage.diaLog.title':
         return '确认解除账户连接';
-      case 'accountPage.diaLog.google_text':
+      case 'accountPage.diaLog.googleText':
         return '是否要解除当前账户与Google账户的连接？';
-      case 'accountPage.diaLog.apple_text':
+      case 'accountPage.diaLog.appleText':
         return '是否要解除当前账户与Apple账户的连接？';
       case 'authentication.signInPage.title':
         return '登录';

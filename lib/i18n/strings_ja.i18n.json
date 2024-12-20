@@ -43,8 +43,8 @@
             "yes":"はい",
             "no":"いいえ",
             "title":"アカウント連携解除の確認",
-            "google_text":"現在のアカウントとGoogleアカウントの連携を解除しますか？",
-            "apple_text": "現在のアカウントとAppleアカウントの連携を解除しますか？"
+            "googleText":"現在のアカウントとGoogleアカウントの連携を解除しますか？",
+            "appleText": "現在のアカウントとAppleアカウントの連携を解除しますか？"
         }
     },
     "authentication": {

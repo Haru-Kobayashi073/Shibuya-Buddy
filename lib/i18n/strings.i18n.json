@@ -43,8 +43,8 @@
             "yes": "Yes",
             "no": "No",
             "title": "Confirm Account Unlinking",
-            "google_text": "Do you want to unlink the current account from your Google account?",
-            "apple_text": "Do you want to unlink the current account from your Apple account?"
+            "googleText": "Do you want to unlink the current account from your Google account?",
+            "appleText": "Do you want to unlink the current account from your Apple account?"
         }
     },
     "authentication": {

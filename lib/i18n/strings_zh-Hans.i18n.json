@@ -43,8 +43,8 @@
             "yes": "是",
             "no": "否",
             "title": "确认解除账户连接",
-            "google_text": "是否要解除当前账户与Google账户的连接？",
-            "apple_text": "是否要解除当前账户与Apple账户的连接？"
+            "googleText": "是否要解除当前账户与Google账户的连接？",
+            "appleText": "是否要解除当前账户与Apple账户的连接？"
         }
     },
     "authentication": {
