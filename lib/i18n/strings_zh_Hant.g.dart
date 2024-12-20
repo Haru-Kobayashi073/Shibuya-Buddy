@@ -529,6 +529,7 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddy
 
 	// Translations
 	@override String get failedRecieveMessage => '無法接收回覆，請稍後再試';
+	@override String get failedCompleteCreatePlan => '無法完成建立計劃，請稍後再試';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -648,6 +649,7 @@ extension on TranslationsZhHant {
 			case 'buddyChatPage.placeCard.averageAmount': return '平均預算';
 			case 'buddyChatPage.placeCard.website': return '網站';
 			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '無法接收回覆，請稍後再試';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '無法完成建立計劃，請稍後再試';
 			case 'popularTopics.sectionName': return '熱門話題';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';

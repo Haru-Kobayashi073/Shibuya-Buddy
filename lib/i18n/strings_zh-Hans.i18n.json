@@ -168,7 +168,8 @@
         },
         "snackBar": {
             "error": {
-                "failedRecieveMessage": "未能接收回复，请稍后再试"
+                "failedRecieveMessage": "未能接收回复，请稍后再试",
+                "failedCompleteCreatePlan": "未能完成创建计划，请稍后再试"
             }
         }
     },

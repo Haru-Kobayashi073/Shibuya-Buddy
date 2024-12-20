@@ -168,7 +168,8 @@
         },
         "snackBar": {
             "error": {
-                "failedRecieveMessage": "返信の受信に失敗しました。時間をおいて再度お試しください"
+                "failedRecieveMessage": "返信の受信に失敗しました。時間をおいて再度お試しください",
+                "failedCompleteCreatePlan": "プランの作成に失敗しました。時間をおいて再度お試しください"
             }
         }
     },

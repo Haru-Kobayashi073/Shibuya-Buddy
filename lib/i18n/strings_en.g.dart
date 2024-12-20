@@ -533,6 +533,7 @@ class TranslationsBuddyChatPageSnackBarErrorEn {
 
 	// Translations
 	String get failedRecieveMessage => 'Failed to receive the reply. Please try again later.';
+	String get failedCompleteCreatePlan => 'Failed to complete plan creation. Please try again later.';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -652,6 +653,7 @@ extension on Translations {
 			case 'buddyChatPage.placeCard.averageAmount': return 'Average Budget';
 			case 'buddyChatPage.placeCard.website': return 'Website';
 			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return 'Failed to receive the reply. Please try again later.';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return 'Failed to complete plan creation. Please try again later.';
 			case 'popularTopics.sectionName': return 'Popular Topics';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';

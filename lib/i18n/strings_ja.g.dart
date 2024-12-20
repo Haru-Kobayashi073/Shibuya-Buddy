@@ -529,6 +529,7 @@ class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChat
 
 	// Translations
 	@override String get failedRecieveMessage => '返信の受信に失敗しました。時間をおいて再度お試しください';
+	@override String get failedCompleteCreatePlan => 'プランの作成に失敗しました。時間をおいて再度お試しください';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -648,6 +649,7 @@ extension on TranslationsJa {
 			case 'buddyChatPage.placeCard.averageAmount': return '平均予算';
 			case 'buddyChatPage.placeCard.website': return 'Webサイト';
 			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '返信の受信に失敗しました。時間をおいて再度お試しください';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return 'プランの作成に失敗しました。時間をおいて再度お試しください';
 			case 'popularTopics.sectionName': return '人気のトピック';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';

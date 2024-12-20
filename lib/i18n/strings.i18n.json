@@ -168,7 +168,8 @@
         },
         "snackBar": {
             "error": {
-                "failedRecieveMessage": "Failed to receive the reply. Please try again later."
+                "failedRecieveMessage": "Failed to receive the reply. Please try again later.",
+                "failedCompleteCreatePlan": "Failed to complete plan creation. Please try again later."
             }
         }
     },

@@ -529,6 +529,7 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddy
 
 	// Translations
 	@override String get failedRecieveMessage => '未能接收回复，请稍后再试';
+	@override String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -648,6 +649,7 @@ extension on TranslationsZhHans {
 			case 'buddyChatPage.placeCard.averageAmount': return '平均预算';
 			case 'buddyChatPage.placeCard.website': return '网站';
 			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '未能接收回复，请稍后再试';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '未能完成创建计划，请稍后再试';
 			case 'popularTopics.sectionName': return '热门话题';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
