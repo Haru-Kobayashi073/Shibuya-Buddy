@@ -9,7 +9,7 @@ part of 'place.dart';
 _$PlaceImpl _$$PlaceImplFromJson(Map<String, dynamic> json) => _$PlaceImpl(
       id: json['id'] as String,
       name: json['name'] as String,
-      thumbnailUrl: Uri.parse(json['thumbnailUrl'] as String),
+      thumbnailUrl: json['thumbnailUrl'] as String,
       title: json['title'] as String,
       openingHours: _$recordConvert(
         json['openingHours'],
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'thumbnailUrl': instance.thumbnailUrl.toString(),
+      'thumbnailUrl': instance.thumbnailUrl,
       'title': instance.title,
       'openingHours': <String, dynamic>{
         'closeTime':

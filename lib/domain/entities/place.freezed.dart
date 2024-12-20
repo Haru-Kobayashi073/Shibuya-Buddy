@@ -22,7 +22,7 @@ Place _$PlaceFromJson(Map<String, dynamic> json) {
 mixin _$Place {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  Uri get thumbnailUrl => throw _privateConstructorUsedError;
+  String get thumbnailUrl => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   @DateTimeConverter()
   ({DateTime closeTime, DateTime openTime}) get openingHours =>
@@ -47,7 +47,7 @@ abstract class $PlaceCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      Uri thumbnailUrl,
+      String thumbnailUrl,
       String title,
       @DateTimeConverter()
       ({DateTime closeTime, DateTime openTime}) openingHours,
@@ -90,7 +90,7 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as Uri,
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ abstract class _$$PlaceImplCopyWith<$Res> implements $PlaceCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      Uri thumbnailUrl,
+      String thumbnailUrl,
       String title,
       @DateTimeConverter()
       ({DateTime closeTime, DateTime openTime}) openingHours,
@@ -162,7 +162,7 @@ class __$$PlaceImplCopyWithImpl<$Res>
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as Uri,
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ class __$$PlaceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PlaceImpl implements _Place {
+class _$PlaceImpl extends _Place {
   const _$PlaceImpl(
       {required this.id,
       required this.name,
@@ -193,7 +193,8 @@ class _$PlaceImpl implements _Place {
       required this.title,
       @DateTimeConverter() required this.openingHours,
       required this.avevageAmount,
-      this.websiteUrl});
+      this.websiteUrl})
+      : super._();
 
   factory _$PlaceImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceImplFromJson(json);
@@ -203,7 +204,7 @@ class _$PlaceImpl implements _Place {
   @override
   final String name;
   @override
-  final Uri thumbnailUrl;
+  final String thumbnailUrl;
   @override
   final String title;
   @override
@@ -258,16 +259,17 @@ class _$PlaceImpl implements _Place {
   }
 }
 
-abstract class _Place implements Place {
+abstract class _Place extends Place {
   const factory _Place(
       {required final String id,
       required final String name,
-      required final Uri thumbnailUrl,
+      required final String thumbnailUrl,
       required final String title,
       @DateTimeConverter()
       required final ({DateTime closeTime, DateTime openTime}) openingHours,
       required final String avevageAmount,
       final Uri? websiteUrl}) = _$PlaceImpl;
+  const _Place._() : super._();
 
   factory _Place.fromJson(Map<String, dynamic> json) = _$PlaceImpl.fromJson;
 
@@ -276,7 +278,7 @@ abstract class _Place implements Place {
   @override
   String get name;
   @override
-  Uri get thumbnailUrl;
+  String get thumbnailUrl;
   @override
   String get title;
   @override

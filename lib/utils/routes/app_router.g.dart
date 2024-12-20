@@ -14,6 +14,7 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $signInPageRouteData,
       $registerProfilePageRouteData,
+      $buddyChatPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -491,6 +492,29 @@ extension $RegisterProfilePageRouteDataExtension
 
   String get location => GoRouteData.$location(
         '/registerProfile',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $buddyChatPageRouteData => GoRouteData.$route(
+      path: '/buddyChatPage',
+      factory: $BuddyChatPageRouteDataExtension._fromState,
+    );
+
+extension $BuddyChatPageRouteDataExtension on BuddyChatPageRouteData {
+  static BuddyChatPageRouteData _fromState(GoRouterState state) =>
+      const BuddyChatPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/buddyChatPage',
       );
 
   void go(BuildContext context) => context.go(location);

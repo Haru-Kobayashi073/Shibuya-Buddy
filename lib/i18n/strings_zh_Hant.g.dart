@@ -42,6 +42,7 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsChangeLanguagePageZhHant changeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
 	@override late final _TranslationsChangeThemePageZhHant changeThemePage = _TranslationsChangeThemePageZhHant._(_root);
 	@override late final _TranslationsMyPlanPageZhHant myPlanPage = _TranslationsMyPlanPageZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageZhHant buddyChatPage = _TranslationsBuddyChatPageZhHant._(_root);
 	@override late final _TranslationsPopularTopicsZhHant popularTopics = _TranslationsPopularTopicsZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
@@ -168,6 +169,21 @@ class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => '我的計劃';
 	@override late final _TranslationsMyPlanPageTabsZhHant tabs = _TranslationsMyPlanPageTabsZhHant._(_root);
+}
+
+// Path: buddyChatPage
+class _TranslationsBuddyChatPageZhHant implements TranslationsBuddyChatPageEn {
+	_TranslationsBuddyChatPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Buddy的建議';
+	@override String possibleChatCount({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
+	@override late final _TranslationsBuddyChatPageTextFieldsZhHant textFields = _TranslationsBuddyChatPageTextFieldsZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsZhHant buttons = _TranslationsBuddyChatPageButtonsZhHant._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardZhHant placeCard = _TranslationsBuddyChatPagePlaceCardZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarZhHant snackBar = _TranslationsBuddyChatPageSnackBarZhHant._(_root);
 }
 
 // Path: popularTopics
@@ -395,6 +411,48 @@ class _TranslationsMyPlanPageTabsZhHant implements TranslationsMyPlanPageTabsEn 
 	@override String get bookmark => '書籤';
 }
 
+// Path: buddyChatPage.textFields
+class _TranslationsBuddyChatPageTextFieldsZhHant implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get message => '輸入訊息';
+}
+
+// Path: buddyChatPage.buttons
+class _TranslationsBuddyChatPageButtonsZhHant implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get send => '完成';
+}
+
+// Path: buddyChatPage.placeCard
+class _TranslationsBuddyChatPagePlaceCardZhHant implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get openingHours => '營業時間';
+	@override String get averageAmount => '平均預算';
+	@override String get website => '網站';
+}
+
+// Path: buddyChatPage.snackBar
+class _TranslationsBuddyChatPageSnackBarZhHant implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorZhHant error = _TranslationsBuddyChatPageSnackBarErrorZhHant._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHant._(this._root);
@@ -523,6 +581,17 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get toSignIn => '前往登入畫面';
 	@override String get resendEmail => '重新發送確認郵件';
 	@override String get changeEmail => '更改電子郵件地址';
+}
+
+// Path: buddyChatPage.snackBar.error
+class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedRecieveMessage => '無法接收回覆，請稍後再試';
+	@override String get failedCompleteCreatePlan => '無法完成建立計劃，請稍後再試';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -656,6 +725,15 @@ extension on TranslationsZhHant {
 			case 'myPlanPage.title': return '我的計劃';
 			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
 			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'buddyChatPage.title': return 'Buddy的建議';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
+			case 'buddyChatPage.textFields.message': return '輸入訊息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '營業時間';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均預算';
+			case 'buddyChatPage.placeCard.website': return '網站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '無法接收回覆，請稍後再試';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '無法完成建立計劃，請稍後再試';
 			case 'popularTopics.sectionName': return '熱門話題';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';

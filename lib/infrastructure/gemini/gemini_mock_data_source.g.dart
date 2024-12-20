@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'account_page_notifier.dart';
+part of 'gemini_mock_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$accountPageNotifierHash() =>
-    r'709485f70d5aeb1ab33b56176a219868cb00a099';
+String _$geminiMockDataSourceHash() =>
+    r'c16c4404fb4907e8fed5e465092fd6566f2e6a19';
 
-/// See also [AccountPageNotifier].
-@ProviderFor(AccountPageNotifier)
-final accountPageNotifierProvider =
-    AutoDisposeNotifierProvider<AccountPageNotifier, AccountPageState>.internal(
-  AccountPageNotifier.new,
-  name: r'accountPageNotifierProvider',
+/// See also [GeminiMockDataSource].
+@ProviderFor(GeminiMockDataSource)
+final geminiMockDataSourceProvider =
+    AutoDisposeNotifierProvider<GeminiMockDataSource, void>.internal(
+  GeminiMockDataSource.new,
+  name: r'geminiMockDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$accountPageNotifierHash,
+      : _$geminiMockDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AccountPageNotifier = AutoDisposeNotifier<AccountPageState>;
+typedef _$GeminiMockDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

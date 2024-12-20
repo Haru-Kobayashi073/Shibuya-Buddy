@@ -182,6 +182,27 @@
             "bookmark": "Bookmarks"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddy's Suggestions",
+        "possibleChatCount": "You can send ${possibleChatCount} more messages",
+        "textFields": {
+            "message": "Enter message"
+        },
+        "buttons": {
+            "send": "Done"
+        },
+        "placeCard": {
+            "openingHours": "Opening Hours",
+            "averageAmount": "Average Budget",
+            "website": "Website"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "Failed to receive the reply. Please try again later.",
+                "failedCompleteCreatePlan": "Failed to complete plan creation. Please try again later."
+            }
+        }
+    },
     "popularTopics": {
         "sectionName": "Popular Topics"
     },

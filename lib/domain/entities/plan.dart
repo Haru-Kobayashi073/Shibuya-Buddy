@@ -16,9 +16,9 @@ abstract class Plan with _$Plan {
     List<String>? tags,
     required String authorId,
     int? ranking,
-    @Default(false) required bool isBookmarked,
+    @Default(false) bool isBookmarked,
     @DateTimeConverter() required DateTime createdAt,
-    @DateTimeConverter() required DateTime updatedAt,
+    @DateTimeConverter() DateTime? updatedAt,
   }) = _Plan;
 
   factory Plan.fromJson(Map<String, dynamic> json) => _$PlanFromJson(json);
