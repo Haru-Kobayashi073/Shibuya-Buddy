@@ -35,6 +35,7 @@ class TranslationsZhHans implements Translations {
 	// Translations
 	@override late final _TranslationsNavigationBarZhHans navigationBar = _TranslationsNavigationBarZhHans._(_root);
 	@override late final _TranslationsHomePageZhHans homePage = _TranslationsHomePageZhHans._(_root);
+	@override late final _TranslationsAccountPageZhHans accountPage = _TranslationsAccountPageZhHans._(_root);
 	@override late final _TranslationsAuthenticationZhHans authentication = _TranslationsAuthenticationZhHans._(_root);
 	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
 	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
@@ -69,6 +70,19 @@ class _TranslationsHomePageZhHans implements TranslationsHomePageEn {
 	@override late final _TranslationsHomePagePopularPlansZhHans popularPlans = _TranslationsHomePagePopularPlansZhHans._(_root);
 	@override late final _TranslationsHomePagePopularTopicsZhHans popularTopics = _TranslationsHomePagePopularTopicsZhHans._(_root);
 	@override late final _TranslationsHomePageRecentPlansZhHans recentPlans = _TranslationsHomePageRecentPlansZhHans._(_root);
+}
+
+// Path: accountPage
+class _TranslationsAccountPageZhHans implements TranslationsAccountPageEn {
+	_TranslationsAccountPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '账户';
+	@override late final _TranslationsAccountPageItemsZhHans items = _TranslationsAccountPageItemsZhHans._(_root);
+	@override late final _TranslationsAccountPageSnackBarZhHans snackBar = _TranslationsAccountPageSnackBarZhHans._(_root);
+	@override late final _TranslationsAccountPageDiaLogZhHans diaLog = _TranslationsAccountPageDiaLogZhHans._(_root);
 }
 
 // Path: authentication
@@ -207,6 +221,54 @@ class _TranslationsHomePageRecentPlansZhHans implements TranslationsHomePageRece
 
 	// Translations
 	@override String get title => '最近创建的计划';
+}
+
+// Path: accountPage.items
+class _TranslationsAccountPageItemsZhHans implements TranslationsAccountPageItemsEn {
+	_TranslationsAccountPageItemsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get signOut => '退出登录';
+	@override String get linkedWithGoogle => '与Google连接';
+	@override String get linkedWithApple => '与Apple连接';
+	@override String get alreadyLinkedGoogle => '已与Google连接';
+	@override String get alreadyLinkedApple => '已与Apple连接';
+}
+
+// Path: accountPage.snackBar
+class _TranslationsAccountPageSnackBarZhHans implements TranslationsAccountPageSnackBarEn {
+	_TranslationsAccountPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get signOut => '已成功退出登录。';
+	@override String get signOutFailure => '退出登录时发生错误。';
+	@override String get successfulLinkage => '账户关联成功。';
+	@override String get linkageFailure => '账户关联失败。';
+	@override String get providerAlreadyLinked => '此账户已经关联。';
+	@override String get accountDeactivation => '已解除账户关联。';
+	@override String get invalidCredential => '请重新登录。';
+	@override String get linkageCancelled => '账户关联已取消。';
+	@override String get unlinkageFailure => '解除账户关联失败。';
+	@override String get operationNotAllowed => '提供者无效。请联系开发者。';
+	@override String get unknownError => '发生未知错误。';
+}
+
+// Path: accountPage.diaLog
+class _TranslationsAccountPageDiaLogZhHans implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => '是';
+	@override String get no => '否';
+	@override String get title => '确认解除账户连接';
+	@override String get googleText => '是否要解除当前账户与Google账户的连接？';
+	@override String get appleText => '是否要解除当前账户与Apple账户的连接？';
 }
 
 // Path: authentication.signInPage
@@ -496,6 +558,28 @@ extension on TranslationsZhHans {
 			case 'homePage.popularTopics.title': return '热门话题';
 			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
 			case 'homePage.recentPlans.title': return '最近创建的计划';
+			case 'accountPage.title': return '账户';
+			case 'accountPage.items.signOut': return '退出登录';
+			case 'accountPage.items.linkedWithGoogle': return '与Google连接';
+			case 'accountPage.items.linkedWithApple': return '与Apple连接';
+			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
+			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
+			case 'accountPage.snackBar.signOut': return '已成功退出登录。';
+			case 'accountPage.snackBar.signOutFailure': return '退出登录时发生错误。';
+			case 'accountPage.snackBar.successfulLinkage': return '账户关联成功。';
+			case 'accountPage.snackBar.linkageFailure': return '账户关联失败。';
+			case 'accountPage.snackBar.providerAlreadyLinked': return '此账户已经关联。';
+			case 'accountPage.snackBar.accountDeactivation': return '已解除账户关联。';
+			case 'accountPage.snackBar.invalidCredential': return '请重新登录。';
+			case 'accountPage.snackBar.linkageCancelled': return '账户关联已取消。';
+			case 'accountPage.snackBar.unlinkageFailure': return '解除账户关联失败。';
+			case 'accountPage.snackBar.operationNotAllowed': return '提供者无效。请联系开发者。';
+			case 'accountPage.snackBar.unknownError': return '发生未知错误。';
+			case 'accountPage.diaLog.yes': return '是';
+			case 'accountPage.diaLog.no': return '否';
+			case 'accountPage.diaLog.title': return '确认解除账户连接';
+			case 'accountPage.diaLog.googleText': return '是否要解除当前账户与Google账户的连接？';
+			case 'accountPage.diaLog.appleText': return '是否要解除当前账户与Apple账户的连接？';
 			case 'authentication.signInPage.title': return '登录';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '电子邮件地址';
