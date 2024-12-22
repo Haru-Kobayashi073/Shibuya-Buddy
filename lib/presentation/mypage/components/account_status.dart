@@ -34,16 +34,15 @@ class _AccountStatusState extends State<AccountStatus> {
     final i18n = Translations.of(context);
     final myPageItemi18n = i18n.myPage;
     final acountStatusi18n = myPageItemi18n.accountStatus;
-
     final createdAt = widget.createdAt;
     final effectiveDate = widget.effectiveDate;
-    final createFormat = effectiveDate != null
-        ? DateFormat(myPageItemi18n.accountStatus.dateTime.registeredOnFormat)
+    final createFormat =
+        DateFormat(myPageItemi18n.accountStatus.dateTime.registeredOnFormat)
+            .format(createdAt);
+    final effectiveFormat = effectiveDate != null
+        ? DateFormat(myPageItemi18n.accountStatus.dateTime.validUntilFormat)
             .format(effectiveDate)
         : '';
-    final effectiveFormat =
-        DateFormat(myPageItemi18n.accountStatus.dateTime.validUntilFormat)
-            .format(createdAt);
     return Container(
       width: screenWidth,
       decoration: BoxDecoration(
