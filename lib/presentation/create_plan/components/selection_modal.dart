@@ -70,8 +70,18 @@ class SelectionModal extends ConsumerWidget {
               itemCount: selectionList.length,
               itemBuilder: (context, index) {
                 final item = selectionList[index];
-                return GestureDetector(
-                  onTap: () {
+                return CheckboxListTile(
+                  contentPadding: EdgeInsets.zero,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  dense: true,
+                  title: Text(
+                    item,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 14,
+                    ),
+                  ),
+                  value: selectedItems.contains(item),
+                  onChanged: (isChecked) {
                     if (isSingleSelect) {
                       ref
                           .read(createPlanNotifierProvider.notifier)
@@ -82,33 +92,6 @@ class SelectionModal extends ConsumerWidget {
                           .toggleSelection(field, item);
                     }
                   },
-                  child: ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    dense: true,
-                    title: Text(
-                      item,
-                      style: AppTextStyle.textStyle.copyWith(
-                        fontSize: 14,
-                      ),
-                    ),
-                    leading: isSingleSelect
-                        ? Checkbox(
-                            value: selectedItems.contains(item),
-                            onChanged: (isChecked) {
-                              ref
-                                  .read(createPlanNotifierProvider.notifier)
-                                  .updateSingleSelection(field, item);
-                            },
-                          )
-                        : Checkbox(
-                            value: selectedItems.contains(item),
-                            onChanged: (isChecked) {
-                              ref
-                                  .read(createPlanNotifierProvider.notifier)
-                                  .toggleSelection(field, item);
-                            },
-                          ),
-                  ),
                 );
               },
             ),
