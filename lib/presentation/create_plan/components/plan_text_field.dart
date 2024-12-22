@@ -7,7 +7,7 @@ import '../../../utils/styles/app_text_style.dart';
 class PlanTextField extends StatelessWidget {
   const PlanTextField({
     super.key,
-    this.label,
+    required this.label,
     this.hintText,
     this.prefixIcon,
     this.controller,
@@ -17,7 +17,7 @@ class PlanTextField extends StatelessWidget {
     this.onTap,
   });
 
-  final String? label;
+  final String label;
   final String? hintText;
   final Icon? prefixIcon;
   final TextEditingController? controller;
