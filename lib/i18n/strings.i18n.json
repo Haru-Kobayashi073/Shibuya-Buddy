@@ -161,9 +161,9 @@
         "accountStatus": {
             "dateTime": {
                 "registeredOn": "Registered on",
-                "registeredOnFormat":"MM/DD/YYYY",
+                "registeredOnFormat":"MM/dd/yyyy",
                 "validUntil": "Valid until",
-                "validUntilFormat":"MM/DD/YYYY hh:mm"
+                "validUntilFormat":"MM/dd/yyyy hh:mm"
             },
             "premium": "Premium Member",
             "standard": "Standard Member"

@@ -551,9 +551,9 @@ class TranslationsMyPageAccountStatusDateTimeEn {
 
 	// Translations
 	String get registeredOn => 'Registered on';
-	String get registeredOnFormat => 'MM/DD/YYYY';
+	String get registeredOnFormat => 'MM/dd/yyyy';
 	String get validUntil => 'Valid until';
-	String get validUntilFormat => 'MM/DD/YYYY hh:mm';
+	String get validUntilFormat => 'MM/dd/yyyy hh:mm';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -677,9 +677,9 @@ extension on Translations {
 			case 'myPage.aboutThisApp': return 'About This App';
 			case 'myPage.aboutTheDeveloper': return 'About the Developer';
 			case 'myPage.accountStatus.dateTime.registeredOn': return 'Registered on';
-			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'MM/DD/YYYY';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'MM/dd/yyyy';
 			case 'myPage.accountStatus.dateTime.validUntil': return 'Valid until';
-			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'MM/DD/YYYY hh:mm';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'MM/dd/yyyy hh:mm';
 			case 'myPage.accountStatus.premium': return 'Premium Member';
 			case 'myPage.accountStatus.standard': return 'Standard Member';
 			case 'changeLanguagePage.title': return 'Language';

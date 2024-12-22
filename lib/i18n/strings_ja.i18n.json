@@ -160,10 +160,10 @@
         "aboutTheDeveloper": "開発者について",
         "accountStatus":{
             "dateTime": {
-                "registeredOn": "登録",
-                "registeredOnFormat": "YYYY/MM/DD",
+                "registeredOn": "に登録",
+                "registeredOnFormat": "yyyy年MM月dd日",
                 "validUntil": "まで",
-                "validUntilFormat": "YYYY/MM/DD HH:mm"
+                "validUntilFormat": "yyyy年MM月dd日 HH時mm分"
             },
             "premium": "プレミアム会員",
             "standard": "スタンダード会員"

@@ -161,9 +161,9 @@
         "accountStatus": {
         "dateTime": {
             "registeredOn": "注册于",
-            "registeredOnFormat": "YYYY年MM月DD日",
+            "registeredOnFormat": "yyyy年MM月dd日",
             "validUntil": "有效期至",
-            "validUntilFormat": "YYYY年MM月DD日 HH:mm"
+            "validUntilFormat": "yyyy年MM月dd日 HH:mm"
         },
         "premium": "高级会员",
         "standard": "标准会员"
