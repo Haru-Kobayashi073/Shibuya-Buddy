@@ -8,7 +8,6 @@ class PlanTextField extends StatelessWidget {
   const PlanTextField({
     super.key,
     required this.label,
-    this.hintText,
     this.prefixIcon,
     this.controller,
     this.readOnly = false,
@@ -18,7 +17,6 @@ class PlanTextField extends StatelessWidget {
   });
 
   final String label;
-  final String? hintText;
   final Icon? prefixIcon;
   final TextEditingController? controller;
   final bool readOnly;
@@ -58,7 +56,6 @@ class PlanTextField extends StatelessWidget {
                 labelStyle: AppTextStyle.textStyle.copyWith(
                   color: AppColor.black,
                 ),
-                hintText: hintText,
                 labelText: label,
                 prefixIcon: prefixIcon,
               ),
