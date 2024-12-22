@@ -47,6 +47,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsChangeThemePageEn changeThemePage = TranslationsChangeThemePageEn._(_root);
 	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
+	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -182,6 +183,47 @@ class TranslationsPopularTopicsEn {
 
 	// Translations
 	String get sectionName => 'Popular Topics';
+}
+
+// Path: createPlanPage
+class TranslationsCreatePlanPageEn {
+	TranslationsCreatePlanPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Create Plan';
+	late final TranslationsCreatePlanPageLabelEn label = TranslationsCreatePlanPageLabelEn._(_root);
+	late final TranslationsCreatePlanPageHintTextEn hintText = TranslationsCreatePlanPageHintTextEn._(_root);
+	late final TranslationsCreatePlanPageModalEn modal = TranslationsCreatePlanPageModalEn._(_root);
+	List<String> get numberOfPeopleOptions => [
+		'1 person',
+		'2 people',
+		'3 people',
+		'4 people',
+		'5 people',
+		'6 or more',
+	];
+	List<String> get transportOptions => [
+		'Train',
+		'Walking',
+		'Car',
+		'Bus',
+	];
+	List<String> get categoryOptions => [
+		'Family-friendly',
+		'Adult',
+		'Entertainment',
+		'Activity',
+		'History',
+	];
+	List<String> get defaultTopics => [
+		'Gourmet',
+		'Shopping',
+		'Activities',
+		'Movies',
+	];
+	String get submitButton => 'Submit Plan to AI';
 }
 
 // Path: navigationBar.items
@@ -397,6 +439,42 @@ class TranslationsMyPlanPageTabsEn {
 	// Translations
 	String get createdPlans => 'Created Plans';
 	String get bookmark => 'Bookmarks';
+}
+
+// Path: createPlanPage.label
+class TranslationsCreatePlanPageLabelEn {
+	TranslationsCreatePlanPageLabelEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get location => 'Destination';
+	String get scheduleStart => 'Start Date';
+	String get scheduleEnd => 'End Date';
+	String get numberOfPeople => 'Number of People';
+	String get transport => 'Transportation';
+	String get category => 'Category';
+	String get topics => 'Travel Topics';
+}
+
+// Path: createPlanPage.hintText
+class TranslationsCreatePlanPageHintTextEn {
+	TranslationsCreatePlanPageHintTextEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get location => 'Shibuya';
+}
+
+// Path: createPlanPage.modal
+class TranslationsCreatePlanPageModalEn {
+	TranslationsCreatePlanPageModalEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select a date';
 }
 
 // Path: authentication.signInPage.textFields
@@ -661,6 +739,36 @@ extension on Translations {
 			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
 			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
 			case 'popularTopics.sectionName': return 'Popular Topics';
+			case 'createPlanPage.title': return 'Create Plan';
+			case 'createPlanPage.label.location': return 'Destination';
+			case 'createPlanPage.label.scheduleStart': return 'Start Date';
+			case 'createPlanPage.label.scheduleEnd': return 'End Date';
+			case 'createPlanPage.label.numberOfPeople': return 'Number of People';
+			case 'createPlanPage.label.transport': return 'Transportation';
+			case 'createPlanPage.label.category': return 'Category';
+			case 'createPlanPage.label.topics': return 'Travel Topics';
+			case 'createPlanPage.hintText.location': return 'Shibuya';
+			case 'createPlanPage.modal.title': return 'Select a date';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1 person';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2 people';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3 people';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4 people';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5 people';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6 or more';
+			case 'createPlanPage.transportOptions.0': return 'Train';
+			case 'createPlanPage.transportOptions.1': return 'Walking';
+			case 'createPlanPage.transportOptions.2': return 'Car';
+			case 'createPlanPage.transportOptions.3': return 'Bus';
+			case 'createPlanPage.categoryOptions.0': return 'Family-friendly';
+			case 'createPlanPage.categoryOptions.1': return 'Adult';
+			case 'createPlanPage.categoryOptions.2': return 'Entertainment';
+			case 'createPlanPage.categoryOptions.3': return 'Activity';
+			case 'createPlanPage.categoryOptions.4': return 'History';
+			case 'createPlanPage.defaultTopics.0': return 'Gourmet';
+			case 'createPlanPage.defaultTopics.1': return 'Shopping';
+			case 'createPlanPage.defaultTopics.2': return 'Activities';
+			case 'createPlanPage.defaultTopics.3': return 'Movies';
+			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';
