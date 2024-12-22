@@ -18,6 +18,36 @@
             "title": "最近作成したプラン"
         }
     },
+    "accountPage": {
+        "title":"アカウント",
+        "items":{
+            "signOut": "ログアウト",
+            "linkedWithGoogle": "Googleで連携",
+            "linkedWithApple": "Appleで連携",
+            "alreadyLinkedGoogle": "Google連携済み",
+            "alreadyLinkedApple": "Appleで連携済み"
+        },
+        "snackBar":{
+            "signOut":"ログアウトしました。",
+            "signOutFailure":"ログアウト時にエラーが発生しました。",
+            "successfulLinkage":"アカウント連携に成功しました。",
+            "linkageFailure":"アカウント連携に失敗しました。",
+            "providerAlreadyLinked":"このアカウントはすでに連携済みです。",
+            "accountDeactivation":"アカウントの連携を解除しました。",
+            "invalidCredential":"再度ログインをやり直してください。",
+            "linkageCancelled":"アカウントの連携をキャンセルしました。",
+            "unlinkageFailure":"アカウントの連携解除に失敗しました。",
+            "operationNotAllowed":"プロパイダーが無効です。開発者にお問い合わせください。",
+            "unknownError":"不明なエラーが発生しました。"
+        },
+        "diaLog":{
+            "yes":"はい",
+            "no":"いいえ",
+            "title":"アカウント連携解除の確認",
+            "googleText":"現在のアカウントとGoogleアカウントの連携を解除しますか？",
+            "appleText": "現在のアカウントとAppleアカウントの連携を解除しますか？"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "ログイン",

@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'authentication_data_source.dart';
+part of 'account_page_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authenticationDataSourceHash() =>
-    r'd3db1c9bedae2f8d8a3bbb28410d0a658a188fb6';
+String _$accountPageNotifierHash() =>
+    r'67b9700a20edd5cd002b806503bdedf8da556232';
 
-/// See also [AuthenticationDataSource].
-@ProviderFor(AuthenticationDataSource)
-final authenticationDataSourceProvider =
-    AutoDisposeNotifierProvider<AuthenticationDataSource, void>.internal(
-  AuthenticationDataSource.new,
-  name: r'authenticationDataSourceProvider',
+/// See also [AccountPageNotifier].
+@ProviderFor(AccountPageNotifier)
+final accountPageNotifierProvider =
+    AutoDisposeNotifierProvider<AccountPageNotifier, AccountPageState>.internal(
+  AccountPageNotifier.new,
+  name: r'accountPageNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$authenticationDataSourceHash,
+      : _$accountPageNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AuthenticationDataSource = AutoDisposeNotifier<void>;
+typedef _$AccountPageNotifier = AutoDisposeNotifier<AccountPageState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
