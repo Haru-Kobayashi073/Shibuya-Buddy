@@ -19,8 +19,16 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     state = state.copyWith(selectedTopics: []);
   }
 
-  void updateSelectedTopics(List<String> topics) {
-    state = state.copyWith(selectedTopics: topics);
+  void updateSelectedTopics(String topic, {required bool isSelected}) {
+    final updatedTopics = List<String>.from(state.selectedTopics);
+    if (isSelected) {
+      if (!updatedTopics.contains(topic)) {
+        updatedTopics.add(topic);
+      }
+    } else {
+      updatedTopics.remove(topic);
+    }
+    state = state.copyWith(selectedTopics: updatedTopics);
   }
 
   void setStartDate(DateTime date) {

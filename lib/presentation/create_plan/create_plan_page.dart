@@ -203,7 +203,7 @@ class CreatePlanPage extends HookConsumerWidget {
               TopicChipField(
                 topics: t.createPlanPage.defaultTopics,
                 selectedTopics: planState.selectedTopics,
-                onChange: planNotifier.updateSelectedTopics,
+                onSelected: planNotifier.updateSelectedTopics,
               ),
               const Gap(16),
               WideButton(

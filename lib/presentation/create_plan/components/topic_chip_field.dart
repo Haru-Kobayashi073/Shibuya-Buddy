@@ -7,41 +7,36 @@ class TopicChipField extends StatelessWidget {
     super.key,
     required this.topics,
     required this.selectedTopics,
-    required this.onChange,
+    required this.onSelected,
   });
 
   final List<String> topics;
   final List<String> selectedTopics;
-  final ValueChanged<List<String>> onChange;
+  final void Function(String topic, {required bool isSelected}) onSelected;
 
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topLeft,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: -4,
-        children: topics
-            .where((topic) => !selectedTopics.contains(topic))
-            .map((topic) {
-          return FilterChip(
-            side: BorderSide.none,
-            backgroundColor: AppColor.blue50Background,
-            label: Text(
-              topic,
-            ),
-            selected: selectedTopics.contains(topic),
-            onSelected: (isSelected) {
-              final updatedTopics = List<String>.from(selectedTopics);
-              if (isSelected) {
-                updatedTopics.add(topic);
-              } else {
-                updatedTopics.remove(topic);
-              }
-              onChange(updatedTopics);
-            },
-          );
-        }).toList(),
+      alignment: Alignment.centerLeft,
+      child: Column(
+        children: [
+          Wrap(
+            spacing: 8,
+            runSpacing: -4,
+            children: topics
+                .where((topic) => !selectedTopics.contains(topic))
+                .map((topic) {
+              return FilterChip(
+                side: BorderSide.none,
+                backgroundColor: AppColor.blue50Background,
+                label: Text(topic),
+                onSelected: (isSelected) {
+                  onSelected(topic, isSelected: true);
+                },
+              );
+            }).toList(),
+          ),
+        ],
       ),
     );
   }
