@@ -64,7 +64,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     }
   }
 
-  void toggleSelection(SelectionField field, String item) {
+  void updateMultiSelection(SelectionField field, String item) {
     switch (field) {
       case SelectionField.transport:
         _toggleListField(

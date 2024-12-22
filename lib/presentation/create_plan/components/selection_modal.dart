@@ -89,7 +89,7 @@ class SelectionModal extends ConsumerWidget {
                     } else {
                       ref
                           .read(createPlanNotifierProvider.notifier)
-                          .toggleSelection(field, item);
+                          .updateMultiSelection(field, item);
                     }
                   },
                 );
