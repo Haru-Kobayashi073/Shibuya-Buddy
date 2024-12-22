@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "未登録",
-        "aboutAIFunction": "AIの機能について",
+        "editProfile":"プロフィール編集",
+        "aiFeatureGrade": "AI機能のグレード",
         "details": "詳細",
         "settings": "設定",
         "account": "アカウント",
@@ -156,7 +157,17 @@
         "theme": "テーマ",
         "termsOfUsePrivacyPolicy": "利用規約・プライバシーポリシー",
         "aboutThisApp": "このアプリについて",
-        "aboutTheDeveloper": "開発者について"
+        "aboutTheDeveloper": "開発者について",
+        "accountStatus":{
+            "dateTime": {
+                "registeredOn": "登録",
+                "registeredOnFormat": "YYYY/MM/DD",
+                "validUntil": "まで",
+                "validUntilFormat": "YYYY/MM/DD HH:mm"
+            },
+            "premium": "プレミアム会員",
+            "standard": "スタンダード会員"
+        }
     },
     "changeLanguagePage": {
         "title": "言語",

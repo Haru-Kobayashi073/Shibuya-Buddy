@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "未注册",
-        "aboutAIFunction": "关于AI功能",
+        "editProfile":"编辑个人资料",
+        "aiFeatureGrade": "AI功能等级",
         "details": "详细",
         "settings": "设置",
         "account": "账户",
@@ -156,7 +157,17 @@
         "theme": "主题",
         "termsOfUsePrivacyPolicy": "使用条款和隐私政策",
         "aboutThisApp": "关于本应用",
-        "aboutTheDeveloper": "关于开发者"
+        "aboutTheDeveloper": "关于开发者",
+        "accountStatus": {
+        "dateTime": {
+            "registeredOn": "注册于",
+            "registeredOnFormat": "YYYY年MM月DD日",
+            "validUntil": "有效期至",
+            "validUntilFormat": "YYYY年MM月DD日 HH:mm"
+        },
+        "premium": "高级会员",
+        "standard": "标准会员"
+    }
     },
     "changeLanguagePage": {
         "title": "语言",

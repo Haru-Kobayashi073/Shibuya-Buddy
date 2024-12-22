@@ -126,7 +126,8 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 
 	// Translations
 	@override String get unregisteredUserName => '未註冊';
-	@override String get aboutAIFunction => '關於AI功能';
+	@override String get editProfile => '編輯個人資料';
+	@override String get aiFeatureGrade => 'AI功能等級';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
 	@override String get account => '帳戶';
@@ -135,6 +136,7 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '使用條款和隱私政策';
 	@override String get aboutThisApp => '關於本應用';
 	@override String get aboutTheDeveloper => '關於開發者';
+	@override late final _TranslationsMyPageAccountStatusZhHant accountStatus = _TranslationsMyPageAccountStatusZhHant._(_root);
 }
 
 // Path: changeLanguagePage
@@ -359,6 +361,18 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHant implements Translat
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(_root);
 }
 
+// Path: myPage.accountStatus
+class _TranslationsMyPageAccountStatusZhHant implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeZhHant dateTime = _TranslationsMyPageAccountStatusDateTimeZhHant._(_root);
+	@override String get premium => '進階會員';
+	@override String get standard => '標準會員';
+}
+
 // Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHant._(this._root);
@@ -525,6 +539,19 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get changeEmail => '更改電子郵件地址';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeZhHant implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get registeredOn => '註冊於';
+	@override String get registeredOnFormat => 'YYYY年MM月DD日';
+	@override String get validUntil => '有效期至';
+	@override String get validUntilFormat => 'YYYY年MM月DD日 HH:mm';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
@@ -635,7 +662,8 @@ extension on TranslationsZhHant {
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
 			case 'myPage.unregisteredUserName': return '未註冊';
-			case 'myPage.aboutAIFunction': return '關於AI功能';
+			case 'myPage.editProfile': return '編輯個人資料';
+			case 'myPage.aiFeatureGrade': return 'AI功能等級';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
 			case 'myPage.account': return '帳戶';
@@ -644,6 +672,12 @@ extension on TranslationsZhHant {
 			case 'myPage.termsOfUsePrivacyPolicy': return '使用條款和隱私政策';
 			case 'myPage.aboutThisApp': return '關於本應用';
 			case 'myPage.aboutTheDeveloper': return '關於開發者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return '註冊於';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'YYYY年MM月DD日';
+			case 'myPage.accountStatus.dateTime.validUntil': return '有效期至';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'YYYY年MM月DD日 HH:mm';
+			case 'myPage.accountStatus.premium': return '進階會員';
+			case 'myPage.accountStatus.standard': return '標準會員';
 			case 'changeLanguagePage.title': return '語言';
 			case 'changeLanguagePage.items.japanese': return '日语';
 			case 'changeLanguagePage.items.english': return '英语';

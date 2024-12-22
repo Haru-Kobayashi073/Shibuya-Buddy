@@ -130,7 +130,8 @@ class TranslationsMyPageEn {
 
 	// Translations
 	String get unregisteredUserName => 'Unregistered';
-	String get aboutAIFunction => 'About AI Features';
+	String get editProfile => 'Edit Profile';
+	String get aiFeatureGrade => 'AI Feature Grade';
 	String get details => 'Details';
 	String get settings => 'Settings';
 	String get account => 'Account';
@@ -139,6 +140,7 @@ class TranslationsMyPageEn {
 	String get termsOfUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
 	String get aboutThisApp => 'About This App';
 	String get aboutTheDeveloper => 'About the Developer';
+	late final TranslationsMyPageAccountStatusEn accountStatus = TranslationsMyPageAccountStatusEn._(_root);
 }
 
 // Path: changeLanguagePage
@@ -363,6 +365,18 @@ class TranslationsAuthenticationCompleteSendEmailPageEn {
 	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
 }
 
+// Path: myPage.accountStatus
+class TranslationsMyPageAccountStatusEn {
+	TranslationsMyPageAccountStatusEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsMyPageAccountStatusDateTimeEn dateTime = TranslationsMyPageAccountStatusDateTimeEn._(_root);
+	String get premium => 'Premium Member';
+	String get standard => 'Standard Member';
+}
+
 // Path: changeLanguagePage.items
 class TranslationsChangeLanguagePageItemsEn {
 	TranslationsChangeLanguagePageItemsEn._(this._root);
@@ -529,6 +543,19 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get changeEmail => 'Change Email Address';
 }
 
+// Path: myPage.accountStatus.dateTime
+class TranslationsMyPageAccountStatusDateTimeEn {
+	TranslationsMyPageAccountStatusDateTimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get registeredOn => 'Registered on';
+	String get registeredOnFormat => 'MM/DD/YYYY';
+	String get validUntil => 'Valid until';
+	String get validUntilFormat => 'MM/DD/YYYY hh:mm';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
@@ -639,7 +666,8 @@ extension on Translations {
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
 			case 'myPage.unregisteredUserName': return 'Unregistered';
-			case 'myPage.aboutAIFunction': return 'About AI Features';
+			case 'myPage.editProfile': return 'Edit Profile';
+			case 'myPage.aiFeatureGrade': return 'AI Feature Grade';
 			case 'myPage.details': return 'Details';
 			case 'myPage.settings': return 'Settings';
 			case 'myPage.account': return 'Account';
@@ -648,6 +676,12 @@ extension on Translations {
 			case 'myPage.termsOfUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
 			case 'myPage.aboutThisApp': return 'About This App';
 			case 'myPage.aboutTheDeveloper': return 'About the Developer';
+			case 'myPage.accountStatus.dateTime.registeredOn': return 'Registered on';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'MM/DD/YYYY';
+			case 'myPage.accountStatus.dateTime.validUntil': return 'Valid until';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'MM/DD/YYYY hh:mm';
+			case 'myPage.accountStatus.premium': return 'Premium Member';
+			case 'myPage.accountStatus.standard': return 'Standard Member';
 			case 'changeLanguagePage.title': return 'Language';
 			case 'changeLanguagePage.items.japanese': return 'Japanese';
 			case 'changeLanguagePage.items.english': return 'English';

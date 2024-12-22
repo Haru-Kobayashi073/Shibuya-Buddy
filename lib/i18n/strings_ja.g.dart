@@ -126,7 +126,8 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 
 	// Translations
 	@override String get unregisteredUserName => '未登録';
-	@override String get aboutAIFunction => 'AIの機能について';
+	@override String get editProfile => 'プロフィール編集';
+	@override String get aiFeatureGrade => 'AI機能のグレード';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
 	@override String get account => 'アカウント';
@@ -135,6 +136,7 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '利用規約・プライバシーポリシー';
 	@override String get aboutThisApp => 'このアプリについて';
 	@override String get aboutTheDeveloper => '開発者について';
+	@override late final _TranslationsMyPageAccountStatusJa accountStatus = _TranslationsMyPageAccountStatusJa._(_root);
 }
 
 // Path: changeLanguagePage
@@ -359,6 +361,18 @@ class _TranslationsAuthenticationFirebaseAuthJa implements TranslationsAuthentic
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorJa error = _TranslationsAuthenticationFirebaseAuthErrorJa._(_root);
 }
 
+// Path: myPage.accountStatus
+class _TranslationsMyPageAccountStatusJa implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeJa dateTime = _TranslationsMyPageAccountStatusDateTimeJa._(_root);
+	@override String get premium => 'プレミアム会員';
+	@override String get standard => 'スタンダード会員';
+}
+
 // Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsJa._(this._root);
@@ -525,6 +539,19 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 	@override String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeJa implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get registeredOn => '登録';
+	@override String get registeredOnFormat => 'YYYY/MM/DD';
+	@override String get validUntil => 'まで';
+	@override String get validUntilFormat => 'YYYY/MM/DD HH:mm';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
@@ -635,7 +662,8 @@ extension on TranslationsJa {
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
 			case 'myPage.unregisteredUserName': return '未登録';
-			case 'myPage.aboutAIFunction': return 'AIの機能について';
+			case 'myPage.editProfile': return 'プロフィール編集';
+			case 'myPage.aiFeatureGrade': return 'AI機能のグレード';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
 			case 'myPage.account': return 'アカウント';
@@ -644,6 +672,12 @@ extension on TranslationsJa {
 			case 'myPage.termsOfUsePrivacyPolicy': return '利用規約・プライバシーポリシー';
 			case 'myPage.aboutThisApp': return 'このアプリについて';
 			case 'myPage.aboutTheDeveloper': return '開発者について';
+			case 'myPage.accountStatus.dateTime.registeredOn': return '登録';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'YYYY/MM/DD';
+			case 'myPage.accountStatus.dateTime.validUntil': return 'まで';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'YYYY/MM/DD HH:mm';
+			case 'myPage.accountStatus.premium': return 'プレミアム会員';
+			case 'myPage.accountStatus.standard': return 'スタンダード会員';
 			case 'changeLanguagePage.title': return '言語';
 			case 'changeLanguagePage.items.japanese': return '日本語';
 			case 'changeLanguagePage.items.english': return '英語';
