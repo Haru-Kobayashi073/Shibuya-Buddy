@@ -19,9 +19,6 @@ mixin _$CreatePlanState {
   String get location => throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
-  String get numberOfPeople => throw _privateConstructorUsedError;
-  String get transport => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
   List<String> get selectedTopics => throw _privateConstructorUsedError;
   List<String> get selectedNumberofPeople => throw _privateConstructorUsedError;
   List<String> get selectedTransport => throw _privateConstructorUsedError;
@@ -44,9 +41,6 @@ abstract class $CreatePlanStateCopyWith<$Res> {
       {String location,
       DateTime? startDate,
       DateTime? endDate,
-      String numberOfPeople,
-      String transport,
-      String category,
       List<String> selectedTopics,
       List<String> selectedNumberofPeople,
       List<String> selectedTransport,
@@ -71,9 +65,6 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
     Object? location = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? numberOfPeople = null,
-    Object? transport = null,
-    Object? category = null,
     Object? selectedTopics = null,
     Object? selectedNumberofPeople = null,
     Object? selectedTransport = null,
@@ -92,18 +83,6 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      numberOfPeople: null == numberOfPeople
-          ? _value.numberOfPeople
-          : numberOfPeople // ignore: cast_nullable_to_non_nullable
-              as String,
-      transport: null == transport
-          ? _value.transport
-          : transport // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
       selectedTopics: null == selectedTopics
           ? _value.selectedTopics
           : selectedTopics // ignore: cast_nullable_to_non_nullable
@@ -136,9 +115,6 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
       {String location,
       DateTime? startDate,
       DateTime? endDate,
-      String numberOfPeople,
-      String transport,
-      String category,
       List<String> selectedTopics,
       List<String> selectedNumberofPeople,
       List<String> selectedTransport,
@@ -161,9 +137,6 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
     Object? location = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? numberOfPeople = null,
-    Object? transport = null,
-    Object? category = null,
     Object? selectedTopics = null,
     Object? selectedNumberofPeople = null,
     Object? selectedTransport = null,
@@ -182,18 +155,6 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      numberOfPeople: null == numberOfPeople
-          ? _value.numberOfPeople
-          : numberOfPeople // ignore: cast_nullable_to_non_nullable
-              as String,
-      transport: null == transport
-          ? _value.transport
-          : transport // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
       selectedTopics: null == selectedTopics
           ? _value._selectedTopics
           : selectedTopics // ignore: cast_nullable_to_non_nullable
@@ -221,9 +182,6 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
       {this.location = '渋谷',
       this.startDate,
       this.endDate,
-      this.numberOfPeople = '',
-      this.transport = '',
-      this.category = '',
       final List<String> selectedTopics = const [],
       final List<String> selectedNumberofPeople = const [],
       final List<String> selectedTransport = const [],
@@ -240,15 +198,6 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
   final DateTime? startDate;
   @override
   final DateTime? endDate;
-  @override
-  @JsonKey()
-  final String numberOfPeople;
-  @override
-  @JsonKey()
-  final String transport;
-  @override
-  @JsonKey()
-  final String category;
   final List<String> _selectedTopics;
   @override
   @JsonKey()
@@ -290,7 +239,7 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
 
   @override
   String toString() {
-    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, transport: $transport, category: $category, selectedTopics: $selectedTopics, selectedNumberofPeople: $selectedNumberofPeople, selectedTransport: $selectedTransport, selectedCategory: $selectedCategory)';
+    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, selectedTopics: $selectedTopics, selectedNumberofPeople: $selectedNumberofPeople, selectedTransport: $selectedTransport, selectedCategory: $selectedCategory)';
   }
 
   @override
@@ -303,12 +252,6 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.numberOfPeople, numberOfPeople) ||
-                other.numberOfPeople == numberOfPeople) &&
-            (identical(other.transport, transport) ||
-                other.transport == transport) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
             const DeepCollectionEquality()
                 .equals(other._selectedTopics, _selectedTopics) &&
             const DeepCollectionEquality().equals(
@@ -325,9 +268,6 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
       location,
       startDate,
       endDate,
-      numberOfPeople,
-      transport,
-      category,
       const DeepCollectionEquality().hash(_selectedTopics),
       const DeepCollectionEquality().hash(_selectedNumberofPeople),
       const DeepCollectionEquality().hash(_selectedTransport),
@@ -348,9 +288,6 @@ abstract class _CreatePlanState implements CreatePlanState {
       {final String location,
       final DateTime? startDate,
       final DateTime? endDate,
-      final String numberOfPeople,
-      final String transport,
-      final String category,
       final List<String> selectedTopics,
       final List<String> selectedNumberofPeople,
       final List<String> selectedTransport,
@@ -362,12 +299,6 @@ abstract class _CreatePlanState implements CreatePlanState {
   DateTime? get startDate;
   @override
   DateTime? get endDate;
-  @override
-  String get numberOfPeople;
-  @override
-  String get transport;
-  @override
-  String get category;
   @override
   List<String> get selectedTopics;
   @override
