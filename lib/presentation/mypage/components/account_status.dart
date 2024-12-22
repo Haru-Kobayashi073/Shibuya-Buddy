@@ -61,7 +61,7 @@ class _AccountStatusState extends State<AccountStatus> {
               AppColor.blue200,
           ],
         ),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -120,7 +120,7 @@ class _AccountStatusState extends State<AccountStatus> {
                 const Spacer(),
                 if (widget.effectiveDate != null)
                   Text(
-                    '$effectiveFormat${acountStatusi18n.dateTime.registeredOn}',
+                    '$effectiveFormat${acountStatusi18n.dateTime.validUntil}',
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
