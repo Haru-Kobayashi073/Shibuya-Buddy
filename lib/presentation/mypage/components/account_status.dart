@@ -45,14 +45,8 @@ class AccountStatus extends StatelessWidget {
           begin: FractionalOffset.centerLeft,
           end: FractionalOffset.centerRight,
           colors: [
-            if (isPremium)
-              AppColor.yellow200
-            else
-              AppColor.blue50Background,
-            if (isPremium)
-              AppColor.yellow600Primary
-            else
-              AppColor.blue200,
+            if (isPremium) AppColor.yellow200 else AppColor.blue50Background,
+            if (isPremium) AppColor.yellow600Primary else AppColor.blue200,
           ],
         ),
         borderRadius: BorderRadius.circular(12),
