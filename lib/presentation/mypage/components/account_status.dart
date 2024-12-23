@@ -6,7 +6,7 @@ import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
-class AccountStatus extends StatefulWidget {
+class AccountStatus extends StatelessWidget {
   const AccountStatus({
     super.key,
     required this.isPremium,
@@ -23,11 +23,6 @@ class AccountStatus extends StatefulWidget {
   final String? imageUrl;
 
   @override
-  State<AccountStatus> createState() => _AccountStatusState();
-}
-
-class _AccountStatusState extends State<AccountStatus> {
-  @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
@@ -37,10 +32,10 @@ class _AccountStatusState extends State<AccountStatus> {
 
     final createFormat =
         DateFormat(acountStatusi18n.dateTime.registeredOnFormat)
-            .format(widget.createdAt);
-    final effectiveFormat = widget.effectiveDate != null
+            .format(createdAt);
+    final effectiveFormat = effectiveDate != null
         ? DateFormat(acountStatusi18n.dateTime.validUntilFormat)
-            .format(widget.effectiveDate!)
+            .format(effectiveDate!)
         : '';
 
     return Container(
@@ -50,11 +45,11 @@ class _AccountStatusState extends State<AccountStatus> {
           begin: FractionalOffset.centerLeft,
           end: FractionalOffset.centerRight,
           colors: [
-            if (widget.isPremium)
+            if (isPremium)
               AppColor.yellow200
             else
               AppColor.blue50Background,
-            if (widget.isPremium)
+            if (isPremium)
               AppColor.yellow600Primary
             else
               AppColor.blue200,
@@ -69,9 +64,9 @@ class _AccountStatusState extends State<AccountStatus> {
             Row(
               children: [
                 ClipOval(
-                  child: widget.imageUrl != null
+                  child: imageUrl != null
                       ? CachedNetworkImage(
-                          imageUrl: widget.imageUrl!,
+                          imageUrl: imageUrl!,
                           fit: BoxFit.cover,
                           width: 48,
                           height: 48,
@@ -85,7 +80,7 @@ class _AccountStatusState extends State<AccountStatus> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 3),
                   child: Text(
-                    widget.userName ?? myPageItemi18n.unregisteredUserName,
+                    userName ?? myPageItemi18n.unregisteredUserName,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -106,7 +101,7 @@ class _AccountStatusState extends State<AccountStatus> {
             Row(
               children: [
                 Text(
-                  widget.isPremium
+                  isPremium
                       ? acountStatusi18n.premium
                       : acountStatusi18n.standard,
                   style: AppTextStyle.textStyle.copyWith(
@@ -115,7 +110,7 @@ class _AccountStatusState extends State<AccountStatus> {
                   ),
                 ),
                 const Spacer(),
-                if (widget.effectiveDate != null)
+                if (effectiveDate != null)
                   Text(
                     acountStatusi18n.dateTime.validUntil(date: effectiveFormat),
                     style: AppTextStyle.textStyle.copyWith(
@@ -129,19 +124,5 @@ class _AccountStatusState extends State<AccountStatus> {
         ),
       ),
     );
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
