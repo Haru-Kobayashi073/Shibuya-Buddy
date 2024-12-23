@@ -160,9 +160,9 @@
         "aboutTheDeveloper": "關於開發者",
         "accountStatus": {
                 "dateTime": {
-                    "registeredOn": "註冊於",
+                    "registeredOn": "${date}註冊於",
                     "registeredOnFormat": "yyyy年MM月dd日",
-                    "validUntil": "有效期至",
+                    "validUntil": "有效期至${date}",
                     "validUntilFormat": "yyyy年MM月dd日 HH:mm"
                 },
                 "premium": "進階會員",

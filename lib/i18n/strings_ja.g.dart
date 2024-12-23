@@ -624,9 +624,9 @@ class _TranslationsMyPageAccountStatusDateTimeJa implements TranslationsMyPageAc
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get registeredOn => 'に登録';
+	@override String registeredOn({required Object date}) => '${date}に登録';
 	@override String get registeredOnFormat => 'yyyy年MM月dd日';
-	@override String get validUntil => 'まで';
+	@override String validUntil({required Object date}) => '${date}まで';
 	@override String get validUntilFormat => 'yyyy年MM月dd日 HH時mm分';
 }
 
@@ -750,9 +750,9 @@ extension on TranslationsJa {
 			case 'myPage.termsOfUsePrivacyPolicy': return '利用規約・プライバシーポリシー';
 			case 'myPage.aboutThisApp': return 'このアプリについて';
 			case 'myPage.aboutTheDeveloper': return '開発者について';
-			case 'myPage.accountStatus.dateTime.registeredOn': return 'に登録';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}に登録';
 			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
-			case 'myPage.accountStatus.dateTime.validUntil': return 'まで';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '${date}まで';
 			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH時mm分';
 			case 'myPage.accountStatus.premium': return 'プレミアム会員';
 			case 'myPage.accountStatus.standard': return 'スタンダード会員';

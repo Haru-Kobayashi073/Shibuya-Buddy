@@ -628,9 +628,9 @@ class TranslationsMyPageAccountStatusDateTimeEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get registeredOn => 'Registered on';
+	String registeredOn({required Object date}) => 'Registered on ${date}';
 	String get registeredOnFormat => 'MM/dd/yyyy';
-	String get validUntil => 'Valid until';
+	String validUntil({required Object date}) => 'Valid until${date}';
 	String get validUntilFormat => 'MM/dd/yyyy hh:mm';
 }
 
@@ -754,9 +754,9 @@ extension on Translations {
 			case 'myPage.termsOfUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
 			case 'myPage.aboutThisApp': return 'About This App';
 			case 'myPage.aboutTheDeveloper': return 'About the Developer';
-			case 'myPage.accountStatus.dateTime.registeredOn': return 'Registered on';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => 'Registered on ${date}';
 			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'MM/dd/yyyy';
-			case 'myPage.accountStatus.dateTime.validUntil': return 'Valid until';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => 'Valid until${date}';
 			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'MM/dd/yyyy hh:mm';
 			case 'myPage.accountStatus.premium': return 'Premium Member';
 			case 'myPage.accountStatus.standard': return 'Standard Member';

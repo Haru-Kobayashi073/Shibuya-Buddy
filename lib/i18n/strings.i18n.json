@@ -160,9 +160,9 @@
         "aboutTheDeveloper": "About the Developer",
         "accountStatus": {
             "dateTime": {
-                "registeredOn": "Registered on",
+                "registeredOn": "Registered on ${date}",
                 "registeredOnFormat":"MM/dd/yyyy",
-                "validUntil": "Valid until",
+                "validUntil": "Valid until${date}",
                 "validUntilFormat":"MM/dd/yyyy hh:mm"
             },
             "premium": "Premium Member",

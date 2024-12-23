@@ -34,15 +34,15 @@ class _AccountStatusState extends State<AccountStatus> {
     final i18n = Translations.of(context);
     final myPageItemi18n = i18n.myPage;
     final acountStatusi18n = myPageItemi18n.accountStatus;
-    final createdAt = widget.createdAt;
-    final effectiveDate = widget.effectiveDate;
+
     final createFormat =
-        DateFormat(myPageItemi18n.accountStatus.dateTime.registeredOnFormat)
-            .format(createdAt);
-    final effectiveFormat = effectiveDate != null
-        ? DateFormat(myPageItemi18n.accountStatus.dateTime.validUntilFormat)
-            .format(effectiveDate)
+        DateFormat(acountStatusi18n.dateTime.registeredOnFormat)
+            .format(widget.createdAt);
+    final effectiveFormat = widget.effectiveDate != null
+        ? DateFormat(acountStatusi18n.dateTime.validUntilFormat)
+            .format(widget.effectiveDate!)
         : '';
+
     return Container(
       width: screenWidth,
       decoration: BoxDecoration(
@@ -94,9 +94,7 @@ class _AccountStatusState extends State<AccountStatus> {
                 ),
                 const Spacer(),
                 Text(
-                  '''
-                  $createFormat${acountStatusi18n.dateTime.registeredOn}
-                  ''',
+                  acountStatusi18n.dateTime.registeredOn(date: createFormat),
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -119,7 +117,7 @@ class _AccountStatusState extends State<AccountStatus> {
                 const Spacer(),
                 if (widget.effectiveDate != null)
                   Text(
-                    '$effectiveFormat${acountStatusi18n.dateTime.validUntil}',
+                    acountStatusi18n.dateTime.validUntil(date: effectiveFormat),
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,

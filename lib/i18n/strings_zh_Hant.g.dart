@@ -624,9 +624,9 @@ class _TranslationsMyPageAccountStatusDateTimeZhHant implements TranslationsMyPa
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get registeredOn => '註冊於';
+	@override String registeredOn({required Object date}) => '${date}註冊於';
 	@override String get registeredOnFormat => 'yyyy年MM月dd日';
-	@override String get validUntil => '有效期至';
+	@override String validUntil({required Object date}) => '有效期至${date}';
 	@override String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
 }
 
@@ -750,9 +750,9 @@ extension on TranslationsZhHant {
 			case 'myPage.termsOfUsePrivacyPolicy': return '使用條款和隱私政策';
 			case 'myPage.aboutThisApp': return '關於本應用';
 			case 'myPage.aboutTheDeveloper': return '關於開發者';
-			case 'myPage.accountStatus.dateTime.registeredOn': return '註冊於';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}註冊於';
 			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
-			case 'myPage.accountStatus.dateTime.validUntil': return '有效期至';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
 			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
 			case 'myPage.accountStatus.premium': return '進階會員';
 			case 'myPage.accountStatus.standard': return '標準會員';
