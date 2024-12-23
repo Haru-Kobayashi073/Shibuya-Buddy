@@ -128,7 +128,7 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 	// Translations
 	@override String get unregisteredUserName => '未注册';
 	@override String get editProfile => '编辑个人资料';
-	@override String get aiFeatureGrade => 'AI功能等级';
+	@override String get premiumPlan => '高级计划';
 	@override String get details => '详细';
 	@override String get settings => '设置';
 	@override String get account => '账户';
@@ -741,7 +741,7 @@ extension on TranslationsZhHans {
 			case 'validation.urlInvalid': return 'URL格式不正确';
 			case 'myPage.unregisteredUserName': return '未注册';
 			case 'myPage.editProfile': return '编辑个人资料';
-			case 'myPage.aiFeatureGrade': return 'AI功能等级';
+			case 'myPage.premiumPlan': return '高级计划';
 			case 'myPage.details': return '详细';
 			case 'myPage.settings': return '设置';
 			case 'myPage.account': return '账户';

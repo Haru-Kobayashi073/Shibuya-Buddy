@@ -128,7 +128,7 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	// Translations
 	@override String get unregisteredUserName => '未登録';
 	@override String get editProfile => 'プロフィール編集';
-	@override String get aiFeatureGrade => 'AI機能のグレード';
+	@override String get premiumPlan => 'プレミアムプラン';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
 	@override String get account => 'アカウント';
@@ -741,7 +741,7 @@ extension on TranslationsJa {
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
 			case 'myPage.unregisteredUserName': return '未登録';
 			case 'myPage.editProfile': return 'プロフィール編集';
-			case 'myPage.aiFeatureGrade': return 'AI機能のグレード';
+			case 'myPage.premiumPlan': return 'プレミアムプラン';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
 			case 'myPage.account': return 'アカウント';

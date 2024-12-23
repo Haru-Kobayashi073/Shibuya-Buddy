@@ -132,7 +132,7 @@ class TranslationsMyPageEn {
 	// Translations
 	String get unregisteredUserName => 'Unregistered';
 	String get editProfile => 'Edit Profile';
-	String get aiFeatureGrade => 'AI Feature Grade';
+	String get premiumPlan => 'Premium Plan';
 	String get details => 'Details';
 	String get settings => 'Settings';
 	String get account => 'Account';
@@ -745,7 +745,7 @@ extension on Translations {
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
 			case 'myPage.unregisteredUserName': return 'Unregistered';
 			case 'myPage.editProfile': return 'Edit Profile';
-			case 'myPage.aiFeatureGrade': return 'AI Feature Grade';
+			case 'myPage.premiumPlan': return 'Premium Plan';
 			case 'myPage.details': return 'Details';
 			case 'myPage.settings': return 'Settings';
 			case 'myPage.account': return 'Account';

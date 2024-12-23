@@ -28,10 +28,10 @@ class MyPage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AccountStatus(
-                    isPremium: true,
+                    isPremium: false,
                     userName: value.name,
                     createdAt: value.createdAt,
-                    effectiveDate: value.createdAt,
+                    // effectiveDate: value.createdAt,
                     imageUrl: value.imageUrl,
                   ),
                   const SizedBox(height: 30),
@@ -56,7 +56,7 @@ class MyPage extends ConsumerWidget {
                               const AccountPageRouteData().push<void>(context),
                         ),
                         ListTileWithIcon(
-                          title: myPageItemi18n.aiFeatureGrade,
+                          title: myPageItemi18n.premiumPlan,
                           onTap: () async =>
                               const AiFunctionsDetailPageRouteData()
                                   .push<void>(context),

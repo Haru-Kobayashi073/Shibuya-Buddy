@@ -128,7 +128,7 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	// Translations
 	@override String get unregisteredUserName => '未註冊';
 	@override String get editProfile => '編輯個人資料';
-	@override String get aiFeatureGrade => 'AI功能等級';
+	@override String get premiumPlan => '進階方案';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
 	@override String get account => '帳戶';
@@ -741,7 +741,7 @@ extension on TranslationsZhHant {
 			case 'validation.urlInvalid': return 'URL格式不正確';
 			case 'myPage.unregisteredUserName': return '未註冊';
 			case 'myPage.editProfile': return '編輯個人資料';
-			case 'myPage.aiFeatureGrade': return 'AI功能等級';
+			case 'myPage.premiumPlan': return '進階方案';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
 			case 'myPage.account': return '帳戶';
