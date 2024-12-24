@@ -182,6 +182,27 @@
             "bookmark": "ブックマーク"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddyの提案",
+        "possibleChatCount": "メッセージは残り${possibleChatCount}回送信可能です",
+        "textFields": {
+            "message": "メッセージを入力"
+        },
+        "buttons": {
+            "send": "完了"
+        },
+        "placeCard": {
+            "openingHours": "営業時間",
+            "averageAmount": "平均予算",
+            "website": "Webサイト"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "返信の受信に失敗しました。時間をおいて再度お試しください",
+                "failedCompleteCreatePlan": "プランの作成に失敗しました。時間をおいて再度お試しください"
+            }
+        }
+    },
     "popularTopics": {
         "sectionName": "人気のトピック"
     },

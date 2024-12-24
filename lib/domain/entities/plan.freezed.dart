@@ -32,7 +32,7 @@ mixin _$Plan {
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
   @DateTimeConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this Plan to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,7 +59,7 @@ abstract class $PlanCopyWith<$Res> {
       int? ranking,
       bool isBookmarked,
       @DateTimeConverter() DateTime createdAt,
-      @DateTimeConverter() DateTime updatedAt});
+      @DateTimeConverter() DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -87,7 +87,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? ranking = freezed,
     Object? isBookmarked = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -130,10 +130,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -156,7 +156,7 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       int? ranking,
       bool isBookmarked,
       @DateTimeConverter() DateTime createdAt,
-      @DateTimeConverter() DateTime updatedAt});
+      @DateTimeConverter() DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -181,7 +181,7 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? ranking = freezed,
     Object? isBookmarked = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$PlanImpl(
       id: null == id
@@ -224,10 +224,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -244,9 +244,9 @@ class _$PlanImpl implements _Plan {
       final List<String>? tags,
       required this.authorId,
       this.ranking,
-      required this.isBookmarked = false,
+      this.isBookmarked = false,
       @DateTimeConverter() required this.createdAt,
-      @DateTimeConverter() required this.updatedAt})
+      @DateTimeConverter() this.updatedAt})
       : _topicIds = topicIds,
         _tags = tags;
 
@@ -291,7 +291,7 @@ class _$PlanImpl implements _Plan {
   final DateTime createdAt;
   @override
   @DateTimeConverter()
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   String toString() {
@@ -364,9 +364,9 @@ abstract class _Plan implements Plan {
       final List<String>? tags,
       required final String authorId,
       final int? ranking,
-      required final bool isBookmarked,
+      final bool isBookmarked,
       @DateTimeConverter() required final DateTime createdAt,
-      @DateTimeConverter() required final DateTime updatedAt}) = _$PlanImpl;
+      @DateTimeConverter() final DateTime? updatedAt}) = _$PlanImpl;
 
   factory _Plan.fromJson(Map<String, dynamic> json) = _$PlanImpl.fromJson;
 
@@ -393,7 +393,7 @@ abstract class _Plan implements Plan {
   DateTime get createdAt;
   @override
   @DateTimeConverter()
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
 
   /// Create a copy of Plan
   /// with the given fields replaced by the non-null parameter values.

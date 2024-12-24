@@ -46,6 +46,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsChangeLanguagePageEn changeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
 	late final TranslationsChangeThemePageEn changeThemePage = TranslationsChangeThemePageEn._(_root);
 	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
+	late final TranslationsBuddyChatPageEn buddyChatPage = TranslationsBuddyChatPageEn._(_root);
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
 	Map<String, String> get locales => {
@@ -173,6 +174,21 @@ class TranslationsMyPlanPageEn {
 	// Translations
 	String get title => 'My Plans';
 	late final TranslationsMyPlanPageTabsEn tabs = TranslationsMyPlanPageTabsEn._(_root);
+}
+
+// Path: buddyChatPage
+class TranslationsBuddyChatPageEn {
+	TranslationsBuddyChatPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Buddy\'s Suggestions';
+	String possibleChatCount({required Object possibleChatCount}) => 'You can send ${possibleChatCount} more messages';
+	late final TranslationsBuddyChatPageTextFieldsEn textFields = TranslationsBuddyChatPageTextFieldsEn._(_root);
+	late final TranslationsBuddyChatPageButtonsEn buttons = TranslationsBuddyChatPageButtonsEn._(_root);
+	late final TranslationsBuddyChatPagePlaceCardEn placeCard = TranslationsBuddyChatPagePlaceCardEn._(_root);
+	late final TranslationsBuddyChatPageSnackBarEn snackBar = TranslationsBuddyChatPageSnackBarEn._(_root);
 }
 
 // Path: popularTopics
@@ -441,6 +457,48 @@ class TranslationsMyPlanPageTabsEn {
 	String get bookmark => 'Bookmarks';
 }
 
+// Path: buddyChatPage.textFields
+class TranslationsBuddyChatPageTextFieldsEn {
+	TranslationsBuddyChatPageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get message => 'Enter message';
+}
+
+// Path: buddyChatPage.buttons
+class TranslationsBuddyChatPageButtonsEn {
+	TranslationsBuddyChatPageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get send => 'Done';
+}
+
+// Path: buddyChatPage.placeCard
+class TranslationsBuddyChatPagePlaceCardEn {
+	TranslationsBuddyChatPagePlaceCardEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get openingHours => 'Opening Hours';
+	String get averageAmount => 'Average Budget';
+	String get website => 'Website';
+}
+
+// Path: buddyChatPage.snackBar
+class TranslationsBuddyChatPageSnackBarEn {
+	TranslationsBuddyChatPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsBuddyChatPageSnackBarErrorEn error = TranslationsBuddyChatPageSnackBarErrorEn._(_root);
+}
+
 // Path: createPlanPage.label
 class TranslationsCreatePlanPageLabelEn {
 	TranslationsCreatePlanPageLabelEn._(this._root);
@@ -607,6 +665,17 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get changeEmail => 'Change Email Address';
 }
 
+// Path: buddyChatPage.snackBar.error
+class TranslationsBuddyChatPageSnackBarErrorEn {
+	TranslationsBuddyChatPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedRecieveMessage => 'Failed to receive the reply. Please try again later.';
+	String get failedCompleteCreatePlan => 'Failed to complete plan creation. Please try again later.';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
@@ -738,6 +807,15 @@ extension on Translations {
 			case 'myPlanPage.title': return 'My Plans';
 			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
 			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
+			case 'buddyChatPage.title': return 'Buddy\'s Suggestions';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => 'You can send ${possibleChatCount} more messages';
+			case 'buddyChatPage.textFields.message': return 'Enter message';
+			case 'buddyChatPage.buttons.send': return 'Done';
+			case 'buddyChatPage.placeCard.openingHours': return 'Opening Hours';
+			case 'buddyChatPage.placeCard.averageAmount': return 'Average Budget';
+			case 'buddyChatPage.placeCard.website': return 'Website';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return 'Failed to receive the reply. Please try again later.';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return 'Failed to complete plan creation. Please try again later.';
 			case 'popularTopics.sectionName': return 'Popular Topics';
 			case 'createPlanPage.title': return 'Create Plan';
 			case 'createPlanPage.label.location': return 'Destination';
