@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/file/file_data_source.dart';
-import '../../infrastructure/firebase/current_user.dart';
+import '../../infrastructure/firebase/current_auth_user.dart';
 import '../../infrastructure/user/user_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as messenger;
@@ -22,7 +22,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       ref.read(userDataSourceProvider.notifier);
   FileDataSource get fileDataSource =>
       ref.read(fileDataSourceProvider.notifier);
-  auth.User get currentUser => ref.read(currentUserProvider);
+  auth.User get currentUser => ref.read(currentAuthUserProvider);
   messenger.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
 
@@ -38,6 +38,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
     return RegisterProfilePageState(
       user: User(
         uid: currentUser.uid,
+        billingGrade: BillingGrade.standard,
         createdAt: DateTime.now(),
       ),
     );

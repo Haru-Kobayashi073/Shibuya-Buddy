@@ -124,3 +124,6 @@ lib/generated_plugin_registrant.dart
 
 # Enviroment Variables File
 **dart_defines/
+
+# Android Google Play
+./android/release.jks

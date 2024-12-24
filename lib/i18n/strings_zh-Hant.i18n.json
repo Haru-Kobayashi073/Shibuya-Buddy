@@ -18,6 +18,36 @@
             "title": "最近創建的計畫"
         }
     },
+    "accountPage": {
+        "title": "帳戶",
+        "items": {
+            "signOut": "登出",
+            "linkedWithGoogle": "與Google連結",
+            "linkedWithApple": "與Apple連結",
+            "alreadyLinkedGoogle": "已與Google連結",
+            "alreadyLinkedApple": "已與Apple連結"
+        },
+        "snackBar": {
+            "signOut": "已成功登出。",
+            "signOutFailure": "登出時發生錯誤。",
+            "successfulLinkage": "帳戶連結成功。",
+            "linkageFailure": "帳戶連結失敗。",
+            "providerAlreadyLinked": "此帳戶已經連結。",
+            "accountDeactivation": "已解除帳戶連結。",
+            "invalidCredential": "請重新登入。",
+            "linkageCancelled": "帳戶連結已取消。",
+            "unlinkageFailure": "解除帳戶連結失敗。",
+            "operationNotAllowed": "提供者無效。請聯絡開發者。",
+            "unknownError": "發生未知錯誤。"
+        },
+            "diaLog": {
+            "yes": "是",
+            "no": "否",
+            "title": "確認解除帳戶連結",
+            "googleText": "是否要解除目前帳戶與Google帳戶的連結？",
+            "appleText": "是否要解除目前帳戶與Apple帳戶的連結？"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "登入",
@@ -137,6 +167,14 @@
             "traditionalChinese": "中文(繁体字)"
         }
     },
+    "changeThemePage": {
+        "title": "主题",
+        "items": {
+            "system": "系统",
+            "light": "光",
+            "dark": "黑暗"
+        }
+    },
     "myPlanPage": {
         "title": "我的計劃",
         "tabs": {
@@ -144,8 +182,52 @@
             "bookmark": "書籤"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddy的建議",
+        "possibleChatCount": "訊息還可以發送${possibleChatCount}次",
+        "textFields": {
+            "message": "輸入訊息"
+        },
+        "buttons": {
+            "send": "完成"
+        },
+        "placeCard": {
+            "openingHours": "營業時間",
+            "averageAmount": "平均預算",
+            "website": "網站"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "無法接收回覆，請稍後再試",
+                "failedCompleteCreatePlan": "無法完成建立計劃，請稍後再試"
+            }
+        }
+    },
     "popularTopics": {
         "sectionName": "熱門話題"
+    },
+    "createPlanPage": {
+        "title": "建立計劃",
+        "label": {
+            "location": "目的地",
+            "scheduleStart": "開始日期",
+            "scheduleEnd": "結束日期",
+            "numberOfPeople": "人數",
+            "transport": "交通方式",
+            "category": "類別",
+            "topics": "旅行主題"
+        },
+        "hintText": {
+            "location": "澀谷"
+        },
+        "modal": {
+            "title": "選擇日期"
+        },
+        "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
+        "transportOptions": ["火車", "步行", "汽車", "巴士"],
+        "categoryOptions": ["親子", "成人", "娛樂", "活動", "歷史"],
+        "defaultTopics": ["美食", "購物", "活動", "電影"],
+        "submitButton": "提交計劃給AI"
     },
     "locales(map)": {
         "en": "英語",

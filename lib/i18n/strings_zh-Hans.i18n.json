@@ -18,6 +18,36 @@
             "title": "最近创建的计划"
         }
     },
+    "accountPage": {
+        "title": "账户",
+        "items": {
+            "signOut": "退出登录",
+            "linkedWithGoogle": "与Google连接",
+            "linkedWithApple": "与Apple连接",
+            "alreadyLinkedGoogle": "已与Google连接",
+            "alreadyLinkedApple": "已与Apple连接"
+        },
+        "snackBar": {
+            "signOut": "已成功退出登录。",
+            "signOutFailure": "退出登录时发生错误。",
+            "successfulLinkage": "账户关联成功。",
+            "linkageFailure": "账户关联失败。",
+            "providerAlreadyLinked": "此账户已经关联。",
+            "accountDeactivation": "已解除账户关联。",
+            "invalidCredential": "请重新登录。",
+            "linkageCancelled": "账户关联已取消。",
+            "unlinkageFailure": "解除账户关联失败。",
+            "operationNotAllowed": "提供者无效。请联系开发者。",
+            "unknownError": "发生未知错误。"
+        },
+        "diaLog": {
+            "yes": "是",
+            "no": "否",
+            "title": "确认解除账户连接",
+            "googleText": "是否要解除当前账户与Google账户的连接？",
+            "appleText": "是否要解除当前账户与Apple账户的连接？"
+        }
+    },
     "authentication": {
         "signInPage": {
             "title": "登录",
@@ -137,6 +167,14 @@
             "traditionalChinese": "中文（繁体）"
         }
     },
+    "changeThemePage": {
+        "title": "主题",
+        "items": {
+            "system": "系统",
+            "light": "光",
+            "dark": "暗处"
+        }
+    },
     "myPlanPage": {
         "title": "我的计划",
         "tabs": {
@@ -144,9 +182,54 @@
             "bookmark": "收藏夹"
         }
     },
-    "popularTopics":{
-        "sectionName" :"热门话题"
+    "buddyChatPage": {
+        "title": "Buddy的建议",
+        "possibleChatCount": "消息还可以发送${possibleChatCount}次",
+        "textFields": {
+            "message": "输入消息"
+        },
+        "buttons": {
+            "send": "完成"
+        },
+        "placeCard": {
+            "openingHours": "营业时间",
+            "averageAmount": "平均预算",
+            "website": "网站"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "未能接收回复，请稍后再试",
+                "failedCompleteCreatePlan": "未能完成创建计划，请稍后再试"
+            }
+        }
     },
+    "popularTopics": {
+        "sectionName": "热门话题"
+    },
+        "createPlanPage": {
+        "title": "创建计划",
+        "label": {
+            "location": "目的地",
+            "scheduleStart": "开始日期",
+            "scheduleEnd": "结束日期",
+            "numberOfPeople": "人数",
+            "transport": "交通方式",
+            "category": "类别",
+            "topics": "旅行主题"
+        },
+        "hintText": {
+            "location": "涩谷"
+        },
+        "modal": {
+            "title": "选择日期"
+        },
+        "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
+        "transportOptions": ["火车", "步行", "汽车", "巴士"],
+        "categoryOptions": ["亲子", "成人", "娱乐", "活动", "历史"],
+        "defaultTopics": ["美食", "购物", "活动", "电影"],
+        "submitButton": "提交计划给AI"
+        },
+    
     "locales(map)": {
         "en": "英语",
         "ja": "日语",

@@ -35,12 +35,16 @@ class TranslationsZhHant implements Translations {
 	// Translations
 	@override late final _TranslationsNavigationBarZhHant navigationBar = _TranslationsNavigationBarZhHant._(_root);
 	@override late final _TranslationsHomePageZhHant homePage = _TranslationsHomePageZhHant._(_root);
+	@override late final _TranslationsAccountPageZhHant accountPage = _TranslationsAccountPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationZhHant authentication = _TranslationsAuthenticationZhHant._(_root);
 	@override late final _TranslationsValidationZhHant validation = _TranslationsValidationZhHant._(_root);
 	@override late final _TranslationsMyPageZhHant myPage = _TranslationsMyPageZhHant._(_root);
 	@override late final _TranslationsChangeLanguagePageZhHant changeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
+	@override late final _TranslationsChangeThemePageZhHant changeThemePage = _TranslationsChangeThemePageZhHant._(_root);
 	@override late final _TranslationsMyPlanPageZhHant myPlanPage = _TranslationsMyPlanPageZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageZhHant buddyChatPage = _TranslationsBuddyChatPageZhHant._(_root);
 	@override late final _TranslationsPopularTopicsZhHant popularTopics = _TranslationsPopularTopicsZhHant._(_root);
+	@override late final _TranslationsCreatePlanPageZhHant createPlanPage = _TranslationsCreatePlanPageZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -68,6 +72,19 @@ class _TranslationsHomePageZhHant implements TranslationsHomePageEn {
 	@override late final _TranslationsHomePagePopularPlansZhHant popularPlans = _TranslationsHomePagePopularPlansZhHant._(_root);
 	@override late final _TranslationsHomePagePopularTopicsZhHant popularTopics = _TranslationsHomePagePopularTopicsZhHant._(_root);
 	@override late final _TranslationsHomePageRecentPlansZhHant recentPlans = _TranslationsHomePageRecentPlansZhHant._(_root);
+}
+
+// Path: accountPage
+class _TranslationsAccountPageZhHant implements TranslationsAccountPageEn {
+	_TranslationsAccountPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '帳戶';
+	@override late final _TranslationsAccountPageItemsZhHant items = _TranslationsAccountPageItemsZhHant._(_root);
+	@override late final _TranslationsAccountPageSnackBarZhHant snackBar = _TranslationsAccountPageSnackBarZhHant._(_root);
+	@override late final _TranslationsAccountPageDiaLogZhHant diaLog = _TranslationsAccountPageDiaLogZhHant._(_root);
 }
 
 // Path: authentication
@@ -133,6 +150,17 @@ class _TranslationsChangeLanguagePageZhHant implements TranslationsChangeLanguag
 	@override late final _TranslationsChangeLanguagePageItemsZhHant items = _TranslationsChangeLanguagePageItemsZhHant._(_root);
 }
 
+// Path: changeThemePage
+class _TranslationsChangeThemePageZhHant implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '主题';
+	@override late final _TranslationsChangeThemePageItemsZhHant items = _TranslationsChangeThemePageItemsZhHant._(_root);
+}
+
 // Path: myPlanPage
 class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	_TranslationsMyPlanPageZhHant._(this._root);
@@ -144,6 +172,21 @@ class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	@override late final _TranslationsMyPlanPageTabsZhHant tabs = _TranslationsMyPlanPageTabsZhHant._(_root);
 }
 
+// Path: buddyChatPage
+class _TranslationsBuddyChatPageZhHant implements TranslationsBuddyChatPageEn {
+	_TranslationsBuddyChatPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Buddy的建議';
+	@override String possibleChatCount({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
+	@override late final _TranslationsBuddyChatPageTextFieldsZhHant textFields = _TranslationsBuddyChatPageTextFieldsZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsZhHant buttons = _TranslationsBuddyChatPageButtonsZhHant._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardZhHant placeCard = _TranslationsBuddyChatPagePlaceCardZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarZhHant snackBar = _TranslationsBuddyChatPageSnackBarZhHant._(_root);
+}
+
 // Path: popularTopics
 class _TranslationsPopularTopicsZhHant implements TranslationsPopularTopicsEn {
 	_TranslationsPopularTopicsZhHant._(this._root);
@@ -152,6 +195,47 @@ class _TranslationsPopularTopicsZhHant implements TranslationsPopularTopicsEn {
 
 	// Translations
 	@override String get sectionName => '熱門話題';
+}
+
+// Path: createPlanPage
+class _TranslationsCreatePlanPageZhHant implements TranslationsCreatePlanPageEn {
+	_TranslationsCreatePlanPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '建立計劃';
+	@override late final _TranslationsCreatePlanPageLabelZhHant label = _TranslationsCreatePlanPageLabelZhHant._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextZhHant hintText = _TranslationsCreatePlanPageHintTextZhHant._(_root);
+	@override late final _TranslationsCreatePlanPageModalZhHant modal = _TranslationsCreatePlanPageModalZhHant._(_root);
+	@override List<String> get numberOfPeopleOptions => [
+		'1人',
+		'2人',
+		'3人',
+		'4人',
+		'5人',
+		'6人以上',
+	];
+	@override List<String> get transportOptions => [
+		'火車',
+		'步行',
+		'汽車',
+		'巴士',
+	];
+	@override List<String> get categoryOptions => [
+		'親子',
+		'成人',
+		'娛樂',
+		'活動',
+		'歷史',
+	];
+	@override List<String> get defaultTopics => [
+		'美食',
+		'購物',
+		'活動',
+		'電影',
+	];
+	@override String get submitButton => '提交計劃給AI';
 }
 
 // Path: navigationBar.items
@@ -195,6 +279,54 @@ class _TranslationsHomePageRecentPlansZhHant implements TranslationsHomePageRece
 
 	// Translations
 	@override String get title => '最近創建的計畫';
+}
+
+// Path: accountPage.items
+class _TranslationsAccountPageItemsZhHant implements TranslationsAccountPageItemsEn {
+	_TranslationsAccountPageItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get signOut => '登出';
+	@override String get linkedWithGoogle => '與Google連結';
+	@override String get linkedWithApple => '與Apple連結';
+	@override String get alreadyLinkedGoogle => '已與Google連結';
+	@override String get alreadyLinkedApple => '已與Apple連結';
+}
+
+// Path: accountPage.snackBar
+class _TranslationsAccountPageSnackBarZhHant implements TranslationsAccountPageSnackBarEn {
+	_TranslationsAccountPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get signOut => '已成功登出。';
+	@override String get signOutFailure => '登出時發生錯誤。';
+	@override String get successfulLinkage => '帳戶連結成功。';
+	@override String get linkageFailure => '帳戶連結失敗。';
+	@override String get providerAlreadyLinked => '此帳戶已經連結。';
+	@override String get accountDeactivation => '已解除帳戶連結。';
+	@override String get invalidCredential => '請重新登入。';
+	@override String get linkageCancelled => '帳戶連結已取消。';
+	@override String get unlinkageFailure => '解除帳戶連結失敗。';
+	@override String get operationNotAllowed => '提供者無效。請聯絡開發者。';
+	@override String get unknownError => '發生未知錯誤。';
+}
+
+// Path: accountPage.diaLog
+class _TranslationsAccountPageDiaLogZhHant implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => '是';
+	@override String get no => '否';
+	@override String get title => '確認解除帳戶連結';
+	@override String get googleText => '是否要解除目前帳戶與Google帳戶的連結？';
+	@override String get appleText => '是否要解除目前帳戶與Apple帳戶的連結？';
 }
 
 // Path: authentication.signInPage
@@ -298,6 +430,18 @@ class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLa
 	@override String get traditionalChinese => '中文(繁体字)';
 }
 
+// Path: changeThemePage.items
+class _TranslationsChangeThemePageItemsZhHant implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => '系统';
+	@override String get light => '光';
+	@override String get dark => '黑暗';
+}
+
 // Path: myPlanPage.tabs
 class _TranslationsMyPlanPageTabsZhHant implements TranslationsMyPlanPageTabsEn {
 	_TranslationsMyPlanPageTabsZhHant._(this._root);
@@ -307,6 +451,84 @@ class _TranslationsMyPlanPageTabsZhHant implements TranslationsMyPlanPageTabsEn 
 	// Translations
 	@override String get createdPlans => '已創建的計劃';
 	@override String get bookmark => '書籤';
+}
+
+// Path: buddyChatPage.textFields
+class _TranslationsBuddyChatPageTextFieldsZhHant implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get message => '輸入訊息';
+}
+
+// Path: buddyChatPage.buttons
+class _TranslationsBuddyChatPageButtonsZhHant implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get send => '完成';
+}
+
+// Path: buddyChatPage.placeCard
+class _TranslationsBuddyChatPagePlaceCardZhHant implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get openingHours => '營業時間';
+	@override String get averageAmount => '平均預算';
+	@override String get website => '網站';
+}
+
+// Path: buddyChatPage.snackBar
+class _TranslationsBuddyChatPageSnackBarZhHant implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorZhHant error = _TranslationsBuddyChatPageSnackBarErrorZhHant._(_root);
+}
+
+// Path: createPlanPage.label
+class _TranslationsCreatePlanPageLabelZhHant implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '開始日期';
+	@override String get scheduleEnd => '結束日期';
+	@override String get numberOfPeople => '人數';
+	@override String get transport => '交通方式';
+	@override String get category => '類別';
+	@override String get topics => '旅行主題';
+}
+
+// Path: createPlanPage.hintText
+class _TranslationsCreatePlanPageHintTextZhHant implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '澀谷';
+}
+
+// Path: createPlanPage.modal
+class _TranslationsCreatePlanPageModalZhHant implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '選擇日期';
 }
 
 // Path: authentication.signInPage.textFields
@@ -439,6 +661,17 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get changeEmail => '更改電子郵件地址';
 }
 
+// Path: buddyChatPage.snackBar.error
+class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedRecieveMessage => '無法接收回覆，請稍後再試';
+	@override String get failedCompleteCreatePlan => '無法完成建立計劃，請稍後再試';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
@@ -472,6 +705,28 @@ extension on TranslationsZhHant {
 			case 'homePage.popularTopics.title': return '熱門話題';
 			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
 			case 'homePage.recentPlans.title': return '最近創建的計畫';
+			case 'accountPage.title': return '帳戶';
+			case 'accountPage.items.signOut': return '登出';
+			case 'accountPage.items.linkedWithGoogle': return '與Google連結';
+			case 'accountPage.items.linkedWithApple': return '與Apple連結';
+			case 'accountPage.items.alreadyLinkedGoogle': return '已與Google連結';
+			case 'accountPage.items.alreadyLinkedApple': return '已與Apple連結';
+			case 'accountPage.snackBar.signOut': return '已成功登出。';
+			case 'accountPage.snackBar.signOutFailure': return '登出時發生錯誤。';
+			case 'accountPage.snackBar.successfulLinkage': return '帳戶連結成功。';
+			case 'accountPage.snackBar.linkageFailure': return '帳戶連結失敗。';
+			case 'accountPage.snackBar.providerAlreadyLinked': return '此帳戶已經連結。';
+			case 'accountPage.snackBar.accountDeactivation': return '已解除帳戶連結。';
+			case 'accountPage.snackBar.invalidCredential': return '請重新登入。';
+			case 'accountPage.snackBar.linkageCancelled': return '帳戶連結已取消。';
+			case 'accountPage.snackBar.unlinkageFailure': return '解除帳戶連結失敗。';
+			case 'accountPage.snackBar.operationNotAllowed': return '提供者無效。請聯絡開發者。';
+			case 'accountPage.snackBar.unknownError': return '發生未知錯誤。';
+			case 'accountPage.diaLog.yes': return '是';
+			case 'accountPage.diaLog.no': return '否';
+			case 'accountPage.diaLog.title': return '確認解除帳戶連結';
+			case 'accountPage.diaLog.googleText': return '是否要解除目前帳戶與Google帳戶的連結？';
+			case 'accountPage.diaLog.appleText': return '是否要解除目前帳戶與Apple帳戶的連結？';
 			case 'authentication.signInPage.title': return '登入';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '電子郵件地址';
@@ -541,10 +796,53 @@ extension on TranslationsZhHant {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文(简体字)';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '黑暗';
 			case 'myPlanPage.title': return '我的計劃';
 			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
 			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'buddyChatPage.title': return 'Buddy的建議';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
+			case 'buddyChatPage.textFields.message': return '輸入訊息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '營業時間';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均預算';
+			case 'buddyChatPage.placeCard.website': return '網站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '無法接收回覆，請稍後再試';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '無法完成建立計劃，請稍後再試';
 			case 'popularTopics.sectionName': return '熱門話題';
+			case 'createPlanPage.title': return '建立計劃';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '開始日期';
+			case 'createPlanPage.label.scheduleEnd': return '結束日期';
+			case 'createPlanPage.label.numberOfPeople': return '人數';
+			case 'createPlanPage.label.transport': return '交通方式';
+			case 'createPlanPage.label.category': return '類別';
+			case 'createPlanPage.label.topics': return '旅行主題';
+			case 'createPlanPage.hintText.location': return '澀谷';
+			case 'createPlanPage.modal.title': return '選擇日期';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '火車';
+			case 'createPlanPage.transportOptions.1': return '步行';
+			case 'createPlanPage.transportOptions.2': return '汽車';
+			case 'createPlanPage.transportOptions.3': return '巴士';
+			case 'createPlanPage.categoryOptions.0': return '親子';
+			case 'createPlanPage.categoryOptions.1': return '成人';
+			case 'createPlanPage.categoryOptions.2': return '娛樂';
+			case 'createPlanPage.categoryOptions.3': return '活動';
+			case 'createPlanPage.categoryOptions.4': return '歷史';
+			case 'createPlanPage.defaultTopics.0': return '美食';
+			case 'createPlanPage.defaultTopics.1': return '購物';
+			case 'createPlanPage.defaultTopics.2': return '活動';
+			case 'createPlanPage.defaultTopics.3': return '電影';
+			case 'createPlanPage.submitButton': return '提交計劃給AI';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

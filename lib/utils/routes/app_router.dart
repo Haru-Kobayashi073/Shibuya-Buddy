@@ -10,14 +10,17 @@ import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
 import '../../presentation/account/account_page.dart';
 import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
+import '../../presentation/buddy_chat/buddy_chat_page.dart';
 import '../../presentation/change_language/change_language_page.dart';
 import '../../presentation/change_theme/change_theme_page.dart';
 import '../../presentation/complete_send_email/complete_send_email_page.dart';
 import '../../presentation/components/bottom_navigation.dart';
+import '../../presentation/create_plan/create_plan_page.dart';
 import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/popular_plans/popular_plans_page.dart';
 import '../../presentation/popular_topics/popular_topics_page.dart';
 import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
@@ -121,8 +124,12 @@ class StartUpPageRouteData extends GoRouteData {
 @TypedGoRoute<HomeScreenRouteData>(
   path: Routes.home,
   routes: [
+    TypedGoRoute<CreatePlanPageRouteData>(path: Routes.createPlan),
     TypedGoRoute<PopularTopicsPageRouteData>(
       path: Routes.popularTopicsPage,
+    ),
+    TypedGoRoute<PopularPlansPageRouteData>(
+      path: Routes.popularPlansPage,
     ),
   ],
 )
@@ -132,6 +139,15 @@ class HomeScreenRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const HomePage();
+  }
+}
+
+class CreatePlanPageRouteData extends GoRouteData {
+  const CreatePlanPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const CreatePlanPage();
   }
 }
 
@@ -153,6 +169,15 @@ class PopularTopicsPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const PopularTopicsPage();
+  }
+}
+
+class PopularPlansPageRouteData extends GoRouteData {
+  const PopularPlansPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PopularPlansPage();
   }
 }
 
@@ -335,5 +360,17 @@ class RegisterProfilePageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const RegisterProfilePage();
+  }
+}
+
+@TypedGoRoute<BuddyChatPageRouteData>(
+  path: Routes.buddyChatPage,
+)
+class BuddyChatPageRouteData extends GoRouteData {
+  const BuddyChatPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const BuddyChatPage();
   }
 }

@@ -1,0 +1,1 @@
+lib/presentation/components/plan_card.dart:114:15 - Missing a required trailing comma. - require_trailing_commas
