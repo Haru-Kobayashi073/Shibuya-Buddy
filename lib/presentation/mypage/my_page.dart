@@ -49,7 +49,10 @@ class MyPage extends ConsumerWidget {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await EditProfilePageRouteData($extra: value)
+                        .push<void>(context);
+                  },
                   icon: const Icon(Symbols.edit, size: 24),
                 ),
               ],
