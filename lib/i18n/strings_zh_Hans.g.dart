@@ -45,6 +45,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsBuddyChatPageZhHans buddyChatPage = _TranslationsBuddyChatPageZhHans._(_root);
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
+	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -236,6 +237,19 @@ class _TranslationsCreatePlanPageZhHans implements TranslationsCreatePlanPageEn 
 		'电影',
 	];
 	@override String get submitButton => '提交计划给AI';
+}
+
+// Path: editProfilePage
+class _TranslationsEditProfilePageZhHans implements TranslationsEditProfilePageEn {
+	_TranslationsEditProfilePageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '编辑个人资料';
+	@override late final _TranslationsEditProfilePageTextFieldsZhHans textFields = _TranslationsEditProfilePageTextFieldsZhHans._(_root);
+	@override late final _TranslationsEditProfilePageButtonsZhHans buttons = _TranslationsEditProfilePageButtonsZhHans._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarZhHans snackBar = _TranslationsEditProfilePageSnackBarZhHans._(_root);
 }
 
 // Path: navigationBar.items
@@ -531,6 +545,37 @@ class _TranslationsCreatePlanPageModalZhHans implements TranslationsCreatePlanPa
 	@override String get title => '选择日期';
 }
 
+// Path: editProfilePage.textFields
+class _TranslationsEditProfilePageTextFieldsZhHans implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => '姓名';
+}
+
+// Path: editProfilePage.buttons
+class _TranslationsEditProfilePageButtonsZhHans implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '保存';
+}
+
+// Path: editProfilePage.snackBar
+class _TranslationsEditProfilePageSnackBarZhHans implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '更新成功';
+	@override late final _TranslationsEditProfilePageSnackBarErrorZhHans error = _TranslationsEditProfilePageSnackBarErrorZhHans._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHans implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHans._(this._root);
@@ -670,6 +715,18 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddy
 	// Translations
 	@override String get failedRecieveMessage => '未能接收回复，请稍后再试';
 	@override String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
+}
+
+// Path: editProfilePage.snackBar.error
+class _TranslationsEditProfilePageSnackBarErrorZhHans implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get noChange => '没有更改';
+	@override String get failedToUpdate => '更新失败，请稍后再试';
+	@override String get failedToPickImage => '选择图片失败，请稍后再试';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -843,6 +900,13 @@ extension on TranslationsZhHans {
 			case 'createPlanPage.defaultTopics.2': return '活动';
 			case 'createPlanPage.defaultTopics.3': return '电影';
 			case 'createPlanPage.submitButton': return '提交计划给AI';
+			case 'editProfilePage.title': return '编辑个人资料';
+			case 'editProfilePage.textFields.name': return '姓名';
+			case 'editProfilePage.buttons.submit': return '保存';
+			case 'editProfilePage.snackBar.success': return '更新成功';
+			case 'editProfilePage.snackBar.error.noChange': return '没有更改';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失败，请稍后再试';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '选择图片失败，请稍后再试';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

@@ -49,6 +49,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsBuddyChatPageEn buddyChatPage = TranslationsBuddyChatPageEn._(_root);
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
+	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -240,6 +241,19 @@ class TranslationsCreatePlanPageEn {
 		'Movies',
 	];
 	String get submitButton => 'Submit Plan to AI';
+}
+
+// Path: editProfilePage
+class TranslationsEditProfilePageEn {
+	TranslationsEditProfilePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Edit Profile';
+	late final TranslationsEditProfilePageTextFieldsEn textFields = TranslationsEditProfilePageTextFieldsEn._(_root);
+	late final TranslationsEditProfilePageButtonsEn buttons = TranslationsEditProfilePageButtonsEn._(_root);
+	late final TranslationsEditProfilePageSnackBarEn snackBar = TranslationsEditProfilePageSnackBarEn._(_root);
 }
 
 // Path: navigationBar.items
@@ -535,6 +549,37 @@ class TranslationsCreatePlanPageModalEn {
 	String get title => 'Select a date';
 }
 
+// Path: editProfilePage.textFields
+class TranslationsEditProfilePageTextFieldsEn {
+	TranslationsEditProfilePageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Name';
+}
+
+// Path: editProfilePage.buttons
+class TranslationsEditProfilePageButtonsEn {
+	TranslationsEditProfilePageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submit => 'Save';
+}
+
+// Path: editProfilePage.snackBar
+class TranslationsEditProfilePageSnackBarEn {
+	TranslationsEditProfilePageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get success => 'Updated successfully';
+	late final TranslationsEditProfilePageSnackBarErrorEn error = TranslationsEditProfilePageSnackBarErrorEn._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class TranslationsAuthenticationSignInPageTextFieldsEn {
 	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
@@ -674,6 +719,18 @@ class TranslationsBuddyChatPageSnackBarErrorEn {
 	// Translations
 	String get failedRecieveMessage => 'Failed to receive the reply. Please try again later.';
 	String get failedCompleteCreatePlan => 'Failed to complete plan creation. Please try again later.';
+}
+
+// Path: editProfilePage.snackBar.error
+class TranslationsEditProfilePageSnackBarErrorEn {
+	TranslationsEditProfilePageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get noChange => 'No changes detected';
+	String get failedToUpdate => 'Failed to update. Please try again later.';
+	String get failedToPickImage => 'Failed to select image. Please try again later.';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -847,6 +904,13 @@ extension on Translations {
 			case 'createPlanPage.defaultTopics.2': return 'Activities';
 			case 'createPlanPage.defaultTopics.3': return 'Movies';
 			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
+			case 'editProfilePage.title': return 'Edit Profile';
+			case 'editProfilePage.textFields.name': return 'Name';
+			case 'editProfilePage.buttons.submit': return 'Save';
+			case 'editProfilePage.snackBar.success': return 'Updated successfully';
+			case 'editProfilePage.snackBar.error.noChange': return 'No changes detected';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return 'Failed to update. Please try again later.';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return 'Failed to select image. Please try again later.';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

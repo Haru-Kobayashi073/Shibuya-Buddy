@@ -40,7 +40,7 @@
             "operationNotAllowed": "提供者無效。請聯絡開發者。",
             "unknownError": "發生未知錯誤。"
         },
-            "diaLog": {
+        "diaLog": {
             "yes": "是",
             "no": "否",
             "title": "確認解除帳戶連結",
@@ -223,11 +223,51 @@
         "modal": {
             "title": "選擇日期"
         },
-        "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
-        "transportOptions": ["火車", "步行", "汽車", "巴士"],
-        "categoryOptions": ["親子", "成人", "娛樂", "活動", "歷史"],
-        "defaultTopics": ["美食", "購物", "活動", "電影"],
+        "numberOfPeopleOptions": [
+            "1人",
+            "2人",
+            "3人",
+            "4人",
+            "5人",
+            "6人以上"
+        ],
+        "transportOptions": [
+            "火車",
+            "步行",
+            "汽車",
+            "巴士"
+        ],
+        "categoryOptions": [
+            "親子",
+            "成人",
+            "娛樂",
+            "活動",
+            "歷史"
+        ],
+        "defaultTopics": [
+            "美食",
+            "購物",
+            "活動",
+            "電影"
+        ],
         "submitButton": "提交計劃給AI"
+    },
+    "editProfilePage": {
+        "title": "編輯個人資料",
+        "textFields": {
+            "name": "姓名"
+        },
+        "buttons": {
+            "submit": "儲存"
+        },
+        "snackBar": {
+            "success": "更新成功",
+            "error": {
+                "noChange": "沒有變更",
+                "failedToUpdate": "更新失敗，請稍後再試",
+                "failedToPickImage": "選擇圖片失敗，請稍後再試"
+            }
+        }
     },
     "locales(map)": {
         "en": "英語",
