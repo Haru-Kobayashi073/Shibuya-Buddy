@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:uuid/uuid.dart';
 
 import '../../domain/repositories/file_repository.dart';
 import '../firebase/current_auth_user.dart';
@@ -39,7 +38,7 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
   Future<String> getUploadedImageUrl({required File file}) async {
     final uid = currentUser.uid;
 
-    final fileName = '${const Uuid().v4()}.jpg';
+    final fileName = '${'$uid-avator-image'}.jpg';
     final storageRef = _storage
         .ref()
         .child('users')
