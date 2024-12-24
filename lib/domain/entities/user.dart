@@ -11,10 +11,17 @@ abstract class User with _$User {
     required String uid,
     String? name,
     String? imageUrl,
+    required BillingGrade billingGrade,
     @Default([]) List<String> bookmarkedPlanIds,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverter() DateTime? updateAt,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+}
+
+enum BillingGrade {
+  standard,
+  premiumWithPeriod,
+  premiumWithUnlimited,
 }

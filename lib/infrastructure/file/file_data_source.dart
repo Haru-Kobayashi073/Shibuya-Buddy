@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../domain/repositories/file_repository.dart';
-import '../firebase/current_user.dart';
+import '../firebase/current_auth_user.dart';
 import '../firebase/firebase_storage_provider.dart';
 
 part 'file_data_source.g.dart';
@@ -16,7 +16,7 @@ part 'file_data_source.g.dart';
 class FileDataSource extends _$FileDataSource implements FileRepository {
   FirebaseStorage get _storage => ref.read(firebaseStorageProvider);
   ImagePicker get _imagePicker => ImagePicker();
-  User get currentUser => ref.read(currentUserProvider);
+  User get currentUser => ref.read(currentAuthUserProvider);
 
   @override
   void build() {

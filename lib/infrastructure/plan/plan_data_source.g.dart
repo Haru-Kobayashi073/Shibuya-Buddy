@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_page_notifier.dart';
+part of 'plan_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myPageNotifierHash() => r'61f8aecf5c705ad89dd0d067d03670d960ead474';
+String _$planDataSourceHash() => r'048be12a92e7286885ef7eba7db510b525573fd0';
 
-/// See also [MyPageNotifier].
-@ProviderFor(MyPageNotifier)
-final myPageNotifierProvider =
-    AutoDisposeAsyncNotifierProvider<MyPageNotifier, User>.internal(
-  MyPageNotifier.new,
-  name: r'myPageNotifierProvider',
+/// See also [PlanDataSource].
+@ProviderFor(PlanDataSource)
+final planDataSourceProvider =
+    AutoDisposeNotifierProvider<PlanDataSource, void>.internal(
+  PlanDataSource.new,
+  name: r'planDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$myPageNotifierHash,
+      : _$planDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$MyPageNotifier = AutoDisposeAsyncNotifier<User>;
+typedef _$PlanDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

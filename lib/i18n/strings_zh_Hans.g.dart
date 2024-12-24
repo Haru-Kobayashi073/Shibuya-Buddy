@@ -67,6 +67,9 @@ class TranslationsZhHans implements Translations {
   late final _TranslationsMyPlanPageZhHans myPlanPage =
       _TranslationsMyPlanPageZhHans._(_root);
   @override
+  late final _TranslationsBuddyChatPageZhHans buddyChatPage =
+      _TranslationsBuddyChatPageZhHans._(_root);
+  @override
   late final _TranslationsPopularTopicsZhHans popularTopics =
       _TranslationsPopularTopicsZhHans._(_root);
   @override
@@ -266,6 +269,32 @@ class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
   @override
   late final _TranslationsMyPlanPageTabsZhHans tabs =
       _TranslationsMyPlanPageTabsZhHans._(_root);
+}
+
+// Path: buddyChatPage
+class _TranslationsBuddyChatPageZhHans implements TranslationsBuddyChatPageEn {
+  _TranslationsBuddyChatPageZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => 'Buddy的建议';
+  @override
+  String possibleChatCount({required Object possibleChatCount}) =>
+      '消息还可以发送${possibleChatCount}次';
+  @override
+  late final _TranslationsBuddyChatPageTextFieldsZhHans textFields =
+      _TranslationsBuddyChatPageTextFieldsZhHans._(_root);
+  @override
+  late final _TranslationsBuddyChatPageButtonsZhHans buttons =
+      _TranslationsBuddyChatPageButtonsZhHans._(_root);
+  @override
+  late final _TranslationsBuddyChatPagePlaceCardZhHans placeCard =
+      _TranslationsBuddyChatPagePlaceCardZhHans._(_root);
+  @override
+  late final _TranslationsBuddyChatPageSnackBarZhHans snackBar =
+      _TranslationsBuddyChatPageSnackBarZhHans._(_root);
 }
 
 // Path: popularTopics
@@ -663,6 +692,59 @@ class _TranslationsMyPlanPageTabsZhHans
   String get bookmark => '收藏夹';
 }
 
+// Path: buddyChatPage.textFields
+class _TranslationsBuddyChatPageTextFieldsZhHans
+    implements TranslationsBuddyChatPageTextFieldsEn {
+  _TranslationsBuddyChatPageTextFieldsZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get message => '输入消息';
+}
+
+// Path: buddyChatPage.buttons
+class _TranslationsBuddyChatPageButtonsZhHans
+    implements TranslationsBuddyChatPageButtonsEn {
+  _TranslationsBuddyChatPageButtonsZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get send => '完成';
+}
+
+// Path: buddyChatPage.placeCard
+class _TranslationsBuddyChatPagePlaceCardZhHans
+    implements TranslationsBuddyChatPagePlaceCardEn {
+  _TranslationsBuddyChatPagePlaceCardZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get openingHours => '营业时间';
+  @override
+  String get averageAmount => '平均预算';
+  @override
+  String get website => '网站';
+}
+
+// Path: buddyChatPage.snackBar
+class _TranslationsBuddyChatPageSnackBarZhHans
+    implements TranslationsBuddyChatPageSnackBarEn {
+  _TranslationsBuddyChatPageSnackBarZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  late final _TranslationsBuddyChatPageSnackBarErrorZhHans error =
+      _TranslationsBuddyChatPageSnackBarErrorZhHans._(_root);
+}
+
 // Path: createPlanPage.label
 class _TranslationsCreatePlanPageLabelZhHans
     implements TranslationsCreatePlanPageLabelEn {
@@ -889,22 +971,18 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans
   String get changeEmail => '更改电子邮件地址';
 }
 
-// Path: myPage.accountStatus.dateTime
-class _TranslationsMyPageAccountStatusDateTimeZhHans
-    implements TranslationsMyPageAccountStatusDateTimeEn {
-  _TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
+// Path: buddyChatPage.snackBar.error
+class _TranslationsBuddyChatPageSnackBarErrorZhHans
+    implements TranslationsBuddyChatPageSnackBarErrorEn {
+  _TranslationsBuddyChatPageSnackBarErrorZhHans._(this._root);
 
   final TranslationsZhHans _root; // ignore: unused_field
 
   // Translations
   @override
-  String registeredOn({required Object date}) => '${date}注册于';
+  String get failedRecieveMessage => '未能接收回复，请稍后再试';
   @override
-  String get registeredOnFormat => 'yyyy年MM月dd日';
-  @override
-  String validUntil({required Object date}) => '有效期至${date}';
-  @override
-  String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
+  String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1108,10 +1186,8 @@ extension on TranslationsZhHans {
         return 'URL格式不正确';
       case 'myPage.unregisteredUserName':
         return '未注册';
-      case 'myPage.editProfile':
-        return '编辑个人资料';
-      case 'myPage.premiumPlan':
-        return '高级计划';
+      case 'myPage.aboutAIFunction':
+        return '关于AI功能';
       case 'myPage.details':
         return '详细';
       case 'myPage.settings':
@@ -1128,18 +1204,6 @@ extension on TranslationsZhHans {
         return '关于本应用';
       case 'myPage.aboutTheDeveloper':
         return '关于开发者';
-      case 'myPage.accountStatus.dateTime.registeredOn':
-        return ({required Object date}) => '${date}注册于';
-      case 'myPage.accountStatus.dateTime.registeredOnFormat':
-        return 'yyyy年MM月dd日';
-      case 'myPage.accountStatus.dateTime.validUntil':
-        return ({required Object date}) => '有效期至${date}';
-      case 'myPage.accountStatus.dateTime.validUntilFormat':
-        return 'yyyy年MM月dd日 HH:mm';
-      case 'myPage.accountStatus.premium':
-        return '高级会员';
-      case 'myPage.accountStatus.standard':
-        return '标准会员';
       case 'changeLanguagePage.title':
         return '语言';
       case 'changeLanguagePage.items.japanese':
@@ -1164,6 +1228,25 @@ extension on TranslationsZhHans {
         return '已创建的计划';
       case 'myPlanPage.tabs.bookmark':
         return '收藏夹';
+      case 'buddyChatPage.title':
+        return 'Buddy的建议';
+      case 'buddyChatPage.possibleChatCount':
+        return ({required Object possibleChatCount}) =>
+            '消息还可以发送${possibleChatCount}次';
+      case 'buddyChatPage.textFields.message':
+        return '输入消息';
+      case 'buddyChatPage.buttons.send':
+        return '完成';
+      case 'buddyChatPage.placeCard.openingHours':
+        return '营业时间';
+      case 'buddyChatPage.placeCard.averageAmount':
+        return '平均预算';
+      case 'buddyChatPage.placeCard.website':
+        return '网站';
+      case 'buddyChatPage.snackBar.error.failedRecieveMessage':
+        return '未能接收回复，请稍后再试';
+      case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan':
+        return '未能完成创建计划，请稍后再试';
       case 'popularTopics.sectionName':
         return '热门话题';
       case 'createPlanPage.title':

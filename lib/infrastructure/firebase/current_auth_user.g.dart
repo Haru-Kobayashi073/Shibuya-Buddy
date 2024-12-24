@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_page_notifier.dart';
+part of 'current_auth_user.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myPageNotifierHash() => r'61f8aecf5c705ad89dd0d067d03670d960ead474';
+String _$currentAuthUserHash() => r'b91170c4f6899f2ce2b547fe7a1e84b36421fe15';
 
-/// See also [MyPageNotifier].
-@ProviderFor(MyPageNotifier)
-final myPageNotifierProvider =
-    AutoDisposeAsyncNotifierProvider<MyPageNotifier, User>.internal(
-  MyPageNotifier.new,
-  name: r'myPageNotifierProvider',
+/// See also [currentAuthUser].
+@ProviderFor(currentAuthUser)
+final currentAuthUserProvider = Provider<User>.internal(
+  currentAuthUser,
+  name: r'currentAuthUserProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$myPageNotifierHash,
+      : _$currentAuthUserHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$MyPageNotifier = AutoDisposeAsyncNotifier<User>;
+typedef CurrentAuthUserRef = ProviderRef<User>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
