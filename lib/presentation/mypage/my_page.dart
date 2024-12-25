@@ -28,11 +28,11 @@ class MyPage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AccountStatus(
-                    isPremium: false,
                     userName: value.name,
                     createdAt: value.createdAt,
-                    // effectiveDate: value.createdAt,
+                    effectiveDate: value.createdAt,
                     imageUrl: value.imageUrl,
+                    billingGrade: value.billingGrade,
                   ),
                   const SizedBox(height: 30),
                   Text(

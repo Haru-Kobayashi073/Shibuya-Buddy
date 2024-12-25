@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../domain/entities/user.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
@@ -9,18 +10,18 @@ import '../../../utils/styles/app_text_style.dart';
 class AccountStatus extends StatelessWidget {
   const AccountStatus({
     super.key,
-    required this.isPremium,
-    required this.userName,
-    required this.createdAt,
-    this.effectiveDate,
-    required this.imageUrl,
+    required this.userName, //アカウント名
+    required this.createdAt, //登録日
+    required this.billingGrade, //ユーザーステータス
+    required this.effectiveDate, //プレミアムユーザーの有効期限
+    required this.imageUrl, //ユーザーアイコン
   });
 
-  final bool isPremium;
   final String? userName;
   final DateTime createdAt;
   final DateTime? effectiveDate;
   final String? imageUrl;
+  final BillingGrade billingGrade;
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +46,14 @@ class AccountStatus extends StatelessWidget {
           begin: FractionalOffset.centerLeft,
           end: FractionalOffset.centerRight,
           colors: [
-            if (isPremium) AppColor.yellow200 else AppColor.blue50Background,
-            if (isPremium) AppColor.yellow600Primary else AppColor.blue200,
+            if (status(billingGrade))
+              AppColor.yellow200
+            else
+              AppColor.blue50Background,
+            if (status(billingGrade))
+              AppColor.yellow600Primary
+            else
+              AppColor.blue200,
           ],
         ),
         borderRadius: BorderRadius.circular(12),
@@ -95,7 +102,7 @@ class AccountStatus extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  isPremium
+                  status(billingGrade)
                       ? acountStatusi18n.premium
                       : acountStatusi18n.standard,
                   style: AppTextStyle.textStyle.copyWith(
@@ -104,7 +111,7 @@ class AccountStatus extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                if (effectiveDate != null)
+                if (effectiveDateDisplay(billingGrade))
                   Text(
                     acountStatusi18n.dateTime.validUntil(date: effectiveFormat),
                     style: AppTextStyle.textStyle.copyWith(
@@ -118,5 +125,27 @@ class AccountStatus extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool status(BillingGrade billingGrade) {
+    if (billingGrade == BillingGrade.standard) {
+      return false;
+    } else if (billingGrade == BillingGrade.premiumWithUnlimited) {
+      return true;
+    } else if (billingGrade == BillingGrade.premiumWithPeriod) {
+      return true;
+    }
+    return false;
+  }
+
+  bool effectiveDateDisplay(BillingGrade billingGrade) {
+    if (billingGrade == BillingGrade.premiumWithPeriod) {
+      return true;
+    } else if (billingGrade == BillingGrade.premiumWithUnlimited) {
+      return false;
+    } else if (billingGrade == BillingGrade.standard) {
+      return false;
+    }
+    return false;
   }
 }
