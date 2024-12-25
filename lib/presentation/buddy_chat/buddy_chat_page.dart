@@ -25,12 +25,12 @@ class BuddyChatPage extends HookConsumerWidget {
     final planPrompt = PlanPrompt(
       id: '1',
       schedules: (
-        firstDate: DateTime(2024),
-        lastDate: DateTime(2024),
+        firstDate: DateTime(2024, 12, 25),
+        lastDate: DateTime(2024, 12, 27),
       ),
-      numberOfPeople: 1,
+      numberOfPeople: 4,
       transportation: 'train',
-      category: Category.friends,
+      category: Category.withChildren,
       topicIds: ['1'],
       createdAt: DateTime(2024),
     );
@@ -51,12 +51,12 @@ class BuddyChatPage extends HookConsumerWidget {
           message: textController.text,
         )
             .then((value) async {
-          textController.clear();
           await notifier.animateControllerWhenMessaging();
         });
         await notifier
             .recieveMessage(message: textController.text)
             .then((value) {
+          textController.clear();
           notifier.animateControllerWhenMessaging();
         });
       }
