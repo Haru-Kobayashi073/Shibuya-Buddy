@@ -971,6 +971,24 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans
   String get changeEmail => '更改电子邮件地址';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeZhHans
+    implements TranslationsMyPageAccountStatusDateTimeEn {
+  _TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String registeredOn({required Object date}) => '${date}注册于';
+  @override
+  String get registeredOnFormat => 'yyyy年MM月dd日';
+  @override
+  String validUntil({required Object date}) => '有效期至${date}';
+  @override
+  String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
+}
+
 // Path: buddyChatPage.snackBar.error
 class _TranslationsBuddyChatPageSnackBarErrorZhHans
     implements TranslationsBuddyChatPageSnackBarErrorEn {
@@ -1186,8 +1204,10 @@ extension on TranslationsZhHans {
         return 'URL格式不正确';
       case 'myPage.unregisteredUserName':
         return '未注册';
-      case 'myPage.aboutAIFunction':
-        return '关于AI功能';
+      case 'myPage.editProfile':
+        return '编辑个人资料';
+      case 'myPage.premiumPlan':
+        return '高级计划';
       case 'myPage.details':
         return '详细';
       case 'myPage.settings':
@@ -1204,6 +1224,18 @@ extension on TranslationsZhHans {
         return '关于本应用';
       case 'myPage.aboutTheDeveloper':
         return '关于开发者';
+      case 'myPage.accountStatus.dateTime.registeredOn':
+        return ({required Object date}) => '${date}注册于';
+      case 'myPage.accountStatus.dateTime.registeredOnFormat':
+        return 'yyyy年MM月dd日';
+      case 'myPage.accountStatus.dateTime.validUntil':
+        return ({required Object date}) => '有效期至${date}';
+      case 'myPage.accountStatus.dateTime.validUntilFormat':
+        return 'yyyy年MM月dd日 HH:mm';
+      case 'myPage.accountStatus.premium':
+        return '高级会员';
+      case 'myPage.accountStatus.standard':
+        return '标准会员';
       case 'changeLanguagePage.title':
         return '语言';
       case 'changeLanguagePage.items.japanese':
