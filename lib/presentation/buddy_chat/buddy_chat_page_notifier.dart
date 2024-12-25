@@ -6,7 +6,7 @@ import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
-import '../../infrastructure/gemini/gemini_mock_data_source.dart';
+import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/providers/current_user/current_user.dart';
@@ -18,8 +18,8 @@ part 'buddy_chat_page_notifier.g.dart';
 
 @riverpod
 class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
-  GeminiMockDataSource get geminiDataSource =>
-      ref.read(geminiMockDataSourceProvider.notifier);
+  GeminiDataSource get geminiDataSource =>
+      ref.read(geminiDataSourceProvider.notifier);
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
@@ -35,24 +35,16 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       scrollController.dispose,
     );
 
-    final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+    final buddyMessage =
+        await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
 
-    final messages = [
-      ChatMessage(
-        id: res.id,
-        author: res.author,
-        plan: res.plan,
-        places: res.places,
-        createdAt: res.createdAt,
-        message: res.message,
-      ),
-    ];
+    final messages = [buddyMessage];
 
     final message = ChatMessage(
-      id: res.id,
-      message: res.plan!.description,
+      id: buddyMessage.id,
+      message: buddyMessage.plan!.description,
       author: ChatAuthor.buddy,
-      createdAt: res.createdAt,
+      createdAt: buddyMessage.createdAt,
     );
 
     messages.add(message);
@@ -85,16 +77,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state.requireValue.copyWith(isLoadingForMessage: true),
     );
     try {
-      await Future.delayed(const Duration(seconds: 3), () {});
-
-      final res = await geminiDataSource.sendMessage(message: message);
-
-      final buddyMessage = ChatMessage(
-        id: res.id,
-        author: res.author,
-        message: res.message,
-        createdAt: res.createdAt,
-      );
+      final buddyMessage = await geminiDataSource.sendMessage(message: message);
 
       state = AsyncValue.data(
         state.requireValue.copyWith(
