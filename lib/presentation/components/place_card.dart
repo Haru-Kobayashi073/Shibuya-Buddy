@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:url_launcher/link.dart';
@@ -63,10 +62,12 @@ class PlaceCard extends StatelessWidget {
                   children: [
                     Text(
                       place.title,
+                      maxLines: 2,
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: AppColor.black,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       softWrap: true,
                       overflow: TextOverflow.visible,
@@ -98,12 +99,13 @@ class PlaceCard extends StatelessWidget {
                         const Gap(8),
                         Text(
                           place.getParsedOpeningHours(),
+                          maxLines: 2,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             color: AppColor.black,
                           ),
                           softWrap: true,
-                          overflow: TextOverflow.visible,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
@@ -122,10 +124,12 @@ class PlaceCard extends StatelessWidget {
                         ),
                         const Gap(8),
                         Text(
-                          place.avevageAmount,
+                          place.averageAmount,
+                          maxLines: 2,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             color: AppColor.black,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           softWrap: true,
                           overflow: TextOverflow.visible,
@@ -139,10 +143,12 @@ class PlaceCard extends StatelessWidget {
                       children: [
                         Text(
                           placeCardi18n.website,
+                          maxLines: 2,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                             color: AppColor.black,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                         const Gap(8),
