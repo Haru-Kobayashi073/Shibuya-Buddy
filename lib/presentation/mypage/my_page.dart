@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
@@ -7,6 +6,7 @@ import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/loading_overlay.dart';
+import '../components/presistent_cached_network_image.dart';
 import 'components/list_tile_with_icon.dart';
 import 'my_page_notifier.dart';
 
@@ -28,9 +28,8 @@ class MyPage extends ConsumerWidget {
               children: [
                 ClipOval(
                   child: value.imageUrl != null
-                      ? CachedNetworkImage(
+                      ? PersistentCachedNetworkImage(
                           imageUrl: value.imageUrl!,
-                          fit: BoxFit.cover,
                           width: 48,
                           height: 48,
                         )

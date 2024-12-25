@@ -7,6 +7,7 @@ import '../../domain/entities/place.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import 'presistent_cached_network_image.dart';
 
 class PlaceCard extends StatelessWidget {
   const PlaceCard({
@@ -52,10 +53,8 @@ class PlaceCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: CachedNetworkImage(
-                  imageUrl: place.thumbnailUrl,
-                  fit: BoxFit.cover,
-                ),
+                child:
+                    PersistentCachedNetworkImage(imageUrl: place.thumbnailUrl),
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
