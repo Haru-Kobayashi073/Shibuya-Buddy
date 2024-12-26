@@ -148,7 +148,7 @@
     },
     "myPage": {
         "unregisteredUserName": "未登録",
-        "editProfile":"プロフィール編集",
+        "editProfile": "プロフィール編集",
         "premiumPlan": "プレミアムプラン",
         "details": "詳細",
         "settings": "設定",
@@ -158,7 +158,7 @@
         "termsOfUsePrivacyPolicy": "利用規約・プライバシーポリシー",
         "aboutThisApp": "このアプリについて",
         "aboutTheDeveloper": "開発者について",
-        "accountStatus":{
+        "accountStatus": {
             "dateTime": {
                 "registeredOn": "${date}に登録",
                 "registeredOnFormat": "yyyy年MM月dd日",
@@ -261,7 +261,12 @@
             "アクティビティ",
             "映画"
         ],
-        "submitButton": "プランをAIに伝える"
+        "submitButton": "プランをAIに伝える",
+        "snackBar": {
+            "error": {
+                "foundUnSelectedField": "選択されていない項目があります 全ての項目を選択してください"
+            }
+        }
     },
     "editProfilePage": {
         "title": "編集",
@@ -278,6 +283,20 @@
                 "failedToUpdate": "更新に失敗しました しばらくしてから再度お試しください",
                 "failedToPickImage": "画像の選択に失敗しました しばらくしてから再度お試しください"
             }
+        }
+    },
+    "confirmDialog": {
+        "answers": {
+            "yes": "はい",
+            "no": "いいえ"
+        },
+        "popPage": {
+            "title": "前の画面に戻りますか？",
+            "description": "現在の内容は保存されません"
+        },
+        "completeCreatePlan": {
+            "title": "プランを確定しますか？",
+            "description": "一番最後のメッセージに含まれるプランが保存されます"
         }
     },
     "locales(map)": {

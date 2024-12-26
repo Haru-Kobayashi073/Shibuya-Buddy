@@ -46,6 +46,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
 	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogZhHans confirmDialog = _TranslationsConfirmDialogZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -239,6 +240,7 @@ class _TranslationsCreatePlanPageZhHans implements TranslationsCreatePlanPageEn 
 		'电影',
 	];
 	@override String get submitButton => '提交计划给AI';
+	@override late final _TranslationsCreatePlanPageSnackBarZhHans snackBar = _TranslationsCreatePlanPageSnackBarZhHans._(_root);
 }
 
 // Path: editProfilePage
@@ -252,6 +254,18 @@ class _TranslationsEditProfilePageZhHans implements TranslationsEditProfilePageE
 	@override late final _TranslationsEditProfilePageTextFieldsZhHans textFields = _TranslationsEditProfilePageTextFieldsZhHans._(_root);
 	@override late final _TranslationsEditProfilePageButtonsZhHans buttons = _TranslationsEditProfilePageButtonsZhHans._(_root);
 	@override late final _TranslationsEditProfilePageSnackBarZhHans snackBar = _TranslationsEditProfilePageSnackBarZhHans._(_root);
+}
+
+// Path: confirmDialog
+class _TranslationsConfirmDialogZhHans implements TranslationsConfirmDialogEn {
+	_TranslationsConfirmDialogZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsConfirmDialogAnswersZhHans answers = _TranslationsConfirmDialogAnswersZhHans._(_root);
+	@override late final _TranslationsConfirmDialogPopPageZhHans popPage = _TranslationsConfirmDialogPopPageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanZhHans completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanZhHans._(_root);
 }
 
 // Path: navigationBar.items
@@ -559,6 +573,16 @@ class _TranslationsCreatePlanPageModalZhHans implements TranslationsCreatePlanPa
 	@override String get title => '选择日期';
 }
 
+// Path: createPlanPage.snackBar
+class _TranslationsCreatePlanPageSnackBarZhHans implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageSnackBarErrorZhHans error = _TranslationsCreatePlanPageSnackBarErrorZhHans._(_root);
+}
+
 // Path: editProfilePage.textFields
 class _TranslationsEditProfilePageTextFieldsZhHans implements TranslationsEditProfilePageTextFieldsEn {
 	_TranslationsEditProfilePageTextFieldsZhHans._(this._root);
@@ -588,6 +612,39 @@ class _TranslationsEditProfilePageSnackBarZhHans implements TranslationsEditProf
 	// Translations
 	@override String get success => '更新成功';
 	@override late final _TranslationsEditProfilePageSnackBarErrorZhHans error = _TranslationsEditProfilePageSnackBarErrorZhHans._(_root);
+}
+
+// Path: confirmDialog.answers
+class _TranslationsConfirmDialogAnswersZhHans implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => '是';
+	@override String get no => '否';
+}
+
+// Path: confirmDialog.popPage
+class _TranslationsConfirmDialogPopPageZhHans implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '要返回上一页吗？';
+	@override String get description => '当前内容不会被保存';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class _TranslationsConfirmDialogCompleteCreatePlanZhHans implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '确定要保存计划吗？';
+	@override String get description => '最后一条消息中的计划将被保存';
 }
 
 // Path: authentication.signInPage.textFields
@@ -742,6 +799,16 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddy
 	// Translations
 	@override String get failedRecieveMessage => '未能接收回复，请稍后再试';
 	@override String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
+}
+
+// Path: createPlanPage.snackBar.error
+class _TranslationsCreatePlanPageSnackBarErrorZhHans implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -934,6 +1001,7 @@ extension on TranslationsZhHans {
 			case 'createPlanPage.defaultTopics.2': return '活动';
 			case 'createPlanPage.defaultTopics.3': return '电影';
 			case 'createPlanPage.submitButton': return '提交计划给AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
 			case 'editProfilePage.title': return '编辑个人资料';
 			case 'editProfilePage.textFields.name': return '姓名';
 			case 'editProfilePage.buttons.submit': return '保存';
@@ -941,6 +1009,12 @@ extension on TranslationsZhHans {
 			case 'editProfilePage.snackBar.error.noChange': return '没有更改';
 			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失败，请稍后再试';
 			case 'editProfilePage.snackBar.error.failedToPickImage': return '选择图片失败，请稍后再试';
+			case 'confirmDialog.answers.yes': return '是';
+			case 'confirmDialog.answers.no': return '否';
+			case 'confirmDialog.popPage.title': return '要返回上一页吗？';
+			case 'confirmDialog.popPage.description': return '当前内容不会被保存';
+			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
+			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
@@ -60,7 +61,7 @@ class ConfirmDialog extends StatelessWidget {
                     ),
                     onPressed: () => context.pop(false),
                     child: Text(
-                      'いいえ',
+                      t.confirmDialog.answers.no,
                       style: AppTextStyle.textStyle.copyWith(
                         color: AppColor.black,
                         fontSize: 14,
@@ -84,7 +85,7 @@ class ConfirmDialog extends StatelessWidget {
                       onConfirm();
                     },
                     child: Text(
-                      'はい',
+                      t.confirmDialog.answers.yes,
                       style: AppTextStyle.textStyle.copyWith(
                         color: AppColor.white,
                         fontSize: 14,

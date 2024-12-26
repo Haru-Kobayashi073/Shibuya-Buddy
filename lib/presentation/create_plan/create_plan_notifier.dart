@@ -110,7 +110,9 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     required Future<void> Function(PlanPrompt) onNavigate,
   }) async {
     if (!state.isSelectedAll()) {
-      scaffoldMessenger.showExceptionSnackBar('選択されていない項目があります 全ての項目を選択してください');
+      scaffoldMessenger.showExceptionSnackBar(
+        t.createPlanPage.snackBar.error.foundUnSelectedField,
+      );
       return;
     }
     final planPrompt = PlanPrompt(

@@ -65,8 +65,8 @@ class BuddyChatPage extends HookConsumerWidget {
             context: context,
             builder: (_) => ConfirmDialog(
               onConfirm: () => context.pop(),
-              titleText: '前の画面に戻りますか？',
-              bodyText: '現在の内容は保存されません。',
+              titleText: t.confirmDialog.popPage.title,
+              bodyText: t.confirmDialog.popPage.description,
             ),
           );
         }
@@ -92,8 +92,8 @@ class BuddyChatPage extends HookConsumerWidget {
                   onPressed: () async => showDialog<bool>(
                     context: context,
                     builder: (_) => ConfirmDialog(
-                      titleText: 'プランを確定しますか？',
-                      bodyText: '一番最後のメッセージに含まれるプランが保存されます',
+                      titleText: t.confirmDialog.completeCreatePlan.title,
+                      bodyText: t.confirmDialog.completeCreatePlan.description,
                       onConfirm: () async => notifier.completeCreatePlan(
                         onSuccess: () async {
                           const HomeScreenRouteData().go(context);

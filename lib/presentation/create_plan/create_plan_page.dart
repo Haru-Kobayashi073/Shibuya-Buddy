@@ -56,8 +56,8 @@ class CreatePlanPage extends HookConsumerWidget {
             context: context,
             builder: (_) => ConfirmDialog(
               onConfirm: () => context.pop(),
-              titleText: '前の画面に戻りますか？',
-              bodyText: '現在の内容は保存されません。',
+              titleText: t.confirmDialog.popPage.title,
+              bodyText: t.confirmDialog.popPage.description,
             ),
           );
         }
