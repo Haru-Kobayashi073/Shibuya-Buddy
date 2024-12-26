@@ -14,7 +14,6 @@ import 'components/selection_modal.dart';
 import 'components/topic_chip_field.dart';
 import 'components/topic_text_field.dart';
 import 'create_plan_notifier.dart';
-import 'create_plan_state.dart';
 
 class CreatePlanPage extends HookConsumerWidget {
   const CreatePlanPage({super.key});
@@ -36,8 +35,7 @@ class CreatePlanPage extends HookConsumerWidget {
     useEffect(
       () {
         topicsController.text = planState.selectedTopics.join(', ');
-        numberOfPeopleController.text =
-            planState.selectedNumberofPeople.join(', ');
+        numberOfPeopleController.text = planState.numberOfPeople;
         transportController.text = planState.selectedTransport.join(', ');
         categoryController.text = planState.selectedCategory.join(', ');
         startDateController.text = planState.startDate ?? '';
@@ -127,6 +125,7 @@ class CreatePlanPage extends HookConsumerWidget {
                           field: SelectionField.numberOfPeople,
                           title: t.createPlanPage.label.numberOfPeople,
                           isSingleSelect: true,
+                          onTapCheckBox: planNotifier.updateNumberOfPeople,
                         ),
                       );
                     },
@@ -151,6 +150,7 @@ class CreatePlanPage extends HookConsumerWidget {
                           selectionList: t.createPlanPage.transportOptions,
                           field: SelectionField.transport,
                           title: t.createPlanPage.label.transport,
+                          onTapCheckBox: planNotifier.updateTransport,
                         ),
                       );
                     },
@@ -172,6 +172,7 @@ class CreatePlanPage extends HookConsumerWidget {
                           selectionList: t.createPlanPage.categoryOptions,
                           field: SelectionField.category,
                           title: t.createPlanPage.label.category,
+                          onTapCheckBox: planNotifier.updateCategory,
                         ),
                       );
                     },

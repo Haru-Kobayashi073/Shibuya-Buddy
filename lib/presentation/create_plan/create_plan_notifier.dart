@@ -45,52 +45,33 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     return formatter.format(date);
   }
 
-  void updateSingleSelection(SelectionField field, String item) {
-    switch (field) {
-      case SelectionField.transport:
-        state = state.copyWith(selectedTransport: [item]);
-      case SelectionField.numberOfPeople:
-        state = state.copyWith(selectedNumberofPeople: [item]);
-      case SelectionField.category:
-        state = state.copyWith(selectedCategory: [item]);
-    }
+  void updateNumberOfPeople(String selecteNum) {
+    state = state.copyWith(numberOfPeople: selecteNum);
   }
 
-  void updateMultiSelection(SelectionField field, String item) {
-    switch (field) {
-      case SelectionField.transport:
-        _toggleListField(
-          selectedItems: state.selectedTransport,
-          item: item,
-          updateField: (updatedList) =>
-              state = state.copyWith(selectedTransport: updatedList),
-        );
-      case SelectionField.numberOfPeople:
-        _toggleListField(
-          selectedItems: state.selectedNumberofPeople,
-          item: item,
-          updateField: (updatedList) =>
-              state = state.copyWith(selectedNumberofPeople: updatedList),
-        );
-      case SelectionField.category:
-        _toggleListField(
-          selectedItems: state.selectedCategory,
-          item: item,
-          updateField: (updatedList) =>
-              state = state.copyWith(selectedCategory: updatedList),
-        );
-    }
+  void updateTransport(String selectedTransport) {
+    final updatedList = _toggleListField(
+      selectedItems: state.selectedTransport,
+      item: selectedTransport,
+    );
+    state = state.copyWith(selectedTransport: updatedList);
   }
 
-  void _toggleListField({
+  void updateCategory(String selectedCategory) {
+    final updatedList = _toggleListField(
+      selectedItems: state.selectedCategory,
+      item: selectedCategory,
+    );
+    state = state.copyWith(selectedCategory: updatedList);
+  }
+
+  List<String> _toggleListField({
     required List<String> selectedItems,
     required String item,
-    required void Function(List<String>) updateField,
   }) {
-    final updatedList = selectedItems.contains(item)
+    return selectedItems.contains(item)
         ? selectedItems.where((i) => i != item).toList()
         : [...selectedItems, item];
-    updateField(updatedList);
   }
 
   Future<void> showCupertinoDatePicker(
