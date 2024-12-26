@@ -21,7 +21,7 @@ class EditProfilePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = useTextEditingController();
+    final controller = useTextEditingController(text: user.name);
     final state = ref.watch(editProfilePageNotifierProvider(user));
     final notifier = ref.read(editProfilePageNotifierProvider(user).notifier);
 
@@ -69,7 +69,7 @@ class EditProfilePage extends HookConsumerWidget {
                         textInputAction: TextInputAction.done,
                         validator: Validator.common,
                         onFieldSubmitted: (_) {},
-                        label: user.name ?? t.editProfilePage.textFields.name,
+                        label: t.editProfilePage.textFields.name,
                       ),
                     ],
                   ),
