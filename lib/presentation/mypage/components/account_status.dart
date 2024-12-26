@@ -10,18 +10,11 @@ import '../../../utils/styles/app_text_style.dart';
 class AccountStatus extends StatelessWidget {
   const AccountStatus({
     super.key,
-    required this.userName, //アカウント名
-    required this.createdAt, //登録日
-    required this.billingGrade, //ユーザーステータス
     required this.effectiveDate, //プレミアムユーザーの有効期限
-    required this.imageUrl, //ユーザーアイコン
+    required this.user,
   });
-
-  final String? userName;
-  final DateTime createdAt;
   final DateTime? effectiveDate;
-  final String? imageUrl;
-  final BillingGrade billingGrade;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +26,7 @@ class AccountStatus extends StatelessWidget {
 
     final createFormat =
         DateFormat(acountStatusi18n.dateTime.registeredOnFormat)
-            .format(createdAt);
+            .format(user.createdAt);
     final effectiveFormat = effectiveDate != null
         ? DateFormat(acountStatusi18n.dateTime.validUntilFormat)
             .format(effectiveDate!)
@@ -46,11 +39,11 @@ class AccountStatus extends StatelessWidget {
           begin: FractionalOffset.centerLeft,
           end: FractionalOffset.centerRight,
           colors: [
-            if (status(billingGrade))
+            if (status(user.billingGrade))
               AppColor.yellow200
             else
               AppColor.blue50Background,
-            if (status(billingGrade))
+            if (status(user.billingGrade))
               AppColor.yellow600Primary
             else
               AppColor.blue200,
@@ -65,9 +58,9 @@ class AccountStatus extends StatelessWidget {
             Row(
               children: [
                 ClipOval(
-                  child: imageUrl != null
+                  child: user.imageUrl != null
                       ? CachedNetworkImage(
-                          imageUrl: imageUrl!,
+                          imageUrl: user.imageUrl!,
                           fit: BoxFit.cover,
                           width: 48,
                           height: 48,
@@ -81,7 +74,7 @@ class AccountStatus extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 3),
                   child: Text(
-                    userName ?? myPageItemi18n.unregisteredUserName,
+                    user.name ?? myPageItemi18n.unregisteredUserName,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -102,7 +95,7 @@ class AccountStatus extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  status(billingGrade)
+                  status(user.billingGrade)
                       ? acountStatusi18n.premium
                       : acountStatusi18n.standard,
                   style: AppTextStyle.textStyle.copyWith(
@@ -111,7 +104,7 @@ class AccountStatus extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                if (effectiveDateDisplay(billingGrade))
+                if (effectiveDateDisplay(user.billingGrade))
                   Text(
                     acountStatusi18n.dateTime.validUntil(date: effectiveFormat),
                     style: AppTextStyle.textStyle.copyWith(
