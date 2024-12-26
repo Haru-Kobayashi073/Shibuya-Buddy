@@ -24,36 +24,33 @@ class PlanTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return TextField(
       onTap: onTap,
-      child: AbsorbPointer(
-        child: TextField(
-          minLines: 1,
-          maxLines: 2,
-          controller: controller,
-          keyboardType: keyboardType,
-          textInputAction: TextInputAction.next,
-          inputFormatters: inputFormatters,
-          decoration: InputDecoration(
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColor.blue800Secondary),
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColor.blue800Secondary),
-            ),
-            disabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColor.blue800Secondary),
-            ),
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColor.blue800Secondary),
-            ),
-            labelStyle: AppTextStyle.textStyle.copyWith(
-              color: AppColor.black,
-            ),
-            labelText: label,
-            prefixIcon: prefixIcon,
-          ),
+      minLines: 1,
+      maxLines: 2,
+      readOnly: true,
+      controller: controller,
+      keyboardType: keyboardType,
+      textInputAction: TextInputAction.next,
+      inputFormatters: inputFormatters,
+      decoration: InputDecoration(
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: AppColor.blue800Secondary),
         ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: AppColor.blue800Secondary),
+        ),
+        disabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: AppColor.blue800Secondary),
+        ),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide(color: AppColor.blue800Secondary),
+        ),
+        labelStyle: AppTextStyle.textStyle.copyWith(
+          color: AppColor.black,
+        ),
+        labelText: label,
+        prefixIcon: prefixIcon,
       ),
     );
   }
