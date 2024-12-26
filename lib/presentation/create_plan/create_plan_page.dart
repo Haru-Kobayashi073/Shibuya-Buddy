@@ -183,9 +183,6 @@ class CreatePlanPage extends HookConsumerWidget {
               ),
               const Gap(16),
               TopicTextField(
-                label: t.createPlanPage.label.topics,
-                prefixIcon: const Icon(Symbols.emoji_objects),
-                suffixIcon: const Icon(Symbols.close),
                 controller: topicsController,
                 onClear: planNotifier.clearTopics,
               ),
