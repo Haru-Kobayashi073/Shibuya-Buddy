@@ -119,7 +119,7 @@ class CreatePlanPage extends HookConsumerWidget {
                 onTap: () async {
                   final selectedValue = await showModalBottomSheet<String>(
                     context: context,
-                    builder: (BuildContext context) {
+                    builder: (_) {
                       return SizedBox(
                         height: 300,
                         child: SelectionModal(
@@ -144,7 +144,7 @@ class CreatePlanPage extends HookConsumerWidget {
                 onTap: () async {
                   await showModalBottomSheet<void>(
                     context: context,
-                    builder: (BuildContext context) {
+                    builder: (_) {
                       return SizedBox(
                         height: 300,
                         child: SelectionModal(
@@ -165,7 +165,7 @@ class CreatePlanPage extends HookConsumerWidget {
                 onTap: () async {
                   final selectedValue = await showModalBottomSheet<String>(
                     context: context,
-                    builder: (BuildContext context) {
+                    builder: (_) {
                       return SizedBox(
                         height: 300,
                         child: SelectionModal(
