@@ -38,7 +38,7 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
   Future<String> getUploadedImageUrl({required File file}) async {
     final uid = currentUser.uid;
 
-    final fileName = '${'$uid-avator-image'}.jpg';
+    final fileName = '${'$uid-avatar-image'}.jpg';
     final storageRef = _storage
         .ref()
         .child('users')
