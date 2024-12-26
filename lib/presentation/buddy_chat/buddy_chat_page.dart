@@ -16,21 +16,16 @@ import 'buddy_chat_page_notifier.dart';
 import 'components/message_card.dart';
 
 class BuddyChatPage extends HookConsumerWidget {
-  const BuddyChatPage({super.key});
+  const BuddyChatPage({
+    super.key,
+    required this.planPrompt,
+  });
+  final PlanPrompt planPrompt;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
     final buddyChatPagei18n = i18n.buddyChatPage;
-    final planPrompt = PlanPrompt(
-      id: '1',
-      schedules: (firstDate: '2024年12月25日', lastDate: '2024年12月26日'),
-      numberOfPeople: '4人',
-      transports: ['train'],
-      categories: ['子連れ'],
-      topics: ['グルメ', 'ショッピング'],
-      createdAt: DateTime(2024),
-    );
     final state =
         ref.watch(buddyChatPageNotifierProvider(planPrompt: planPrompt));
     final notifier = ref
