@@ -64,7 +64,6 @@ class CreatePlanPage extends HookConsumerWidget {
             children: [
               PlanTextField(
                 label: t.createPlanPage.label.location,
-                readOnly: true,
                 prefixIcon: const Icon(Symbols.location_on),
                 controller: locationController,
               ),
@@ -76,7 +75,6 @@ class CreatePlanPage extends HookConsumerWidget {
                       prefixIcon: const Icon(Symbols.calendar_month),
                       label: t.createPlanPage.label.scheduleStart,
                       controller: startDateController,
-                      readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
                           context,
@@ -100,7 +98,6 @@ class CreatePlanPage extends HookConsumerWidget {
                       label: t.createPlanPage.label.scheduleEnd,
                       controller: endDateController,
                       prefixIcon: const Icon(Symbols.calendar_month),
-                      readOnly: true,
                       onTap: () async {
                         await planNotifier.showCupertinoDatePicker(
                           context,
@@ -118,7 +115,6 @@ class CreatePlanPage extends HookConsumerWidget {
                 prefixIcon: const Icon(Symbols.supervisor_account),
                 controller: numberOfPeopleController,
                 keyboardType: TextInputType.none,
-                readOnly: true,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 onTap: () async {
                   final selectedValue = await showModalBottomSheet<String>(
@@ -145,7 +141,6 @@ class CreatePlanPage extends HookConsumerWidget {
                 label: t.createPlanPage.label.transport,
                 prefixIcon: const Icon(Icons.commute),
                 controller: transportController,
-                readOnly: true,
                 onTap: () async {
                   await showModalBottomSheet<void>(
                     context: context,
@@ -167,7 +162,6 @@ class CreatePlanPage extends HookConsumerWidget {
                 label: t.createPlanPage.label.category,
                 prefixIcon: const Icon(Symbols.category),
                 controller: categoryController,
-                readOnly: true,
                 onTap: () async {
                   final selectedValue = await showModalBottomSheet<String>(
                     context: context,
@@ -193,7 +187,6 @@ class CreatePlanPage extends HookConsumerWidget {
                 prefixIcon: const Icon(Symbols.emoji_objects),
                 suffixIcon: const Icon(Symbols.close),
                 controller: topicsController,
-                readOnly: true,
                 onClear: planNotifier.clearTopics,
               ),
               TopicChipField(
