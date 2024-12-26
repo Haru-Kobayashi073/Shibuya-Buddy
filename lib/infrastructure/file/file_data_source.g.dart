@@ -6,7 +6,7 @@ part of 'file_data_source.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fileDataSourceHash() => r'60319f7a02823a86660b95f93fde2123f746d506';
+String _$fileDataSourceHash() => r'fe36e1d472daf6292ef47717b8067e610b062d2c';
 
 /// See also [FileDataSource].
 @ProviderFor(FileDataSource)
