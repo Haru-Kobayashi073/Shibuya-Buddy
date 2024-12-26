@@ -103,8 +103,16 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       (message) => message.plan != null,
       orElse: () => state.requireValue.messages.first,
     );
-    final targetPlan = targetMessage.plan!;
-    final targetPlaces = targetMessage.places!;
+    final targetPlan = targetMessage.plan!.copyWith(
+      id: const Uuid().v4(),
+      authorId: ref.read(currentUserProvider).uid,
+      createdAt: DateTime.now().toIso8601String(),
+    );
+    final targetPlaces = targetMessage.places!
+        .map(
+          (place) => place.copyWith(id: const Uuid().v4()),
+        )
+        .toList();
     try {
       await planDataSource.createPlan(
         plan: targetPlan,
