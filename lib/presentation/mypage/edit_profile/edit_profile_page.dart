@@ -62,7 +62,7 @@ class EditProfilePage extends HookConsumerWidget {
                                 ),
                         ),
                       ),
-                      const SizedBox(height: 32),
+                      const Gap(32),
                       SimpleTextField(
                         controller: controller,
                         keyboardType: TextInputType.text,
@@ -73,7 +73,7 @@ class EditProfilePage extends HookConsumerWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  const Gap(16),
                   WideButton(
                     label: t.editProfilePage.buttons.submit,
                     color: AppColor.yellow600Primary,
