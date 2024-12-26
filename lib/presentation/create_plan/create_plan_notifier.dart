@@ -16,11 +16,11 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
   }
 
   void clearTopics() {
-    state = state.copyWith(selectedTopics: []);
+    state = state.copyWith(topics: []);
   }
 
   void updateSelectedTopics(String topic, {required bool isSelected}) {
-    final updatedTopics = List<String>.from(state.selectedTopics);
+    final updatedTopics = List<String>.from(state.topics);
     if (isSelected) {
       if (!updatedTopics.contains(topic)) {
         updatedTopics.add(topic);
@@ -28,7 +28,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     } else {
       updatedTopics.remove(topic);
     }
-    state = state.copyWith(selectedTopics: updatedTopics);
+    state = state.copyWith(topics: updatedTopics);
   }
 
   String _formatDate(DateTime date) {
@@ -51,18 +51,18 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
 
   void updateTransport(String selectedTransport) {
     final updatedList = _toggleListField(
-      selectedItems: state.selectedTransport,
+      selectedItems: state.transports,
       item: selectedTransport,
     );
-    state = state.copyWith(selectedTransport: updatedList);
+    state = state.copyWith(transports: updatedList);
   }
 
   void updateCategory(String selectedCategory) {
     final updatedList = _toggleListField(
-      selectedItems: state.selectedCategory,
+      selectedItems: state.categories,
       item: selectedCategory,
     );
-    state = state.copyWith(selectedCategory: updatedList);
+    state = state.copyWith(categories: updatedList);
   }
 
   List<String> _toggleListField({

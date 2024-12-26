@@ -9,8 +9,18 @@ class CreatePlanState with _$CreatePlanState {
     String? startDate,
     String? endDate,
     @Default('') String numberOfPeople,
-    @Default([]) List<String> selectedTopics,
-    @Default([]) List<String> selectedTransport,
-    @Default([]) List<String> selectedCategory,
+    @Default([]) List<String> transports,
+    @Default([]) List<String> categories,
+    @Default([]) List<String> topics,
   }) = _CreatePlanState;
+  const CreatePlanState._();
+
+  bool isSelectedAll() {
+    return transports.isNotEmpty &&
+        categories.isNotEmpty &&
+        topics.isNotEmpty &&
+        startDate != null &&
+        endDate != null &&
+        numberOfPeople.isNotEmpty;
+  }
 }

@@ -20,9 +20,9 @@ mixin _$CreatePlanState {
   String? get startDate => throw _privateConstructorUsedError;
   String? get endDate => throw _privateConstructorUsedError;
   String get numberOfPeople => throw _privateConstructorUsedError;
-  List<String> get selectedTopics => throw _privateConstructorUsedError;
-  List<String> get selectedTransport => throw _privateConstructorUsedError;
-  List<String> get selectedCategory => throw _privateConstructorUsedError;
+  List<String> get transports => throw _privateConstructorUsedError;
+  List<String> get categories => throw _privateConstructorUsedError;
+  List<String> get topics => throw _privateConstructorUsedError;
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,9 +42,9 @@ abstract class $CreatePlanStateCopyWith<$Res> {
       String? startDate,
       String? endDate,
       String numberOfPeople,
-      List<String> selectedTopics,
-      List<String> selectedTransport,
-      List<String> selectedCategory});
+      List<String> transports,
+      List<String> categories,
+      List<String> topics});
 }
 
 /// @nodoc
@@ -66,9 +66,9 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? numberOfPeople = null,
-    Object? selectedTopics = null,
-    Object? selectedTransport = null,
-    Object? selectedCategory = null,
+    Object? transports = null,
+    Object? categories = null,
+    Object? topics = null,
   }) {
     return _then(_value.copyWith(
       location: null == location
@@ -87,17 +87,17 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.numberOfPeople
           : numberOfPeople // ignore: cast_nullable_to_non_nullable
               as String,
-      selectedTopics: null == selectedTopics
-          ? _value.selectedTopics
-          : selectedTopics // ignore: cast_nullable_to_non_nullable
+      transports: null == transports
+          ? _value.transports
+          : transports // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      selectedTransport: null == selectedTransport
-          ? _value.selectedTransport
-          : selectedTransport // ignore: cast_nullable_to_non_nullable
+      categories: null == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      selectedCategory: null == selectedCategory
-          ? _value.selectedCategory
-          : selectedCategory // ignore: cast_nullable_to_non_nullable
+      topics: null == topics
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
   }
@@ -116,9 +116,9 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
       String? startDate,
       String? endDate,
       String numberOfPeople,
-      List<String> selectedTopics,
-      List<String> selectedTransport,
-      List<String> selectedCategory});
+      List<String> transports,
+      List<String> categories,
+      List<String> topics});
 }
 
 /// @nodoc
@@ -138,9 +138,9 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? numberOfPeople = null,
-    Object? selectedTopics = null,
-    Object? selectedTransport = null,
-    Object? selectedCategory = null,
+    Object? transports = null,
+    Object? categories = null,
+    Object? topics = null,
   }) {
     return _then(_$CreatePlanStateImpl(
       location: null == location
@@ -159,17 +159,17 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value.numberOfPeople
           : numberOfPeople // ignore: cast_nullable_to_non_nullable
               as String,
-      selectedTopics: null == selectedTopics
-          ? _value._selectedTopics
-          : selectedTopics // ignore: cast_nullable_to_non_nullable
+      transports: null == transports
+          ? _value._transports
+          : transports // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      selectedTransport: null == selectedTransport
-          ? _value._selectedTransport
-          : selectedTransport // ignore: cast_nullable_to_non_nullable
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      selectedCategory: null == selectedCategory
-          ? _value._selectedCategory
-          : selectedCategory // ignore: cast_nullable_to_non_nullable
+      topics: null == topics
+          ? _value._topics
+          : topics // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
   }
@@ -177,18 +177,19 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreatePlanStateImpl implements _CreatePlanState {
+class _$CreatePlanStateImpl extends _CreatePlanState {
   const _$CreatePlanStateImpl(
       {this.location = '渋谷',
       this.startDate,
       this.endDate,
       this.numberOfPeople = '',
-      final List<String> selectedTopics = const [],
-      final List<String> selectedTransport = const [],
-      final List<String> selectedCategory = const []})
-      : _selectedTopics = selectedTopics,
-        _selectedTransport = selectedTransport,
-        _selectedCategory = selectedCategory;
+      final List<String> transports = const [],
+      final List<String> categories = const [],
+      final List<String> topics = const []})
+      : _transports = transports,
+        _categories = categories,
+        _topics = topics,
+        super._();
 
   @override
   @JsonKey()
@@ -200,38 +201,36 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
   @override
   @JsonKey()
   final String numberOfPeople;
-  final List<String> _selectedTopics;
+  final List<String> _transports;
   @override
   @JsonKey()
-  List<String> get selectedTopics {
-    if (_selectedTopics is EqualUnmodifiableListView) return _selectedTopics;
+  List<String> get transports {
+    if (_transports is EqualUnmodifiableListView) return _transports;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_selectedTopics);
+    return EqualUnmodifiableListView(_transports);
   }
 
-  final List<String> _selectedTransport;
+  final List<String> _categories;
   @override
   @JsonKey()
-  List<String> get selectedTransport {
-    if (_selectedTransport is EqualUnmodifiableListView)
-      return _selectedTransport;
+  List<String> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_selectedTransport);
+    return EqualUnmodifiableListView(_categories);
   }
 
-  final List<String> _selectedCategory;
+  final List<String> _topics;
   @override
   @JsonKey()
-  List<String> get selectedCategory {
-    if (_selectedCategory is EqualUnmodifiableListView)
-      return _selectedCategory;
+  List<String> get topics {
+    if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_selectedCategory);
+    return EqualUnmodifiableListView(_topics);
   }
 
   @override
   String toString() {
-    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, selectedTopics: $selectedTopics, selectedTransport: $selectedTransport, selectedCategory: $selectedCategory)';
+    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, transports: $transports, categories: $categories, topics: $topics)';
   }
 
   @override
@@ -247,11 +246,10 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
             (identical(other.numberOfPeople, numberOfPeople) ||
                 other.numberOfPeople == numberOfPeople) &&
             const DeepCollectionEquality()
-                .equals(other._selectedTopics, _selectedTopics) &&
+                .equals(other._transports, _transports) &&
             const DeepCollectionEquality()
-                .equals(other._selectedTransport, _selectedTransport) &&
-            const DeepCollectionEquality()
-                .equals(other._selectedCategory, _selectedCategory));
+                .equals(other._categories, _categories) &&
+            const DeepCollectionEquality().equals(other._topics, _topics));
   }
 
   @override
@@ -261,9 +259,9 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
       startDate,
       endDate,
       numberOfPeople,
-      const DeepCollectionEquality().hash(_selectedTopics),
-      const DeepCollectionEquality().hash(_selectedTransport),
-      const DeepCollectionEquality().hash(_selectedCategory));
+      const DeepCollectionEquality().hash(_transports),
+      const DeepCollectionEquality().hash(_categories),
+      const DeepCollectionEquality().hash(_topics));
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -275,15 +273,16 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
           this, _$identity);
 }
 
-abstract class _CreatePlanState implements CreatePlanState {
+abstract class _CreatePlanState extends CreatePlanState {
   const factory _CreatePlanState(
       {final String location,
       final String? startDate,
       final String? endDate,
       final String numberOfPeople,
-      final List<String> selectedTopics,
-      final List<String> selectedTransport,
-      final List<String> selectedCategory}) = _$CreatePlanStateImpl;
+      final List<String> transports,
+      final List<String> categories,
+      final List<String> topics}) = _$CreatePlanStateImpl;
+  const _CreatePlanState._() : super._();
 
   @override
   String get location;
@@ -294,11 +293,11 @@ abstract class _CreatePlanState implements CreatePlanState {
   @override
   String get numberOfPeople;
   @override
-  List<String> get selectedTopics;
+  List<String> get transports;
   @override
-  List<String> get selectedTransport;
+  List<String> get categories;
   @override
-  List<String> get selectedCategory;
+  List<String> get topics;
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.

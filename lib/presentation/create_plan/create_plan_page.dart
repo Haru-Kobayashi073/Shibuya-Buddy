@@ -34,10 +34,10 @@ class CreatePlanPage extends HookConsumerWidget {
 
     useEffect(
       () {
-        topicsController.text = planState.selectedTopics.join(', ');
+        topicsController.text = planState.topics.join(', ');
         numberOfPeopleController.text = planState.numberOfPeople;
-        transportController.text = planState.selectedTransport.join(', ');
-        categoryController.text = planState.selectedCategory.join(', ');
+        transportController.text = planState.transports.join(', ');
+        categoryController.text = planState.categories.join(', ');
         startDateController.text = planState.startDate ?? '';
         endDateController.text = planState.endDate ?? '';
         return null;
@@ -189,7 +189,7 @@ class CreatePlanPage extends HookConsumerWidget {
               ),
               TopicChipField(
                 topics: t.createPlanPage.defaultTopics,
-                selectedTopics: planState.selectedTopics,
+                selectedTopics: planState.topics,
                 onSelected: planNotifier.updateSelectedTopics,
               ),
               const Gap(16),

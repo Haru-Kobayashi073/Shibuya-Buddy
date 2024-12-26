@@ -29,11 +29,11 @@ class SelectionModal extends ConsumerWidget {
     var selectedItems = <String>[];
     switch (field) {
       case SelectionField.transport:
-        selectedItems = state.selectedTransport;
+        selectedItems = state.transports;
       case SelectionField.numberOfPeople:
         selectedItems.add(state.numberOfPeople);
       case SelectionField.category:
-        selectedItems = state.selectedCategory;
+        selectedItems = state.categories;
     }
 
     return Container(
