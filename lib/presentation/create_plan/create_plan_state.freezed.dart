@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CreatePlanState {
   String get location => throw _privateConstructorUsedError;
-  DateTime? get startDate => throw _privateConstructorUsedError;
-  DateTime? get endDate => throw _privateConstructorUsedError;
+  String? get startDate => throw _privateConstructorUsedError;
+  String? get endDate => throw _privateConstructorUsedError;
   List<String> get selectedTopics => throw _privateConstructorUsedError;
   List<String> get selectedNumberofPeople => throw _privateConstructorUsedError;
   List<String> get selectedTransport => throw _privateConstructorUsedError;
@@ -39,8 +39,8 @@ abstract class $CreatePlanStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String location,
-      DateTime? startDate,
-      DateTime? endDate,
+      String? startDate,
+      String? endDate,
       List<String> selectedTopics,
       List<String> selectedNumberofPeople,
       List<String> selectedTransport,
@@ -78,11 +78,11 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       selectedTopics: null == selectedTopics
           ? _value.selectedTopics
           : selectedTopics // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String location,
-      DateTime? startDate,
-      DateTime? endDate,
+      String? startDate,
+      String? endDate,
       List<String> selectedTopics,
       List<String> selectedNumberofPeople,
       List<String> selectedTransport,
@@ -150,11 +150,11 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       selectedTopics: null == selectedTopics
           ? _value._selectedTopics
           : selectedTopics // ignore: cast_nullable_to_non_nullable
@@ -195,9 +195,9 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
   @JsonKey()
   final String location;
   @override
-  final DateTime? startDate;
+  final String? startDate;
   @override
-  final DateTime? endDate;
+  final String? endDate;
   final List<String> _selectedTopics;
   @override
   @JsonKey()
@@ -286,8 +286,8 @@ class _$CreatePlanStateImpl implements _CreatePlanState {
 abstract class _CreatePlanState implements CreatePlanState {
   const factory _CreatePlanState(
       {final String location,
-      final DateTime? startDate,
-      final DateTime? endDate,
+      final String? startDate,
+      final String? endDate,
       final List<String> selectedTopics,
       final List<String> selectedNumberofPeople,
       final List<String> selectedTransport,
@@ -296,9 +296,9 @@ abstract class _CreatePlanState implements CreatePlanState {
   @override
   String get location;
   @override
-  DateTime? get startDate;
+  String? get startDate;
   @override
-  DateTime? get endDate;
+  String? get endDate;
   @override
   List<String> get selectedTopics;
   @override
