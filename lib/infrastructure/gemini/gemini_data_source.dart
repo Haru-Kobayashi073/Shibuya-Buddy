@@ -58,6 +58,9 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
 
         - プラン内容に関係のある画像のURL(画像を生成し、URLを返してください)
         - プラン概要のタイトル(提案するスポットに関連したタイトル)
+        - プラン内容に関係のあるトピックのリスト
+          - トピックの名前
+          - トピックのサムネイルURL(画像を生成し、URLを返してください)
         - 観光スポットのタイトル
         - 観光スポットの名前
         - 観光スポットのサムネイルURL(画像を生成し、URLを返してください)
@@ -88,6 +91,7 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
 
   ChatSession _initializeGeminiModel() {
     const apiKey = String.fromEnvironment('geminiAPIKey');
+
     final model = GenerativeModel(
       model: 'gemini-1.5-flash-latest',
       apiKey: apiKey,
@@ -121,7 +125,12 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                 'plan': Schema(
                   SchemaType.object,
                   enumValues: [],
-                  requiredProperties: ['title', 'description', 'thumbnail_url'],
+                  requiredProperties: [
+                    'title',
+                    'description',
+                    'thumbnail_url',
+                    'topics',
+                  ],
                   properties: {
                     'title': Schema(
                       SchemaType.string,
@@ -131,6 +140,22 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                     ),
                     'thumbnail_url': Schema(
                       SchemaType.string,
+                    ),
+                    'topics': Schema(
+                      SchemaType.array,
+                      items: Schema(
+                        SchemaType.object,
+                        enumValues: [],
+                        requiredProperties: ['thumbnail_url', 'name'],
+                        properties: {
+                          'thumbnail_url': Schema(
+                            SchemaType.string,
+                          ),
+                          'name': Schema(
+                            SchemaType.string,
+                          ),
+                        },
+                      ),
                     ),
                   },
                 ),
