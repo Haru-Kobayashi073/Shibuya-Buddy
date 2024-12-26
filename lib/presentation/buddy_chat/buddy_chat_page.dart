@@ -9,6 +9,7 @@ import '../../domain/entities/plan_prompt.dart';
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/hooks/use_form_state_key.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
@@ -88,7 +89,18 @@ class BuddyChatPage extends HookConsumerWidget {
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColor.yellow600Primary,
                   ),
-                  onPressed: () {},
+                  onPressed: () async => showDialog<bool>(
+                    context: context,
+                    builder: (_) => ConfirmDialog(
+                      titleText: 'プランを確定しますか？',
+                      bodyText: '一番最後のメッセージに含まれるプランが保存されます',
+                      onConfirm: () async => notifier.completeCreatePlan(
+                        onSuccess: () async {
+                          const HomeScreenRouteData().go(context);
+                        },
+                      ),
+                    ),
+                  ),
                   icon: const Icon(
                     Icons.check,
                     color: AppColor.black,
