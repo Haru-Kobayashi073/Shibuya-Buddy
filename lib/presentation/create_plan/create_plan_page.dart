@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
+import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
@@ -37,7 +38,7 @@ class CreatePlanPage extends HookConsumerWidget {
 
     useEffect(
       () {
-        topicsController.text = planState.topics.join(', ');
+        topicsController.text = planState.topics.map((e) => e.name).join(', ');
         numberOfPeopleController.text = planState.numberOfPeople;
         transportController.text = planState.transports.join(', ');
         categoryController.text = planState.categories.join(', ');
@@ -47,6 +48,16 @@ class CreatePlanPage extends HookConsumerWidget {
       },
       [planState],
     );
+
+    List<Topic> convertStringToTopic() {
+      // ダミーのため、後で修正
+      return t.createPlanPage.defaultTopics.map((e) {
+        return Topic(
+          name: e,
+          thumbnailUrl: '',
+        );
+      }).toList();
+    }
 
     return PopScope(
       canPop: false,
@@ -206,7 +217,7 @@ class CreatePlanPage extends HookConsumerWidget {
                   onClear: planNotifier.clearTopics,
                 ),
                 TopicChipField(
-                  topics: t.createPlanPage.defaultTopics,
+                  topics: convertStringToTopic(),
                   selectedTopics: planState.topics,
                   onSelected: planNotifier.updateSelectedTopics,
                 ),

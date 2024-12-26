@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../domain/entities/topic.dart';
+
 part 'create_plan_state.freezed.dart';
 
 @freezed
@@ -11,7 +13,7 @@ class CreatePlanState with _$CreatePlanState {
     @Default('') String numberOfPeople,
     @Default([]) List<String> transports,
     @Default([]) List<String> categories,
-    @Default([]) List<String> topics,
+    @Default([]) List<Topic> topics,
   }) = _CreatePlanState;
   const CreatePlanState._();
 

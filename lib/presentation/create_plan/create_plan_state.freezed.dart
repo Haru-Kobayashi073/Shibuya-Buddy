@@ -22,7 +22,7 @@ mixin _$CreatePlanState {
   String get numberOfPeople => throw _privateConstructorUsedError;
   List<String> get transports => throw _privateConstructorUsedError;
   List<String> get categories => throw _privateConstructorUsedError;
-  List<String> get topics => throw _privateConstructorUsedError;
+  List<Topic> get topics => throw _privateConstructorUsedError;
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -44,7 +44,7 @@ abstract class $CreatePlanStateCopyWith<$Res> {
       String numberOfPeople,
       List<String> transports,
       List<String> categories,
-      List<String> topics});
+      List<Topic> topics});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
       topics: null == topics
           ? _value.topics
           : topics // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Topic>,
     ) as $Val);
   }
 }
@@ -118,7 +118,7 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
       String numberOfPeople,
       List<String> transports,
       List<String> categories,
-      List<String> topics});
+      List<Topic> topics});
 }
 
 /// @nodoc
@@ -170,7 +170,7 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
       topics: null == topics
           ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Topic>,
     ));
   }
 }
@@ -185,7 +185,7 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
       this.numberOfPeople = '',
       final List<String> transports = const [],
       final List<String> categories = const [],
-      final List<String> topics = const []})
+      final List<Topic> topics = const []})
       : _transports = transports,
         _categories = categories,
         _topics = topics,
@@ -219,10 +219,10 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
     return EqualUnmodifiableListView(_categories);
   }
 
-  final List<String> _topics;
+  final List<Topic> _topics;
   @override
   @JsonKey()
-  List<String> get topics {
+  List<Topic> get topics {
     if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_topics);
@@ -281,7 +281,7 @@ abstract class _CreatePlanState extends CreatePlanState {
       final String numberOfPeople,
       final List<String> transports,
       final List<String> categories,
-      final List<String> topics}) = _$CreatePlanStateImpl;
+      final List<Topic> topics}) = _$CreatePlanStateImpl;
   const _CreatePlanState._() : super._();
 
   @override
@@ -297,7 +297,7 @@ abstract class _CreatePlanState extends CreatePlanState {
   @override
   List<String> get categories;
   @override
-  List<String> get topics;
+  List<Topic> get topics;
 
   /// Create a copy of CreatePlanState
   /// with the given fields replaced by the non-null parameter values.

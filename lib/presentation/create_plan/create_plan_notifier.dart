@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'components/custom_cupertino_date_picker.dart';
@@ -25,8 +26,8 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     state = state.copyWith(topics: []);
   }
 
-  void updateSelectedTopics(String topic, {required bool isSelected}) {
-    final updatedTopics = List<String>.from(state.topics);
+  void updateSelectedTopics(Topic topic, {required bool isSelected}) {
+    final updatedTopics = List<Topic>.from(state.topics);
     if (isSelected) {
       if (!updatedTopics.contains(topic)) {
         updatedTopics.add(topic);
