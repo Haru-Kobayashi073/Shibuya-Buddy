@@ -11,11 +11,9 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
       title: json['title'] as String,
       description: json['description'] as String,
       thumbnailUrl: json['thumbnail_url'] as String,
-      topicIds: (json['topic_ids'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      topics: (json['topics'] as List<dynamic>)
+          .map((e) => Topic.fromJson(e as Map<String, dynamic>))
+          .toList(),
       authorId: json['author_id'] as String? ?? '',
       ranking: (json['ranking'] as num?)?.toInt(),
       isBookmarked: json['is_bookmarked'] as bool? ?? false,
@@ -29,8 +27,7 @@ Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
       'title': instance.title,
       'description': instance.description,
       'thumbnail_url': instance.thumbnailUrl,
-      'topic_ids': instance.topicIds,
-      'tags': instance.tags,
+      'topics': instance.topics.map((e) => e.toJson()).toList(),
       'author_id': instance.authorId,
       'ranking': instance.ranking,
       'is_bookmarked': instance.isBookmarked,

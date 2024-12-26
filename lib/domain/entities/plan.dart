@@ -1,18 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'topic.dart';
+
 part 'plan.freezed.dart';
 part 'plan.g.dart';
 
 @freezed
 abstract class Plan with _$Plan {
-  @JsonSerializable(fieldRename: FieldRename.snake)
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory Plan({
     @Default('') String id,
     required String title,
     required String description,
     required String thumbnailUrl,
-    @Default([]) List<String> topicIds,
-    List<String>? tags,
+    required List<Topic> topics,
     @Default('') String authorId,
     int? ranking,
     @Default(false) bool isBookmarked,

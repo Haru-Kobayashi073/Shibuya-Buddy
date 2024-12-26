@@ -24,8 +24,7 @@ mixin _$Plan {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
-  List<String> get topicIds => throw _privateConstructorUsedError;
-  List<String>? get tags => throw _privateConstructorUsedError;
+  List<Topic> get topics => throw _privateConstructorUsedError;
   String get authorId => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   bool get isBookmarked => throw _privateConstructorUsedError;
@@ -51,8 +50,7 @@ abstract class $PlanCopyWith<$Res> {
       String title,
       String description,
       String thumbnailUrl,
-      List<String> topicIds,
-      List<String>? tags,
+      List<Topic> topics,
       String authorId,
       int? ranking,
       bool isBookmarked,
@@ -79,8 +77,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? title = null,
     Object? description = null,
     Object? thumbnailUrl = null,
-    Object? topicIds = null,
-    Object? tags = freezed,
+    Object? topics = null,
     Object? authorId = null,
     Object? ranking = freezed,
     Object? isBookmarked = null,
@@ -104,14 +101,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      topicIds: null == topicIds
-          ? _value.topicIds
-          : topicIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      tags: freezed == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      topics: null == topics
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<Topic>,
       authorId: null == authorId
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
@@ -148,8 +141,7 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       String title,
       String description,
       String thumbnailUrl,
-      List<String> topicIds,
-      List<String>? tags,
+      List<Topic> topics,
       String authorId,
       int? ranking,
       bool isBookmarked,
@@ -173,8 +165,7 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? thumbnailUrl = null,
-    Object? topicIds = null,
-    Object? tags = freezed,
+    Object? topics = null,
     Object? authorId = null,
     Object? ranking = freezed,
     Object? isBookmarked = null,
@@ -198,14 +189,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      topicIds: null == topicIds
-          ? _value._topicIds
-          : topicIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      tags: freezed == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      topics: null == topics
+          ? _value._topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<Topic>,
       authorId: null == authorId
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
@@ -232,22 +219,20 @@ class __$$PlanImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class _$PlanImpl implements _Plan {
   const _$PlanImpl(
       {this.id = '',
       required this.title,
       required this.description,
       required this.thumbnailUrl,
-      final List<String> topicIds = const [],
-      final List<String>? tags,
+      required final List<Topic> topics,
       this.authorId = '',
       this.ranking,
       this.isBookmarked = false,
       this.createdAt,
       this.updatedAt})
-      : _topicIds = topicIds,
-        _tags = tags;
+      : _topics = topics;
 
   factory _$PlanImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlanImplFromJson(json);
@@ -261,23 +246,12 @@ class _$PlanImpl implements _Plan {
   final String description;
   @override
   final String thumbnailUrl;
-  final List<String> _topicIds;
+  final List<Topic> _topics;
   @override
-  @JsonKey()
-  List<String> get topicIds {
-    if (_topicIds is EqualUnmodifiableListView) return _topicIds;
+  List<Topic> get topics {
+    if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_topicIds);
-  }
-
-  final List<String>? _tags;
-  @override
-  List<String>? get tags {
-    final value = _tags;
-    if (value == null) return null;
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_topics);
   }
 
   @override
@@ -295,7 +269,7 @@ class _$PlanImpl implements _Plan {
 
   @override
   String toString() {
-    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topicIds: $topicIds, tags: $tags, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -309,8 +283,7 @@ class _$PlanImpl implements _Plan {
                 other.description == description) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 other.thumbnailUrl == thumbnailUrl) &&
-            const DeepCollectionEquality().equals(other._topicIds, _topicIds) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
@@ -330,8 +303,7 @@ class _$PlanImpl implements _Plan {
       title,
       description,
       thumbnailUrl,
-      const DeepCollectionEquality().hash(_topicIds),
-      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_topics),
       authorId,
       ranking,
       isBookmarked,
@@ -360,8 +332,7 @@ abstract class _Plan implements Plan {
       required final String title,
       required final String description,
       required final String thumbnailUrl,
-      final List<String> topicIds,
-      final List<String>? tags,
+      required final List<Topic> topics,
       final String authorId,
       final int? ranking,
       final bool isBookmarked,
@@ -379,9 +350,7 @@ abstract class _Plan implements Plan {
   @override
   String get thumbnailUrl;
   @override
-  List<String> get topicIds;
-  @override
-  List<String>? get tags;
+  List<Topic> get topics;
   @override
   String get authorId;
   @override

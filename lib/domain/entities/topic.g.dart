@@ -7,21 +7,20 @@ part of 'topic.dart';
 // **************************************************************************
 
 _$TopicImpl _$$TopicImplFromJson(Map<String, dynamic> json) => _$TopicImpl(
-      id: json['id'] as String,
+      id: json['id'] as String? ?? '',
       name: json['name'] as String,
-      thumbnailUrl: json['thumbnailUrl'] as String,
-      totalCount: (json['totalCount'] as num).toInt(),
+      thumbnailUrl: json['thumbnail_url'] as String,
+      totalCount: (json['total_count'] as num?)?.toInt() ?? 0,
       ranking: (json['ranking'] as num?)?.toInt(),
-      createdAt:
-          const DateTimeConverter().fromJson(json['createdAt'] as String),
+      createdAt: json['created_at'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$TopicImplToJson(_$TopicImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'thumbnailUrl': instance.thumbnailUrl,
-      'totalCount': instance.totalCount,
+      'thumbnail_url': instance.thumbnailUrl,
+      'total_count': instance.totalCount,
       'ranking': instance.ranking,
-      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+      'created_at': instance.createdAt,
     };

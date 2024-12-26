@@ -23,8 +23,9 @@ _$PlanPromptImpl _$$PlanPromptImplFromJson(Map<String, dynamic> json) =>
       categories: (json['categories'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      topics:
-          (json['topics'] as List<dynamic>).map((e) => e as String).toList(),
+      topics: (json['topics'] as List<dynamic>)
+          .map((e) => Topic.fromJson(e as Map<String, dynamic>))
+          .toList(),
       createdAt:
           const DateTimeConverter().fromJson(json['createdAt'] as String),
     );

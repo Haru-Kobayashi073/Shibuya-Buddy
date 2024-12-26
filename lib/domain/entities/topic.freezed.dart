@@ -25,8 +25,7 @@ mixin _$Topic {
   String get thumbnailUrl => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this Topic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,7 +47,7 @@ abstract class $TopicCopyWith<$Res> {
       String thumbnailUrl,
       int totalCount,
       int? ranking,
-      @DateTimeConverter() DateTime createdAt});
+      String createdAt});
 }
 
 /// @nodoc
@@ -97,7 +96,7 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
     ) as $Val);
   }
 }
@@ -115,7 +114,7 @@ abstract class _$$TopicImplCopyWith<$Res> implements $TopicCopyWith<$Res> {
       String thumbnailUrl,
       int totalCount,
       int? ranking,
-      @DateTimeConverter() DateTime createdAt});
+      String createdAt});
 }
 
 /// @nodoc
@@ -162,38 +161,41 @@ class __$$TopicImplCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$TopicImpl implements _Topic {
   const _$TopicImpl(
-      {required this.id,
+      {this.id = '',
       required this.name,
       required this.thumbnailUrl,
-      required this.totalCount,
+      this.totalCount = 0,
       this.ranking,
-      @DateTimeConverter() required this.createdAt});
+      this.createdAt = ''});
 
   factory _$TopicImpl.fromJson(Map<String, dynamic> json) =>
       _$$TopicImplFromJson(json);
 
   @override
+  @JsonKey()
   final String id;
   @override
   final String name;
   @override
   final String thumbnailUrl;
   @override
+  @JsonKey()
   final int totalCount;
   @override
   final int? ranking;
   @override
-  @DateTimeConverter()
-  final DateTime createdAt;
+  @JsonKey()
+  final String createdAt;
 
   @override
   String toString() {
@@ -239,12 +241,12 @@ class _$TopicImpl implements _Topic {
 
 abstract class _Topic implements Topic {
   const factory _Topic(
-      {required final String id,
+      {final String id,
       required final String name,
       required final String thumbnailUrl,
-      required final int totalCount,
+      final int totalCount,
       final int? ranking,
-      @DateTimeConverter() required final DateTime createdAt}) = _$TopicImpl;
+      final String createdAt}) = _$TopicImpl;
 
   factory _Topic.fromJson(Map<String, dynamic> json) = _$TopicImpl.fromJson;
 
@@ -259,8 +261,7 @@ abstract class _Topic implements Topic {
   @override
   int? get ranking;
   @override
-  @DateTimeConverter()
-  DateTime get createdAt;
+  String get createdAt;
 
   /// Create a copy of Topic
   /// with the given fields replaced by the non-null parameter values.

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/date_time_converter.dart';
+import 'topic.dart';
 
 part 'plan_prompt.freezed.dart';
 part 'plan_prompt.g.dart';
@@ -14,7 +15,7 @@ abstract class PlanPrompt with _$PlanPrompt {
     required String numberOfPeople,
     required List<String> transports,
     required List<String> categories,
-    required List<String> topics,
+    required List<Topic> topics,
     @DateTimeConverter() required DateTime createdAt,
   }) = _PlanPrompt;
 

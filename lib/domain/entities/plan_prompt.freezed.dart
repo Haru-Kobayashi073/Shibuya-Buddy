@@ -27,7 +27,7 @@ mixin _$PlanPrompt {
   String get numberOfPeople => throw _privateConstructorUsedError;
   List<String> get transports => throw _privateConstructorUsedError;
   List<String> get categories => throw _privateConstructorUsedError;
-  List<String> get topics => throw _privateConstructorUsedError;
+  List<Topic> get topics => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -53,7 +53,7 @@ abstract class $PlanPromptCopyWith<$Res> {
       String numberOfPeople,
       List<String> transports,
       List<String> categories,
-      List<String> topics,
+      List<Topic> topics,
       @DateTimeConverter() DateTime createdAt});
 }
 
@@ -104,7 +104,7 @@ class _$PlanPromptCopyWithImpl<$Res, $Val extends PlanPrompt>
       topics: null == topics
           ? _value.topics
           : topics // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Topic>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -127,7 +127,7 @@ abstract class _$$PlanPromptImplCopyWith<$Res>
       String numberOfPeople,
       List<String> transports,
       List<String> categories,
-      List<String> topics,
+      List<Topic> topics,
       @DateTimeConverter() DateTime createdAt});
 }
 
@@ -176,7 +176,7 @@ class __$$PlanPromptImplCopyWithImpl<$Res>
       topics: null == topics
           ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Topic>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class _$PlanPromptImpl implements _PlanPrompt {
       required this.numberOfPeople,
       required final List<String> transports,
       required final List<String> categories,
-      required final List<String> topics,
+      required final List<Topic> topics,
       @DateTimeConverter() required this.createdAt})
       : _transports = transports,
         _categories = categories,
@@ -226,9 +226,9 @@ class _$PlanPromptImpl implements _PlanPrompt {
     return EqualUnmodifiableListView(_categories);
   }
 
-  final List<String> _topics;
+  final List<Topic> _topics;
   @override
-  List<String> get topics {
+  List<Topic> get topics {
     if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_topics);
@@ -298,7 +298,7 @@ abstract class _PlanPrompt implements PlanPrompt {
           required final String numberOfPeople,
           required final List<String> transports,
           required final List<String> categories,
-          required final List<String> topics,
+          required final List<Topic> topics,
           @DateTimeConverter() required final DateTime createdAt}) =
       _$PlanPromptImpl;
 
@@ -317,7 +317,7 @@ abstract class _PlanPrompt implements PlanPrompt {
   @override
   List<String> get categories;
   @override
-  List<String> get topics;
+  List<Topic> get topics;
   @override
   @DateTimeConverter()
   DateTime get createdAt;
