@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/user.dart';
 import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
 import '../../presentation/account/account_page.dart';
@@ -20,6 +21,7 @@ import '../../presentation/create_plan/create_plan_page.dart';
 import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
+import '../../presentation/mypage/edit_profile/edit_profile_page.dart';
 import '../../presentation/mypage/my_page.dart';
 import '../../presentation/popular_plans/popular_plans_page.dart';
 import '../../presentation/popular_topics/popular_topics_page.dart';
@@ -191,6 +193,9 @@ class PopularPlansPageRouteData extends GoRouteData {
     TypedGoRoute<AboutDevPageRouteData>(
       path: Routes.aboutDev,
     ),
+    TypedGoRoute<EditProfilePageRouteData>(
+      path: Routes.editProfile,
+    ),
     TypedGoRoute<AccountPageRouteData>(
       path: Routes.account,
     ),
@@ -214,6 +219,18 @@ class MyPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MyPage();
+  }
+}
+
+class EditProfilePageRouteData extends GoRouteData {
+  const EditProfilePageRouteData({
+    required this.$extra,
+  });
+  final User $extra;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return EditProfilePage(user: $extra);
   }
 }
 

@@ -45,6 +45,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsBuddyChatPageJa buddyChatPage = _TranslationsBuddyChatPageJa._(_root);
 	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override late final _TranslationsCreatePlanPageJa createPlanPage = _TranslationsCreatePlanPageJa._(_root);
+	@override late final _TranslationsEditProfilePageJa editProfilePage = _TranslationsEditProfilePageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -128,7 +129,8 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 
 	// Translations
 	@override String get unregisteredUserName => '未登録';
-	@override String get aboutAIFunction => 'AIの機能について';
+	@override String get editProfile => 'プロフィール編集';
+	@override String get premiumPlan => 'プレミアムプラン';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
 	@override String get account => 'アカウント';
@@ -137,6 +139,7 @@ class _TranslationsMyPageJa implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '利用規約・プライバシーポリシー';
 	@override String get aboutThisApp => 'このアプリについて';
 	@override String get aboutTheDeveloper => '開発者について';
+	@override late final _TranslationsMyPageAccountStatusJa accountStatus = _TranslationsMyPageAccountStatusJa._(_root);
 }
 
 // Path: changeLanguagePage
@@ -236,6 +239,19 @@ class _TranslationsCreatePlanPageJa implements TranslationsCreatePlanPageEn {
 		'映画',
 	];
 	@override String get submitButton => 'プランをAIに伝える';
+}
+
+// Path: editProfilePage
+class _TranslationsEditProfilePageJa implements TranslationsEditProfilePageEn {
+	_TranslationsEditProfilePageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '編集';
+	@override late final _TranslationsEditProfilePageTextFieldsJa textFields = _TranslationsEditProfilePageTextFieldsJa._(_root);
+	@override late final _TranslationsEditProfilePageButtonsJa buttons = _TranslationsEditProfilePageButtonsJa._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarJa snackBar = _TranslationsEditProfilePageSnackBarJa._(_root);
 }
 
 // Path: navigationBar.items
@@ -417,6 +433,18 @@ class _TranslationsAuthenticationFirebaseAuthJa implements TranslationsAuthentic
 	@override late final _TranslationsAuthenticationFirebaseAuthErrorJa error = _TranslationsAuthenticationFirebaseAuthErrorJa._(_root);
 }
 
+// Path: myPage.accountStatus
+class _TranslationsMyPageAccountStatusJa implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeJa dateTime = _TranslationsMyPageAccountStatusDateTimeJa._(_root);
+	@override String get premium => 'プレミアム会員';
+	@override String get standard => 'スタンダード会員';
+}
+
 // Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsJa._(this._root);
@@ -529,6 +557,37 @@ class _TranslationsCreatePlanPageModalJa implements TranslationsCreatePlanPageMo
 
 	// Translations
 	@override String get title => '日付を選択';
+}
+
+// Path: editProfilePage.textFields
+class _TranslationsEditProfilePageTextFieldsJa implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => '名前';
+}
+
+// Path: editProfilePage.buttons
+class _TranslationsEditProfilePageButtonsJa implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '保存';
+}
+
+// Path: editProfilePage.snackBar
+class _TranslationsEditProfilePageSnackBarJa implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '更新しました';
+	@override late final _TranslationsEditProfilePageSnackBarErrorJa error = _TranslationsEditProfilePageSnackBarErrorJa._(_root);
 }
 
 // Path: authentication.signInPage.textFields
@@ -661,6 +720,19 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 	@override String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeJa implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String registeredOn({required Object date}) => '${date}に登録';
+	@override String get registeredOnFormat => 'yyyy年MM月dd日';
+	@override String validUntil({required Object date}) => '${date}まで';
+	@override String get validUntilFormat => 'yyyy年MM月dd日 HH時mm分';
+}
+
 // Path: buddyChatPage.snackBar.error
 class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChatPageSnackBarErrorEn {
 	_TranslationsBuddyChatPageSnackBarErrorJa._(this._root);
@@ -670,6 +742,18 @@ class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChat
 	// Translations
 	@override String get failedRecieveMessage => '返信の受信に失敗しました。時間をおいて再度お試しください';
 	@override String get failedCompleteCreatePlan => 'プランの作成に失敗しました。時間をおいて再度お試しください';
+}
+
+// Path: editProfilePage.snackBar.error
+class _TranslationsEditProfilePageSnackBarErrorJa implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get noChange => '変更がありません';
+	@override String get failedToUpdate => '更新に失敗しました しばらくしてから再度お試しください';
+	@override String get failedToPickImage => '画像の選択に失敗しました しばらくしてから再度お試しください';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -782,7 +866,8 @@ extension on TranslationsJa {
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
 			case 'myPage.unregisteredUserName': return '未登録';
-			case 'myPage.aboutAIFunction': return 'AIの機能について';
+			case 'myPage.editProfile': return 'プロフィール編集';
+			case 'myPage.premiumPlan': return 'プレミアムプラン';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
 			case 'myPage.account': return 'アカウント';
@@ -791,6 +876,12 @@ extension on TranslationsJa {
 			case 'myPage.termsOfUsePrivacyPolicy': return '利用規約・プライバシーポリシー';
 			case 'myPage.aboutThisApp': return 'このアプリについて';
 			case 'myPage.aboutTheDeveloper': return '開発者について';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}に登録';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '${date}まで';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH時mm分';
+			case 'myPage.accountStatus.premium': return 'プレミアム会員';
+			case 'myPage.accountStatus.standard': return 'スタンダード会員';
 			case 'changeLanguagePage.title': return '言語';
 			case 'changeLanguagePage.items.japanese': return '日本語';
 			case 'changeLanguagePage.items.english': return '英語';
@@ -843,6 +934,13 @@ extension on TranslationsJa {
 			case 'createPlanPage.defaultTopics.2': return 'アクティビティ';
 			case 'createPlanPage.defaultTopics.3': return '映画';
 			case 'createPlanPage.submitButton': return 'プランをAIに伝える';
+			case 'editProfilePage.title': return '編集';
+			case 'editProfilePage.textFields.name': return '名前';
+			case 'editProfilePage.buttons.submit': return '保存';
+			case 'editProfilePage.snackBar.success': return '更新しました';
+			case 'editProfilePage.snackBar.error.noChange': return '変更がありません';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新に失敗しました しばらくしてから再度お試しください';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '画像の選択に失敗しました しばらくしてから再度お試しください';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
