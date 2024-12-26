@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -6,22 +7,23 @@ import '../../utils/styles/app_text_style.dart';
 class ConfirmDialog extends StatelessWidget {
   const ConfirmDialog({
     super.key,
-    required this.action,
+    required this.onConfirm,
     required this.titleText,
     required this.bodyText,
   });
-  final VoidCallback action;
+  final VoidCallback onConfirm;
   final String titleText;
   final String bodyText;
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColor.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +58,7 @@ class ConfirmDialog extends StatelessWidget {
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => context.pop(false),
                     child: Text(
                       'いいえ',
                       style: AppTextStyle.textStyle.copyWith(
@@ -78,8 +80,8 @@ class ConfirmDialog extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                     ),
                     onPressed: () {
-                      Navigator.pop(context);
-                      action.call();
+                      context.pop(true);
+                      onConfirm();
                     },
                     child: Text(
                       'はい',
