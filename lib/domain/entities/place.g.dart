@@ -27,8 +27,8 @@ Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
       'name': instance.name,
       'thumbnail_url': instance.thumbnailUrl,
       'title': instance.title,
-      'coordinate': instance.coordinate,
-      'opening_hours': instance.openingHours,
+      'coordinate': instance.coordinate.toJson(),
+      'opening_hours': instance.openingHours.toJson(),
       'average_amount': instance.averageAmount,
       'website_url': instance.websiteUrl?.toString(),
     };

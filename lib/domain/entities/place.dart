@@ -7,7 +7,7 @@ part 'place.g.dart';
 
 @freezed
 abstract class Place with _$Place {
-  @JsonSerializable(fieldRename: FieldRename.snake)
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory Place({
     @Default('') String id,
     required String name,
