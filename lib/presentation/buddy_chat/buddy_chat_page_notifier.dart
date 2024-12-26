@@ -12,6 +12,7 @@ import '../../utils/billing_grade_options.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
+import '../components/loading_overlay.dart';
 import 'buddy_chat_page_state.dart';
 
 part 'buddy_chat_page_notifier.g.dart';
@@ -98,31 +99,40 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     }
   }
 
-  Future<void> completeCreatePlan() async {
-    final targetMessage = state.requireValue.messages.lastWhere(
-      (message) => message.plan != null,
-      orElse: () => state.requireValue.messages.first,
-    );
-    final targetPlan = targetMessage.plan!.copyWith(
-      id: const Uuid().v4(),
-      authorId: ref.read(currentUserProvider).uid,
-      createdAt: DateTime.now().toIso8601String(),
-    );
-    final targetPlaces = targetMessage.places!
-        .map(
-          (place) => place.copyWith(id: const Uuid().v4()),
-        )
-        .toList();
+  Future<void> completeCreatePlan({
+    required Future<void> Function() onSuccess,
+  }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
+      final targetMessage = state.requireValue.messages.lastWhere(
+        (message) => message.plan != null,
+        orElse: () => state.requireValue.messages.first,
+      );
+      final targetPlan = targetMessage.plan!.copyWith(
+        id: const Uuid().v4(),
+        authorId: ref.read(currentUserProvider).uid,
+        createdAt: DateTime.now().toIso8601String(),
+      );
+      final targetPlaces = targetMessage.places!
+          .map(
+            (place) => place.copyWith(id: const Uuid().v4()),
+          )
+          .toList();
       await planDataSource.createPlan(
         plan: targetPlan,
         places: targetPlaces,
         planPrompt: planPrompt,
       );
+      /// エラーが出るので、遅延を入れる
+      await Future<void>.delayed(const Duration(milliseconds: 1000));
+
+      await onSuccess();
     } on Exception catch (_) {
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
