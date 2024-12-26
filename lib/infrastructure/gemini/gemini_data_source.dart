@@ -43,15 +43,16 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
         '''
         渋谷区内での観光プランを考えてください。
 
-        日付は、${planPrompt.schedules.firstDate.year}年${planPrompt.schedules.firstDate.month}月${planPrompt.schedules.firstDate.day}日から${planPrompt.schedules.lastDate.year}年${planPrompt.schedules.lastDate.month}月${planPrompt.schedules.lastDate.day}日までの間で考えてください。
+        日付は、${planPrompt.schedules.firstDate}から${planPrompt.schedules.lastDate}までの間で考えてください。
 
         人数は、${planPrompt.numberOfPeople}人です。
 
-        交通手段は、${planPrompt.transportation}です。
+        交通手段は、${planPrompt.transports.join(',')}です。
+        )}です。
 
-        カテゴリーは、子連れの家族です。
+        カテゴリーは、${planPrompt.categories.join(',')}です。
 
-        旅のトピックは、グルメ・ショッピングです。
+        旅のトピックは、${planPrompt.topics.join(',')}です。
 
         出力は以下のフォーマットにしてください。
 

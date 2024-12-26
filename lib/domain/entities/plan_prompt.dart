@@ -10,22 +10,14 @@ abstract class PlanPrompt with _$PlanPrompt {
   const factory PlanPrompt({
     required String id,
     @DateTimeConverter()
-    required ({DateTime firstDate, DateTime lastDate}) schedules,
-    required int numberOfPeople,
-    required String transportation,
-    required Category category,
-    required List<String> topicIds,
+    required ({String firstDate, String lastDate}) schedules,
+    required String numberOfPeople,
+    required List<String> transports,
+    required List<String> categories,
+    required List<String> topics,
     @DateTimeConverter() required DateTime createdAt,
   }) = _PlanPrompt;
 
   factory PlanPrompt.fromJson(Map<String, dynamic> json) =>
       _$PlanPromptFromJson(json);
-}
-
-enum Category {
-  onePerson,
-  withChildren,
-  couple,
-  friends,
-  largeNumberOfPeople,
 }

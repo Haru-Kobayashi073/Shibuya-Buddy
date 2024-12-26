@@ -24,14 +24,11 @@ class BuddyChatPage extends HookConsumerWidget {
     final buddyChatPagei18n = i18n.buddyChatPage;
     final planPrompt = PlanPrompt(
       id: '1',
-      schedules: (
-        firstDate: DateTime(2024, 12, 25),
-        lastDate: DateTime(2024, 12, 27),
-      ),
-      numberOfPeople: 4,
-      transportation: 'train',
-      category: Category.withChildren,
-      topicIds: ['1'],
+      schedules: (firstDate: '2024年12月25日', lastDate: '2024年12月26日'),
+      numberOfPeople: '4人',
+      transports: ['train'],
+      categories: ['子連れ'],
+      topics: ['グルメ', 'ショッピング'],
       createdAt: DateTime(2024),
     );
     final state =
