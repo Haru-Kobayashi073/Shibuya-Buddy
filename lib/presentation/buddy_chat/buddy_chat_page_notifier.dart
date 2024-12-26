@@ -39,7 +39,19 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     final buddyMessage =
         await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
 
-    final messages = [buddyMessage];
+    final messages = [
+      buddyMessage.copyWith(
+        plan: buddyMessage.plan?.copyWith(
+          topics: [
+            ...planPrompt.topics.where(
+              (topic) => !buddyMessage.plan!.topics
+                  .any((bTopic) => bTopic.name == topic.name),
+            ),
+            ...buddyMessage.plan!.topics,
+          ],
+        ),
+      ),
+    ];
 
     final message = ChatMessage(
       id: buddyMessage.id,
@@ -111,6 +123,14 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       final targetPlan = targetMessage.plan!.copyWith(
         id: const Uuid().v4(),
         authorId: ref.read(currentUserProvider).uid,
+        topics: targetMessage.plan!.topics
+            .map(
+              (topic) => topic.copyWith(
+                id: const Uuid().v4(),
+                createdAt: DateTime.now().toIso8601String(),
+              ),
+            )
+            .toList(),
         createdAt: DateTime.now().toIso8601String(),
       );
       final targetPlaces = targetMessage.places!
