@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
+import '../../domain/entities/plan_prompt.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'components/custom_cupertino_date_picker.dart';
 import 'create_plan_state.dart';
 
@@ -10,6 +13,9 @@ part 'create_plan_notifier.g.dart';
 
 @riverpod
 class CreatePlanNotifier extends _$CreatePlanNotifier {
+  ScaffoldMessenger get scaffoldMessenger =>
+      ref.read(scaffoldMessengerProvider.notifier);
+
   @override
   CreatePlanState build() {
     return const CreatePlanState();
@@ -98,5 +104,27 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     } else {
       state = state.copyWith(endDate: _formatDate(chosenDate));
     }
+  }
+
+  Future<void> submitPlanPrompt({
+    required Future<void> Function(PlanPrompt) onNavigate,
+  }) async {
+    if (!state.isSelectedAll()) {
+      scaffoldMessenger.showExceptionSnackBar('選択されていない項目があります 全ての項目を選択してください');
+      return;
+    }
+    final planPrompt = PlanPrompt(
+      id: const Uuid().v4(),
+      schedules: (
+        firstDate: state.startDate!,
+        lastDate: state.endDate!,
+      ),
+      numberOfPeople: state.numberOfPeople,
+      transports: state.transports,
+      categories: state.categories,
+      topics: state.topics,
+      createdAt: DateTime.now(),
+    );
+    await onNavigate(planPrompt);
   }
 }

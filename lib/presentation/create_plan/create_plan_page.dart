@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 import '../../i18n/strings.g.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
@@ -196,7 +197,12 @@ class CreatePlanPage extends HookConsumerWidget {
               WideButton(
                 label: t.createPlanPage.submitButton,
                 color: AppColor.yellow600Primary,
-                onPressed: () {},
+                onPressed: () async => planNotifier.submitPlanPrompt(
+                  onNavigate: (planPrompt) async {
+                    await BuddyChatPageRouteData(planPrompt)
+                        .push<void>(context);
+                  },
+                ),
               ),
             ],
           ),
