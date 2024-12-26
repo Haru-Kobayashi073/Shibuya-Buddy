@@ -31,7 +31,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     state = state.copyWith(selectedTopics: updatedTopics);
   }
 
-  String formatDate(DateTime date) {
+  String _formatDate(DateTime date) {
     final currentLocale = LocaleSettings.currentLocale.languageCode;
     final pattern = {
           'ja': 'M/d(E) hh:mm a',
@@ -106,16 +106,16 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
         return CustomCupertinoDatePicker(
           onDateTimeChanged: (date) {
             chosenDate = date;
-            targetController.text = formatDate(date);
+            targetController.text = _formatDate(date);
           },
         );
       },
     );
 
     if (isStartDate) {
-      state = state.copyWith(startDate: chosenDate);
+      state = state.copyWith(startDate: _formatDate(chosenDate));
     } else {
-      state = state.copyWith(endDate: chosenDate);
+      state = state.copyWith(endDate: _formatDate(chosenDate));
     }
   }
 }

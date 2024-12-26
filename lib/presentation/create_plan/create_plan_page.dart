@@ -40,12 +40,8 @@ class CreatePlanPage extends HookConsumerWidget {
             planState.selectedNumberofPeople.join(', ');
         transportController.text = planState.selectedTransport.join(', ');
         categoryController.text = planState.selectedCategory.join(', ');
-        startDateController.text = planState.startDate != null
-            ? planNotifier.formatDate(planState.startDate!)
-            : '';
-        endDateController.text = planState.endDate != null
-            ? planNotifier.formatDate(planState.endDate!)
-            : '';
+        startDateController.text = planState.startDate ?? '';
+        endDateController.text = planState.endDate ?? '';
         return null;
       },
       [planState],
