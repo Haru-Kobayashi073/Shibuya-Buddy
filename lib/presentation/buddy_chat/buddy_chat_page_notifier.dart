@@ -123,6 +123,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         places: targetPlaces,
         planPrompt: planPrompt,
       );
+
       /// エラーが出るので、遅延を入れる
       await Future<void>.delayed(const Duration(milliseconds: 1000));
 
