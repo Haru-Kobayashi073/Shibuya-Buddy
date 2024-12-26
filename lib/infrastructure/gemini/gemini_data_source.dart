@@ -79,7 +79,7 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     return ChatMessage(
       id: const Uuid().v4(),
       author: ChatAuthor.buddy,
-      message: geminiResponse.response.message,
+      message: 'こんなプランを考えてみました！いかがですか？',
       plan: geminiResponse.response.plan,
       places: geminiResponse.response.places,
       createdAt: DateTime.now(),
