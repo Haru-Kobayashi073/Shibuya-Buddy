@@ -30,7 +30,7 @@ class AccountStatus extends StatelessWidget {
     final effectiveFormat = effectiveDate != null
         ? DateFormat(acountStatusi18n.dateTime.validUntilFormat)
             .format(effectiveDate!)
-        : '';
+        : null;
 
     return Container(
       width: screenWidth,
@@ -38,16 +38,9 @@ class AccountStatus extends StatelessWidget {
         gradient: LinearGradient(
           begin: FractionalOffset.centerLeft,
           end: FractionalOffset.centerRight,
-          colors: [
-            if (status(user.billingGrade))
-              AppColor.yellow200
-            else
-              AppColor.blue50Background,
-            if (status(user.billingGrade))
-              AppColor.yellow600Primary
-            else
-              AppColor.blue200,
-          ],
+          colors: isPremiumGrade(user.billingGrade)
+              ? [AppColor.yellow200, AppColor.yellow600Primary]
+              : [AppColor.blue50Background, AppColor.blue200],
         ),
         borderRadius: BorderRadius.circular(12),
       ),
@@ -95,7 +88,7 @@ class AccountStatus extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  status(user.billingGrade)
+                  isPremiumGrade(user.billingGrade)
                       ? acountStatusi18n.premium
                       : acountStatusi18n.standard,
                   style: AppTextStyle.textStyle.copyWith(
@@ -104,12 +97,16 @@ class AccountStatus extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                if (effectiveDateDisplay(user.billingGrade))
-                  Text(
-                    acountStatusi18n.dateTime.validUntil(date: effectiveFormat),
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                if (isPremiumGrade(user.billingGrade))
+                  Offstage(
+                    offstage: effectiveDate == null,
+                    child: Text(
+                      acountStatusi18n.dateTime
+                          .validUntil(date: effectiveFormat.toString()),
+                      style: AppTextStyle.textStyle.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
               ],
@@ -120,24 +117,13 @@ class AccountStatus extends StatelessWidget {
     );
   }
 
-  bool status(BillingGrade billingGrade) {
+  bool isPremiumGrade(BillingGrade billingGrade) {
     if (billingGrade == BillingGrade.standard) {
       return false;
     } else if (billingGrade == BillingGrade.premiumWithUnlimited) {
       return true;
     } else if (billingGrade == BillingGrade.premiumWithPeriod) {
       return true;
-    }
-    return false;
-  }
-
-  bool effectiveDateDisplay(BillingGrade billingGrade) {
-    if (billingGrade == BillingGrade.premiumWithPeriod) {
-      return true;
-    } else if (billingGrade == BillingGrade.premiumWithUnlimited) {
-      return false;
-    } else if (billingGrade == BillingGrade.standard) {
-      return false;
     }
     return false;
   }
