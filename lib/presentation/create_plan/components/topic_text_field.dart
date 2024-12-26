@@ -23,6 +23,7 @@ class TopicTextField extends StatelessWidget {
         TextField(
           minLines: 1,
           maxLines: 2,
+          readOnly: true,
           controller: controller,
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
