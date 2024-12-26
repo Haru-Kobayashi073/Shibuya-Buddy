@@ -129,7 +129,8 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 
 	// Translations
 	@override String get unregisteredUserName => '未注册';
-	@override String get aboutAIFunction => '关于AI功能';
+	@override String get editProfile => '编辑个人资料';
+	@override String get premiumPlan => '高级计划';
 	@override String get details => '详细';
 	@override String get settings => '设置';
 	@override String get account => '账户';
@@ -138,6 +139,7 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '使用条款和隐私政策';
 	@override String get aboutThisApp => '关于本应用';
 	@override String get aboutTheDeveloper => '关于开发者';
+	@override late final _TranslationsMyPageAccountStatusZhHans accountStatus = _TranslationsMyPageAccountStatusZhHans._(_root);
 }
 
 // Path: changeLanguagePage
@@ -431,6 +433,18 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHans implements Translat
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(_root);
 }
 
+// Path: myPage.accountStatus
+class _TranslationsMyPageAccountStatusZhHans implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeZhHans dateTime = _TranslationsMyPageAccountStatusDateTimeZhHans._(_root);
+	@override String get premium => '高级会员';
+	@override String get standard => '标准会员';
+}
+
 // Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHans._(this._root);
@@ -706,6 +720,19 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements T
 	@override String get changeEmail => '更改电子邮件地址';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeZhHans implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String registeredOn({required Object date}) => '${date}注册于';
+	@override String get registeredOnFormat => 'yyyy年MM月dd日';
+	@override String validUntil({required Object date}) => '有效期至${date}';
+	@override String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
+}
+
 // Path: buddyChatPage.snackBar.error
 class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddyChatPageSnackBarErrorEn {
 	_TranslationsBuddyChatPageSnackBarErrorZhHans._(this._root);
@@ -839,7 +866,8 @@ extension on TranslationsZhHans {
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
 			case 'myPage.unregisteredUserName': return '未注册';
-			case 'myPage.aboutAIFunction': return '关于AI功能';
+			case 'myPage.editProfile': return '编辑个人资料';
+			case 'myPage.premiumPlan': return '高级计划';
 			case 'myPage.details': return '详细';
 			case 'myPage.settings': return '设置';
 			case 'myPage.account': return '账户';
@@ -848,6 +876,12 @@ extension on TranslationsZhHans {
 			case 'myPage.termsOfUsePrivacyPolicy': return '使用条款和隐私政策';
 			case 'myPage.aboutThisApp': return '关于本应用';
 			case 'myPage.aboutTheDeveloper': return '关于开发者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}注册于';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
+			case 'myPage.accountStatus.premium': return '高级会员';
+			case 'myPage.accountStatus.standard': return '标准会员';
 			case 'changeLanguagePage.title': return '语言';
 			case 'changeLanguagePage.items.japanese': return '日本人';
 			case 'changeLanguagePage.items.english': return '英语';

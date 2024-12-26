@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "Unregistered",
-        "aboutAIFunction": "About AI Features",
+        "editProfile":"Edit Profile",
+        "premiumPlan": "Premium Plan",
         "details": "Details",
         "settings": "Settings",
         "account": "Account",
@@ -156,7 +157,17 @@
         "theme": "Theme",
         "termsOfUsePrivacyPolicy": "Terms of Use & Privacy Policy",
         "aboutThisApp": "About This App",
-        "aboutTheDeveloper": "About the Developer"
+        "aboutTheDeveloper": "About the Developer",
+        "accountStatus": {
+            "dateTime": {
+                "registeredOn": "Registered on ${date}",
+                "registeredOnFormat":"MM/dd/yyyy",
+                "validUntil": "Valid until${date}",
+                "validUntilFormat":"MM/dd/yyyy hh:mm"
+            },
+            "premium": "Premium Member",
+            "standard": "Standard Member"
+        }
     },
     "changeLanguagePage": {
         "title": "Language",

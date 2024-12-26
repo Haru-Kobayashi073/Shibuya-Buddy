@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "未註冊",
-        "aboutAIFunction": "關於AI功能",
+        "editProfile":"編輯個人資料",
+        "premiumPlan": "進階方案",
         "details": "詳細",
         "settings": "設定",
         "account": "帳戶",
@@ -156,7 +157,17 @@
         "theme": "主題",
         "termsOfUsePrivacyPolicy": "使用條款和隱私政策",
         "aboutThisApp": "關於本應用",
-        "aboutTheDeveloper": "關於開發者"
+        "aboutTheDeveloper": "關於開發者",
+        "accountStatus": {
+                "dateTime": {
+                    "registeredOn": "${date}註冊於",
+                    "registeredOnFormat": "yyyy年MM月dd日",
+                    "validUntil": "有效期至${date}",
+                    "validUntilFormat": "yyyy年MM月dd日 HH:mm"
+                },
+                "premium": "進階會員",
+                "standard": "標準會員"
+        }
     },
     "changeLanguagePage": {
         "title": "語言",
