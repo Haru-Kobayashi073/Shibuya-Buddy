@@ -31,14 +31,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     state = state.copyWith(selectedTopics: updatedTopics);
   }
 
-  void setStartDate(DateTime date) {
-    state = state.copyWith(startDate: date);
-  }
-
-  void setEndDate(DateTime date) {
-    state = state.copyWith(endDate: date);
-  }
-
   String formatDate(DateTime date) {
     final currentLocale = LocaleSettings.currentLocale.languageCode;
     final pattern = {
@@ -121,9 +113,9 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     );
 
     if (isStartDate) {
-      setStartDate(chosenDate);
+      state = state.copyWith(startDate: chosenDate);
     } else {
-      setEndDate(chosenDate);
+      state = state.copyWith(endDate: chosenDate);
     }
   }
 }
