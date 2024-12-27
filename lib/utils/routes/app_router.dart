@@ -10,6 +10,7 @@ import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
 import '../../presentation/account/account_page.dart';
 import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
+import '../../presentation/bill_details/bill_details_page.dart';
 import '../../presentation/buddy_chat/buddy_chat_page.dart';
 import '../../presentation/change_language/change_language_page.dart';
 import '../../presentation/change_theme/change_theme_page.dart';
@@ -205,6 +206,9 @@ class PopularPlansPageRouteData extends GoRouteData {
     TypedGoRoute<ChangeThemePageRouteData>(
       path: Routes.changeTheme,
     ),
+    TypedGoRoute<BillDetailsPageRouteData>(
+      path: Routes.billDetails,
+    ),
   ],
 )
 class MyPageRouteData extends GoRouteData {
@@ -276,6 +280,15 @@ class ChangeThemePageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const ChangeThemePage();
+  }
+}
+
+class BillDetailsPageRouteData extends GoRouteData {
+  const BillDetailsPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const BillDetailsPage();
   }
 }
 

@@ -21,5 +21,5 @@ class Routes {
   static const popularTopicsPage = 'popularTopicsPage';
   static const buddyChatPage = '/buddyChatPage';
   static const popularPlansPage = 'popularPlansPage';
-  static const billDetailsPage = 'billDetailsPage';
+  static const billDetails = 'billDetailsPage';
 }
