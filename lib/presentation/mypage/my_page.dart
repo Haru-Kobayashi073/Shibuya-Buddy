@@ -54,9 +54,8 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.premiumPlan,
-                          onTap: () async =>
-                              const AiFunctionsDetailPageRouteData()
-                                  .push<void>(context),
+                          onTap: () async => const BillDetailsPageRouteData()
+                              .push<void>(context),
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.language,
