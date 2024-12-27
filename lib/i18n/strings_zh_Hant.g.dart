@@ -45,6 +45,7 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsBuddyChatPageZhHant buddyChatPage = _TranslationsBuddyChatPageZhHant._(_root);
 	@override late final _TranslationsPopularTopicsZhHant popularTopics = _TranslationsPopularTopicsZhHant._(_root);
 	@override late final _TranslationsCreatePlanPageZhHant createPlanPage = _TranslationsCreatePlanPageZhHant._(_root);
+	@override late final _TranslationsEditProfilePageZhHant editProfilePage = _TranslationsEditProfilePageZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -128,7 +129,8 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 
 	// Translations
 	@override String get unregisteredUserName => '未註冊';
-	@override String get aboutAIFunction => '關於AI功能';
+	@override String get editProfile => '編輯個人資料';
+	@override String get premiumPlan => '進階方案';
 	@override String get details => '詳細';
 	@override String get settings => '設定';
 	@override String get account => '帳戶';
@@ -137,6 +139,7 @@ class _TranslationsMyPageZhHant implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '使用條款和隱私政策';
 	@override String get aboutThisApp => '關於本應用';
 	@override String get aboutTheDeveloper => '關於開發者';
+	@override late final _TranslationsMyPageAccountStatusZhHant accountStatus = _TranslationsMyPageAccountStatusZhHant._(_root);
 }
 
 // Path: changeLanguagePage
@@ -236,6 +239,19 @@ class _TranslationsCreatePlanPageZhHant implements TranslationsCreatePlanPageEn 
 		'電影',
 	];
 	@override String get submitButton => '提交計劃給AI';
+}
+
+// Path: editProfilePage
+class _TranslationsEditProfilePageZhHant implements TranslationsEditProfilePageEn {
+	_TranslationsEditProfilePageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '編輯個人資料';
+	@override late final _TranslationsEditProfilePageTextFieldsZhHant textFields = _TranslationsEditProfilePageTextFieldsZhHant._(_root);
+	@override late final _TranslationsEditProfilePageButtonsZhHant buttons = _TranslationsEditProfilePageButtonsZhHant._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarZhHant snackBar = _TranslationsEditProfilePageSnackBarZhHant._(_root);
 }
 
 // Path: navigationBar.items
@@ -417,6 +433,18 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHant implements Translat
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(_root);
 }
 
+// Path: myPage.accountStatus
+class _TranslationsMyPageAccountStatusZhHant implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeZhHant dateTime = _TranslationsMyPageAccountStatusDateTimeZhHant._(_root);
+	@override String get premium => '進階會員';
+	@override String get standard => '標準會員';
+}
+
 // Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHant._(this._root);
@@ -529,6 +557,37 @@ class _TranslationsCreatePlanPageModalZhHant implements TranslationsCreatePlanPa
 
 	// Translations
 	@override String get title => '選擇日期';
+}
+
+// Path: editProfilePage.textFields
+class _TranslationsEditProfilePageTextFieldsZhHant implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => '姓名';
+}
+
+// Path: editProfilePage.buttons
+class _TranslationsEditProfilePageButtonsZhHant implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '儲存';
+}
+
+// Path: editProfilePage.snackBar
+class _TranslationsEditProfilePageSnackBarZhHant implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '更新成功';
+	@override late final _TranslationsEditProfilePageSnackBarErrorZhHant error = _TranslationsEditProfilePageSnackBarErrorZhHant._(_root);
 }
 
 // Path: authentication.signInPage.textFields
@@ -661,6 +720,19 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get changeEmail => '更改電子郵件地址';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeZhHant implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String registeredOn({required Object date}) => '${date}註冊於';
+	@override String get registeredOnFormat => 'yyyy年MM月dd日';
+	@override String validUntil({required Object date}) => '有效期至${date}';
+	@override String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
+}
+
 // Path: buddyChatPage.snackBar.error
 class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddyChatPageSnackBarErrorEn {
 	_TranslationsBuddyChatPageSnackBarErrorZhHant._(this._root);
@@ -670,6 +742,18 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddy
 	// Translations
 	@override String get failedRecieveMessage => '無法接收回覆，請稍後再試';
 	@override String get failedCompleteCreatePlan => '無法完成建立計劃，請稍後再試';
+}
+
+// Path: editProfilePage.snackBar.error
+class _TranslationsEditProfilePageSnackBarErrorZhHant implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get noChange => '沒有變更';
+	@override String get failedToUpdate => '更新失敗，請稍後再試';
+	@override String get failedToPickImage => '選擇圖片失敗，請稍後再試';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -782,7 +866,8 @@ extension on TranslationsZhHant {
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
 			case 'myPage.unregisteredUserName': return '未註冊';
-			case 'myPage.aboutAIFunction': return '關於AI功能';
+			case 'myPage.editProfile': return '編輯個人資料';
+			case 'myPage.premiumPlan': return '進階方案';
 			case 'myPage.details': return '詳細';
 			case 'myPage.settings': return '設定';
 			case 'myPage.account': return '帳戶';
@@ -791,6 +876,12 @@ extension on TranslationsZhHant {
 			case 'myPage.termsOfUsePrivacyPolicy': return '使用條款和隱私政策';
 			case 'myPage.aboutThisApp': return '關於本應用';
 			case 'myPage.aboutTheDeveloper': return '關於開發者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}註冊於';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
+			case 'myPage.accountStatus.premium': return '進階會員';
+			case 'myPage.accountStatus.standard': return '標準會員';
 			case 'changeLanguagePage.title': return '語言';
 			case 'changeLanguagePage.items.japanese': return '日语';
 			case 'changeLanguagePage.items.english': return '英语';
@@ -843,6 +934,13 @@ extension on TranslationsZhHant {
 			case 'createPlanPage.defaultTopics.2': return '活動';
 			case 'createPlanPage.defaultTopics.3': return '電影';
 			case 'createPlanPage.submitButton': return '提交計劃給AI';
+			case 'editProfilePage.title': return '編輯個人資料';
+			case 'editProfilePage.textFields.name': return '姓名';
+			case 'editProfilePage.buttons.submit': return '儲存';
+			case 'editProfilePage.snackBar.success': return '更新成功';
+			case 'editProfilePage.snackBar.error.noChange': return '沒有變更';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失敗，請稍後再試';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '選擇圖片失敗，請稍後再試';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

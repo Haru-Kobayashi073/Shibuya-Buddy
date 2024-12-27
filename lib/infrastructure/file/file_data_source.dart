@@ -1,10 +1,12 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:uuid/uuid.dart';
 
 import '../../domain/repositories/file_repository.dart';
 import '../firebase/current_auth_user.dart';
@@ -36,7 +38,7 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
   Future<String> getUploadedImageUrl({required File file}) async {
     final uid = currentUser.uid;
 
-    final fileName = '${const Uuid().v4()}.jpg';
+    final fileName = '${'$uid-avatar-image'}.jpg';
     final storageRef = _storage
         .ref()
         .child('users')
@@ -44,10 +46,24 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
         .child('profile_image')
         .child(fileName);
 
-    final metadata = SettableMetadata(contentType: 'images/jpeg');
-
-    await storageRef.putFile(file, metadata);
+    await storageRef.putFile(file);
     final imageUrl = await storageRef.getDownloadURL();
     return imageUrl;
+  }
+
+  @override
+  Future<File> convertUrlToFile({required String url}) async {
+    final tempPath = (await getTemporaryDirectory()).path;
+
+    //取得したパスにランダムなファイル名で新しいファイルを作成
+    final file = File('$tempPath${Random().nextInt(100)}.jpg');
+
+    //http.getメソッドを呼び出し、それにimageUrlを変換したUriを渡して応答を取得
+    final response = await http.get(Uri.parse(url));
+
+    //fileへhttp.getで受信したbodyBytesを書き込む
+    await file.writeAsBytes(response.bodyBytes);
+
+    return file;
   }
 }

@@ -19,32 +19,32 @@
         }
     },
     "accountPage": {
-        "title":"アカウント",
-        "items":{
+        "title": "アカウント",
+        "items": {
             "signOut": "ログアウト",
             "linkedWithGoogle": "Googleで連携",
             "linkedWithApple": "Appleで連携",
             "alreadyLinkedGoogle": "Google連携済み",
             "alreadyLinkedApple": "Appleで連携済み"
         },
-        "snackBar":{
-            "signOut":"ログアウトしました。",
-            "signOutFailure":"ログアウト時にエラーが発生しました。",
-            "successfulLinkage":"アカウント連携に成功しました。",
-            "linkageFailure":"アカウント連携に失敗しました。",
-            "providerAlreadyLinked":"このアカウントはすでに連携済みです。",
-            "accountDeactivation":"アカウントの連携を解除しました。",
-            "invalidCredential":"再度ログインをやり直してください。",
-            "linkageCancelled":"アカウントの連携をキャンセルしました。",
-            "unlinkageFailure":"アカウントの連携解除に失敗しました。",
-            "operationNotAllowed":"プロパイダーが無効です。開発者にお問い合わせください。",
-            "unknownError":"不明なエラーが発生しました。"
+        "snackBar": {
+            "signOut": "ログアウトしました。",
+            "signOutFailure": "ログアウト時にエラーが発生しました。",
+            "successfulLinkage": "アカウント連携に成功しました。",
+            "linkageFailure": "アカウント連携に失敗しました。",
+            "providerAlreadyLinked": "このアカウントはすでに連携済みです。",
+            "accountDeactivation": "アカウントの連携を解除しました。",
+            "invalidCredential": "再度ログインをやり直してください。",
+            "linkageCancelled": "アカウントの連携をキャンセルしました。",
+            "unlinkageFailure": "アカウントの連携解除に失敗しました。",
+            "operationNotAllowed": "プロパイダーが無効です。開発者にお問い合わせください。",
+            "unknownError": "不明なエラーが発生しました。"
         },
-        "diaLog":{
-            "yes":"はい",
-            "no":"いいえ",
-            "title":"アカウント連携解除の確認",
-            "googleText":"現在のアカウントとGoogleアカウントの連携を解除しますか？",
+        "diaLog": {
+            "yes": "はい",
+            "no": "いいえ",
+            "title": "アカウント連携解除の確認",
+            "googleText": "現在のアカウントとGoogleアカウントの連携を解除しますか？",
             "appleText": "現在のアカウントとAppleアカウントの連携を解除しますか？"
         }
     },
@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "未登録",
-        "aboutAIFunction": "AIの機能について",
+        "editProfile":"プロフィール編集",
+        "premiumPlan": "プレミアムプラン",
         "details": "詳細",
         "settings": "設定",
         "account": "アカウント",
@@ -156,7 +157,17 @@
         "theme": "テーマ",
         "termsOfUsePrivacyPolicy": "利用規約・プライバシーポリシー",
         "aboutThisApp": "このアプリについて",
-        "aboutTheDeveloper": "開発者について"
+        "aboutTheDeveloper": "開発者について",
+        "accountStatus":{
+            "dateTime": {
+                "registeredOn": "${date}に登録",
+                "registeredOnFormat": "yyyy年MM月dd日",
+                "validUntil": "${date}まで",
+                "validUntilFormat": "yyyy年MM月dd日 HH時mm分"
+            },
+            "premium": "プレミアム会員",
+            "standard": "スタンダード会員"
+        }
     },
     "changeLanguagePage": {
         "title": "言語",
@@ -223,11 +234,51 @@
         "modal": {
             "title": "日付を選択"
         },
-        "numberOfPeopleOptions": ["1人", "2人", "3人", "4人", "5人", "6人以上"],
-        "transportOptions": ["電車", "徒歩", "車", "バス"],
-        "categoryOptions": ["子連れ向け", "大人向け", "エンタメ", "アクティビティ", "歴史"],
-        "defaultTopics": ["グルメ", "ショッピング", "アクティビティ", "映画"],
+        "numberOfPeopleOptions": [
+            "1人",
+            "2人",
+            "3人",
+            "4人",
+            "5人",
+            "6人以上"
+        ],
+        "transportOptions": [
+            "電車",
+            "徒歩",
+            "車",
+            "バス"
+        ],
+        "categoryOptions": [
+            "子連れ向け",
+            "大人向け",
+            "エンタメ",
+            "アクティビティ",
+            "歴史"
+        ],
+        "defaultTopics": [
+            "グルメ",
+            "ショッピング",
+            "アクティビティ",
+            "映画"
+        ],
         "submitButton": "プランをAIに伝える"
+    },
+    "editProfilePage": {
+        "title": "編集",
+        "textFields": {
+            "name": "名前"
+        },
+        "buttons": {
+            "submit": "保存"
+        },
+        "snackBar": {
+            "success": "更新しました",
+            "error": {
+                "noChange": "変更がありません",
+                "failedToUpdate": "更新に失敗しました しばらくしてから再度お試しください",
+                "failedToPickImage": "画像の選択に失敗しました しばらくしてから再度お試しください"
+            }
+        }
     },
     "locales(map)": {
         "en": "英語",

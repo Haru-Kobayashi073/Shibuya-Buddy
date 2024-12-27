@@ -49,6 +49,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsBuddyChatPageEn buddyChatPage = TranslationsBuddyChatPageEn._(_root);
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
+	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -132,7 +133,8 @@ class TranslationsMyPageEn {
 
 	// Translations
 	String get unregisteredUserName => 'Unregistered';
-	String get aboutAIFunction => 'About AI Features';
+	String get editProfile => 'Edit Profile';
+	String get premiumPlan => 'Premium Plan';
 	String get details => 'Details';
 	String get settings => 'Settings';
 	String get account => 'Account';
@@ -141,6 +143,7 @@ class TranslationsMyPageEn {
 	String get termsOfUsePrivacyPolicy => 'Terms of Use & Privacy Policy';
 	String get aboutThisApp => 'About This App';
 	String get aboutTheDeveloper => 'About the Developer';
+	late final TranslationsMyPageAccountStatusEn accountStatus = TranslationsMyPageAccountStatusEn._(_root);
 }
 
 // Path: changeLanguagePage
@@ -240,6 +243,19 @@ class TranslationsCreatePlanPageEn {
 		'Movies',
 	];
 	String get submitButton => 'Submit Plan to AI';
+}
+
+// Path: editProfilePage
+class TranslationsEditProfilePageEn {
+	TranslationsEditProfilePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Edit Profile';
+	late final TranslationsEditProfilePageTextFieldsEn textFields = TranslationsEditProfilePageTextFieldsEn._(_root);
+	late final TranslationsEditProfilePageButtonsEn buttons = TranslationsEditProfilePageButtonsEn._(_root);
+	late final TranslationsEditProfilePageSnackBarEn snackBar = TranslationsEditProfilePageSnackBarEn._(_root);
 }
 
 // Path: navigationBar.items
@@ -421,6 +437,18 @@ class TranslationsAuthenticationCompleteSendEmailPageEn {
 	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
 }
 
+// Path: myPage.accountStatus
+class TranslationsMyPageAccountStatusEn {
+	TranslationsMyPageAccountStatusEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsMyPageAccountStatusDateTimeEn dateTime = TranslationsMyPageAccountStatusDateTimeEn._(_root);
+	String get premium => 'Premium Member';
+	String get standard => 'Standard Member';
+}
+
 // Path: changeLanguagePage.items
 class TranslationsChangeLanguagePageItemsEn {
 	TranslationsChangeLanguagePageItemsEn._(this._root);
@@ -533,6 +561,37 @@ class TranslationsCreatePlanPageModalEn {
 
 	// Translations
 	String get title => 'Select a date';
+}
+
+// Path: editProfilePage.textFields
+class TranslationsEditProfilePageTextFieldsEn {
+	TranslationsEditProfilePageTextFieldsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Name';
+}
+
+// Path: editProfilePage.buttons
+class TranslationsEditProfilePageButtonsEn {
+	TranslationsEditProfilePageButtonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get submit => 'Save';
+}
+
+// Path: editProfilePage.snackBar
+class TranslationsEditProfilePageSnackBarEn {
+	TranslationsEditProfilePageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get success => 'Updated successfully';
+	late final TranslationsEditProfilePageSnackBarErrorEn error = TranslationsEditProfilePageSnackBarErrorEn._(_root);
 }
 
 // Path: authentication.signInPage.textFields
@@ -665,6 +724,19 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get changeEmail => 'Change Email Address';
 }
 
+// Path: myPage.accountStatus.dateTime
+class TranslationsMyPageAccountStatusDateTimeEn {
+	TranslationsMyPageAccountStatusDateTimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String registeredOn({required Object date}) => 'Registered on ${date}';
+	String get registeredOnFormat => 'MM/dd/yyyy';
+	String validUntil({required Object date}) => 'Valid until${date}';
+	String get validUntilFormat => 'MM/dd/yyyy hh:mm';
+}
+
 // Path: buddyChatPage.snackBar.error
 class TranslationsBuddyChatPageSnackBarErrorEn {
 	TranslationsBuddyChatPageSnackBarErrorEn._(this._root);
@@ -674,6 +746,18 @@ class TranslationsBuddyChatPageSnackBarErrorEn {
 	// Translations
 	String get failedRecieveMessage => 'Failed to receive the reply. Please try again later.';
 	String get failedCompleteCreatePlan => 'Failed to complete plan creation. Please try again later.';
+}
+
+// Path: editProfilePage.snackBar.error
+class TranslationsEditProfilePageSnackBarErrorEn {
+	TranslationsEditProfilePageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get noChange => 'No changes detected';
+	String get failedToUpdate => 'Failed to update. Please try again later.';
+	String get failedToPickImage => 'Failed to select image. Please try again later.';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -786,7 +870,8 @@ extension on Translations {
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
 			case 'myPage.unregisteredUserName': return 'Unregistered';
-			case 'myPage.aboutAIFunction': return 'About AI Features';
+			case 'myPage.editProfile': return 'Edit Profile';
+			case 'myPage.premiumPlan': return 'Premium Plan';
 			case 'myPage.details': return 'Details';
 			case 'myPage.settings': return 'Settings';
 			case 'myPage.account': return 'Account';
@@ -795,6 +880,12 @@ extension on Translations {
 			case 'myPage.termsOfUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
 			case 'myPage.aboutThisApp': return 'About This App';
 			case 'myPage.aboutTheDeveloper': return 'About the Developer';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => 'Registered on ${date}';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'MM/dd/yyyy';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => 'Valid until${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'MM/dd/yyyy hh:mm';
+			case 'myPage.accountStatus.premium': return 'Premium Member';
+			case 'myPage.accountStatus.standard': return 'Standard Member';
 			case 'changeLanguagePage.title': return 'Language';
 			case 'changeLanguagePage.items.japanese': return 'Japanese';
 			case 'changeLanguagePage.items.english': return 'English';
@@ -847,6 +938,13 @@ extension on Translations {
 			case 'createPlanPage.defaultTopics.2': return 'Activities';
 			case 'createPlanPage.defaultTopics.3': return 'Movies';
 			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
+			case 'editProfilePage.title': return 'Edit Profile';
+			case 'editProfilePage.textFields.name': return 'Name';
+			case 'editProfilePage.buttons.submit': return 'Save';
+			case 'editProfilePage.snackBar.success': return 'Updated successfully';
+			case 'editProfilePage.snackBar.error.noChange': return 'No changes detected';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return 'Failed to update. Please try again later.';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return 'Failed to select image. Please try again later.';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';
