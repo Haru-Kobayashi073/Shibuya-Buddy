@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../utils/styles/app_text_style.dart';
+import 'components/grade_based_features.dart';
 import 'components/plan_table.dart';
 import 'components/premium_plan.dart';
 
@@ -32,6 +32,8 @@ class BillDetailsPage extends StatelessWidget {
                   PremiumPlan(),
                   Gap(32),
                   PlanTable(),
+                  Gap(32),
+                  GradeBasedFeatures(),
                 ],
               ),
             ),
