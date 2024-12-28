@@ -83,9 +83,13 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         messages: [...state.requireValue.messages, userMessage],
       ),
     );
+    await animateControllerWhenMessaging();
   }
 
-  Future<void> recieveMessage({required String message}) async {
+  Future<void> recieveMessage({
+    required String message,
+    required void Function() onSuccess,
+  }) async {
     state = AsyncValue.data(
       state.requireValue.copyWith(isLoadingForMessage: true),
     );
@@ -100,6 +104,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
               : null,
         ),
       );
+      onSuccess();
     } on Exception catch (_) {
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedRecieveMessage,
@@ -108,6 +113,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(isLoadingForMessage: false),
       );
+      await animateControllerWhenMessaging();
     }
   }
 
