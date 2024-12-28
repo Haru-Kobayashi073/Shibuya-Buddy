@@ -9,9 +9,11 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/extensions/context.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
+import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
 import 'buddy_chat_page_state.dart';
 
@@ -87,7 +89,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       ),
     );
     onSuccess();
-    await animateControllerWhenMessaging();
+    await animateControllerWhenMessaging(isBuddy: false);
 
     await _recieveMessage(message: message);
   }
@@ -117,7 +119,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(isLoadingForMessage: false),
       );
-      await animateControllerWhenMessaging();
+      await animateControllerWhenMessaging(isBuddy: true);
     }
   }
 
@@ -167,13 +169,19 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     }
   }
 
-  Future<void> animateControllerWhenMessaging() async {
+  Future<void> animateControllerWhenMessaging({required bool isBuddy}) async {
+    final scrollController = state.requireValue.scrollController;
+    final currentPixel = scrollController.position.pixels;
+    final planCardHeight = rootNavigatorKey.currentContext!.deviceHeight * 0.4;
+
     Future.delayed(
       const Duration(milliseconds: 100),
       () async {
-        if (state.requireValue.scrollController.hasClients) {
-          await state.requireValue.scrollController.animateTo(
-            state.requireValue.scrollController.position.maxScrollExtent,
+        if (scrollController.hasClients) {
+          await scrollController.animateTo(
+            isBuddy
+                ? currentPixel + planCardHeight
+                : scrollController.position.maxScrollExtent,
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
