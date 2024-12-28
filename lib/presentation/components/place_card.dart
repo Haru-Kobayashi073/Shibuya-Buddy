@@ -13,9 +13,11 @@ class PlaceCard extends StatelessWidget {
     super.key,
     required this.place,
     required this.index,
+    this.endindex,
   });
   final Place place;
   final int index;
+  final int? endindex;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,13 @@ class PlaceCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: AppColor.white,
                 ),
+              ),
+            ),
+            Offstage(
+              offstage: index == (endindex! - 1),
+              child: const SizedBox(
+                height: 400, //数値固定を修正する
+                child: VerticalDivider(),
               ),
             ),
           ],
