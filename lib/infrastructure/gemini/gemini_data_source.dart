@@ -11,88 +11,12 @@ import '../../domain/repositories/gemini_repository.dart';
 
 part 'gemini_data_source.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
-  @override
-  ChatSession build() {
-    return _initializeGeminiModel();
-  }
-
-  @override
-  Future<ChatMessage> sendMessage({required String message}) async {
-    final response = await state.sendMessage(
-      Content.text(message),
-    );
-    final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
-    final geminiResponse = GeminiResponse.fromJson(jsonMap);
-
-    return ChatMessage(
-      id: const Uuid().v4(),
-      message: geminiResponse.response.message,
-      plan: geminiResponse.response.plan,
-      places: geminiResponse.response.places,
-      author: ChatAuthor.buddy,
-      createdAt: DateTime.now(),
-    );
-  }
-
-  @override
-  Future<ChatMessage> sendPlanDetail({required PlanPrompt planPrompt}) async {
-    final response = await state.sendMessage(
-      Content.text(
-        '''
-        渋谷区内での観光プランを考えてください。
-
-        日付は、${planPrompt.schedules.firstDate}から${planPrompt.schedules.lastDate}までの間で考えてください。
-
-        人数は、${planPrompt.numberOfPeople}人です。
-
-        交通手段は、${planPrompt.transports.join(',')}です。
-        )}です。
-
-        カテゴリーは、${planPrompt.categories.join(',')}です。
-
-        旅のトピックは、${planPrompt.topics.join(',')}です。
-
-        出力は以下のフォーマットにしてください。
-
-        - プラン内容に関係のある画像のURL(画像を生成し、URLを返してください)
-        - プラン概要のタイトル(提案するスポットに関連したタイトル)
-        - プラン内容に関係のあるトピックのリスト
-          - トピックの名前
-          - トピックのサムネイルURL(画像を生成し、URLを返してください)
-        - 観光スポットのタイトル
-        - 観光スポットの名前
-        - 観光スポットのサムネイルURL(画像を生成し、URLを返してください)
-        - 観光スポットの営業時間
-        - 観光スポットの平均予算
-        - 観光スポットのWebサイトURL
-        - 観光スポットの緯度、経度
-        - プラン概要についてのメッセージの送信
-
-        観光スポットの提案は、地名ではなく、場所を提案してください。
-
-        URLに関しては、実際にアクセス可能なものを出力してください。
-        ''',
-      ),
-    );
-
-    final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
-    final geminiResponse = GeminiResponse.fromJson(jsonMap);
-    return ChatMessage(
-      id: const Uuid().v4(),
-      author: ChatAuthor.buddy,
-      message: 'こんなプランを考えてみました！いかがですか？',
-      plan: geminiResponse.response.plan,
-      places: geminiResponse.response.places,
-      createdAt: DateTime.now(),
-    );
-  }
-
-  ChatSession _initializeGeminiModel() {
+  GenerativeModel get model {
     const apiKey = String.fromEnvironment('geminiAPIKey');
 
-    final model = GenerativeModel(
+    return GenerativeModel(
       model: 'gemini-1.5-flash-latest',
       apiKey: apiKey,
       generationConfig: GenerationConfig(
@@ -223,7 +147,88 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
         ),
       ),
     );
+  }
 
+  @override
+  ChatSession build() {
+    return _initializeGeminiModel();
+  }
+
+  @override
+  Future<ChatMessage> sendMessage({required String message}) async {
+    final response = await state.sendMessage(
+      Content.multi([
+        TextPart(message),
+      ]),
+    );
+    final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
+    final geminiResponse = GeminiResponse.fromJson(jsonMap);
+
+    return ChatMessage(
+      id: const Uuid().v4(),
+      message: geminiResponse.response.message,
+      plan: geminiResponse.response.plan,
+      places: geminiResponse.response.places,
+      author: ChatAuthor.buddy,
+      createdAt: DateTime.now(),
+    );
+  }
+
+  @override
+  Future<ChatMessage> sendPlanDetail({required PlanPrompt planPrompt}) async {
+    final convertModelToString = Content.multi([
+      TextPart(
+        '''
+        渋谷区内での観光プランを考えてください。
+
+        日付は、${planPrompt.schedules.firstDate}から${planPrompt.schedules.lastDate}までの間で考えてください。
+
+        人数は、${planPrompt.numberOfPeople}人です。
+
+        交通手段は、${planPrompt.transports.join(',')}です。
+        )}です。
+
+        カテゴリーは、${planPrompt.categories.join(',')}です。
+
+        旅のトピックは、${planPrompt.topics.join(',')}です。
+
+        出力は以下のフォーマットにしてください。
+
+        - プラン内容に関係のある画像のURL(画像を生成し、URLを返してください)
+        - プラン概要のタイトル(提案するスポットに関連したタイトル)
+        - プラン内容に関係のあるトピックのリスト
+          - トピックの名前
+          - トピックのサムネイルURL(画像を生成し、URLを返してください)
+        - 観光スポットのタイトル
+        - 観光スポットの名前
+        - 観光スポットのサムネイルURL(画像を生成し、URLを返してください)
+        - 観光スポットの営業時間
+        - 観光スポットの平均予算
+        - 観光スポットのWebサイトURL
+        - 観光スポットの緯度、経度
+        - プラン概要についてのメッセージの送信
+
+        観光スポットの提案は、地名ではなく、場所を提案してください。
+
+        URLに関しては、実際にアクセス可能なものを出力してください。
+        ''',
+      ),
+    ]);
+    final response = await state.sendMessage(convertModelToString);
+
+    final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
+    final geminiResponse = GeminiResponse.fromJson(jsonMap);
+    return ChatMessage(
+      id: const Uuid().v4(),
+      author: ChatAuthor.buddy,
+      message: 'こんなプランを考えてみました！いかがですか？',
+      plan: geminiResponse.response.plan,
+      places: geminiResponse.response.places,
+      createdAt: DateTime.now(),
+    );
+  }
+
+  ChatSession _initializeGeminiModel() {
     return model.startChat();
   }
 }
