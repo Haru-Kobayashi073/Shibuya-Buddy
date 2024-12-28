@@ -41,19 +41,11 @@ class BuddyChatPage extends HookConsumerWidget {
         if (textController.text.isEmpty) {
           return;
         }
-        await notifier
-            .sendMessage(
+        await notifier.sendMessage(message: textController.text);
+        await notifier.recieveMessage(
           message: textController.text,
-        )
-            .then((value) async {
-          await notifier.animateControllerWhenMessaging();
-        });
-        await notifier
-            .recieveMessage(message: textController.text)
-            .then((value) {
-          textController.clear();
-          notifier.animateControllerWhenMessaging();
-        });
+          onSuccess: textController.clear,
+        );
       }
     }
 
@@ -134,53 +126,11 @@ class BuddyChatPage extends HookConsumerWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 16),
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      decoration: BoxDecoration(
-                        color: AppColor.grey200,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: IntrinsicHeight(
-                              child: TextFormField(
-                                expands: true,
-                                maxLines: null,
-                                cursorColor: AppColor.black,
-                                keyboardType: TextInputType.multiline,
-                                validator: Validator.common,
-                                maxLength: 256,
-                                controller: textController,
-                                onFieldSubmitted: (_) async => sendMessage(),
-                                decoration: InputDecoration(
-                                  counter: const SizedBox.shrink(),
-                                  filled: true,
-                                  fillColor: AppColor.grey200,
-                                  border: const OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  hintText:
-                                      buddyChatPagei18n.textFields.message,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          if (value.isLoadingForMessage)
-                            Lottie.asset(
-                              Assets.lottie.animation1734615191322,
-                              width: 48,
-                              height: 48,
-                            )
-                          else
-                            IconButton(
-                              onPressed: () async => sendMessage(),
-                              icon: const Icon(Icons.send),
-                            ),
-                        ],
-                      ),
+                    _buildTextField(
+                      textController,
+                      value.isLoadingForMessage,
+                      buddyChatPagei18n.textFields.message,
+                      sendMessage,
                     ),
                   ],
                 ),
@@ -193,35 +143,90 @@ class BuddyChatPage extends HookConsumerWidget {
       ),
     );
   }
-}
 
-Widget _buildChatMessage(ChatMessage chatMessage) {
-  return SliverToBoxAdapter(
-    child: MessageCard(chatMessage: chatMessage),
-  );
-}
+  Widget _buildChatMessage(ChatMessage chatMessage) {
+    return SliverToBoxAdapter(
+      child: MessageCard(chatMessage: chatMessage),
+    );
+  }
 
-Widget _possibleChatCountText(int possibleChatCount) {
-  return SliverToBoxAdapter(
-    child: Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+  Widget _possibleChatCountText(int possibleChatCount) {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Row(
+          children: [
+            const Expanded(
+              child: Divider(color: AppColor.grey600),
+            ),
+            Text(
+              t.buddyChatPage
+                  .possibleChatCount(possibleChatCount: possibleChatCount),
+              style: AppTextStyle.textStyle.copyWith(
+                color: AppColor.grey600,
+              ),
+            ),
+            const Expanded(
+              child: Divider(color: AppColor.grey600),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField(
+    TextEditingController textController,
+    bool isLoadingForMessage,
+    String localizedHintText,
+    void Function() sendMessage,
+  ) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        color: AppColor.grey200,
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Row(
         children: [
-          const Expanded(
-            child: Divider(color: AppColor.grey600),
-          ),
-          Text(
-            t.buddyChatPage
-                .possibleChatCount(possibleChatCount: possibleChatCount),
-            style: AppTextStyle.textStyle.copyWith(
-              color: AppColor.grey600,
+          Expanded(
+            child: IntrinsicHeight(
+              child: TextFormField(
+                expands: true,
+                maxLines: null,
+                cursorColor: AppColor.black,
+                keyboardType: TextInputType.multiline,
+                validator: Validator.common,
+                maxLength: 256,
+                controller: textController,
+                onFieldSubmitted: (_) async => sendMessage(),
+                decoration: InputDecoration(
+                  counter: const SizedBox.shrink(),
+                  filled: true,
+                  fillColor: AppColor.grey200,
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                  ),
+                  hintText: localizedHintText,
+                ),
+              ),
             ),
           ),
-          const Expanded(
-            child: Divider(color: AppColor.grey600),
-          ),
+          const SizedBox(width: 8),
+          if (isLoadingForMessage)
+            Lottie.asset(
+              Assets.lottie.animation1734615191322,
+              width: 48,
+              height: 48,
+            )
+          else
+            IconButton(
+              onPressed: () async => sendMessage(),
+              icon: const Icon(Icons.send),
+            ),
         ],
       ),
-    ),
-  );
+    );
+  }
 }
