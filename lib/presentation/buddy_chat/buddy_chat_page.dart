@@ -41,8 +41,7 @@ class BuddyChatPage extends HookConsumerWidget {
         if (textController.text.isEmpty) {
           return;
         }
-        await notifier.sendMessage(message: textController.text);
-        await notifier.recieveMessage(
+        await notifier.sendMessage(
           message: textController.text,
           onSuccess: textController.clear,
         );
