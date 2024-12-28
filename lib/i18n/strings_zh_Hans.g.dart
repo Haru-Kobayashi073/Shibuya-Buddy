@@ -47,6 +47,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
 	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
 	@override late final _TranslationsConfirmDialogZhHans confirmDialog = _TranslationsConfirmDialogZhHans._(_root);
+	@override late final _TranslationsPromptZhHans prompt = _TranslationsPromptZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -266,6 +267,16 @@ class _TranslationsConfirmDialogZhHans implements TranslationsConfirmDialogEn {
 	@override late final _TranslationsConfirmDialogAnswersZhHans answers = _TranslationsConfirmDialogAnswersZhHans._(_root);
 	@override late final _TranslationsConfirmDialogPopPageZhHans popPage = _TranslationsConfirmDialogPopPageZhHans._(_root);
 	@override late final _TranslationsConfirmDialogCompleteCreatePlanZhHans completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanZhHans._(_root);
+}
+
+// Path: prompt
+class _TranslationsPromptZhHans implements TranslationsPromptEn {
+	_TranslationsPromptZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get planProposalMessage => '我考虑了这个计划！您觉得怎么样？';
 }
 
 // Path: navigationBar.items
@@ -1015,6 +1026,7 @@ extension on TranslationsZhHans {
 			case 'confirmDialog.popPage.description': return '当前内容不会被保存';
 			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
 			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
+			case 'prompt.planProposalMessage': return '我考虑了这个计划！您觉得怎么样？';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

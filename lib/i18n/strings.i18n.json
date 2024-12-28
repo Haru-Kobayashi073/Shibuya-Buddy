@@ -299,6 +299,9 @@
             "description": "The plan in the last message will be saved."
         }
     },
+    "prompt": {
+        "planProposalMessage": "I’ve come up with this plan! What do you think?"
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",

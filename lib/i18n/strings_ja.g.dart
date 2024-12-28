@@ -47,6 +47,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsCreatePlanPageJa createPlanPage = _TranslationsCreatePlanPageJa._(_root);
 	@override late final _TranslationsEditProfilePageJa editProfilePage = _TranslationsEditProfilePageJa._(_root);
 	@override late final _TranslationsConfirmDialogJa confirmDialog = _TranslationsConfirmDialogJa._(_root);
+	@override late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -266,6 +267,16 @@ class _TranslationsConfirmDialogJa implements TranslationsConfirmDialogEn {
 	@override late final _TranslationsConfirmDialogAnswersJa answers = _TranslationsConfirmDialogAnswersJa._(_root);
 	@override late final _TranslationsConfirmDialogPopPageJa popPage = _TranslationsConfirmDialogPopPageJa._(_root);
 	@override late final _TranslationsConfirmDialogCompleteCreatePlanJa completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanJa._(_root);
+}
+
+// Path: prompt
+class _TranslationsPromptJa implements TranslationsPromptEn {
+	_TranslationsPromptJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get planProposalMessage => 'こんなプランを考えてみました！いかがですか？';
 }
 
 // Path: navigationBar.items
@@ -1015,6 +1026,7 @@ extension on TranslationsJa {
 			case 'confirmDialog.popPage.description': return '現在の内容は保存されません';
 			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
 			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
+			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

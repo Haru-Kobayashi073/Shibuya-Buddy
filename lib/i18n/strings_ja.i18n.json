@@ -299,6 +299,9 @@
             "description": "一番最後のメッセージに含まれるプランが保存されます"
         }
     },
+    "prompt": {
+        "planProposalMessage": "こんなプランを考えてみました！いかがですか？"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",

@@ -51,6 +51,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
 	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
 	late final TranslationsConfirmDialogEn confirmDialog = TranslationsConfirmDialogEn._(_root);
+	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -270,6 +271,16 @@ class TranslationsConfirmDialogEn {
 	late final TranslationsConfirmDialogAnswersEn answers = TranslationsConfirmDialogAnswersEn._(_root);
 	late final TranslationsConfirmDialogPopPageEn popPage = TranslationsConfirmDialogPopPageEn._(_root);
 	late final TranslationsConfirmDialogCompleteCreatePlanEn completeCreatePlan = TranslationsConfirmDialogCompleteCreatePlanEn._(_root);
+}
+
+// Path: prompt
+class TranslationsPromptEn {
+	TranslationsPromptEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get planProposalMessage => 'I’ve come up with this plan! What do you think?';
 }
 
 // Path: navigationBar.items
@@ -1019,6 +1030,7 @@ extension on Translations {
 			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
 			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
 			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
+			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

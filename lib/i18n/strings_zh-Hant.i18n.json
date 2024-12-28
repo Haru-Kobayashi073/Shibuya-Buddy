@@ -299,6 +299,9 @@
             "description": "最後一條訊息中的計劃將被保存"
         }
     },
+    "prompt": {
+        "planProposalMessage": "我考慮了這個計劃！您覺得怎麼樣？"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日語",
