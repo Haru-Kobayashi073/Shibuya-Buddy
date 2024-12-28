@@ -8,6 +8,9 @@ import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/gemini_response.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/repositories/gemini_repository.dart';
+import '../../i18n/strings.g.dart';
+import '../../utils/providers/locale/locale_service.dart';
+import '../../utils/translate_prompt.dart';
 
 part 'gemini_data_source.g.dart';
 
@@ -176,43 +179,12 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
 
   @override
   Future<ChatMessage> sendPlanDetail({required PlanPrompt planPrompt}) async {
+    final currentLocale = ref.read(localeServiceProvider);
+    final translatedPrompt =
+        TranslatePrompt(currentLocale, planPrompt).switchPromptLocale();
+
     final convertModelToString = Content.multi([
-      TextPart(
-        '''
-        渋谷区内での観光プランを考えてください。
-
-        日付は、${planPrompt.schedules.firstDate}から${planPrompt.schedules.lastDate}までの間で考えてください。
-
-        人数は、${planPrompt.numberOfPeople}人です。
-
-        交通手段は、${planPrompt.transports.join(',')}です。
-        )}です。
-
-        カテゴリーは、${planPrompt.categories.join(',')}です。
-
-        旅のトピックは、${planPrompt.topics.join(',')}です。
-
-        出力は以下のフォーマットにしてください。
-
-        - プラン内容に関係のある画像のURL(画像を生成し、URLを返してください)
-        - プラン概要のタイトル(提案するスポットに関連したタイトル)
-        - プラン内容に関係のあるトピックのリスト
-          - トピックの名前
-          - トピックのサムネイルURL(画像を生成し、URLを返してください)
-        - 観光スポットのタイトル
-        - 観光スポットの名前
-        - 観光スポットのサムネイルURL(画像を生成し、URLを返してください)
-        - 観光スポットの営業時間
-        - 観光スポットの平均予算
-        - 観光スポットのWebサイトURL
-        - 観光スポットの緯度、経度
-        - プラン概要についてのメッセージの送信
-
-        観光スポットの提案は、地名ではなく、場所を提案してください。
-
-        URLに関しては、実際にアクセス可能なものを出力してください。
-        ''',
-      ),
+      TextPart(translatedPrompt),
     ]);
     final response = await state.sendMessage(convertModelToString);
 
