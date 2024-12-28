@@ -8,108 +8,119 @@ class PlanTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final headerStyle = AppTextStyle.textStyle.copyWith(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    );
+    final planTextStyle = AppTextStyle.textStyle.copyWith(
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+    );
+
     return Table(
+      defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
       columnWidths: const {
         0: FlexColumnWidth(),
         1: FlexColumnWidth(2),
       },
       children: [
-        // 1行目（ヘッダー行）
         TableRow(
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 12,
-                horizontal: 8,
-              ),
-              color: AppColor.blue50Background,
-              child: Text(
-                'スタンダード',
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+            ClipRRect(
+              borderRadius:
+                  const BorderRadius.only(topLeft: Radius.circular(8)),
+              child: Container(
+                height: 50,
+                margin: const EdgeInsets.only(right: 1, bottom: 1),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                color: AppColor.blue50Background,
+                child: Center(
+                  child: Text('スタンダード', style: headerStyle),
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 12,
-                horizontal: 8,
-              ),
-              color: AppColor.yellow200,
-              child: Text(
-                'プレミアム',
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+            ClipRRect(
+              borderRadius:
+                  const BorderRadius.only(topRight: Radius.circular(8)),
+              child: Container(
+                height: 50,
+                margin: const EdgeInsets.only(left: 1, bottom: 1),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                color: AppColor.yellow200,
+                child: Center(
+                  child: Text('プレミアム', style: headerStyle),
                 ),
               ),
             ),
           ],
         ),
-        // 2行目（プラン内容）
         TableRow(
           children: [
-            // 左カラム: スタンダード(無料)
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(16),
-              color: AppColor.blue50Background,
-              child: Text(
-                '無料 🎉',
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+            ClipRRect(
+              borderRadius:
+                  const BorderRadius.only(bottomLeft: Radius.circular(8)),
+              child: Container(
+                height: 200,
+                margin: const EdgeInsets.only(right: 1),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(16),
+                color: AppColor.blue50Background,
+                child: Text('無料 🎉', style: headerStyle),
               ),
             ),
-            // 右カラム: プレミアム(日数分購入 or 永年分)
-            Container(
-              padding: const EdgeInsets.all(16),
-              color: AppColor.yellow200,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '日数分購入',
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+            ClipRRect(
+              borderRadius:
+                  const BorderRadius.only(bottomRight: Radius.circular(8)),
+              child: Container(
+                height: 200,
+                margin: const EdgeInsets.only(left: 1, bottom: 1),
+                color: AppColor.yellow200,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('日数分購入', style: planTextStyle),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 8),
+                            Text('・1日  300円', style: planTextStyle),
+                            Text('・3日  855円', style: planTextStyle),
+                            Text('・5日  1,480円', style: planTextStyle),
+                            Text('・7日  2,070円', style: planTextStyle),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    '・1日  300円',
-                    style: AppTextStyle.textStyle,
-                  ),
-                  Text(
-                    '・3日  855円',
-                    style: AppTextStyle.textStyle,
-                  ),
-                  Text(
-                    '・5日  1,480円',
-                    style: AppTextStyle.textStyle,
-                  ),
-                  Text(
-                    '・7日  2,070円',
-                    style: AppTextStyle.textStyle,
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'または',
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(width: 12),
+                    Text(
+                      'または',
+                      style: AppTextStyle.textStyle.copyWith(
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    '永年分  25,800円',
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 16,
+                    const SizedBox(width: 12),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('永年分', style: planTextStyle),
+                        const SizedBox(width: 12),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('25800円', style: planTextStyle),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
