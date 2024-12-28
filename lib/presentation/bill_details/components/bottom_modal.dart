@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/styles/app_color.dart';
+import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
 
 class BottomModal extends StatefulWidget {
@@ -52,13 +53,17 @@ class _BottomModalState extends State<BottomModal> {
             ),
             const SizedBox(height: 16),
             // アップグレードボタン
-            WideButton(
-              label: 'プレミアムにアップグレード',
-              color: AppColor.yellow600Primary,
-              onPressed: () {
-                // 選択されたプランを処理
-                print('選択されたプラン: $_selectedPlan');
-              },
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16), // 左右にパディングを追加
+              child: WideButton(
+                label: 'プレミアムにアップグレード',
+                color: AppColor.yellow600Primary,
+                onPressed: () {
+                  // 選択されたプランを処理
+                  print('選択されたプラン: $_selectedPlan');
+                },
+              ),
             ),
           ],
         ),
@@ -207,21 +212,29 @@ class PlanCard extends StatelessWidget {
           ),
         ),
         if (discount != null)
-          Positioned(
-            top: 0,
-            left: 0,
+          Align(
+            alignment: Alignment.topLeft,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(80),
+                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
+                ),
                 color: AppColor.yellow800Secondary,
-                borderRadius: BorderRadius.circular(12),
               ),
-              child: Text(
-                discount!,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.white,
+              width: 35,
+              height: 35,
+              child: Align(
+                alignment: const Alignment(-0.1, -0.3),
+                child: Text(
+                  discount ?? '',
+                  style: AppTextStyle.textStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    color: AppColor.white,
+                  ),
                 ),
               ),
             ),
