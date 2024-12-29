@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/entities/chat_message.dart';
@@ -6,6 +5,7 @@ import '../../../domain/entities/plan.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/place_card.dart';
+import '../../components/presistent_cached_network_image.dart';
 import '../../home/components/category_tags.dart';
 
 class MessageCard extends StatelessWidget {
@@ -25,6 +25,8 @@ class MessageCard extends StatelessWidget {
           : const EdgeInsets.only(left: 64, bottom: 16),
       alignment: isBuddy ? Alignment.centerLeft : Alignment.centerRight,
       child: Column(
+        crossAxisAlignment:
+            isBuddy ? CrossAxisAlignment.start : CrossAxisAlignment.end,
         children: [
           Container(
             padding: const EdgeInsets.all(16),
@@ -86,11 +88,7 @@ class _PlanCard extends StatelessWidget {
             topLeft: Radius.circular(12),
             topRight: Radius.circular(12),
           ),
-          child: CachedNetworkImage(
-            imageUrl: plan.thumbnailUrl,
-            fit: BoxFit.cover,
-            width: double.infinity,
-          ),
+          child: PersistentCachedNetworkImage(imageUrl: plan.thumbnailUrl),
         ),
         Container(
           padding: const EdgeInsets.all(16),
@@ -115,7 +113,7 @@ class _PlanCard extends StatelessWidget {
               const SizedBox(height: 8),
               // 複数のタグを表示する部分
               CategoryTags(
-                tags: plan.topicIds,
+                tags: plan.topics.map((e) => e.name).toList(),
                 spacing: 8,
                 tagColor: AppColor.white,
               ),

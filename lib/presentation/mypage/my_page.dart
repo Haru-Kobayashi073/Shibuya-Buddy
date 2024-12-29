@@ -45,7 +45,9 @@ class MyPage extends ConsumerWidget {
                       children: [
                         ListTileWithIcon(
                           title: myPageItemi18n.editProfile,
-                          onTap: () {},
+                          onTap: () async =>
+                              EditProfilePageRouteData($extra: value)
+                                  .push<void>(context),
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.account,

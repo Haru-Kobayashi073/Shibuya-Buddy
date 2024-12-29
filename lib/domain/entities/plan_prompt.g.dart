@@ -12,17 +12,20 @@ _$PlanPromptImpl _$$PlanPromptImplFromJson(Map<String, dynamic> json) =>
       schedules: _$recordConvert(
         json['schedules'],
         ($jsonValue) => (
-          firstDate: const DateTimeConverter()
-              .fromJson($jsonValue['firstDate'] as String),
-          lastDate: const DateTimeConverter()
-              .fromJson($jsonValue['lastDate'] as String),
+          firstDate: $jsonValue['firstDate'] as String,
+          lastDate: $jsonValue['lastDate'] as String,
         ),
       ),
-      numberOfPeople: (json['numberOfPeople'] as num).toInt(),
-      transportation: json['transportation'] as String,
-      category: $enumDecode(_$CategoryEnumMap, json['category']),
-      topicIds:
-          (json['topicIds'] as List<dynamic>).map((e) => e as String).toList(),
+      numberOfPeople: json['numberOfPeople'] as String,
+      transports: (json['transports'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      categories: (json['categories'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      topics: (json['topics'] as List<dynamic>)
+          .map((e) => Topic.fromJson(e as Map<String, dynamic>))
+          .toList(),
       createdAt:
           const DateTimeConverter().fromJson(json['createdAt'] as String),
     );
@@ -31,15 +34,13 @@ Map<String, dynamic> _$$PlanPromptImplToJson(_$PlanPromptImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'schedules': <String, dynamic>{
-        'firstDate':
-            const DateTimeConverter().toJson(instance.schedules.firstDate),
-        'lastDate':
-            const DateTimeConverter().toJson(instance.schedules.lastDate),
+        'firstDate': instance.schedules.firstDate,
+        'lastDate': instance.schedules.lastDate,
       },
       'numberOfPeople': instance.numberOfPeople,
-      'transportation': instance.transportation,
-      'category': _$CategoryEnumMap[instance.category]!,
-      'topicIds': instance.topicIds,
+      'transports': instance.transports,
+      'categories': instance.categories,
+      'topics': instance.topics.map((e) => e.toJson()).toList(),
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
     };
 
@@ -48,11 +49,3 @@ $Rec _$recordConvert<$Rec>(
   $Rec Function(Map) convert,
 ) =>
     convert(value as Map<String, dynamic>);
-
-const _$CategoryEnumMap = {
-  Category.onePerson: 'onePerson',
-  Category.withChildren: 'withChildren',
-  Category.couple: 'couple',
-  Category.friends: 'friends',
-  Category.largeNumberOfPeople: 'largeNumberOfPeople',
-};

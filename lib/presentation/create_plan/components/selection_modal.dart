@@ -5,7 +5,6 @@ import 'package:material_symbols_icons/symbols.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../create_plan_notifier.dart';
-import '../create_plan_state.dart';
 
 class SelectionModal extends ConsumerWidget {
   const SelectionModal({
@@ -14,25 +13,27 @@ class SelectionModal extends ConsumerWidget {
     required this.field,
     required this.title,
     this.isSingleSelect = false,
+    required this.onTapCheckBox,
   });
 
   final List<String> selectionList;
   final SelectionField field;
   final String title;
   final bool isSingleSelect;
+  final void Function(String item) onTapCheckBox;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(createPlanNotifierProvider);
 
-    List<String> selectedItems;
+    var selectedItems = <String>[];
     switch (field) {
       case SelectionField.transport:
-        selectedItems = state.selectedTransport;
+        selectedItems = state.transports;
       case SelectionField.numberOfPeople:
-        selectedItems = state.selectedNumberofPeople;
+        selectedItems.add(state.numberOfPeople);
       case SelectionField.category:
-        selectedItems = state.selectedCategory;
+        selectedItems = state.categories;
     }
 
     return Container(
@@ -73,6 +74,12 @@ class SelectionModal extends ConsumerWidget {
                 return CheckboxListTile(
                   contentPadding: EdgeInsets.zero,
                   controlAffinity: ListTileControlAffinity.leading,
+                  fillColor: WidgetStateProperty.resolveWith((states) {
+                    if (states.contains(WidgetState.selected)) {
+                      return AppColor.yellow600Primary;
+                    }
+                    return AppColor.white;
+                  }),
                   dense: true,
                   title: Text(
                     item,
@@ -81,17 +88,7 @@ class SelectionModal extends ConsumerWidget {
                     ),
                   ),
                   value: selectedItems.contains(item),
-                  onChanged: (isChecked) {
-                    if (isSingleSelect) {
-                      ref
-                          .read(createPlanNotifierProvider.notifier)
-                          .updateSingleSelection(field, item);
-                    } else {
-                      ref
-                          .read(createPlanNotifierProvider.notifier)
-                          .updateMultiSelection(field, item);
-                    }
-                  },
+                  onChanged: (_) => onTapCheckBox(item),
                 );
               },
             ),
@@ -100,4 +97,10 @@ class SelectionModal extends ConsumerWidget {
       ),
     );
   }
+}
+
+enum SelectionField {
+  transport,
+  numberOfPeople,
+  category,
 }

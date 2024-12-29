@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -6,6 +5,7 @@ import '../../../domain/entities/user.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../../components/presistent_cached_network_image.dart';
 
 class AccountStatus extends StatelessWidget {
   const AccountStatus({
@@ -52,9 +52,8 @@ class AccountStatus extends StatelessWidget {
               children: [
                 ClipOval(
                   child: user.imageUrl != null
-                      ? CachedNetworkImage(
+                      ? PersistentCachedNetworkImage(
                           imageUrl: user.imageUrl!,
-                          fit: BoxFit.cover,
                           width: 48,
                           height: 48,
                         )

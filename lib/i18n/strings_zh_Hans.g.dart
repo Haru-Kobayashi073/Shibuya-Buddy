@@ -46,7 +46,12 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
 	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
 	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
+<<<<<<< HEAD
 	@override late final _TranslationsBillDetailsPageZhHans billDetailsPage = _TranslationsBillDetailsPageZhHans._(_root);
+=======
+	@override late final _TranslationsConfirmDialogZhHans confirmDialog = _TranslationsConfirmDialogZhHans._(_root);
+	@override late final _TranslationsPromptZhHans prompt = _TranslationsPromptZhHans._(_root);
+>>>>>>> develop
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -240,6 +245,7 @@ class _TranslationsCreatePlanPageZhHans implements TranslationsCreatePlanPageEn 
 		'电影',
 	];
 	@override String get submitButton => '提交计划给AI';
+	@override late final _TranslationsCreatePlanPageSnackBarZhHans snackBar = _TranslationsCreatePlanPageSnackBarZhHans._(_root);
 }
 
 // Path: editProfilePage
@@ -255,19 +261,41 @@ class _TranslationsEditProfilePageZhHans implements TranslationsEditProfilePageE
 	@override late final _TranslationsEditProfilePageSnackBarZhHans snackBar = _TranslationsEditProfilePageSnackBarZhHans._(_root);
 }
 
+<<<<<<< HEAD
 // Path: billDetailsPage
 class _TranslationsBillDetailsPageZhHans implements TranslationsBillDetailsPageEn {
 	_TranslationsBillDetailsPageZhHans._(this._root);
+=======
+// Path: confirmDialog
+class _TranslationsConfirmDialogZhHans implements TranslationsConfirmDialogEn {
+	_TranslationsConfirmDialogZhHans._(this._root);
+>>>>>>> develop
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+<<<<<<< HEAD
 	@override String get title => '高级计划';
 	@override String get description => '订阅高级计划后，您可以更舒适地享受涩谷观光。';
 	@override late final _TranslationsBillDetailsPagePricingPlanZhHans pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHans._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesZhHans features = _TranslationsBillDetailsPageFeaturesZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsZhHans pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHans._(_root);
 	@override String get upgradeButton => '升级到高级计划';
+=======
+	@override late final _TranslationsConfirmDialogAnswersZhHans answers = _TranslationsConfirmDialogAnswersZhHans._(_root);
+	@override late final _TranslationsConfirmDialogPopPageZhHans popPage = _TranslationsConfirmDialogPopPageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanZhHans completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanZhHans._(_root);
+}
+
+// Path: prompt
+class _TranslationsPromptZhHans implements TranslationsPromptEn {
+	_TranslationsPromptZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get planProposalMessage => '我考虑了这个计划！您觉得怎么样？';
+>>>>>>> develop
 }
 
 // Path: navigationBar.items
@@ -575,6 +603,16 @@ class _TranslationsCreatePlanPageModalZhHans implements TranslationsCreatePlanPa
 	@override String get title => '选择日期';
 }
 
+// Path: createPlanPage.snackBar
+class _TranslationsCreatePlanPageSnackBarZhHans implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageSnackBarErrorZhHans error = _TranslationsCreatePlanPageSnackBarErrorZhHans._(_root);
+}
+
 // Path: editProfilePage.textFields
 class _TranslationsEditProfilePageTextFieldsZhHans implements TranslationsEditProfilePageTextFieldsEn {
 	_TranslationsEditProfilePageTextFieldsZhHans._(this._root);
@@ -606,13 +644,20 @@ class _TranslationsEditProfilePageSnackBarZhHans implements TranslationsEditProf
 	@override late final _TranslationsEditProfilePageSnackBarErrorZhHans error = _TranslationsEditProfilePageSnackBarErrorZhHans._(_root);
 }
 
+<<<<<<< HEAD
 // Path: billDetailsPage.pricingPlan
 class _TranslationsBillDetailsPagePricingPlanZhHans implements TranslationsBillDetailsPagePricingPlanEn {
 	_TranslationsBillDetailsPagePricingPlanZhHans._(this._root);
+=======
+// Path: confirmDialog.answers
+class _TranslationsConfirmDialogAnswersZhHans implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersZhHans._(this._root);
+>>>>>>> develop
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+<<<<<<< HEAD
 	@override String get title => '价格计划';
 	@override late final _TranslationsBillDetailsPagePricingPlanColumnsZhHans columns = _TranslationsBillDetailsPagePricingPlanColumnsZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingPlanDetailsZhHans details = _TranslationsBillDetailsPagePricingPlanDetailsZhHans._(_root);
@@ -621,10 +666,20 @@ class _TranslationsBillDetailsPagePricingPlanZhHans implements TranslationsBillD
 // Path: billDetailsPage.features
 class _TranslationsBillDetailsPageFeaturesZhHans implements TranslationsBillDetailsPageFeaturesEn {
 	_TranslationsBillDetailsPageFeaturesZhHans._(this._root);
+=======
+	@override String get yes => '是';
+	@override String get no => '否';
+}
+
+// Path: confirmDialog.popPage
+class _TranslationsConfirmDialogPopPageZhHans implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageZhHans._(this._root);
+>>>>>>> develop
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+<<<<<<< HEAD
 	@override String get title => '等级功能';
 	@override late final _TranslationsBillDetailsPageFeaturesRowsZhHans rows = _TranslationsBillDetailsPageFeaturesRowsZhHans._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesColumnsZhHans columns = _TranslationsBillDetailsPageFeaturesColumnsZhHans._(_root);
@@ -633,15 +688,29 @@ class _TranslationsBillDetailsPageFeaturesZhHans implements TranslationsBillDeta
 // Path: billDetailsPage.pricingOptions
 class _TranslationsBillDetailsPagePricingOptionsZhHans implements TranslationsBillDetailsPagePricingOptionsEn {
 	_TranslationsBillDetailsPagePricingOptionsZhHans._(this._root);
+=======
+	@override String get title => '要返回上一页吗？';
+	@override String get description => '当前内容不会被保存';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class _TranslationsConfirmDialogCompleteCreatePlanZhHans implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanZhHans._(this._root);
+>>>>>>> develop
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+<<<<<<< HEAD
 	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayZhHans oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(_root);
+=======
+	@override String get title => '确定要保存计划吗？';
+	@override String get description => '最后一条消息中的计划将被保存';
+>>>>>>> develop
 }
 
 // Path: authentication.signInPage.textFields
@@ -796,6 +865,16 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddy
 	// Translations
 	@override String get failedRecieveMessage => '未能接收回复，请稍后再试';
 	@override String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
+}
+
+// Path: createPlanPage.snackBar.error
+class _TranslationsCreatePlanPageSnackBarErrorZhHans implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1136,6 +1215,7 @@ extension on TranslationsZhHans {
 			case 'createPlanPage.defaultTopics.2': return '活动';
 			case 'createPlanPage.defaultTopics.3': return '电影';
 			case 'createPlanPage.submitButton': return '提交计划给AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
 			case 'editProfilePage.title': return '编辑个人资料';
 			case 'editProfilePage.textFields.name': return '姓名';
 			case 'editProfilePage.buttons.submit': return '保存';
@@ -1143,6 +1223,7 @@ extension on TranslationsZhHans {
 			case 'editProfilePage.snackBar.error.noChange': return '没有更改';
 			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失败，请稍后再试';
 			case 'editProfilePage.snackBar.error.failedToPickImage': return '选择图片失败，请稍后再试';
+<<<<<<< HEAD
 			case 'billDetailsPage.title': return '高级计划';
 			case 'billDetailsPage.description': return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
 			case 'billDetailsPage.pricingPlan.title': return '价格计划';
@@ -1185,6 +1266,15 @@ extension on TranslationsZhHans {
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日元';
 			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
+=======
+			case 'confirmDialog.answers.yes': return '是';
+			case 'confirmDialog.answers.no': return '否';
+			case 'confirmDialog.popPage.title': return '要返回上一页吗？';
+			case 'confirmDialog.popPage.description': return '当前内容不会被保存';
+			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
+			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
+			case 'prompt.planProposalMessage': return '我考虑了这个计划！您觉得怎么样？';
+>>>>>>> develop
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

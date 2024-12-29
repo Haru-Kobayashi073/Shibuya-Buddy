@@ -148,7 +148,7 @@
     },
     "myPage": {
         "unregisteredUserName": "Unregistered",
-        "editProfile":"Edit Profile",
+        "editProfile": "Edit Profile",
         "premiumPlan": "Premium Plan",
         "details": "Details",
         "settings": "Settings",
@@ -161,9 +161,9 @@
         "accountStatus": {
             "dateTime": {
                 "registeredOn": "Registered on ${date}",
-                "registeredOnFormat":"MM/dd/yyyy",
+                "registeredOnFormat": "MM/dd/yyyy",
                 "validUntil": "Valid until${date}",
-                "validUntilFormat":"MM/dd/yyyy hh:mm"
+                "validUntilFormat": "MM/dd/yyyy hh:mm"
             },
             "premium": "Premium Member",
             "standard": "Standard Member"
@@ -261,7 +261,12 @@
             "Activities",
             "Movies"
         ],
-        "submitButton": "Submit Plan to AI"
+        "submitButton": "Submit Plan to AI",
+        "snackBar": {
+            "error": {
+                "foundUnSelectedField": "There are unselected items. Please select all items."
+            }
+        }
     },
     "editProfilePage": {
         "title": "Edit Profile",
@@ -279,6 +284,23 @@
                 "failedToPickImage": "Failed to select image. Please try again later."
             }
         }
+    },
+    "confirmDialog": {
+        "answers": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "popPage": {
+            "title": "Return to the previous page?",
+            "description": "Current content will not be saved."
+        },
+        "completeCreatePlan": {
+            "title": "Confirm the plan?",
+            "description": "The plan in the last message will be saved."
+        }
+    },
+    "prompt": {
+        "planProposalMessage": "I’ve come up with this plan! What do you think?"
     },
     "billDetailsPage": {
         "title": "Premium Plan",
