@@ -76,7 +76,7 @@ class _BottomModalState extends State<BottomModal> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        onPressed: () => print(_selectedPlan),
+        onPressed: () {},
       ),
     );
   }
