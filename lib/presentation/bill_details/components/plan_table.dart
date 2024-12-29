@@ -113,7 +113,7 @@ class PlanTable extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(height: 8),
+                                const Gap(8),
                                 Text(
                                   t.billDetailsPage.pricingPlan.details
                                       .premiumPrice.daily,
@@ -138,14 +138,14 @@ class PlanTable extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(width: 12),
+                        const Gap(12),
                         Text(
                           t.billDetailsPage.pricingPlan.details.premiumPrice.or,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        const Gap(12),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -154,7 +154,7 @@ class PlanTable extends StatelessWidget {
                                   .lifetime,
                               style: planTextStyle,
                             ),
-                            const SizedBox(width: 12),
+                            const Gap(12),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,

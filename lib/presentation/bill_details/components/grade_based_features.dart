@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../i18n/strings.g.dart';
@@ -28,7 +29,7 @@ class GradeBasedFeatures extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 16),
+        const Gap(16),
         Table(
           columnWidths: const {
             0: FlexColumnWidth(2.5),
@@ -111,9 +112,7 @@ class GradeBasedFeatures extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
         alignment: Alignment.center,
-        color: hasBackground
-            ? AppColor.yellow200
-            : Colors.transparent,
+        color: hasBackground ? AppColor.yellow200 : Colors.transparent,
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(

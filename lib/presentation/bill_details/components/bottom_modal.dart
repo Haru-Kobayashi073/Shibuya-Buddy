@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
@@ -47,11 +48,11 @@ class _BottomModalState extends State<BottomModal> {
                       child: card,
                     );
                   }),
-                  const SizedBox(width: 16),
+                  const Gap(16),
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            const Gap(16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: WideButton.gradient(
@@ -186,7 +187,7 @@ class PlanCard extends StatelessWidget {
                   if (states.contains(WidgetState.selected)) {
                     return AppColor.yellow600Primary;
                   }
-                  return AppColor.yellow600Primary; 
+                  return AppColor.yellow600Primary;
                 },
               ),
               contentPadding: EdgeInsets.zero,
@@ -201,7 +202,7 @@ class PlanCard extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 4),
+                  const Gap(4),
                   Text(
                     price,
                     style: const TextStyle(
