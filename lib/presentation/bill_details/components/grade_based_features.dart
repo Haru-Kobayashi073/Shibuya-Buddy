@@ -10,7 +10,7 @@ class GradeBasedFeatures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyle = AppTextStyle.textStyle.copyWith(
-      fontSize: 12,
+      fontSize: 14,
     );
 
     final headerStyle = AppTextStyle.textStyle.copyWith(
