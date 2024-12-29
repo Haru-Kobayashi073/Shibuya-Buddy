@@ -35,6 +35,9 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
             .set(planPrompt.toJson());
       },
     );
+    for (final topic in plan.topics) {
+      await firestore.collection('topics').doc(topic.id).set(topic.toJson());
+    }
     return;
   }
 }
