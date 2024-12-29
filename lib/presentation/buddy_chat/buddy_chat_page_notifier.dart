@@ -6,20 +6,23 @@ import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
-import '../../infrastructure/gemini/gemini_mock_data_source.dart';
+import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/extensions/context.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
+import '../../utils/routes/app_router.dart';
+import '../components/loading_overlay.dart';
 import 'buddy_chat_page_state.dart';
 
 part 'buddy_chat_page_notifier.g.dart';
 
 @riverpod
 class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
-  GeminiMockDataSource get geminiDataSource =>
-      ref.read(geminiMockDataSourceProvider.notifier);
+  GeminiDataSource get geminiDataSource =>
+      ref.read(geminiDataSourceProvider.notifier);
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
@@ -35,24 +38,28 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       scrollController.dispose,
     );
 
-    final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+    final buddyMessage =
+        await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
 
     final messages = [
-      ChatMessage(
-        id: res.id,
-        author: res.author,
-        plan: res.plan,
-        places: res.places,
-        createdAt: res.createdAt,
-        message: res.message,
+      buddyMessage.copyWith(
+        plan: buddyMessage.plan?.copyWith(
+          topics: [
+            ...planPrompt.topics.where(
+              (topic) => !buddyMessage.plan!.topics
+                  .any((bTopic) => bTopic.name == topic.name),
+            ),
+            ...buddyMessage.plan!.topics,
+          ],
+        ),
       ),
     ];
 
     final message = ChatMessage(
-      id: res.id,
-      message: res.plan!.description,
+      id: buddyMessage.id,
+      message: buddyMessage.plan!.description,
       author: ChatAuthor.buddy,
-      createdAt: res.createdAt,
+      createdAt: buddyMessage.createdAt,
     );
 
     messages.add(message);
@@ -65,7 +72,10 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     );
   }
 
-  Future<void> sendMessage({required String message}) async {
+  Future<void> sendMessage({
+    required String message,
+    required void Function() onSuccess,
+  }) async {
     final userMessage = ChatMessage(
       id: const Uuid().v4(),
       author: ChatAuthor.user,
@@ -78,23 +88,20 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         messages: [...state.requireValue.messages, userMessage],
       ),
     );
+    onSuccess();
+    await animateControllerWhenMessaging(isBuddy: false);
+
+    await _recieveMessage(message: message);
   }
 
-  Future<void> recieveMessage({required String message}) async {
+  Future<void> _recieveMessage({
+    required String message,
+  }) async {
     state = AsyncValue.data(
       state.requireValue.copyWith(isLoadingForMessage: true),
     );
     try {
-      await Future.delayed(const Duration(seconds: 3), () {});
-
-      final res = await geminiDataSource.sendMessage(message: message);
-
-      final buddyMessage = ChatMessage(
-        id: res.id,
-        author: res.author,
-        message: res.message,
-        createdAt: res.createdAt,
-      );
+      final buddyMessage = await geminiDataSource.sendMessage(message: message);
 
       state = AsyncValue.data(
         state.requireValue.copyWith(
@@ -112,36 +119,69 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(isLoadingForMessage: false),
       );
+      await animateControllerWhenMessaging(isBuddy: true);
     }
   }
 
-  Future<void> completeCreatePlan() async {
-    final targetMessage = state.requireValue.messages.lastWhere(
-      (message) => message.plan != null,
-      orElse: () => state.requireValue.messages.first,
-    );
-    final targetPlan = targetMessage.plan!;
-    final targetPlaces = targetMessage.places!;
+  Future<void> completeCreatePlan({
+    required Future<void> Function() onSuccess,
+  }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
+      final targetMessage = state.requireValue.messages.lastWhere(
+        (message) => message.plan != null && message.places != null,
+        orElse: () => state.requireValue.messages.first,
+      );
+      final targetPlan = targetMessage.plan!.copyWith(
+        id: const Uuid().v4(),
+        authorId: ref.read(currentUserProvider).uid,
+        topics: targetMessage.plan!.topics
+            .map(
+              (topic) => topic.copyWith(
+                id: const Uuid().v4(),
+                createdAt: DateTime.now().toIso8601String(),
+              ),
+            )
+            .toList(),
+        createdAt: DateTime.now().toIso8601String(),
+      );
+      final targetPlaces = targetMessage.places!
+          .map(
+            (place) => place.copyWith(id: const Uuid().v4()),
+          )
+          .toList();
       await planDataSource.createPlan(
         plan: targetPlan,
         places: targetPlaces,
         planPrompt: planPrompt,
       );
+
+      /// エラーが出るので、遅延を入れる
+      await Future<void>.delayed(const Duration(milliseconds: 1000));
+
+      await onSuccess();
     } on Exception catch (_) {
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
-  Future<void> animateControllerWhenMessaging() async {
+  Future<void> animateControllerWhenMessaging({required bool isBuddy}) async {
+    final scrollController = state.requireValue.scrollController;
+    final currentPixel = scrollController.position.pixels;
+    final planCardHeight = rootNavigatorKey.currentContext!.deviceHeight * 0.4;
+
     Future.delayed(
       const Duration(milliseconds: 100),
       () async {
-        if (state.requireValue.scrollController.hasClients) {
-          await state.requireValue.scrollController.animateTo(
-            state.requireValue.scrollController.position.maxScrollExtent,
+        if (scrollController.hasClients) {
+          await scrollController.animateTo(
+            isBuddy
+                ? currentPixel + planCardHeight
+                : scrollController.position.maxScrollExtent,
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );

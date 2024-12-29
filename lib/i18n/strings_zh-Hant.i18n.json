@@ -148,7 +148,7 @@
     },
     "myPage": {
         "unregisteredUserName": "未註冊",
-        "editProfile":"編輯個人資料",
+        "editProfile": "編輯個人資料",
         "premiumPlan": "進階方案",
         "details": "詳細",
         "settings": "設定",
@@ -159,14 +159,14 @@
         "aboutThisApp": "關於本應用",
         "aboutTheDeveloper": "關於開發者",
         "accountStatus": {
-                "dateTime": {
-                    "registeredOn": "${date}註冊於",
-                    "registeredOnFormat": "yyyy年MM月dd日",
-                    "validUntil": "有效期至${date}",
-                    "validUntilFormat": "yyyy年MM月dd日 HH:mm"
-                },
-                "premium": "進階會員",
-                "standard": "標準會員"
+            "dateTime": {
+                "registeredOn": "${date}註冊於",
+                "registeredOnFormat": "yyyy年MM月dd日",
+                "validUntil": "有效期至${date}",
+                "validUntilFormat": "yyyy年MM月dd日 HH:mm"
+            },
+            "premium": "進階會員",
+            "standard": "標準會員"
         }
     },
     "changeLanguagePage": {
@@ -261,7 +261,12 @@
             "活動",
             "電影"
         ],
-        "submitButton": "提交計劃給AI"
+        "submitButton": "提交計劃給AI",
+        "snackBar": {
+            "error": {
+                "foundUnSelectedField": "存在未選擇的項目，請選擇所有項目"
+            }
+        }
     },
     "editProfilePage": {
         "title": "編輯個人資料",
@@ -279,6 +284,23 @@
                 "failedToPickImage": "選擇圖片失敗，請稍後再試"
             }
         }
+    },
+    "confirmDialog": {
+        "answers": {
+            "yes": "是",
+            "no": "否"
+        },
+        "popPage": {
+            "title": "要返回上一頁嗎？",
+            "description": "當前內容不會被保存"
+        },
+        "completeCreatePlan": {
+            "title": "確定要保存計劃嗎？",
+            "description": "最後一條訊息中的計劃將被保存"
+        }
+    },
+    "prompt": {
+        "planProposalMessage": "我考慮了這個計劃！您覺得怎麼樣？"
     },
     "locales(map)": {
         "en": "英語",

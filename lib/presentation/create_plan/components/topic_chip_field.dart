@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../domain/entities/topic.dart';
 import '../../../utils/styles/app_color.dart';
 
 class TopicChipField extends StatelessWidget {
@@ -10,9 +11,9 @@ class TopicChipField extends StatelessWidget {
     required this.onSelected,
   });
 
-  final List<String> topics;
-  final List<String> selectedTopics;
-  final void Function(String topic, {required bool isSelected}) onSelected;
+  final List<Topic> topics;
+  final List<Topic> selectedTopics;
+  final void Function(Topic topic, {required bool isSelected}) onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class TopicChipField extends StatelessWidget {
               return FilterChip(
                 side: BorderSide.none,
                 backgroundColor: AppColor.blue50Background,
-                label: Text(topic),
+                label: Text(topic.name),
                 onSelected: (isSelected) {
                   onSelected(topic, isSelected: true);
                 },

@@ -46,6 +46,8 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override late final _TranslationsCreatePlanPageJa createPlanPage = _TranslationsCreatePlanPageJa._(_root);
 	@override late final _TranslationsEditProfilePageJa editProfilePage = _TranslationsEditProfilePageJa._(_root);
+	@override late final _TranslationsConfirmDialogJa confirmDialog = _TranslationsConfirmDialogJa._(_root);
+	@override late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -239,6 +241,7 @@ class _TranslationsCreatePlanPageJa implements TranslationsCreatePlanPageEn {
 		'映画',
 	];
 	@override String get submitButton => 'プランをAIに伝える';
+	@override late final _TranslationsCreatePlanPageSnackBarJa snackBar = _TranslationsCreatePlanPageSnackBarJa._(_root);
 }
 
 // Path: editProfilePage
@@ -252,6 +255,28 @@ class _TranslationsEditProfilePageJa implements TranslationsEditProfilePageEn {
 	@override late final _TranslationsEditProfilePageTextFieldsJa textFields = _TranslationsEditProfilePageTextFieldsJa._(_root);
 	@override late final _TranslationsEditProfilePageButtonsJa buttons = _TranslationsEditProfilePageButtonsJa._(_root);
 	@override late final _TranslationsEditProfilePageSnackBarJa snackBar = _TranslationsEditProfilePageSnackBarJa._(_root);
+}
+
+// Path: confirmDialog
+class _TranslationsConfirmDialogJa implements TranslationsConfirmDialogEn {
+	_TranslationsConfirmDialogJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsConfirmDialogAnswersJa answers = _TranslationsConfirmDialogAnswersJa._(_root);
+	@override late final _TranslationsConfirmDialogPopPageJa popPage = _TranslationsConfirmDialogPopPageJa._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanJa completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanJa._(_root);
+}
+
+// Path: prompt
+class _TranslationsPromptJa implements TranslationsPromptEn {
+	_TranslationsPromptJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get planProposalMessage => 'こんなプランを考えてみました！いかがですか？';
 }
 
 // Path: navigationBar.items
@@ -559,6 +584,16 @@ class _TranslationsCreatePlanPageModalJa implements TranslationsCreatePlanPageMo
 	@override String get title => '日付を選択';
 }
 
+// Path: createPlanPage.snackBar
+class _TranslationsCreatePlanPageSnackBarJa implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageSnackBarErrorJa error = _TranslationsCreatePlanPageSnackBarErrorJa._(_root);
+}
+
 // Path: editProfilePage.textFields
 class _TranslationsEditProfilePageTextFieldsJa implements TranslationsEditProfilePageTextFieldsEn {
 	_TranslationsEditProfilePageTextFieldsJa._(this._root);
@@ -588,6 +623,39 @@ class _TranslationsEditProfilePageSnackBarJa implements TranslationsEditProfileP
 	// Translations
 	@override String get success => '更新しました';
 	@override late final _TranslationsEditProfilePageSnackBarErrorJa error = _TranslationsEditProfilePageSnackBarErrorJa._(_root);
+}
+
+// Path: confirmDialog.answers
+class _TranslationsConfirmDialogAnswersJa implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'はい';
+	@override String get no => 'いいえ';
+}
+
+// Path: confirmDialog.popPage
+class _TranslationsConfirmDialogPopPageJa implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '前の画面に戻りますか？';
+	@override String get description => '現在の内容は保存されません';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プランを確定しますか？';
+	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
 }
 
 // Path: authentication.signInPage.textFields
@@ -742,6 +810,16 @@ class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChat
 	// Translations
 	@override String get failedRecieveMessage => '返信の受信に失敗しました。時間をおいて再度お試しください';
 	@override String get failedCompleteCreatePlan => 'プランの作成に失敗しました。時間をおいて再度お試しください';
+}
+
+// Path: createPlanPage.snackBar.error
+class _TranslationsCreatePlanPageSnackBarErrorJa implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get foundUnSelectedField => '選択されていない項目があります 全ての項目を選択してください';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -934,6 +1012,7 @@ extension on TranslationsJa {
 			case 'createPlanPage.defaultTopics.2': return 'アクティビティ';
 			case 'createPlanPage.defaultTopics.3': return '映画';
 			case 'createPlanPage.submitButton': return 'プランをAIに伝える';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '選択されていない項目があります 全ての項目を選択してください';
 			case 'editProfilePage.title': return '編集';
 			case 'editProfilePage.textFields.name': return '名前';
 			case 'editProfilePage.buttons.submit': return '保存';
@@ -941,6 +1020,13 @@ extension on TranslationsJa {
 			case 'editProfilePage.snackBar.error.noChange': return '変更がありません';
 			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新に失敗しました しばらくしてから再度お試しください';
 			case 'editProfilePage.snackBar.error.failedToPickImage': return '画像の選択に失敗しました しばらくしてから再度お試しください';
+			case 'confirmDialog.answers.yes': return 'はい';
+			case 'confirmDialog.answers.no': return 'いいえ';
+			case 'confirmDialog.popPage.title': return '前の画面に戻りますか？';
+			case 'confirmDialog.popPage.description': return '現在の内容は保存されません';
+			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
+			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
+			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
