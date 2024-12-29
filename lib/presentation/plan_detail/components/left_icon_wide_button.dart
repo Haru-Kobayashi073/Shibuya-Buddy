@@ -21,7 +21,7 @@ class LeftIconWideButton extends StatelessWidget {
       ),
       onPressed: () {},
       child: Padding(
-        padding: const EdgeInsets.only(top: 16,bottom: 16),
+        padding: const EdgeInsets.only(top: 16, bottom: 16),
         child: Stack(
           alignment: Alignment.center,
           children: [
