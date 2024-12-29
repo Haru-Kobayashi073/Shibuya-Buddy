@@ -12,6 +12,10 @@ class GradeBasedFeatures extends StatelessWidget {
       fontSize: 12,
     );
 
+    final headerStyle = AppTextStyle.textStyle.copyWith(
+      fontSize: 10,
+      fontWeight: FontWeight.bold,
+    );
     return Column(
       children: [
         Text(
@@ -41,9 +45,9 @@ class GradeBasedFeatures extends StatelessWidget {
                 const SizedBox(), // 左上は空欄
                 _headerCell(
                   'スタンダード',
-                  textStyle,
+                  headerStyle,
                 ),
-                _headerCell('プレミアム', textStyle, hasBackground: true),
+                _headerCell('プレミアム', headerStyle, hasBackground: true),
               ],
             ),
 
@@ -101,23 +105,45 @@ class GradeBasedFeatures extends StatelessWidget {
         color: hasBackground
             ? AppColor.yellow200
             : Colors.transparent, // 背景色を条件付きで設定
-        child: Text(
-          text,
-          style: style.copyWith(fontWeight: FontWeight.bold),
-          textAlign: TextAlign.end,
+        child: FittedBox(
+          fit: BoxFit.scaleDown, // テキストが親のサイズに収まるよう縮小
+          child: Text(
+            text,
+            style: style,
+            textAlign: TextAlign.center, // 中央揃え
+            maxLines: 1, // 最大1行に制限
+            softWrap: false, // 強制的に改行を防止
+          ),
         ),
       ),
     );
   }
 
-  /// 通常セル（左列やスタンダード列用）
-  Widget _cell(String text, TextStyle style, {bool center = false}) {
-    return Padding(
+  /// 左列のセル
+  Widget _leftCell(String text, TextStyle style) {
+    return TableCell(
+      verticalAlignment: TableCellVerticalAlignment.middle,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Text(
+          text,
+          style: style,
+          textAlign: TextAlign.start,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+    );
+  }
+
+  /// スタンダード列のセル
+  Widget _standardCell(String text, TextStyle style) {
+    return Container(
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
       child: Text(
         text,
         style: style,
-        textAlign: center ? TextAlign.center : TextAlign.start,
+        textAlign: TextAlign.center,
       ),
     );
   }
@@ -144,8 +170,8 @@ class GradeBasedFeatures extends StatelessWidget {
   }) {
     return TableRow(
       children: [
-        _cell(label, textStyle),
-        _cell(standard, textStyle, center: true),
+        _leftCell(label, textStyle),
+        _standardCell(standard, textStyle),
         _premiumCell(premium, textStyle),
       ],
     );
