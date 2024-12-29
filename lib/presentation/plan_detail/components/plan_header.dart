@@ -30,7 +30,14 @@ class _PlanHeaderState extends State<PlanHeader> {
         children: [
           SizedBox(
             width: screenWidth,
-            child: Image(image: NetworkImage(widget.imageUrl.toString())),
+            child: Image(
+              image: NetworkImage(widget.imageUrl.toString()),
+              errorBuilder: (c, o, s) {
+                return const SizedBox(
+                  height: 116,
+                );
+              },
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
