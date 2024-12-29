@@ -175,14 +175,21 @@ class PlanCard extends StatelessWidget {
             ),
             child: Theme(
               data: Theme.of(context).copyWith(
-                unselectedWidgetColor: Colors.grey, // 非選択時の色を設定
+                unselectedWidgetColor: AppColor.yellow600Primary, // 非選択時の色を設定
               ),
               child: RadioListTile<String>(
                 value: value,
                 groupValue: groupValue,
                 onChanged: onChanged, // 選択時の処理
                 activeColor: AppColor.yellow600Primary,
-                hoverColor: AppColor.yellow600Primary,
+                fillColor: WidgetStateProperty.resolveWith<Color>(
+                  (Set<WidgetState> states) {
+                    if (states.contains(WidgetState.selected)) {
+                      return AppColor.yellow600Primary; // 選択時
+                    }
+                    return AppColor.yellow600Primary; // 非選択時も黄色
+                  },
+                ),
                 contentPadding: EdgeInsets.zero, // 余白削除
                 title: Column(
                   children: [
