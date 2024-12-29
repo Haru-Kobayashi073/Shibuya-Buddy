@@ -8,6 +8,7 @@ import '../../utils/styles/app_text_style.dart';
 import '../components/place_card.dart';
 import 'components/circle_icon_button.dart';
 import 'components/plan_header.dart';
+import 'components/wide_Button_Left_icon.dart';
 
 List<Place> dummyPlans = [
   Place(
@@ -48,6 +49,37 @@ List<Place> dummyPlans = [
   ),
 ];
 
+class PlanInfo {
+  PlanInfo({
+    required this.title,
+    required this.description,
+    required this.tags,
+    required this.imageUrl,
+  });
+
+  factory PlanInfo.fromMap(Map<String, dynamic> map) {
+    return PlanInfo(
+      title: map['title'] as String,
+      description: map['description'] as String,
+      tags: List<String>.from(map['tags'] as List<dynamic>),
+      imageUrl: map['imageUrl'] as String,
+    );
+  }
+  final String title;
+  final String description;
+  final List<String> tags;
+  final String imageUrl;
+}
+
+final Map<String, dynamic> planInfo = {
+  'title': '宮下パークでショッピング',
+  'description':
+      '今回、Buddyが提案したこのプランは、渋谷駅前にある若者集まる商業施設の”宮下パーク”がメインのプランです！一階には日本食を楽しめる居酒屋が並ぶとともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。',
+  'tags': ['＃ショッピング ', '＃アクティビティ', '＃グルメ', '時間: 1時間〜'],
+  'imageUrl':
+      'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
+};
+
 class PlanDetailPage extends StatelessWidget {
   const PlanDetailPage({super.key});
 
@@ -69,9 +101,9 @@ class PlanDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     final i18n = Translations.of(context);
     final planDetailPage = i18n.planDetailsPage;
+    final plan = PlanInfo.fromMap(planInfo);
 
     final outputFormat =
         DateFormat(planDetailPage.dateTime.dateFormat).format(DateTime.now());
@@ -82,14 +114,11 @@ class PlanDetailPage extends StatelessWidget {
           ListView(
             padding: EdgeInsets.zero,
             children: [
-              const PlanHeader(
-                title: '宮下パークでショッピング',
-                description:
-                    '今回、Buddyが提案したこのプランは、渋谷駅前にある若者集まる商業施設の”宮下パーク”がメインのプランです！一階には日本食を楽しめる居酒屋が並ぶとともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。',
-                tags: ['＃ショッピング ', '＃アクティビティ', '＃グルメ', '時間: 1時間〜'],
-                imageUrl:
-                    'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
-              ),
+              PlanHeader(
+                  title: plan.title,
+                  description: plan.description,
+                  imageUrl: plan.imageUrl,
+                  tags: plan.tags),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Column(
@@ -107,30 +136,9 @@ class PlanDetailPage extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColor.grey200,
-                        elevation: 0,
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          const Icon(Icons.pin_drop_outlined),
-                          SizedBox(
-                            width: (width / 2) - 113,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Text(
-                              planDetailPage.item.viewOnMap,
-                              style: AppTextStyle.textStyle.copyWith(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    WideButtonLeftIcon(
+                      title: planDetailPage.item.viewOnMap,
+                      icon: Icons.pin_drop_outlined,
                     ),
                     const SizedBox(
                       height: 16,
