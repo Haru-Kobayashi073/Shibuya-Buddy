@@ -394,7 +394,7 @@ class BuddyChatPageRouteData extends GoRouteData {
 }
 
 @TypedGoRoute<PlanDetailPageRouteData>(
-  path: Routes.planDetailPage
+  path: Routes.planDetailPage,
 )
 class PlanDetailPageRouteData extends GoRouteData {
   const PlanDetailPageRouteData();
