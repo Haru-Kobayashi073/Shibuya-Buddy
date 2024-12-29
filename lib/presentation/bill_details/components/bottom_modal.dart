@@ -13,8 +13,7 @@ class BottomModal extends StatefulWidget {
 }
 
 class _BottomModalState extends State<BottomModal> {
-  String _selectedPlan =
-      t.billDetailsPage.pricingOptions.oneDay.duration;
+  String _selectedPlan = t.billDetailsPage.pricingOptions.oneDay.duration;
 
   @override
   Widget build(BuildContext context) {
@@ -177,39 +176,42 @@ class PlanCard extends StatelessWidget {
                 width: 2,
               ),
             ),
-            child: Theme(
-              data: Theme.of(context).copyWith(
-                unselectedWidgetColor: AppColor.yellow600Primary,
+            child: RadioListTile<String>(
+              value: value,
+              groupValue: groupValue,
+              onChanged: onChanged,
+              activeColor: AppColor.yellow600Primary,
+              fillColor: WidgetStateProperty.resolveWith<Color>(
+                (Set<WidgetState> states) {
+                  if (states.contains(WidgetState.selected)) {
+                    return AppColor.yellow600Primary;
+                  }
+                  return AppColor.yellow600Primary; 
+                },
               ),
-              child: RadioListTile<String>(
-                value: value,
-                groupValue: groupValue,
-                onChanged: onChanged,
-                activeColor: AppColor.yellow600Primary,
-                contentPadding: EdgeInsets.zero,
-                title: Column(
-                  children: [
-                    Text(
-                      label,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      textAlign: TextAlign.center,
+              contentPadding: EdgeInsets.zero,
+              title: Column(
+                children: [
+                  Text(
+                    label,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      price,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      textAlign: TextAlign.center,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    price,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                  ],
-                ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
           ),
