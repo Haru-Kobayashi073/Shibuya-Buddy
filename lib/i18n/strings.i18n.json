@@ -280,6 +280,15 @@
             }
         }
     },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "Plan created on${date}",
+            "dateFormat": "MM/dd/yyyy"
+        },
+        "item":{
+            "viewOnMap": "View on Map"
+        }
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",

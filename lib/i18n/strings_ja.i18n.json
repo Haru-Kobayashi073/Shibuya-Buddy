@@ -280,6 +280,15 @@
             }
         }
     },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "${date}に作られたプラン",
+            "dateFormat": "yyyy年MM月dd日"
+        },
+        "item":{
+            "viewOnMap": "地図で見る"
+        }
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",
