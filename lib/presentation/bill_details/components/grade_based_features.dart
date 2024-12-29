@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../utils/styles/app_color.dart'; // 実際のパスに合わせてインポート
 import '../../../utils/styles/app_text_style.dart';
@@ -66,20 +67,20 @@ class GradeBasedFeatures extends StatelessWidget {
             ),
             _buildRow(
               label: '全プラン一覧のタイムライン閲覧',
-              standard: '×',
-              premium: '〇',
+              standard: Symbols.close,
+              premium: Symbols.circle,
               textStyle: textStyle,
             ),
             _buildRow(
               label: '広告の非表示',
-              standard: '×',
-              premium: '〇',
+              standard: Symbols.close,
+              premium: Symbols.circle,
               textStyle: textStyle,
             ),
             _buildRow(
               label: 'プランの翻訳機能',
-              standard: '×',
-              premium: '〇',
+              standard: Symbols.close,
+              premium: Symbols.circle,
               textStyle: textStyle,
             ),
           ],
@@ -137,42 +138,88 @@ class GradeBasedFeatures extends StatelessWidget {
   }
 
   /// スタンダード列のセル
-  Widget _standardCell(String text, TextStyle style) {
+  Widget _standardCell({
+    String? text,
+    IconData? icon,
+    required TextStyle style,
+  }) {
+    assert(
+      (text != null && icon == null) || (text == null && icon != null),
+      'Either text or icon must be provided, not both or neither.',
+    );
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
-      child: Text(
-        text,
-        style: style,
-        textAlign: TextAlign.center,
-      ),
+      alignment: Alignment.center,
+      child: text != null
+          ? Text(
+              text,
+              style: style,
+              textAlign: TextAlign.center,
+            )
+          : Icon(
+              icon,
+              size: 24,
+              color: style.color,
+            ),
     );
   }
 
-  /// プレミアム列のセル（背景色をつけ、中央寄せ）
-  Widget _premiumCell(String text, TextStyle style) {
+  /// プレミアム列のセル
+  Widget _premiumCell({
+    String? text,
+    IconData? icon,
+    required TextStyle style,
+  }) {
+    assert(
+      (text != null && icon == null) || (text == null && icon != null),
+      'Either text or icon must be provided, not both or neither.',
+    );
+
     return Container(
       color: AppColor.yellow200,
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
-      child: Text(
-        text,
-        style: style,
-        textAlign: TextAlign.center,
-      ),
+      alignment: Alignment.center,
+      child: text != null
+          ? Text(
+              text,
+              style: style,
+              textAlign: TextAlign.center,
+            )
+          : Icon(
+              icon,
+              size: 24,
+              color: style.color,
+            ),
     );
   }
 
   /// 1行ぶんのTableRowを作るショートハンド
   TableRow _buildRow({
     required String label,
-    required String standard,
-    required String premium,
+    required dynamic standard, // TextかIconかを動的に受け入れる
+    required dynamic premium, // TextかIconかを動的に受け入れる
     required TextStyle textStyle,
   }) {
     return TableRow(
       children: [
         _leftCell(label, textStyle),
-        _standardCell(standard, textStyle),
-        _premiumCell(premium, textStyle),
+        if (standard is String)
+          _standardCell(text: standard, style: textStyle)
+        else
+          standard is IconData
+              ? _standardCell(icon: standard, style: textStyle)
+              : throw ArgumentError(
+                  'Standard must be either a String or IconData',
+                ),
+        if (premium is String)
+          _premiumCell(text: premium, style: textStyle)
+        else
+          premium is IconData
+              ? _premiumCell(icon: premium, style: textStyle)
+              : throw ArgumentError(
+                  'Premium must be either a String or IconData',
+                ),
       ],
     );
   }
