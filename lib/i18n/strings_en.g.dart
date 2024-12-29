@@ -50,12 +50,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
 	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
-<<<<<<< HEAD
-	late final TranslationsBillDetailsPageEn billDetailsPage = TranslationsBillDetailsPageEn._(_root);
-=======
 	late final TranslationsConfirmDialogEn confirmDialog = TranslationsConfirmDialogEn._(_root);
 	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
->>>>>>> develop
+	late final TranslationsBillDetailsPageEn billDetailsPage = TranslationsBillDetailsPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -265,27 +262,13 @@ class TranslationsEditProfilePageEn {
 	late final TranslationsEditProfilePageSnackBarEn snackBar = TranslationsEditProfilePageSnackBarEn._(_root);
 }
 
-<<<<<<< HEAD
-// Path: billDetailsPage
-class TranslationsBillDetailsPageEn {
-	TranslationsBillDetailsPageEn._(this._root);
-=======
 // Path: confirmDialog
 class TranslationsConfirmDialogEn {
 	TranslationsConfirmDialogEn._(this._root);
->>>>>>> develop
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
-	String get title => 'Premium Plan';
-	String get description => 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
-	late final TranslationsBillDetailsPagePricingPlanEn pricingPlan = TranslationsBillDetailsPagePricingPlanEn._(_root);
-	late final TranslationsBillDetailsPageFeaturesEn features = TranslationsBillDetailsPageFeaturesEn._(_root);
-	late final TranslationsBillDetailsPagePricingOptionsEn pricingOptions = TranslationsBillDetailsPagePricingOptionsEn._(_root);
-	String get upgradeButton => 'Upgrade to Premium';
-=======
 	late final TranslationsConfirmDialogAnswersEn answers = TranslationsConfirmDialogAnswersEn._(_root);
 	late final TranslationsConfirmDialogPopPageEn popPage = TranslationsConfirmDialogPopPageEn._(_root);
 	late final TranslationsConfirmDialogCompleteCreatePlanEn completeCreatePlan = TranslationsConfirmDialogCompleteCreatePlanEn._(_root);
@@ -299,7 +282,21 @@ class TranslationsPromptEn {
 
 	// Translations
 	String get planProposalMessage => 'I’ve come up with this plan! What do you think?';
->>>>>>> develop
+}
+
+// Path: billDetailsPage
+class TranslationsBillDetailsPageEn {
+	TranslationsBillDetailsPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Premium Plan';
+	String get description => 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
+	late final TranslationsBillDetailsPagePricingPlanEn pricingPlan = TranslationsBillDetailsPagePricingPlanEn._(_root);
+	late final TranslationsBillDetailsPageFeaturesEn features = TranslationsBillDetailsPageFeaturesEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsEn pricingOptions = TranslationsBillDetailsPagePricingOptionsEn._(_root);
+	String get upgradeButton => 'Upgrade to Premium';
 }
 
 // Path: navigationBar.items
@@ -648,20 +645,46 @@ class TranslationsEditProfilePageSnackBarEn {
 	late final TranslationsEditProfilePageSnackBarErrorEn error = TranslationsEditProfilePageSnackBarErrorEn._(_root);
 }
 
-<<<<<<< HEAD
-// Path: billDetailsPage.pricingPlan
-class TranslationsBillDetailsPagePricingPlanEn {
-	TranslationsBillDetailsPagePricingPlanEn._(this._root);
-=======
 // Path: confirmDialog.answers
 class TranslationsConfirmDialogAnswersEn {
 	TranslationsConfirmDialogAnswersEn._(this._root);
->>>>>>> develop
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
+	String get yes => 'Yes';
+	String get no => 'No';
+}
+
+// Path: confirmDialog.popPage
+class TranslationsConfirmDialogPopPageEn {
+	TranslationsConfirmDialogPopPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Return to the previous page?';
+	String get description => 'Current content will not be saved.';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class TranslationsConfirmDialogCompleteCreatePlanEn {
+	TranslationsConfirmDialogCompleteCreatePlanEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Confirm the plan?';
+	String get description => 'The plan in the last message will be saved.';
+}
+
+// Path: billDetailsPage.pricingPlan
+class TranslationsBillDetailsPagePricingPlanEn {
+	TranslationsBillDetailsPagePricingPlanEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
 	String get title => 'Pricing Plan';
 	late final TranslationsBillDetailsPagePricingPlanColumnsEn columns = TranslationsBillDetailsPagePricingPlanColumnsEn._(_root);
 	late final TranslationsBillDetailsPagePricingPlanDetailsEn details = TranslationsBillDetailsPagePricingPlanDetailsEn._(_root);
@@ -670,20 +693,10 @@ class TranslationsConfirmDialogAnswersEn {
 // Path: billDetailsPage.features
 class TranslationsBillDetailsPageFeaturesEn {
 	TranslationsBillDetailsPageFeaturesEn._(this._root);
-=======
-	String get yes => 'Yes';
-	String get no => 'No';
-}
-
-// Path: confirmDialog.popPage
-class TranslationsConfirmDialogPopPageEn {
-	TranslationsConfirmDialogPopPageEn._(this._root);
->>>>>>> develop
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
 	String get title => 'Features by Grade';
 	late final TranslationsBillDetailsPageFeaturesRowsEn rows = TranslationsBillDetailsPageFeaturesRowsEn._(_root);
 	late final TranslationsBillDetailsPageFeaturesColumnsEn columns = TranslationsBillDetailsPageFeaturesColumnsEn._(_root);
@@ -692,29 +705,15 @@ class TranslationsConfirmDialogPopPageEn {
 // Path: billDetailsPage.pricingOptions
 class TranslationsBillDetailsPagePricingOptionsEn {
 	TranslationsBillDetailsPagePricingOptionsEn._(this._root);
-=======
-	String get title => 'Return to the previous page?';
-	String get description => 'Current content will not be saved.';
-}
-
-// Path: confirmDialog.completeCreatePlan
-class TranslationsConfirmDialogCompleteCreatePlanEn {
-	TranslationsConfirmDialogCompleteCreatePlanEn._(this._root);
->>>>>>> develop
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
 	late final TranslationsBillDetailsPagePricingOptionsOneDayEn oneDay = TranslationsBillDetailsPagePricingOptionsOneDayEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsThreeDaysEn threeDays = TranslationsBillDetailsPagePricingOptionsThreeDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsFiveDaysEn fiveDays = TranslationsBillDetailsPagePricingOptionsFiveDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsSevenDaysEn sevenDays = TranslationsBillDetailsPagePricingOptionsSevenDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsLifetimeEn lifetime = TranslationsBillDetailsPagePricingOptionsLifetimeEn._(_root);
-=======
-	String get title => 'Confirm the plan?';
-	String get description => 'The plan in the last message will be saved.';
->>>>>>> develop
 }
 
 // Path: authentication.signInPage.textFields
@@ -1227,7 +1226,13 @@ extension on Translations {
 			case 'editProfilePage.snackBar.error.noChange': return 'No changes detected';
 			case 'editProfilePage.snackBar.error.failedToUpdate': return 'Failed to update. Please try again later.';
 			case 'editProfilePage.snackBar.error.failedToPickImage': return 'Failed to select image. Please try again later.';
-<<<<<<< HEAD
+			case 'confirmDialog.answers.yes': return 'Yes';
+			case 'confirmDialog.answers.no': return 'No';
+			case 'confirmDialog.popPage.title': return 'Return to the previous page?';
+			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
+			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
+			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
+			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
 			case 'billDetailsPage.title': return 'Premium Plan';
 			case 'billDetailsPage.description': return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
 			case 'billDetailsPage.pricingPlan.title': return 'Pricing Plan';
@@ -1270,15 +1275,6 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
 			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
-=======
-			case 'confirmDialog.answers.yes': return 'Yes';
-			case 'confirmDialog.answers.no': return 'No';
-			case 'confirmDialog.popPage.title': return 'Return to the previous page?';
-			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
-			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
-			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
-			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
->>>>>>> develop
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

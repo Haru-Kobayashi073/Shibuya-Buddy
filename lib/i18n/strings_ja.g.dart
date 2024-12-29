@@ -46,12 +46,9 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
 	@override late final _TranslationsCreatePlanPageJa createPlanPage = _TranslationsCreatePlanPageJa._(_root);
 	@override late final _TranslationsEditProfilePageJa editProfilePage = _TranslationsEditProfilePageJa._(_root);
-<<<<<<< HEAD
-	@override late final _TranslationsBillDetailsPageJa billDetailsPage = _TranslationsBillDetailsPageJa._(_root);
-=======
 	@override late final _TranslationsConfirmDialogJa confirmDialog = _TranslationsConfirmDialogJa._(_root);
 	@override late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
->>>>>>> develop
+	@override late final _TranslationsBillDetailsPageJa billDetailsPage = _TranslationsBillDetailsPageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -261,27 +258,13 @@ class _TranslationsEditProfilePageJa implements TranslationsEditProfilePageEn {
 	@override late final _TranslationsEditProfilePageSnackBarJa snackBar = _TranslationsEditProfilePageSnackBarJa._(_root);
 }
 
-<<<<<<< HEAD
-// Path: billDetailsPage
-class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
-	_TranslationsBillDetailsPageJa._(this._root);
-=======
 // Path: confirmDialog
 class _TranslationsConfirmDialogJa implements TranslationsConfirmDialogEn {
 	_TranslationsConfirmDialogJa._(this._root);
->>>>>>> develop
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
-	@override String get title => 'プレミアムプラン';
-	@override String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
-	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
-	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions = _TranslationsBillDetailsPagePricingOptionsJa._(_root);
-	@override String get upgradeButton => 'プレミアムにアップグレード';
-=======
 	@override late final _TranslationsConfirmDialogAnswersJa answers = _TranslationsConfirmDialogAnswersJa._(_root);
 	@override late final _TranslationsConfirmDialogPopPageJa popPage = _TranslationsConfirmDialogPopPageJa._(_root);
 	@override late final _TranslationsConfirmDialogCompleteCreatePlanJa completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanJa._(_root);
@@ -295,7 +278,21 @@ class _TranslationsPromptJa implements TranslationsPromptEn {
 
 	// Translations
 	@override String get planProposalMessage => 'こんなプランを考えてみました！いかがですか？';
->>>>>>> develop
+}
+
+// Path: billDetailsPage
+class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
+	_TranslationsBillDetailsPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プレミアムプラン';
+	@override String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
+	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions = _TranslationsBillDetailsPagePricingOptionsJa._(_root);
+	@override String get upgradeButton => 'プレミアムにアップグレード';
 }
 
 // Path: navigationBar.items
@@ -644,20 +641,46 @@ class _TranslationsEditProfilePageSnackBarJa implements TranslationsEditProfileP
 	@override late final _TranslationsEditProfilePageSnackBarErrorJa error = _TranslationsEditProfilePageSnackBarErrorJa._(_root);
 }
 
-<<<<<<< HEAD
-// Path: billDetailsPage.pricingPlan
-class _TranslationsBillDetailsPagePricingPlanJa implements TranslationsBillDetailsPagePricingPlanEn {
-	_TranslationsBillDetailsPagePricingPlanJa._(this._root);
-=======
 // Path: confirmDialog.answers
 class _TranslationsConfirmDialogAnswersJa implements TranslationsConfirmDialogAnswersEn {
 	_TranslationsConfirmDialogAnswersJa._(this._root);
->>>>>>> develop
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
+	@override String get yes => 'はい';
+	@override String get no => 'いいえ';
+}
+
+// Path: confirmDialog.popPage
+class _TranslationsConfirmDialogPopPageJa implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '前の画面に戻りますか？';
+	@override String get description => '現在の内容は保存されません';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プランを確定しますか？';
+	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
+}
+
+// Path: billDetailsPage.pricingPlan
+class _TranslationsBillDetailsPagePricingPlanJa implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => '料金プラン';
 	@override late final _TranslationsBillDetailsPagePricingPlanColumnsJa columns = _TranslationsBillDetailsPagePricingPlanColumnsJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingPlanDetailsJa details = _TranslationsBillDetailsPagePricingPlanDetailsJa._(_root);
@@ -666,20 +689,10 @@ class _TranslationsConfirmDialogAnswersJa implements TranslationsConfirmDialogAn
 // Path: billDetailsPage.features
 class _TranslationsBillDetailsPageFeaturesJa implements TranslationsBillDetailsPageFeaturesEn {
 	_TranslationsBillDetailsPageFeaturesJa._(this._root);
-=======
-	@override String get yes => 'はい';
-	@override String get no => 'いいえ';
-}
-
-// Path: confirmDialog.popPage
-class _TranslationsConfirmDialogPopPageJa implements TranslationsConfirmDialogPopPageEn {
-	_TranslationsConfirmDialogPopPageJa._(this._root);
->>>>>>> develop
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
 	@override String get title => 'グレードごとの機能';
 	@override late final _TranslationsBillDetailsPageFeaturesRowsJa rows = _TranslationsBillDetailsPageFeaturesRowsJa._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesColumnsJa columns = _TranslationsBillDetailsPageFeaturesColumnsJa._(_root);
@@ -688,29 +701,15 @@ class _TranslationsConfirmDialogPopPageJa implements TranslationsConfirmDialogPo
 // Path: billDetailsPage.pricingOptions
 class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDetailsPagePricingOptionsEn {
 	_TranslationsBillDetailsPagePricingOptionsJa._(this._root);
-=======
-	@override String get title => '前の画面に戻りますか？';
-	@override String get description => '現在の内容は保存されません';
-}
-
-// Path: confirmDialog.completeCreatePlan
-class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConfirmDialogCompleteCreatePlanEn {
-	_TranslationsConfirmDialogCompleteCreatePlanJa._(this._root);
->>>>>>> develop
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-<<<<<<< HEAD
 	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayJa oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysJa threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
-=======
-	@override String get title => 'プランを確定しますか？';
-	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
->>>>>>> develop
 }
 
 // Path: authentication.signInPage.textFields
@@ -1223,7 +1222,13 @@ extension on TranslationsJa {
 			case 'editProfilePage.snackBar.error.noChange': return '変更がありません';
 			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新に失敗しました しばらくしてから再度お試しください';
 			case 'editProfilePage.snackBar.error.failedToPickImage': return '画像の選択に失敗しました しばらくしてから再度お試しください';
-<<<<<<< HEAD
+			case 'confirmDialog.answers.yes': return 'はい';
+			case 'confirmDialog.answers.no': return 'いいえ';
+			case 'confirmDialog.popPage.title': return '前の画面に戻りますか？';
+			case 'confirmDialog.popPage.description': return '現在の内容は保存されません';
+			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
+			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
+			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
 			case 'billDetailsPage.title': return 'プレミアムプラン';
 			case 'billDetailsPage.description': return 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
 			case 'billDetailsPage.pricingPlan.title': return '料金プラン';
@@ -1266,15 +1271,6 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
 			case 'billDetailsPage.upgradeButton': return 'プレミアムにアップグレード';
-=======
-			case 'confirmDialog.answers.yes': return 'はい';
-			case 'confirmDialog.answers.no': return 'いいえ';
-			case 'confirmDialog.popPage.title': return '前の画面に戻りますか？';
-			case 'confirmDialog.popPage.description': return '現在の内容は保存されません';
-			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
-			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
-			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
->>>>>>> develop
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
