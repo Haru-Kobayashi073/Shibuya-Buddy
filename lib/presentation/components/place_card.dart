@@ -47,9 +47,9 @@ class PlaceCard extends StatelessWidget {
               ),
             ),
             Offstage(
-              offstage: index == (endindex! - 1),
+              offstage: (endindex == null) || (index == endindex),
               child: const SizedBox(
-                height: 400, //数値固定を修正する
+                height: 450, //数値固定を修正する
                 child: VerticalDivider(),
               ),
             ),
