@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/entities/place.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/place_card.dart';
-import '../components/wide_button.dart';
 import 'components/circle_icon_button.dart';
 import 'components/plan_header.dart';
 
 List<Place> dummyPlans = [
   Place(
     id: '1',
-    name: '渋谷スクランブル交差点',
-    title: '世界的に有名な交差点。',
+    name: 'TitleTitleTitleTitleTitleTitleTitleTitle',
+    title: '世界的に有名な交差点。世界的に有名な交差点世界的に有名な交差点世界的に有名な交差点世界的に有名な交差点世界的に有名な交差点',
     thumbnailUrl:
         'https://www.cnn.co.jp/storage/2019/08/11/fbb9c1766abe6fa21b92a2808505d1e3/shibuya-crossing-tokyo-003.jpg',
     openingHours: (
@@ -55,11 +55,13 @@ class PlanDetailPage extends StatelessWidget {
     final plans = <Widget>[];
     var i = 0;
     for (final plan in dummyPlans) {
-      plans.add(PlaceCard(
-        place: plan,
-        index: i,
-        endindex: dummyPlans.length,
-      ));
+      plans.add(
+        PlaceCard(
+          place: plan,
+          index: i,
+          endindex: dummyPlans.length - 1,
+        ),
+      );
       i++;
     }
     return plans;
@@ -67,7 +69,13 @@ class PlanDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final outputFormat = DateFormat('yyyy年MM月dd日に作られたプラン');
+    final width = MediaQuery.of(context).size.width;
+    final i18n = Translations.of(context);
+    final planDetailPage = i18n.planDetailsPage;
+
+    final outputFormat =
+        DateFormat(planDetailPage.dateTime.dateFormat).format(DateTime.now());
+
     return Scaffold(
       body: Stack(
         children: [
@@ -89,9 +97,7 @@ class PlanDetailPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        outputFormat.format(
-                          DateTime.now(),
-                        ),
+                        planDetailPage.dateTime.createOn(date: outputFormat),
                         style: AppTextStyle.textStyle.copyWith(
                           fontSize: 14,
                           color: AppColor.grey600,
@@ -101,17 +107,30 @@ class PlanDetailPage extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    WideButton(
-                      label: '地図で見る',
-                      color: AppColor.grey200,
-                      icon: const Align(
-                        alignment: Alignment(10, 10),
-                        child: Icon(
-                          Icons.pin_drop_outlined,
-                          color: AppColor.black,
-                        ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.grey200,
+                        elevation: 0,
                       ),
                       onPressed: () {},
+                      child: Row(
+                        children: [
+                          const Icon(Icons.pin_drop_outlined),
+                          SizedBox(
+                            width: (width / 2) - 113,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Text(
+                              planDetailPage.item.viewOnMap,
+                              style: AppTextStyle.textStyle.copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 16,
