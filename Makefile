@@ -8,3 +8,7 @@ slang:
 	dart run slang
 format:
 	dart format $(shell find lib -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" \)) --set-exit-if-changed
+build-dev-aab:
+	flutter build appbundle --dart-define-from-file=dart_defines/dev.env --release
+build-prod-aab:
+	flutter build appbundle --dart-define-from-file=dart_defines/prod.env --release
