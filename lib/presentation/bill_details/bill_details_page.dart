@@ -11,9 +11,7 @@ class BillDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const imageUrl =
-        'https://images.unsplash.com/photo-1588099768550-4014589e03e0?ixlib=rb-1.2.1&ixid='
-        'MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80';
+    const imagePath = 'assets/images/billing_header.png';
 
     const bottomModalHeight = 150.0;
 
@@ -27,7 +25,7 @@ class BillDetailsPage extends StatelessWidget {
                 pinned: true,
                 expandedHeight: 250,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.network(imageUrl, fit: BoxFit.cover),
+                  background: Image.asset(imagePath, fit: BoxFit.cover),
                 ),
               ),
               const SliverToBoxAdapter(
