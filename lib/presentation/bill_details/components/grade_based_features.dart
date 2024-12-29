@@ -21,7 +21,6 @@ class GradeBasedFeatures extends StatelessWidget {
 
     return Column(
       children: [
-        // タイトルを多言語化
         Text(
           t.billDetailsPage.features.title,
           style: AppTextStyle.textStyle.copyWith(
@@ -46,7 +45,7 @@ class GradeBasedFeatures extends StatelessWidget {
             // ───────────── ヘッダー行 ─────────────
             TableRow(
               children: [
-                const SizedBox(), // 左上は空欄
+                const SizedBox(),
                 _headerCell(
                   t.billDetailsPage.features.columns.standard.label,
                   headerStyle,
@@ -98,7 +97,7 @@ class GradeBasedFeatures extends StatelessWidget {
     );
   }
 
-  /// ヘッダーセル
+  //ヘッダーのセル
   Widget _headerCell(
     String text,
     TextStyle style, {
@@ -114,15 +113,15 @@ class GradeBasedFeatures extends StatelessWidget {
         alignment: Alignment.center,
         color: hasBackground
             ? AppColor.yellow200
-            : Colors.transparent, // 背景色を条件付きで設定
+            : Colors.transparent,
         child: FittedBox(
-          fit: BoxFit.scaleDown, // テキストが親のサイズに収まるよう縮小
+          fit: BoxFit.scaleDown,
           child: Text(
             text,
             style: style,
-            textAlign: TextAlign.center, // 中央揃え
-            maxLines: 1, // 最大1行に制限
-            softWrap: false, // 強制的に改行を防止
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            softWrap: false,
           ),
         ),
       ),
@@ -206,8 +205,8 @@ class GradeBasedFeatures extends StatelessWidget {
   /// 1行ぶんのTableRowを作るショートハンド
   TableRow _buildRow({
     required String label,
-    required dynamic standard, // TextかIconかを動的に受け入れる
-    required dynamic premium, // TextかIconかを動的に受け入れる
+    required dynamic standard,
+    required dynamic premium,
     required TextStyle textStyle,
   }) {
     return TableRow(

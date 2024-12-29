@@ -14,7 +14,7 @@ class BottomModal extends StatefulWidget {
 
 class _BottomModalState extends State<BottomModal> {
   String _selectedPlan =
-      t.billDetailsPage.pricingOptions.oneDay.duration; // 初期値を設定
+      t.billDetailsPage.pricingOptions.oneDay.duration;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _BottomModalState extends State<BottomModal> {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 10,
             blurRadius: 20,
-            offset: const Offset(0, 3), // 影の位置
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -36,12 +36,11 @@ class _BottomModalState extends State<BottomModal> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // プラン選択部分
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(left: 16), // 16pxのPaddingを追加
+              padding: const EdgeInsets.only(left: 16),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween, // 追加
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ..._buildPlanCards().map((card) {
                     return Padding(
@@ -49,12 +48,11 @@ class _BottomModalState extends State<BottomModal> {
                       child: card,
                     );
                   }),
-                  const SizedBox(width: 16), // 余白を追加
+                  const SizedBox(width: 16),
                 ],
               ),
             ),
             const SizedBox(height: 16),
-            // アップグレードボタン
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: WideButton.gradient(
