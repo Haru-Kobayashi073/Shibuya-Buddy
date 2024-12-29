@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
-import '../../../utils/styles/app_color.dart'; // 実際のパスに合わせてインポート
+import '../../../i18n/strings.g.dart';
+import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class GradeBasedFeatures extends StatelessWidget {
@@ -17,10 +18,12 @@ class GradeBasedFeatures extends StatelessWidget {
       fontSize: 10,
       fontWeight: FontWeight.bold,
     );
+
     return Column(
       children: [
+        // タイトルを多言語化
         Text(
-          'グレードごとの機能',
+          t.billDetailsPage.features.title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -45,40 +48,46 @@ class GradeBasedFeatures extends StatelessWidget {
               children: [
                 const SizedBox(), // 左上は空欄
                 _headerCell(
-                  'スタンダード',
+                  t.billDetailsPage.features.columns.standard.label,
                   headerStyle,
                 ),
-                _headerCell('プレミアム', headerStyle, hasBackground: true),
+                _headerCell(
+                  t.billDetailsPage.features.columns.premium.label,
+                  headerStyle,
+                  hasBackground: true,
+                ),
               ],
             ),
 
             // ───────────── データ行 ─────────────
             _buildRow(
-              label: 'プランの作成可能回数',
-              standard: '2回',
-              premium: '無制限',
+              label: t.billDetailsPage.features.rows.planCreationLimit,
+              standard:
+                  t.billDetailsPage.features.columns.standard.planCreationLimit,
+              premium:
+                  t.billDetailsPage.features.columns.premium.planCreationLimit,
               textStyle: textStyle,
             ),
             _buildRow(
-              label: 'プラン作成中のチャット可能回数',
-              standard: '3回',
-              premium: '無制限',
+              label: t.billDetailsPage.features.rows.chatLimit,
+              standard: t.billDetailsPage.features.columns.standard.chatLimit,
+              premium: t.billDetailsPage.features.columns.premium.chatLimit,
               textStyle: textStyle,
             ),
             _buildRow(
-              label: '全プラン一覧のタイムライン閲覧',
+              label: t.billDetailsPage.features.rows.timelineAccess,
               standard: Symbols.close,
               premium: Symbols.circle,
               textStyle: textStyle,
             ),
             _buildRow(
-              label: '広告の非表示',
+              label: t.billDetailsPage.features.rows.adFree,
               standard: Symbols.close,
               premium: Symbols.circle,
               textStyle: textStyle,
             ),
             _buildRow(
-              label: 'プランの翻訳機能',
+              label: t.billDetailsPage.features.rows.exclusiveFeatures,
               standard: Symbols.close,
               premium: Symbols.circle,
               textStyle: textStyle,

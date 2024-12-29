@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
@@ -21,7 +22,7 @@ class PlanTable extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '料金プラン',
+          t.billDetailsPage.pricingPlan.title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -47,7 +48,10 @@ class PlanTable extends StatelessWidget {
                         const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
                     color: AppColor.blue50Background,
                     child: Center(
-                      child: Text('スタンダード', style: headerStyle),
+                      child: Text(
+                        t.billDetailsPage.pricingPlan.columns.standard,
+                        style: headerStyle,
+                      ),
                     ),
                   ),
                 ),
@@ -61,7 +65,10 @@ class PlanTable extends StatelessWidget {
                         const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
                     color: AppColor.yellow200,
                     child: Center(
-                      child: Text('プレミアム', style: headerStyle),
+                      child: Text(
+                        t.billDetailsPage.pricingPlan.columns.premium,
+                        style: headerStyle,
+                      ),
                     ),
                   ),
                 ),
@@ -78,7 +85,10 @@ class PlanTable extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(16),
                     color: AppColor.blue50Background,
-                    child: Text('無料 🎉', style: headerStyle),
+                    child: Text(
+                      t.billDetailsPage.pricingPlan.details.free,
+                      style: headerStyle,
+                    ),
                   ),
                 ),
                 ClipRRect(
@@ -94,23 +104,43 @@ class PlanTable extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('日数分購入', style: planTextStyle),
+                            Text(
+                              t.billDetailsPage.pricingPlan.details.premiumPrice
+                                  .days,
+                              style: planTextStyle,
+                            ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const SizedBox(height: 8),
-                                Text('・1日  300円', style: planTextStyle),
-                                Text('・3日  855円', style: planTextStyle),
-                                Text('・5日  1,480円', style: planTextStyle),
-                                Text('・7日  2,070円', style: planTextStyle),
+                                Text(
+                                  t.billDetailsPage.pricingPlan.details
+                                      .premiumPrice.daily,
+                                  style: planTextStyle,
+                                ),
+                                Text(
+                                  t.billDetailsPage.pricingPlan.details
+                                      .premiumPrice.threeDays,
+                                  style: planTextStyle,
+                                ),
+                                Text(
+                                  t.billDetailsPage.pricingPlan.details
+                                      .premiumPrice.fiveDays,
+                                  style: planTextStyle,
+                                ),
+                                Text(
+                                  t.billDetailsPage.pricingPlan.details
+                                      .premiumPrice.sevenDays,
+                                  style: planTextStyle,
+                                ),
                               ],
                             ),
                           ],
                         ),
                         const SizedBox(width: 12),
                         Text(
-                          'または',
+                          t.billDetailsPage.pricingPlan.details.premiumPrice.or,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                           ),
@@ -119,13 +149,21 @@ class PlanTable extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('永年分', style: planTextStyle),
+                            Text(
+                              t.billDetailsPage.pricingPlan.details.premiumPrice
+                                  .lifetime,
+                              style: planTextStyle,
+                            ),
                             const SizedBox(width: 12),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('25800円', style: planTextStyle),
+                                Text(
+                                  t.billDetailsPage.pricingPlan.details
+                                      .premiumPrice.lifetimePrice,
+                                  style: planTextStyle,
+                                ),
                               ],
                             ),
                           ],

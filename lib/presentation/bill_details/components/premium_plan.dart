@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class PremiumPlan extends StatelessWidget {
@@ -11,7 +12,7 @@ class PremiumPlan extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'プレミアムプラン',
+          t.billDetailsPage.title,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -19,8 +20,7 @@ class PremiumPlan extends StatelessWidget {
         ),
         const Gap(8),
         Text(
-          'プレミアムプランに加入することで、\n'
-          'より快適に渋谷観光をお楽しみいただけます。',
+          t.billDetailsPage.description,
           textAlign: TextAlign.center,
           style: AppTextStyle.textStyle.copyWith(
             fontSize: 14,

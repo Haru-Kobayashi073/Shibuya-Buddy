@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
@@ -12,7 +13,8 @@ class BottomModal extends StatefulWidget {
 }
 
 class _BottomModalState extends State<BottomModal> {
-  String _selectedPlan = '1日分'; // 初期値を設定
+  String _selectedPlan =
+      t.billDetailsPage.pricingOptions.oneDay.duration; // 初期値を設定
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class _BottomModalState extends State<BottomModal> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: WideButton.gradient(
-                label: 'プレミアムにアップグレード',
+                label: t.billDetailsPage.upgradeButton,
                 gradient: const LinearGradient(
                   colors: [
                     AppColor.yellow600Primary,
@@ -79,10 +81,10 @@ class _BottomModalState extends State<BottomModal> {
   List<Widget> _buildPlanCards() {
     return [
       PlanCard(
-        label: '1日分',
-        price: '300円',
+        label: t.billDetailsPage.pricingOptions.oneDay.duration,
+        price: t.billDetailsPage.pricingOptions.oneDay.price,
         groupValue: _selectedPlan,
-        value: '1日分',
+        value: t.billDetailsPage.pricingOptions.oneDay.duration,
         onChanged: (value) {
           setState(() {
             _selectedPlan = value!;
@@ -90,11 +92,11 @@ class _BottomModalState extends State<BottomModal> {
         },
       ),
       PlanCard(
-        label: '3日分',
-        price: '890円',
+        label: t.billDetailsPage.pricingOptions.threeDays.duration,
+        price: t.billDetailsPage.pricingOptions.threeDays.price,
+        discount: t.billDetailsPage.pricingOptions.threeDays.discount,
         groupValue: _selectedPlan,
-        value: '3日分',
-        discount: '-5%',
+        value: t.billDetailsPage.pricingOptions.threeDays.duration,
         onChanged: (value) {
           setState(() {
             _selectedPlan = value!;
@@ -102,11 +104,11 @@ class _BottomModalState extends State<BottomModal> {
         },
       ),
       PlanCard(
-        label: '5日分',
-        price: '1387円',
+        label: t.billDetailsPage.pricingOptions.fiveDays.duration,
+        price: t.billDetailsPage.pricingOptions.fiveDays.price,
+        discount: t.billDetailsPage.pricingOptions.fiveDays.discount,
         groupValue: _selectedPlan,
-        value: '5日分',
-        discount: '-7.5%',
+        value: t.billDetailsPage.pricingOptions.fiveDays.duration,
         onChanged: (value) {
           setState(() {
             _selectedPlan = value!;
@@ -114,11 +116,11 @@ class _BottomModalState extends State<BottomModal> {
         },
       ),
       PlanCard(
-        label: '7日分',
-        price: '1800円',
+        label: t.billDetailsPage.pricingOptions.sevenDays.duration,
+        price: t.billDetailsPage.pricingOptions.sevenDays.price,
+        discount: t.billDetailsPage.pricingOptions.sevenDays.discount,
         groupValue: _selectedPlan,
-        value: '7日分',
-        discount: '-10%',
+        value: t.billDetailsPage.pricingOptions.sevenDays.duration,
         onChanged: (value) {
           setState(() {
             _selectedPlan = value!;
@@ -126,10 +128,10 @@ class _BottomModalState extends State<BottomModal> {
         },
       ),
       PlanCard(
-        label: '永久分',
-        price: '9999円',
+        label: t.billDetailsPage.pricingOptions.lifetime.duration,
+        price: t.billDetailsPage.pricingOptions.lifetime.price,
         groupValue: _selectedPlan,
-        value: '永久分',
+        value: t.billDetailsPage.pricingOptions.lifetime.duration,
         onChanged: (value) {
           setState(() {
             _selectedPlan = value!;
@@ -169,33 +171,24 @@ class PlanCard extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             decoration: BoxDecoration(
-              color: AppColor.yellow50Background, // 常に薄い黄色の背景色
+              color: AppColor.yellow50Background,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: isSelected
-                    ? AppColor.yellow600Primary // 選択時の枠線
-                    : Colors.transparent, // 非選択時の枠線
+                color:
+                    isSelected ? AppColor.yellow600Primary : Colors.transparent,
                 width: 2,
               ),
             ),
             child: Theme(
               data: Theme.of(context).copyWith(
-                unselectedWidgetColor: AppColor.yellow600Primary, // 非選択時の色を設定
+                unselectedWidgetColor: AppColor.yellow600Primary,
               ),
               child: RadioListTile<String>(
                 value: value,
                 groupValue: groupValue,
-                onChanged: onChanged, // 選択時の処理
+                onChanged: onChanged,
                 activeColor: AppColor.yellow600Primary,
-                fillColor: WidgetStateProperty.resolveWith<Color>(
-                  (Set<WidgetState> states) {
-                    if (states.contains(WidgetState.selected)) {
-                      return AppColor.yellow600Primary; // 選択時
-                    }
-                    return AppColor.yellow600Primary; // 非選択時も黄色
-                  },
-                ),
-                contentPadding: EdgeInsets.zero, // 余白削除
+                contentPadding: EdgeInsets.zero,
                 title: Column(
                   children: [
                     Text(
@@ -205,7 +198,7 @@ class PlanCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-                      textAlign: TextAlign.center, // テキストの中央揃え
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -215,7 +208,7 @@ class PlanCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-                      textAlign: TextAlign.center, // テキストの中央揃え
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
