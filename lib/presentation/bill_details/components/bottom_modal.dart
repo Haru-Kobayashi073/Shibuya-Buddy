@@ -36,108 +36,118 @@ class _BottomModalState extends State<BottomModal> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ..._buildPlanCards().map((card) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: card,
-                    );
-                  }),
-                  const Gap(16),
-                ],
-              ),
-            ),
+            _buildPlanCardsRow(),
             const Gap(16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: WideButton.gradient(
-                label: t.billDetailsPage.upgradeButton,
-                gradient: const LinearGradient(
-                  colors: [
-                    AppColor.yellow600Primary,
-                    AppColor.yellow200,
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                onPressed: () {
-                  print(_selectedPlan);
-                },
-              ),
-            ),
+            _buildUpgradeButton(),
           ],
         ),
       ),
     );
   }
 
+  Widget _buildPlanCardsRow() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.only(left: 16),
+      child: Row(
+        children: [
+          ..._buildPlanCards().map(
+            (card) => Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: card,
+            ),
+          ),
+          const Gap(16),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUpgradeButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: WideButton.gradient(
+        label: t.billDetailsPage.upgradeButton,
+        gradient: const LinearGradient(
+          colors: [
+            AppColor.yellow600Primary,
+            AppColor.yellow200,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        onPressed: () => print(_selectedPlan),
+      ),
+    );
+  }
+
   List<Widget> _buildPlanCards() {
+    final pricingOptions = t.billDetailsPage.pricingOptions;
+
     return [
-      PlanCard(
-        label: t.billDetailsPage.pricingOptions.oneDay.duration,
-        price: t.billDetailsPage.pricingOptions.oneDay.price,
-        groupValue: _selectedPlan,
-        value: t.billDetailsPage.pricingOptions.oneDay.duration,
-        onChanged: (value) {
-          setState(() {
-            _selectedPlan = value!;
-          });
-        },
+      _buildPlanCard(
+        PricingOption(
+          duration: pricingOptions.oneDay.duration,
+          price: pricingOptions.oneDay.price,
+          discount: pricingOptions.oneDay.discount,
+        ),
       ),
-      PlanCard(
-        label: t.billDetailsPage.pricingOptions.threeDays.duration,
-        price: t.billDetailsPage.pricingOptions.threeDays.price,
-        discount: t.billDetailsPage.pricingOptions.threeDays.discount,
-        groupValue: _selectedPlan,
-        value: t.billDetailsPage.pricingOptions.threeDays.duration,
-        onChanged: (value) {
-          setState(() {
-            _selectedPlan = value!;
-          });
-        },
+      _buildPlanCard(
+        PricingOption(
+          duration: pricingOptions.threeDays.duration,
+          price: pricingOptions.threeDays.price,
+          discount: pricingOptions.threeDays.discount,
+        ),
       ),
-      PlanCard(
-        label: t.billDetailsPage.pricingOptions.fiveDays.duration,
-        price: t.billDetailsPage.pricingOptions.fiveDays.price,
-        discount: t.billDetailsPage.pricingOptions.fiveDays.discount,
-        groupValue: _selectedPlan,
-        value: t.billDetailsPage.pricingOptions.fiveDays.duration,
-        onChanged: (value) {
-          setState(() {
-            _selectedPlan = value!;
-          });
-        },
+      _buildPlanCard(
+        PricingOption(
+          duration: pricingOptions.fiveDays.duration,
+          price: pricingOptions.fiveDays.price,
+          discount: pricingOptions.fiveDays.discount,
+        ),
       ),
-      PlanCard(
-        label: t.billDetailsPage.pricingOptions.sevenDays.duration,
-        price: t.billDetailsPage.pricingOptions.sevenDays.price,
-        discount: t.billDetailsPage.pricingOptions.sevenDays.discount,
-        groupValue: _selectedPlan,
-        value: t.billDetailsPage.pricingOptions.sevenDays.duration,
-        onChanged: (value) {
-          setState(() {
-            _selectedPlan = value!;
-          });
-        },
+      _buildPlanCard(
+        PricingOption(
+          duration: pricingOptions.sevenDays.duration,
+          price: pricingOptions.sevenDays.price,
+          discount: pricingOptions.sevenDays.discount,
+        ),
       ),
-      PlanCard(
-        label: t.billDetailsPage.pricingOptions.lifetime.duration,
-        price: t.billDetailsPage.pricingOptions.lifetime.price,
-        groupValue: _selectedPlan,
-        value: t.billDetailsPage.pricingOptions.lifetime.duration,
-        onChanged: (value) {
-          setState(() {
-            _selectedPlan = value!;
-          });
-        },
+      _buildPlanCard(
+        PricingOption(
+          duration: pricingOptions.lifetime.duration,
+          price: pricingOptions.lifetime.price,
+          discount: pricingOptions.lifetime.discount,
+        ),
       ),
     ];
   }
+
+  Widget _buildPlanCard(PricingOption pricingOption) {
+    return PlanCard(
+      label: pricingOption.duration,
+      price: pricingOption.price,
+      discount: pricingOption.discount,
+      groupValue: _selectedPlan,
+      value: pricingOption.duration,
+      onChanged: (value) {
+        setState(() {
+          _selectedPlan = value!;
+        });
+      },
+    );
+  }
+}
+
+class PricingOption {
+  PricingOption({
+    required this.duration,
+    required this.price,
+    this.discount,
+  });
+  final String duration;
+  final String price;
+  final String? discount;
 }
 
 class PlanCard extends StatelessWidget {
@@ -217,25 +227,25 @@ class PlanCard extends StatelessWidget {
             ),
           ),
         ),
-        if (discount != null)
-          Align(
-            alignment: Alignment.topLeft,
+        if (discount != null && discount!.isNotEmpty)
+          Positioned(
+            top: 0,
+            left: 0,
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(80),
                   topRight: Radius.circular(20),
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
+                  topLeft: Radius.circular(40),
+                  bottomLeft: Radius.circular(30),
                 ),
                 color: AppColor.yellow800Secondary,
               ),
-              width: 35,
+              width: 40,
               height: 35,
-              child: Align(
-                alignment: const Alignment(-0.1, -0.3),
+              child: Center(
                 child: Text(
-                  discount ?? '',
+                  discount!,
                   style: AppTextStyle.textStyle.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
