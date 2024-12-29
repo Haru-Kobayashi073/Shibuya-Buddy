@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
+import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'components/custom_cupertino_date_picker.dart';
 import 'create_plan_state.dart';
 
@@ -10,17 +14,20 @@ part 'create_plan_notifier.g.dart';
 
 @riverpod
 class CreatePlanNotifier extends _$CreatePlanNotifier {
+  ScaffoldMessenger get scaffoldMessenger =>
+      ref.read(scaffoldMessengerProvider.notifier);
+
   @override
   CreatePlanState build() {
     return const CreatePlanState();
   }
 
   void clearTopics() {
-    state = state.copyWith(selectedTopics: []);
+    state = state.copyWith(topics: []);
   }
 
-  void updateSelectedTopics(String topic, {required bool isSelected}) {
-    final updatedTopics = List<String>.from(state.selectedTopics);
+  void updateSelectedTopics(Topic topic, {required bool isSelected}) {
+    final updatedTopics = List<Topic>.from(state.topics);
     if (isSelected) {
       if (!updatedTopics.contains(topic)) {
         updatedTopics.add(topic);
@@ -28,18 +35,10 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     } else {
       updatedTopics.remove(topic);
     }
-    state = state.copyWith(selectedTopics: updatedTopics);
+    state = state.copyWith(topics: updatedTopics);
   }
 
-  void setStartDate(DateTime date) {
-    state = state.copyWith(startDate: date);
-  }
-
-  void setEndDate(DateTime date) {
-    state = state.copyWith(endDate: date);
-  }
-
-  String formatDate(DateTime date) {
+  String _formatDate(DateTime date) {
     final currentLocale = LocaleSettings.currentLocale.languageCode;
     final pattern = {
           'ja': 'M/d(E) hh:mm a',
@@ -53,52 +52,33 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     return formatter.format(date);
   }
 
-  void updateSingleSelection(SelectionField field, String item) {
-    switch (field) {
-      case SelectionField.transport:
-        state = state.copyWith(selectedTransport: [item]);
-      case SelectionField.numberOfPeople:
-        state = state.copyWith(selectedNumberofPeople: [item]);
-      case SelectionField.category:
-        state = state.copyWith(selectedCategory: [item]);
-    }
+  void updateNumberOfPeople(String selecteNum) {
+    state = state.copyWith(numberOfPeople: selecteNum);
   }
 
-  void updateMultiSelection(SelectionField field, String item) {
-    switch (field) {
-      case SelectionField.transport:
-        _toggleListField(
-          selectedItems: state.selectedTransport,
-          item: item,
-          updateField: (updatedList) =>
-              state = state.copyWith(selectedTransport: updatedList),
-        );
-      case SelectionField.numberOfPeople:
-        _toggleListField(
-          selectedItems: state.selectedNumberofPeople,
-          item: item,
-          updateField: (updatedList) =>
-              state = state.copyWith(selectedNumberofPeople: updatedList),
-        );
-      case SelectionField.category:
-        _toggleListField(
-          selectedItems: state.selectedCategory,
-          item: item,
-          updateField: (updatedList) =>
-              state = state.copyWith(selectedCategory: updatedList),
-        );
-    }
+  void updateTransport(String selectedTransport) {
+    final updatedList = _toggleListField(
+      selectedItems: state.transports,
+      item: selectedTransport,
+    );
+    state = state.copyWith(transports: updatedList);
   }
 
-  void _toggleListField({
+  void updateCategory(String selectedCategory) {
+    final updatedList = _toggleListField(
+      selectedItems: state.categories,
+      item: selectedCategory,
+    );
+    state = state.copyWith(categories: updatedList);
+  }
+
+  List<String> _toggleListField({
     required List<String> selectedItems,
     required String item,
-    required void Function(List<String>) updateField,
   }) {
-    final updatedList = selectedItems.contains(item)
+    return selectedItems.contains(item)
         ? selectedItems.where((i) => i != item).toList()
         : [...selectedItems, item];
-    updateField(updatedList);
   }
 
   Future<void> showCupertinoDatePicker(
@@ -114,16 +94,40 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
         return CustomCupertinoDatePicker(
           onDateTimeChanged: (date) {
             chosenDate = date;
-            targetController.text = formatDate(date);
+            targetController.text = _formatDate(date);
           },
         );
       },
     );
 
     if (isStartDate) {
-      setStartDate(chosenDate);
+      state = state.copyWith(startDate: _formatDate(chosenDate));
     } else {
-      setEndDate(chosenDate);
+      state = state.copyWith(endDate: _formatDate(chosenDate));
     }
+  }
+
+  Future<void> submitPlanPrompt({
+    required Future<void> Function(PlanPrompt) onNavigate,
+  }) async {
+    if (!state.isSelectedAll()) {
+      scaffoldMessenger.showExceptionSnackBar(
+        t.createPlanPage.snackBar.error.foundUnSelectedField,
+      );
+      return;
+    }
+    final planPrompt = PlanPrompt(
+      id: const Uuid().v4(),
+      schedules: (
+        firstDate: state.startDate!,
+        lastDate: state.endDate!,
+      ),
+      numberOfPeople: state.numberOfPeople,
+      transports: state.transports,
+      categories: state.categories,
+      topics: state.topics,
+      createdAt: DateTime.now(),
+    );
+    await onNavigate(planPrompt);
   }
 }

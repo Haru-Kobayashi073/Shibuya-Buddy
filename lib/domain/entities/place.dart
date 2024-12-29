@@ -2,21 +2,20 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../utils/date_time_converter.dart';
-
 part 'place.freezed.dart';
 part 'place.g.dart';
 
 @freezed
 abstract class Place with _$Place {
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory Place({
-    required String id,
+    @Default('') String id,
     required String name,
     required String thumbnailUrl,
     required String title,
-    @DateTimeConverter()
-    required ({DateTime openTime, DateTime closeTime}) openingHours,
-    required String avevageAmount,
+    required Coordinate coordinate,
+    required OpeningHours openingHours,
+    required String averageAmount,
     Uri? websiteUrl,
   }) = _Place;
 
@@ -28,6 +27,30 @@ abstract class Place with _$Place {
     final openTime = openingHours.openTime;
     final closeTime = openingHours.closeTime;
 
-    return '${openTime.hour.toString().padLeft(2, '0')}:${openTime.minute.toString().padLeft(2, '0')}～${closeTime.hour.toString().padLeft(2, '0')}:${closeTime.minute.toString().padLeft(2, '0')}';
+    return '$openTime~$closeTime';
   }
+}
+
+@freezed
+abstract class Coordinate with _$Coordinate {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory Coordinate({
+    required String latitude,
+    required String longitude,
+  }) = _Coordinate;
+
+  factory Coordinate.fromJson(Map<String, dynamic> json) =>
+      _$CoordinateFromJson(json);
+}
+
+@freezed
+abstract class OpeningHours with _$OpeningHours {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory OpeningHours({
+    required String openTime,
+    required String closeTime,
+  }) = _OpeningHours;
+
+  factory OpeningHours.fromJson(Map<String, dynamic> json) =>
+      _$OpeningHoursFromJson(json);
 }

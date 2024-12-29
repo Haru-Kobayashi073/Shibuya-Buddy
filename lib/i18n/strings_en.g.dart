@@ -50,6 +50,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
 	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
 	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
+	late final TranslationsConfirmDialogEn confirmDialog = TranslationsConfirmDialogEn._(_root);
+	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -243,6 +245,7 @@ class TranslationsCreatePlanPageEn {
 		'Movies',
 	];
 	String get submitButton => 'Submit Plan to AI';
+	late final TranslationsCreatePlanPageSnackBarEn snackBar = TranslationsCreatePlanPageSnackBarEn._(_root);
 }
 
 // Path: editProfilePage
@@ -256,6 +259,28 @@ class TranslationsEditProfilePageEn {
 	late final TranslationsEditProfilePageTextFieldsEn textFields = TranslationsEditProfilePageTextFieldsEn._(_root);
 	late final TranslationsEditProfilePageButtonsEn buttons = TranslationsEditProfilePageButtonsEn._(_root);
 	late final TranslationsEditProfilePageSnackBarEn snackBar = TranslationsEditProfilePageSnackBarEn._(_root);
+}
+
+// Path: confirmDialog
+class TranslationsConfirmDialogEn {
+	TranslationsConfirmDialogEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsConfirmDialogAnswersEn answers = TranslationsConfirmDialogAnswersEn._(_root);
+	late final TranslationsConfirmDialogPopPageEn popPage = TranslationsConfirmDialogPopPageEn._(_root);
+	late final TranslationsConfirmDialogCompleteCreatePlanEn completeCreatePlan = TranslationsConfirmDialogCompleteCreatePlanEn._(_root);
+}
+
+// Path: prompt
+class TranslationsPromptEn {
+	TranslationsPromptEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get planProposalMessage => 'I’ve come up with this plan! What do you think?';
 }
 
 // Path: navigationBar.items
@@ -563,6 +588,16 @@ class TranslationsCreatePlanPageModalEn {
 	String get title => 'Select a date';
 }
 
+// Path: createPlanPage.snackBar
+class TranslationsCreatePlanPageSnackBarEn {
+	TranslationsCreatePlanPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsCreatePlanPageSnackBarErrorEn error = TranslationsCreatePlanPageSnackBarErrorEn._(_root);
+}
+
 // Path: editProfilePage.textFields
 class TranslationsEditProfilePageTextFieldsEn {
 	TranslationsEditProfilePageTextFieldsEn._(this._root);
@@ -592,6 +627,39 @@ class TranslationsEditProfilePageSnackBarEn {
 	// Translations
 	String get success => 'Updated successfully';
 	late final TranslationsEditProfilePageSnackBarErrorEn error = TranslationsEditProfilePageSnackBarErrorEn._(_root);
+}
+
+// Path: confirmDialog.answers
+class TranslationsConfirmDialogAnswersEn {
+	TranslationsConfirmDialogAnswersEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get yes => 'Yes';
+	String get no => 'No';
+}
+
+// Path: confirmDialog.popPage
+class TranslationsConfirmDialogPopPageEn {
+	TranslationsConfirmDialogPopPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Return to the previous page?';
+	String get description => 'Current content will not be saved.';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class TranslationsConfirmDialogCompleteCreatePlanEn {
+	TranslationsConfirmDialogCompleteCreatePlanEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Confirm the plan?';
+	String get description => 'The plan in the last message will be saved.';
 }
 
 // Path: authentication.signInPage.textFields
@@ -746,6 +814,16 @@ class TranslationsBuddyChatPageSnackBarErrorEn {
 	// Translations
 	String get failedRecieveMessage => 'Failed to receive the reply. Please try again later.';
 	String get failedCompleteCreatePlan => 'Failed to complete plan creation. Please try again later.';
+}
+
+// Path: createPlanPage.snackBar.error
+class TranslationsCreatePlanPageSnackBarErrorEn {
+	TranslationsCreatePlanPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get foundUnSelectedField => 'There are unselected items. Please select all items.';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -938,6 +1016,7 @@ extension on Translations {
 			case 'createPlanPage.defaultTopics.2': return 'Activities';
 			case 'createPlanPage.defaultTopics.3': return 'Movies';
 			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return 'There are unselected items. Please select all items.';
 			case 'editProfilePage.title': return 'Edit Profile';
 			case 'editProfilePage.textFields.name': return 'Name';
 			case 'editProfilePage.buttons.submit': return 'Save';
@@ -945,6 +1024,13 @@ extension on Translations {
 			case 'editProfilePage.snackBar.error.noChange': return 'No changes detected';
 			case 'editProfilePage.snackBar.error.failedToUpdate': return 'Failed to update. Please try again later.';
 			case 'editProfilePage.snackBar.error.failedToPickImage': return 'Failed to select image. Please try again later.';
+			case 'confirmDialog.answers.yes': return 'Yes';
+			case 'confirmDialog.answers.no': return 'No';
+			case 'confirmDialog.popPage.title': return 'Return to the previous page?';
+			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
+			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
+			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
+			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

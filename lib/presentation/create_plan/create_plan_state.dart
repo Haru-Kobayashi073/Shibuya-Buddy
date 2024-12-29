@@ -1,22 +1,28 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../domain/entities/topic.dart';
+
 part 'create_plan_state.freezed.dart';
 
 @freezed
 class CreatePlanState with _$CreatePlanState {
   const factory CreatePlanState({
     @Default('渋谷') String location,
-    DateTime? startDate,
-    DateTime? endDate,
-    @Default([]) List<String> selectedTopics,
-    @Default([]) List<String> selectedNumberofPeople,
-    @Default([]) List<String> selectedTransport,
-    @Default([]) List<String> selectedCategory,
+    String? startDate,
+    String? endDate,
+    @Default('') String numberOfPeople,
+    @Default([]) List<String> transports,
+    @Default([]) List<String> categories,
+    @Default([]) List<Topic> topics,
   }) = _CreatePlanState;
-}
+  const CreatePlanState._();
 
-enum SelectionField {
-  transport,
-  numberOfPeople,
-  category,
+  bool isSelectedAll() {
+    return transports.isNotEmpty &&
+        categories.isNotEmpty &&
+        topics.isNotEmpty &&
+        startDate != null &&
+        endDate != null &&
+        numberOfPeople.isNotEmpty;
+  }
 }
