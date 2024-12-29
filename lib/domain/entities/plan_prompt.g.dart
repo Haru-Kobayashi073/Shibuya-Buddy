@@ -40,7 +40,7 @@ Map<String, dynamic> _$$PlanPromptImplToJson(_$PlanPromptImpl instance) =>
       'numberOfPeople': instance.numberOfPeople,
       'transports': instance.transports,
       'categories': instance.categories,
-      'topics': instance.topics,
+      'topics': instance.topics.map((e) => e.toJson()).toList(),
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
     };
 

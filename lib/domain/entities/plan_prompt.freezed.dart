@@ -186,7 +186,8 @@ class __$$PlanPromptImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$PlanPromptImpl implements _PlanPrompt {
   const _$PlanPromptImpl(
       {required this.id,

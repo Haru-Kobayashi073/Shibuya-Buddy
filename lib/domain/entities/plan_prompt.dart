@@ -8,6 +8,7 @@ part 'plan_prompt.g.dart';
 
 @freezed
 abstract class PlanPrompt with _$PlanPrompt {
+  @JsonSerializable(explicitToJson: true)
   const factory PlanPrompt({
     required String id,
     @DateTimeConverter()
