@@ -7,8 +7,8 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/place_card.dart';
 import 'components/circle_icon_button.dart';
+import 'components/left_icon_wide_button.dart';
 import 'components/plan_header.dart';
-import 'components/wide_Button_Left_icon.dart';
 
 List<Place> dummyPlans = [
   Place(
@@ -73,8 +73,10 @@ class PlanInfo {
 
 final Map<String, dynamic> planInfo = {
   'title': '宮下パークでショッピング',
-  'description':
-      '今回、Buddyが提案したこのプランは、渋谷駅前にある若者集まる商業施設の”宮下パーク”がメインのプランです！一階には日本食を楽しめる居酒屋が並ぶとともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。',
+  'description': '''
+      今回、Buddyが提案したこのプランは、渋谷駅前にある若者集まる商業施設の”宮下パーク”がメインのプランです！一階には日本食を楽しめる居酒屋が並ぶ
+      とともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。
+      ''',
   'tags': ['＃ショッピング ', '＃アクティビティ', '＃グルメ', '時間: 1時間〜'],
   'imageUrl':
       'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
@@ -115,10 +117,11 @@ class PlanDetailPage extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               PlanHeader(
-                  title: plan.title,
-                  description: plan.description,
-                  imageUrl: plan.imageUrl,
-                  tags: plan.tags),
+                title: plan.title,
+                description: plan.description,
+                imageUrl: plan.imageUrl,
+                tags: plan.tags,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Column(
@@ -136,7 +139,7 @@ class PlanDetailPage extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    WideButtonLeftIcon(
+                    LeftIconWideButton(
                       title: planDetailPage.item.viewOnMap,
                       icon: Icons.pin_drop_outlined,
                     ),

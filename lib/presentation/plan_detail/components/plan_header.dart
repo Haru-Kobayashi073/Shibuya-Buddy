@@ -25,57 +25,55 @@ class _PlanHeaderState extends State<PlanHeader> {
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            width: screenWidth,
-            child: Image(
-              image: NetworkImage(widget.imageUrl.toString()),
-              errorBuilder: (c, o, s) {
-                return const SizedBox(
-                  height: 116,
-                );
-              },
-            ),
+    return Column(
+      children: [
+        SizedBox(
+          width: screenWidth,
+          child: Image(
+            image: NetworkImage(widget.imageUrl.toString()),
+            errorBuilder: (c, o, s) {
+              return const SizedBox(
+                height: 116,
+              );
+            },
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Align(
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  widget.title,
+                  style: AppTextStyle.textStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16, bottom: 16),
+                child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    widget.title,
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: CategoryTags(
+                    tags: widget.tags,
+                    tagColor: AppColor.grey200,
+                    spacing: 4,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16, bottom: 16),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: CategoryTags(
-                      tags: widget.tags,
-                      tagColor: AppColor.grey200,
-                      spacing: 4,
-                    ),
-                  ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  widget.description,
+                  style: AppTextStyle.textStyle.copyWith(fontSize: 14),
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    widget.description,
-                    style: AppTextStyle.textStyle.copyWith(fontSize: 14),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

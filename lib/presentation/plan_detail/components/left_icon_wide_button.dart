@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
-class WideButtonLeftIcon extends StatelessWidget {
-  const WideButtonLeftIcon({
+class LeftIconWideButton extends StatelessWidget {
+  const LeftIconWideButton({
     super.key,
     required this.title,
     required this.icon,
@@ -21,7 +21,7 @@ class WideButtonLeftIcon extends StatelessWidget {
       ),
       onPressed: () {},
       child: Padding(
-        padding: const EdgeInsets.only(top: 16, bottom: 16),
+        padding: const EdgeInsets.only(top: 16,bottom: 16),
         child: Stack(
           alignment: Alignment.center,
           children: [
