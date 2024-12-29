@@ -129,7 +129,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       final targetMessage = state.requireValue.messages.lastWhere(
-        (message) => message.plan != null,
+        (message) => message.plan != null && message.places != null,
         orElse: () => state.requireValue.messages.first,
       );
       final targetPlan = targetMessage.plan!.copyWith(
