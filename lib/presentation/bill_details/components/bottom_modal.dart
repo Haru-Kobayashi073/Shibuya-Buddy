@@ -54,14 +54,19 @@ class _BottomModalState extends State<BottomModal> {
             const SizedBox(height: 16),
             // アップグレードボタン
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16), // 左右にパディングを追加
-              child: WideButton(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: WideButton.gradient(
                 label: 'プレミアムにアップグレード',
-                color: AppColor.yellow600Primary,
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColor.yellow600Primary,
+                    AppColor.yellow200,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
                 onPressed: () {
-                  // 選択されたプランを処理
-                  print('選択されたプラン: $_selectedPlan');
+                  print(_selectedPlan);
                 },
               ),
             ),
