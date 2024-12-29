@@ -182,7 +182,6 @@ class BuddyChatPage extends HookConsumerWidget {
   ) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: AppColor.grey200,
         borderRadius: BorderRadius.circular(12),
@@ -206,6 +205,7 @@ class BuddyChatPage extends HookConsumerWidget {
                   fillColor: AppColor.grey200,
                   border: const OutlineInputBorder(
                     borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   hintText: localizedHintText,
                 ),
