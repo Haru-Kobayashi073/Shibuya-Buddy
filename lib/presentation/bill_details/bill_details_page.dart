@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
@@ -25,6 +26,9 @@ class BillDetailsPage extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
+                systemOverlayStyle: const SystemUiOverlayStyle(
+                  statusBarBrightness: Brightness.light,
+                ),
                 expandedHeight: 250,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image.asset(imagePath, fit: BoxFit.cover),
