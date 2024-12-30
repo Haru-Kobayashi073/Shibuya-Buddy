@@ -9,7 +9,7 @@ abstract class Topic with _$Topic {
   const factory Topic({
     @Default('') String id,
     required String name,
-    String? thumbnailUrl,
+    required String thumbnailUrl,
     @Default(0) int totalCount,
     int? ranking,
     @Default('') String createdAt,

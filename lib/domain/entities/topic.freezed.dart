@@ -22,7 +22,7 @@ Topic _$TopicFromJson(Map<String, dynamic> json) {
 mixin _$Topic {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String? get thumbnailUrl => throw _privateConstructorUsedError;
+  String get thumbnailUrl => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $TopicCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String? thumbnailUrl,
+      String thumbnailUrl,
       int totalCount,
       int? ranking,
       String createdAt});
@@ -67,7 +67,7 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? thumbnailUrl = freezed,
+    Object? thumbnailUrl = null,
     Object? totalCount = null,
     Object? ranking = freezed,
     Object? createdAt = null,
@@ -81,10 +81,10 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnailUrl: freezed == thumbnailUrl
+      thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       totalCount: null == totalCount
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
@@ -111,7 +111,7 @@ abstract class _$$TopicImplCopyWith<$Res> implements $TopicCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String? thumbnailUrl,
+      String thumbnailUrl,
       int totalCount,
       int? ranking,
       String createdAt});
@@ -132,7 +132,7 @@ class __$$TopicImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? thumbnailUrl = freezed,
+    Object? thumbnailUrl = null,
     Object? totalCount = null,
     Object? ranking = freezed,
     Object? createdAt = null,
@@ -146,10 +146,10 @@ class __$$TopicImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnailUrl: freezed == thumbnailUrl
+      thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       totalCount: null == totalCount
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ class _$TopicImpl implements _Topic {
   const _$TopicImpl(
       {this.id = '',
       required this.name,
-      this.thumbnailUrl,
+      required this.thumbnailUrl,
       this.totalCount = 0,
       this.ranking,
       this.createdAt = ''});
@@ -187,7 +187,7 @@ class _$TopicImpl implements _Topic {
   @override
   final String name;
   @override
-  final String? thumbnailUrl;
+  final String thumbnailUrl;
   @override
   @JsonKey()
   final int totalCount;
@@ -243,7 +243,7 @@ abstract class _Topic implements Topic {
   const factory _Topic(
       {final String id,
       required final String name,
-      final String? thumbnailUrl,
+      required final String thumbnailUrl,
       final int totalCount,
       final int? ranking,
       final String createdAt}) = _$TopicImpl;
@@ -255,7 +255,7 @@ abstract class _Topic implements Topic {
   @override
   String get name;
   @override
-  String? get thumbnailUrl;
+  String get thumbnailUrl;
   @override
   int get totalCount;
   @override
