@@ -58,6 +58,9 @@ class PlanDetailPage extends StatelessWidget {
       とともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。
     ''',
         tags: ['＃ショッピング ', '＃アクティビティ', '＃グルメ', '時間: 1時間〜'],
+        averageAmount: '0',
+        openingHours: OpeningHours(openTime: '0', closeTime: '0'),
+        coordinate: Coordinate(latitude: '', longitude: ''),
       ),
       const Place(
         id: '1',
@@ -70,6 +73,7 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
+        coordinate: Coordinate(latitude: '', longitude: ''),
       ),
       const Place(
         id: '2',
@@ -82,6 +86,7 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
+        coordinate: Coordinate(latitude: '', longitude: ''),
       ),
       const Place(
         id: '3',
@@ -94,6 +99,7 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
+        coordinate: Coordinate(latitude: '', longitude: ''),
       ),
     ];
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)
