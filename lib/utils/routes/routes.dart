@@ -22,4 +22,5 @@ class Routes {
   static const buddyChatPage = '/buddyChatPage';
   static const popularPlansPage = 'popularPlansPage';
   static const billDetails = 'billDetailsPage';
+  static const planDetailPage = '/planDetailPage';
 }

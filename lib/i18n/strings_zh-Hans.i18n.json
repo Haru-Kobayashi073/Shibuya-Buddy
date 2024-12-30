@@ -376,6 +376,15 @@
         },
         "upgradeButton": "升级到高级计划"
     },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "${date}创建的计划",
+            "dateFormat": "yyyy年MM月dd日"
+        },
+        "item":{
+            "viewOnMap": "在地图上查看"
+        }
+    },
     "locales(map)": {
         "en": "英语",
         "ja": "日语",

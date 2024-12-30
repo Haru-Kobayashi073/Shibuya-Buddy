@@ -24,6 +24,7 @@ import '../../presentation/home/home_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/edit_profile/edit_profile_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/plan_detail/plan_detail_page.dart';
 import '../../presentation/popular_plans/popular_plans_page.dart';
 import '../../presentation/popular_topics/popular_topics_page.dart';
 import '../../presentation/register_profile/register_profile_page.dart';
@@ -406,5 +407,17 @@ class BuddyChatPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return BuddyChatPage(planPrompt: $extra);
+  }
+}
+
+@TypedGoRoute<PlanDetailPageRouteData>(
+  path: Routes.planDetailPage,
+)
+class PlanDetailPageRouteData extends GoRouteData {
+  const PlanDetailPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PlanDetailPage();
   }
 }

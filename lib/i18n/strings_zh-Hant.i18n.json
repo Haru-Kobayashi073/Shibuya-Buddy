@@ -377,6 +377,15 @@
         },
         "upgradeButton": "升級到高級方案"
     },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "${date}建立的方案",
+            "dateFormat": "yyyy年MM月dd日"
+        },
+        "item":{
+            "viewOnMap": "在地圖上查看"
+        }
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日語",
