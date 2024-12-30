@@ -247,6 +247,10 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
           path: 'changeTheme',
           factory: $ChangeThemePageRouteDataExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'billDetailsPage',
+          factory: $BillDetailsPageRouteDataExtension._fromState,
+        ),
       ],
     );
 
@@ -388,6 +392,24 @@ extension $ChangeThemePageRouteDataExtension on ChangeThemePageRouteData {
 
   String get location => GoRouteData.$location(
         '/myPage/changeTheme',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BillDetailsPageRouteDataExtension on BillDetailsPageRouteData {
+  static BillDetailsPageRouteData _fromState(GoRouterState state) =>
+      const BillDetailsPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/myPage/billDetailsPage',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -560,20 +582,24 @@ RouteBase get $buddyChatPageRouteData => GoRouteData.$route(
 
 extension $BuddyChatPageRouteDataExtension on BuddyChatPageRouteData {
   static BuddyChatPageRouteData _fromState(GoRouterState state) =>
-      const BuddyChatPageRouteData();
+      BuddyChatPageRouteData(
+        state.extra as PlanPrompt,
+      );
 
   String get location => GoRouteData.$location(
         '/buddyChatPage',
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 RouteBase get $planDetailPageRouteData => GoRouteData.$route(

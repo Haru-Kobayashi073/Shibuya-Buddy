@@ -45,7 +45,9 @@ class MyPage extends ConsumerWidget {
                       children: [
                         ListTileWithIcon(
                           title: myPageItemi18n.editProfile,
-                          onTap: () {},
+                          onTap: () async =>
+                              EditProfilePageRouteData($extra: value)
+                                  .push<void>(context),
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.account,
@@ -54,9 +56,8 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.premiumPlan,
-                          onTap: () async =>
-                              const AiFunctionsDetailPageRouteData()
-                                  .push<void>(context),
+                          onTap: () async => const BillDetailsPageRouteData()
+                              .push<void>(context),
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.language,
@@ -70,9 +71,11 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.termsOfUsePrivacyPolicy,
-                          onTap: () async =>
-                              const TermsofUsePrivacyPolicyPageRouteData()
-                                  .push<void>(context),
+                          onTap: () async {
+                            await ref
+                                .read(myPageNotifierProvider.notifier)
+                                .launchPrivacyPolicy();
+                          },
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutThisApp,

@@ -7,47 +7,57 @@ part of 'place.dart';
 // **************************************************************************
 
 _$PlaceImpl _$$PlaceImplFromJson(Map<String, dynamic> json) => _$PlaceImpl(
-      id: json['id'] as String,
+      id: json['id'] as String? ?? '',
       name: json['name'] as String,
-      thumbnailUrl: json['thumbnailUrl'] as String,
+      thumbnailUrl: json['thumbnail_url'] as String,
       title: json['title'] as String,
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      openingHours: _$recordConvertNullable(
-        json['openingHours'],
-        ($jsonValue) => (
-          closeTime: const DateTimeConverter()
-              .fromJson($jsonValue['closeTime'] as String),
-          openTime: const DateTimeConverter()
-              .fromJson($jsonValue['openTime'] as String),
-        ),
-      ),
-      avevageAmount: json['avevageAmount'] as String?,
-      websiteUrl: json['websiteUrl'] == null
+      coordinate: json['coordinate'] == null
           ? null
-          : Uri.parse(json['websiteUrl'] as String),
+          : Coordinate.fromJson(json['coordinate'] as Map<String, dynamic>),
+      openingHours: json['opening_hours'] == null
+          ? null
+          : OpeningHours.fromJson(
+              json['opening_hours'] as Map<String, dynamic>),
+      averageAmount: json['average_amount'] as String?,
+      websiteUrl: json['website_url'] == null
+          ? null
+          : Uri.parse(json['website_url'] as String),
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'thumbnailUrl': instance.thumbnailUrl,
+      'thumbnail_url': instance.thumbnailUrl,
       'title': instance.title,
+      'coordinate': instance.coordinate?.toJson(),
+      'opening_hours': instance.openingHours?.toJson(),
+      'average_amount': instance.averageAmount,
+      'website_url': instance.websiteUrl?.toString(),
       'tags': instance.tags,
-      'openingHours': instance.openingHours == null
-          ? null
-          : <String, dynamic>{
-              'closeTime': const DateTimeConverter()
-                  .toJson(instance.openingHours!.closeTime),
-              'openTime': const DateTimeConverter()
-                  .toJson(instance.openingHours!.openTime),
-            },
-      'avevageAmount': instance.avevageAmount,
-      'websiteUrl': instance.websiteUrl?.toString(),
     };
 
-$Rec? _$recordConvertNullable<$Rec>(
-  Object? value,
-  $Rec Function(Map) convert,
-) =>
-    value == null ? null : convert(value as Map<String, dynamic>);
+_$CoordinateImpl _$$CoordinateImplFromJson(Map<String, dynamic> json) =>
+    _$CoordinateImpl(
+      latitude: json['latitude'] as String,
+      longitude: json['longitude'] as String,
+    );
+
+Map<String, dynamic> _$$CoordinateImplToJson(_$CoordinateImpl instance) =>
+    <String, dynamic>{
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
+    };
+
+_$OpeningHoursImpl _$$OpeningHoursImplFromJson(Map<String, dynamic> json) =>
+    _$OpeningHoursImpl(
+      openTime: json['open_time'] as String,
+      closeTime: json['close_time'] as String,
+    );
+
+Map<String, dynamic> _$$OpeningHoursImplToJson(_$OpeningHoursImpl instance) =>
+    <String, dynamic>{
+      'open_time': instance.openTime,
+      'close_time': instance.closeTime,
+    };

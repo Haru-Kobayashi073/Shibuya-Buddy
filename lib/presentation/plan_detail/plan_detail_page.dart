@@ -62,41 +62,42 @@ class PlanDetailPage extends StatelessWidget {
     ''',
         tags: ['＃ショッピング ', '＃アクティビティ', '＃グルメ', '時間: 1時間〜'],
       ),
-      Place(
+      const Place(
         id: '1',
         name: 'TitleTitleTitleTitleTitleTitleTitleTitle',
         title: '世界的に有名な交差点。世界的に有名な交差点世界的に有名な交差点世界的に有名な交差点世界的に有名な交差点世界的に有名な交差点',
         thumbnailUrl:
             'https://www.cnn.co.jp/storage/2019/08/11/fbb9c1766abe6fa21b92a2808505d1e3/shibuya-crossing-tokyo-003.jpg',
-        openingHours: (
-          openTime: DateTime(2024, 1, 1, 9),
-          closeTime: DateTime(2024, 1, 1, 17),
+        openingHours: OpeningHours(
+          openTime: '11:00',
+          closeTime: '11:00',
         ),
-        avevageAmount: '1200円',
+        averageAmount: '1200円',
       ),
-      Place(
+      const Place(
         id: '2',
         name: 'ハチ公像',
         title: '渋谷のシンボル。',
         thumbnailUrl:
             'https://www.azabuderukui.info/wp-content/uploads/2024/01/title-chie-hachiko.jpg',
-        openingHours: (
-          openTime: DateTime(2024, 1, 1, 9),
-          closeTime: DateTime(2024, 1, 1, 17),
+        openingHours: OpeningHours(
+          openTime: '11:00',
+          closeTime: '11:00',
         ),
-        avevageAmount: '1200円',
+        averageAmount: '1200円',
       ),
-      Place(
+      const Place(
         id: '3',
         name: '渋谷ヒカリエ',
         title: '複合商業施設',
         thumbnailUrl:
             'https://town.mec-h.com/mh-omotesando/wp-content/uploads/2018/10/257358_13-01shibuya.jpg',
-        openingHours: (
-          openTime: DateTime(2024, 1, 1, 9),
-          closeTime: DateTime(2024, 1, 1, 17),
+        openingHours: OpeningHours(
+          openTime: '11:00',
+          closeTime: '11:00',
         ),
-        avevageAmount: '1200円',
+        averageAmount: '1200円',
+        coordinate: null,
       ),
     ];
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)

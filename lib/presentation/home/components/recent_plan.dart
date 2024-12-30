@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/extensions/context.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../../components/presistent_cached_network_image.dart';
 import 'category_tags.dart';
 
 class RecentPlan extends StatelessWidget {
@@ -21,10 +21,9 @@ class RecentPlan extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: CachedNetworkImage(
+          child: PersistentCachedNetworkImage(
             imageUrl: 'https://placehold.jp/80x50.png',
             width: context.deviceWidth * 0.22,
-            fit: BoxFit.cover,
           ),
         ),
         const SizedBox(width: 8),

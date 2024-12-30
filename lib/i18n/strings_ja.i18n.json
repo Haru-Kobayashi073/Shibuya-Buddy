@@ -148,7 +148,7 @@
     },
     "myPage": {
         "unregisteredUserName": "未登録",
-        "editProfile":"プロフィール編集",
+        "editProfile": "プロフィール編集",
         "premiumPlan": "プレミアムプラン",
         "details": "詳細",
         "settings": "設定",
@@ -158,7 +158,7 @@
         "termsOfUsePrivacyPolicy": "利用規約・プライバシーポリシー",
         "aboutThisApp": "このアプリについて",
         "aboutTheDeveloper": "開発者について",
-        "accountStatus":{
+        "accountStatus": {
             "dateTime": {
                 "registeredOn": "${date}に登録",
                 "registeredOnFormat": "yyyy年MM月dd日",
@@ -261,7 +261,12 @@
             "アクティビティ",
             "映画"
         ],
-        "submitButton": "プランをAIに伝える"
+        "submitButton": "プランをAIに伝える",
+        "snackBar": {
+            "error": {
+                "foundUnSelectedField": "選択されていない項目があります 全ての項目を選択してください"
+            }
+        }
     },
     "editProfilePage": {
         "title": "編集",
@@ -279,6 +284,98 @@
                 "failedToPickImage": "画像の選択に失敗しました しばらくしてから再度お試しください"
             }
         }
+    },
+    "confirmDialog": {
+        "answers": {
+            "yes": "はい",
+            "no": "いいえ"
+        },
+        "popPage": {
+            "title": "前の画面に戻りますか？",
+            "description": "現在の内容は保存されません"
+        },
+        "completeCreatePlan": {
+            "title": "プランを確定しますか？",
+            "description": "一番最後のメッセージに含まれるプランが保存されます"
+        }
+    },
+    "prompt": {
+        "planProposalMessage": "こんなプランを考えてみました！いかがですか？"
+    },
+    "billDetailsPage": {
+        "title": "プレミアムプラン",
+        "description": "プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。",
+        "pricingPlan": {
+            "title": "料金プラン",
+            "columns": {
+                "standard": "スタンダード",
+                "premium": "プレミアム"
+            },
+            "details": {
+                "free": "無料 🎉",
+                "premiumPrice": {
+                    "days": "日数分購入",
+                    "daily": "・1日 300円",
+                    "threeDays": "・3日 855円",
+                    "fiveDays": "・5日 1,480円",
+                    "sevenDays": "・7日 2,070円",
+                    "or": "または",
+                    "lifetime": "永年分",
+                    "lifetimePrice": "25,800円"
+
+                }
+            }   
+        },
+        "features": {
+            "title": "グレードごとの機能",
+            "rows": {
+                "planCreationLimit": "プランの作成可能回数",
+                "chatLimit": "プラン作成中のチャット可能回数",
+                "timelineAccess": "全プラン一覧のタイムライン閲覧",
+                "adFree": "広告の非表示",
+                "exclusiveFeatures": "プランの認証機能"
+            },
+            "columns": {
+                "standard": {
+                    "label": "スタンダード",
+                    "planCreationLimit": "2回",
+                    "chatLimit": "3回"
+                },
+                "premium": {
+                    "label": "プレミアム",
+                    "planCreationLimit": "無制限",
+                    "chatLimit": "無制限"
+                }
+            }
+        },
+        "pricingOptions": {
+            "oneDay": {
+                "duration": "1日",
+                "discount": "",
+                "price": "300円"
+            },
+            "threeDays": {
+                "duration": "3日",
+                "discount": "-5%",
+                "price": "890円"
+            },
+            "fiveDays": {
+                "duration": "5日",
+                "discount": "-7.5%",
+                "price": "1,387円"
+            },
+            "sevenDays": {
+                "duration": "7日",
+                "discount": "-10%",
+                "price": "2,070円"
+            },
+            "lifetime": {
+                "duration": "永年分",
+                "discount": "",
+                "price": "25,800円"
+            }
+        },
+        "upgradeButton": "プレミアムにアップグレード"
     },
     "planDetailsPage":{
         "dateTime": {

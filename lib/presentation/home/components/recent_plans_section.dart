@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../i18n/strings.g.dart';
-import '../../../utils/routes/app_router.dart';
 import 'recent_plan.dart';
 import 'section_title.dart';
 
@@ -19,9 +18,7 @@ class RecentPlansSection extends StatelessWidget {
           const SizedBox(height: 16),
           SectionTitle.medium(
             label: i18n.homePage.recentPlans.title,
-            onPressed: () async {
-              await const PlanDetailPageRouteData().push<void>(context);
-            },
+            onPressed: () {},
           ),
           const SizedBox(height: 8),
           Wrap(
