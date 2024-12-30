@@ -11,16 +11,11 @@ class GradeBasedFeatures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle =
-        AppTextStyle.textStyle.copyWith(fontSize: 14, height: 1.5);
-    final headerStyle =
-        textStyle.copyWith(fontSize: 14, fontWeight: FontWeight.bold);
-
     return Column(
       children: [
         _buildTitle(),
         const Gap(16),
-        _buildFeatureTable(textStyle, headerStyle),
+        _buildFeatureTable(),
       ],
     );
   }
@@ -33,7 +28,12 @@ class GradeBasedFeatures extends StatelessWidget {
     );
   }
 
-  Widget _buildFeatureTable(TextStyle textStyle, TextStyle headerStyle) {
+  Widget _buildFeatureTable() {
+    final textStyle =
+        AppTextStyle.textStyle.copyWith(fontSize: 14, height: 1.5);
+    final headerStyle = AppTextStyle.textStyle
+        .copyWith(fontSize: 14, fontWeight: FontWeight.bold);
+
     return Table(
       columnWidths: const {
         0: FlexColumnWidth(2.5),
