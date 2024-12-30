@@ -133,7 +133,7 @@ class PlaceCard extends StatelessWidget {
                         ),
                         const Gap(8),
                         Text(
-                          place.averageAmount.toString(),
+                          place.averageAmount,
                           maxLines: 2,
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
