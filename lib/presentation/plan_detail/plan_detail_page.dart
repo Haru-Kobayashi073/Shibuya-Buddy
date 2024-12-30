@@ -63,19 +63,15 @@ class PlanDetailPage extends StatelessWidget {
         topics: [
           Topic(
             name: 'タグ1',
-            thumbnailUrl: '',
           ),
           Topic(
             name: 'タグ2',
-            thumbnailUrl: '',
           ),
           Topic(
             name: 'タグ3',
-            thumbnailUrl: '',
           ),
           Topic(
             name: 'タグ4',
-            thumbnailUrl: '',
           ),
         ],
       ),
