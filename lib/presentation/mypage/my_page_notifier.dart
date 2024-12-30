@@ -27,7 +27,8 @@ class MyPageNotifier extends _$MyPageNotifier {
 
   Future<void> launchPrivacyPolicy() async {
     final url = Uri.parse(
-        'https://pond-link-c69.notion.site/16b4d7d3b3898012b75ecb83c2b4c2c4?pvs=73',);
+      'https://pond-link-c69.notion.site/16b4d7d3b3898012b75ecb83c2b4c2c4?pvs=73',
+    );
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
