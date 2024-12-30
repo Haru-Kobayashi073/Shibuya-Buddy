@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
+import '../../gen/assets.gen.dart';
 import '../../utils/styles/app_color.dart';
 import 'components/bottom_modal.dart';
 import 'components/grade_based_features.dart';
@@ -14,8 +15,6 @@ class BillDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const imagePath = 'assets/images/billing_header.png';
-
     const bottomModalHeight = 150.0;
 
     return Scaffold(
@@ -31,7 +30,10 @@ class BillDetailsPage extends StatelessWidget {
                 ),
                 expandedHeight: 250,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset(imagePath, fit: BoxFit.cover),
+                  background: Image.asset(
+                    Assets.images.billingHeader.path,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 pinned: true,
                 backgroundColor: Colors.transparent,
