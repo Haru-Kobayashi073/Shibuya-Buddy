@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/entities/place.dart';
+import '../../domain/entities/plan.dart';
+import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -15,25 +17,27 @@ import 'components/plan_header.dart';
 class PlanDetailPage extends StatelessWidget {
   const PlanDetailPage({super.key});
 
-  PlanHeader planinfo(List<Place> plans) {
-    return PlanHeader(
-      place: plans[0],
-    );
-  }
-
-  String planinfoImage(List<Place> plans) {
-    final planInfo = plans[0];
+  String planinfoImage(List<Object> plans) {
+    final info = plans.whereType<Plan>().toList();
+    final planInfo = info[0];
     return planInfo.thumbnailUrl;
   }
 
-  List<Widget> placetrans(List<Place> plans) {
+  PlanHeader planinfo(List<Object> plans) {
+    final info = plans.whereType<Plan>().toList();
     plans.removeAt(0);
+    return PlanHeader(
+      plan: info[0],
+    );
+  }
+
+  List<Widget> placetrans(List<Object> plans) {
     final widgets = <Widget>[];
     var i = 0;
     for (final plan in plans) {
       widgets.add(
         PlaceCard(
-          place: plan,
+          place: plan as Place,
           index: i,
           endindex: plans.length - 1,
         ),
@@ -47,20 +51,22 @@ class PlanDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
     final planDetailPagei18n = i18n.planDetailsPage;
-    final dummyPlans = <Place>[
-      const Place(
-        id: '0',
-        name: '宮下パークでショッピング',
+    final dummyPlans = <Object>[
+      const Plan(
+        title: '宮下パークでショッピング',
+        description: '''
+今回、Buddyが提案したこのプランは、渋谷駅前にある若者集まる商業施設の”宮下パーク”がメインのプランです！一階には日本食を楽しめる居酒屋が並ぶ
+      とともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。
+''',
         thumbnailUrl:
             'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
-        title: '''
-    今回、Buddyが提案したこのプランは、渋谷駅前にある若者集まる商業施設の”宮下パーク”がメインのプランです！一階には日本食を楽しめる居酒屋が並ぶ
-      とともに、他の階では、モダンなファッション店や雑貨屋が並んでいます。最後に、緑感じる屋上でアクティビティや一休みなどパーソナルな時間をお楽しみください。
-    ''',
-        tags: ['＃ショッピング ', '＃アクティビティ', '＃グルメ', '時間: 1時間〜'],
-        averageAmount: '0',
-        openingHours: OpeningHours(openTime: '0', closeTime: '0'),
-        coordinate: Coordinate(latitude: '', longitude: ''),
+        topics: [
+          Topic(
+            name: '',
+            thumbnailUrl:
+                'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
+          ),
+        ],
       ),
       const Place(
         id: '1',
