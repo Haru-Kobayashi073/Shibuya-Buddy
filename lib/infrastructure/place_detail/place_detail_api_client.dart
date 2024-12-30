@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place_detail_response.dart';
+import '../../domain/entities/place_photo_response.dart';
 import '../../utils/providers/dio/app_dio.dart';
 
 part 'place_detail_api_client.g.dart';
@@ -26,7 +27,7 @@ abstract class PlaceDetailApiClient {
   @Headers(<String, dynamic>{
     'Content-Type': 'application/json',
     'X-Goog-Api-Key': placeDetailAPIKey,
-    'X-Goog-FieldMask': 'places.name,places.location',
+    'X-Goog-FieldMask': 'places.name,places.location,places.photos',
     'locationBias': {
       'circle': {
         'center': {'latitude': 35.6636, 'longitude': 139.6978},
@@ -41,5 +42,14 @@ abstract class PlaceDetailApiClient {
     @Body() String searchQuery,
   });
 
-  
+  @GET('/{placeId}/media')
+  @Headers(<String, dynamic>{
+    'Content-Type': 'application/json',
+    'X-Goog-Api-Key': placeDetailAPIKey,
+  })
+  Future<PlacePhotoResponse> searchPlacePhotoById({
+      @Path('placeId') String placeId,
+      @Query('maxHeightPx') int maxHeightPx,
+      @Query('maxWidthPx') int maxWidthPx,
+    });
 }

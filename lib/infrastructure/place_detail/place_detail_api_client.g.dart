@@ -29,7 +29,7 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
     final _headers = <String, dynamic>{
       r'Content-Type': 'application/json',
       r'X-Goog-Api-Key': '',
-      r'X-Goog-FieldMask': 'places.name,places.location',
+      r'X-Goog-FieldMask': 'places.name,places.location,places.photos',
       r'locationBias': null,
       r'minRating': 3.0,
       r'pageSize': 1,
@@ -58,6 +58,51 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
     late GoogleMapPlaceDetail _value;
     try {
       _value = GoogleMapPlaceDetail.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<PlacePhotoResponse> searchPlacePhotoById({
+    required String placeId,
+    required int maxHeightPx,
+    required int maxWidthPx,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'maxHeightPx': maxHeightPx,
+      r'maxWidthPx': maxWidthPx,
+    };
+    final _headers = <String, dynamic>{
+      r'Content-Type': 'application/json',
+      r'X-Goog-Api-Key': '',
+    };
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<PlacePhotoResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/json',
+    )
+        .compose(
+          _dio.options,
+          '/${placeId}/media',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late PlacePhotoResponse _value;
+    try {
+      _value = PlacePhotoResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
