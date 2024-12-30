@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 
 import '../../../i18n/strings.g.dart';
@@ -6,18 +7,15 @@ import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
 
-class BottomModal extends StatefulWidget {
+class BottomModal extends HookWidget {
   const BottomModal({super.key});
 
   @override
-  State<BottomModal> createState() => _BottomModalState();
-}
-
-class _BottomModalState extends State<BottomModal> {
-  String _selectedPlan = t.billDetailsPage.pricingOptions.oneDay.duration;
-
-  @override
   Widget build(BuildContext context) {
+    // useStateで状態を管理
+    final selectedPlan =
+        useState(t.billDetailsPage.pricingOptions.oneDay.duration);
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: AppColor.white,
@@ -36,22 +34,22 @@ class _BottomModalState extends State<BottomModal> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildPlanCardsRow(),
+            _buildPlanCardsRow(selectedPlan),
             const Gap(16),
-            _buildUpgradeButton(),
+            _buildUpgradeButton(selectedPlan),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildPlanCardsRow() {
+  Widget _buildPlanCardsRow(ValueNotifier<String> selectedPlan) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.only(left: 16),
       child: Row(
         children: [
-          ..._buildPlanCards().map(
+          ..._buildPlanCards(selectedPlan).map(
             (card) => Padding(
               padding: const EdgeInsets.only(right: 8),
               child: card,
@@ -63,7 +61,8 @@ class _BottomModalState extends State<BottomModal> {
     );
   }
 
-  Widget _buildUpgradeButton() {
+  Widget _buildUpgradeButton(ValueNotifier<String> selectedPlan) {
+    // Add selectedPlan as parameter
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: WideButton.gradient(
@@ -76,12 +75,13 @@ class _BottomModalState extends State<BottomModal> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        onPressed: () {},
+        onPressed: () {
+        },
       ),
     );
   }
 
-  List<Widget> _buildPlanCards() {
+  List<Widget> _buildPlanCards(ValueNotifier<String> selectedPlan) {
     final pricingOptions = t.billDetailsPage.pricingOptions;
 
     return [
@@ -91,6 +91,7 @@ class _BottomModalState extends State<BottomModal> {
           price: pricingOptions.oneDay.price,
           discount: pricingOptions.oneDay.discount,
         ),
+        selectedPlan,
       ),
       _buildPlanCard(
         PricingOption(
@@ -98,6 +99,7 @@ class _BottomModalState extends State<BottomModal> {
           price: pricingOptions.threeDays.price,
           discount: pricingOptions.threeDays.discount,
         ),
+        selectedPlan,
       ),
       _buildPlanCard(
         PricingOption(
@@ -105,6 +107,7 @@ class _BottomModalState extends State<BottomModal> {
           price: pricingOptions.fiveDays.price,
           discount: pricingOptions.fiveDays.discount,
         ),
+        selectedPlan,
       ),
       _buildPlanCard(
         PricingOption(
@@ -112,6 +115,7 @@ class _BottomModalState extends State<BottomModal> {
           price: pricingOptions.sevenDays.price,
           discount: pricingOptions.sevenDays.discount,
         ),
+        selectedPlan,
       ),
       _buildPlanCard(
         PricingOption(
@@ -119,21 +123,23 @@ class _BottomModalState extends State<BottomModal> {
           price: pricingOptions.lifetime.price,
           discount: pricingOptions.lifetime.discount,
         ),
+        selectedPlan,
       ),
     ];
   }
 
-  Widget _buildPlanCard(PricingOption pricingOption) {
+  Widget _buildPlanCard(
+    PricingOption pricingOption,
+    ValueNotifier<String> selectedPlan,
+  ) {
     return PlanCard(
       label: pricingOption.duration,
       price: pricingOption.price,
       discount: pricingOption.discount,
-      groupValue: _selectedPlan,
+      groupValue: selectedPlan.value,
       value: pricingOption.duration,
       onChanged: (value) {
-        setState(() {
-          _selectedPlan = value!;
-        });
+        selectedPlan.value = value!;
       },
     );
   }
@@ -193,32 +199,27 @@ class PlanCard extends StatelessWidget {
               onChanged: onChanged,
               activeColor: AppColor.yellow600Primary,
               fillColor: WidgetStateProperty.resolveWith<Color>(
-                (Set<WidgetState> states) {
-                  if (states.contains(WidgetState.selected)) {
-                    return AppColor.yellow600Primary;
-                  }
-                  return AppColor.yellow600Primary;
-                },
+                (states) => AppColor.yellow600Primary,
               ),
               contentPadding: EdgeInsets.zero,
               title: Column(
                 children: [
                   Text(
                     label,
-                    style: AppTextStyle.textStyle.copyWith(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColor.black,
+                      color: Colors.black,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   const Gap(4),
                   Text(
                     price,
-                    style: AppTextStyle.textStyle.copyWith(
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: AppColor.black,
+                      color: Colors.black,
                     ),
                     textAlign: TextAlign.center,
                   ),
