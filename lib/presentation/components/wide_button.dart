@@ -65,7 +65,7 @@ class WideButton extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Offstage(
-              offstage: icon == null,
+              offstage: icon is SizedBox,
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: Row(
