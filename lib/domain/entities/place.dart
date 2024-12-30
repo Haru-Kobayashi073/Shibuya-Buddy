@@ -11,9 +11,9 @@ abstract class Place with _$Place {
     required String name,
     required String thumbnailUrl,
     required String title,
-    Coordinate? coordinate,
-    OpeningHours? openingHours,
-    String? averageAmount,
+    required Coordinate coordinate,
+    required OpeningHours openingHours,
+    required String averageAmount,
     Uri? websiteUrl,
     List<String>? tags,
   }) = _Place;
