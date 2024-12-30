@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars long text
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'place.freezed.dart';
@@ -15,15 +17,15 @@ abstract class Place with _$Place {
     required OpeningHours openingHours,
     required String averageAmount,
     Uri? websiteUrl,
-    List<String>? tags,
   }) = _Place;
 
   const Place._();
+
   factory Place.fromJson(Map<String, dynamic> json) => _$PlaceFromJson(json);
 
   String getParsedOpeningHours() {
-    final openTime = openingHours?.openTime;
-    final closeTime = openingHours?.closeTime;
+    final openTime = openingHours.openTime;
+    final closeTime = openingHours.closeTime;
 
     return '$openTime~$closeTime';
   }
