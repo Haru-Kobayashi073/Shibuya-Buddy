@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/entities/place.dart';
+import '../../../domain/entities/plan.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../home/components/category_tags.dart';
@@ -8,9 +8,9 @@ import '../../home/components/category_tags.dart';
 class PlanHeader extends StatelessWidget {
   const PlanHeader({
     super.key,
-    required this.place,
+    required this.plan,
   });
-  final Place place;
+  final Plan plan;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,19 +20,19 @@ class PlanHeader extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              place.name,
+              plan.title,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16, bottom: 16),
+          const Padding(
+            padding: EdgeInsets.only(top: 16, bottom: 16),
             child: Align(
               alignment: Alignment.centerLeft,
               child: CategoryTags(
-                tags: place.tags ?? [],
+                tags: [],
                 tagColor: AppColor.grey200,
                 spacing: 4,
               ),
@@ -41,7 +41,7 @@ class PlanHeader extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              place.title,
+              plan.description,
               style: AppTextStyle.textStyle.copyWith(fontSize: 14),
             ),
           ),
