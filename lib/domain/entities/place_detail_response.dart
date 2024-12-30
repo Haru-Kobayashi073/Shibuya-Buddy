@@ -1,0 +1,29 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'coordinate.dart';
+
+part 'place_detail_response.freezed.dart';
+part 'place_detail_response.g.dart';
+
+@freezed
+abstract class PlaceDetailResponse with _$PlaceDetailResponse {
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+  const factory PlaceDetailResponse({
+    required List<GoogleMapPlaceDetail> places,
+  }) = _PlaceDetailResponse;
+
+  factory PlaceDetailResponse.fromJson(Map<String, dynamic> json) =>
+      _$PlaceDetailResponseFromJson(json);
+}
+
+@freezed
+abstract class GoogleMapPlaceDetail with _$GoogleMapPlaceDetail {
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+  const factory GoogleMapPlaceDetail({
+    required String placeId,
+    required Coordinate coordinate,
+  }) = _GoogleMapPlaceDetail;
+
+  factory GoogleMapPlaceDetail.fromJson(Map<String, dynamic> json) =>
+      _$GoogleMapPlaceDetailFromJson(json);
+}
