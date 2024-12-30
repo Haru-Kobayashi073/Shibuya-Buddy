@@ -155,16 +155,10 @@ class PlanTable extends StatelessWidget {
                               style: planTextStyle,
                             ),
                             const Gap(12),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  t.billDetailsPage.pricingPlan.details
-                                      .premiumPrice.lifetimePrice,
-                                  style: planTextStyle,
-                                ),
-                              ],
+                            Text(
+                              t.billDetailsPage.pricingPlan.details.premiumPrice
+                                  .lifetimePrice,
+                              style: planTextStyle,
                             ),
                           ],
                         ),
