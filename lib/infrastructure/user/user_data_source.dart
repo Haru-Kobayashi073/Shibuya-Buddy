@@ -23,10 +23,7 @@ class UserDataSource extends _$UserDataSource implements UserRepository {
 
   @override
   Future<User> fetchUser({required String userId}) async {
-    final snapshot = await firestore
-        .collection('users')
-        .doc('n2lEinZTRIVzcKyMR2nTWrZJUy52')
-        .get();
+    final snapshot = await firestore.collection('users').doc(userId).get();
     return User.fromJson(snapshot.data()!);
   }
 
