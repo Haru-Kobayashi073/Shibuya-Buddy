@@ -23,14 +23,31 @@ Map<String, dynamic> _$$PlaceDetailResponseImplToJson(
 _$GoogleMapPlaceDetailImpl _$$GoogleMapPlaceDetailImplFromJson(
         Map<String, dynamic> json) =>
     _$GoogleMapPlaceDetailImpl(
-      placeId: json['place_id'] as String,
-      coordinate:
-          Coordinate.fromJson(json['coordinate'] as Map<String, dynamic>),
+      name: json['name'] as String,
+      location: Coordinate.fromJson(json['location'] as Map<String, dynamic>),
+      photos: (json['photos'] as List<dynamic>)
+          .map((e) => PhotoDetail.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$GoogleMapPlaceDetailImplToJson(
         _$GoogleMapPlaceDetailImpl instance) =>
     <String, dynamic>{
-      'place_id': instance.placeId,
-      'coordinate': instance.coordinate.toJson(),
+      'name': instance.name,
+      'location': instance.location.toJson(),
+      'photos': instance.photos.map((e) => e.toJson()).toList(),
+    };
+
+_$PhotoDetailImpl _$$PhotoDetailImplFromJson(Map<String, dynamic> json) =>
+    _$PhotoDetailImpl(
+      name: json['name'] as String,
+      widthPx: (json['width_px'] as num).toInt(),
+      heightPx: (json['height_px'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$$PhotoDetailImplToJson(_$PhotoDetailImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'width_px': instance.widthPx,
+      'height_px': instance.heightPx,
     };

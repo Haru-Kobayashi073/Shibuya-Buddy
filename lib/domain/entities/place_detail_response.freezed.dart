@@ -181,8 +181,9 @@ GoogleMapPlaceDetail _$GoogleMapPlaceDetailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GoogleMapPlaceDetail {
-  String get placeId => throw _privateConstructorUsedError;
-  Coordinate get coordinate => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  Coordinate get location => throw _privateConstructorUsedError;
+  List<PhotoDetail> get photos => throw _privateConstructorUsedError;
 
   /// Serializes this GoogleMapPlaceDetail to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -200,9 +201,9 @@ abstract class $GoogleMapPlaceDetailCopyWith<$Res> {
           $Res Function(GoogleMapPlaceDetail) then) =
       _$GoogleMapPlaceDetailCopyWithImpl<$Res, GoogleMapPlaceDetail>;
   @useResult
-  $Res call({String placeId, Coordinate coordinate});
+  $Res call({String name, Coordinate location, List<PhotoDetail> photos});
 
-  $CoordinateCopyWith<$Res> get coordinate;
+  $CoordinateCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -221,18 +222,23 @@ class _$GoogleMapPlaceDetailCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? placeId = null,
-    Object? coordinate = null,
+    Object? name = null,
+    Object? location = null,
+    Object? photos = null,
   }) {
     return _then(_value.copyWith(
-      placeId: null == placeId
-          ? _value.placeId
-          : placeId // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: null == coordinate
-          ? _value.coordinate
-          : coordinate // ignore: cast_nullable_to_non_nullable
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as Coordinate,
+      photos: null == photos
+          ? _value.photos
+          : photos // ignore: cast_nullable_to_non_nullable
+              as List<PhotoDetail>,
     ) as $Val);
   }
 
@@ -240,9 +246,9 @@ class _$GoogleMapPlaceDetailCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CoordinateCopyWith<$Res> get coordinate {
-    return $CoordinateCopyWith<$Res>(_value.coordinate, (value) {
-      return _then(_value.copyWith(coordinate: value) as $Val);
+  $CoordinateCopyWith<$Res> get location {
+    return $CoordinateCopyWith<$Res>(_value.location, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
     });
   }
 }
@@ -255,10 +261,10 @@ abstract class _$$GoogleMapPlaceDetailImplCopyWith<$Res>
       __$$GoogleMapPlaceDetailImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String placeId, Coordinate coordinate});
+  $Res call({String name, Coordinate location, List<PhotoDetail> photos});
 
   @override
-  $CoordinateCopyWith<$Res> get coordinate;
+  $CoordinateCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -274,18 +280,23 @@ class __$$GoogleMapPlaceDetailImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? placeId = null,
-    Object? coordinate = null,
+    Object? name = null,
+    Object? location = null,
+    Object? photos = null,
   }) {
     return _then(_$GoogleMapPlaceDetailImpl(
-      placeId: null == placeId
-          ? _value.placeId
-          : placeId // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: null == coordinate
-          ? _value.coordinate
-          : coordinate // ignore: cast_nullable_to_non_nullable
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as Coordinate,
+      photos: null == photos
+          ? _value._photos
+          : photos // ignore: cast_nullable_to_non_nullable
+              as List<PhotoDetail>,
     ));
   }
 }
@@ -295,19 +306,29 @@ class __$$GoogleMapPlaceDetailImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class _$GoogleMapPlaceDetailImpl implements _GoogleMapPlaceDetail {
   const _$GoogleMapPlaceDetailImpl(
-      {required this.placeId, required this.coordinate});
+      {required this.name,
+      required this.location,
+      required final List<PhotoDetail> photos})
+      : _photos = photos;
 
   factory _$GoogleMapPlaceDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$GoogleMapPlaceDetailImplFromJson(json);
 
   @override
-  final String placeId;
+  final String name;
   @override
-  final Coordinate coordinate;
+  final Coordinate location;
+  final List<PhotoDetail> _photos;
+  @override
+  List<PhotoDetail> get photos {
+    if (_photos is EqualUnmodifiableListView) return _photos;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_photos);
+  }
 
   @override
   String toString() {
-    return 'GoogleMapPlaceDetail(placeId: $placeId, coordinate: $coordinate)';
+    return 'GoogleMapPlaceDetail(name: $name, location: $location, photos: $photos)';
   }
 
   @override
@@ -315,14 +336,16 @@ class _$GoogleMapPlaceDetailImpl implements _GoogleMapPlaceDetail {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GoogleMapPlaceDetailImpl &&
-            (identical(other.placeId, placeId) || other.placeId == placeId) &&
-            (identical(other.coordinate, coordinate) ||
-                other.coordinate == coordinate));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
+            const DeepCollectionEquality().equals(other._photos, _photos));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, placeId, coordinate);
+  int get hashCode => Object.hash(runtimeType, name, location,
+      const DeepCollectionEquality().hash(_photos));
 
   /// Create a copy of GoogleMapPlaceDetail
   /// with the given fields replaced by the non-null parameter values.
@@ -344,16 +367,19 @@ class _$GoogleMapPlaceDetailImpl implements _GoogleMapPlaceDetail {
 
 abstract class _GoogleMapPlaceDetail implements GoogleMapPlaceDetail {
   const factory _GoogleMapPlaceDetail(
-      {required final String placeId,
-      required final Coordinate coordinate}) = _$GoogleMapPlaceDetailImpl;
+      {required final String name,
+      required final Coordinate location,
+      required final List<PhotoDetail> photos}) = _$GoogleMapPlaceDetailImpl;
 
   factory _GoogleMapPlaceDetail.fromJson(Map<String, dynamic> json) =
       _$GoogleMapPlaceDetailImpl.fromJson;
 
   @override
-  String get placeId;
+  String get name;
   @override
-  Coordinate get coordinate;
+  Coordinate get location;
+  @override
+  List<PhotoDetail> get photos;
 
   /// Create a copy of GoogleMapPlaceDetail
   /// with the given fields replaced by the non-null parameter values.
@@ -361,4 +387,191 @@ abstract class _GoogleMapPlaceDetail implements GoogleMapPlaceDetail {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GoogleMapPlaceDetailImplCopyWith<_$GoogleMapPlaceDetailImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+PhotoDetail _$PhotoDetailFromJson(Map<String, dynamic> json) {
+  return _PhotoDetail.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PhotoDetail {
+  String get name => throw _privateConstructorUsedError;
+  int get widthPx => throw _privateConstructorUsedError;
+  int get heightPx => throw _privateConstructorUsedError;
+
+  /// Serializes this PhotoDetail to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PhotoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PhotoDetailCopyWith<PhotoDetail> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PhotoDetailCopyWith<$Res> {
+  factory $PhotoDetailCopyWith(
+          PhotoDetail value, $Res Function(PhotoDetail) then) =
+      _$PhotoDetailCopyWithImpl<$Res, PhotoDetail>;
+  @useResult
+  $Res call({String name, int widthPx, int heightPx});
+}
+
+/// @nodoc
+class _$PhotoDetailCopyWithImpl<$Res, $Val extends PhotoDetail>
+    implements $PhotoDetailCopyWith<$Res> {
+  _$PhotoDetailCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PhotoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? widthPx = null,
+    Object? heightPx = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      widthPx: null == widthPx
+          ? _value.widthPx
+          : widthPx // ignore: cast_nullable_to_non_nullable
+              as int,
+      heightPx: null == heightPx
+          ? _value.heightPx
+          : heightPx // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PhotoDetailImplCopyWith<$Res>
+    implements $PhotoDetailCopyWith<$Res> {
+  factory _$$PhotoDetailImplCopyWith(
+          _$PhotoDetailImpl value, $Res Function(_$PhotoDetailImpl) then) =
+      __$$PhotoDetailImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, int widthPx, int heightPx});
+}
+
+/// @nodoc
+class __$$PhotoDetailImplCopyWithImpl<$Res>
+    extends _$PhotoDetailCopyWithImpl<$Res, _$PhotoDetailImpl>
+    implements _$$PhotoDetailImplCopyWith<$Res> {
+  __$$PhotoDetailImplCopyWithImpl(
+      _$PhotoDetailImpl _value, $Res Function(_$PhotoDetailImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PhotoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? widthPx = null,
+    Object? heightPx = null,
+  }) {
+    return _then(_$PhotoDetailImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      widthPx: null == widthPx
+          ? _value.widthPx
+          : widthPx // ignore: cast_nullable_to_non_nullable
+              as int,
+      heightPx: null == heightPx
+          ? _value.heightPx
+          : heightPx // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$PhotoDetailImpl implements _PhotoDetail {
+  const _$PhotoDetailImpl(
+      {required this.name, required this.widthPx, required this.heightPx});
+
+  factory _$PhotoDetailImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PhotoDetailImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final int widthPx;
+  @override
+  final int heightPx;
+
+  @override
+  String toString() {
+    return 'PhotoDetail(name: $name, widthPx: $widthPx, heightPx: $heightPx)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PhotoDetailImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.widthPx, widthPx) || other.widthPx == widthPx) &&
+            (identical(other.heightPx, heightPx) ||
+                other.heightPx == heightPx));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, widthPx, heightPx);
+
+  /// Create a copy of PhotoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PhotoDetailImplCopyWith<_$PhotoDetailImpl> get copyWith =>
+      __$$PhotoDetailImplCopyWithImpl<_$PhotoDetailImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PhotoDetailImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PhotoDetail implements PhotoDetail {
+  const factory _PhotoDetail(
+      {required final String name,
+      required final int widthPx,
+      required final int heightPx}) = _$PhotoDetailImpl;
+
+  factory _PhotoDetail.fromJson(Map<String, dynamic> json) =
+      _$PhotoDetailImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  int get widthPx;
+  @override
+  int get heightPx;
+
+  /// Create a copy of PhotoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PhotoDetailImplCopyWith<_$PhotoDetailImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

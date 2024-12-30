@@ -20,10 +20,24 @@ abstract class PlaceDetailResponse with _$PlaceDetailResponse {
 abstract class GoogleMapPlaceDetail with _$GoogleMapPlaceDetail {
   @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory GoogleMapPlaceDetail({
-    required String placeId,
-    required Coordinate coordinate,
+    required String name,
+    required Coordinate location,
+    required List<PhotoDetail> photos,
   }) = _GoogleMapPlaceDetail;
 
   factory GoogleMapPlaceDetail.fromJson(Map<String, dynamic> json) =>
       _$GoogleMapPlaceDetailFromJson(json);
+}
+
+@freezed
+abstract class PhotoDetail with _$PhotoDetail {
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory PhotoDetail({
+    required String name,
+    required int widthPx,
+    required int heightPx,
+  }) = _PhotoDetail;
+
+  factory PhotoDetail.fromJson(Map<String, dynamic> json) =>
+      _$PhotoDetailFromJson(json);
 }
