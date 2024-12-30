@@ -97,7 +97,6 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
-        coordinate: null,
       ),
     ];
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)

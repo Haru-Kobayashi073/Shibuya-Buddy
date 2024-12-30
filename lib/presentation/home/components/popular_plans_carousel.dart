@@ -44,7 +44,7 @@ class PopularPlansCarousel extends HookWidget {
           child: SectionTitle.large(
             label: i18n.homePage.popularPlans.title,
             onPressed: () async {
-              await const PlanDetailPageRouteData().push<void>(context);
+              await const PopularPlansPageRouteData().push<void>(context);
             },
           ),
         ),

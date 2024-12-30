@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../utils/date_time_converter.dart';
 
 part 'place.freezed.dart';
 part 'place.g.dart';
