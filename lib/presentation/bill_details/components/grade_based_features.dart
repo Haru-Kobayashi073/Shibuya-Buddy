@@ -103,24 +103,24 @@ class GradeBasedFeatures extends StatelessWidget {
     TextStyle style, {
     bool hasBackground = false,
   }) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(8),
-        topRight: Radius.circular(8),
-      ),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-        alignment: Alignment.center,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
         color: hasBackground ? AppColor.yellow200 : Colors.transparent,
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            text,
-            style: style,
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            softWrap: false,
-          ),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      alignment: Alignment.center,
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          text,
+          style: style,
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          softWrap: false,
         ),
       ),
     );

@@ -38,37 +38,39 @@ class PlanTable extends StatelessWidget {
           children: [
             TableRow(
               children: [
-                ClipRRect(
-                  borderRadius:
-                      const BorderRadius.only(topLeft: Radius.circular(8)),
-                  child: Container(
-                    height: 50,
-                    margin: const EdgeInsets.only(right: 1, bottom: 1),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(8),
+                    ),
                     color: AppColor.blue50Background,
-                    child: Center(
-                      child: Text(
-                        t.billDetailsPage.pricingPlan.columns.standard,
-                        style: headerStyle,
-                      ),
+                  ),
+                  height: 50,
+                  margin: const EdgeInsets.only(right: 1, bottom: 1),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                  child: Center(
+                    child: Text(
+                      t.billDetailsPage.pricingPlan.columns.standard,
+                      style: headerStyle,
                     ),
                   ),
                 ),
-                ClipRRect(
-                  borderRadius:
-                      const BorderRadius.only(topRight: Radius.circular(8)),
-                  child: Container(
-                    height: 50,
-                    margin: const EdgeInsets.only(left: 1, bottom: 1),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(8),
+                    ),
                     color: AppColor.yellow200,
-                    child: Center(
-                      child: Text(
-                        t.billDetailsPage.pricingPlan.columns.premium,
-                        style: headerStyle,
-                      ),
+                  ),
+                  height: 50,
+                  margin: const EdgeInsets.only(left: 1, bottom: 1),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                  child: Center(
+                    child: Text(
+                      t.billDetailsPage.pricingPlan.columns.premium,
+                      style: headerStyle,
                     ),
                   ),
                 ),
@@ -76,94 +78,96 @@ class PlanTable extends StatelessWidget {
             ),
             TableRow(
               children: [
-                ClipRRect(
-                  borderRadius:
-                      const BorderRadius.only(bottomLeft: Radius.circular(8)),
-                  child: Container(
-                    height: 200,
-                    margin: const EdgeInsets.only(right: 1),
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(16),
-                    color: AppColor.blue50Background,
-                    child: Text(
-                      t.billDetailsPage.pricingPlan.details.free,
-                      style: headerStyle,
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(8),
                     ),
+                    color: AppColor.blue50Background,
+                  ),
+                  height: 200,
+                  margin: const EdgeInsets.only(right: 1),
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    t.billDetailsPage.pricingPlan.details.free,
+                    style: headerStyle,
                   ),
                 ),
-                ClipRRect(
-                  borderRadius:
-                      const BorderRadius.only(bottomRight: Radius.circular(8)),
-                  child: Container(
-                    height: 200,
-                    margin: const EdgeInsets.only(left: 1, bottom: 1),
-                    color: AppColor.yellow200,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              t.billDetailsPage.pricingPlan.details.premiumPrice
-                                  .days,
-                              style: planTextStyle,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Gap(8),
-                                Text(
-                                  t.billDetailsPage.pricingPlan.details
-                                      .premiumPrice.daily,
-                                  style: planTextStyle,
-                                ),
-                                Text(
-                                  t.billDetailsPage.pricingPlan.details
-                                      .premiumPrice.threeDays,
-                                  style: planTextStyle,
-                                ),
-                                Text(
-                                  t.billDetailsPage.pricingPlan.details
-                                      .premiumPrice.fiveDays,
-                                  style: planTextStyle,
-                                ),
-                                Text(
-                                  t.billDetailsPage.pricingPlan.details
-                                      .premiumPrice.sevenDays,
-                                  style: planTextStyle,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Gap(12),
-                        Text(
-                          t.billDetailsPage.pricingPlan.details.premiumPrice.or,
-                          style: AppTextStyle.textStyle.copyWith(
-                            fontSize: 12,
-                          ),
-                        ),
-                        const Gap(12),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              t.billDetailsPage.pricingPlan.details.premiumPrice
-                                  .lifetime,
-                              style: planTextStyle,
-                            ),
-                            const Gap(12),
-                            Text(
-                              t.billDetailsPage.pricingPlan.details.premiumPrice
-                                  .lifetimePrice,
-                              style: planTextStyle,
-                            ),
-                          ],
-                        ),
-                      ],
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(8),
                     ),
+                    color: AppColor.yellow200,
+                  ),
+                  height: 200,
+                  margin: const EdgeInsets.only(left: 1, bottom: 1),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            t.billDetailsPage.pricingPlan.details.premiumPrice
+                                .days,
+                            style: planTextStyle,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Gap(8),
+                              Text(
+                                t.billDetailsPage.pricingPlan.details
+                                    .premiumPrice.daily,
+                                style: planTextStyle,
+                              ),
+                              Text(
+                                t.billDetailsPage.pricingPlan.details
+                                    .premiumPrice.threeDays,
+                                style: planTextStyle,
+                              ),
+                              Text(
+                                t.billDetailsPage.pricingPlan.details
+                                    .premiumPrice.fiveDays,
+                                style: planTextStyle,
+                              ),
+                              Text(
+                                t.billDetailsPage.pricingPlan.details
+                                    .premiumPrice.sevenDays,
+                                style: planTextStyle,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Gap(12),
+                      Text(
+                        t.billDetailsPage.pricingPlan.details.premiumPrice.or,
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                      const Gap(12),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            t.billDetailsPage.pricingPlan.details.premiumPrice
+                                .lifetime,
+                            style: planTextStyle,
+                          ),
+                          const Gap(12),
+                          Text(
+                            t.billDetailsPage.pricingPlan.details.premiumPrice
+                                .lifetimePrice,
+                            style: planTextStyle,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],
