@@ -14,9 +14,10 @@ abstract class Place with _$Place {
     required String name,
     required String thumbnailUrl,
     required String title,
+    List<String>? tags,
     @DateTimeConverter()
-    required ({DateTime openTime, DateTime closeTime}) openingHours,
-    required String avevageAmount,
+    ({DateTime openTime, DateTime closeTime})? openingHours,
+    String? avevageAmount,
     Uri? websiteUrl,
   }) = _Place;
 
@@ -25,9 +26,14 @@ abstract class Place with _$Place {
   factory Place.fromJson(Map<String, dynamic> json) => _$PlaceFromJson(json);
 
   String getParsedOpeningHours() {
-    final openTime = openingHours.openTime;
-    final closeTime = openingHours.closeTime;
+    final openTime = openingHours?.openTime;
+    final closeTime = openingHours?.closeTime;
 
-    return '${openTime.hour.toString().padLeft(2, '0')}:${openTime.minute.toString().padLeft(2, '0')}～${closeTime.hour.toString().padLeft(2, '0')}:${closeTime.minute.toString().padLeft(2, '0')}';
+    if (openTime != null && closeTime != null) {
+      return '${openTime.hour.toString().padLeft(2, '0')}:${openTime.minute.toString().padLeft(2, '0')}～${closeTime.hour.toString().padLeft(2, '0')}:${closeTime.minute.toString().padLeft(2, '0')}';
+    }
+    return '';
   }
+
+  void removeAt(int i) {}
 }
