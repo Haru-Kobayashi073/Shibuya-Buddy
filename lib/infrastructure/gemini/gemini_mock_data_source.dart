@@ -3,6 +3,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/chat_message.dart';
+import '../../domain/entities/coordinate.dart';
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
