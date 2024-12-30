@@ -72,9 +72,11 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.termsOfUsePrivacyPolicy,
-                          onTap: () async =>
-                              const TermsofUsePrivacyPolicyPageRouteData()
-                                  .push<void>(context),
+                          onTap: () async {
+                            await ref
+                                .read(myPageNotifierProvider.notifier)
+                                .launchPrivacyPolicy();
+                          },
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutThisApp,
