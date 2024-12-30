@@ -16,11 +16,8 @@ class PlanDetailPage extends StatelessWidget {
   const PlanDetailPage({super.key});
 
   PlanHeader planinfo(List<Place> plans) {
-    final planInfo = plans[0];
     return PlanHeader(
-      title: planInfo.name,
-      description: planInfo.title,
-      tags: planInfo.tags ?? [],
+      place: plans[0],
     );
   }
 
@@ -145,7 +142,10 @@ class PlanDetailPage extends StatelessWidget {
                             height: 16,
                           ),
                           WideButton(
-                            icon: const Icon(Icons.pin_drop_outlined),
+                            icon: const Icon(
+                              Icons.pin_drop_outlined,
+                              color: AppColor.black,
+                            ),
                             label: planDetailPagei18n.item.viewOnMap,
                             color: AppColor.grey200,
                             onPressed: () {},
