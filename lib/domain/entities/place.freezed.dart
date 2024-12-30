@@ -24,11 +24,10 @@ mixin _$Place {
   String get name => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  Coordinate? get coordinate => throw _privateConstructorUsedError;
-  OpeningHours? get openingHours => throw _privateConstructorUsedError;
-  String? get averageAmount => throw _privateConstructorUsedError;
+  Coordinate get coordinate => throw _privateConstructorUsedError;
+  OpeningHours get openingHours => throw _privateConstructorUsedError;
+  String get averageAmount => throw _privateConstructorUsedError;
   Uri? get websiteUrl => throw _privateConstructorUsedError;
-  List<String>? get tags => throw _privateConstructorUsedError;
 
   /// Serializes this Place to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,14 +48,13 @@ abstract class $PlaceCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       String title,
-      Coordinate? coordinate,
-      OpeningHours? openingHours,
-      String? averageAmount,
-      Uri? websiteUrl,
-      List<String>? tags});
+      Coordinate coordinate,
+      OpeningHours openingHours,
+      String averageAmount,
+      Uri? websiteUrl});
 
-  $CoordinateCopyWith<$Res>? get coordinate;
-  $OpeningHoursCopyWith<$Res>? get openingHours;
+  $CoordinateCopyWith<$Res> get coordinate;
+  $OpeningHoursCopyWith<$Res> get openingHours;
 }
 
 /// @nodoc
@@ -78,11 +76,10 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? title = null,
-    Object? coordinate = freezed,
-    Object? openingHours = freezed,
-    Object? averageAmount = freezed,
+    Object? coordinate = null,
+    Object? openingHours = null,
+    Object? averageAmount = null,
     Object? websiteUrl = freezed,
-    Object? tags = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -101,26 +98,22 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: freezed == coordinate
+      coordinate: null == coordinate
           ? _value.coordinate
           : coordinate // ignore: cast_nullable_to_non_nullable
-              as Coordinate?,
-      openingHours: freezed == openingHours
+              as Coordinate,
+      openingHours: null == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
-              as OpeningHours?,
-      averageAmount: freezed == averageAmount
+              as OpeningHours,
+      averageAmount: null == averageAmount
           ? _value.averageAmount
           : averageAmount // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       websiteUrl: freezed == websiteUrl
           ? _value.websiteUrl
           : websiteUrl // ignore: cast_nullable_to_non_nullable
               as Uri?,
-      tags: freezed == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ) as $Val);
   }
 
@@ -128,12 +121,8 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CoordinateCopyWith<$Res>? get coordinate {
-    if (_value.coordinate == null) {
-      return null;
-    }
-
-    return $CoordinateCopyWith<$Res>(_value.coordinate!, (value) {
+  $CoordinateCopyWith<$Res> get coordinate {
+    return $CoordinateCopyWith<$Res>(_value.coordinate, (value) {
       return _then(_value.copyWith(coordinate: value) as $Val);
     });
   }
@@ -142,12 +131,8 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $OpeningHoursCopyWith<$Res>? get openingHours {
-    if (_value.openingHours == null) {
-      return null;
-    }
-
-    return $OpeningHoursCopyWith<$Res>(_value.openingHours!, (value) {
+  $OpeningHoursCopyWith<$Res> get openingHours {
+    return $OpeningHoursCopyWith<$Res>(_value.openingHours, (value) {
       return _then(_value.copyWith(openingHours: value) as $Val);
     });
   }
@@ -165,16 +150,15 @@ abstract class _$$PlaceImplCopyWith<$Res> implements $PlaceCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       String title,
-      Coordinate? coordinate,
-      OpeningHours? openingHours,
-      String? averageAmount,
-      Uri? websiteUrl,
-      List<String>? tags});
+      Coordinate coordinate,
+      OpeningHours openingHours,
+      String averageAmount,
+      Uri? websiteUrl});
 
   @override
-  $CoordinateCopyWith<$Res>? get coordinate;
+  $CoordinateCopyWith<$Res> get coordinate;
   @override
-  $OpeningHoursCopyWith<$Res>? get openingHours;
+  $OpeningHoursCopyWith<$Res> get openingHours;
 }
 
 /// @nodoc
@@ -194,11 +178,10 @@ class __$$PlaceImplCopyWithImpl<$Res>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? title = null,
-    Object? coordinate = freezed,
-    Object? openingHours = freezed,
-    Object? averageAmount = freezed,
+    Object? coordinate = null,
+    Object? openingHours = null,
+    Object? averageAmount = null,
     Object? websiteUrl = freezed,
-    Object? tags = freezed,
   }) {
     return _then(_$PlaceImpl(
       id: null == id
@@ -217,26 +200,22 @@ class __$$PlaceImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: freezed == coordinate
+      coordinate: null == coordinate
           ? _value.coordinate
           : coordinate // ignore: cast_nullable_to_non_nullable
-              as Coordinate?,
-      openingHours: freezed == openingHours
+              as Coordinate,
+      openingHours: null == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
-              as OpeningHours?,
-      averageAmount: freezed == averageAmount
+              as OpeningHours,
+      averageAmount: null == averageAmount
           ? _value.averageAmount
           : averageAmount // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       websiteUrl: freezed == websiteUrl
           ? _value.websiteUrl
           : websiteUrl // ignore: cast_nullable_to_non_nullable
               as Uri?,
-      tags: freezed == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ));
   }
 }
@@ -250,13 +229,11 @@ class _$PlaceImpl extends _Place {
       required this.name,
       required this.thumbnailUrl,
       required this.title,
-      this.coordinate,
-      this.openingHours,
-      this.averageAmount,
-      this.websiteUrl,
-      final List<String>? tags})
-      : _tags = tags,
-        super._();
+      required this.coordinate,
+      required this.openingHours,
+      required this.averageAmount,
+      this.websiteUrl})
+      : super._();
 
   factory _$PlaceImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceImplFromJson(json);
@@ -271,26 +248,17 @@ class _$PlaceImpl extends _Place {
   @override
   final String title;
   @override
-  final Coordinate? coordinate;
+  final Coordinate coordinate;
   @override
-  final OpeningHours? openingHours;
+  final OpeningHours openingHours;
   @override
-  final String? averageAmount;
+  final String averageAmount;
   @override
   final Uri? websiteUrl;
-  final List<String>? _tags;
-  @override
-  List<String>? get tags {
-    final value = _tags;
-    if (value == null) return null;
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
 
   @override
   String toString() {
-    return 'Place(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, title: $title, coordinate: $coordinate, openingHours: $openingHours, averageAmount: $averageAmount, websiteUrl: $websiteUrl, tags: $tags)';
+    return 'Place(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, title: $title, coordinate: $coordinate, openingHours: $openingHours, averageAmount: $averageAmount, websiteUrl: $websiteUrl)';
   }
 
   @override
@@ -310,23 +278,13 @@ class _$PlaceImpl extends _Place {
             (identical(other.averageAmount, averageAmount) ||
                 other.averageAmount == averageAmount) &&
             (identical(other.websiteUrl, websiteUrl) ||
-                other.websiteUrl == websiteUrl) &&
-            const DeepCollectionEquality().equals(other._tags, _tags));
+                other.websiteUrl == websiteUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      thumbnailUrl,
-      title,
-      coordinate,
-      openingHours,
-      averageAmount,
-      websiteUrl,
-      const DeepCollectionEquality().hash(_tags));
+  int get hashCode => Object.hash(runtimeType, id, name, thumbnailUrl, title,
+      coordinate, openingHours, averageAmount, websiteUrl);
 
   /// Create a copy of Place
   /// with the given fields replaced by the non-null parameter values.
@@ -350,11 +308,10 @@ abstract class _Place extends Place {
       required final String name,
       required final String thumbnailUrl,
       required final String title,
-      final Coordinate? coordinate,
-      final OpeningHours? openingHours,
-      final String? averageAmount,
-      final Uri? websiteUrl,
-      final List<String>? tags}) = _$PlaceImpl;
+      required final Coordinate coordinate,
+      required final OpeningHours openingHours,
+      required final String averageAmount,
+      final Uri? websiteUrl}) = _$PlaceImpl;
   const _Place._() : super._();
 
   factory _Place.fromJson(Map<String, dynamic> json) = _$PlaceImpl.fromJson;
@@ -368,15 +325,13 @@ abstract class _Place extends Place {
   @override
   String get title;
   @override
-  Coordinate? get coordinate;
+  Coordinate get coordinate;
   @override
-  OpeningHours? get openingHours;
+  OpeningHours get openingHours;
   @override
-  String? get averageAmount;
+  String get averageAmount;
   @override
   Uri? get websiteUrl;
-  @override
-  List<String>? get tags;
 
   /// Create a copy of Place
   /// with the given fields replaced by the non-null parameter values.

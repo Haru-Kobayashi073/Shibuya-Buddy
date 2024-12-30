@@ -11,18 +11,14 @@ _$PlaceImpl _$$PlaceImplFromJson(Map<String, dynamic> json) => _$PlaceImpl(
       name: json['name'] as String,
       thumbnailUrl: json['thumbnail_url'] as String,
       title: json['title'] as String,
-      coordinate: json['coordinate'] == null
-          ? null
-          : Coordinate.fromJson(json['coordinate'] as Map<String, dynamic>),
-      openingHours: json['opening_hours'] == null
-          ? null
-          : OpeningHours.fromJson(
-              json['opening_hours'] as Map<String, dynamic>),
-      averageAmount: json['average_amount'] as String?,
+      coordinate:
+          Coordinate.fromJson(json['coordinate'] as Map<String, dynamic>),
+      openingHours:
+          OpeningHours.fromJson(json['opening_hours'] as Map<String, dynamic>),
+      averageAmount: json['average_amount'] as String,
       websiteUrl: json['website_url'] == null
           ? null
           : Uri.parse(json['website_url'] as String),
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
@@ -31,11 +27,10 @@ Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
       'name': instance.name,
       'thumbnail_url': instance.thumbnailUrl,
       'title': instance.title,
-      'coordinate': instance.coordinate?.toJson(),
-      'opening_hours': instance.openingHours?.toJson(),
+      'coordinate': instance.coordinate.toJson(),
+      'opening_hours': instance.openingHours.toJson(),
       'average_amount': instance.averageAmount,
       'website_url': instance.websiteUrl?.toString(),
-      'tags': instance.tags,
     };
 
 _$CoordinateImpl _$$CoordinateImplFromJson(Map<String, dynamic> json) =>
