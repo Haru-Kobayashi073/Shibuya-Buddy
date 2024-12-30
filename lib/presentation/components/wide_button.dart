@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
@@ -49,24 +50,42 @@ class WideButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: FilledButton.icon(
-        style: FilledButton.styleFrom(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(Radius.circular(32)),
             side: border,
           ),
           padding: const EdgeInsets.symmetric(vertical: 16),
           backgroundColor: color,
+          elevation: 0,
         ),
         onPressed: onPressed,
-        icon: icon,
-        label: Text(
-          label,
-          style: AppTextStyle.textStyle.copyWith(
-            fontSize: 14,
-            color: AppColor.black,
-            fontWeight: FontWeight.w700,
-          ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Offstage(
+              offstage: icon == null,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Row(
+                  children: [
+                    icon,
+                  ],
+                ),
+              ),
+            ),
+            Center(
+              child: Text(
+                label,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 14,
+                  color: AppColor.black,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
