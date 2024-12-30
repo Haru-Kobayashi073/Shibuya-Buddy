@@ -32,6 +32,7 @@ dependencies:
   carousel_slider: ^5.0.0
   cloud_firestore: ^5.5.0
   cupertino_icons: ^1.0.8
+  dio: ^5.7.0
   email_validator: ^3.0.0
   firebase_analytics: ^11.3.6
   firebase_auth: ^5.3.3
@@ -51,7 +52,6 @@ dependencies:
   google_generative_ai: ^0.4.6
   google_sign_in: ^6.2.2
   hooks_riverpod: ^2.5.4
-  http: ^1.2.2
   image_picker: ^1.1.2
   intl: ^0.19.0
   json_annotation: ^4.9.0
