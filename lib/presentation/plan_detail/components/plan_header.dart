@@ -4,7 +4,7 @@ import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../home/components/category_tags.dart';
 
-class PlanHeader extends StatefulWidget {
+class PlanHeader extends StatelessWidget {
   const PlanHeader({
     super.key,
     required this.title,
@@ -17,11 +17,6 @@ class PlanHeader extends StatefulWidget {
   final String? imageUrl;
   final List<String> tags;
   @override
-  State<PlanHeader> createState() => _PlanHeaderState();
-}
-
-class _PlanHeaderState extends State<PlanHeader> {
-  @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
@@ -30,7 +25,7 @@ class _PlanHeaderState extends State<PlanHeader> {
         SizedBox(
           width: screenWidth,
           child: Image(
-            image: NetworkImage(widget.imageUrl.toString()),
+            image: NetworkImage(imageUrl.toString()),
             errorBuilder: (c, o, s) {
               return const SizedBox(
                 height: 116,
@@ -45,7 +40,7 @@ class _PlanHeaderState extends State<PlanHeader> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  widget.title,
+                  title,
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -57,7 +52,7 @@ class _PlanHeaderState extends State<PlanHeader> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: CategoryTags(
-                    tags: widget.tags,
+                    tags: tags,
                     tagColor: AppColor.grey200,
                     spacing: 4,
                   ),
@@ -66,7 +61,7 @@ class _PlanHeaderState extends State<PlanHeader> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  widget.description,
+                  description,
                   style: AppTextStyle.textStyle.copyWith(fontSize: 14),
                 ),
               ),
