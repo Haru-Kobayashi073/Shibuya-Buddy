@@ -62,9 +62,20 @@ class PlanDetailPage extends StatelessWidget {
             'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
         topics: [
           Topic(
-            name: '',
-            thumbnailUrl:
-                'https://www.wirerope.co.jp/products/jakob/wordpress/wp-content/uploads/2022/03/%E5%AE%AE%E4%B8%8B%E5%85%AC%E5%9C%92_%E6%89%8B%E6%91%BA1.jpg',
+            name: 'タグ1',
+            thumbnailUrl: '',
+          ),
+          Topic(
+            name: 'タグ2',
+            thumbnailUrl: '',
+          ),
+          Topic(
+            name: 'タグ3',
+            thumbnailUrl: '',
+          ),
+          Topic(
+            name: 'タグ4',
+            thumbnailUrl: '',
           ),
         ],
       ),

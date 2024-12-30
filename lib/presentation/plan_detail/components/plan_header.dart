@@ -27,12 +27,12 @@ class PlanHeader extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 16, bottom: 16),
+          Padding(
+            padding: const EdgeInsets.only(top: 16, bottom: 16),
             child: Align(
               alignment: Alignment.centerLeft,
               child: CategoryTags(
-                tags: [],
+                tags: plan.topics.map((topic) => topic.name).toList(),
                 tagColor: AppColor.grey200,
                 spacing: 4,
               ),
