@@ -52,6 +52,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
 	late final TranslationsConfirmDialogEn confirmDialog = TranslationsConfirmDialogEn._(_root);
 	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
+	late final TranslationsBillDetailsPageEn billDetailsPage = TranslationsBillDetailsPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -281,6 +282,21 @@ class TranslationsPromptEn {
 
 	// Translations
 	String get planProposalMessage => 'I’ve come up with this plan! What do you think?';
+}
+
+// Path: billDetailsPage
+class TranslationsBillDetailsPageEn {
+	TranslationsBillDetailsPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Premium Plan';
+	String get description => 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
+	late final TranslationsBillDetailsPagePricingPlanEn pricingPlan = TranslationsBillDetailsPagePricingPlanEn._(_root);
+	late final TranslationsBillDetailsPageFeaturesEn features = TranslationsBillDetailsPageFeaturesEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsEn pricingOptions = TranslationsBillDetailsPagePricingOptionsEn._(_root);
+	String get upgradeButton => 'Upgrade to Premium';
 }
 
 // Path: navigationBar.items
@@ -662,6 +678,44 @@ class TranslationsConfirmDialogCompleteCreatePlanEn {
 	String get description => 'The plan in the last message will be saved.';
 }
 
+// Path: billDetailsPage.pricingPlan
+class TranslationsBillDetailsPagePricingPlanEn {
+	TranslationsBillDetailsPagePricingPlanEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Pricing Plan';
+	late final TranslationsBillDetailsPagePricingPlanColumnsEn columns = TranslationsBillDetailsPagePricingPlanColumnsEn._(_root);
+	late final TranslationsBillDetailsPagePricingPlanDetailsEn details = TranslationsBillDetailsPagePricingPlanDetailsEn._(_root);
+}
+
+// Path: billDetailsPage.features
+class TranslationsBillDetailsPageFeaturesEn {
+	TranslationsBillDetailsPageFeaturesEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Features by Grade';
+	late final TranslationsBillDetailsPageFeaturesRowsEn rows = TranslationsBillDetailsPageFeaturesRowsEn._(_root);
+	late final TranslationsBillDetailsPageFeaturesColumnsEn columns = TranslationsBillDetailsPageFeaturesColumnsEn._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions
+class TranslationsBillDetailsPagePricingOptionsEn {
+	TranslationsBillDetailsPagePricingOptionsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsBillDetailsPagePricingOptionsOneDayEn oneDay = TranslationsBillDetailsPagePricingOptionsOneDayEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsThreeDaysEn threeDays = TranslationsBillDetailsPagePricingOptionsThreeDaysEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsFiveDaysEn fiveDays = TranslationsBillDetailsPagePricingOptionsFiveDaysEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsSevenDaysEn sevenDays = TranslationsBillDetailsPagePricingOptionsSevenDaysEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsLifetimeEn lifetime = TranslationsBillDetailsPagePricingOptionsLifetimeEn._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class TranslationsAuthenticationSignInPageTextFieldsEn {
 	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
@@ -838,6 +892,113 @@ class TranslationsEditProfilePageSnackBarErrorEn {
 	String get failedToPickImage => 'Failed to select image. Please try again later.';
 }
 
+// Path: billDetailsPage.pricingPlan.columns
+class TranslationsBillDetailsPagePricingPlanColumnsEn {
+	TranslationsBillDetailsPagePricingPlanColumnsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get standard => 'Standard';
+	String get premium => 'Premium';
+}
+
+// Path: billDetailsPage.pricingPlan.details
+class TranslationsBillDetailsPagePricingPlanDetailsEn {
+	TranslationsBillDetailsPagePricingPlanDetailsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get free => 'Free 🎉';
+	late final TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn premiumPrice = TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn._(_root);
+}
+
+// Path: billDetailsPage.features.rows
+class TranslationsBillDetailsPageFeaturesRowsEn {
+	TranslationsBillDetailsPageFeaturesRowsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get planCreationLimit => 'Number of plans that can be created';
+	String get chatLimit => 'Number of chats available during plan creation';
+	String get timelineAccess => 'Access to all plan timelines';
+	String get adFree => 'Ad-free';
+	String get exclusiveFeatures => 'Plan authentication features';
+}
+
+// Path: billDetailsPage.features.columns
+class TranslationsBillDetailsPageFeaturesColumnsEn {
+	TranslationsBillDetailsPageFeaturesColumnsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsBillDetailsPageFeaturesColumnsStandardEn standard = TranslationsBillDetailsPageFeaturesColumnsStandardEn._(_root);
+	late final TranslationsBillDetailsPageFeaturesColumnsPremiumEn premium = TranslationsBillDetailsPageFeaturesColumnsPremiumEn._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions.oneDay
+class TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	TranslationsBillDetailsPagePricingOptionsOneDayEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get duration => '1 day';
+	String get discount => '';
+	String get price => '300 yen';
+}
+
+// Path: billDetailsPage.pricingOptions.threeDays
+class TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	TranslationsBillDetailsPagePricingOptionsThreeDaysEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get duration => '3 days';
+	String get discount => '-5%';
+	String get price => '890 yen';
+}
+
+// Path: billDetailsPage.pricingOptions.fiveDays
+class TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	TranslationsBillDetailsPagePricingOptionsFiveDaysEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get duration => '5 days';
+	String get discount => '-7.5%';
+	String get price => '1,387 yen';
+}
+
+// Path: billDetailsPage.pricingOptions.sevenDays
+class TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	TranslationsBillDetailsPagePricingOptionsSevenDaysEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get duration => '7 days';
+	String get discount => '-10%';
+	String get price => '2,070 yen';
+}
+
+// Path: billDetailsPage.pricingOptions.lifetime
+class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	TranslationsBillDetailsPagePricingOptionsLifetimeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get duration => 'Lifetime';
+	String get discount => '';
+	String get price => '25,800 yen';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
@@ -857,6 +1018,47 @@ class TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
 	// Translations
 	String get submitIfAllEmpty => 'Please enter the information';
 	String get unexpected => 'An error occurred. Please try again later.';
+}
+
+// Path: billDetailsPage.pricingPlan.details.premiumPrice
+class TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get days => 'Purchase by duration';
+	String get daily => '・1 day 300 yen';
+	String get threeDays => '・3 days 855 yen';
+	String get fiveDays => '・5 days 1,480 yen';
+	String get sevenDays => '・7 days 2,070 yen';
+	String get or => 'or';
+	String get lifetime => 'Lifetime';
+	String get lifetimePrice => '25,800 yen';
+}
+
+// Path: billDetailsPage.features.columns.standard
+class TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	TranslationsBillDetailsPageFeaturesColumnsStandardEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Standard';
+	String get planCreationLimit => '2 times';
+	String get chatLimit => '3 times';
+}
+
+// Path: billDetailsPage.features.columns.premium
+class TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	TranslationsBillDetailsPageFeaturesColumnsPremiumEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get label => 'Premium';
+	String get planCreationLimit => 'Unlimited';
+	String get chatLimit => 'Unlimited';
 }
 
 /// Flat map(s) containing all translations.
@@ -1031,6 +1233,48 @@ extension on Translations {
 			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
 			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
 			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
+			case 'billDetailsPage.title': return 'Premium Plan';
+			case 'billDetailsPage.description': return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
+			case 'billDetailsPage.pricingPlan.title': return 'Pricing Plan';
+			case 'billDetailsPage.pricingPlan.columns.standard': return 'Standard';
+			case 'billDetailsPage.pricingPlan.columns.premium': return 'Premium';
+			case 'billDetailsPage.pricingPlan.details.free': return 'Free 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return 'Purchase by duration';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1 day 300 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3 days 855 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5 days 1,480 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7 days 2,070 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'or';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return 'Lifetime';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800 yen';
+			case 'billDetailsPage.features.title': return 'Features by Grade';
+			case 'billDetailsPage.features.rows.planCreationLimit': return 'Number of plans that can be created';
+			case 'billDetailsPage.features.rows.chatLimit': return 'Number of chats available during plan creation';
+			case 'billDetailsPage.features.rows.timelineAccess': return 'Access to all plan timelines';
+			case 'billDetailsPage.features.rows.adFree': return 'Ad-free';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return 'Plan authentication features';
+			case 'billDetailsPage.features.columns.standard.label': return 'Standard';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2 times';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3 times';
+			case 'billDetailsPage.features.columns.premium.label': return 'Premium';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return 'Unlimited';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return 'Unlimited';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1 day';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300 yen';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3 days';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890 yen';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5 days';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387 yen';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7 days';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070 yen';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
+			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
@@ -10,6 +11,7 @@ class WideButton extends StatelessWidget {
     this.icon = const SizedBox(),
     this.border = BorderSide.none,
     required this.onPressed,
+    this.gradient,
   });
 
   factory WideButton.icon({
@@ -40,32 +42,58 @@ class WideButton extends StatelessWidget {
     );
   }
 
+  factory WideButton.gradient({
+    required String label,
+    required Gradient gradient,
+    required VoidCallback onPressed,
+    Widget icon = const SizedBox(),
+    BorderSide border = BorderSide.none,
+  }) {
+    return WideButton(
+      label: label,
+      color: Colors.transparent, // Gradientを優先するため透明色
+      gradient: gradient,
+      onPressed: onPressed,
+      icon: icon,
+      border: border,
+    );
+  }
+
   final Widget icon;
   final String label;
   final Color color;
   final BorderSide border;
   final VoidCallback onPressed;
+  final Gradient? gradient;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: FilledButton.icon(
-        style: FilledButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(32)),
-            side: border,
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          backgroundColor: color,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: gradient,
+          color: gradient == null ? color : null,
+          borderRadius: BorderRadius.circular(32),
+          border: Border.fromBorderSide(border),
         ),
-        onPressed: onPressed,
-        icon: icon,
-        label: Text(
-          label,
-          style: AppTextStyle.textStyle.copyWith(
-            fontSize: 14,
-            color: AppColor.black,
-            fontWeight: FontWeight.w700,
+        child: FilledButton.icon(
+          style: FilledButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            backgroundColor: Colors.transparent,
+          ),
+          onPressed: onPressed,
+          icon: icon,
+          label: Text(
+            label,
+            style: AppTextStyle.textStyle.copyWith(
+              fontSize: 14,
+              color: AppColor.black,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
       ),

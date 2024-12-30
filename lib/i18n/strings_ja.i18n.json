@@ -302,6 +302,81 @@
     "prompt": {
         "planProposalMessage": "こんなプランを考えてみました！いかがですか？"
     },
+    "billDetailsPage": {
+        "title": "プレミアムプラン",
+        "description": "プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。",
+        "pricingPlan": {
+            "title": "料金プラン",
+            "columns": {
+                "standard": "スタンダード",
+                "premium": "プレミアム"
+            },
+            "details": {
+                "free": "無料 🎉",
+                "premiumPrice": {
+                    "days": "日数分購入",
+                    "daily": "・1日 300円",
+                    "threeDays": "・3日 855円",
+                    "fiveDays": "・5日 1,480円",
+                    "sevenDays": "・7日 2,070円",
+                    "or": "または",
+                    "lifetime": "永年分",
+                    "lifetimePrice": "25,800円"
+
+                }
+            }   
+        },
+        "features": {
+            "title": "グレードごとの機能",
+            "rows": {
+                "planCreationLimit": "プランの作成可能回数",
+                "chatLimit": "プラン作成中のチャット可能回数",
+                "timelineAccess": "全プラン一覧のタイムライン閲覧",
+                "adFree": "広告の非表示",
+                "exclusiveFeatures": "プランの認証機能"
+            },
+            "columns": {
+                "standard": {
+                    "label": "スタンダード",
+                    "planCreationLimit": "2回",
+                    "chatLimit": "3回"
+                },
+                "premium": {
+                    "label": "プレミアム",
+                    "planCreationLimit": "無制限",
+                    "chatLimit": "無制限"
+                }
+            }
+        },
+        "pricingOptions": {
+            "oneDay": {
+                "duration": "1日",
+                "discount": "",
+                "price": "300円"
+            },
+            "threeDays": {
+                "duration": "3日",
+                "discount": "-5%",
+                "price": "890円"
+            },
+            "fiveDays": {
+                "duration": "5日",
+                "discount": "-7.5%",
+                "price": "1,387円"
+            },
+            "sevenDays": {
+                "duration": "7日",
+                "discount": "-10%",
+                "price": "2,070円"
+            },
+            "lifetime": {
+                "duration": "永年分",
+                "discount": "",
+                "price": "25,800円"
+            }
+        },
+        "upgradeButton": "プレミアムにアップグレード"
+    },
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",
