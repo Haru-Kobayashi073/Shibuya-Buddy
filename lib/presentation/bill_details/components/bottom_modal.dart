@@ -205,20 +205,20 @@ class PlanCard extends StatelessWidget {
                 children: [
                   Text(
                     label,
-                    style: const TextStyle(
+                    style: AppTextStyle.textStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: AppColor.black,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   const Gap(4),
                   Text(
                     price,
-                    style: const TextStyle(
+                    style: AppTextStyle.textStyle.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: AppColor.black,
                     ),
                     textAlign: TextAlign.center,
                   ),
