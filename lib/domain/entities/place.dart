@@ -2,6 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'coordinate.dart';
+
 part 'place.freezed.dart';
 part 'place.g.dart';
 
@@ -29,18 +31,6 @@ abstract class Place with _$Place {
 
     return '$openTime~$closeTime';
   }
-}
-
-@freezed
-abstract class Coordinate with _$Coordinate {
-  @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory Coordinate({
-    required String latitude,
-    required String longitude,
-  }) = _Coordinate;
-
-  factory Coordinate.fromJson(Map<String, dynamic> json) =>
-      _$CoordinateFromJson(json);
 }
 
 @freezed

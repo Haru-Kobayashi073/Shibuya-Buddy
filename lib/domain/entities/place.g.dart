@@ -33,18 +33,6 @@ Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
       'website_url': instance.websiteUrl?.toString(),
     };
 
-_$CoordinateImpl _$$CoordinateImplFromJson(Map<String, dynamic> json) =>
-    _$CoordinateImpl(
-      latitude: json['latitude'] as String,
-      longitude: json['longitude'] as String,
-    );
-
-Map<String, dynamic> _$$CoordinateImplToJson(_$CoordinateImpl instance) =>
-    <String, dynamic>{
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
-    };
-
 _$OpeningHoursImpl _$$OpeningHoursImplFromJson(Map<String, dynamic> json) =>
     _$OpeningHoursImpl(
       openTime: json['open_time'] as String,
