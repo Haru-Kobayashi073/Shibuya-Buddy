@@ -9,30 +9,15 @@ class PlanHeader extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
-    required this.imageUrl,
     required this.tags,
   });
   final String title;
   final String description;
-  final String? imageUrl;
   final List<String> tags;
   @override
   Widget build(BuildContext context) {
-    final mediaQueryData = MediaQuery.of(context);
-    final screenWidth = mediaQueryData.size.width;
     return Column(
       children: [
-        SizedBox(
-          width: screenWidth,
-          child: Image(
-            image: NetworkImage(imageUrl.toString()),
-            errorBuilder: (c, o, s) {
-              return const SizedBox(
-                height: 116,
-              );
-            },
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
