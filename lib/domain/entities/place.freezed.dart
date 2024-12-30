@@ -24,10 +24,11 @@ mixin _$Place {
   String get name => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
   @DateTimeConverter()
-  ({DateTime closeTime, DateTime openTime}) get openingHours =>
+  ({DateTime closeTime, DateTime openTime})? get openingHours =>
       throw _privateConstructorUsedError;
-  String get avevageAmount => throw _privateConstructorUsedError;
+  String? get avevageAmount => throw _privateConstructorUsedError;
   Uri? get websiteUrl => throw _privateConstructorUsedError;
 
   /// Serializes this Place to a JSON map.
@@ -49,9 +50,10 @@ abstract class $PlaceCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       String title,
+      List<String>? tags,
       @DateTimeConverter()
-      ({DateTime closeTime, DateTime openTime}) openingHours,
-      String avevageAmount,
+      ({DateTime closeTime, DateTime openTime})? openingHours,
+      String? avevageAmount,
       Uri? websiteUrl});
 }
 
@@ -74,8 +76,9 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? title = null,
-    Object? openingHours = null,
-    Object? avevageAmount = null,
+    Object? tags = freezed,
+    Object? openingHours = freezed,
+    Object? avevageAmount = freezed,
     Object? websiteUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -95,14 +98,18 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      openingHours: null == openingHours
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      openingHours: freezed == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
-              as ({DateTime closeTime, DateTime openTime}),
-      avevageAmount: null == avevageAmount
+              as ({DateTime closeTime, DateTime openTime})?,
+      avevageAmount: freezed == avevageAmount
           ? _value.avevageAmount
           : avevageAmount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       websiteUrl: freezed == websiteUrl
           ? _value.websiteUrl
           : websiteUrl // ignore: cast_nullable_to_non_nullable
@@ -123,9 +130,10 @@ abstract class _$$PlaceImplCopyWith<$Res> implements $PlaceCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       String title,
+      List<String>? tags,
       @DateTimeConverter()
-      ({DateTime closeTime, DateTime openTime}) openingHours,
-      String avevageAmount,
+      ({DateTime closeTime, DateTime openTime})? openingHours,
+      String? avevageAmount,
       Uri? websiteUrl});
 }
 
@@ -146,8 +154,9 @@ class __$$PlaceImplCopyWithImpl<$Res>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? title = null,
-    Object? openingHours = null,
-    Object? avevageAmount = null,
+    Object? tags = freezed,
+    Object? openingHours = freezed,
+    Object? avevageAmount = freezed,
     Object? websiteUrl = freezed,
   }) {
     return _then(_$PlaceImpl(
@@ -167,14 +176,18 @@ class __$$PlaceImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      openingHours: null == openingHours
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      openingHours: freezed == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
-              as ({DateTime closeTime, DateTime openTime}),
-      avevageAmount: null == avevageAmount
+              as ({DateTime closeTime, DateTime openTime})?,
+      avevageAmount: freezed == avevageAmount
           ? _value.avevageAmount
           : avevageAmount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       websiteUrl: freezed == websiteUrl
           ? _value.websiteUrl
           : websiteUrl // ignore: cast_nullable_to_non_nullable
@@ -191,10 +204,12 @@ class _$PlaceImpl extends _Place {
       required this.name,
       required this.thumbnailUrl,
       required this.title,
-      @DateTimeConverter() required this.openingHours,
-      required this.avevageAmount,
+      final List<String>? tags,
+      @DateTimeConverter() this.openingHours,
+      this.avevageAmount,
       this.websiteUrl})
-      : super._();
+      : _tags = tags,
+        super._();
 
   factory _$PlaceImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceImplFromJson(json);
@@ -207,17 +222,27 @@ class _$PlaceImpl extends _Place {
   final String thumbnailUrl;
   @override
   final String title;
+  final List<String>? _tags;
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @DateTimeConverter()
-  final ({DateTime closeTime, DateTime openTime}) openingHours;
+  final ({DateTime closeTime, DateTime openTime})? openingHours;
   @override
-  final String avevageAmount;
+  final String? avevageAmount;
   @override
   final Uri? websiteUrl;
 
   @override
   String toString() {
-    return 'Place(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, title: $title, openingHours: $openingHours, avevageAmount: $avevageAmount, websiteUrl: $websiteUrl)';
+    return 'Place(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, title: $title, tags: $tags, openingHours: $openingHours, avevageAmount: $avevageAmount, websiteUrl: $websiteUrl)';
   }
 
   @override
@@ -230,6 +255,7 @@ class _$PlaceImpl extends _Place {
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.openingHours, openingHours) ||
                 other.openingHours == openingHours) &&
             (identical(other.avevageAmount, avevageAmount) ||
@@ -240,8 +266,16 @@ class _$PlaceImpl extends _Place {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, thumbnailUrl, title,
-      openingHours, avevageAmount, websiteUrl);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      thumbnailUrl,
+      title,
+      const DeepCollectionEquality().hash(_tags),
+      openingHours,
+      avevageAmount,
+      websiteUrl);
 
   /// Create a copy of Place
   /// with the given fields replaced by the non-null parameter values.
@@ -265,9 +299,10 @@ abstract class _Place extends Place {
       required final String name,
       required final String thumbnailUrl,
       required final String title,
+      final List<String>? tags,
       @DateTimeConverter()
-      required final ({DateTime closeTime, DateTime openTime}) openingHours,
-      required final String avevageAmount,
+      final ({DateTime closeTime, DateTime openTime})? openingHours,
+      final String? avevageAmount,
       final Uri? websiteUrl}) = _$PlaceImpl;
   const _Place._() : super._();
 
@@ -282,10 +317,12 @@ abstract class _Place extends Place {
   @override
   String get title;
   @override
-  @DateTimeConverter()
-  ({DateTime closeTime, DateTime openTime}) get openingHours;
+  List<String>? get tags;
   @override
-  String get avevageAmount;
+  @DateTimeConverter()
+  ({DateTime closeTime, DateTime openTime})? get openingHours;
+  @override
+  String? get avevageAmount;
   @override
   Uri? get websiteUrl;
 

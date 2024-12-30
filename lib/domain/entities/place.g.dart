@@ -11,7 +11,8 @@ _$PlaceImpl _$$PlaceImplFromJson(Map<String, dynamic> json) => _$PlaceImpl(
       name: json['name'] as String,
       thumbnailUrl: json['thumbnailUrl'] as String,
       title: json['title'] as String,
-      openingHours: _$recordConvert(
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      openingHours: _$recordConvertNullable(
         json['openingHours'],
         ($jsonValue) => (
           closeTime: const DateTimeConverter()
@@ -20,7 +21,7 @@ _$PlaceImpl _$$PlaceImplFromJson(Map<String, dynamic> json) => _$PlaceImpl(
               .fromJson($jsonValue['openTime'] as String),
         ),
       ),
-      avevageAmount: json['avevageAmount'] as String,
+      avevageAmount: json['avevageAmount'] as String?,
       websiteUrl: json['websiteUrl'] == null
           ? null
           : Uri.parse(json['websiteUrl'] as String),
@@ -32,18 +33,21 @@ Map<String, dynamic> _$$PlaceImplToJson(_$PlaceImpl instance) =>
       'name': instance.name,
       'thumbnailUrl': instance.thumbnailUrl,
       'title': instance.title,
-      'openingHours': <String, dynamic>{
-        'closeTime':
-            const DateTimeConverter().toJson(instance.openingHours.closeTime),
-        'openTime':
-            const DateTimeConverter().toJson(instance.openingHours.openTime),
-      },
+      'tags': instance.tags,
+      'openingHours': instance.openingHours == null
+          ? null
+          : <String, dynamic>{
+              'closeTime': const DateTimeConverter()
+                  .toJson(instance.openingHours!.closeTime),
+              'openTime': const DateTimeConverter()
+                  .toJson(instance.openingHours!.openTime),
+            },
       'avevageAmount': instance.avevageAmount,
       'websiteUrl': instance.websiteUrl?.toString(),
     };
 
-$Rec _$recordConvert<$Rec>(
+$Rec? _$recordConvertNullable<$Rec>(
   Object? value,
   $Rec Function(Map) convert,
 ) =>
-    convert(value as Map<String, dynamic>);
+    value == null ? null : convert(value as Map<String, dynamic>);
