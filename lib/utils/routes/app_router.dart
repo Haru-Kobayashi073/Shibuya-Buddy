@@ -394,6 +394,7 @@ class RegisterProfilePageRouteData extends GoRouteData {
     return const RegisterProfilePage();
   }
 }
+
 @TypedGoRoute<BuddyChatPageRouteData>(
   path: Routes.buddyChatPage,
 )

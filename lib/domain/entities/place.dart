@@ -50,5 +50,5 @@ abstract class OpeningHours with _$OpeningHours {
   }) = _OpeningHours;
 
   factory OpeningHours.fromJson(Map<String, dynamic> json) =>
-       _$OpeningHoursFromJson(json);
+      _$OpeningHoursFromJson(json);
 }
