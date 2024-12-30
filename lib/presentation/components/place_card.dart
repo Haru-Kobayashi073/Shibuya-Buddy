@@ -132,7 +132,7 @@ class PlaceCard extends StatelessWidget {
                         ),
                         const Gap(8),
                         Text(
-                          place.avevageAmount,
+                          place.avevageAmount ?? '',
                           style: AppTextStyle.textStyle.copyWith(
                             fontSize: 12,
                             color: AppColor.black,
