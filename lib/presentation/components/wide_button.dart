@@ -77,23 +77,42 @@ class WideButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(32),
           border: Border.fromBorderSide(border),
         ),
-        child: FilledButton.icon(
-          style: FilledButton.styleFrom(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: const BorderRadius.all(Radius.circular(32)),
+              side: border,
             ),
             padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: Colors.transparent,
+            backgroundColor: color,
+            elevation: 0,
           ),
           onPressed: onPressed,
-          icon: icon,
-          label: Text(
-            label,
-            style: AppTextStyle.textStyle.copyWith(
-              fontSize: 14,
-              color: AppColor.black,
-              fontWeight: FontWeight.w700,
-            ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Offstage(
+                offstage: icon == const SizedBox(),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    children: [
+                      icon,
+                    ],
+                  ),
+                ),
+              ),
+              Center(
+                child: Text(
+                  label,
+                  style: AppTextStyle.textStyle.copyWith(
+                    fontSize: 14,
+                    color: AppColor.black,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
