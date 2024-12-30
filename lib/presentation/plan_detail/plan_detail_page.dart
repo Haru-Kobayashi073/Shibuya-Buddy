@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/entities/place.dart';
@@ -6,6 +7,7 @@ import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/place_card.dart';
+import '../components/presistent_cached_network_image.dart';
 import '../components/wide_button.dart';
 import 'components/circle_icon_button.dart';
 import 'components/plan_header.dart';
@@ -63,6 +65,20 @@ List<Place> dummyPlans = [
 class PlanDetailPage extends StatelessWidget {
   const PlanDetailPage({super.key});
 
+  PlanHeader planinfo(List<Place> plans) {
+    final planInfo = plans[0];
+    return PlanHeader(
+      title: planInfo.name,
+      description: planInfo.title,
+      tags: planInfo.tags ?? [],
+    );
+  }
+
+  String planinfoImage(List<Place> plans) {
+    final planInfo = plans[0];
+    return planInfo.thumbnailUrl;
+  }
+
   List<Widget> placetrans(List<Place> plans) {
     plans.removeAt(0);
     final widgets = <Widget>[];
@@ -80,16 +96,6 @@ class PlanDetailPage extends StatelessWidget {
     return widgets;
   }
 
-  PlanHeader planinfo(List<Place> plans) {
-    final planInfo = plans[0];
-    return PlanHeader(
-      title: planInfo.name,
-      description: planInfo.title,
-      imageUrl: planInfo.thumbnailUrl,
-      tags: planInfo.tags ?? [],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
@@ -97,48 +103,68 @@ class PlanDetailPage extends StatelessWidget {
 
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)
         .format(DateTime.now());
-
     return Scaffold(
       body: Stack(
         children: [
-          ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              planinfo(dummyPlans),
-              Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        planDetailPagei18n.dateTime
-                            .createOn(date: outputFormat),
-                        style: AppTextStyle.textStyle.copyWith(
-                          fontSize: 14,
-                          color: AppColor.grey600,
-                        ),
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 1),
+              child: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    automaticallyImplyLeading: false,
+                    systemOverlayStyle: const SystemUiOverlayStyle(
+                      statusBarBrightness: Brightness.light,
+                    ),
+                    expandedHeight: 250,
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: PersistentCachedNetworkImage(
+                        imageUrl: planinfoImage(dummyPlans),
                       ),
                     ),
-                    const SizedBox(
-                      height: 16,
+                  ),
+                  SliverToBoxAdapter(
+                    child: planinfo(dummyPlans),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              planDetailPagei18n.dateTime
+                                  .createOn(date: outputFormat),
+                              style: AppTextStyle.textStyle.copyWith(
+                                fontSize: 14,
+                                color: AppColor.grey600,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          WideButton(
+                            icon: const Icon(Icons.pin_drop_outlined),
+                            label: planDetailPagei18n.item.viewOnMap,
+                            color: AppColor.grey200,
+                            onPressed: () {},
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Column(
+                            children: placetrans(dummyPlans),
+                          ),
+                        ],
+                      ),
                     ),
-                    WideButton(
-                      icon: const Icon(Icons.pin_drop_outlined),
-                      label: planDetailPagei18n.item.viewOnMap,
-                      color: AppColor.grey200,
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    Column(
-                      children: placetrans(dummyPlans),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
           Positioned(
             top: 0,
