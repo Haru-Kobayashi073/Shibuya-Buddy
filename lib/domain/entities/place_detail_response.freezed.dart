@@ -396,7 +396,9 @@ PhotoDetail _$PhotoDetailFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PhotoDetail {
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'widthPx')
   int get widthPx => throw _privateConstructorUsedError;
+  @JsonKey(name: 'heightPx')
   int get heightPx => throw _privateConstructorUsedError;
 
   /// Serializes this PhotoDetail to a JSON map.
@@ -415,7 +417,10 @@ abstract class $PhotoDetailCopyWith<$Res> {
           PhotoDetail value, $Res Function(PhotoDetail) then) =
       _$PhotoDetailCopyWithImpl<$Res, PhotoDetail>;
   @useResult
-  $Res call({String name, int widthPx, int heightPx});
+  $Res call(
+      {String name,
+      @JsonKey(name: 'widthPx') int widthPx,
+      @JsonKey(name: 'heightPx') int heightPx});
 }
 
 /// @nodoc
@@ -462,7 +467,10 @@ abstract class _$$PhotoDetailImplCopyWith<$Res>
       __$$PhotoDetailImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, int widthPx, int heightPx});
+  $Res call(
+      {String name,
+      @JsonKey(name: 'widthPx') int widthPx,
+      @JsonKey(name: 'heightPx') int heightPx});
 }
 
 /// @nodoc
@@ -504,7 +512,9 @@ class __$$PhotoDetailImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$PhotoDetailImpl implements _PhotoDetail {
   const _$PhotoDetailImpl(
-      {required this.name, required this.widthPx, required this.heightPx});
+      {required this.name,
+      @JsonKey(name: 'widthPx') required this.widthPx,
+      @JsonKey(name: 'heightPx') required this.heightPx});
 
   factory _$PhotoDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$PhotoDetailImplFromJson(json);
@@ -512,8 +522,10 @@ class _$PhotoDetailImpl implements _PhotoDetail {
   @override
   final String name;
   @override
+  @JsonKey(name: 'widthPx')
   final int widthPx;
   @override
+  @JsonKey(name: 'heightPx')
   final int heightPx;
 
   @override
@@ -554,9 +566,10 @@ class _$PhotoDetailImpl implements _PhotoDetail {
 
 abstract class _PhotoDetail implements PhotoDetail {
   const factory _PhotoDetail(
-      {required final String name,
-      required final int widthPx,
-      required final int heightPx}) = _$PhotoDetailImpl;
+          {required final String name,
+          @JsonKey(name: 'widthPx') required final int widthPx,
+          @JsonKey(name: 'heightPx') required final int heightPx}) =
+      _$PhotoDetailImpl;
 
   factory _PhotoDetail.fromJson(Map<String, dynamic> json) =
       _$PhotoDetailImpl.fromJson;
@@ -564,8 +577,10 @@ abstract class _PhotoDetail implements PhotoDetail {
   @override
   String get name;
   @override
+  @JsonKey(name: 'widthPx')
   int get widthPx;
   @override
+  @JsonKey(name: 'heightPx')
   int get heightPx;
 
   /// Create a copy of PhotoDetail

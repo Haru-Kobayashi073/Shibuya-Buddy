@@ -41,13 +41,13 @@ Map<String, dynamic> _$$GoogleMapPlaceDetailImplToJson(
 _$PhotoDetailImpl _$$PhotoDetailImplFromJson(Map<String, dynamic> json) =>
     _$PhotoDetailImpl(
       name: json['name'] as String,
-      widthPx: (json['width_px'] as num).toInt(),
-      heightPx: (json['height_px'] as num).toInt(),
+      widthPx: (json['widthPx'] as num).toInt(),
+      heightPx: (json['heightPx'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$PhotoDetailImplToJson(_$PhotoDetailImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'width_px': instance.widthPx,
-      'height_px': instance.heightPx,
+      'widthPx': instance.widthPx,
+      'heightPx': instance.heightPx,
     };

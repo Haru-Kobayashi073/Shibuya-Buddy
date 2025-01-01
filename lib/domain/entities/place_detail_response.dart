@@ -34,8 +34,8 @@ abstract class PhotoDetail with _$PhotoDetail {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PhotoDetail({
     required String name,
-    required int widthPx,
-    required int heightPx,
+    @JsonKey(name:'widthPx') required int widthPx,
+    @JsonKey(name:'heightPx') required int heightPx,
   }) = _PhotoDetail;
 
   factory PhotoDetail.fromJson(Map<String, dynamic> json) =>

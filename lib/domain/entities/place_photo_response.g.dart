@@ -10,12 +10,12 @@ _$PlacePhotoResponseImpl _$$PlacePhotoResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$PlacePhotoResponseImpl(
       name: json['name'] as String,
-      photoUri: json['photo_uri'] as String,
+      photoUri: json['photoUri'] as String,
     );
 
 Map<String, dynamic> _$$PlacePhotoResponseImplToJson(
         _$PlacePhotoResponseImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'photo_uri': instance.photoUri,
+      'photoUri': instance.photoUri,
     };

@@ -8,7 +8,7 @@ abstract class PlacePhotoResponse with _$PlacePhotoResponse {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PlacePhotoResponse({
     required String name,
-    required String photoUri,
+    @JsonKey(name: 'photoUri') required String photoUri,
   }) = _PlacePhotoResponse;
 
   factory PlacePhotoResponse.fromJson(Map<String, dynamic> json) =>

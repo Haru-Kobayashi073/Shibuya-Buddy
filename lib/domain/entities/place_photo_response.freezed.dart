@@ -21,6 +21,7 @@ PlacePhotoResponse _$PlacePhotoResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PlacePhotoResponse {
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'photoUri')
   String get photoUri => throw _privateConstructorUsedError;
 
   /// Serializes this PlacePhotoResponse to a JSON map.
@@ -39,7 +40,7 @@ abstract class $PlacePhotoResponseCopyWith<$Res> {
           PlacePhotoResponse value, $Res Function(PlacePhotoResponse) then) =
       _$PlacePhotoResponseCopyWithImpl<$Res, PlacePhotoResponse>;
   @useResult
-  $Res call({String name, String photoUri});
+  $Res call({String name, @JsonKey(name: 'photoUri') String photoUri});
 }
 
 /// @nodoc
@@ -81,7 +82,7 @@ abstract class _$$PlacePhotoResponseImplCopyWith<$Res>
       __$$PlacePhotoResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String photoUri});
+  $Res call({String name, @JsonKey(name: 'photoUri') String photoUri});
 }
 
 /// @nodoc
@@ -117,7 +118,8 @@ class __$$PlacePhotoResponseImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$PlacePhotoResponseImpl implements _PlacePhotoResponse {
-  const _$PlacePhotoResponseImpl({required this.name, required this.photoUri});
+  const _$PlacePhotoResponseImpl(
+      {required this.name, @JsonKey(name: 'photoUri') required this.photoUri});
 
   factory _$PlacePhotoResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlacePhotoResponseImplFromJson(json);
@@ -125,6 +127,7 @@ class _$PlacePhotoResponseImpl implements _PlacePhotoResponse {
   @override
   final String name;
   @override
+  @JsonKey(name: 'photoUri')
   final String photoUri;
 
   @override
@@ -165,8 +168,9 @@ class _$PlacePhotoResponseImpl implements _PlacePhotoResponse {
 
 abstract class _PlacePhotoResponse implements PlacePhotoResponse {
   const factory _PlacePhotoResponse(
-      {required final String name,
-      required final String photoUri}) = _$PlacePhotoResponseImpl;
+          {required final String name,
+          @JsonKey(name: 'photoUri') required final String photoUri}) =
+      _$PlacePhotoResponseImpl;
 
   factory _PlacePhotoResponse.fromJson(Map<String, dynamic> json) =
       _$PlacePhotoResponseImpl.fromJson;
@@ -174,6 +178,7 @@ abstract class _PlacePhotoResponse implements PlacePhotoResponse {
   @override
   String get name;
   @override
+  @JsonKey(name: 'photoUri')
   String get photoUri;
 
   /// Create a copy of PlacePhotoResponse
