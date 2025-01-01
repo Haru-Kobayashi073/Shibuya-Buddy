@@ -207,7 +207,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         placeIds: placeIds,
       );
     } on Exception catch (e) {
-      debugPrint(': $e');
+      debugPrint('Error in buddyChatPageNotifier by _getAllFilledMessage: $e');
     }
     return chatMessage.copyWith(
       plan: chatMessage.plan?.copyWith(
