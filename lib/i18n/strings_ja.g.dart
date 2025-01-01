@@ -55,6 +55,7 @@ class TranslationsJa implements Translations {
 		'ja': '日本語',
 		'zh': '中国語',
 	};
+	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
 }
 
 // Path: navigationBar
@@ -305,6 +306,18 @@ class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
 	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
+}
+
+// Path: errorPage
+class _TranslationsErrorPageJa implements TranslationsErrorPageEn {
+	_TranslationsErrorPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'エラーが発生しました...';
+	@override String get message => '通信環境を確認し、もう一度お試しください';
+	@override String get retryButton => 'もう一度読み込む';
 }
 
 // Path: navigationBar.items
@@ -1310,6 +1323,9 @@ extension on TranslationsJa {
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
+			case 'errorPage.title': return 'エラーが発生しました...';
+			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
+			case 'errorPage.retryButton': return 'もう一度読み込む';
 			default: return null;
 		}
 	}
