@@ -6,7 +6,7 @@ part of 'gemini_data_source.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$geminiDataSourceHash() => r'5dc83f9ef126b0886bbdb6fdf9b87f87495c8fb8';
+String _$geminiDataSourceHash() => r'1e6d112d276c78f122fb805e14780c433830506c';
 
 /// See also [GeminiDataSource].
 @ProviderFor(GeminiDataSource)

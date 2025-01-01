@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-import '../../domain/entities/coordinate.dart';
+import '../../domain/entities/location.dart';
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/topic.dart';
@@ -91,7 +91,7 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
-        coordinate: Coordinate(latitude: 0, longitude: 0),
+        location: Location(latitude: 0, longitude: 0),
       ),
       const Place(
         id: '2',
@@ -104,7 +104,7 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
-        coordinate: Coordinate(latitude: 0, longitude: 0),
+        location: Location(latitude: 0, longitude: 0),
       ),
       const Place(
         id: '3',
@@ -117,7 +117,7 @@ class PlanDetailPage extends StatelessWidget {
           closeTime: '11:00',
         ),
         averageAmount: '1200円',
-        coordinate: Coordinate(latitude: 0, longitude: 0),
+        location: Location(latitude: 0, longitude: 0),
       ),
     ];
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)

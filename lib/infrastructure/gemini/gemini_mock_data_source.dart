@@ -3,7 +3,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/chat_message.dart';
-import '../../domain/entities/coordinate.dart';
+import '../../domain/entities/location.dart';
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
@@ -51,7 +51,7 @@ class GeminiMockDataSource extends _$GeminiMockDataSource
           name: 'ミヤシタ 成ル',
           thumbnailUrl: 'https://placehold.jp/320x180.png',
           title: '美味しい料理と地酒で乾杯！渋谷の昼飲みに',
-          coordinate: const Coordinate(latitude: 35.6591, longitude: 139.7016),
+          location: const Location(latitude: 35.6591, longitude: 139.7016),
           openingHours: const OpeningHours(
             openTime: '11:00',
             closeTime: '11:00',
@@ -64,7 +64,7 @@ class GeminiMockDataSource extends _$GeminiMockDataSource
           name: 'ボルダリングウォール',
           thumbnailUrl: 'https://placehold.jp/320x180.png',
           title: '専門スタッフがレクチャー！',
-          coordinate: const Coordinate(latitude: 35.6591, longitude: 139.7016),
+          location: const Location(latitude: 35.6591, longitude: 139.7016),
           openingHours: const OpeningHours(
             openTime: '11:00',
             closeTime: '11:00',
@@ -79,7 +79,7 @@ class GeminiMockDataSource extends _$GeminiMockDataSource
           name: 'THE SHIBUYA SOUVENIR STORE',
           thumbnailUrl: 'https://placehold.jp/320x180.png',
           title: '個性豊かな渋谷土産が見つかる',
-          coordinate: const Coordinate(latitude: 35.6591, longitude: 139.7016),
+          location: const Location(latitude: 35.6591, longitude: 139.7016),
           openingHours: const OpeningHours(
             openTime: '11:00',
             closeTime: '11:00',

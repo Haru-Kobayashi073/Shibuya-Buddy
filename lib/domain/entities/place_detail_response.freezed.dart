@@ -182,7 +182,7 @@ GoogleMapPlaceDetail _$GoogleMapPlaceDetailFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GoogleMapPlaceDetail {
   String get name => throw _privateConstructorUsedError;
-  Coordinate get location => throw _privateConstructorUsedError;
+  Location get location => throw _privateConstructorUsedError;
   List<PhotoDetail> get photos => throw _privateConstructorUsedError;
 
   /// Serializes this GoogleMapPlaceDetail to a JSON map.
@@ -201,9 +201,9 @@ abstract class $GoogleMapPlaceDetailCopyWith<$Res> {
           $Res Function(GoogleMapPlaceDetail) then) =
       _$GoogleMapPlaceDetailCopyWithImpl<$Res, GoogleMapPlaceDetail>;
   @useResult
-  $Res call({String name, Coordinate location, List<PhotoDetail> photos});
+  $Res call({String name, Location location, List<PhotoDetail> photos});
 
-  $CoordinateCopyWith<$Res> get location;
+  $LocationCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -234,7 +234,7 @@ class _$GoogleMapPlaceDetailCopyWithImpl<$Res,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Coordinate,
+              as Location,
       photos: null == photos
           ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
@@ -246,8 +246,8 @@ class _$GoogleMapPlaceDetailCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CoordinateCopyWith<$Res> get location {
-    return $CoordinateCopyWith<$Res>(_value.location, (value) {
+  $LocationCopyWith<$Res> get location {
+    return $LocationCopyWith<$Res>(_value.location, (value) {
       return _then(_value.copyWith(location: value) as $Val);
     });
   }
@@ -261,10 +261,10 @@ abstract class _$$GoogleMapPlaceDetailImplCopyWith<$Res>
       __$$GoogleMapPlaceDetailImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, Coordinate location, List<PhotoDetail> photos});
+  $Res call({String name, Location location, List<PhotoDetail> photos});
 
   @override
-  $CoordinateCopyWith<$Res> get location;
+  $LocationCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -292,7 +292,7 @@ class __$$GoogleMapPlaceDetailImplCopyWithImpl<$Res>
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Coordinate,
+              as Location,
       photos: null == photos
           ? _value._photos
           : photos // ignore: cast_nullable_to_non_nullable
@@ -317,7 +317,7 @@ class _$GoogleMapPlaceDetailImpl implements _GoogleMapPlaceDetail {
   @override
   final String name;
   @override
-  final Coordinate location;
+  final Location location;
   final List<PhotoDetail> _photos;
   @override
   List<PhotoDetail> get photos {
@@ -368,7 +368,7 @@ class _$GoogleMapPlaceDetailImpl implements _GoogleMapPlaceDetail {
 abstract class _GoogleMapPlaceDetail implements GoogleMapPlaceDetail {
   const factory _GoogleMapPlaceDetail(
       {required final String name,
-      required final Coordinate location,
+      required final Location location,
       required final List<PhotoDetail> photos}) = _$GoogleMapPlaceDetailImpl;
 
   factory _GoogleMapPlaceDetail.fromJson(Map<String, dynamic> json) =
@@ -377,7 +377,7 @@ abstract class _GoogleMapPlaceDetail implements GoogleMapPlaceDetail {
   @override
   String get name;
   @override
-  Coordinate get location;
+  Location get location;
   @override
   List<PhotoDetail> get photos;
 

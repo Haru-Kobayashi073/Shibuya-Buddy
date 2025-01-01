@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'coordinate.dart';
+part of 'location.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CoordinateImpl _$$CoordinateImplFromJson(Map<String, dynamic> json) =>
-    _$CoordinateImpl(
+_$LocationImpl _$$LocationImplFromJson(Map<String, dynamic> json) =>
+    _$LocationImpl(
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$CoordinateImplToJson(_$CoordinateImpl instance) =>
+Map<String, dynamic> _$$LocationImplToJson(_$LocationImpl instance) =>
     <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,

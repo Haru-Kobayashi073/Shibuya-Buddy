@@ -24,7 +24,7 @@ _$GoogleMapPlaceDetailImpl _$$GoogleMapPlaceDetailImplFromJson(
         Map<String, dynamic> json) =>
     _$GoogleMapPlaceDetailImpl(
       name: json['name'] as String,
-      location: Coordinate.fromJson(json['location'] as Map<String, dynamic>),
+      location: Location.fromJson(json['location'] as Map<String, dynamic>),
       photos: (json['photos'] as List<dynamic>)
           .map((e) => PhotoDetail.fromJson(e as Map<String, dynamic>))
           .toList(),

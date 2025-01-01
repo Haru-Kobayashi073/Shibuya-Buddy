@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'coordinate.dart';
+import 'location.dart';
 
 part 'place_detail_response.freezed.dart';
 part 'place_detail_response.g.dart';
@@ -21,7 +21,7 @@ abstract class GoogleMapPlaceDetail with _$GoogleMapPlaceDetail {
   @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory GoogleMapPlaceDetail({
     required String name,
-    required Coordinate location,
+    required Location location,
     required List<PhotoDetail> photos,
   }) = _GoogleMapPlaceDetail;
 

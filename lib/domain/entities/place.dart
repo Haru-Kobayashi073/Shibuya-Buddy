@@ -2,7 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'coordinate.dart';
+import 'location.dart';
 
 part 'place.freezed.dart';
 part 'place.g.dart';
@@ -15,7 +15,7 @@ abstract class Place with _$Place {
     required String name,
     required String thumbnailUrl,
     required String title,
-    required Coordinate coordinate,
+    required Location location,
     required OpeningHours openingHours,
     required String averageAmount,
     Uri? websiteUrl,
