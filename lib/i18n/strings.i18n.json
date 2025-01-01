@@ -302,6 +302,89 @@
     "prompt": {
         "planProposalMessage": "I’ve come up with this plan! What do you think?"
     },
+    "billDetailsPage": {
+        "title": "Premium Plan",
+        "description": "By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.",
+        "pricingPlan": {
+            "title": "Pricing Plan",
+            "columns": {
+                "standard": "Standard",
+                "premium": "Premium"
+            },
+            "details": {
+                "free": "Free 🎉",
+                "premiumPrice": {
+                    "days": "Purchase by duration",
+                    "daily": "・1 day 300 yen",
+                    "threeDays": "・3 days 855 yen",
+                    "fiveDays": "・5 days 1,480 yen",
+                    "sevenDays": "・7 days 2,070 yen",
+                    "or": "or",
+                    "lifetime": "Lifetime",
+                    "lifetimePrice": "25,800 yen"
+                }
+            }   
+        },
+        "features": {
+            "title": "Features by Grade",
+            "rows": {
+                "planCreationLimit": "Number of plans that can be created",
+                "chatLimit": "Number of chats available during plan creation",
+                "timelineAccess": "Access to all plan timelines",
+                "adFree": "Ad-free",
+                "exclusiveFeatures": "Plan authentication features"
+            },
+            "columns": {
+                "standard": {
+                    "label": "Standard",
+                    "planCreationLimit": "2 times",
+                    "chatLimit": "3 times"
+                },
+                "premium": {
+                    "label": "Premium",
+                    "planCreationLimit": "Unlimited",
+                    "chatLimit": "Unlimited"
+                }
+            }
+        },
+        "pricingOptions": {
+            "oneDay": {
+                "duration": "1 day",
+                "discount": "",
+                "price": "300 yen"
+            },
+            "threeDays": {
+                "duration": "3 days",
+                "discount": "-5%",
+                "price": "890 yen"
+            },
+            "fiveDays": {
+                "duration": "5 days",
+                "discount": "-7.5%",
+                "price": "1,387 yen"
+            },
+            "sevenDays": {
+                "duration": "7 days",
+                "discount": "-10%",
+                "price": "2,070 yen"
+            },
+            "lifetime": {
+                "duration": "Lifetime",
+                "discount": "",
+                "price": "25,800 yen"
+            }
+        },
+        "upgradeButton": "Upgrade to Premium"
+    },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "Plan created on${date}",
+            "dateFormat": "MM/dd/yyyy"
+        },
+        "item":{
+            "viewOnMap": "View on Map"
+        }
+    },
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",
