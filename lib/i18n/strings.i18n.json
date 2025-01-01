@@ -389,5 +389,10 @@
         "en": "English",
         "ja": "Japanese",
         "zh": "Chinese"
+    },
+    "errorPage": {
+        "title": "An error occurred...",
+        "message": "Please check your network connection and try again.",
+        "retryButton": "Retry"
     }
 }
