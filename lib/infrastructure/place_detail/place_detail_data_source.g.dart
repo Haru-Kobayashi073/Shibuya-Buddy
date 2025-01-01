@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'gemini_mock_data_source.dart';
+part of 'place_detail_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$geminiMockDataSourceHash() =>
-    r'9a7349e3bcb72c33d84fc3027d2294c9f3c7844f';
+String _$placeDetailDataSourceHash() =>
+    r'ee8491cfbe07d62be24a7e653f77496a0668dc4b';
 
-/// See also [GeminiMockDataSource].
-@ProviderFor(GeminiMockDataSource)
-final geminiMockDataSourceProvider =
-    AutoDisposeNotifierProvider<GeminiMockDataSource, void>.internal(
-  GeminiMockDataSource.new,
-  name: r'geminiMockDataSourceProvider',
+/// See also [PlaceDetailDataSource].
+@ProviderFor(PlaceDetailDataSource)
+final placeDetailDataSourceProvider =
+    AutoDisposeNotifierProvider<PlaceDetailDataSource, void>.internal(
+  PlaceDetailDataSource.new,
+  name: r'placeDetailDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$geminiMockDataSourceHash,
+      : _$placeDetailDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$GeminiMockDataSource = AutoDisposeNotifier<void>;
+typedef _$PlaceDetailDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
