@@ -40,7 +40,7 @@
             "operationNotAllowed": "提供者無效。請聯絡開發者。",
             "unknownError": "發生未知錯誤。"
         },
-            "diaLog": {
+        "diaLog": {
             "yes": "是",
             "no": "否",
             "title": "確認解除帳戶連結",
@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "未註冊",
-        "aboutAIFunction": "關於AI功能",
+        "editProfile": "編輯個人資料",
+        "premiumPlan": "進階方案",
         "details": "詳細",
         "settings": "設定",
         "account": "帳戶",
@@ -156,7 +157,17 @@
         "theme": "主題",
         "termsOfUsePrivacyPolicy": "使用條款和隱私政策",
         "aboutThisApp": "關於本應用",
-        "aboutTheDeveloper": "關於開發者"
+        "aboutTheDeveloper": "關於開發者",
+        "accountStatus": {
+            "dateTime": {
+                "registeredOn": "${date}註冊於",
+                "registeredOnFormat": "yyyy年MM月dd日",
+                "validUntil": "有效期至${date}",
+                "validUntilFormat": "yyyy年MM月dd日 HH:mm"
+            },
+            "premium": "進階會員",
+            "standard": "標準會員"
+        }
     },
     "changeLanguagePage": {
         "title": "語言",
@@ -182,8 +193,198 @@
             "bookmark": "書籤"
         }
     },
+    "buddyChatPage": {
+        "title": "Buddy的建議",
+        "possibleChatCount": "訊息還可以發送${possibleChatCount}次",
+        "textFields": {
+            "message": "輸入訊息"
+        },
+        "buttons": {
+            "send": "完成"
+        },
+        "placeCard": {
+            "openingHours": "營業時間",
+            "averageAmount": "平均預算",
+            "website": "網站"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "無法接收回覆，請稍後再試",
+                "failedCompleteCreatePlan": "無法完成建立計劃，請稍後再試"
+            }
+        }
+    },
     "popularTopics": {
         "sectionName": "熱門話題"
+    },
+    "createPlanPage": {
+        "title": "建立計劃",
+        "label": {
+            "location": "目的地",
+            "scheduleStart": "開始日期",
+            "scheduleEnd": "結束日期",
+            "numberOfPeople": "人數",
+            "transport": "交通方式",
+            "category": "類別",
+            "topics": "旅行主題"
+        },
+        "hintText": {
+            "location": "澀谷"
+        },
+        "modal": {
+            "title": "選擇日期"
+        },
+        "numberOfPeopleOptions": [
+            "1人",
+            "2人",
+            "3人",
+            "4人",
+            "5人",
+            "6人以上"
+        ],
+        "transportOptions": [
+            "火車",
+            "步行",
+            "汽車",
+            "巴士"
+        ],
+        "categoryOptions": [
+            "親子",
+            "成人",
+            "娛樂",
+            "活動",
+            "歷史"
+        ],
+        "defaultTopics": [
+            "美食",
+            "購物",
+            "活動",
+            "電影"
+        ],
+        "submitButton": "提交計劃給AI",
+        "snackBar": {
+            "error": {
+                "foundUnSelectedField": "存在未選擇的項目，請選擇所有項目"
+            }
+        }
+    },
+    "editProfilePage": {
+        "title": "編輯個人資料",
+        "textFields": {
+            "name": "姓名"
+        },
+        "buttons": {
+            "submit": "儲存"
+        },
+        "snackBar": {
+            "success": "更新成功",
+            "error": {
+                "noChange": "沒有變更",
+                "failedToUpdate": "更新失敗，請稍後再試",
+                "failedToPickImage": "選擇圖片失敗，請稍後再試"
+            }
+        }
+    },
+    "confirmDialog": {
+        "answers": {
+            "yes": "是",
+            "no": "否"
+        },
+        "popPage": {
+            "title": "要返回上一頁嗎？",
+            "description": "當前內容不會被保存"
+        },
+        "completeCreatePlan": {
+            "title": "確定要保存計劃嗎？",
+            "description": "最後一條訊息中的計劃將被保存"
+        }
+    },
+    "prompt": {
+        "planProposalMessage": "我考慮了這個計劃！您覺得怎麼樣？"
+    },
+    "billDetailsPage": {
+        "title": "高級方案",
+        "description": "訂閱高級方案後，您可以更舒適地享受澀谷觀光。",
+        "pricingPlan": {
+            "title": "價格方案",
+            "columns": {
+                "standard": "標準",
+                "premium": "高級"
+            },
+            "details": {
+                "free": "免費 🎉",
+                "premiumPrice": {
+                    "days": "按天數購買",
+                    "daily": "・1日 300日圓",
+                    "threeDays": "・3日 855日圓",
+                    "fiveDays": "・5日 1,480日圓",
+                    "sevenDays": "・7日 2,070日圓",
+                    "or": "或者",
+                    "lifetime": "終身",
+                    "lifetimePrice": "25,800日圓"
+
+                }
+            }   
+        },
+        "features": {
+            "title": "等級功能",
+            "rows": {
+                "planCreationLimit": "可創建的方案次數",
+                "chatLimit": "方案創建期間可用聊天次數",
+                "timelineAccess": "訪問所有方案時間表",
+                "adFree": "無廣告",
+                "exclusiveFeatures": "方案認證功能"
+            },
+            "columns": {
+                "standard": {
+                    "label": "標準",
+                    "planCreationLimit": "2次",
+                    "chatLimit": "3次"
+                },
+                "premium": {
+                    "label": "高級",
+                    "planCreationLimit": "無限制",
+                    "chatLimit": "無限制"
+                }
+            }
+        },
+        "pricingOptions": {
+            "oneDay": {
+                "duration": "1日",
+                "discount": "",
+                "price": "300日圓"
+            },
+            "threeDays": {
+                "duration": "3日",
+                "discount": "-5%",
+                "price": "890日圓"
+            },
+            "fiveDays": {
+                "duration": "5日",
+                "discount": "-7.5%",
+                "price": "1,387日圓"
+            },
+            "sevenDays": {
+                "duration": "7日",
+                "discount": "-10%",
+                "price": "2,070日圓"
+            },
+            "lifetime": {
+                "duration": "終身",
+                "discount": "",
+                "price": "25,800日圓"
+            }
+        },
+        "upgradeButton": "升級到高級方案"
+    },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "${date}建立的方案",
+            "dateFormat": "yyyy年MM月dd日"
+        },
+        "item":{
+            "viewOnMap": "在地圖上查看"
+        }
     },
     "locales(map)": {
         "en": "英語",

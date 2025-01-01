@@ -148,7 +148,8 @@
     },
     "myPage": {
         "unregisteredUserName": "未注册",
-        "aboutAIFunction": "关于AI功能",
+        "editProfile": "编辑个人资料",
+        "premiumPlan": "高级计划",
         "details": "详细",
         "settings": "设置",
         "account": "账户",
@@ -156,7 +157,17 @@
         "theme": "主题",
         "termsOfUsePrivacyPolicy": "使用条款和隐私政策",
         "aboutThisApp": "关于本应用",
-        "aboutTheDeveloper": "关于开发者"
+        "aboutTheDeveloper": "关于开发者",
+        "accountStatus": {
+            "dateTime": {
+                "registeredOn": "${date}注册于",
+                "registeredOnFormat": "yyyy年MM月dd日",
+                "validUntil": "有效期至${date}",
+                "validUntilFormat": "yyyy年MM月dd日 HH:mm"
+            },
+            "premium": "高级会员",
+            "standard": "标准会员"
+        }
     },
     "changeLanguagePage": {
         "title": "语言",
@@ -182,8 +193,197 @@
             "bookmark": "收藏夹"
         }
     },
-    "popularTopics":{
-        "sectionName" :"热门话题"
+    "buddyChatPage": {
+        "title": "Buddy的建议",
+        "possibleChatCount": "消息还可以发送${possibleChatCount}次",
+        "textFields": {
+            "message": "输入消息"
+        },
+        "buttons": {
+            "send": "完成"
+        },
+        "placeCard": {
+            "openingHours": "营业时间",
+            "averageAmount": "平均预算",
+            "website": "网站"
+        },
+        "snackBar": {
+            "error": {
+                "failedRecieveMessage": "未能接收回复，请稍后再试",
+                "failedCompleteCreatePlan": "未能完成创建计划，请稍后再试"
+            }
+        }
+    },
+    "popularTopics": {
+        "sectionName": "热门话题"
+    },
+    "createPlanPage": {
+        "title": "创建计划",
+        "label": {
+            "location": "目的地",
+            "scheduleStart": "开始日期",
+            "scheduleEnd": "结束日期",
+            "numberOfPeople": "人数",
+            "transport": "交通方式",
+            "category": "类别",
+            "topics": "旅行主题"
+        },
+        "hintText": {
+            "location": "涩谷"
+        },
+        "modal": {
+            "title": "选择日期"
+        },
+        "numberOfPeopleOptions": [
+            "1人",
+            "2人",
+            "3人",
+            "4人",
+            "5人",
+            "6人以上"
+        ],
+        "transportOptions": [
+            "火车",
+            "步行",
+            "汽车",
+            "巴士"
+        ],
+        "categoryOptions": [
+            "亲子",
+            "成人",
+            "娱乐",
+            "活动",
+            "历史"
+        ],
+        "defaultTopics": [
+            "美食",
+            "购物",
+            "活动",
+            "电影"
+        ],
+        "submitButton": "提交计划给AI",
+        "snackBar": {
+            "error": {
+                "foundUnSelectedField": "存在未选择的项目，请选择所有项目"
+            }
+        }
+    },
+    "editProfilePage": {
+        "title": "编辑个人资料",
+        "textFields": {
+            "name": "姓名"
+        },
+        "buttons": {
+            "submit": "保存"
+        },
+        "snackBar": {
+            "success": "更新成功",
+            "error": {
+                "noChange": "没有更改",
+                "failedToUpdate": "更新失败，请稍后再试",
+                "failedToPickImage": "选择图片失败，请稍后再试"
+            }
+        }
+    },
+    "confirmDialog": {
+        "answers": {
+            "yes": "是",
+            "no": "否"
+        },
+        "popPage": {
+            "title": "要返回上一页吗？",
+            "description": "当前内容不会被保存"
+        },
+        "completeCreatePlan": {
+            "title": "确定要保存计划吗？",
+            "description": "最后一条消息中的计划将被保存"
+        }
+    },
+    "prompt": {
+        "planProposalMessage": "我考虑了这个计划！您觉得怎么样？"
+    },
+    "billDetailsPage": {
+        "title": "高级计划",
+        "description": "订阅高级计划后，您可以更舒适地享受涩谷观光。",
+        "pricingPlan": {
+            "title": "价格计划",
+            "columns": {
+                "standard": "标准",
+                "premium": "高级"
+            },
+            "details": {
+                "free": "免费 🎉",
+                "premiumPrice": {
+                    "days": "按天数购买",
+                    "daily": "・1日 300日元",
+                    "threeDays": "・3日 855日元",
+                    "fiveDays": "・5日 1,480日元",
+                    "sevenDays": "・7日 2,070日元",
+                    "or": "或者",
+                    "lifetime": "终身",
+                    "lifetimePrice": "25,800日元"
+                }
+            }   
+        },
+        "features": {
+            "title": "等级功能",
+            "rows": {
+                "planCreationLimit": "可创建的计划次数",
+                "chatLimit": "计划创建期间可用聊天次数",
+                "timelineAccess": "访问所有计划时间线",
+                "adFree": "无广告",
+                "exclusiveFeatures": "计划认证功能"
+            },
+            "columns": {
+                "standard": {
+                    "label": "标准",
+                    "planCreationLimit": "2次",
+                    "chatLimit": "3次"
+                },
+                "premium": {
+                    "label": "高级",
+                    "planCreationLimit": "无限制",
+                    "chatLimit": "无限制"
+                }
+            }
+        },
+        "pricingOptions": {
+            "oneDay": {
+                "duration": "1日",
+                "discount": "",
+                "price": "300日元"
+            },
+            "threeDays": {
+                "duration": "3日",
+                "discount": "-5%",
+                "price": "890日元"
+            },
+            "fiveDays": {
+                "duration": "5日",
+                "discount": "-7.5%",
+                "price": "1,387日元"
+            },
+            "sevenDays": {
+                "duration": "7日",
+                "discount": "-10%",
+                "price": "2,070日元"
+            },
+            "lifetime": {
+                "duration": "终身",
+                "discount": "",
+                "price": "25,800日元"
+            }
+        },
+        "upgradeButton": "升级到高级计划"
+    },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "${date}创建的计划",
+            "dateFormat": "yyyy年MM月dd日"
+        },
+        "item":{
+            "viewOnMap": "在地图上查看"
+        }
     },
     "locales(map)": {
         "en": "英语",

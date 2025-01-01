@@ -32,6 +32,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/anime.png
   AssetGenImage get anime => const AssetGenImage('assets/images/anime.png');
 
+  /// File path: assets/images/billing_header.png
+  AssetGenImage get billingHeader =>
+      const AssetGenImage('assets/images/billing_header.png');
+
   /// File path: assets/images/gourmet.png
   AssetGenImage get gourmet => const AssetGenImage('assets/images/gourmet.png');
 
@@ -48,7 +52,18 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [activity, anime, gourmet, sample, shopping, userIcon];
+      [activity, anime, billingHeader, gourmet, sample, shopping, userIcon];
+}
+
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/Animation - 1734615191322.json
+  String get animation1734615191322 =>
+      'assets/lottie/Animation - 1734615191322.json';
+
+  /// List of all assets
+  List<String> get values => [animation1734615191322];
 }
 
 class Assets {
@@ -56,6 +71,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage {

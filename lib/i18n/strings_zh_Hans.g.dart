@@ -42,7 +42,14 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
 	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
 	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageZhHans buddyChatPage = _TranslationsBuddyChatPageZhHans._(_root);
 	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
+	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogZhHans confirmDialog = _TranslationsConfirmDialogZhHans._(_root);
+	@override late final _TranslationsPromptZhHans prompt = _TranslationsPromptZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageZhHans billDetailsPage = _TranslationsBillDetailsPageZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageZhHans planDetailsPage = _TranslationsPlanDetailsPageZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -127,7 +134,8 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 
 	// Translations
 	@override String get unregisteredUserName => '未注册';
-	@override String get aboutAIFunction => '关于AI功能';
+	@override String get editProfile => '编辑个人资料';
+	@override String get premiumPlan => '高级计划';
 	@override String get details => '详细';
 	@override String get settings => '设置';
 	@override String get account => '账户';
@@ -136,6 +144,7 @@ class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '使用条款和隐私政策';
 	@override String get aboutThisApp => '关于本应用';
 	@override String get aboutTheDeveloper => '关于开发者';
+	@override late final _TranslationsMyPageAccountStatusZhHans accountStatus = _TranslationsMyPageAccountStatusZhHans._(_root);
 }
 
 // Path: changeLanguagePage
@@ -171,6 +180,21 @@ class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
 	@override late final _TranslationsMyPlanPageTabsZhHans tabs = _TranslationsMyPlanPageTabsZhHans._(_root);
 }
 
+// Path: buddyChatPage
+class _TranslationsBuddyChatPageZhHans implements TranslationsBuddyChatPageEn {
+	_TranslationsBuddyChatPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Buddy的建议';
+	@override String possibleChatCount({required Object possibleChatCount}) => '消息还可以发送${possibleChatCount}次';
+	@override late final _TranslationsBuddyChatPageTextFieldsZhHans textFields = _TranslationsBuddyChatPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsZhHans buttons = _TranslationsBuddyChatPageButtonsZhHans._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardZhHans placeCard = _TranslationsBuddyChatPagePlaceCardZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarZhHans snackBar = _TranslationsBuddyChatPageSnackBarZhHans._(_root);
+}
+
 // Path: popularTopics
 class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
 	_TranslationsPopularTopicsZhHans._(this._root);
@@ -179,6 +203,109 @@ class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
 
 	// Translations
 	@override String get sectionName => '热门话题';
+}
+
+// Path: createPlanPage
+class _TranslationsCreatePlanPageZhHans implements TranslationsCreatePlanPageEn {
+	_TranslationsCreatePlanPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '创建计划';
+	@override late final _TranslationsCreatePlanPageLabelZhHans label = _TranslationsCreatePlanPageLabelZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextZhHans hintText = _TranslationsCreatePlanPageHintTextZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageModalZhHans modal = _TranslationsCreatePlanPageModalZhHans._(_root);
+	@override List<String> get numberOfPeopleOptions => [
+		'1人',
+		'2人',
+		'3人',
+		'4人',
+		'5人',
+		'6人以上',
+	];
+	@override List<String> get transportOptions => [
+		'火车',
+		'步行',
+		'汽车',
+		'巴士',
+	];
+	@override List<String> get categoryOptions => [
+		'亲子',
+		'成人',
+		'娱乐',
+		'活动',
+		'历史',
+	];
+	@override List<String> get defaultTopics => [
+		'美食',
+		'购物',
+		'活动',
+		'电影',
+	];
+	@override String get submitButton => '提交计划给AI';
+	@override late final _TranslationsCreatePlanPageSnackBarZhHans snackBar = _TranslationsCreatePlanPageSnackBarZhHans._(_root);
+}
+
+// Path: editProfilePage
+class _TranslationsEditProfilePageZhHans implements TranslationsEditProfilePageEn {
+	_TranslationsEditProfilePageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '编辑个人资料';
+	@override late final _TranslationsEditProfilePageTextFieldsZhHans textFields = _TranslationsEditProfilePageTextFieldsZhHans._(_root);
+	@override late final _TranslationsEditProfilePageButtonsZhHans buttons = _TranslationsEditProfilePageButtonsZhHans._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarZhHans snackBar = _TranslationsEditProfilePageSnackBarZhHans._(_root);
+}
+
+// Path: confirmDialog
+class _TranslationsConfirmDialogZhHans implements TranslationsConfirmDialogEn {
+	_TranslationsConfirmDialogZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsConfirmDialogAnswersZhHans answers = _TranslationsConfirmDialogAnswersZhHans._(_root);
+	@override late final _TranslationsConfirmDialogPopPageZhHans popPage = _TranslationsConfirmDialogPopPageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanZhHans completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanZhHans._(_root);
+}
+
+// Path: prompt
+class _TranslationsPromptZhHans implements TranslationsPromptEn {
+	_TranslationsPromptZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get planProposalMessage => '我考虑了这个计划！您觉得怎么样？';
+}
+
+// Path: billDetailsPage
+class _TranslationsBillDetailsPageZhHans implements TranslationsBillDetailsPageEn {
+	_TranslationsBillDetailsPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '高级计划';
+	@override String get description => '订阅高级计划后，您可以更舒适地享受涩谷观光。';
+	@override late final _TranslationsBillDetailsPagePricingPlanZhHans pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesZhHans features = _TranslationsBillDetailsPageFeaturesZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsZhHans pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHans._(_root);
+	@override String get upgradeButton => '升级到高级计划';
+}
+
+// Path: planDetailsPage
+class _TranslationsPlanDetailsPageZhHans implements TranslationsPlanDetailsPageEn {
+	_TranslationsPlanDetailsPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageDateTimeZhHans dateTime = _TranslationsPlanDetailsPageDateTimeZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageItemZhHans item = _TranslationsPlanDetailsPageItemZhHans._(_root);
 }
 
 // Path: errorPage
@@ -372,6 +499,18 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHans implements Translat
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(_root);
 }
 
+// Path: myPage.accountStatus
+class _TranslationsMyPageAccountStatusZhHans implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeZhHans dateTime = _TranslationsMyPageAccountStatusDateTimeZhHans._(_root);
+	@override String get premium => '高级会员';
+	@override String get standard => '标准会员';
+}
+
 // Path: changeLanguagePage.items
 class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLanguagePageItemsEn {
 	_TranslationsChangeLanguagePageItemsZhHans._(this._root);
@@ -406,6 +545,217 @@ class _TranslationsMyPlanPageTabsZhHans implements TranslationsMyPlanPageTabsEn 
 	// Translations
 	@override String get createdPlans => '已创建的计划';
 	@override String get bookmark => '收藏夹';
+}
+
+// Path: buddyChatPage.textFields
+class _TranslationsBuddyChatPageTextFieldsZhHans implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get message => '输入消息';
+}
+
+// Path: buddyChatPage.buttons
+class _TranslationsBuddyChatPageButtonsZhHans implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get send => '完成';
+}
+
+// Path: buddyChatPage.placeCard
+class _TranslationsBuddyChatPagePlaceCardZhHans implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get openingHours => '营业时间';
+	@override String get averageAmount => '平均预算';
+	@override String get website => '网站';
+}
+
+// Path: buddyChatPage.snackBar
+class _TranslationsBuddyChatPageSnackBarZhHans implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorZhHans error = _TranslationsBuddyChatPageSnackBarErrorZhHans._(_root);
+}
+
+// Path: createPlanPage.label
+class _TranslationsCreatePlanPageLabelZhHans implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '开始日期';
+	@override String get scheduleEnd => '结束日期';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通方式';
+	@override String get category => '类别';
+	@override String get topics => '旅行主题';
+}
+
+// Path: createPlanPage.hintText
+class _TranslationsCreatePlanPageHintTextZhHans implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get location => '涩谷';
+}
+
+// Path: createPlanPage.modal
+class _TranslationsCreatePlanPageModalZhHans implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '选择日期';
+}
+
+// Path: createPlanPage.snackBar
+class _TranslationsCreatePlanPageSnackBarZhHans implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageSnackBarErrorZhHans error = _TranslationsCreatePlanPageSnackBarErrorZhHans._(_root);
+}
+
+// Path: editProfilePage.textFields
+class _TranslationsEditProfilePageTextFieldsZhHans implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => '姓名';
+}
+
+// Path: editProfilePage.buttons
+class _TranslationsEditProfilePageButtonsZhHans implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get submit => '保存';
+}
+
+// Path: editProfilePage.snackBar
+class _TranslationsEditProfilePageSnackBarZhHans implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get success => '更新成功';
+	@override late final _TranslationsEditProfilePageSnackBarErrorZhHans error = _TranslationsEditProfilePageSnackBarErrorZhHans._(_root);
+}
+
+// Path: confirmDialog.answers
+class _TranslationsConfirmDialogAnswersZhHans implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => '是';
+	@override String get no => '否';
+}
+
+// Path: confirmDialog.popPage
+class _TranslationsConfirmDialogPopPageZhHans implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '要返回上一页吗？';
+	@override String get description => '当前内容不会被保存';
+}
+
+// Path: confirmDialog.completeCreatePlan
+class _TranslationsConfirmDialogCompleteCreatePlanZhHans implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '确定要保存计划吗？';
+	@override String get description => '最后一条消息中的计划将被保存';
+}
+
+// Path: billDetailsPage.pricingPlan
+class _TranslationsBillDetailsPagePricingPlanZhHans implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '价格计划';
+	@override late final _TranslationsBillDetailsPagePricingPlanColumnsZhHans columns = _TranslationsBillDetailsPagePricingPlanColumnsZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsZhHans details = _TranslationsBillDetailsPagePricingPlanDetailsZhHans._(_root);
+}
+
+// Path: billDetailsPage.features
+class _TranslationsBillDetailsPageFeaturesZhHans implements TranslationsBillDetailsPageFeaturesEn {
+	_TranslationsBillDetailsPageFeaturesZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '等级功能';
+	@override late final _TranslationsBillDetailsPageFeaturesRowsZhHans rows = _TranslationsBillDetailsPageFeaturesRowsZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsZhHans columns = _TranslationsBillDetailsPageFeaturesColumnsZhHans._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions
+class _TranslationsBillDetailsPagePricingOptionsZhHans implements TranslationsBillDetailsPagePricingOptionsEn {
+	_TranslationsBillDetailsPagePricingOptionsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayZhHans oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(_root);
+}
+
+// Path: planDetailsPage.dateTime
+class _TranslationsPlanDetailsPageDateTimeZhHans implements TranslationsPlanDetailsPageDateTimeEn {
+	_TranslationsPlanDetailsPageDateTimeZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String createOn({required Object date}) => '${date}创建的计划';
+	@override String get dateFormat => 'yyyy年MM月dd日';
+}
+
+// Path: planDetailsPage.item
+class _TranslationsPlanDetailsPageItemZhHans implements TranslationsPlanDetailsPageItemEn {
+	_TranslationsPlanDetailsPageItemZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get viewOnMap => '在地图上查看';
 }
 
 // Path: authentication.signInPage.textFields
@@ -538,6 +888,159 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements T
 	@override String get changeEmail => '更改电子邮件地址';
 }
 
+// Path: myPage.accountStatus.dateTime
+class _TranslationsMyPageAccountStatusDateTimeZhHans implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String registeredOn({required Object date}) => '${date}注册于';
+	@override String get registeredOnFormat => 'yyyy年MM月dd日';
+	@override String validUntil({required Object date}) => '有效期至${date}';
+	@override String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
+}
+
+// Path: buddyChatPage.snackBar.error
+class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedRecieveMessage => '未能接收回复，请稍后再试';
+	@override String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
+}
+
+// Path: createPlanPage.snackBar.error
+class _TranslationsCreatePlanPageSnackBarErrorZhHans implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
+}
+
+// Path: editProfilePage.snackBar.error
+class _TranslationsEditProfilePageSnackBarErrorZhHans implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get noChange => '没有更改';
+	@override String get failedToUpdate => '更新失败，请稍后再试';
+	@override String get failedToPickImage => '选择图片失败，请稍后再试';
+}
+
+// Path: billDetailsPage.pricingPlan.columns
+class _TranslationsBillDetailsPagePricingPlanColumnsZhHans implements TranslationsBillDetailsPagePricingPlanColumnsEn {
+	_TranslationsBillDetailsPagePricingPlanColumnsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get standard => '标准';
+	@override String get premium => '高级';
+}
+
+// Path: billDetailsPage.pricingPlan.details
+class _TranslationsBillDetailsPagePricingPlanDetailsZhHans implements TranslationsBillDetailsPagePricingPlanDetailsEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get free => '免费 🎉';
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(_root);
+}
+
+// Path: billDetailsPage.features.rows
+class _TranslationsBillDetailsPageFeaturesRowsZhHans implements TranslationsBillDetailsPageFeaturesRowsEn {
+	_TranslationsBillDetailsPageFeaturesRowsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get planCreationLimit => '可创建的计划次数';
+	@override String get chatLimit => '计划创建期间可用聊天次数';
+	@override String get timelineAccess => '访问所有计划时间线';
+	@override String get adFree => '无广告';
+	@override String get exclusiveFeatures => '计划认证功能';
+}
+
+// Path: billDetailsPage.features.columns
+class _TranslationsBillDetailsPageFeaturesColumnsZhHans implements TranslationsBillDetailsPageFeaturesColumnsEn {
+	_TranslationsBillDetailsPageFeaturesColumnsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans standard = _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions.oneDay
+class _TranslationsBillDetailsPagePricingOptionsOneDayZhHans implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	_TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '1日';
+	@override String get discount => '';
+	@override String get price => '300日元';
+}
+
+// Path: billDetailsPage.pricingOptions.threeDays
+class _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '3日';
+	@override String get discount => '-5%';
+	@override String get price => '890日元';
+}
+
+// Path: billDetailsPage.pricingOptions.fiveDays
+class _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '5日';
+	@override String get discount => '-7.5%';
+	@override String get price => '1,387日元';
+}
+
+// Path: billDetailsPage.pricingOptions.sevenDays
+class _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '7日';
+	@override String get discount => '-10%';
+	@override String get price => '2,070日元';
+}
+
+// Path: billDetailsPage.pricingOptions.lifetime
+class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	_TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '终身';
+	@override String get discount => '';
+	@override String get price => '25,800日元';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(this._root);
@@ -557,6 +1060,47 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans implemen
 	// Translations
 	@override String get submitIfAllEmpty => '请输入信息';
 	@override String get unexpected => '发生错误，请稍后再试。';
+}
+
+// Path: billDetailsPage.pricingPlan.details.premiumPrice
+class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get days => '按天数购买';
+	@override String get daily => '・1日 300日元';
+	@override String get threeDays => '・3日 855日元';
+	@override String get fiveDays => '・5日 1,480日元';
+	@override String get sevenDays => '・7日 2,070日元';
+	@override String get or => '或者';
+	@override String get lifetime => '终身';
+	@override String get lifetimePrice => '25,800日元';
+}
+
+// Path: billDetailsPage.features.columns.standard
+class _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	_TranslationsBillDetailsPageFeaturesColumnsStandardZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => '标准';
+	@override String get planCreationLimit => '2次';
+	@override String get chatLimit => '3次';
+}
+
+// Path: billDetailsPage.features.columns.premium
+class _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	_TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => '高级';
+	@override String get planCreationLimit => '无限制';
+	@override String get chatLimit => '无限制';
 }
 
 /// Flat map(s) containing all translations.
@@ -648,7 +1192,8 @@ extension on TranslationsZhHans {
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
 			case 'myPage.unregisteredUserName': return '未注册';
-			case 'myPage.aboutAIFunction': return '关于AI功能';
+			case 'myPage.editProfile': return '编辑个人资料';
+			case 'myPage.premiumPlan': return '高级计划';
 			case 'myPage.details': return '详细';
 			case 'myPage.settings': return '设置';
 			case 'myPage.account': return '账户';
@@ -657,6 +1202,12 @@ extension on TranslationsZhHans {
 			case 'myPage.termsOfUsePrivacyPolicy': return '使用条款和隐私政策';
 			case 'myPage.aboutThisApp': return '关于本应用';
 			case 'myPage.aboutTheDeveloper': return '关于开发者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}注册于';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
+			case 'myPage.accountStatus.premium': return '高级会员';
+			case 'myPage.accountStatus.standard': return '标准会员';
 			case 'changeLanguagePage.title': return '语言';
 			case 'changeLanguagePage.items.japanese': return '日本人';
 			case 'changeLanguagePage.items.english': return '英语';
@@ -669,7 +1220,106 @@ extension on TranslationsZhHans {
 			case 'myPlanPage.title': return '我的计划';
 			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
 			case 'myPlanPage.tabs.bookmark': return '收藏夹';
+			case 'buddyChatPage.title': return 'Buddy的建议';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '消息还可以发送${possibleChatCount}次';
+			case 'buddyChatPage.textFields.message': return '输入消息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '营业时间';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均预算';
+			case 'buddyChatPage.placeCard.website': return '网站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '未能接收回复，请稍后再试';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '未能完成创建计划，请稍后再试';
 			case 'popularTopics.sectionName': return '热门话题';
+			case 'createPlanPage.title': return '创建计划';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '开始日期';
+			case 'createPlanPage.label.scheduleEnd': return '结束日期';
+			case 'createPlanPage.label.numberOfPeople': return '人数';
+			case 'createPlanPage.label.transport': return '交通方式';
+			case 'createPlanPage.label.category': return '类别';
+			case 'createPlanPage.label.topics': return '旅行主题';
+			case 'createPlanPage.hintText.location': return '涩谷';
+			case 'createPlanPage.modal.title': return '选择日期';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '火车';
+			case 'createPlanPage.transportOptions.1': return '步行';
+			case 'createPlanPage.transportOptions.2': return '汽车';
+			case 'createPlanPage.transportOptions.3': return '巴士';
+			case 'createPlanPage.categoryOptions.0': return '亲子';
+			case 'createPlanPage.categoryOptions.1': return '成人';
+			case 'createPlanPage.categoryOptions.2': return '娱乐';
+			case 'createPlanPage.categoryOptions.3': return '活动';
+			case 'createPlanPage.categoryOptions.4': return '历史';
+			case 'createPlanPage.defaultTopics.0': return '美食';
+			case 'createPlanPage.defaultTopics.1': return '购物';
+			case 'createPlanPage.defaultTopics.2': return '活动';
+			case 'createPlanPage.defaultTopics.3': return '电影';
+			case 'createPlanPage.submitButton': return '提交计划给AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
+			case 'editProfilePage.title': return '编辑个人资料';
+			case 'editProfilePage.textFields.name': return '姓名';
+			case 'editProfilePage.buttons.submit': return '保存';
+			case 'editProfilePage.snackBar.success': return '更新成功';
+			case 'editProfilePage.snackBar.error.noChange': return '没有更改';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失败，请稍后再试';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '选择图片失败，请稍后再试';
+			case 'confirmDialog.answers.yes': return '是';
+			case 'confirmDialog.answers.no': return '否';
+			case 'confirmDialog.popPage.title': return '要返回上一页吗？';
+			case 'confirmDialog.popPage.description': return '当前内容不会被保存';
+			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
+			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
+			case 'prompt.planProposalMessage': return '我考虑了这个计划！您觉得怎么样？';
+			case 'billDetailsPage.title': return '高级计划';
+			case 'billDetailsPage.description': return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
+			case 'billDetailsPage.pricingPlan.title': return '价格计划';
+			case 'billDetailsPage.pricingPlan.columns.standard': return '标准';
+			case 'billDetailsPage.pricingPlan.columns.premium': return '高级';
+			case 'billDetailsPage.pricingPlan.details.free': return '免费 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天数购买';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '终身';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日元';
+			case 'billDetailsPage.features.title': return '等级功能';
+			case 'billDetailsPage.features.rows.planCreationLimit': return '可创建的计划次数';
+			case 'billDetailsPage.features.rows.chatLimit': return '计划创建期间可用聊天次数';
+			case 'billDetailsPage.features.rows.timelineAccess': return '访问所有计划时间线';
+			case 'billDetailsPage.features.rows.adFree': return '无广告';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return '计划认证功能';
+			case 'billDetailsPage.features.columns.standard.label': return '标准';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2次';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3次';
+			case 'billDetailsPage.features.columns.premium.label': return '高级';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '无限制';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return '无限制';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300日元';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890日元';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5日';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387日元';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日元';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return '终身';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日元';
+			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
+			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
+			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

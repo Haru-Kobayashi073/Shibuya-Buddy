@@ -17,6 +17,10 @@ class Routes {
   static const editProfile = 'editProfile';
   static const termsOfUsePrivacyPolicy = 'termsOfUsePrivacyPolicy';
   static const changeTheme = 'changeTheme';
+  static const createPlan = 'createPlan';
   static const popularTopicsPage = 'popularTopicsPage';
+  static const buddyChatPage = '/buddyChatPage';
   static const popularPlansPage = 'popularPlansPage';
+  static const billDetails = 'billDetailsPage';
+  static const planDetailPage = '/planDetailPage';
 }

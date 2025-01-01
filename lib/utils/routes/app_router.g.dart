@@ -14,6 +14,8 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $signInPageRouteData,
       $registerProfilePageRouteData,
+      $buddyChatPageRouteData,
+      $planDetailPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -136,6 +138,10 @@ RouteBase get $homeScreenRouteData => GoRouteData.$route(
       factory: $HomeScreenRouteDataExtension._fromState,
       routes: [
         GoRouteData.$route(
+          path: 'createPlan',
+          factory: $CreatePlanPageRouteDataExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'popularTopicsPage',
           factory: $PopularTopicsPageRouteDataExtension._fromState,
         ),
@@ -145,6 +151,24 @@ RouteBase get $homeScreenRouteData => GoRouteData.$route(
         ),
       ],
     );
+
+extension $CreatePlanPageRouteDataExtension on CreatePlanPageRouteData {
+  static CreatePlanPageRouteData _fromState(GoRouterState state) =>
+      const CreatePlanPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/home/createPlan',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 extension $PopularTopicsPageRouteDataExtension on PopularTopicsPageRouteData {
   static PopularTopicsPageRouteData _fromState(GoRouterState state) =>
@@ -200,6 +224,10 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
           factory: $AboutDevPageRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'editProfile',
+          factory: $EditProfilePageRouteDataExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'account',
           factory: $AccountPageRouteDataExtension._fromState,
         ),
@@ -218,6 +246,10 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
         GoRouteData.$route(
           path: 'changeTheme',
           factory: $ChangeThemePageRouteDataExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'billDetailsPage',
+          factory: $BillDetailsPageRouteDataExtension._fromState,
         ),
       ],
     );
@@ -256,6 +288,28 @@ extension $AboutDevPageRouteDataExtension on AboutDevPageRouteData {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+extension $EditProfilePageRouteDataExtension on EditProfilePageRouteData {
+  static EditProfilePageRouteData _fromState(GoRouterState state) =>
+      EditProfilePageRouteData(
+        $extra: state.extra as User,
+      );
+
+  String get location => GoRouteData.$location(
+        '/myPage/editProfile',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 extension $AccountPageRouteDataExtension on AccountPageRouteData {
@@ -338,6 +392,24 @@ extension $ChangeThemePageRouteDataExtension on ChangeThemePageRouteData {
 
   String get location => GoRouteData.$location(
         '/myPage/changeTheme',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BillDetailsPageRouteDataExtension on BillDetailsPageRouteData {
+  static BillDetailsPageRouteData _fromState(GoRouterState state) =>
+      const BillDetailsPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/myPage/billDetailsPage',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -491,6 +563,56 @@ extension $RegisterProfilePageRouteDataExtension
 
   String get location => GoRouteData.$location(
         '/registerProfile',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $buddyChatPageRouteData => GoRouteData.$route(
+      path: '/buddyChatPage',
+      factory: $BuddyChatPageRouteDataExtension._fromState,
+    );
+
+extension $BuddyChatPageRouteDataExtension on BuddyChatPageRouteData {
+  static BuddyChatPageRouteData _fromState(GoRouterState state) =>
+      BuddyChatPageRouteData(
+        state.extra as PlanPrompt,
+      );
+
+  String get location => GoRouteData.$location(
+        '/buddyChatPage',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $planDetailPageRouteData => GoRouteData.$route(
+      path: '/planDetailPage',
+      factory: $PlanDetailPageRouteDataExtension._fromState,
+    );
+
+extension $PlanDetailPageRouteDataExtension on PlanDetailPageRouteData {
+  static PlanDetailPageRouteData _fromState(GoRouterState state) =>
+      const PlanDetailPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/planDetailPage',
       );
 
   void go(BuildContext context) => context.go(location);

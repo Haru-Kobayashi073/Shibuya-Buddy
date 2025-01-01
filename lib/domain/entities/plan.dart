@@ -1,24 +1,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../utils/date_time_converter.dart';
+import 'topic.dart';
 
 part 'plan.freezed.dart';
 part 'plan.g.dart';
 
 @freezed
 abstract class Plan with _$Plan {
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory Plan({
-    required String id,
+    @Default('') String id,
     required String title,
     required String description,
     required String thumbnailUrl,
-    required List<String> topicIds,
-    List<String>? tags,
-    required String authorId,
+    required List<Topic> topics,
+    @Default('') String authorId,
     int? ranking,
-    @Default(false) required bool isBookmarked,
-    @DateTimeConverter() required DateTime createdAt,
-    @DateTimeConverter() required DateTime updatedAt,
+    @Default(false) bool isBookmarked,
+    String? createdAt,
+    String? updatedAt,
   }) = _Plan;
 
   factory Plan.fromJson(Map<String, dynamic> json) => _$PlanFromJson(json);

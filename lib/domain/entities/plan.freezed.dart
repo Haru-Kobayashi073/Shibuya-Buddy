@@ -24,15 +24,12 @@ mixin _$Plan {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
-  List<String> get topicIds => throw _privateConstructorUsedError;
-  List<String>? get tags => throw _privateConstructorUsedError;
+  List<Topic> get topics => throw _privateConstructorUsedError;
   String get authorId => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   bool get isBookmarked => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this Plan to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,13 +50,12 @@ abstract class $PlanCopyWith<$Res> {
       String title,
       String description,
       String thumbnailUrl,
-      List<String> topicIds,
-      List<String>? tags,
+      List<Topic> topics,
       String authorId,
       int? ranking,
       bool isBookmarked,
-      @DateTimeConverter() DateTime createdAt,
-      @DateTimeConverter() DateTime updatedAt});
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -81,13 +77,12 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? title = null,
     Object? description = null,
     Object? thumbnailUrl = null,
-    Object? topicIds = null,
-    Object? tags = freezed,
+    Object? topics = null,
     Object? authorId = null,
     Object? ranking = freezed,
     Object? isBookmarked = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -106,14 +101,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      topicIds: null == topicIds
-          ? _value.topicIds
-          : topicIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      tags: freezed == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      topics: null == topics
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<Topic>,
       authorId: null == authorId
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
@@ -126,14 +117,14 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.isBookmarked
           : isBookmarked // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String?,
     ) as $Val);
   }
 }
@@ -150,13 +141,12 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       String title,
       String description,
       String thumbnailUrl,
-      List<String> topicIds,
-      List<String>? tags,
+      List<Topic> topics,
       String authorId,
       int? ranking,
       bool isBookmarked,
-      @DateTimeConverter() DateTime createdAt,
-      @DateTimeConverter() DateTime updatedAt});
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -175,13 +165,12 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? thumbnailUrl = null,
-    Object? topicIds = null,
-    Object? tags = freezed,
+    Object? topics = null,
     Object? authorId = null,
     Object? ranking = freezed,
     Object? isBookmarked = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$PlanImpl(
       id: null == id
@@ -200,14 +189,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      topicIds: null == topicIds
-          ? _value._topicIds
-          : topicIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      tags: freezed == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      topics: null == topics
+          ? _value._topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<Topic>,
       authorId: null == authorId
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
@@ -220,40 +205,40 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.isBookmarked
           : isBookmarked // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class _$PlanImpl implements _Plan {
   const _$PlanImpl(
-      {required this.id,
+      {this.id = '',
       required this.title,
       required this.description,
       required this.thumbnailUrl,
-      required final List<String> topicIds,
-      final List<String>? tags,
-      required this.authorId,
+      required final List<Topic> topics,
+      this.authorId = '',
       this.ranking,
-      required this.isBookmarked = false,
-      @DateTimeConverter() required this.createdAt,
-      @DateTimeConverter() required this.updatedAt})
-      : _topicIds = topicIds,
-        _tags = tags;
+      this.isBookmarked = false,
+      this.createdAt,
+      this.updatedAt})
+      : _topics = topics;
 
   factory _$PlanImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlanImplFromJson(json);
 
   @override
+  @JsonKey()
   final String id;
   @override
   final String title;
@@ -261,25 +246,16 @@ class _$PlanImpl implements _Plan {
   final String description;
   @override
   final String thumbnailUrl;
-  final List<String> _topicIds;
+  final List<Topic> _topics;
   @override
-  List<String> get topicIds {
-    if (_topicIds is EqualUnmodifiableListView) return _topicIds;
+  List<Topic> get topics {
+    if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_topicIds);
-  }
-
-  final List<String>? _tags;
-  @override
-  List<String>? get tags {
-    final value = _tags;
-    if (value == null) return null;
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_topics);
   }
 
   @override
+  @JsonKey()
   final String authorId;
   @override
   final int? ranking;
@@ -287,15 +263,13 @@ class _$PlanImpl implements _Plan {
   @JsonKey()
   final bool isBookmarked;
   @override
-  @DateTimeConverter()
-  final DateTime createdAt;
+  final String? createdAt;
   @override
-  @DateTimeConverter()
-  final DateTime updatedAt;
+  final String? updatedAt;
 
   @override
   String toString() {
-    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topicIds: $topicIds, tags: $tags, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -309,8 +283,7 @@ class _$PlanImpl implements _Plan {
                 other.description == description) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 other.thumbnailUrl == thumbnailUrl) &&
-            const DeepCollectionEquality().equals(other._topicIds, _topicIds) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
@@ -330,8 +303,7 @@ class _$PlanImpl implements _Plan {
       title,
       description,
       thumbnailUrl,
-      const DeepCollectionEquality().hash(_topicIds),
-      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_topics),
       authorId,
       ranking,
       isBookmarked,
@@ -356,17 +328,16 @@ class _$PlanImpl implements _Plan {
 
 abstract class _Plan implements Plan {
   const factory _Plan(
-      {required final String id,
+      {final String id,
       required final String title,
       required final String description,
       required final String thumbnailUrl,
-      required final List<String> topicIds,
-      final List<String>? tags,
-      required final String authorId,
+      required final List<Topic> topics,
+      final String authorId,
       final int? ranking,
-      required final bool isBookmarked,
-      @DateTimeConverter() required final DateTime createdAt,
-      @DateTimeConverter() required final DateTime updatedAt}) = _$PlanImpl;
+      final bool isBookmarked,
+      final String? createdAt,
+      final String? updatedAt}) = _$PlanImpl;
 
   factory _Plan.fromJson(Map<String, dynamic> json) = _$PlanImpl.fromJson;
 
@@ -379,9 +350,7 @@ abstract class _Plan implements Plan {
   @override
   String get thumbnailUrl;
   @override
-  List<String> get topicIds;
-  @override
-  List<String>? get tags;
+  List<Topic> get topics;
   @override
   String get authorId;
   @override
@@ -389,11 +358,9 @@ abstract class _Plan implements Plan {
   @override
   bool get isBookmarked;
   @override
-  @DateTimeConverter()
-  DateTime get createdAt;
+  String? get createdAt;
   @override
-  @DateTimeConverter()
-  DateTime get updatedAt;
+  String? get updatedAt;
 
   /// Create a copy of Plan
   /// with the given fields replaced by the non-null parameter values.
