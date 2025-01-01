@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../i18n/strings.g.dart';
+import 'gen/assets.gen.dart';
 import 'utils/styles/app_color.dart';
 
 class ErrorPage extends StatelessWidget {
@@ -20,7 +21,7 @@ class ErrorPage extends StatelessWidget {
               children: [
                 // イラスト
                 Image.asset(
-                  'assets/images/error.png', 
+                  Assets.images.error.path,
                   height: 366,
                 ),
                 const SizedBox(height: 32),
