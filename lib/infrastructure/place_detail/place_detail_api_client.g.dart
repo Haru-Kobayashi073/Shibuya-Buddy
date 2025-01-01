@@ -22,22 +22,25 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<GoogleMapPlaceDetail> searchPlaceByName(
-      {required String searchQuery}) async {
+  Future<PlaceDetailResponse> getPlaceIdByName({
+    required Map<String, dynamic> searchQuery,
+    required String apiKey,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{
       r'Content-Type': 'application/json',
-      r'X-Goog-Api-Key': '',
       r'X-Goog-FieldMask': 'places.name,places.location,places.photos',
       r'locationBias': null,
       r'minRating': 3.0,
       r'pageSize': 1,
       r'maxResultCount': 5,
+      r'X-Goog-Api-Key': apiKey,
     };
     _headers.removeWhere((k, v) => v == null);
-    final _data = searchQuery;
-    final _options = _setStreamType<GoogleMapPlaceDetail>(Options(
+    final _data = <String, dynamic>{};
+    _data.addAll(searchQuery);
+    final _options = _setStreamType<PlaceDetailResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -45,7 +48,7 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
     )
         .compose(
           _dio.options,
-          '/places',
+          '/places:searchText',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -55,9 +58,9 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late GoogleMapPlaceDetail _value;
+    late PlaceDetailResponse _value;
     try {
-      _value = GoogleMapPlaceDetail.fromJson(_result.data!);
+      _value = PlaceDetailResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -70,15 +73,18 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
     required String placeId,
     required int maxHeightPx,
     required int maxWidthPx,
+    required bool skipHttpRedirect,
+    required String apiKey,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'maxHeightPx': maxHeightPx,
       r'maxWidthPx': maxWidthPx,
+      r'skipHttpRedirect': skipHttpRedirect,
     };
     final _headers = <String, dynamic>{
       r'Content-Type': 'application/json',
-      r'X-Goog-Api-Key': '',
+      r'X-Goog-Api-Key': apiKey,
     };
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;

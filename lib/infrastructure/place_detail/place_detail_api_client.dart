@@ -21,12 +21,9 @@ abstract class PlaceDetailApiClient {
   factory PlaceDetailApiClient(Dio dio, {String? baseUrl}) =
       _PlaceDetailApiClient;
 
-  static const placeDetailAPIKey = String.fromEnvironment('placeDetailAPIKey');
-
-  @POST('/places')
+  @POST('/places:searchText')
   @Headers(<String, dynamic>{
     'Content-Type': 'application/json',
-    'X-Goog-Api-Key': placeDetailAPIKey,
     'X-Goog-FieldMask': 'places.name,places.location,places.photos',
     'locationBias': {
       'circle': {
@@ -38,18 +35,20 @@ abstract class PlaceDetailApiClient {
     'pageSize': 1,
     'maxResultCount': 5,
   })
-  Future<GoogleMapPlaceDetail> searchPlaceByName({
-    @Body() String searchQuery,
+  Future<PlaceDetailResponse> getPlaceIdByName({
+    @Body() required Map<String, dynamic> searchQuery,
+    @Header('X-Goog-Api-Key') required String apiKey,
   });
 
   @GET('/{placeId}/media')
   @Headers(<String, dynamic>{
     'Content-Type': 'application/json',
-    'X-Goog-Api-Key': placeDetailAPIKey,
   })
   Future<PlacePhotoResponse> searchPlacePhotoById({
-      @Path('placeId') String placeId,
-      @Query('maxHeightPx') int maxHeightPx,
-      @Query('maxWidthPx') int maxWidthPx,
-    });
+    @Path('placeId') required String placeId,
+    @Query('maxHeightPx') required int maxHeightPx,
+    @Query('maxWidthPx') required int maxWidthPx,
+    @Query('skipHttpRedirect') required bool skipHttpRedirect,
+    @Header('X-Goog-Api-Key') required String apiKey,
+  });
 }
