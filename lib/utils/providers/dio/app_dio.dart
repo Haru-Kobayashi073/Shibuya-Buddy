@@ -9,32 +9,30 @@ AppDio appDio(AppDioRef ref) {
 }
 
 class AppDio extends DioMixin {
+  // 外部からアクセスするためのファクトリコンストラクタ
   factory AppDio() {
-    final instance = _instance;
-    if (instance != null) {
-      return instance;
-    }
-    final dio = AppDio._();
+    return _instance;
+  }
+
+  // プライベートコンストラクタ
+  AppDio._() {
     const isProductionBuild = String.fromEnvironment('flavor') == 'prod';
-    final options = BaseOptions(
+    options = BaseOptions(
       connectTimeout: const Duration(seconds: 15),
+      receiveTimeout: const Duration(seconds: 15),
+      sendTimeout: const Duration(seconds: 15),
     );
-    dio
-      ..options = options
-      ..httpClientAdapter = HttpClientAdapter();
+    httpClientAdapter = HttpClientAdapter();
+
     if (!isProductionBuild) {
-      dio.interceptors.add(
+      interceptors.add(
         LogInterceptor(
           requestBody: true,
           responseBody: true,
         ),
       );
     }
-    _instance = dio;
-    return dio;
   }
-
-  AppDio._();
-
-  static AppDio? _instance;
+  // スレッドセーフなSingletonインスタンス
+  static final AppDio _instance = AppDio._();
 }
