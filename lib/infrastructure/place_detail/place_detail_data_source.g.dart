@@ -7,7 +7,7 @@ part of 'place_detail_data_source.dart';
 // **************************************************************************
 
 String _$placeDetailDataSourceHash() =>
-    r'd24fdbc83737dff3d82bbe44dae6dec48ec51083';
+    r'ee8491cfbe07d62be24a7e653f77496a0668dc4b';
 
 /// See also [PlaceDetailDataSource].
 @ProviderFor(PlaceDetailDataSource)
