@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/entities/user.dart';
-import '../../infrastructure/firebase/current_auth_user.dart';
+import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../infrastructure/user/user_data_source.dart';
 import '../../utils/providers/current_user/current_user.dart';
 
@@ -13,7 +13,7 @@ part 'my_page_notifier.g.dart';
 class MyPageNotifier extends _$MyPageNotifier {
   UserDataSource get userDataSource =>
       ref.read(userDataSourceProvider.notifier);
-  auth.User get currentUser => ref.read(currentAuthUserProvider);
+  auth.User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
 
   @override
   Future<User> build() async {
