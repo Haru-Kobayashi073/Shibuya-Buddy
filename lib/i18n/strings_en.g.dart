@@ -52,6 +52,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 		'ja': 'Japanese',
 		'zh': 'Chinese',
 	};
+	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
 }
 
 // Path: navigationBar
@@ -182,6 +183,18 @@ class TranslationsPopularTopicsEn {
 
 	// Translations
 	String get sectionName => 'Popular Topics';
+}
+
+// Path: errorPage
+class TranslationsErrorPageEn {
+	TranslationsErrorPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'An error occurred...';
+	String get message => 'Please check your network connection and try again.';
+	String get retryButton => 'Retry';
 }
 
 // Path: navigationBar.items
@@ -664,6 +677,9 @@ extension on Translations {
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';
+			case 'errorPage.title': return 'An error occurred...';
+			case 'errorPage.message': return 'Please check your network connection and try again.';
+			case 'errorPage.retryButton': return 'Retry';
 			default: return null;
 		}
 	}

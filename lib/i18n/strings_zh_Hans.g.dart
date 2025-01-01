@@ -48,6 +48,7 @@ class TranslationsZhHans implements Translations {
 		'ja': '日语',
 		'zh': '中文',
 	};
+	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
 }
 
 // Path: navigationBar
@@ -178,6 +179,18 @@ class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
 
 	// Translations
 	@override String get sectionName => '热门话题';
+}
+
+// Path: errorPage
+class _TranslationsErrorPageZhHans implements TranslationsErrorPageEn {
+	_TranslationsErrorPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '发生错误...';
+	@override String get message => '请检查您的网络连接并重试。';
+	@override String get retryButton => '重试';
 }
 
 // Path: navigationBar.items
@@ -660,6 +673,9 @@ extension on TranslationsZhHans {
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';
+			case 'errorPage.title': return '发生错误...';
+			case 'errorPage.message': return '请检查您的网络连接并重试。';
+			case 'errorPage.retryButton': return '重试';
 			default: return null;
 		}
 	}
