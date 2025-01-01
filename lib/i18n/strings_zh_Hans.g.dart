@@ -11,1991 +11,1323 @@ import 'strings.g.dart';
 
 // Path: <root>
 class TranslationsZhHans implements Translations {
-  /// You can call this constructor and build your own translation instance of this locale.
-  /// Constructing via the enum [AppLocale.build] is preferred.
-  TranslationsZhHans(
-      {Map<String, Node>? overrides,
-      PluralResolver? cardinalResolver,
-      PluralResolver? ordinalResolver})
-      : assert(overrides == null,
-            'Set "translation_overrides: true" in order to enable this feature.'),
-        $meta = TranslationMetadata(
-          locale: AppLocale.zhHans,
-          overrides: overrides ?? {},
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        ) {
-    $meta.setFlatMapFunction(_flatMapFunction);
-  }
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	TranslationsZhHans({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.zhHans,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
 
-  /// Metadata for the translations of <zh-Hans>.
-  @override
-  final TranslationMetadata<AppLocale, Translations> $meta;
+	/// Metadata for the translations of <zh-Hans>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
-  /// Access flat map
-  @override
-  dynamic operator [](String key) => $meta.getTranslation(key);
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-  late final TranslationsZhHans _root = this; // ignore: unused_field
+	late final TranslationsZhHans _root = this; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarZhHans navigationBar =
-      _TranslationsNavigationBarZhHans._(_root);
-  @override
-  late final _TranslationsHomePageZhHans homePage =
-      _TranslationsHomePageZhHans._(_root);
-  @override
-  late final _TranslationsAccountPageZhHans accountPage =
-      _TranslationsAccountPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationZhHans authentication =
-      _TranslationsAuthenticationZhHans._(_root);
-  @override
-  late final _TranslationsValidationZhHans validation =
-      _TranslationsValidationZhHans._(_root);
-  @override
-  late final _TranslationsMyPageZhHans myPage =
-      _TranslationsMyPageZhHans._(_root);
-  @override
-  late final _TranslationsChangeLanguagePageZhHans changeLanguagePage =
-      _TranslationsChangeLanguagePageZhHans._(_root);
-  @override
-  late final _TranslationsChangeThemePageZhHans changeThemePage =
-      _TranslationsChangeThemePageZhHans._(_root);
-  @override
-  late final _TranslationsMyPlanPageZhHans myPlanPage =
-      _TranslationsMyPlanPageZhHans._(_root);
-  @override
-  late final _TranslationsBuddyChatPageZhHans buddyChatPage =
-      _TranslationsBuddyChatPageZhHans._(_root);
-  @override
-  late final _TranslationsPopularTopicsZhHans popularTopics =
-      _TranslationsPopularTopicsZhHans._(_root);
-  @override
-  late final _TranslationsCreatePlanPageZhHans createPlanPage =
-      _TranslationsCreatePlanPageZhHans._(_root);
-  @override
-  late final _TranslationsEditProfilePageZhHans editProfilePage =
-      _TranslationsEditProfilePageZhHans._(_root);
-  @override
-  late final _TranslationsConfirmDialogZhHans confirmDialog =
-      _TranslationsConfirmDialogZhHans._(_root);
-  @override
-  late final _TranslationsPromptZhHans prompt =
-      _TranslationsPromptZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPageZhHans billDetailsPage =
-      _TranslationsBillDetailsPageZhHans._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageZhHans planDetailsPage =
-      _TranslationsPlanDetailsPageZhHans._(_root);
-  @override
-  Map<String, String> get locales => {
-        'en': '英语',
-        'ja': '日语',
-        'zh': '中文',
-      };
+	// Translations
+	@override late final _TranslationsNavigationBarZhHans navigationBar = _TranslationsNavigationBarZhHans._(_root);
+	@override late final _TranslationsHomePageZhHans homePage = _TranslationsHomePageZhHans._(_root);
+	@override late final _TranslationsAccountPageZhHans accountPage = _TranslationsAccountPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationZhHans authentication = _TranslationsAuthenticationZhHans._(_root);
+	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
+	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
+	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
+	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageZhHans buddyChatPage = _TranslationsBuddyChatPageZhHans._(_root);
+	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
+	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogZhHans confirmDialog = _TranslationsConfirmDialogZhHans._(_root);
+	@override late final _TranslationsPromptZhHans prompt = _TranslationsPromptZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageZhHans billDetailsPage = _TranslationsBillDetailsPageZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageZhHans planDetailsPage = _TranslationsPlanDetailsPageZhHans._(_root);
+	@override Map<String, String> get locales => {
+		'en': '英语',
+		'ja': '日语',
+		'zh': '中文',
+	};
+	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
 }
 
 // Path: navigationBar
 class _TranslationsNavigationBarZhHans implements TranslationsNavigationBarEn {
-  _TranslationsNavigationBarZhHans._(this._root);
+	_TranslationsNavigationBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarItemsZhHans items =
-      _TranslationsNavigationBarItemsZhHans._(_root);
+	// Translations
+	@override late final _TranslationsNavigationBarItemsZhHans items = _TranslationsNavigationBarItemsZhHans._(_root);
 }
 
 // Path: homePage
 class _TranslationsHomePageZhHans implements TranslationsHomePageEn {
-  _TranslationsHomePageZhHans._(this._root);
+	_TranslationsHomePageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsHomePagePopularPlansZhHans popularPlans =
-      _TranslationsHomePagePopularPlansZhHans._(_root);
-  @override
-  late final _TranslationsHomePagePopularTopicsZhHans popularTopics =
-      _TranslationsHomePagePopularTopicsZhHans._(_root);
-  @override
-  late final _TranslationsHomePageRecentPlansZhHans recentPlans =
-      _TranslationsHomePageRecentPlansZhHans._(_root);
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansZhHans popularPlans = _TranslationsHomePagePopularPlansZhHans._(_root);
+	@override late final _TranslationsHomePagePopularTopicsZhHans popularTopics = _TranslationsHomePagePopularTopicsZhHans._(_root);
+	@override late final _TranslationsHomePageRecentPlansZhHans recentPlans = _TranslationsHomePageRecentPlansZhHans._(_root);
 }
 
 // Path: accountPage
 class _TranslationsAccountPageZhHans implements TranslationsAccountPageEn {
-  _TranslationsAccountPageZhHans._(this._root);
+	_TranslationsAccountPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '账户';
-  @override
-  late final _TranslationsAccountPageItemsZhHans items =
-      _TranslationsAccountPageItemsZhHans._(_root);
-  @override
-  late final _TranslationsAccountPageSnackBarZhHans snackBar =
-      _TranslationsAccountPageSnackBarZhHans._(_root);
-  @override
-  late final _TranslationsAccountPageDiaLogZhHans diaLog =
-      _TranslationsAccountPageDiaLogZhHans._(_root);
+	// Translations
+	@override String get title => '账户';
+	@override late final _TranslationsAccountPageItemsZhHans items = _TranslationsAccountPageItemsZhHans._(_root);
+	@override late final _TranslationsAccountPageSnackBarZhHans snackBar = _TranslationsAccountPageSnackBarZhHans._(_root);
+	@override late final _TranslationsAccountPageDiaLogZhHans diaLog = _TranslationsAccountPageDiaLogZhHans._(_root);
 }
 
 // Path: authentication
-class _TranslationsAuthenticationZhHans
-    implements TranslationsAuthenticationEn {
-  _TranslationsAuthenticationZhHans._(this._root);
+class _TranslationsAuthenticationZhHans implements TranslationsAuthenticationEn {
+	_TranslationsAuthenticationZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationSignInPageZhHans signInPage =
-      _TranslationsAuthenticationSignInPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationFirebaseAuthZhHans firebaseAuth =
-      _TranslationsAuthenticationFirebaseAuthZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationResetPasswordPageZhHans
-      resetPasswordPage =
-      _TranslationsAuthenticationResetPasswordPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationSignUpPageZhHans signUpPage =
-      _TranslationsAuthenticationSignUpPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageZhHans
-      emailVerificationPage =
-      _TranslationsAuthenticationEmailVerificationPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageZhHans
-      registerProfilePage =
-      _TranslationsAuthenticationRegisterProfilePageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationCompleteSendEmailPageZhHans
-      completeSendEmailPage =
-      _TranslationsAuthenticationCompleteSendEmailPageZhHans._(_root);
+	// Translations
+	@override late final _TranslationsAuthenticationSignInPageZhHans signInPage = _TranslationsAuthenticationSignInPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationFirebaseAuthZhHans firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHans._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageZhHans resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageZhHans signUpPage = _TranslationsAuthenticationSignUpPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageZhHans emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageZhHans registerProfilePage = _TranslationsAuthenticationRegisterProfilePageZhHans._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHans completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHans._(_root);
 }
 
 // Path: validation
 class _TranslationsValidationZhHans implements TranslationsValidationEn {
-  _TranslationsValidationZhHans._(this._root);
+	_TranslationsValidationZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get emailRequired => '请输入电子邮件地址';
-  @override
-  String get emailInvalid => '电子邮件地址格式不正确';
-  @override
-  String get passwordRequired => '请输入密码';
-  @override
-  String get passwordShort => '密码至少需要8个字符';
-  @override
-  String get passwordWeak => '密码应包含字母和数字的组合';
-  @override
-  String get passwordMatch => '密码不匹配';
-  @override
-  String get informationRequired => '请输入信息';
-  @override
-  String get urlInvalid => 'URL格式不正确';
+	// Translations
+	@override String get emailRequired => '请输入电子邮件地址';
+	@override String get emailInvalid => '电子邮件地址格式不正确';
+	@override String get passwordRequired => '请输入密码';
+	@override String get passwordShort => '密码至少需要8个字符';
+	@override String get passwordWeak => '密码应包含字母和数字的组合';
+	@override String get passwordMatch => '密码不匹配';
+	@override String get informationRequired => '请输入信息';
+	@override String get urlInvalid => 'URL格式不正确';
 }
 
 // Path: myPage
 class _TranslationsMyPageZhHans implements TranslationsMyPageEn {
-  _TranslationsMyPageZhHans._(this._root);
+	_TranslationsMyPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get unregisteredUserName => '未注册';
-  @override
-  String get editProfile => '编辑个人资料';
-  @override
-  String get premiumPlan => '高级计划';
-  @override
-  String get details => '详细';
-  @override
-  String get settings => '设置';
-  @override
-  String get account => '账户';
-  @override
-  String get language => '语言';
-  @override
-  String get theme => '主题';
-  @override
-  String get termsOfUsePrivacyPolicy => '使用条款和隐私政策';
-  @override
-  String get aboutThisApp => '关于本应用';
-  @override
-  String get aboutTheDeveloper => '关于开发者';
-  @override
-  late final _TranslationsMyPageAccountStatusZhHans accountStatus =
-      _TranslationsMyPageAccountStatusZhHans._(_root);
+	// Translations
+	@override String get unregisteredUserName => '未注册';
+	@override String get editProfile => '编辑个人资料';
+	@override String get premiumPlan => '高级计划';
+	@override String get details => '详细';
+	@override String get settings => '设置';
+	@override String get account => '账户';
+	@override String get language => '语言';
+	@override String get theme => '主题';
+	@override String get termsOfUsePrivacyPolicy => '使用条款和隐私政策';
+	@override String get aboutThisApp => '关于本应用';
+	@override String get aboutTheDeveloper => '关于开发者';
+	@override late final _TranslationsMyPageAccountStatusZhHans accountStatus = _TranslationsMyPageAccountStatusZhHans._(_root);
 }
 
 // Path: changeLanguagePage
-class _TranslationsChangeLanguagePageZhHans
-    implements TranslationsChangeLanguagePageEn {
-  _TranslationsChangeLanguagePageZhHans._(this._root);
+class _TranslationsChangeLanguagePageZhHans implements TranslationsChangeLanguagePageEn {
+	_TranslationsChangeLanguagePageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '语言';
-  @override
-  late final _TranslationsChangeLanguagePageItemsZhHans items =
-      _TranslationsChangeLanguagePageItemsZhHans._(_root);
+	// Translations
+	@override String get title => '语言';
+	@override late final _TranslationsChangeLanguagePageItemsZhHans items = _TranslationsChangeLanguagePageItemsZhHans._(_root);
 }
 
 // Path: changeThemePage
-class _TranslationsChangeThemePageZhHans
-    implements TranslationsChangeThemePageEn {
-  _TranslationsChangeThemePageZhHans._(this._root);
+class _TranslationsChangeThemePageZhHans implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '主题';
-  @override
-  late final _TranslationsChangeThemePageItemsZhHans items =
-      _TranslationsChangeThemePageItemsZhHans._(_root);
+	// Translations
+	@override String get title => '主题';
+	@override late final _TranslationsChangeThemePageItemsZhHans items = _TranslationsChangeThemePageItemsZhHans._(_root);
 }
 
 // Path: myPlanPage
 class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
-  _TranslationsMyPlanPageZhHans._(this._root);
+	_TranslationsMyPlanPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '我的计划';
-  @override
-  late final _TranslationsMyPlanPageTabsZhHans tabs =
-      _TranslationsMyPlanPageTabsZhHans._(_root);
+	// Translations
+	@override String get title => '我的计划';
+	@override late final _TranslationsMyPlanPageTabsZhHans tabs = _TranslationsMyPlanPageTabsZhHans._(_root);
 }
 
 // Path: buddyChatPage
 class _TranslationsBuddyChatPageZhHans implements TranslationsBuddyChatPageEn {
-  _TranslationsBuddyChatPageZhHans._(this._root);
+	_TranslationsBuddyChatPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'Buddy的建议';
-  @override
-  String possibleChatCount({required Object possibleChatCount}) =>
-      '消息还可以发送${possibleChatCount}次';
-  @override
-  late final _TranslationsBuddyChatPageTextFieldsZhHans textFields =
-      _TranslationsBuddyChatPageTextFieldsZhHans._(_root);
-  @override
-  late final _TranslationsBuddyChatPageButtonsZhHans buttons =
-      _TranslationsBuddyChatPageButtonsZhHans._(_root);
-  @override
-  late final _TranslationsBuddyChatPagePlaceCardZhHans placeCard =
-      _TranslationsBuddyChatPagePlaceCardZhHans._(_root);
-  @override
-  late final _TranslationsBuddyChatPageSnackBarZhHans snackBar =
-      _TranslationsBuddyChatPageSnackBarZhHans._(_root);
+	// Translations
+	@override String get title => 'Buddy的建议';
+	@override String possibleChatCount({required Object possibleChatCount}) => '消息还可以发送${possibleChatCount}次';
+	@override late final _TranslationsBuddyChatPageTextFieldsZhHans textFields = _TranslationsBuddyChatPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsZhHans buttons = _TranslationsBuddyChatPageButtonsZhHans._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardZhHans placeCard = _TranslationsBuddyChatPagePlaceCardZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarZhHans snackBar = _TranslationsBuddyChatPageSnackBarZhHans._(_root);
 }
 
 // Path: popularTopics
 class _TranslationsPopularTopicsZhHans implements TranslationsPopularTopicsEn {
-  _TranslationsPopularTopicsZhHans._(this._root);
+	_TranslationsPopularTopicsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get sectionName => '热门话题';
+	// Translations
+	@override String get sectionName => '热门话题';
 }
 
 // Path: createPlanPage
-class _TranslationsCreatePlanPageZhHans
-    implements TranslationsCreatePlanPageEn {
-  _TranslationsCreatePlanPageZhHans._(this._root);
+class _TranslationsCreatePlanPageZhHans implements TranslationsCreatePlanPageEn {
+	_TranslationsCreatePlanPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '创建计划';
-  @override
-  late final _TranslationsCreatePlanPageLabelZhHans label =
-      _TranslationsCreatePlanPageLabelZhHans._(_root);
-  @override
-  late final _TranslationsCreatePlanPageHintTextZhHans hintText =
-      _TranslationsCreatePlanPageHintTextZhHans._(_root);
-  @override
-  late final _TranslationsCreatePlanPageModalZhHans modal =
-      _TranslationsCreatePlanPageModalZhHans._(_root);
-  @override
-  List<String> get numberOfPeopleOptions => [
-        '1人',
-        '2人',
-        '3人',
-        '4人',
-        '5人',
-        '6人以上',
-      ];
-  @override
-  List<String> get transportOptions => [
-        '火车',
-        '步行',
-        '汽车',
-        '巴士',
-      ];
-  @override
-  List<String> get categoryOptions => [
-        '亲子',
-        '成人',
-        '娱乐',
-        '活动',
-        '历史',
-      ];
-  @override
-  List<String> get defaultTopics => [
-        '美食',
-        '购物',
-        '活动',
-        '电影',
-      ];
-  @override
-  String get submitButton => '提交计划给AI';
-  @override
-  late final _TranslationsCreatePlanPageSnackBarZhHans snackBar =
-      _TranslationsCreatePlanPageSnackBarZhHans._(_root);
+	// Translations
+	@override String get title => '创建计划';
+	@override late final _TranslationsCreatePlanPageLabelZhHans label = _TranslationsCreatePlanPageLabelZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextZhHans hintText = _TranslationsCreatePlanPageHintTextZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageModalZhHans modal = _TranslationsCreatePlanPageModalZhHans._(_root);
+	@override List<String> get numberOfPeopleOptions => [
+		'1人',
+		'2人',
+		'3人',
+		'4人',
+		'5人',
+		'6人以上',
+	];
+	@override List<String> get transportOptions => [
+		'火车',
+		'步行',
+		'汽车',
+		'巴士',
+	];
+	@override List<String> get categoryOptions => [
+		'亲子',
+		'成人',
+		'娱乐',
+		'活动',
+		'历史',
+	];
+	@override List<String> get defaultTopics => [
+		'美食',
+		'购物',
+		'活动',
+		'电影',
+	];
+	@override String get submitButton => '提交计划给AI';
+	@override late final _TranslationsCreatePlanPageSnackBarZhHans snackBar = _TranslationsCreatePlanPageSnackBarZhHans._(_root);
 }
 
 // Path: editProfilePage
-class _TranslationsEditProfilePageZhHans
-    implements TranslationsEditProfilePageEn {
-  _TranslationsEditProfilePageZhHans._(this._root);
+class _TranslationsEditProfilePageZhHans implements TranslationsEditProfilePageEn {
+	_TranslationsEditProfilePageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '编辑个人资料';
-  @override
-  late final _TranslationsEditProfilePageTextFieldsZhHans textFields =
-      _TranslationsEditProfilePageTextFieldsZhHans._(_root);
-  @override
-  late final _TranslationsEditProfilePageButtonsZhHans buttons =
-      _TranslationsEditProfilePageButtonsZhHans._(_root);
-  @override
-  late final _TranslationsEditProfilePageSnackBarZhHans snackBar =
-      _TranslationsEditProfilePageSnackBarZhHans._(_root);
+	// Translations
+	@override String get title => '编辑个人资料';
+	@override late final _TranslationsEditProfilePageTextFieldsZhHans textFields = _TranslationsEditProfilePageTextFieldsZhHans._(_root);
+	@override late final _TranslationsEditProfilePageButtonsZhHans buttons = _TranslationsEditProfilePageButtonsZhHans._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarZhHans snackBar = _TranslationsEditProfilePageSnackBarZhHans._(_root);
 }
 
 // Path: confirmDialog
 class _TranslationsConfirmDialogZhHans implements TranslationsConfirmDialogEn {
-  _TranslationsConfirmDialogZhHans._(this._root);
+	_TranslationsConfirmDialogZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsConfirmDialogAnswersZhHans answers =
-      _TranslationsConfirmDialogAnswersZhHans._(_root);
-  @override
-  late final _TranslationsConfirmDialogPopPageZhHans popPage =
-      _TranslationsConfirmDialogPopPageZhHans._(_root);
-  @override
-  late final _TranslationsConfirmDialogCompleteCreatePlanZhHans
-      completeCreatePlan =
-      _TranslationsConfirmDialogCompleteCreatePlanZhHans._(_root);
+	// Translations
+	@override late final _TranslationsConfirmDialogAnswersZhHans answers = _TranslationsConfirmDialogAnswersZhHans._(_root);
+	@override late final _TranslationsConfirmDialogPopPageZhHans popPage = _TranslationsConfirmDialogPopPageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanZhHans completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanZhHans._(_root);
 }
 
 // Path: prompt
 class _TranslationsPromptZhHans implements TranslationsPromptEn {
-  _TranslationsPromptZhHans._(this._root);
+	_TranslationsPromptZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get planProposalMessage => '我考虑了这个计划！您觉得怎么样？';
+	// Translations
+	@override String get planProposalMessage => '我考虑了这个计划！您觉得怎么样？';
 }
 
 // Path: billDetailsPage
-class _TranslationsBillDetailsPageZhHans
-    implements TranslationsBillDetailsPageEn {
-  _TranslationsBillDetailsPageZhHans._(this._root);
+class _TranslationsBillDetailsPageZhHans implements TranslationsBillDetailsPageEn {
+	_TranslationsBillDetailsPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '高级计划';
-  @override
-  String get description => '订阅高级计划后，您可以更舒适地享受涩谷观光。';
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanZhHans pricingPlan =
-      _TranslationsBillDetailsPagePricingPlanZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPageFeaturesZhHans features =
-      _TranslationsBillDetailsPageFeaturesZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsZhHans pricingOptions =
-      _TranslationsBillDetailsPagePricingOptionsZhHans._(_root);
-  @override
-  String get upgradeButton => '升级到高级计划';
+	// Translations
+	@override String get title => '高级计划';
+	@override String get description => '订阅高级计划后，您可以更舒适地享受涩谷观光。';
+	@override late final _TranslationsBillDetailsPagePricingPlanZhHans pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesZhHans features = _TranslationsBillDetailsPageFeaturesZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsZhHans pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHans._(_root);
+	@override String get upgradeButton => '升级到高级计划';
 }
 
 // Path: planDetailsPage
-class _TranslationsPlanDetailsPageZhHans
-    implements TranslationsPlanDetailsPageEn {
-  _TranslationsPlanDetailsPageZhHans._(this._root);
+class _TranslationsPlanDetailsPageZhHans implements TranslationsPlanDetailsPageEn {
+	_TranslationsPlanDetailsPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsPlanDetailsPageDateTimeZhHans dateTime =
-      _TranslationsPlanDetailsPageDateTimeZhHans._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageItemZhHans item =
-      _TranslationsPlanDetailsPageItemZhHans._(_root);
+	// Translations
+	@override late final _TranslationsPlanDetailsPageDateTimeZhHans dateTime = _TranslationsPlanDetailsPageDateTimeZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageItemZhHans item = _TranslationsPlanDetailsPageItemZhHans._(_root);
+}
+
+// Path: errorPage
+class _TranslationsErrorPageZhHans implements TranslationsErrorPageEn {
+	_TranslationsErrorPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '发生错误...';
+	@override String get message => '请检查您的网络连接并重试。';
+	@override String get retryButton => '重试';
 }
 
 // Path: navigationBar.items
-class _TranslationsNavigationBarItemsZhHans
-    implements TranslationsNavigationBarItemsEn {
-  _TranslationsNavigationBarItemsZhHans._(this._root);
+class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBarItemsEn {
+	_TranslationsNavigationBarItemsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get home => '首页';
-  @override
-  String get myPlan => '我的计划';
-  @override
-  String get myPage => '我的页面';
+	// Translations
+	@override String get home => '首页';
+	@override String get myPlan => '我的计划';
+	@override String get myPage => '我的页面';
 }
 
 // Path: homePage.popularPlans
-class _TranslationsHomePagePopularPlansZhHans
-    implements TranslationsHomePagePopularPlansEn {
-  _TranslationsHomePagePopularPlansZhHans._(this._root);
+class _TranslationsHomePagePopularPlansZhHans implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '热门计划';
+	// Translations
+	@override String get title => '热门计划';
 }
 
 // Path: homePage.popularTopics
-class _TranslationsHomePagePopularTopicsZhHans
-    implements TranslationsHomePagePopularTopicsEn {
-  _TranslationsHomePagePopularTopicsZhHans._(this._root);
+class _TranslationsHomePagePopularTopicsZhHans implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '热门话题';
-  @override
-  String numberOfTopics({required Object number}) => '${number}件~';
+	// Translations
+	@override String get title => '热门话题';
+	@override String numberOfTopics({required Object number}) => '${number}件~';
 }
 
 // Path: homePage.recentPlans
-class _TranslationsHomePageRecentPlansZhHans
-    implements TranslationsHomePageRecentPlansEn {
-  _TranslationsHomePageRecentPlansZhHans._(this._root);
+class _TranslationsHomePageRecentPlansZhHans implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '最近创建的计划';
+	// Translations
+	@override String get title => '最近创建的计划';
 }
 
 // Path: accountPage.items
-class _TranslationsAccountPageItemsZhHans
-    implements TranslationsAccountPageItemsEn {
-  _TranslationsAccountPageItemsZhHans._(this._root);
+class _TranslationsAccountPageItemsZhHans implements TranslationsAccountPageItemsEn {
+	_TranslationsAccountPageItemsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signOut => '退出登录';
-  @override
-  String get linkedWithGoogle => '与Google连接';
-  @override
-  String get linkedWithApple => '与Apple连接';
-  @override
-  String get alreadyLinkedGoogle => '已与Google连接';
-  @override
-  String get alreadyLinkedApple => '已与Apple连接';
+	// Translations
+	@override String get signOut => '退出登录';
+	@override String get linkedWithGoogle => '与Google连接';
+	@override String get linkedWithApple => '与Apple连接';
+	@override String get alreadyLinkedGoogle => '已与Google连接';
+	@override String get alreadyLinkedApple => '已与Apple连接';
 }
 
 // Path: accountPage.snackBar
-class _TranslationsAccountPageSnackBarZhHans
-    implements TranslationsAccountPageSnackBarEn {
-  _TranslationsAccountPageSnackBarZhHans._(this._root);
+class _TranslationsAccountPageSnackBarZhHans implements TranslationsAccountPageSnackBarEn {
+	_TranslationsAccountPageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signOut => '已成功退出登录。';
-  @override
-  String get signOutFailure => '退出登录时发生错误。';
-  @override
-  String get successfulLinkage => '账户关联成功。';
-  @override
-  String get linkageFailure => '账户关联失败。';
-  @override
-  String get providerAlreadyLinked => '此账户已经关联。';
-  @override
-  String get accountDeactivation => '已解除账户关联。';
-  @override
-  String get invalidCredential => '请重新登录。';
-  @override
-  String get linkageCancelled => '账户关联已取消。';
-  @override
-  String get unlinkageFailure => '解除账户关联失败。';
-  @override
-  String get operationNotAllowed => '提供者无效。请联系开发者。';
-  @override
-  String get unknownError => '发生未知错误。';
+	// Translations
+	@override String get signOut => '已成功退出登录。';
+	@override String get signOutFailure => '退出登录时发生错误。';
+	@override String get successfulLinkage => '账户关联成功。';
+	@override String get linkageFailure => '账户关联失败。';
+	@override String get providerAlreadyLinked => '此账户已经关联。';
+	@override String get accountDeactivation => '已解除账户关联。';
+	@override String get invalidCredential => '请重新登录。';
+	@override String get linkageCancelled => '账户关联已取消。';
+	@override String get unlinkageFailure => '解除账户关联失败。';
+	@override String get operationNotAllowed => '提供者无效。请联系开发者。';
+	@override String get unknownError => '发生未知错误。';
 }
 
 // Path: accountPage.diaLog
-class _TranslationsAccountPageDiaLogZhHans
-    implements TranslationsAccountPageDiaLogEn {
-  _TranslationsAccountPageDiaLogZhHans._(this._root);
+class _TranslationsAccountPageDiaLogZhHans implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get yes => '是';
-  @override
-  String get no => '否';
-  @override
-  String get title => '确认解除账户连接';
-  @override
-  String get googleText => '是否要解除当前账户与Google账户的连接？';
-  @override
-  String get appleText => '是否要解除当前账户与Apple账户的连接？';
+	// Translations
+	@override String get yes => '是';
+	@override String get no => '否';
+	@override String get title => '确认解除账户连接';
+	@override String get googleText => '是否要解除当前账户与Google账户的连接？';
+	@override String get appleText => '是否要解除当前账户与Apple账户的连接？';
 }
 
 // Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageZhHans
-    implements TranslationsAuthenticationSignInPageEn {
-  _TranslationsAuthenticationSignInPageZhHans._(this._root);
+class _TranslationsAuthenticationSignInPageZhHans implements TranslationsAuthenticationSignInPageEn {
+	_TranslationsAuthenticationSignInPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '登录';
-  @override
-  String get optionText => ' 或 ';
-  @override
-  late final _TranslationsAuthenticationSignInPageTextFieldsZhHans textFields =
-      _TranslationsAuthenticationSignInPageTextFieldsZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationSignInPageButtonsZhHans buttons =
-      _TranslationsAuthenticationSignInPageButtonsZhHans._(_root);
+	// Translations
+	@override String get title => '登录';
+	@override String get optionText => ' 或 ';
+	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsAuthenticationSignInPageButtonsZhHans buttons = _TranslationsAuthenticationSignInPageButtonsZhHans._(_root);
 }
 
 // Path: authentication.firebaseAuth
-class _TranslationsAuthenticationFirebaseAuthZhHans
-    implements TranslationsAuthenticationFirebaseAuthEn {
-  _TranslationsAuthenticationFirebaseAuthZhHans._(this._root);
+class _TranslationsAuthenticationFirebaseAuthZhHans implements TranslationsAuthenticationFirebaseAuthEn {
+	_TranslationsAuthenticationFirebaseAuthZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationFirebaseAuthErrorZhHans error =
-      _TranslationsAuthenticationFirebaseAuthErrorZhHans._(_root);
+	// Translations
+	@override late final _TranslationsAuthenticationFirebaseAuthErrorZhHans error = _TranslationsAuthenticationFirebaseAuthErrorZhHans._(_root);
 }
 
 // Path: authentication.resetPasswordPage
-class _TranslationsAuthenticationResetPasswordPageZhHans
-    implements TranslationsAuthenticationResetPasswordPageEn {
-  _TranslationsAuthenticationResetPasswordPageZhHans._(this._root);
+class _TranslationsAuthenticationResetPasswordPageZhHans implements TranslationsAuthenticationResetPasswordPageEn {
+	_TranslationsAuthenticationResetPasswordPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '重置密码';
-  @override
-  String get description => '将向输入的电子邮件地址发送密码重置邮件';
-  @override
-  late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans
-      textFields =
-      _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationResetPasswordPageButtonsZhHans buttons =
-      _TranslationsAuthenticationResetPasswordPageButtonsZhHans._(_root);
+	// Translations
+	@override String get title => '重置密码';
+	@override String get description => '将向输入的电子邮件地址发送密码重置邮件';
+	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHans buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHans._(_root);
 }
 
 // Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageZhHans
-    implements TranslationsAuthenticationSignUpPageEn {
-  _TranslationsAuthenticationSignUpPageZhHans._(this._root);
+class _TranslationsAuthenticationSignUpPageZhHans implements TranslationsAuthenticationSignUpPageEn {
+	_TranslationsAuthenticationSignUpPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '注册';
-  @override
-  late final _TranslationsAuthenticationSignUpPageTextFieldsZhHans textFields =
-      _TranslationsAuthenticationSignUpPageTextFieldsZhHans._(_root);
-  @override
-  String get button => '注册';
+	// Translations
+	@override String get title => '注册';
+	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHans._(_root);
+	@override String get button => '注册';
 }
 
 // Path: authentication.emailVerificationPage
-class _TranslationsAuthenticationEmailVerificationPageZhHans
-    implements TranslationsAuthenticationEmailVerificationPageEn {
-  _TranslationsAuthenticationEmailVerificationPageZhHans._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageZhHans implements TranslationsAuthenticationEmailVerificationPageEn {
+	_TranslationsAuthenticationEmailVerificationPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '邮箱地址验证';
-  @override
-  String descriptionForDestination({required Object email}) =>
-      '将向输入的${email}发送确认邮件。';
-  @override
-  String get descriptionForCoolDown => '确认邮件每60秒只能重新发送一次。';
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHans
-      buttons =
-      _TranslationsAuthenticationEmailVerificationPageButtonsZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans
-      snackBar =
-      _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(_root);
+	// Translations
+	@override String get title => '邮箱地址验证';
+	@override String descriptionForDestination({required Object email}) => '将向输入的${email}发送确认邮件。';
+	@override String get descriptionForCoolDown => '确认邮件每60秒只能重新发送一次。';
+	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHans buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(_root);
 }
 
 // Path: authentication.registerProfilePage
-class _TranslationsAuthenticationRegisterProfilePageZhHans
-    implements TranslationsAuthenticationRegisterProfilePageEn {
-  _TranslationsAuthenticationRegisterProfilePageZhHans._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageZhHans implements TranslationsAuthenticationRegisterProfilePageEn {
+	_TranslationsAuthenticationRegisterProfilePageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '注册个人信息';
-  @override
-  String get textFields => '姓名';
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHans
-      buttons =
-      _TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans
-      snackBar =
-      _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(_root);
+	// Translations
+	@override String get title => '注册个人信息';
+	@override String get textFields => '姓名';
+	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsZhHans buttons = _TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
-class _TranslationsAuthenticationCompleteSendEmailPageZhHans
-    implements TranslationsAuthenticationCompleteSendEmailPageEn {
-  _TranslationsAuthenticationCompleteSendEmailPageZhHans._(this._root);
+class _TranslationsAuthenticationCompleteSendEmailPageZhHans implements TranslationsAuthenticationCompleteSendEmailPageEn {
+	_TranslationsAuthenticationCompleteSendEmailPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '发送完成';
-  @override
-  String description({required Object email}) =>
-      '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
-  @override
-  String get successResendEmail => '确认邮件已重新发送';
-  @override
-  late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans
-      buttons =
-      _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(_root);
+	// Translations
+	@override String get title => '发送完成';
+	@override String description({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
+	@override String get successResendEmail => '确认邮件已重新发送';
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(_root);
 }
 
 // Path: myPage.accountStatus
-class _TranslationsMyPageAccountStatusZhHans
-    implements TranslationsMyPageAccountStatusEn {
-  _TranslationsMyPageAccountStatusZhHans._(this._root);
+class _TranslationsMyPageAccountStatusZhHans implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsMyPageAccountStatusDateTimeZhHans dateTime =
-      _TranslationsMyPageAccountStatusDateTimeZhHans._(_root);
-  @override
-  String get premium => '高级会员';
-  @override
-  String get standard => '标准会员';
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeZhHans dateTime = _TranslationsMyPageAccountStatusDateTimeZhHans._(_root);
+	@override String get premium => '高级会员';
+	@override String get standard => '标准会员';
 }
 
 // Path: changeLanguagePage.items
-class _TranslationsChangeLanguagePageItemsZhHans
-    implements TranslationsChangeLanguagePageItemsEn {
-  _TranslationsChangeLanguagePageItemsZhHans._(this._root);
+class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLanguagePageItemsEn {
+	_TranslationsChangeLanguagePageItemsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get japanese => '日本人';
-  @override
-  String get english => '英语';
-  @override
-  String get simplifiedChinese => '中文（简体）';
-  @override
-  String get traditionalChinese => '中文（繁体）';
+	// Translations
+	@override String get japanese => '日本人';
+	@override String get english => '英语';
+	@override String get simplifiedChinese => '中文（简体）';
+	@override String get traditionalChinese => '中文（繁体）';
 }
 
 // Path: changeThemePage.items
-class _TranslationsChangeThemePageItemsZhHans
-    implements TranslationsChangeThemePageItemsEn {
-  _TranslationsChangeThemePageItemsZhHans._(this._root);
+class _TranslationsChangeThemePageItemsZhHans implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get system => '系统';
-  @override
-  String get light => '光';
-  @override
-  String get dark => '暗处';
+	// Translations
+	@override String get system => '系统';
+	@override String get light => '光';
+	@override String get dark => '暗处';
 }
 
 // Path: myPlanPage.tabs
-class _TranslationsMyPlanPageTabsZhHans
-    implements TranslationsMyPlanPageTabsEn {
-  _TranslationsMyPlanPageTabsZhHans._(this._root);
+class _TranslationsMyPlanPageTabsZhHans implements TranslationsMyPlanPageTabsEn {
+	_TranslationsMyPlanPageTabsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get createdPlans => '已创建的计划';
-  @override
-  String get bookmark => '收藏夹';
+	// Translations
+	@override String get createdPlans => '已创建的计划';
+	@override String get bookmark => '收藏夹';
 }
 
 // Path: buddyChatPage.textFields
-class _TranslationsBuddyChatPageTextFieldsZhHans
-    implements TranslationsBuddyChatPageTextFieldsEn {
-  _TranslationsBuddyChatPageTextFieldsZhHans._(this._root);
+class _TranslationsBuddyChatPageTextFieldsZhHans implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get message => '输入消息';
+	// Translations
+	@override String get message => '输入消息';
 }
 
 // Path: buddyChatPage.buttons
-class _TranslationsBuddyChatPageButtonsZhHans
-    implements TranslationsBuddyChatPageButtonsEn {
-  _TranslationsBuddyChatPageButtonsZhHans._(this._root);
+class _TranslationsBuddyChatPageButtonsZhHans implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get send => '完成';
+	// Translations
+	@override String get send => '完成';
 }
 
 // Path: buddyChatPage.placeCard
-class _TranslationsBuddyChatPagePlaceCardZhHans
-    implements TranslationsBuddyChatPagePlaceCardEn {
-  _TranslationsBuddyChatPagePlaceCardZhHans._(this._root);
+class _TranslationsBuddyChatPagePlaceCardZhHans implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get openingHours => '营业时间';
-  @override
-  String get averageAmount => '平均预算';
-  @override
-  String get website => '网站';
+	// Translations
+	@override String get openingHours => '营业时间';
+	@override String get averageAmount => '平均预算';
+	@override String get website => '网站';
 }
 
 // Path: buddyChatPage.snackBar
-class _TranslationsBuddyChatPageSnackBarZhHans
-    implements TranslationsBuddyChatPageSnackBarEn {
-  _TranslationsBuddyChatPageSnackBarZhHans._(this._root);
+class _TranslationsBuddyChatPageSnackBarZhHans implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsBuddyChatPageSnackBarErrorZhHans error =
-      _TranslationsBuddyChatPageSnackBarErrorZhHans._(_root);
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorZhHans error = _TranslationsBuddyChatPageSnackBarErrorZhHans._(_root);
 }
 
 // Path: createPlanPage.label
-class _TranslationsCreatePlanPageLabelZhHans
-    implements TranslationsCreatePlanPageLabelEn {
-  _TranslationsCreatePlanPageLabelZhHans._(this._root);
+class _TranslationsCreatePlanPageLabelZhHans implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get location => '目的地';
-  @override
-  String get scheduleStart => '开始日期';
-  @override
-  String get scheduleEnd => '结束日期';
-  @override
-  String get numberOfPeople => '人数';
-  @override
-  String get transport => '交通方式';
-  @override
-  String get category => '类别';
-  @override
-  String get topics => '旅行主题';
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '开始日期';
+	@override String get scheduleEnd => '结束日期';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通方式';
+	@override String get category => '类别';
+	@override String get topics => '旅行主题';
 }
 
 // Path: createPlanPage.hintText
-class _TranslationsCreatePlanPageHintTextZhHans
-    implements TranslationsCreatePlanPageHintTextEn {
-  _TranslationsCreatePlanPageHintTextZhHans._(this._root);
+class _TranslationsCreatePlanPageHintTextZhHans implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get location => '涩谷';
+	// Translations
+	@override String get location => '涩谷';
 }
 
 // Path: createPlanPage.modal
-class _TranslationsCreatePlanPageModalZhHans
-    implements TranslationsCreatePlanPageModalEn {
-  _TranslationsCreatePlanPageModalZhHans._(this._root);
+class _TranslationsCreatePlanPageModalZhHans implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '选择日期';
+	// Translations
+	@override String get title => '选择日期';
 }
 
 // Path: createPlanPage.snackBar
-class _TranslationsCreatePlanPageSnackBarZhHans
-    implements TranslationsCreatePlanPageSnackBarEn {
-  _TranslationsCreatePlanPageSnackBarZhHans._(this._root);
+class _TranslationsCreatePlanPageSnackBarZhHans implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsCreatePlanPageSnackBarErrorZhHans error =
-      _TranslationsCreatePlanPageSnackBarErrorZhHans._(_root);
+	// Translations
+	@override late final _TranslationsCreatePlanPageSnackBarErrorZhHans error = _TranslationsCreatePlanPageSnackBarErrorZhHans._(_root);
 }
 
 // Path: editProfilePage.textFields
-class _TranslationsEditProfilePageTextFieldsZhHans
-    implements TranslationsEditProfilePageTextFieldsEn {
-  _TranslationsEditProfilePageTextFieldsZhHans._(this._root);
+class _TranslationsEditProfilePageTextFieldsZhHans implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get name => '姓名';
+	// Translations
+	@override String get name => '姓名';
 }
 
 // Path: editProfilePage.buttons
-class _TranslationsEditProfilePageButtonsZhHans
-    implements TranslationsEditProfilePageButtonsEn {
-  _TranslationsEditProfilePageButtonsZhHans._(this._root);
+class _TranslationsEditProfilePageButtonsZhHans implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submit => '保存';
+	// Translations
+	@override String get submit => '保存';
 }
 
 // Path: editProfilePage.snackBar
-class _TranslationsEditProfilePageSnackBarZhHans
-    implements TranslationsEditProfilePageSnackBarEn {
-  _TranslationsEditProfilePageSnackBarZhHans._(this._root);
+class _TranslationsEditProfilePageSnackBarZhHans implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get success => '更新成功';
-  @override
-  late final _TranslationsEditProfilePageSnackBarErrorZhHans error =
-      _TranslationsEditProfilePageSnackBarErrorZhHans._(_root);
+	// Translations
+	@override String get success => '更新成功';
+	@override late final _TranslationsEditProfilePageSnackBarErrorZhHans error = _TranslationsEditProfilePageSnackBarErrorZhHans._(_root);
 }
 
 // Path: confirmDialog.answers
-class _TranslationsConfirmDialogAnswersZhHans
-    implements TranslationsConfirmDialogAnswersEn {
-  _TranslationsConfirmDialogAnswersZhHans._(this._root);
+class _TranslationsConfirmDialogAnswersZhHans implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get yes => '是';
-  @override
-  String get no => '否';
+	// Translations
+	@override String get yes => '是';
+	@override String get no => '否';
 }
 
 // Path: confirmDialog.popPage
-class _TranslationsConfirmDialogPopPageZhHans
-    implements TranslationsConfirmDialogPopPageEn {
-  _TranslationsConfirmDialogPopPageZhHans._(this._root);
+class _TranslationsConfirmDialogPopPageZhHans implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '要返回上一页吗？';
-  @override
-  String get description => '当前内容不会被保存';
+	// Translations
+	@override String get title => '要返回上一页吗？';
+	@override String get description => '当前内容不会被保存';
 }
 
 // Path: confirmDialog.completeCreatePlan
-class _TranslationsConfirmDialogCompleteCreatePlanZhHans
-    implements TranslationsConfirmDialogCompleteCreatePlanEn {
-  _TranslationsConfirmDialogCompleteCreatePlanZhHans._(this._root);
+class _TranslationsConfirmDialogCompleteCreatePlanZhHans implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '确定要保存计划吗？';
-  @override
-  String get description => '最后一条消息中的计划将被保存';
+	// Translations
+	@override String get title => '确定要保存计划吗？';
+	@override String get description => '最后一条消息中的计划将被保存';
 }
 
 // Path: billDetailsPage.pricingPlan
-class _TranslationsBillDetailsPagePricingPlanZhHans
-    implements TranslationsBillDetailsPagePricingPlanEn {
-  _TranslationsBillDetailsPagePricingPlanZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingPlanZhHans implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '价格计划';
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanColumnsZhHans columns =
-      _TranslationsBillDetailsPagePricingPlanColumnsZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanDetailsZhHans details =
-      _TranslationsBillDetailsPagePricingPlanDetailsZhHans._(_root);
+	// Translations
+	@override String get title => '价格计划';
+	@override late final _TranslationsBillDetailsPagePricingPlanColumnsZhHans columns = _TranslationsBillDetailsPagePricingPlanColumnsZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsZhHans details = _TranslationsBillDetailsPagePricingPlanDetailsZhHans._(_root);
 }
 
 // Path: billDetailsPage.features
-class _TranslationsBillDetailsPageFeaturesZhHans
-    implements TranslationsBillDetailsPageFeaturesEn {
-  _TranslationsBillDetailsPageFeaturesZhHans._(this._root);
+class _TranslationsBillDetailsPageFeaturesZhHans implements TranslationsBillDetailsPageFeaturesEn {
+	_TranslationsBillDetailsPageFeaturesZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '等级功能';
-  @override
-  late final _TranslationsBillDetailsPageFeaturesRowsZhHans rows =
-      _TranslationsBillDetailsPageFeaturesRowsZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPageFeaturesColumnsZhHans columns =
-      _TranslationsBillDetailsPageFeaturesColumnsZhHans._(_root);
+	// Translations
+	@override String get title => '等级功能';
+	@override late final _TranslationsBillDetailsPageFeaturesRowsZhHans rows = _TranslationsBillDetailsPageFeaturesRowsZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsZhHans columns = _TranslationsBillDetailsPageFeaturesColumnsZhHans._(_root);
 }
 
 // Path: billDetailsPage.pricingOptions
-class _TranslationsBillDetailsPagePricingOptionsZhHans
-    implements TranslationsBillDetailsPagePricingOptionsEn {
-  _TranslationsBillDetailsPagePricingOptionsZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsZhHans implements TranslationsBillDetailsPagePricingOptionsEn {
+	_TranslationsBillDetailsPagePricingOptionsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsOneDayZhHans oneDay =
-      _TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans
-      threeDays =
-      _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans fiveDays =
-      _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans
-      sevenDays =
-      _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans lifetime =
-      _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(_root);
+	// Translations
+	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayZhHans oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(_root);
 }
 
 // Path: planDetailsPage.dateTime
-class _TranslationsPlanDetailsPageDateTimeZhHans
-    implements TranslationsPlanDetailsPageDateTimeEn {
-  _TranslationsPlanDetailsPageDateTimeZhHans._(this._root);
+class _TranslationsPlanDetailsPageDateTimeZhHans implements TranslationsPlanDetailsPageDateTimeEn {
+	_TranslationsPlanDetailsPageDateTimeZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String createOn({required Object date}) => '${date}创建的计划';
-  @override
-  String get dateFormat => 'yyyy年MM月dd日';
+	// Translations
+	@override String createOn({required Object date}) => '${date}创建的计划';
+	@override String get dateFormat => 'yyyy年MM月dd日';
 }
 
 // Path: planDetailsPage.item
-class _TranslationsPlanDetailsPageItemZhHans
-    implements TranslationsPlanDetailsPageItemEn {
-  _TranslationsPlanDetailsPageItemZhHans._(this._root);
+class _TranslationsPlanDetailsPageItemZhHans implements TranslationsPlanDetailsPageItemEn {
+	_TranslationsPlanDetailsPageItemZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get viewOnMap => '在地图上查看';
+	// Translations
+	@override String get viewOnMap => '在地图上查看';
 }
 
 // Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsZhHans
-    implements TranslationsAuthenticationSignInPageTextFieldsEn {
-  _TranslationsAuthenticationSignInPageTextFieldsZhHans._(this._root);
+class _TranslationsAuthenticationSignInPageTextFieldsZhHans implements TranslationsAuthenticationSignInPageTextFieldsEn {
+	_TranslationsAuthenticationSignInPageTextFieldsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get email => '电子邮件地址';
-  @override
-  String get password => '密码';
+	// Translations
+	@override String get email => '电子邮件地址';
+	@override String get password => '密码';
 }
 
 // Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsZhHans
-    implements TranslationsAuthenticationSignInPageButtonsEn {
-  _TranslationsAuthenticationSignInPageButtonsZhHans._(this._root);
+class _TranslationsAuthenticationSignInPageButtonsZhHans implements TranslationsAuthenticationSignInPageButtonsEn {
+	_TranslationsAuthenticationSignInPageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signIn => '登录';
-  @override
-  String get signUp => '注册';
-  @override
-  String get resetPassword => '忘记密码？';
-  @override
-  String get appleSignIn => '使用Apple登录';
-  @override
-  String get googleSignIn => '使用Google登录';
-  @override
-  String get signInAfter => '稍后注册';
+	// Translations
+	@override String get signIn => '登录';
+	@override String get signUp => '注册';
+	@override String get resetPassword => '忘记密码？';
+	@override String get appleSignIn => '使用Apple登录';
+	@override String get googleSignIn => '使用Google登录';
+	@override String get signInAfter => '稍后注册';
 }
 
 // Path: authentication.firebaseAuth.error
-class _TranslationsAuthenticationFirebaseAuthErrorZhHans
-    implements TranslationsAuthenticationFirebaseAuthErrorEn {
-  _TranslationsAuthenticationFirebaseAuthErrorZhHans._(this._root);
+class _TranslationsAuthenticationFirebaseAuthErrorZhHans implements TranslationsAuthenticationFirebaseAuthErrorEn {
+	_TranslationsAuthenticationFirebaseAuthErrorZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get networkRequestFailed => '请在良好的网络环境中重试';
-  @override
-  String get weakPassword => '密码太短。请输入6个字符或更多';
-  @override
-  String get invalidEmail => '电子邮件地址格式不正确';
-  @override
-  String get userNotFound => '找不到帐户';
-  @override
-  String get wrongPassword => '密码错误';
-  @override
-  String get emailAlreadyInUse => '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
-  @override
-  String get unexpected => '发生错误。请在良好的网络环境中重试';
+	// Translations
+	@override String get networkRequestFailed => '请在良好的网络环境中重试';
+	@override String get weakPassword => '密码太短。请输入6个字符或更多';
+	@override String get invalidEmail => '电子邮件地址格式不正确';
+	@override String get userNotFound => '找不到帐户';
+	@override String get wrongPassword => '密码错误';
+	@override String get emailAlreadyInUse => '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
+	@override String get unexpected => '发生错误。请在良好的网络环境中重试';
 }
 
 // Path: authentication.resetPasswordPage.textFields
-class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans
-    implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
-  _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(this._root);
+class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	_TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get email => '电子邮件地址';
+	// Translations
+	@override String get email => '电子邮件地址';
 }
 
 // Path: authentication.resetPasswordPage.buttons
-class _TranslationsAuthenticationResetPasswordPageButtonsZhHans
-    implements TranslationsAuthenticationResetPasswordPageButtonsEn {
-  _TranslationsAuthenticationResetPasswordPageButtonsZhHans._(this._root);
+class _TranslationsAuthenticationResetPasswordPageButtonsZhHans implements TranslationsAuthenticationResetPasswordPageButtonsEn {
+	_TranslationsAuthenticationResetPasswordPageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submit => '发送';
+	// Translations
+	@override String get submit => '发送';
 }
 
 // Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsZhHans
-    implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-  _TranslationsAuthenticationSignUpPageTextFieldsZhHans._(this._root);
+class _TranslationsAuthenticationSignUpPageTextFieldsZhHans implements TranslationsAuthenticationSignUpPageTextFieldsEn {
+	_TranslationsAuthenticationSignUpPageTextFieldsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get email => '邮箱地址';
-  @override
-  String get password => '密码';
+	// Translations
+	@override String get email => '邮箱地址';
+	@override String get password => '密码';
 }
 
 // Path: authentication.emailVerificationPage.buttons
-class _TranslationsAuthenticationEmailVerificationPageButtonsZhHans
-    implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
-  _TranslationsAuthenticationEmailVerificationPageButtonsZhHans._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageButtonsZhHans implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	_TranslationsAuthenticationEmailVerificationPageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get sendEmail => '发送确认邮件';
-  @override
-  String get resendEmail => '重新发送确认邮件';
-  @override
-  String get toNext => '下一步';
-  @override
-  String get retypeEmail => '修改邮箱地址';
+	// Translations
+	@override String get sendEmail => '发送确认邮件';
+	@override String get resendEmail => '重新发送确认邮件';
+	@override String get toNext => '下一步';
+	@override String get retypeEmail => '修改邮箱地址';
 }
 
 // Path: authentication.emailVerificationPage.snackBar
-class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans
-    implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
-  _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get success => '发送成功';
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans
-      error =
-      _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(
-          _root);
+	// Translations
+	@override String get success => '发送成功';
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(_root);
 }
 
 // Path: authentication.registerProfilePage.buttons
-class _TranslationsAuthenticationRegisterProfilePageButtonsZhHans
-    implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
-  _TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageButtonsZhHans implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	_TranslationsAuthenticationRegisterProfilePageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submit => '完成';
-  @override
-  String get skip => '跳过';
+	// Translations
+	@override String get submit => '完成';
+	@override String get skip => '跳过';
 }
 
 // Path: authentication.registerProfilePage.snackBar
-class _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans
-    implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
-  _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageSnackBarZhHans implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans
-      error =
-      _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(
-          _root);
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(_root);
 }
 
 // Path: authentication.completeSendEmailPage.buttons
-class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans
-    implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
-  _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(this._root);
+class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	_TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get toSignIn => '前往登录页面';
-  @override
-  String get resendEmail => '重新发送确认邮件';
-  @override
-  String get changeEmail => '更改电子邮件地址';
+	// Translations
+	@override String get toSignIn => '前往登录页面';
+	@override String get resendEmail => '重新发送确认邮件';
+	@override String get changeEmail => '更改电子邮件地址';
 }
 
 // Path: myPage.accountStatus.dateTime
-class _TranslationsMyPageAccountStatusDateTimeZhHans
-    implements TranslationsMyPageAccountStatusDateTimeEn {
-  _TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
+class _TranslationsMyPageAccountStatusDateTimeZhHans implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String registeredOn({required Object date}) => '${date}注册于';
-  @override
-  String get registeredOnFormat => 'yyyy年MM月dd日';
-  @override
-  String validUntil({required Object date}) => '有效期至${date}';
-  @override
-  String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
+	// Translations
+	@override String registeredOn({required Object date}) => '${date}注册于';
+	@override String get registeredOnFormat => 'yyyy年MM月dd日';
+	@override String validUntil({required Object date}) => '有效期至${date}';
+	@override String get validUntilFormat => 'yyyy年MM月dd日 HH:mm';
 }
 
 // Path: buddyChatPage.snackBar.error
-class _TranslationsBuddyChatPageSnackBarErrorZhHans
-    implements TranslationsBuddyChatPageSnackBarErrorEn {
-  _TranslationsBuddyChatPageSnackBarErrorZhHans._(this._root);
+class _TranslationsBuddyChatPageSnackBarErrorZhHans implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get failedRecieveMessage => '未能接收回复，请稍后再试';
-  @override
-  String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
+	// Translations
+	@override String get failedRecieveMessage => '未能接收回复，请稍后再试';
+	@override String get failedCompleteCreatePlan => '未能完成创建计划，请稍后再试';
 }
 
 // Path: createPlanPage.snackBar.error
-class _TranslationsCreatePlanPageSnackBarErrorZhHans
-    implements TranslationsCreatePlanPageSnackBarErrorEn {
-  _TranslationsCreatePlanPageSnackBarErrorZhHans._(this._root);
+class _TranslationsCreatePlanPageSnackBarErrorZhHans implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
+	// Translations
+	@override String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
 }
 
 // Path: editProfilePage.snackBar.error
-class _TranslationsEditProfilePageSnackBarErrorZhHans
-    implements TranslationsEditProfilePageSnackBarErrorEn {
-  _TranslationsEditProfilePageSnackBarErrorZhHans._(this._root);
+class _TranslationsEditProfilePageSnackBarErrorZhHans implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get noChange => '没有更改';
-  @override
-  String get failedToUpdate => '更新失败，请稍后再试';
-  @override
-  String get failedToPickImage => '选择图片失败，请稍后再试';
+	// Translations
+	@override String get noChange => '没有更改';
+	@override String get failedToUpdate => '更新失败，请稍后再试';
+	@override String get failedToPickImage => '选择图片失败，请稍后再试';
 }
 
 // Path: billDetailsPage.pricingPlan.columns
-class _TranslationsBillDetailsPagePricingPlanColumnsZhHans
-    implements TranslationsBillDetailsPagePricingPlanColumnsEn {
-  _TranslationsBillDetailsPagePricingPlanColumnsZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingPlanColumnsZhHans implements TranslationsBillDetailsPagePricingPlanColumnsEn {
+	_TranslationsBillDetailsPagePricingPlanColumnsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get standard => '标准';
-  @override
-  String get premium => '高级';
+	// Translations
+	@override String get standard => '标准';
+	@override String get premium => '高级';
 }
 
 // Path: billDetailsPage.pricingPlan.details
-class _TranslationsBillDetailsPagePricingPlanDetailsZhHans
-    implements TranslationsBillDetailsPagePricingPlanDetailsEn {
-  _TranslationsBillDetailsPagePricingPlanDetailsZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingPlanDetailsZhHans implements TranslationsBillDetailsPagePricingPlanDetailsEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get free => '免费 🎉';
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans
-      premiumPrice =
-      _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(_root);
+	// Translations
+	@override String get free => '免费 🎉';
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(_root);
 }
 
 // Path: billDetailsPage.features.rows
-class _TranslationsBillDetailsPageFeaturesRowsZhHans
-    implements TranslationsBillDetailsPageFeaturesRowsEn {
-  _TranslationsBillDetailsPageFeaturesRowsZhHans._(this._root);
+class _TranslationsBillDetailsPageFeaturesRowsZhHans implements TranslationsBillDetailsPageFeaturesRowsEn {
+	_TranslationsBillDetailsPageFeaturesRowsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get planCreationLimit => '可创建的计划次数';
-  @override
-  String get chatLimit => '计划创建期间可用聊天次数';
-  @override
-  String get timelineAccess => '访问所有计划时间线';
-  @override
-  String get adFree => '无广告';
-  @override
-  String get exclusiveFeatures => '计划认证功能';
+	// Translations
+	@override String get planCreationLimit => '可创建的计划次数';
+	@override String get chatLimit => '计划创建期间可用聊天次数';
+	@override String get timelineAccess => '访问所有计划时间线';
+	@override String get adFree => '无广告';
+	@override String get exclusiveFeatures => '计划认证功能';
 }
 
 // Path: billDetailsPage.features.columns
-class _TranslationsBillDetailsPageFeaturesColumnsZhHans
-    implements TranslationsBillDetailsPageFeaturesColumnsEn {
-  _TranslationsBillDetailsPageFeaturesColumnsZhHans._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsZhHans implements TranslationsBillDetailsPageFeaturesColumnsEn {
+	_TranslationsBillDetailsPageFeaturesColumnsZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans
-      standard =
-      _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans premium =
-      _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans._(_root);
+	// Translations
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans standard = _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans._(_root);
 }
 
 // Path: billDetailsPage.pricingOptions.oneDay
-class _TranslationsBillDetailsPagePricingOptionsOneDayZhHans
-    implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
-  _TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsOneDayZhHans implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	_TranslationsBillDetailsPagePricingOptionsOneDayZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '1日';
-  @override
-  String get discount => '';
-  @override
-  String get price => '300日元';
+	// Translations
+	@override String get duration => '1日';
+	@override String get discount => '';
+	@override String get price => '300日元';
 }
 
 // Path: billDetailsPage.pricingOptions.threeDays
-class _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans
-    implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
-  _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsThreeDaysZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '3日';
-  @override
-  String get discount => '-5%';
-  @override
-  String get price => '890日元';
+	// Translations
+	@override String get duration => '3日';
+	@override String get discount => '-5%';
+	@override String get price => '890日元';
 }
 
 // Path: billDetailsPage.pricingOptions.fiveDays
-class _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans
-    implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
-  _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '5日';
-  @override
-  String get discount => '-7.5%';
-  @override
-  String get price => '1,387日元';
+	// Translations
+	@override String get duration => '5日';
+	@override String get discount => '-7.5%';
+	@override String get price => '1,387日元';
 }
 
 // Path: billDetailsPage.pricingOptions.sevenDays
-class _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans
-    implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
-  _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '7日';
-  @override
-  String get discount => '-10%';
-  @override
-  String get price => '2,070日元';
+	// Translations
+	@override String get duration => '7日';
+	@override String get discount => '-10%';
+	@override String get price => '2,070日元';
 }
 
 // Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans
-    implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-  _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	_TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '终身';
-  @override
-  String get discount => '';
-  @override
-  String get price => '25,800日元';
+	// Translations
+	@override String get duration => '终身';
+	@override String get discount => '';
+	@override String get price => '25,800日元';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
-class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans
-    implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
-  _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(
-      this._root);
+class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get unexpected => '发生错误，请稍后再试。';
+	// Translations
+	@override String get unexpected => '发生错误，请稍后再试。';
 }
 
 // Path: authentication.registerProfilePage.snackBar.error
-class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans
-    implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
-  _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(
-      this._root);
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submitIfAllEmpty => '请输入信息';
-  @override
-  String get unexpected => '发生错误，请稍后再试。';
+	// Translations
+	@override String get submitIfAllEmpty => '请输入信息';
+	@override String get unexpected => '发生错误，请稍后再试。';
 }
 
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
-class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans
-    implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
-  _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(
-      this._root);
+class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get days => '按天数购买';
-  @override
-  String get daily => '・1日 300日元';
-  @override
-  String get threeDays => '・3日 855日元';
-  @override
-  String get fiveDays => '・5日 1,480日元';
-  @override
-  String get sevenDays => '・7日 2,070日元';
-  @override
-  String get or => '或者';
-  @override
-  String get lifetime => '终身';
-  @override
-  String get lifetimePrice => '25,800日元';
+	// Translations
+	@override String get days => '按天数购买';
+	@override String get daily => '・1日 300日元';
+	@override String get threeDays => '・3日 855日元';
+	@override String get fiveDays => '・5日 1,480日元';
+	@override String get sevenDays => '・7日 2,070日元';
+	@override String get or => '或者';
+	@override String get lifetime => '终身';
+	@override String get lifetimePrice => '25,800日元';
 }
 
 // Path: billDetailsPage.features.columns.standard
-class _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans
-    implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
-  _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsStandardZhHans implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	_TranslationsBillDetailsPageFeaturesColumnsStandardZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get label => '标准';
-  @override
-  String get planCreationLimit => '2次';
-  @override
-  String get chatLimit => '3次';
+	// Translations
+	@override String get label => '标准';
+	@override String get planCreationLimit => '2次';
+	@override String get chatLimit => '3次';
 }
 
 // Path: billDetailsPage.features.columns.premium
-class _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans
-    implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
-  _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	_TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans._(this._root);
 
-  final TranslationsZhHans _root; // ignore: unused_field
+	final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get label => '高级';
-  @override
-  String get planCreationLimit => '无限制';
-  @override
-  String get chatLimit => '无限制';
+	// Translations
+	@override String get label => '高级';
+	@override String get planCreationLimit => '无限制';
+	@override String get chatLimit => '无限制';
 }
 
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHans {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'navigationBar.items.home':
-        return '首页';
-      case 'navigationBar.items.myPlan':
-        return '我的计划';
-      case 'navigationBar.items.myPage':
-        return '我的页面';
-      case 'homePage.popularPlans.title':
-        return '热门计划';
-      case 'homePage.popularTopics.title':
-        return '热门话题';
-      case 'homePage.popularTopics.numberOfTopics':
-        return ({required Object number}) => '${number}件~';
-      case 'homePage.recentPlans.title':
-        return '最近创建的计划';
-      case 'accountPage.title':
-        return '账户';
-      case 'accountPage.items.signOut':
-        return '退出登录';
-      case 'accountPage.items.linkedWithGoogle':
-        return '与Google连接';
-      case 'accountPage.items.linkedWithApple':
-        return '与Apple连接';
-      case 'accountPage.items.alreadyLinkedGoogle':
-        return '已与Google连接';
-      case 'accountPage.items.alreadyLinkedApple':
-        return '已与Apple连接';
-      case 'accountPage.snackBar.signOut':
-        return '已成功退出登录。';
-      case 'accountPage.snackBar.signOutFailure':
-        return '退出登录时发生错误。';
-      case 'accountPage.snackBar.successfulLinkage':
-        return '账户关联成功。';
-      case 'accountPage.snackBar.linkageFailure':
-        return '账户关联失败。';
-      case 'accountPage.snackBar.providerAlreadyLinked':
-        return '此账户已经关联。';
-      case 'accountPage.snackBar.accountDeactivation':
-        return '已解除账户关联。';
-      case 'accountPage.snackBar.invalidCredential':
-        return '请重新登录。';
-      case 'accountPage.snackBar.linkageCancelled':
-        return '账户关联已取消。';
-      case 'accountPage.snackBar.unlinkageFailure':
-        return '解除账户关联失败。';
-      case 'accountPage.snackBar.operationNotAllowed':
-        return '提供者无效。请联系开发者。';
-      case 'accountPage.snackBar.unknownError':
-        return '发生未知错误。';
-      case 'accountPage.diaLog.yes':
-        return '是';
-      case 'accountPage.diaLog.no':
-        return '否';
-      case 'accountPage.diaLog.title':
-        return '确认解除账户连接';
-      case 'accountPage.diaLog.googleText':
-        return '是否要解除当前账户与Google账户的连接？';
-      case 'accountPage.diaLog.appleText':
-        return '是否要解除当前账户与Apple账户的连接？';
-      case 'authentication.signInPage.title':
-        return '登录';
-      case 'authentication.signInPage.optionText':
-        return ' 或 ';
-      case 'authentication.signInPage.textFields.email':
-        return '电子邮件地址';
-      case 'authentication.signInPage.textFields.password':
-        return '密码';
-      case 'authentication.signInPage.buttons.signIn':
-        return '登录';
-      case 'authentication.signInPage.buttons.signUp':
-        return '注册';
-      case 'authentication.signInPage.buttons.resetPassword':
-        return '忘记密码？';
-      case 'authentication.signInPage.buttons.appleSignIn':
-        return '使用Apple登录';
-      case 'authentication.signInPage.buttons.googleSignIn':
-        return '使用Google登录';
-      case 'authentication.signInPage.buttons.signInAfter':
-        return '稍后注册';
-      case 'authentication.firebaseAuth.error.networkRequestFailed':
-        return '请在良好的网络环境中重试';
-      case 'authentication.firebaseAuth.error.weakPassword':
-        return '密码太短。请输入6个字符或更多';
-      case 'authentication.firebaseAuth.error.invalidEmail':
-        return '电子邮件地址格式不正确';
-      case 'authentication.firebaseAuth.error.userNotFound':
-        return '找不到帐户';
-      case 'authentication.firebaseAuth.error.wrongPassword':
-        return '密码错误';
-      case 'authentication.firebaseAuth.error.emailAlreadyInUse':
-        return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
-      case 'authentication.firebaseAuth.error.unexpected':
-        return '发生错误。请在良好的网络环境中重试';
-      case 'authentication.resetPasswordPage.title':
-        return '重置密码';
-      case 'authentication.resetPasswordPage.description':
-        return '将向输入的电子邮件地址发送密码重置邮件';
-      case 'authentication.resetPasswordPage.textFields.email':
-        return '电子邮件地址';
-      case 'authentication.resetPasswordPage.buttons.submit':
-        return '发送';
-      case 'authentication.signUpPage.title':
-        return '注册';
-      case 'authentication.signUpPage.textFields.email':
-        return '邮箱地址';
-      case 'authentication.signUpPage.textFields.password':
-        return '密码';
-      case 'authentication.signUpPage.button':
-        return '注册';
-      case 'authentication.emailVerificationPage.title':
-        return '邮箱地址验证';
-      case 'authentication.emailVerificationPage.descriptionForDestination':
-        return ({required Object email}) => '将向输入的${email}发送确认邮件。';
-      case 'authentication.emailVerificationPage.descriptionForCoolDown':
-        return '确认邮件每60秒只能重新发送一次。';
-      case 'authentication.emailVerificationPage.buttons.sendEmail':
-        return '发送确认邮件';
-      case 'authentication.emailVerificationPage.buttons.resendEmail':
-        return '重新发送确认邮件';
-      case 'authentication.emailVerificationPage.buttons.toNext':
-        return '下一步';
-      case 'authentication.emailVerificationPage.buttons.retypeEmail':
-        return '修改邮箱地址';
-      case 'authentication.emailVerificationPage.snackBar.success':
-        return '发送成功';
-      case 'authentication.emailVerificationPage.snackBar.error.unexpected':
-        return '发生错误，请稍后再试。';
-      case 'authentication.registerProfilePage.title':
-        return '注册个人信息';
-      case 'authentication.registerProfilePage.textFields':
-        return '姓名';
-      case 'authentication.registerProfilePage.buttons.submit':
-        return '完成';
-      case 'authentication.registerProfilePage.buttons.skip':
-        return '跳过';
-      case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty':
-        return '请输入信息';
-      case 'authentication.registerProfilePage.snackBar.error.unexpected':
-        return '发生错误，请稍后再试。';
-      case 'authentication.completeSendEmailPage.title':
-        return '发送完成';
-      case 'authentication.completeSendEmailPage.description':
-        return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
-      case 'authentication.completeSendEmailPage.successResendEmail':
-        return '确认邮件已重新发送';
-      case 'authentication.completeSendEmailPage.buttons.toSignIn':
-        return '前往登录页面';
-      case 'authentication.completeSendEmailPage.buttons.resendEmail':
-        return '重新发送确认邮件';
-      case 'authentication.completeSendEmailPage.buttons.changeEmail':
-        return '更改电子邮件地址';
-      case 'validation.emailRequired':
-        return '请输入电子邮件地址';
-      case 'validation.emailInvalid':
-        return '电子邮件地址格式不正确';
-      case 'validation.passwordRequired':
-        return '请输入密码';
-      case 'validation.passwordShort':
-        return '密码至少需要8个字符';
-      case 'validation.passwordWeak':
-        return '密码应包含字母和数字的组合';
-      case 'validation.passwordMatch':
-        return '密码不匹配';
-      case 'validation.informationRequired':
-        return '请输入信息';
-      case 'validation.urlInvalid':
-        return 'URL格式不正确';
-      case 'myPage.unregisteredUserName':
-        return '未注册';
-      case 'myPage.editProfile':
-        return '编辑个人资料';
-      case 'myPage.premiumPlan':
-        return '高级计划';
-      case 'myPage.details':
-        return '详细';
-      case 'myPage.settings':
-        return '设置';
-      case 'myPage.account':
-        return '账户';
-      case 'myPage.language':
-        return '语言';
-      case 'myPage.theme':
-        return '主题';
-      case 'myPage.termsOfUsePrivacyPolicy':
-        return '使用条款和隐私政策';
-      case 'myPage.aboutThisApp':
-        return '关于本应用';
-      case 'myPage.aboutTheDeveloper':
-        return '关于开发者';
-      case 'myPage.accountStatus.dateTime.registeredOn':
-        return ({required Object date}) => '${date}注册于';
-      case 'myPage.accountStatus.dateTime.registeredOnFormat':
-        return 'yyyy年MM月dd日';
-      case 'myPage.accountStatus.dateTime.validUntil':
-        return ({required Object date}) => '有效期至${date}';
-      case 'myPage.accountStatus.dateTime.validUntilFormat':
-        return 'yyyy年MM月dd日 HH:mm';
-      case 'myPage.accountStatus.premium':
-        return '高级会员';
-      case 'myPage.accountStatus.standard':
-        return '标准会员';
-      case 'changeLanguagePage.title':
-        return '语言';
-      case 'changeLanguagePage.items.japanese':
-        return '日本人';
-      case 'changeLanguagePage.items.english':
-        return '英语';
-      case 'changeLanguagePage.items.simplifiedChinese':
-        return '中文（简体）';
-      case 'changeLanguagePage.items.traditionalChinese':
-        return '中文（繁体）';
-      case 'changeThemePage.title':
-        return '主题';
-      case 'changeThemePage.items.system':
-        return '系统';
-      case 'changeThemePage.items.light':
-        return '光';
-      case 'changeThemePage.items.dark':
-        return '暗处';
-      case 'myPlanPage.title':
-        return '我的计划';
-      case 'myPlanPage.tabs.createdPlans':
-        return '已创建的计划';
-      case 'myPlanPage.tabs.bookmark':
-        return '收藏夹';
-      case 'buddyChatPage.title':
-        return 'Buddy的建议';
-      case 'buddyChatPage.possibleChatCount':
-        return ({required Object possibleChatCount}) =>
-            '消息还可以发送${possibleChatCount}次';
-      case 'buddyChatPage.textFields.message':
-        return '输入消息';
-      case 'buddyChatPage.buttons.send':
-        return '完成';
-      case 'buddyChatPage.placeCard.openingHours':
-        return '营业时间';
-      case 'buddyChatPage.placeCard.averageAmount':
-        return '平均预算';
-      case 'buddyChatPage.placeCard.website':
-        return '网站';
-      case 'buddyChatPage.snackBar.error.failedRecieveMessage':
-        return '未能接收回复，请稍后再试';
-      case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan':
-        return '未能完成创建计划，请稍后再试';
-      case 'popularTopics.sectionName':
-        return '热门话题';
-      case 'createPlanPage.title':
-        return '创建计划';
-      case 'createPlanPage.label.location':
-        return '目的地';
-      case 'createPlanPage.label.scheduleStart':
-        return '开始日期';
-      case 'createPlanPage.label.scheduleEnd':
-        return '结束日期';
-      case 'createPlanPage.label.numberOfPeople':
-        return '人数';
-      case 'createPlanPage.label.transport':
-        return '交通方式';
-      case 'createPlanPage.label.category':
-        return '类别';
-      case 'createPlanPage.label.topics':
-        return '旅行主题';
-      case 'createPlanPage.hintText.location':
-        return '涩谷';
-      case 'createPlanPage.modal.title':
-        return '选择日期';
-      case 'createPlanPage.numberOfPeopleOptions.0':
-        return '1人';
-      case 'createPlanPage.numberOfPeopleOptions.1':
-        return '2人';
-      case 'createPlanPage.numberOfPeopleOptions.2':
-        return '3人';
-      case 'createPlanPage.numberOfPeopleOptions.3':
-        return '4人';
-      case 'createPlanPage.numberOfPeopleOptions.4':
-        return '5人';
-      case 'createPlanPage.numberOfPeopleOptions.5':
-        return '6人以上';
-      case 'createPlanPage.transportOptions.0':
-        return '火车';
-      case 'createPlanPage.transportOptions.1':
-        return '步行';
-      case 'createPlanPage.transportOptions.2':
-        return '汽车';
-      case 'createPlanPage.transportOptions.3':
-        return '巴士';
-      case 'createPlanPage.categoryOptions.0':
-        return '亲子';
-      case 'createPlanPage.categoryOptions.1':
-        return '成人';
-      case 'createPlanPage.categoryOptions.2':
-        return '娱乐';
-      case 'createPlanPage.categoryOptions.3':
-        return '活动';
-      case 'createPlanPage.categoryOptions.4':
-        return '历史';
-      case 'createPlanPage.defaultTopics.0':
-        return '美食';
-      case 'createPlanPage.defaultTopics.1':
-        return '购物';
-      case 'createPlanPage.defaultTopics.2':
-        return '活动';
-      case 'createPlanPage.defaultTopics.3':
-        return '电影';
-      case 'createPlanPage.submitButton':
-        return '提交计划给AI';
-      case 'createPlanPage.snackBar.error.foundUnSelectedField':
-        return '存在未选择的项目，请选择所有项目';
-      case 'editProfilePage.title':
-        return '编辑个人资料';
-      case 'editProfilePage.textFields.name':
-        return '姓名';
-      case 'editProfilePage.buttons.submit':
-        return '保存';
-      case 'editProfilePage.snackBar.success':
-        return '更新成功';
-      case 'editProfilePage.snackBar.error.noChange':
-        return '没有更改';
-      case 'editProfilePage.snackBar.error.failedToUpdate':
-        return '更新失败，请稍后再试';
-      case 'editProfilePage.snackBar.error.failedToPickImage':
-        return '选择图片失败，请稍后再试';
-      case 'confirmDialog.answers.yes':
-        return '是';
-      case 'confirmDialog.answers.no':
-        return '否';
-      case 'confirmDialog.popPage.title':
-        return '要返回上一页吗？';
-      case 'confirmDialog.popPage.description':
-        return '当前内容不会被保存';
-      case 'confirmDialog.completeCreatePlan.title':
-        return '确定要保存计划吗？';
-      case 'confirmDialog.completeCreatePlan.description':
-        return '最后一条消息中的计划将被保存';
-      case 'prompt.planProposalMessage':
-        return '我考虑了这个计划！您觉得怎么样？';
-      case 'billDetailsPage.title':
-        return '高级计划';
-      case 'billDetailsPage.description':
-        return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
-      case 'billDetailsPage.pricingPlan.title':
-        return '价格计划';
-      case 'billDetailsPage.pricingPlan.columns.standard':
-        return '标准';
-      case 'billDetailsPage.pricingPlan.columns.premium':
-        return '高级';
-      case 'billDetailsPage.pricingPlan.details.free':
-        return '免费 🎉';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.days':
-        return '按天数购买';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.daily':
-        return '・1日 300日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays':
-        return '・3日 855日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays':
-        return '・5日 1,480日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays':
-        return '・7日 2,070日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.or':
-        return '或者';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime':
-        return '终身';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice':
-        return '25,800日元';
-      case 'billDetailsPage.features.title':
-        return '等级功能';
-      case 'billDetailsPage.features.rows.planCreationLimit':
-        return '可创建的计划次数';
-      case 'billDetailsPage.features.rows.chatLimit':
-        return '计划创建期间可用聊天次数';
-      case 'billDetailsPage.features.rows.timelineAccess':
-        return '访问所有计划时间线';
-      case 'billDetailsPage.features.rows.adFree':
-        return '无广告';
-      case 'billDetailsPage.features.rows.exclusiveFeatures':
-        return '计划认证功能';
-      case 'billDetailsPage.features.columns.standard.label':
-        return '标准';
-      case 'billDetailsPage.features.columns.standard.planCreationLimit':
-        return '2次';
-      case 'billDetailsPage.features.columns.standard.chatLimit':
-        return '3次';
-      case 'billDetailsPage.features.columns.premium.label':
-        return '高级';
-      case 'billDetailsPage.features.columns.premium.planCreationLimit':
-        return '无限制';
-      case 'billDetailsPage.features.columns.premium.chatLimit':
-        return '无限制';
-      case 'billDetailsPage.pricingOptions.oneDay.duration':
-        return '1日';
-      case 'billDetailsPage.pricingOptions.oneDay.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.oneDay.price':
-        return '300日元';
-      case 'billDetailsPage.pricingOptions.threeDays.duration':
-        return '3日';
-      case 'billDetailsPage.pricingOptions.threeDays.discount':
-        return '-5%';
-      case 'billDetailsPage.pricingOptions.threeDays.price':
-        return '890日元';
-      case 'billDetailsPage.pricingOptions.fiveDays.duration':
-        return '5日';
-      case 'billDetailsPage.pricingOptions.fiveDays.discount':
-        return '-7.5%';
-      case 'billDetailsPage.pricingOptions.fiveDays.price':
-        return '1,387日元';
-      case 'billDetailsPage.pricingOptions.sevenDays.duration':
-        return '7日';
-      case 'billDetailsPage.pricingOptions.sevenDays.discount':
-        return '-10%';
-      case 'billDetailsPage.pricingOptions.sevenDays.price':
-        return '2,070日元';
-      case 'billDetailsPage.pricingOptions.lifetime.duration':
-        return '终身';
-      case 'billDetailsPage.pricingOptions.lifetime.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.lifetime.price':
-        return '25,800日元';
-      case 'billDetailsPage.upgradeButton':
-        return '升级到高级计划';
-      case 'planDetailsPage.dateTime.createOn':
-        return ({required Object date}) => '${date}创建的计划';
-      case 'planDetailsPage.dateTime.dateFormat':
-        return 'yyyy年MM月dd日';
-      case 'planDetailsPage.item.viewOnMap':
-        return '在地图上查看';
-      case 'locales.en':
-        return '英语';
-      case 'locales.ja':
-        return '日语';
-      case 'locales.zh':
-        return '中文';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'navigationBar.items.home': return '首页';
+			case 'navigationBar.items.myPlan': return '我的计划';
+			case 'navigationBar.items.myPage': return '我的页面';
+			case 'homePage.popularPlans.title': return '热门计划';
+			case 'homePage.popularTopics.title': return '热门话题';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近创建的计划';
+			case 'accountPage.title': return '账户';
+			case 'accountPage.items.signOut': return '退出登录';
+			case 'accountPage.items.linkedWithGoogle': return '与Google连接';
+			case 'accountPage.items.linkedWithApple': return '与Apple连接';
+			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
+			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
+			case 'accountPage.snackBar.signOut': return '已成功退出登录。';
+			case 'accountPage.snackBar.signOutFailure': return '退出登录时发生错误。';
+			case 'accountPage.snackBar.successfulLinkage': return '账户关联成功。';
+			case 'accountPage.snackBar.linkageFailure': return '账户关联失败。';
+			case 'accountPage.snackBar.providerAlreadyLinked': return '此账户已经关联。';
+			case 'accountPage.snackBar.accountDeactivation': return '已解除账户关联。';
+			case 'accountPage.snackBar.invalidCredential': return '请重新登录。';
+			case 'accountPage.snackBar.linkageCancelled': return '账户关联已取消。';
+			case 'accountPage.snackBar.unlinkageFailure': return '解除账户关联失败。';
+			case 'accountPage.snackBar.operationNotAllowed': return '提供者无效。请联系开发者。';
+			case 'accountPage.snackBar.unknownError': return '发生未知错误。';
+			case 'accountPage.diaLog.yes': return '是';
+			case 'accountPage.diaLog.no': return '否';
+			case 'accountPage.diaLog.title': return '确认解除账户连接';
+			case 'accountPage.diaLog.googleText': return '是否要解除当前账户与Google账户的连接？';
+			case 'accountPage.diaLog.appleText': return '是否要解除当前账户与Apple账户的连接？';
+			case 'authentication.signInPage.title': return '登录';
+			case 'authentication.signInPage.optionText': return ' 或 ';
+			case 'authentication.signInPage.textFields.email': return '电子邮件地址';
+			case 'authentication.signInPage.textFields.password': return '密码';
+			case 'authentication.signInPage.buttons.signIn': return '登录';
+			case 'authentication.signInPage.buttons.signUp': return '注册';
+			case 'authentication.signInPage.buttons.resetPassword': return '忘记密码？';
+			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登录';
+			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登录';
+			case 'authentication.signInPage.buttons.signInAfter': return '稍后注册';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请在良好的网络环境中重试';
+			case 'authentication.firebaseAuth.error.weakPassword': return '密码太短。请输入6个字符或更多';
+			case 'authentication.firebaseAuth.error.invalidEmail': return '电子邮件地址格式不正确';
+			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帐户';
+			case 'authentication.firebaseAuth.error.wrongPassword': return '密码错误';
+			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
+			case 'authentication.firebaseAuth.error.unexpected': return '发生错误。请在良好的网络环境中重试';
+			case 'authentication.resetPasswordPage.title': return '重置密码';
+			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
+			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
+			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
+			case 'authentication.signUpPage.title': return '注册';
+			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
+			case 'authentication.signUpPage.textFields.password': return '密码';
+			case 'authentication.signUpPage.button': return '注册';
+			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的${email}发送确认邮件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '发送成功';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
+			case 'authentication.registerProfilePage.title': return '注册个人信息';
+			case 'authentication.registerProfilePage.textFields': return '姓名';
+			case 'authentication.registerProfilePage.buttons.submit': return '完成';
+			case 'authentication.registerProfilePage.buttons.skip': return '跳过';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '请输入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
+			case 'authentication.completeSendEmailPage.title': return '发送完成';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '确认邮件已重新发送';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登录页面';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改电子邮件地址';
+			case 'validation.emailRequired': return '请输入电子邮件地址';
+			case 'validation.emailInvalid': return '电子邮件地址格式不正确';
+			case 'validation.passwordRequired': return '请输入密码';
+			case 'validation.passwordShort': return '密码至少需要8个字符';
+			case 'validation.passwordWeak': return '密码应包含字母和数字的组合';
+			case 'validation.passwordMatch': return '密码不匹配';
+			case 'validation.informationRequired': return '请输入信息';
+			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'myPage.unregisteredUserName': return '未注册';
+			case 'myPage.editProfile': return '编辑个人资料';
+			case 'myPage.premiumPlan': return '高级计划';
+			case 'myPage.details': return '详细';
+			case 'myPage.settings': return '设置';
+			case 'myPage.account': return '账户';
+			case 'myPage.language': return '语言';
+			case 'myPage.theme': return '主题';
+			case 'myPage.termsOfUsePrivacyPolicy': return '使用条款和隐私政策';
+			case 'myPage.aboutThisApp': return '关于本应用';
+			case 'myPage.aboutTheDeveloper': return '关于开发者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}注册于';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
+			case 'myPage.accountStatus.premium': return '高级会员';
+			case 'myPage.accountStatus.standard': return '标准会员';
+			case 'changeLanguagePage.title': return '语言';
+			case 'changeLanguagePage.items.japanese': return '日本人';
+			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '暗处';
+			case 'myPlanPage.title': return '我的计划';
+			case 'myPlanPage.tabs.createdPlans': return '已创建的计划';
+			case 'myPlanPage.tabs.bookmark': return '收藏夹';
+			case 'buddyChatPage.title': return 'Buddy的建议';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '消息还可以发送${possibleChatCount}次';
+			case 'buddyChatPage.textFields.message': return '输入消息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '营业时间';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均预算';
+			case 'buddyChatPage.placeCard.website': return '网站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '未能接收回复，请稍后再试';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '未能完成创建计划，请稍后再试';
+			case 'popularTopics.sectionName': return '热门话题';
+			case 'createPlanPage.title': return '创建计划';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '开始日期';
+			case 'createPlanPage.label.scheduleEnd': return '结束日期';
+			case 'createPlanPage.label.numberOfPeople': return '人数';
+			case 'createPlanPage.label.transport': return '交通方式';
+			case 'createPlanPage.label.category': return '类别';
+			case 'createPlanPage.label.topics': return '旅行主题';
+			case 'createPlanPage.hintText.location': return '涩谷';
+			case 'createPlanPage.modal.title': return '选择日期';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '火车';
+			case 'createPlanPage.transportOptions.1': return '步行';
+			case 'createPlanPage.transportOptions.2': return '汽车';
+			case 'createPlanPage.transportOptions.3': return '巴士';
+			case 'createPlanPage.categoryOptions.0': return '亲子';
+			case 'createPlanPage.categoryOptions.1': return '成人';
+			case 'createPlanPage.categoryOptions.2': return '娱乐';
+			case 'createPlanPage.categoryOptions.3': return '活动';
+			case 'createPlanPage.categoryOptions.4': return '历史';
+			case 'createPlanPage.defaultTopics.0': return '美食';
+			case 'createPlanPage.defaultTopics.1': return '购物';
+			case 'createPlanPage.defaultTopics.2': return '活动';
+			case 'createPlanPage.defaultTopics.3': return '电影';
+			case 'createPlanPage.submitButton': return '提交计划给AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
+			case 'editProfilePage.title': return '编辑个人资料';
+			case 'editProfilePage.textFields.name': return '姓名';
+			case 'editProfilePage.buttons.submit': return '保存';
+			case 'editProfilePage.snackBar.success': return '更新成功';
+			case 'editProfilePage.snackBar.error.noChange': return '没有更改';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失败，请稍后再试';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '选择图片失败，请稍后再试';
+			case 'confirmDialog.answers.yes': return '是';
+			case 'confirmDialog.answers.no': return '否';
+			case 'confirmDialog.popPage.title': return '要返回上一页吗？';
+			case 'confirmDialog.popPage.description': return '当前内容不会被保存';
+			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
+			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
+			case 'prompt.planProposalMessage': return '我考虑了这个计划！您觉得怎么样？';
+			case 'billDetailsPage.title': return '高级计划';
+			case 'billDetailsPage.description': return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
+			case 'billDetailsPage.pricingPlan.title': return '价格计划';
+			case 'billDetailsPage.pricingPlan.columns.standard': return '标准';
+			case 'billDetailsPage.pricingPlan.columns.premium': return '高级';
+			case 'billDetailsPage.pricingPlan.details.free': return '免费 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天数购买';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '终身';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日元';
+			case 'billDetailsPage.features.title': return '等级功能';
+			case 'billDetailsPage.features.rows.planCreationLimit': return '可创建的计划次数';
+			case 'billDetailsPage.features.rows.chatLimit': return '计划创建期间可用聊天次数';
+			case 'billDetailsPage.features.rows.timelineAccess': return '访问所有计划时间线';
+			case 'billDetailsPage.features.rows.adFree': return '无广告';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return '计划认证功能';
+			case 'billDetailsPage.features.columns.standard.label': return '标准';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2次';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3次';
+			case 'billDetailsPage.features.columns.premium.label': return '高级';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '无限制';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return '无限制';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300日元';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890日元';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5日';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387日元';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日元';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return '终身';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日元';
+			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
+			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
+			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
+			case 'locales.en': return '英语';
+			case 'locales.ja': return '日语';
+			case 'locales.zh': return '中文';
+			case 'errorPage.title': return '发生错误...';
+			case 'errorPage.message': return '请检查您的网络连接并重试。';
+			case 'errorPage.retryButton': return '重试';
+			default: return null;
+		}
+	}
 }
+
