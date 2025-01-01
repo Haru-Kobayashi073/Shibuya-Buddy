@@ -15,18 +15,21 @@ class AppDio extends DioMixin {
       return instance;
     }
     final dio = AppDio._();
+    const isProductionBuild = String.fromEnvironment('flavor') == 'prod';
     final options = BaseOptions(
       connectTimeout: const Duration(seconds: 15),
     );
     dio
       ..options = options
       ..httpClientAdapter = HttpClientAdapter();
-    dio.interceptors.add(
-      LogInterceptor(
-        requestBody: true,
-        responseBody: true,
-      ),
-    );
+    if (!isProductionBuild) {
+      dio.interceptors.add(
+        LogInterceptor(
+          requestBody: true,
+          responseBody: true,
+        ),
+      );
+    }
     _instance = dio;
     return dio;
   }
