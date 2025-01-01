@@ -134,10 +134,10 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                         requiredProperties: ['latitude', 'longitude'],
                         properties: {
                           'latitude': Schema(
-                            SchemaType.string,
+                            SchemaType.number,
                           ),
                           'longitude': Schema(
-                            SchemaType.string,
+                            SchemaType.number,
                           ),
                         },
                       ),

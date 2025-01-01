@@ -8,8 +8,8 @@ part 'coordinate.g.dart';
 abstract class Coordinate with _$Coordinate {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Coordinate({
-    required String latitude,
-    required String longitude,
+    required double latitude,
+    required double longitude,
   }) = _Coordinate;
 
   factory Coordinate.fromJson(Map<String, dynamic> json) =>

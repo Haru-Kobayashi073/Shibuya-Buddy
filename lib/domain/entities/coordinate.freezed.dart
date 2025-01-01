@@ -20,8 +20,8 @@ Coordinate _$CoordinateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Coordinate {
-  String get latitude => throw _privateConstructorUsedError;
-  String get longitude => throw _privateConstructorUsedError;
+  double get latitude => throw _privateConstructorUsedError;
+  double get longitude => throw _privateConstructorUsedError;
 
   /// Serializes this Coordinate to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $CoordinateCopyWith<$Res> {
           Coordinate value, $Res Function(Coordinate) then) =
       _$CoordinateCopyWithImpl<$Res, Coordinate>;
   @useResult
-  $Res call({String latitude, String longitude});
+  $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
@@ -64,11 +64,11 @@ class _$CoordinateCopyWithImpl<$Res, $Val extends Coordinate>
       latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       longitude: null == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$CoordinateImplCopyWith<$Res>
       __$$CoordinateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String latitude, String longitude});
+  $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
@@ -104,11 +104,11 @@ class __$$CoordinateImplCopyWithImpl<$Res>
       latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       longitude: null == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ));
   }
 }
@@ -123,9 +123,9 @@ class _$CoordinateImpl implements _Coordinate {
       _$$CoordinateImplFromJson(json);
 
   @override
-  final String latitude;
+  final double latitude;
   @override
-  final String longitude;
+  final double longitude;
 
   @override
   String toString() {
@@ -165,16 +165,16 @@ class _$CoordinateImpl implements _Coordinate {
 
 abstract class _Coordinate implements Coordinate {
   const factory _Coordinate(
-      {required final String latitude,
-      required final String longitude}) = _$CoordinateImpl;
+      {required final double latitude,
+      required final double longitude}) = _$CoordinateImpl;
 
   factory _Coordinate.fromJson(Map<String, dynamic> json) =
       _$CoordinateImpl.fromJson;
 
   @override
-  String get latitude;
+  double get latitude;
   @override
-  String get longitude;
+  double get longitude;
 
   /// Create a copy of Coordinate
   /// with the given fields replaced by the non-null parameter values.

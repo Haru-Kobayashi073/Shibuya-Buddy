@@ -8,8 +8,8 @@ part of 'coordinate.dart';
 
 _$CoordinateImpl _$$CoordinateImplFromJson(Map<String, dynamic> json) =>
     _$CoordinateImpl(
-      latitude: json['latitude'] as String,
-      longitude: json['longitude'] as String,
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$CoordinateImplToJson(_$CoordinateImpl instance) =>
