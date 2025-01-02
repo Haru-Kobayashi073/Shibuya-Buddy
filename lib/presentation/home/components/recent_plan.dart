@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/extensions/context.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/presistent_cached_network_image.dart';
@@ -20,6 +19,8 @@ class RecentPlan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final imagewidth = width * 0.22;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,7 +28,7 @@ class RecentPlan extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           child: PersistentCachedNetworkImage(
             imageUrl: imageUrl,
-            width: context.deviceWidth * 0.22,
+            width: imagewidth,
           ),
         ),
         const SizedBox(width: 8),
@@ -43,10 +44,13 @@ class RecentPlan extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            CategoryTags(
-              tags: tags,
-              tagColor: AppColor.blue50Background,
-              spacing: 8,
+            SizedBox(
+              width: width - imagewidth - 8,
+              child: CategoryTags(
+                tags: tags,
+                tagColor: AppColor.grey200,
+                spacing: 4,
+              ),
             ),
           ],
         ),
