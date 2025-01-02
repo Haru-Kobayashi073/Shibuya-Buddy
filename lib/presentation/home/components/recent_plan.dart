@@ -10,9 +10,13 @@ class RecentPlan extends StatelessWidget {
   const RecentPlan({
     super.key,
     required this.title,
+    required this.imageUrl,
+    required this.tags,
   });
 
   final String title;
+  final String imageUrl;
+  final List<String> tags;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class RecentPlan extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: PersistentCachedNetworkImage(
-            imageUrl: 'https://placehold.jp/80x50.png',
+            imageUrl: imageUrl,
             width: context.deviceWidth * 0.22,
           ),
         ),
@@ -39,8 +43,8 @@ class RecentPlan extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            const CategoryTags(
-              tags: ['所要時間: 1時間〜', '人数: １人', '＃ショッピング', '＃お出かけ'],
+            CategoryTags(
+              tags: tags,
               tagColor: AppColor.blue50Background,
               spacing: 8,
             ),
