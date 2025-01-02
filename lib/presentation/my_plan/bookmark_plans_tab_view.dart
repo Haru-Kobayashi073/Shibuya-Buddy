@@ -13,6 +13,7 @@ class BookmarkPlansTabView extends StatefulWidget {
 class _BookmarkPlansTabViewState extends State<BookmarkPlansTabView> {
   @override
   Widget build(BuildContext context) {
+    populateDummyBookmarkPlan();
     return PlanList(plans: dummyBookmarkPlan);
   }
 }
