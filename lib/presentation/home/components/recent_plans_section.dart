@@ -28,6 +28,8 @@ class RecentPlansSection extends StatelessWidget {
               3,
               (index) => const RecentPlan(
                 title: '宮下公園でピクニック',
+                imageUrl: 'https://placehold.jp/80x50.png',
+                tags: ['所要時間: 1時間〜', '人数: １人', '＃ショッピング', '＃お出かけ'],
               ),
             ),
           ),
