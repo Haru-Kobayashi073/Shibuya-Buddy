@@ -311,6 +311,24 @@ class BillDetailsPageRouteData extends GoRouteData {
   }
 }
 
+@TypedGoRoute<BillDetailsDialogRouteData>(
+  path: Routes.billDetailsDialog,
+)
+class BillDetailsDialogRouteData extends GoRouteData {
+  const BillDetailsDialogRouteData();
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return MaterialPage<void>(
+      key: state.pageKey,
+      child: const BillDetailsPage(
+        isDialog: true,
+      ),
+      fullscreenDialog: true,
+    );
+  }
+}
+
 @TypedGoRoute<SignInPageRouteData>(
   path: Routes.signIn,
   routes: [

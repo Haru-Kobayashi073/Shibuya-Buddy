@@ -22,5 +22,6 @@ class Routes {
   static const buddyChatPage = '/buddyChatPage';
   static const popularPlansPage = 'popularPlansPage';
   static const billDetails = 'billDetailsPage';
+  static const billDetailsDialog = '/billDetailsDialog';
   static const planDetailPage = '/planDetailPage';
 }

@@ -12,8 +12,9 @@ import 'components/plan_table.dart';
 import 'components/premium_plan.dart';
 
 class BillDetailsPage extends StatelessWidget {
-  const BillDetailsPage({super.key});
+  const BillDetailsPage({super.key, this.isDialog = false});
 
+  final bool isDialog;
   @override
   Widget build(BuildContext context) {
     const bottomModalHeight = 150.0;
@@ -39,34 +40,68 @@ class BillDetailsPage extends StatelessWidget {
                 pinned: true,
                 backgroundColor: Colors.transparent,
                 surfaceTintColor: Colors.transparent,
-                leading: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 4,
-                          offset: const Offset(0, 2),
+                leading: isDialog
+                    ? const SizedBox()
+                    : Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: AppColor.white,
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 4,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: IconButton(
+                            alignment: Alignment.center,
+                            iconSize: 24,
+                            icon: const Icon(
+                              Symbols.arrow_back_ios_new,
+                              color: AppColor.black,
+                              weight: 600,
+                            ),
+                            onPressed: () {
+                              context.pop();
+                            },
+                          ),
                         ),
-                      ],
-                    ),
-                    child: IconButton(
-                      alignment: Alignment.center,
-                      iconSize: 24,
-                      icon: const Icon(
-                        Symbols.arrow_back_ios_new,
-                        color: AppColor.black,
-                        weight: 600,
                       ),
-                      onPressed: () {
-                        context.pop();
-                      },
-                    ),
-                  ),
-                ),
+                actions: isDialog
+                    ? [
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: AppColor.white,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: IconButton(
+                              alignment: Alignment.center,
+                              iconSize: 24,
+                              icon: const Icon(
+                                Symbols.close,
+                                color: AppColor.black,
+                                weight: 600,
+                              ),
+                              onPressed: () {
+                                context.pop();
+                              },
+                            ),
+                          ),
+                        ),
+                      ]
+                    : null,
               ),
               const SliverToBoxAdapter(
                 child: Padding(
