@@ -321,7 +321,9 @@ class BillDetailsDialogRouteData extends GoRouteData {
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return MaterialPage<void>(
       key: state.pageKey,
-      child: const BillDetailsPage(),
+      child: const BillDetailsPage(
+        isDialog: true,
+      ),
       fullscreenDialog: true,
     );
   }
