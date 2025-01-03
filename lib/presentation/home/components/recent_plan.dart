@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/presistent_cached_network_image.dart';
-import 'category_tags.dart';
+import '../../components/row_category_tags.dart';
 
 class RecentPlan extends StatelessWidget {
   const RecentPlan({
@@ -20,7 +20,9 @@ class RecentPlan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final imagewidth = width * 0.22;
+    final imageWidth = width * 0.22;
+    const contentPadding = 8.0;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,31 +30,31 @@ class RecentPlan extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           child: PersistentCachedNetworkImage(
             imageUrl: imageUrl,
-            width: imagewidth,
+            width: imageWidth,
           ),
         ),
-        const SizedBox(width: 8),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: AppTextStyle.textStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+        const SizedBox(width: contentPadding),
+        Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
-            ),
-            const SizedBox(height: 4),
-            SizedBox(
-              width: width - imagewidth - 8,
-              child: CategoryTags(
+              const SizedBox(height: 4),
+              RowCategoryTags(
                 tags: tags,
                 tagColor: AppColor.grey200,
                 spacing: 4,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
