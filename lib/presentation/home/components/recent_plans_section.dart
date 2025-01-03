@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../i18n/strings.g.dart';
-import 'recent_plan.dart';
+import '../../my_plan/mock.dart';
+import 'plan_list.dart';
 import 'section_title.dart';
 
 class RecentPlansSection extends StatelessWidget {
@@ -10,6 +11,7 @@ class RecentPlansSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
+    createDummyPlan();
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -21,17 +23,10 @@ class RecentPlansSection extends StatelessWidget {
             onPressed: () {},
           ),
           const SizedBox(height: 8),
-          Wrap(
-            direction: Axis.vertical,
-            spacing: 8,
-            children: List.generate(
-              3,
-              (index) => const RecentPlan(
-                title: '宮下公園でピクニック',
-                imageUrl: 'https://placehold.jp/80x50.png',
-                tags: ['所要時間: 1時間〜', '人数: １人', '＃ショッピング', '＃お出かけ'],
-              ),
-            ),
+          Column(
+            children: [
+              PlanList(plans: dummyPlan),
+            ],
           ),
         ],
       ),
