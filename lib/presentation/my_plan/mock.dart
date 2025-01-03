@@ -1,15 +1,15 @@
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/topic.dart';
 
-List<Plan> dummyBookmarkPlan = [];
+List<Plan> dummyPlan = [];
 
-void populateDummyBookmarkPlan() {
-  for (var i = 1; i <= 10; i++) {
-    dummyBookmarkPlan.add(
+void createDummyPlan() {
+  for (var i = 1; i <= 5; i++) {
+    dummyPlan.add(
       Plan(
         title: '$iのプラン',
         description: '説明説明',
-        thumbnailUrl: 'thumbnailUrl',
+        thumbnailUrl: 'https://placehold.jp/80x50.png',
         topics: [
           const Topic(name: 'タグ', thumbnailUrl: ''),
           Topic(name: 'タグ' * 2, thumbnailUrl: ''),
