@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/plan_list.dart';
+import '../home/components/plan_list.dart';
 import 'mock.dart';
 
 class BookmarkPlansTabView extends StatefulWidget {
@@ -13,7 +13,9 @@ class BookmarkPlansTabView extends StatefulWidget {
 class _BookmarkPlansTabViewState extends State<BookmarkPlansTabView> {
   @override
   Widget build(BuildContext context) {
-    populateDummyBookmarkPlan();
-    return PlanList(plans: dummyBookmarkPlan);
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: PlanList(plans: dummyPlan),
+    );
   }
 }
