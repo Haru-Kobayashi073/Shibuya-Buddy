@@ -97,7 +97,7 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                       'thumbnail_url',
                       'opening_hours',
                       'average_amount',
-                      'coordinate',
+                      'location',
                     ],
                     properties: {
                       'name': Schema(
@@ -128,16 +128,16 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                       'website_url': Schema(
                         SchemaType.string,
                       ),
-                      'coordinate': Schema(
+                      'location': Schema(
                         SchemaType.object,
                         enumValues: [],
                         requiredProperties: ['latitude', 'longitude'],
                         properties: {
                           'latitude': Schema(
-                            SchemaType.string,
+                            SchemaType.number,
                           ),
                           'longitude': Schema(
-                            SchemaType.string,
+                            SchemaType.number,
                           ),
                         },
                       ),

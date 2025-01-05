@@ -7,6 +7,7 @@ import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_data_source.dart';
+import '../../infrastructure/place_detail/place_detail_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/extensions/context.dart';
@@ -25,6 +26,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       ref.read(geminiDataSourceProvider.notifier);
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
+  PlaceDetailDataSource get placeDetailDataSource =>
+      ref.read(placeDetailDataSourceProvider.notifier);
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
@@ -32,44 +35,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
-    final scrollController = ScrollController();
-
-    ref.onDispose(
-      scrollController.dispose,
-    );
-
-    final buddyMessage =
-        await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
-
-    final messages = [
-      buddyMessage.copyWith(
-        plan: buddyMessage.plan?.copyWith(
-          topics: [
-            ...planPrompt.topics.where(
-              (topic) => !buddyMessage.plan!.topics
-                  .any((bTopic) => bTopic.name == topic.name),
-            ),
-            ...buddyMessage.plan!.topics,
-          ],
-        ),
-      ),
-    ];
-
-    final message = ChatMessage(
-      id: buddyMessage.id,
-      message: buddyMessage.plan!.description,
-      author: ChatAuthor.buddy,
-      createdAt: buddyMessage.createdAt,
-    );
-
-    messages.add(message);
-
-    return BuddyChatPageState(
-      messages: messages,
-      possibleChatCount:
-          isStandardGradeUser ? BillingGradeOptions.possibleChatCount : null,
-      scrollController: scrollController,
-    );
+    return _getFirstBuddyMessage();
   }
 
   Future<void> sendMessage({
@@ -101,7 +67,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state.requireValue.copyWith(isLoadingForMessage: true),
     );
     try {
-      final buddyMessage = await geminiDataSource.sendMessage(message: message);
+      final res = await geminiDataSource.sendMessage(message: message);
+
+      final buddyMessage = await _getAllFilledMessage(res);
 
       state = AsyncValue.data(
         state.requireValue.copyWith(
@@ -187,6 +155,79 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
           );
         }
       },
+    );
+  }
+
+  Future<BuddyChatPageState> _getFirstBuddyMessage() async {
+    final scrollController = ScrollController();
+
+    ref.onDispose(
+      scrollController.dispose,
+    );
+
+    final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+
+    final buddyMessage = await _getAllFilledMessage(res);
+
+    final message = ChatMessage(
+      id: buddyMessage.id,
+      message: buddyMessage.plan!.description,
+      author: ChatAuthor.buddy,
+      createdAt: buddyMessage.createdAt,
+    );
+
+    final messages = [buddyMessage, message];
+
+    return BuddyChatPageState(
+      messages: messages,
+      possibleChatCount:
+          isStandardGradeUser ? BillingGradeOptions.possibleChatCount : null,
+      scrollController: scrollController,
+    );
+  }
+
+  Future<ChatMessage> _getAllFilledMessage(ChatMessage chatMessage) async {
+    var placeIds = <String>[];
+    var photoUrls = <String>[];
+
+    /// 検索したい写真の名前をリスト化
+    final placeDetailStrings = <String>[
+      chatMessage.plan?.title ?? '',
+      ...chatMessage.places?.map((place) => place.name) ?? [],
+    ];
+
+    try {
+      /// 検索したい写真の名前のリストを元に、各々のplaceIdを取得
+      placeIds = await placeDetailDataSource.getSearchPlaceIds(
+        placeNameList: placeDetailStrings,
+      );
+
+      /// placeIdを元に、各々の写真のURLを取得
+      photoUrls = await placeDetailDataSource.getPlacesPhotoUrls(
+        placeIds: placeIds,
+      );
+    } on Exception catch (e) {
+      debugPrint('Error in buddyChatPageNotifier by _getAllFilledMessage: $e');
+    }
+    return chatMessage.copyWith(
+      plan: chatMessage.plan?.copyWith(
+        thumbnailUrl: photoUrls[0],
+        topics: [
+          ...planPrompt.topics.where(
+            (topic) => !chatMessage.plan!.topics
+                .any((bTopic) => bTopic.name == topic.name),
+          ),
+          ...chatMessage.plan!.topics,
+        ],
+      ),
+      places: chatMessage.places?.asMap().entries.map(
+        (entry) {
+          final place = entry.value;
+          return place.copyWith(
+            thumbnailUrl: photoUrls[entry.key + 1],
+          );
+        },
+      ).toList(),
     );
   }
 }

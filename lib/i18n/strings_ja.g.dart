@@ -48,11 +48,14 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsEditProfilePageJa editProfilePage = _TranslationsEditProfilePageJa._(_root);
 	@override late final _TranslationsConfirmDialogJa confirmDialog = _TranslationsConfirmDialogJa._(_root);
 	@override late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
+	@override late final _TranslationsBillDetailsPageJa billDetailsPage = _TranslationsBillDetailsPageJa._(_root);
+	@override late final _TranslationsPlanDetailsPageJa planDetailsPage = _TranslationsPlanDetailsPageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
 		'zh': '中国語',
 	};
+	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
 }
 
 // Path: navigationBar
@@ -277,6 +280,44 @@ class _TranslationsPromptJa implements TranslationsPromptEn {
 
 	// Translations
 	@override String get planProposalMessage => 'こんなプランを考えてみました！いかがですか？';
+}
+
+// Path: billDetailsPage
+class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
+	_TranslationsBillDetailsPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プレミアムプラン';
+	@override String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
+	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions = _TranslationsBillDetailsPagePricingOptionsJa._(_root);
+	@override String get upgradeButton => 'プレミアムにアップグレード';
+}
+
+// Path: planDetailsPage
+class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
+	_TranslationsPlanDetailsPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
+	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
+}
+
+// Path: errorPage
+class _TranslationsErrorPageJa implements TranslationsErrorPageEn {
+	_TranslationsErrorPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'エラーが発生しました...';
+	@override String get message => '通信環境を確認し、もう一度お試しください';
+	@override String get retryButton => 'もう一度読み込む';
 }
 
 // Path: navigationBar.items
@@ -658,6 +699,65 @@ class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConf
 	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
 }
 
+// Path: billDetailsPage.pricingPlan
+class _TranslationsBillDetailsPagePricingPlanJa implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '料金プラン';
+	@override late final _TranslationsBillDetailsPagePricingPlanColumnsJa columns = _TranslationsBillDetailsPagePricingPlanColumnsJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsJa details = _TranslationsBillDetailsPagePricingPlanDetailsJa._(_root);
+}
+
+// Path: billDetailsPage.features
+class _TranslationsBillDetailsPageFeaturesJa implements TranslationsBillDetailsPageFeaturesEn {
+	_TranslationsBillDetailsPageFeaturesJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'グレードごとの機能';
+	@override late final _TranslationsBillDetailsPageFeaturesRowsJa rows = _TranslationsBillDetailsPageFeaturesRowsJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsJa columns = _TranslationsBillDetailsPageFeaturesColumnsJa._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions
+class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDetailsPagePricingOptionsEn {
+	_TranslationsBillDetailsPagePricingOptionsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayJa oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysJa threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
+}
+
+// Path: planDetailsPage.dateTime
+class _TranslationsPlanDetailsPageDateTimeJa implements TranslationsPlanDetailsPageDateTimeEn {
+	_TranslationsPlanDetailsPageDateTimeJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String createOn({required Object date}) => '${date}に作られたプラン';
+	@override String get dateFormat => 'yyyy年MM月dd日';
+}
+
+// Path: planDetailsPage.item
+class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageItemEn {
+	_TranslationsPlanDetailsPageItemJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get viewOnMap => '地図で見る';
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsJa implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsJa._(this._root);
@@ -834,6 +934,113 @@ class _TranslationsEditProfilePageSnackBarErrorJa implements TranslationsEditPro
 	@override String get failedToPickImage => '画像の選択に失敗しました しばらくしてから再度お試しください';
 }
 
+// Path: billDetailsPage.pricingPlan.columns
+class _TranslationsBillDetailsPagePricingPlanColumnsJa implements TranslationsBillDetailsPagePricingPlanColumnsEn {
+	_TranslationsBillDetailsPagePricingPlanColumnsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get standard => 'スタンダード';
+	@override String get premium => 'プレミアム';
+}
+
+// Path: billDetailsPage.pricingPlan.details
+class _TranslationsBillDetailsPagePricingPlanDetailsJa implements TranslationsBillDetailsPagePricingPlanDetailsEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get free => '無料 🎉';
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(_root);
+}
+
+// Path: billDetailsPage.features.rows
+class _TranslationsBillDetailsPageFeaturesRowsJa implements TranslationsBillDetailsPageFeaturesRowsEn {
+	_TranslationsBillDetailsPageFeaturesRowsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get planCreationLimit => 'プランの作成可能回数';
+	@override String get chatLimit => 'プラン作成中のチャット可能回数';
+	@override String get timelineAccess => '全プラン一覧のタイムライン閲覧';
+	@override String get adFree => '広告の非表示';
+	@override String get exclusiveFeatures => 'プランの認証機能';
+}
+
+// Path: billDetailsPage.features.columns
+class _TranslationsBillDetailsPageFeaturesColumnsJa implements TranslationsBillDetailsPageFeaturesColumnsEn {
+	_TranslationsBillDetailsPageFeaturesColumnsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardJa standard = _TranslationsBillDetailsPageFeaturesColumnsStandardJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumJa premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumJa._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions.oneDay
+class _TranslationsBillDetailsPagePricingOptionsOneDayJa implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	_TranslationsBillDetailsPagePricingOptionsOneDayJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '1日';
+	@override String get discount => '';
+	@override String get price => '300円';
+}
+
+// Path: billDetailsPage.pricingOptions.threeDays
+class _TranslationsBillDetailsPagePricingOptionsThreeDaysJa implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '3日';
+	@override String get discount => '-5%';
+	@override String get price => '890円';
+}
+
+// Path: billDetailsPage.pricingOptions.fiveDays
+class _TranslationsBillDetailsPagePricingOptionsFiveDaysJa implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '5日';
+	@override String get discount => '-7.5%';
+	@override String get price => '1,387円';
+}
+
+// Path: billDetailsPage.pricingOptions.sevenDays
+class _TranslationsBillDetailsPagePricingOptionsSevenDaysJa implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '7日';
+	@override String get discount => '-10%';
+	@override String get price => '2,070円';
+}
+
+// Path: billDetailsPage.pricingOptions.lifetime
+class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	_TranslationsBillDetailsPagePricingOptionsLifetimeJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '永年分';
+	@override String get discount => '';
+	@override String get price => '25,800円';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
@@ -853,6 +1060,47 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa implements T
 	// Translations
 	@override String get submitIfAllEmpty => '入力してください';
 	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
+}
+
+// Path: billDetailsPage.pricingPlan.details.premiumPrice
+class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get days => '日数分購入';
+	@override String get daily => '・1日 300円';
+	@override String get threeDays => '・3日 855円';
+	@override String get fiveDays => '・5日 1,480円';
+	@override String get sevenDays => '・7日 2,070円';
+	@override String get or => 'または';
+	@override String get lifetime => '永年分';
+	@override String get lifetimePrice => '25,800円';
+}
+
+// Path: billDetailsPage.features.columns.standard
+class _TranslationsBillDetailsPageFeaturesColumnsStandardJa implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	_TranslationsBillDetailsPageFeaturesColumnsStandardJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'スタンダード';
+	@override String get planCreationLimit => '2回';
+	@override String get chatLimit => '3回';
+}
+
+// Path: billDetailsPage.features.columns.premium
+class _TranslationsBillDetailsPageFeaturesColumnsPremiumJa implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	_TranslationsBillDetailsPageFeaturesColumnsPremiumJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => 'プレミアム';
+	@override String get planCreationLimit => '無制限';
+	@override String get chatLimit => '無制限';
 }
 
 /// Flat map(s) containing all translations.
@@ -1027,9 +1275,57 @@ extension on TranslationsJa {
 			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
 			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
 			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
+			case 'billDetailsPage.title': return 'プレミアムプラン';
+			case 'billDetailsPage.description': return 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
+			case 'billDetailsPage.pricingPlan.title': return '料金プラン';
+			case 'billDetailsPage.pricingPlan.columns.standard': return 'スタンダード';
+			case 'billDetailsPage.pricingPlan.columns.premium': return 'プレミアム';
+			case 'billDetailsPage.pricingPlan.details.free': return '無料 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '日数分購入';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'または';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永年分';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800円';
+			case 'billDetailsPage.features.title': return 'グレードごとの機能';
+			case 'billDetailsPage.features.rows.planCreationLimit': return 'プランの作成可能回数';
+			case 'billDetailsPage.features.rows.chatLimit': return 'プラン作成中のチャット可能回数';
+			case 'billDetailsPage.features.rows.timelineAccess': return '全プラン一覧のタイムライン閲覧';
+			case 'billDetailsPage.features.rows.adFree': return '広告の非表示';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return 'プランの認証機能';
+			case 'billDetailsPage.features.columns.standard.label': return 'スタンダード';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2回';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3回';
+			case 'billDetailsPage.features.columns.premium.label': return 'プレミアム';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '無制限';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return '無制限';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300円';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890円';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5日';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387円';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070円';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return '永年分';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
+			case 'billDetailsPage.upgradeButton': return 'プレミアムにアップグレード';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
+			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
+			case 'planDetailsPage.item.viewOnMap': return '地図で見る';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
+			case 'errorPage.title': return 'エラーが発生しました...';
+			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
+			case 'errorPage.retryButton': return 'もう一度読み込む';
 			default: return null;
 		}
 	}

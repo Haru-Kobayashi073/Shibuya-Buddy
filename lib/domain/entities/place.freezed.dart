@@ -24,7 +24,7 @@ mixin _$Place {
   String get name => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  Coordinate get coordinate => throw _privateConstructorUsedError;
+  Location get location => throw _privateConstructorUsedError;
   OpeningHours get openingHours => throw _privateConstructorUsedError;
   String get averageAmount => throw _privateConstructorUsedError;
   Uri? get websiteUrl => throw _privateConstructorUsedError;
@@ -48,12 +48,12 @@ abstract class $PlaceCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       String title,
-      Coordinate coordinate,
+      Location location,
       OpeningHours openingHours,
       String averageAmount,
       Uri? websiteUrl});
 
-  $CoordinateCopyWith<$Res> get coordinate;
+  $LocationCopyWith<$Res> get location;
   $OpeningHoursCopyWith<$Res> get openingHours;
 }
 
@@ -76,7 +76,7 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? title = null,
-    Object? coordinate = null,
+    Object? location = null,
     Object? openingHours = null,
     Object? averageAmount = null,
     Object? websiteUrl = freezed,
@@ -98,10 +98,10 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: null == coordinate
-          ? _value.coordinate
-          : coordinate // ignore: cast_nullable_to_non_nullable
-              as Coordinate,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Location,
       openingHours: null == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
@@ -121,9 +121,9 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CoordinateCopyWith<$Res> get coordinate {
-    return $CoordinateCopyWith<$Res>(_value.coordinate, (value) {
-      return _then(_value.copyWith(coordinate: value) as $Val);
+  $LocationCopyWith<$Res> get location {
+    return $LocationCopyWith<$Res>(_value.location, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
     });
   }
 
@@ -150,13 +150,13 @@ abstract class _$$PlaceImplCopyWith<$Res> implements $PlaceCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       String title,
-      Coordinate coordinate,
+      Location location,
       OpeningHours openingHours,
       String averageAmount,
       Uri? websiteUrl});
 
   @override
-  $CoordinateCopyWith<$Res> get coordinate;
+  $LocationCopyWith<$Res> get location;
   @override
   $OpeningHoursCopyWith<$Res> get openingHours;
 }
@@ -178,7 +178,7 @@ class __$$PlaceImplCopyWithImpl<$Res>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? title = null,
-    Object? coordinate = null,
+    Object? location = null,
     Object? openingHours = null,
     Object? averageAmount = null,
     Object? websiteUrl = freezed,
@@ -200,10 +200,10 @@ class __$$PlaceImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: null == coordinate
-          ? _value.coordinate
-          : coordinate // ignore: cast_nullable_to_non_nullable
-              as Coordinate,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Location,
       openingHours: null == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$PlaceImpl extends _Place {
       required this.name,
       required this.thumbnailUrl,
       required this.title,
-      required this.coordinate,
+      required this.location,
       required this.openingHours,
       required this.averageAmount,
       this.websiteUrl})
@@ -248,7 +248,7 @@ class _$PlaceImpl extends _Place {
   @override
   final String title;
   @override
-  final Coordinate coordinate;
+  final Location location;
   @override
   final OpeningHours openingHours;
   @override
@@ -258,7 +258,7 @@ class _$PlaceImpl extends _Place {
 
   @override
   String toString() {
-    return 'Place(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, title: $title, coordinate: $coordinate, openingHours: $openingHours, averageAmount: $averageAmount, websiteUrl: $websiteUrl)';
+    return 'Place(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, title: $title, location: $location, openingHours: $openingHours, averageAmount: $averageAmount, websiteUrl: $websiteUrl)';
   }
 
   @override
@@ -271,8 +271,8 @@ class _$PlaceImpl extends _Place {
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.coordinate, coordinate) ||
-                other.coordinate == coordinate) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.openingHours, openingHours) ||
                 other.openingHours == openingHours) &&
             (identical(other.averageAmount, averageAmount) ||
@@ -284,7 +284,7 @@ class _$PlaceImpl extends _Place {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, thumbnailUrl, title,
-      coordinate, openingHours, averageAmount, websiteUrl);
+      location, openingHours, averageAmount, websiteUrl);
 
   /// Create a copy of Place
   /// with the given fields replaced by the non-null parameter values.
@@ -308,7 +308,7 @@ abstract class _Place extends Place {
       required final String name,
       required final String thumbnailUrl,
       required final String title,
-      required final Coordinate coordinate,
+      required final Location location,
       required final OpeningHours openingHours,
       required final String averageAmount,
       final Uri? websiteUrl}) = _$PlaceImpl;
@@ -325,7 +325,7 @@ abstract class _Place extends Place {
   @override
   String get title;
   @override
-  Coordinate get coordinate;
+  Location get location;
   @override
   OpeningHours get openingHours;
   @override
@@ -338,176 +338,6 @@ abstract class _Place extends Place {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlaceImplCopyWith<_$PlaceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Coordinate _$CoordinateFromJson(Map<String, dynamic> json) {
-  return _Coordinate.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Coordinate {
-  String get latitude => throw _privateConstructorUsedError;
-  String get longitude => throw _privateConstructorUsedError;
-
-  /// Serializes this Coordinate to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Coordinate
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $CoordinateCopyWith<Coordinate> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CoordinateCopyWith<$Res> {
-  factory $CoordinateCopyWith(
-          Coordinate value, $Res Function(Coordinate) then) =
-      _$CoordinateCopyWithImpl<$Res, Coordinate>;
-  @useResult
-  $Res call({String latitude, String longitude});
-}
-
-/// @nodoc
-class _$CoordinateCopyWithImpl<$Res, $Val extends Coordinate>
-    implements $CoordinateCopyWith<$Res> {
-  _$CoordinateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Coordinate
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
-  }) {
-    return _then(_value.copyWith(
-      latitude: null == latitude
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as String,
-      longitude: null == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CoordinateImplCopyWith<$Res>
-    implements $CoordinateCopyWith<$Res> {
-  factory _$$CoordinateImplCopyWith(
-          _$CoordinateImpl value, $Res Function(_$CoordinateImpl) then) =
-      __$$CoordinateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String latitude, String longitude});
-}
-
-/// @nodoc
-class __$$CoordinateImplCopyWithImpl<$Res>
-    extends _$CoordinateCopyWithImpl<$Res, _$CoordinateImpl>
-    implements _$$CoordinateImplCopyWith<$Res> {
-  __$$CoordinateImplCopyWithImpl(
-      _$CoordinateImpl _value, $Res Function(_$CoordinateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Coordinate
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
-  }) {
-    return _then(_$CoordinateImpl(
-      latitude: null == latitude
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as String,
-      longitude: null == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$CoordinateImpl implements _Coordinate {
-  const _$CoordinateImpl({required this.latitude, required this.longitude});
-
-  factory _$CoordinateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CoordinateImplFromJson(json);
-
-  @override
-  final String latitude;
-  @override
-  final String longitude;
-
-  @override
-  String toString() {
-    return 'Coordinate(latitude: $latitude, longitude: $longitude)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CoordinateImpl &&
-            (identical(other.latitude, latitude) ||
-                other.latitude == latitude) &&
-            (identical(other.longitude, longitude) ||
-                other.longitude == longitude));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, latitude, longitude);
-
-  /// Create a copy of Coordinate
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CoordinateImplCopyWith<_$CoordinateImpl> get copyWith =>
-      __$$CoordinateImplCopyWithImpl<_$CoordinateImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CoordinateImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Coordinate implements Coordinate {
-  const factory _Coordinate(
-      {required final String latitude,
-      required final String longitude}) = _$CoordinateImpl;
-
-  factory _Coordinate.fromJson(Map<String, dynamic> json) =
-      _$CoordinateImpl.fromJson;
-
-  @override
-  String get latitude;
-  @override
-  String get longitude;
-
-  /// Create a copy of Coordinate
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CoordinateImplCopyWith<_$CoordinateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

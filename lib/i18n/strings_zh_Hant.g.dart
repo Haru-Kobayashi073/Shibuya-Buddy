@@ -48,11 +48,14 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsEditProfilePageZhHant editProfilePage = _TranslationsEditProfilePageZhHant._(_root);
 	@override late final _TranslationsConfirmDialogZhHant confirmDialog = _TranslationsConfirmDialogZhHant._(_root);
 	@override late final _TranslationsPromptZhHant prompt = _TranslationsPromptZhHant._(_root);
+	@override late final _TranslationsBillDetailsPageZhHant billDetailsPage = _TranslationsBillDetailsPageZhHant._(_root);
+	@override late final _TranslationsPlanDetailsPageZhHant planDetailsPage = _TranslationsPlanDetailsPageZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
 		'zh': '中文',
 	};
+	@override late final _TranslationsErrorPageZhHant errorPage = _TranslationsErrorPageZhHant._(_root);
 }
 
 // Path: navigationBar
@@ -277,6 +280,44 @@ class _TranslationsPromptZhHant implements TranslationsPromptEn {
 
 	// Translations
 	@override String get planProposalMessage => '我考慮了這個計劃！您覺得怎麼樣？';
+}
+
+// Path: billDetailsPage
+class _TranslationsBillDetailsPageZhHant implements TranslationsBillDetailsPageEn {
+	_TranslationsBillDetailsPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '高級方案';
+	@override String get description => '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
+	@override late final _TranslationsBillDetailsPagePricingPlanZhHant pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHant._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesZhHant features = _TranslationsBillDetailsPageFeaturesZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsZhHant pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHant._(_root);
+	@override String get upgradeButton => '升級到高級方案';
+}
+
+// Path: planDetailsPage
+class _TranslationsPlanDetailsPageZhHant implements TranslationsPlanDetailsPageEn {
+	_TranslationsPlanDetailsPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageDateTimeZhHant dateTime = _TranslationsPlanDetailsPageDateTimeZhHant._(_root);
+	@override late final _TranslationsPlanDetailsPageItemZhHant item = _TranslationsPlanDetailsPageItemZhHant._(_root);
+}
+
+// Path: errorPage
+class _TranslationsErrorPageZhHant implements TranslationsErrorPageEn {
+	_TranslationsErrorPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '發生錯誤...';
+	@override String get message => '請檢查您的網絡連接並重試。';
+	@override String get retryButton => '重試';
 }
 
 // Path: navigationBar.items
@@ -658,6 +699,65 @@ class _TranslationsConfirmDialogCompleteCreatePlanZhHant implements Translations
 	@override String get description => '最後一條訊息中的計劃將被保存';
 }
 
+// Path: billDetailsPage.pricingPlan
+class _TranslationsBillDetailsPagePricingPlanZhHant implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '價格方案';
+	@override late final _TranslationsBillDetailsPagePricingPlanColumnsZhHant columns = _TranslationsBillDetailsPagePricingPlanColumnsZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsZhHant details = _TranslationsBillDetailsPagePricingPlanDetailsZhHant._(_root);
+}
+
+// Path: billDetailsPage.features
+class _TranslationsBillDetailsPageFeaturesZhHant implements TranslationsBillDetailsPageFeaturesEn {
+	_TranslationsBillDetailsPageFeaturesZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '等級功能';
+	@override late final _TranslationsBillDetailsPageFeaturesRowsZhHant rows = _TranslationsBillDetailsPageFeaturesRowsZhHant._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsZhHant columns = _TranslationsBillDetailsPageFeaturesColumnsZhHant._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions
+class _TranslationsBillDetailsPagePricingOptionsZhHant implements TranslationsBillDetailsPagePricingOptionsEn {
+	_TranslationsBillDetailsPagePricingOptionsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayZhHant oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(_root);
+}
+
+// Path: planDetailsPage.dateTime
+class _TranslationsPlanDetailsPageDateTimeZhHant implements TranslationsPlanDetailsPageDateTimeEn {
+	_TranslationsPlanDetailsPageDateTimeZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String createOn({required Object date}) => '${date}建立的方案';
+	@override String get dateFormat => 'yyyy年MM月dd日';
+}
+
+// Path: planDetailsPage.item
+class _TranslationsPlanDetailsPageItemZhHant implements TranslationsPlanDetailsPageItemEn {
+	_TranslationsPlanDetailsPageItemZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get viewOnMap => '在地圖上查看';
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHant._(this._root);
@@ -834,6 +934,113 @@ class _TranslationsEditProfilePageSnackBarErrorZhHant implements TranslationsEdi
 	@override String get failedToPickImage => '選擇圖片失敗，請稍後再試';
 }
 
+// Path: billDetailsPage.pricingPlan.columns
+class _TranslationsBillDetailsPagePricingPlanColumnsZhHant implements TranslationsBillDetailsPagePricingPlanColumnsEn {
+	_TranslationsBillDetailsPagePricingPlanColumnsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get standard => '標準';
+	@override String get premium => '高級';
+}
+
+// Path: billDetailsPage.pricingPlan.details
+class _TranslationsBillDetailsPagePricingPlanDetailsZhHant implements TranslationsBillDetailsPagePricingPlanDetailsEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get free => '免費 🎉';
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant._(_root);
+}
+
+// Path: billDetailsPage.features.rows
+class _TranslationsBillDetailsPageFeaturesRowsZhHant implements TranslationsBillDetailsPageFeaturesRowsEn {
+	_TranslationsBillDetailsPageFeaturesRowsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get planCreationLimit => '可創建的方案次數';
+	@override String get chatLimit => '方案創建期間可用聊天次數';
+	@override String get timelineAccess => '訪問所有方案時間表';
+	@override String get adFree => '無廣告';
+	@override String get exclusiveFeatures => '方案認證功能';
+}
+
+// Path: billDetailsPage.features.columns
+class _TranslationsBillDetailsPageFeaturesColumnsZhHant implements TranslationsBillDetailsPageFeaturesColumnsEn {
+	_TranslationsBillDetailsPageFeaturesColumnsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardZhHant standard = _TranslationsBillDetailsPageFeaturesColumnsStandardZhHant._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHant premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHant._(_root);
+}
+
+// Path: billDetailsPage.pricingOptions.oneDay
+class _TranslationsBillDetailsPagePricingOptionsOneDayZhHant implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	_TranslationsBillDetailsPagePricingOptionsOneDayZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '1日';
+	@override String get discount => '';
+	@override String get price => '300日圓';
+}
+
+// Path: billDetailsPage.pricingOptions.threeDays
+class _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '3日';
+	@override String get discount => '-5%';
+	@override String get price => '890日圓';
+}
+
+// Path: billDetailsPage.pricingOptions.fiveDays
+class _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '5日';
+	@override String get discount => '-7.5%';
+	@override String get price => '1,387日圓';
+}
+
+// Path: billDetailsPage.pricingOptions.sevenDays
+class _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '7日';
+	@override String get discount => '-10%';
+	@override String get price => '2,070日圓';
+}
+
+// Path: billDetailsPage.pricingOptions.lifetime
+class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	_TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get duration => '終身';
+	@override String get discount => '';
+	@override String get price => '25,800日圓';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
@@ -853,6 +1060,47 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant implemen
 	// Translations
 	@override String get submitIfAllEmpty => '請輸入信息';
 	@override String get unexpected => '發生錯誤，請稍後再試。';
+}
+
+// Path: billDetailsPage.pricingPlan.details.premiumPrice
+class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get days => '按天數購買';
+	@override String get daily => '・1日 300日圓';
+	@override String get threeDays => '・3日 855日圓';
+	@override String get fiveDays => '・5日 1,480日圓';
+	@override String get sevenDays => '・7日 2,070日圓';
+	@override String get or => '或者';
+	@override String get lifetime => '終身';
+	@override String get lifetimePrice => '25,800日圓';
+}
+
+// Path: billDetailsPage.features.columns.standard
+class _TranslationsBillDetailsPageFeaturesColumnsStandardZhHant implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	_TranslationsBillDetailsPageFeaturesColumnsStandardZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => '標準';
+	@override String get planCreationLimit => '2次';
+	@override String get chatLimit => '3次';
+}
+
+// Path: billDetailsPage.features.columns.premium
+class _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHant implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	_TranslationsBillDetailsPageFeaturesColumnsPremiumZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get label => '高級';
+	@override String get planCreationLimit => '無限制';
+	@override String get chatLimit => '無限制';
 }
 
 /// Flat map(s) containing all translations.
@@ -1027,9 +1275,57 @@ extension on TranslationsZhHant {
 			case 'confirmDialog.completeCreatePlan.title': return '確定要保存計劃嗎？';
 			case 'confirmDialog.completeCreatePlan.description': return '最後一條訊息中的計劃將被保存';
 			case 'prompt.planProposalMessage': return '我考慮了這個計劃！您覺得怎麼樣？';
+			case 'billDetailsPage.title': return '高級方案';
+			case 'billDetailsPage.description': return '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
+			case 'billDetailsPage.pricingPlan.title': return '價格方案';
+			case 'billDetailsPage.pricingPlan.columns.standard': return '標準';
+			case 'billDetailsPage.pricingPlan.columns.premium': return '高級';
+			case 'billDetailsPage.pricingPlan.details.free': return '免費 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天數購買';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '終身';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日圓';
+			case 'billDetailsPage.features.title': return '等級功能';
+			case 'billDetailsPage.features.rows.planCreationLimit': return '可創建的方案次數';
+			case 'billDetailsPage.features.rows.chatLimit': return '方案創建期間可用聊天次數';
+			case 'billDetailsPage.features.rows.timelineAccess': return '訪問所有方案時間表';
+			case 'billDetailsPage.features.rows.adFree': return '無廣告';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return '方案認證功能';
+			case 'billDetailsPage.features.columns.standard.label': return '標準';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2次';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3次';
+			case 'billDetailsPage.features.columns.premium.label': return '高級';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '無限制';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return '無限制';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300日圓';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890日圓';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5日';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387日圓';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日圓';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return '終身';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日圓';
+			case 'billDetailsPage.upgradeButton': return '升級到高級方案';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
+			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
+			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';
+			case 'errorPage.title': return '發生錯誤...';
+			case 'errorPage.message': return '請檢查您的網絡連接並重試。';
+			case 'errorPage.retryButton': return '重試';
 			default: return null;
 		}
 	}

@@ -302,9 +302,97 @@
     "prompt": {
         "planProposalMessage": "我考虑了这个计划！您觉得怎么样？"
     },
+    "billDetailsPage": {
+        "title": "高级计划",
+        "description": "订阅高级计划后，您可以更舒适地享受涩谷观光。",
+        "pricingPlan": {
+            "title": "价格计划",
+            "columns": {
+                "standard": "标准",
+                "premium": "高级"
+            },
+            "details": {
+                "free": "免费 🎉",
+                "premiumPrice": {
+                    "days": "按天数购买",
+                    "daily": "・1日 300日元",
+                    "threeDays": "・3日 855日元",
+                    "fiveDays": "・5日 1,480日元",
+                    "sevenDays": "・7日 2,070日元",
+                    "or": "或者",
+                    "lifetime": "终身",
+                    "lifetimePrice": "25,800日元"
+                }
+            }   
+        },
+        "features": {
+            "title": "等级功能",
+            "rows": {
+                "planCreationLimit": "可创建的计划次数",
+                "chatLimit": "计划创建期间可用聊天次数",
+                "timelineAccess": "访问所有计划时间线",
+                "adFree": "无广告",
+                "exclusiveFeatures": "计划认证功能"
+            },
+            "columns": {
+                "standard": {
+                    "label": "标准",
+                    "planCreationLimit": "2次",
+                    "chatLimit": "3次"
+                },
+                "premium": {
+                    "label": "高级",
+                    "planCreationLimit": "无限制",
+                    "chatLimit": "无限制"
+                }
+            }
+        },
+        "pricingOptions": {
+            "oneDay": {
+                "duration": "1日",
+                "discount": "",
+                "price": "300日元"
+            },
+            "threeDays": {
+                "duration": "3日",
+                "discount": "-5%",
+                "price": "890日元"
+            },
+            "fiveDays": {
+                "duration": "5日",
+                "discount": "-7.5%",
+                "price": "1,387日元"
+            },
+            "sevenDays": {
+                "duration": "7日",
+                "discount": "-10%",
+                "price": "2,070日元"
+            },
+            "lifetime": {
+                "duration": "终身",
+                "discount": "",
+                "price": "25,800日元"
+            }
+        },
+        "upgradeButton": "升级到高级计划"
+    },
+    "planDetailsPage":{
+        "dateTime": {
+            "createOn": "${date}创建的计划",
+            "dateFormat": "yyyy年MM月dd日"
+        },
+        "item":{
+            "viewOnMap": "在地图上查看"
+        }
+    },
     "locales(map)": {
         "en": "英语",
         "ja": "日语",
         "zh": "中文"
+    },
+    "errorPage": {
+        "title": "发生错误...",
+        "message": "请检查您的网络连接并重试。",
+        "retryButton": "重试"
     }
 }

@@ -1,25 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'current_auth_user.dart';
+part of 'place_detail_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentAuthUserHash() => r'b91170c4f6899f2ce2b547fe7a1e84b36421fe15';
+String _$placeDetailDataSourceHash() =>
+    r'ee8491cfbe07d62be24a7e653f77496a0668dc4b';
 
-/// See also [currentAuthUser].
-@ProviderFor(currentAuthUser)
-final currentAuthUserProvider = Provider<User>.internal(
-  currentAuthUser,
-  name: r'currentAuthUserProvider',
+/// See also [PlaceDetailDataSource].
+@ProviderFor(PlaceDetailDataSource)
+final placeDetailDataSourceProvider =
+    AutoDisposeNotifierProvider<PlaceDetailDataSource, void>.internal(
+  PlaceDetailDataSource.new,
+  name: r'placeDetailDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$currentAuthUserHash,
+      : _$placeDetailDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef CurrentAuthUserRef = ProviderRef<User>;
+typedef _$PlaceDetailDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

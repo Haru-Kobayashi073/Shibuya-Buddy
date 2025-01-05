@@ -1,15 +1,16 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/repositories/file_repository.dart';
-import '../firebase/current_auth_user.dart';
+import '../../utils/providers/dio/app_dio.dart';
+import '../firebase/firebase_auth_provider.dart';
 import '../firebase/firebase_storage_provider.dart';
 
 part 'file_data_source.g.dart';
@@ -18,7 +19,8 @@ part 'file_data_source.g.dart';
 class FileDataSource extends _$FileDataSource implements FileRepository {
   FirebaseStorage get _storage => ref.read(firebaseStorageProvider);
   ImagePicker get _imagePicker => ImagePicker();
-  User get currentUser => ref.read(currentAuthUserProvider);
+  Dio get _apiClient => ref.read(appDioProvider);
+  User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
 
   @override
   void build() {
@@ -59,10 +61,13 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
     final file = File('$tempPath${Random().nextInt(100)}.jpg');
 
     //http.getメソッドを呼び出し、それにimageUrlを変換したUriを渡して応答を取得
-    final response = await http.get(Uri.parse(url));
+    final response = await _apiClient.get<List<int>>(
+      url,
+      options: Options(responseType: ResponseType.bytes),
+    );
 
     //fileへhttp.getで受信したbodyBytesを書き込む
-    await file.writeAsBytes(response.bodyBytes);
+    await file.writeAsBytes(response.data!);
 
     return file;
   }

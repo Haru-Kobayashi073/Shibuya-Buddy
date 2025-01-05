@@ -12,9 +12,11 @@ List<RouteBase> get $appRoutes => [
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
+      $billDetailsDialogRouteData,
       $signInPageRouteData,
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
+      $planDetailPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -246,6 +248,10 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
           path: 'changeTheme',
           factory: $ChangeThemePageRouteDataExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'billDetailsPage',
+          factory: $BillDetailsPageRouteDataExtension._fromState,
+        ),
       ],
     );
 
@@ -387,6 +393,47 @@ extension $ChangeThemePageRouteDataExtension on ChangeThemePageRouteData {
 
   String get location => GoRouteData.$location(
         '/myPage/changeTheme',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BillDetailsPageRouteDataExtension on BillDetailsPageRouteData {
+  static BillDetailsPageRouteData _fromState(GoRouterState state) =>
+      const BillDetailsPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/myPage/billDetailsPage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $billDetailsDialogRouteData => GoRouteData.$route(
+      path: '/billDetailsDialog',
+      factory: $BillDetailsDialogRouteDataExtension._fromState,
+    );
+
+extension $BillDetailsDialogRouteDataExtension on BillDetailsDialogRouteData {
+  static BillDetailsDialogRouteData _fromState(GoRouterState state) =>
+      const BillDetailsDialogRouteData();
+
+  String get location => GoRouteData.$location(
+        '/billDetailsDialog',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -577,6 +624,29 @@ extension $BuddyChatPageRouteDataExtension on BuddyChatPageRouteData {
 
   void replace(BuildContext context) =>
       context.replace(location, extra: $extra);
+}
+
+RouteBase get $planDetailPageRouteData => GoRouteData.$route(
+      path: '/planDetailPage',
+      factory: $PlanDetailPageRouteDataExtension._fromState,
+    );
+
+extension $PlanDetailPageRouteDataExtension on PlanDetailPageRouteData {
+  static PlanDetailPageRouteData _fromState(GoRouterState state) =>
+      const PlanDetailPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/planDetailPage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 // **************************************************************************
