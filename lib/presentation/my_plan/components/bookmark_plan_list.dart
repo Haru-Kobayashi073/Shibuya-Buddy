@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../domain/entities/plan.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../home/components/recent_plan.dart';
+import '../my_plan_notifier.dart';
 
-class BookmarkPlanList extends StatefulWidget {
+class BookmarkPlanList extends ConsumerWidget {
   const BookmarkPlanList({
     super.key,
     required this.plans,
@@ -12,14 +14,10 @@ class BookmarkPlanList extends StatefulWidget {
 
   final List<Plan> plans;
 
-  @override
-  State<BookmarkPlanList> createState() => _BookmarkPlanListState();
-}
-
-class _BookmarkPlanListState extends State<BookmarkPlanList> {
-  List<Widget> _buildPlanItems(BuildContext context) {
+  List<Widget> _buildPlanItems(BuildContext context, WidgetRef ref) {
+    final notifier = ref.watch(myPlanNotifierProvider.notifier);
     final width = MediaQuery.of(context).size.width;
-    return widget.plans
+    return plans
         .map(
           (plan) => Padding(
             padding: const EdgeInsets.only(bottom: 8),
@@ -35,7 +33,9 @@ class _BookmarkPlanListState extends State<BookmarkPlanList> {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    await notifier.unBookmark(plan.id);
+                  },
                   icon: const Icon(
                     Icons.bookmark,
                     color: AppColor.yellow600Primary,
@@ -49,9 +49,9 @@ class _BookmarkPlanListState extends State<BookmarkPlanList> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
-      children: _buildPlanItems(context),
+      children: _buildPlanItems(context, ref),
     );
   }
 }
