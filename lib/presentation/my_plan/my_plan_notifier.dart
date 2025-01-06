@@ -64,7 +64,7 @@ class MyPlanNotifier extends _$MyPlanNotifier {
           return firestore.collection('PopularPlans').doc(id).get();
         }),
       );
-
+      var count = 0;
       for (final snapshot in planSnapshots) {
         if (!snapshot.exists) {
           continue;
@@ -81,12 +81,14 @@ class MyPlanNotifier extends _$MyPlanNotifier {
 
         plans.add(
           Plan(
+            id: planIds[count],
             title: data['title'].toString(),
             description: data['description'].toString(),
             thumbnailUrl: data['thumbnailUrl'].toString(),
             topics: topicList,
           ),
         );
+        count++;
       }
 
       return plans;
@@ -97,25 +99,42 @@ class MyPlanNotifier extends _$MyPlanNotifier {
     }
   }
 
-  // Future<void> addPlans(String userId) async {
-  //   final planMap = {
-  //     'title': '宮下パークでショッピング',
-  //     'description': '説明説明',
-  //     'thumbnailUrl': 'https://placehold.jp/80x50.png',
-  //     'topics': [
-  //       '所要時間: 1時間〜',
-  //       '人数: １人〜',
-  //       '＃ショッピング',
-  //       'アクティビティ',
-  //     ],
-  //   };
+  Future<void> unBookmark(String planId) async {
+    final uid = fireauth.currentUser?.uid;
+    final planIds = await _getBookmarkedPlanIds(userId: uid.toString());
+    debugPrint(planIds.toString());
+    planIds.removeAt(planIds.indexOf(planId));
+    debugPrint(planIds.toString());
 
-  //   final docRef = await firestore.collection('PopularPlans').add(planMap);
-  //   final newPlanId = docRef.id;
-  //   final userDocRef =
-  //       firestore.collection('users').doc(userId);
-  //   await userDocRef.update({
-  //     'bookmarkedPlanIds': FieldValue.arrayUnion([newPlanId]),
-  //   });
-  // }
+    await firestore.collection('users').doc(uid).update(
+      {'bookmarkedPlanIds': planIds},
+    );
+    final plans = await _buildBookmarkPlans(userId: uid.toString());
+    state = AsyncValue.data(MyPlanState(bookmarkPlanList: plans));
+  }
+
+  Future<void> addPlans() async {
+    final uid = fireauth.currentUser?.uid;
+    final plans = await _buildBookmarkPlans(userId: uid.toString());
+    final planMap = {
+      'title': '宮下パークでショッピング${plans.length}',
+      'description': '説明説明',
+      'thumbnailUrl': 'https://placehold.jp/80x50.png',
+      'topics': [
+        '所要時間: 1時間〜',
+        '人数: １人〜',
+        '＃ショッピング',
+        'アクティビティ',
+      ],
+    };
+
+    final docRef = await firestore.collection('PopularPlans').add(planMap);
+    final newPlanId = docRef.id;
+    final userDocRef = firestore.collection('users').doc(uid);
+    await userDocRef.update({
+      'bookmarkedPlanIds': FieldValue.arrayUnion([newPlanId]),
+    });
+    
+    state = AsyncValue.data(MyPlanState(bookmarkPlanList: plans));
+  }
 }
