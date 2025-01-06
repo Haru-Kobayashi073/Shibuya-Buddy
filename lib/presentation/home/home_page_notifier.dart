@@ -1,10 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
-import '../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../domain/entities/user.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import 'home_page_state.dart';
 
 part 'home_page_notifier.g.dart';
@@ -13,17 +13,18 @@ part 'home_page_notifier.g.dart';
 class HomePageNotifier extends _$HomePageNotifier {
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
-  User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
+  User get currentUser => ref.watch(currentUserProvider);
 
   @override
   Future<HomePageState> build() async {
+    await ref.read(currentUserProvider.notifier).fetchUser();
     final recentPlans = await getRecentPlans();
-    final s = HomePageState(
+
+    return HomePageState(
       popularPlans: [],
       popularTopics: [],
       recentPlans: recentPlans,
     );
-    return s;
   }
 
   Future<List<Plan>> getRecentPlans() async {
