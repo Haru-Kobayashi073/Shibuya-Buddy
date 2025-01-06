@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class Nondata extends StatelessWidget {
@@ -17,6 +18,7 @@ class Nondata extends StatelessWidget {
         style: AppTextStyle.textStyle.copyWith(
           fontSize: 20,
           fontWeight: FontWeight.bold,
+          color: AppColor.grey600,
         ),
       ),
     );
