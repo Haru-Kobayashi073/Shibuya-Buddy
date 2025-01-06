@@ -12,6 +12,7 @@ List<RouteBase> get $appRoutes => [
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
+      $billDetailsDialogRouteData,
       $signInPageRouteData,
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
@@ -410,6 +411,29 @@ extension $BillDetailsPageRouteDataExtension on BillDetailsPageRouteData {
 
   String get location => GoRouteData.$location(
         '/myPage/billDetailsPage',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $billDetailsDialogRouteData => GoRouteData.$route(
+      path: '/billDetailsDialog',
+      factory: $BillDetailsDialogRouteDataExtension._fromState,
+    );
+
+extension $BillDetailsDialogRouteDataExtension on BillDetailsDialogRouteData {
+  static BillDetailsDialogRouteData _fromState(GoRouterState state) =>
+      const BillDetailsDialogRouteData();
+
+  String get location => GoRouteData.$location(
+        '/billDetailsDialog',
       );
 
   void go(BuildContext context) => context.go(location);
