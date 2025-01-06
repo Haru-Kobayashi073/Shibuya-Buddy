@@ -24,4 +24,5 @@ class Routes {
   static const billDetails = 'billDetailsPage';
   static const billDetailsDialog = '/billDetailsDialog';
   static const planDetailPage = '/planDetailPage';
+  static const map = 'map';
 }
