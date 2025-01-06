@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../domain/entities/plan.dart';
 import '../../../utils/extensions/context.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
@@ -9,21 +10,23 @@ import 'category_tags.dart';
 class RecentPlan extends StatelessWidget {
   const RecentPlan({
     super.key,
-    required this.title,
+    required this.plan,
   });
 
-  final String title;
+  final Plan plan;
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: PersistentCachedNetworkImage(
-            imageUrl: 'https://placehold.jp/80x50.png',
+            imageUrl: plan.thumbnailUrl,
             width: context.deviceWidth * 0.22,
+            height: context.deviceWidth * 0.22 * 0.65,
           ),
         ),
         const SizedBox(width: 8),
@@ -32,15 +35,15 @@ class RecentPlan extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              title,
+              plan.title,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 4),
-            const CategoryTags(
-              tags: ['所要時間: 1時間〜', '人数: １人', '＃ショッピング', '＃お出かけ'],
+            CategoryTags(
+              tags: plan.topics.map((e) => e.name).toList(),
               tagColor: AppColor.blue50Background,
               spacing: 8,
             ),
