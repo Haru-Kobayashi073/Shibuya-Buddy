@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
@@ -12,6 +13,10 @@ import 'my_page_notifier.dart';
 class MyPage extends ConsumerWidget {
   const MyPage({super.key});
 
+  @override
+  @override
+  @override
+  @override
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
@@ -79,8 +84,20 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutThisApp,
-                          onTap: () async =>
-                              const AboutAppPageRouteData().push<void>(context),
+                          onTap: () async => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Theme(
+                                data: Theme.of(context).copyWith(
+                                  cardColor: Colors.white,
+                                ),
+                                child: const LicensePage(
+                                  applicationName: 'Shibuya-Buddy',
+                                  applicationVersion: '',
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutTheDeveloper,
