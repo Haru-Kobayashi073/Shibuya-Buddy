@@ -7,6 +7,7 @@ import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/place_card.dart';
@@ -172,7 +173,10 @@ class PlanDetailPage extends StatelessWidget {
                             ),
                             label: planDetailPagei18n.item.viewOnMap,
                             color: AppColor.grey200,
-                            onPressed: () {},
+                            onPressed: () async {
+                              await const MapPageRouteData()
+                                  .push<void>(context);
+                            },
                           ),
                           const SizedBox(
                             height: 16,
