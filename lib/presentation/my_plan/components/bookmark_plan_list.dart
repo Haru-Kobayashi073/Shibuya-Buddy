@@ -33,8 +33,8 @@ class BookmarkPlanList extends ConsumerWidget {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () async{
-                    await notifier.unBookmark(plan.id);
+                  onPressed: () async {
+                    await notifier.unBookmark(planId: plan.id);
                   },
                   icon: const Icon(
                     Icons.bookmark,
