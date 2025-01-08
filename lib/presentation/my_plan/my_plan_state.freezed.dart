@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MyPlanState {
   List<Plan> get bookmarkPlanList => throw _privateConstructorUsedError;
+  List<Plan> get createPlanList => throw _privateConstructorUsedError;
 
   /// Create a copy of MyPlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +32,7 @@ abstract class $MyPlanStateCopyWith<$Res> {
           MyPlanState value, $Res Function(MyPlanState) then) =
       _$MyPlanStateCopyWithImpl<$Res, MyPlanState>;
   @useResult
-  $Res call({List<Plan> bookmarkPlanList});
+  $Res call({List<Plan> bookmarkPlanList, List<Plan> createPlanList});
 }
 
 /// @nodoc
@@ -50,11 +51,16 @@ class _$MyPlanStateCopyWithImpl<$Res, $Val extends MyPlanState>
   @override
   $Res call({
     Object? bookmarkPlanList = null,
+    Object? createPlanList = null,
   }) {
     return _then(_value.copyWith(
       bookmarkPlanList: null == bookmarkPlanList
           ? _value.bookmarkPlanList
           : bookmarkPlanList // ignore: cast_nullable_to_non_nullable
+              as List<Plan>,
+      createPlanList: null == createPlanList
+          ? _value.createPlanList
+          : createPlanList // ignore: cast_nullable_to_non_nullable
               as List<Plan>,
     ) as $Val);
   }
@@ -68,7 +74,7 @@ abstract class _$$MyPlanStateImplCopyWith<$Res>
       __$$MyPlanStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Plan> bookmarkPlanList});
+  $Res call({List<Plan> bookmarkPlanList, List<Plan> createPlanList});
 }
 
 /// @nodoc
@@ -85,11 +91,16 @@ class __$$MyPlanStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? bookmarkPlanList = null,
+    Object? createPlanList = null,
   }) {
     return _then(_$MyPlanStateImpl(
       bookmarkPlanList: null == bookmarkPlanList
           ? _value._bookmarkPlanList
           : bookmarkPlanList // ignore: cast_nullable_to_non_nullable
+              as List<Plan>,
+      createPlanList: null == createPlanList
+          ? _value._createPlanList
+          : createPlanList // ignore: cast_nullable_to_non_nullable
               as List<Plan>,
     ));
   }
@@ -98,8 +109,11 @@ class __$$MyPlanStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
-  const _$MyPlanStateImpl({final List<Plan> bookmarkPlanList = const []})
-      : _bookmarkPlanList = bookmarkPlanList;
+  const _$MyPlanStateImpl(
+      {final List<Plan> bookmarkPlanList = const [],
+      final List<Plan> createPlanList = const []})
+      : _bookmarkPlanList = bookmarkPlanList,
+        _createPlanList = createPlanList;
 
   final List<Plan> _bookmarkPlanList;
   @override
@@ -111,9 +125,18 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
     return EqualUnmodifiableListView(_bookmarkPlanList);
   }
 
+  final List<Plan> _createPlanList;
+  @override
+  @JsonKey()
+  List<Plan> get createPlanList {
+    if (_createPlanList is EqualUnmodifiableListView) return _createPlanList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_createPlanList);
+  }
+
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MyPlanState(bookmarkPlanList: $bookmarkPlanList)';
+    return 'MyPlanState(bookmarkPlanList: $bookmarkPlanList, createPlanList: $createPlanList)';
   }
 
   @override
@@ -121,7 +144,8 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'MyPlanState'))
-      ..add(DiagnosticsProperty('bookmarkPlanList', bookmarkPlanList));
+      ..add(DiagnosticsProperty('bookmarkPlanList', bookmarkPlanList))
+      ..add(DiagnosticsProperty('createPlanList', createPlanList));
   }
 
   @override
@@ -130,12 +154,16 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
         (other.runtimeType == runtimeType &&
             other is _$MyPlanStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._bookmarkPlanList, _bookmarkPlanList));
+                .equals(other._bookmarkPlanList, _bookmarkPlanList) &&
+            const DeepCollectionEquality()
+                .equals(other._createPlanList, _createPlanList));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_bookmarkPlanList));
+      runtimeType,
+      const DeepCollectionEquality().hash(_bookmarkPlanList),
+      const DeepCollectionEquality().hash(_createPlanList));
 
   /// Create a copy of MyPlanState
   /// with the given fields replaced by the non-null parameter values.
@@ -147,11 +175,14 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
 }
 
 abstract class _MyPlanState implements MyPlanState {
-  const factory _MyPlanState({final List<Plan> bookmarkPlanList}) =
-      _$MyPlanStateImpl;
+  const factory _MyPlanState(
+      {final List<Plan> bookmarkPlanList,
+      final List<Plan> createPlanList}) = _$MyPlanStateImpl;
 
   @override
   List<Plan> get bookmarkPlanList;
+  @override
+  List<Plan> get createPlanList;
 
   /// Create a copy of MyPlanState
   /// with the given fields replaced by the non-null parameter values.

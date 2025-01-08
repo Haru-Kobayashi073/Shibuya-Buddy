@@ -9,5 +9,6 @@ part 'my_plan_state.freezed.dart';
 class MyPlanState with _$MyPlanState {
   const factory MyPlanState({
     @Default([]) List<Plan> bookmarkPlanList,
+    @Default([]) List<Plan> createPlanList,
   }) = _MyPlanState;
 }
