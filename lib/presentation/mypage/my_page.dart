@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -12,11 +14,7 @@ import 'my_page_notifier.dart';
 
 class MyPage extends ConsumerWidget {
   const MyPage({super.key});
-
-  @override
-  @override
-  @override
-  @override
+  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
@@ -84,20 +82,24 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutThisApp,
-                          onTap: () async => Navigator.push(
+                          onTap: () async {
+                          final packageInfo = await PackageInfo.fromPlatform();
+                          unawaited(Navigator.push(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => Theme(
-                                data: Theme.of(context).copyWith(
-                                  cardColor: Colors.white,
-                                ),
-                                child: const LicensePage(
-                                  applicationName: 'Shibuya-Buddy',
-                                  applicationVersion: '',
+                              MaterialPageRoute(
+                                builder: (context) => Theme(
+                                  data: Theme.of(context).copyWith(
+                                    cardColor: Colors.white,
+                                  ),
+                                  child: LicensePage(
+                                    applicationName: packageInfo.appName,
+                                    applicationVersion: packageInfo.version,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
+                          );
+                          },
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutTheDeveloper,
