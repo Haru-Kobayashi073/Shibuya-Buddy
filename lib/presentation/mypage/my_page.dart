@@ -38,7 +38,6 @@ class MyPage extends ConsumerWidget {
               ),
               Expanded(
                 child: ListView(
-                  physics: const NeverScrollableScrollPhysics(),
                   children: [
                     ListTileWithIcon(
                       title: myPageItemi18n.editProfile,
