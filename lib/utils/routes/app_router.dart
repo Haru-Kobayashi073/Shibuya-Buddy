@@ -21,6 +21,7 @@ import '../../presentation/components/bottom_navigation.dart';
 import '../../presentation/create_plan/create_plan_page.dart';
 import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
+import '../../presentation/map/map_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/edit_profile/edit_profile_page.dart';
 import '../../presentation/mypage/my_page.dart';
@@ -311,6 +312,15 @@ class BillDetailsPageRouteData extends GoRouteData {
   }
 }
 
+class MapPageRouteData extends GoRouteData {
+  const MapPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const MapPage();
+  }
+}
+
 @TypedGoRoute<BillDetailsDialogRouteData>(
   path: Routes.billDetailsDialog,
 )
@@ -430,6 +440,11 @@ class BuddyChatPageRouteData extends GoRouteData {
 
 @TypedGoRoute<PlanDetailPageRouteData>(
   path: Routes.planDetailPage,
+  routes: [
+    TypedGoRoute<MapPageRouteData>(
+      path: Routes.map,
+    ),
+  ],
 )
 class PlanDetailPageRouteData extends GoRouteData {
   const PlanDetailPageRouteData();
