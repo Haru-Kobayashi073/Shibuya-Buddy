@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -38,73 +39,66 @@ class PlanDetailPage extends ConsumerWidget {
             children: [
               SafeArea(
                 top: false,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 1),
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverAppBar(
-                        automaticallyImplyLeading: false,
-                        systemOverlayStyle: const SystemUiOverlayStyle(
-                          statusBarBrightness: Brightness.light,
-                        ),
-                        expandedHeight: 250,
-                        flexibleSpace: FlexibleSpaceBar(
-                          background: PersistentCachedNetworkImage(
-                            imageUrl: value.plan.thumbnailUrl,
-                          ),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverAppBar(
+                      automaticallyImplyLeading: false,
+                      systemOverlayStyle: const SystemUiOverlayStyle(
+                        statusBarBrightness: Brightness.light,
+                      ),
+                      expandedHeight: 250,
+                      flexibleSpace: FlexibleSpaceBar(
+                        background: PersistentCachedNetworkImage(
+                          imageUrl: value.plan.thumbnailUrl,
                         ),
                       ),
-                      SliverToBoxAdapter(
-                        child: PlanHeader(plan: plan),
-                      ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 16, right: 16),
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  planDetailPagei18n.dateTime
-                                      .createOn(date: outputFormat),
-                                  style: AppTextStyle.textStyle.copyWith(
-                                    fontSize: 14,
-                                    color: AppColor.grey600,
-                                  ),
+                    ),
+                    SliverToBoxAdapter(
+                      child: PlanHeader(plan: plan),
+                    ),
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16, right: 16),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                planDetailPagei18n.dateTime
+                                    .createOn(date: outputFormat),
+                                style: AppTextStyle.textStyle.copyWith(
+                                  fontSize: 14,
+                                  color: AppColor.grey600,
                                 ),
                               ),
-                              const SizedBox(
-                                height: 16,
+                            ),
+                            const Gap(16),
+                            WideButton(
+                              icon: const Icon(
+                                Icons.pin_drop_outlined,
+                                color: AppColor.black,
                               ),
-                              WideButton(
-                                icon: const Icon(
-                                  Icons.pin_drop_outlined,
-                                  color: AppColor.black,
-                                ),
-                                label: planDetailPagei18n.item.viewOnMap,
-                                color: AppColor.grey200,
-                                onPressed: () {},
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              Column(
-                                children: value.places
-                                    .map(
-                                      (place) => PlaceCard(
-                                        place: place,
-                                        index: value.places.indexOf(place),
-                                        endindex: value.places.length - 1,
-                                      ),
-                                    )
-                                    .toList(),
-                              ),
-                            ],
-                          ),
+                              label: planDetailPagei18n.item.viewOnMap,
+                              color: AppColor.grey200,
+                              onPressed: () {},
+                            ),
+                            const Gap(16),
+                            Column(
+                              children: value.places
+                                  .map(
+                                    (place) => PlaceCard(
+                                      place: place,
+                                      index: value.places.indexOf(place),
+                                      endindex: value.places.length - 1,
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Positioned(
@@ -131,9 +125,7 @@ class PlanDetailPage extends ConsumerWidget {
                               : AppColor.black,
                           onPressed: notifier.onBookmarkButtonTap,
                         ),
-                        const SizedBox(
-                          width: 16,
-                        ),
+                        const Gap(16),
                         CircleIconButton(
                           icon: Icons.share,
                           iconColor: AppColor.black,
