@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/topic.dart';
+import '../../i18n/strings.g.dart';
 import '../../infrastructure/bookmark/bookmark_data_sorce.dart';
 import '../../infrastructure/firebase/cloud_firestore_provider.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
@@ -36,26 +37,33 @@ class MyPlanNotifier extends _$MyPlanNotifier {
   }
 
   Future<List<Plan>> buildBookmarkPlans({required List<String> planIds}) async {
+    final i18n = t.myPlanPage;
+    final snack = i18n.error.displayError;
     final plans = <Plan>[];
     final topics = <Topic>[];
     var count = 0;
-    for (final id in planIds) {
-      final data = await booksorce.getPlanData(planId: id);
-      for (final topic in data['topics'] as List<dynamic>) {
-        topics.add(Topic(name: topic.toString(), thumbnailUrl: ''));
+    try {
+      for (final id in planIds) {
+        final data = await booksorce.getPlanData(planId: id);
+        for (final topic in data['topics'] as List<dynamic>) {
+          topics.add(Topic(name: topic.toString(), thumbnailUrl: ''));
+        }
+        plans.add(
+          Plan(
+            id: planIds[count],
+            title: data['title'].toString(),
+            description: data['description'].toString(),
+            thumbnailUrl: data['thumbnailUrl'].toString(),
+            topics: topics,
+          ),
+        );
+        count++;
       }
-      plans.add(
-        Plan(
-          id: planIds[count],
-          title: data['title'].toString(),
-          description: data['description'].toString(),
-          thumbnailUrl: data['thumbnailUrl'].toString(),
-          topics: topics,
-        ),
-      );
-      count++;
+      return plans;
+    } on Exception catch (e) {
+      scaffoldMessenger.showExceptionSnackBar('$snack:$e');
+      return [];
     }
-    return plans;
   }
 
   Future<void> refreshBookmarkData() async {

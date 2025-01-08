@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../firebase/cloud_firestore_provider.dart';
 
@@ -21,6 +22,8 @@ class BookmarkDataSorce extends _$BookmarkDataSorce {
   Future<List<String>> getBookmarkedPlanIds({
     required String userId,
   }) async {
+    final i18n = t.myPlanPage;
+    final snack = i18n.error.failedGetId;
     try {
       final snapshot = await firestore.collection('users').doc(userId).get();
 
@@ -35,12 +38,14 @@ class BookmarkDataSorce extends _$BookmarkDataSorce {
 
       return List<String>.from(bookmarkedPlanIds);
     } on FirebaseException catch (e) {
-      scaffoldMessenger.showExceptionSnackBar('プランIDの取得に失敗しました: $e');
+      scaffoldMessenger.showExceptionSnackBar('$snack:$e');
       return [];
     }
   }
 
   Future<Map<String, dynamic>> getPlanData({required String planId}) async {
+    final i18n = t.myPlanPage;
+    final snack = i18n.error.failedGetPlanData;
     try {
       final snapshot =
           await firestore.collection('PopularPlans').doc(planId).get();
@@ -50,7 +55,7 @@ class BookmarkDataSorce extends _$BookmarkDataSorce {
       }
       return data;
     } on FirebaseException catch (e) {
-      scaffoldMessenger.showExceptionSnackBar('プランデータ取得時に問題が発生しました。: $e');
+      scaffoldMessenger.showExceptionSnackBar('$snack:$e');
       return {};
     }
   }
@@ -59,10 +64,16 @@ class BookmarkDataSorce extends _$BookmarkDataSorce {
     required String planId,
     required String userId,
   }) async {
-    final planIds = await getBookmarkedPlanIds(userId: userId);
-    planIds.removeAt(planIds.indexOf(planId));
-    await firestore.collection('users').doc(userId).update(
-      {'bookmarkedPlanIds': planIds},
-    );
+    final i18n = t.myPlanPage;
+    final snack = i18n.error.failedUnBookmark;
+    try {
+      final planIds = await getBookmarkedPlanIds(userId: userId);
+      planIds.removeAt(planIds.indexOf(planId));
+      await firestore.collection('users').doc(userId).update(
+        {'bookmarkedPlanIds': planIds},
+      );
+    } on FirebaseException catch (e) {
+      scaffoldMessenger.showExceptionSnackBar('$snack:$e');
+    }
   }
 }

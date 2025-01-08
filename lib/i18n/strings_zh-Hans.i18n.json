@@ -199,6 +199,12 @@
         "createdPlansItems": {
             "nondata": "开始创建计划吧！",
             "createaplan": "创建计划"
+        },
+        "error": {
+            "displayError": "显示计划时出现错误。",
+            "failedGetId": "获取计划ID失败。",
+            "failedGetPlanData": "获取计划数据时出现错误。",
+            "failedUnBookmark": "取消收藏时出现错误。"
         }
     },
     "buddyChatPage": {

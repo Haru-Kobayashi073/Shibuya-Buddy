@@ -199,6 +199,12 @@
         "createdPlansItems": {
             "nondata": "Let's create a plan!",
             "createaplan": "Create a Plan"
+        },
+        "error": {
+            "displayError": "An error occurred while displaying the plan.",
+            "failedGetId": "Failed to retrieve plan ID.",
+            "failedGetPlanData": "An error occurred while retrieving plan data.",
+            "failedUnBookmark": "Failed to remove bookmark."
         }
     },
     "buddyChatPage": {

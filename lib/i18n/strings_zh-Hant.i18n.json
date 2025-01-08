@@ -199,6 +199,12 @@
         "createdPlansItems": {
             "nondata": "開始建立方案吧！",
             "createaplan": "建立方案"
+        },
+        "error": {
+            "displayError": "顯示方案時發生錯誤。",
+            "failedGetId": "取得方案ID失敗。",
+            "failedGetPlanData": "取得方案資料時發生錯誤。",
+            "failedUnBookmark": "取消收藏時發生錯誤。"
         }
     },
     "buddyChatPage": {
