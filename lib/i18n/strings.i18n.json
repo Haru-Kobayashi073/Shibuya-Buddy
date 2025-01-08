@@ -191,6 +191,14 @@
         "tabs": {
             "createdPlans": "Created Plans",
             "bookmark": "Bookmarks"
+        },
+        "bookmarkItems": {
+            "nondata": "No bookmarked plans yet.",
+            "reloading": "Reload"
+        },
+        "createdPlansItems": {
+            "nondata": "Let's create a plan!",
+            "createaplan": "Create a Plan"
         }
     },
     "buddyChatPage": {

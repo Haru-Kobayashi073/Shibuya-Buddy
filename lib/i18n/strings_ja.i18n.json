@@ -191,6 +191,14 @@
         "tabs": {
             "createdPlans": "作成したプラン",
             "bookmark": "ブックマーク"
+        },
+        "bookmarkItems":{
+            "nondata":"ブックマークしているプランはありません。",
+            "reloading":"再読み込み"
+        },
+        "createdPlansItems":{
+            "nondata":"プランを作成してみよう!",
+            "createaplan":"プランを作成する"
         }
     },
     "buddyChatPage": {

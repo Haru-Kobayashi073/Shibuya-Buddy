@@ -189,8 +189,16 @@
     "myPlanPage": {
         "title": "我的计划",
         "tabs": {
-            "createdPlans": "已创建的计划",
-            "bookmark": "收藏夹"
+            "createdPlans": "已创建计划",
+            "bookmark": "书签"
+        },
+        "bookmarkItems": {
+            "nondata": "暂无收藏计划。",
+            "reloading": "重新加载"
+        },
+        "createdPlansItems": {
+            "nondata": "开始创建计划吧！",
+            "createaplan": "创建计划"
         }
     },
     "buddyChatPage": {
@@ -323,7 +331,7 @@
                     "lifetime": "终身",
                     "lifetimePrice": "25,800日元"
                 }
-            }   
+            }
         },
         "features": {
             "title": "等级功能",
