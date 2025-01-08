@@ -32,12 +32,13 @@ class RowCategoryTags extends StatelessWidget {
     for (final tag in tags) {
       final tagWidget = _buildTag(tag);
       final tagWidth = _measureWidgetWidth(tagWidget);
+      final endtagWidth = _measureWidgetWidth(buildEllipsisTag());
 
-      if (currentLineWidth + tagWidth + spacing > maxWidth) {
+      if ((currentLineWidth + tagWidth + spacing + endtagWidth) > maxWidth) {
         tagWidgets.add(
           Padding(
             padding: EdgeInsets.only(right: spacing.toDouble()),
-            child: _buildEllipsisTag(),
+            child: buildEllipsisTag(),
           ),
         );
         break;
@@ -72,7 +73,7 @@ class RowCategoryTags extends StatelessWidget {
     );
   }
 
-  Widget _buildEllipsisTag() {
+  Widget buildEllipsisTag() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 3),
       decoration: BoxDecoration(
