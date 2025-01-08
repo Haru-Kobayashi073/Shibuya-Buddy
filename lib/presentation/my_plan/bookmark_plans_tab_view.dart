@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
-import '../../utils/routes/app_router.dart';
 import 'components/bookmark_plan_list.dart';
 import 'components/nondata.dart';
 import 'my_plan_notifier.dart';
@@ -46,10 +46,11 @@ class BookmarkPlansTabView extends ConsumerWidget {
         return const Center(child: CircularProgressIndicator());
       },
       error: (error, stack) {
-        WidgetsBinding.instance.addPostFrameCallback((_) async {
-          await const AccountPageRouteData().push<void>(context);
-        });
-        return const SizedBox(); //ダミー
+        return ErrorPage(
+          onRetry: () async {
+            await notifier.refreshBookmarkData();
+          },
+        );
       },
     );
   }
