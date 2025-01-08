@@ -288,6 +288,9 @@ class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
   @override
   late final _TranslationsMyPlanPageCreatedPlansItemsJa createdPlansItems =
       _TranslationsMyPlanPageCreatedPlansItemsJa._(_root);
+  @override
+  late final _TranslationsMyPlanPageErrorJa error =
+      _TranslationsMyPlanPageErrorJa._(_root);
 }
 
 // Path: buddyChatPage
@@ -837,6 +840,23 @@ class _TranslationsMyPlanPageCreatedPlansItemsJa
   String get nondata => 'プランを作成してみよう!';
   @override
   String get createaplan => 'プランを作成する';
+}
+
+// Path: myPlanPage.error
+class _TranslationsMyPlanPageErrorJa implements TranslationsMyPlanPageErrorEn {
+  _TranslationsMyPlanPageErrorJa._(this._root);
+
+  final TranslationsJa _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get displayError => 'プラン表示時に問題が発生しました。';
+  @override
+  String get failedGetId => 'プランIDの取得に失敗しました。';
+  @override
+  String get failedGetPlanData => 'プランデータ取得時に問題が発生しました。';
+  @override
+  String get failedUnBookmark => 'ブックマーク解除時に問題が発生しました。';
 }
 
 // Path: buddyChatPage.textFields
@@ -1826,6 +1846,14 @@ extension on TranslationsJa {
         return 'プランを作成してみよう!';
       case 'myPlanPage.createdPlansItems.createaplan':
         return 'プランを作成する';
+      case 'myPlanPage.error.displayError':
+        return 'プラン表示時に問題が発生しました。';
+      case 'myPlanPage.error.failedGetId':
+        return 'プランIDの取得に失敗しました。';
+      case 'myPlanPage.error.failedGetPlanData':
+        return 'プランデータ取得時に問題が発生しました。';
+      case 'myPlanPage.error.failedUnBookmark':
+        return 'ブックマーク解除時に問題が発生しました。';
       case 'buddyChatPage.title':
         return 'Buddyの提案';
       case 'buddyChatPage.possibleChatCount':

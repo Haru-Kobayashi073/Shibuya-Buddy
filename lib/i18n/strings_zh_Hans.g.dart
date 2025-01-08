@@ -293,6 +293,9 @@ class _TranslationsMyPlanPageZhHans implements TranslationsMyPlanPageEn {
   @override
   late final _TranslationsMyPlanPageCreatedPlansItemsZhHans createdPlansItems =
       _TranslationsMyPlanPageCreatedPlansItemsZhHans._(_root);
+  @override
+  late final _TranslationsMyPlanPageErrorZhHans error =
+      _TranslationsMyPlanPageErrorZhHans._(_root);
 }
 
 // Path: buddyChatPage
@@ -852,6 +855,24 @@ class _TranslationsMyPlanPageCreatedPlansItemsZhHans
   String get nondata => '开始创建计划吧！';
   @override
   String get createaplan => '创建计划';
+}
+
+// Path: myPlanPage.error
+class _TranslationsMyPlanPageErrorZhHans
+    implements TranslationsMyPlanPageErrorEn {
+  _TranslationsMyPlanPageErrorZhHans._(this._root);
+
+  final TranslationsZhHans _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get displayError => '显示计划时出现错误。';
+  @override
+  String get failedGetId => '获取计划ID失败。';
+  @override
+  String get failedGetPlanData => '获取计划数据时出现错误。';
+  @override
+  String get failedUnBookmark => '取消收藏时出现错误。';
 }
 
 // Path: buddyChatPage.textFields
@@ -1847,6 +1868,14 @@ extension on TranslationsZhHans {
         return '开始创建计划吧！';
       case 'myPlanPage.createdPlansItems.createaplan':
         return '创建计划';
+      case 'myPlanPage.error.displayError':
+        return '显示计划时出现错误。';
+      case 'myPlanPage.error.failedGetId':
+        return '获取计划ID失败。';
+      case 'myPlanPage.error.failedGetPlanData':
+        return '获取计划数据时出现错误。';
+      case 'myPlanPage.error.failedUnBookmark':
+        return '取消收藏时出现错误。';
       case 'buddyChatPage.title':
         return 'Buddy的建议';
       case 'buddyChatPage.possibleChatCount':

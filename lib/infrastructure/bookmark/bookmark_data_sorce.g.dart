@@ -6,7 +6,7 @@ part of 'bookmark_data_sorce.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarkDataSorceHash() => r'673ed2ed18c299e0c9dc11d2c79d5be3ce854bda';
+String _$bookmarkDataSorceHash() => r'68ec3094f1fa0de8fccaaac3be1cecb77d48be26';
 
 /// See also [BookmarkDataSorce].
 @ProviderFor(BookmarkDataSorce)
