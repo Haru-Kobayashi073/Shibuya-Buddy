@@ -96,7 +96,9 @@ class MyPage extends ConsumerWidget {
                                       ),
                                       child: LicensePage(
                                         applicationName: packageInfo.appName,
-                                        applicationVersion: packageInfo.version,
+                                        applicationVersion:
+                                            '${packageInfo.version}'
+                                            '+${packageInfo.buildNumber}',
                                       ),
                                     ),
                                   ),
