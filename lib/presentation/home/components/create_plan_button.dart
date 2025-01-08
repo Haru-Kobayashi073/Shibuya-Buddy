@@ -11,8 +11,7 @@ class CreatePlanButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () async {
-        // await const CreatePlanPageRouteData().push<void>(context);
-        await const AccountPageRouteData().push<void>(context);
+        await const CreatePlanPageRouteData().push<void>(context);
       },
       backgroundColor: AppColor.yellow600Primary,
       elevation: 0,
