@@ -23,11 +23,7 @@ class RecentPlansSection extends StatelessWidget {
             onPressed: () {},
           ),
           const SizedBox(height: 8),
-          Column(
-            children: [
-              PlanList(plans: dummyPlan),
-            ],
-          ),
+          PlanList(plans: dummyPlan),
         ],
       ),
     );
