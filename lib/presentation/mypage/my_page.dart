@@ -14,7 +14,7 @@ import 'my_page_notifier.dart';
 
 class MyPage extends ConsumerWidget {
   const MyPage({super.key});
-  
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
@@ -83,22 +83,26 @@ class MyPage extends ConsumerWidget {
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutThisApp,
                           onTap: () async {
-                          final packageInfo = await PackageInfo.fromPlatform();
-                          unawaited(Navigator.push(
-                            context,
-                              MaterialPageRoute(
-                                builder: (context) => Theme(
-                                  data: Theme.of(context).copyWith(
-                                    cardColor: Colors.white,
-                                  ),
-                                  child: LicensePage(
-                                    applicationName: packageInfo.appName,
-                                    applicationVersion: packageInfo.version,
+                            final packageInfo =
+                                await PackageInfo.fromPlatform();
+                            if (context.mounted) {
+                              unawaited(
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Theme(
+                                      data: Theme.of(context).copyWith(
+                                        cardColor: Colors.white,
+                                      ),
+                                      child: LicensePage(
+                                        applicationName: packageInfo.appName,
+                                        applicationVersion: packageInfo.version,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          );
+                              );
+                            }
                           },
                         ),
                         ListTileWithIcon(
