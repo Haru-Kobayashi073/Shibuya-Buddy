@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bookmark_data_sorce.dart';
+part of 'topic_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarkDataSorceHash() => r'68ec3094f1fa0de8fccaaac3be1cecb77d48be26';
+String _$topicDataSourceHash() => r'3f1e3bb70546abeccf9083aef7fdcccf192f3e8c';
 
-/// See also [BookmarkDataSorce].
-@ProviderFor(BookmarkDataSorce)
-final bookmarkDataSorceProvider =
-    AutoDisposeNotifierProvider<BookmarkDataSorce, void>.internal(
-  BookmarkDataSorce.new,
-  name: r'bookmarkDataSorceProvider',
+/// See also [TopicDataSource].
+@ProviderFor(TopicDataSource)
+final topicDataSourceProvider =
+    AutoDisposeNotifierProvider<TopicDataSource, void>.internal(
+  TopicDataSource.new,
+  name: r'topicDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$bookmarkDataSorceHash,
+      : _$topicDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$BookmarkDataSorce = AutoDisposeNotifier<void>;
+typedef _$TopicDataSource = AutoDisposeNotifier<void>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

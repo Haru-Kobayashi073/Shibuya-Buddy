@@ -15,37 +15,37 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$MyPlanState {
+mixin _$MyPlanPageState {
   List<Plan> get bookmarkPlanList => throw _privateConstructorUsedError;
   List<Plan> get createPlanList => throw _privateConstructorUsedError;
 
-  /// Create a copy of MyPlanState
+  /// Create a copy of MyPlanPageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MyPlanStateCopyWith<MyPlanState> get copyWith =>
+  $MyPlanPageStateCopyWith<MyPlanPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MyPlanStateCopyWith<$Res> {
-  factory $MyPlanStateCopyWith(
-          MyPlanState value, $Res Function(MyPlanState) then) =
-      _$MyPlanStateCopyWithImpl<$Res, MyPlanState>;
+abstract class $MyPlanPageStateCopyWith<$Res> {
+  factory $MyPlanPageStateCopyWith(
+          MyPlanPageState value, $Res Function(MyPlanPageState) then) =
+      _$MyPlanPageStateCopyWithImpl<$Res, MyPlanPageState>;
   @useResult
   $Res call({List<Plan> bookmarkPlanList, List<Plan> createPlanList});
 }
 
 /// @nodoc
-class _$MyPlanStateCopyWithImpl<$Res, $Val extends MyPlanState>
-    implements $MyPlanStateCopyWith<$Res> {
-  _$MyPlanStateCopyWithImpl(this._value, this._then);
+class _$MyPlanPageStateCopyWithImpl<$Res, $Val extends MyPlanPageState>
+    implements $MyPlanPageStateCopyWith<$Res> {
+  _$MyPlanPageStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MyPlanState
+  /// Create a copy of MyPlanPageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -68,7 +68,7 @@ class _$MyPlanStateCopyWithImpl<$Res, $Val extends MyPlanState>
 
 /// @nodoc
 abstract class _$$MyPlanStateImplCopyWith<$Res>
-    implements $MyPlanStateCopyWith<$Res> {
+    implements $MyPlanPageStateCopyWith<$Res> {
   factory _$$MyPlanStateImplCopyWith(
           _$MyPlanStateImpl value, $Res Function(_$MyPlanStateImpl) then) =
       __$$MyPlanStateImplCopyWithImpl<$Res>;
@@ -79,13 +79,13 @@ abstract class _$$MyPlanStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$MyPlanStateImplCopyWithImpl<$Res>
-    extends _$MyPlanStateCopyWithImpl<$Res, _$MyPlanStateImpl>
+    extends _$MyPlanPageStateCopyWithImpl<$Res, _$MyPlanStateImpl>
     implements _$$MyPlanStateImplCopyWith<$Res> {
   __$$MyPlanStateImplCopyWithImpl(
       _$MyPlanStateImpl _value, $Res Function(_$MyPlanStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MyPlanState
+  /// Create a copy of MyPlanPageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -136,14 +136,14 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MyPlanState(bookmarkPlanList: $bookmarkPlanList, createPlanList: $createPlanList)';
+    return 'MyPlanPageState(bookmarkPlanList: $bookmarkPlanList, createPlanList: $createPlanList)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'MyPlanState'))
+      ..add(DiagnosticsProperty('type', 'MyPlanPageState'))
       ..add(DiagnosticsProperty('bookmarkPlanList', bookmarkPlanList))
       ..add(DiagnosticsProperty('createPlanList', createPlanList));
   }
@@ -165,7 +165,7 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
       const DeepCollectionEquality().hash(_bookmarkPlanList),
       const DeepCollectionEquality().hash(_createPlanList));
 
-  /// Create a copy of MyPlanState
+  /// Create a copy of MyPlanPageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -174,7 +174,7 @@ class _$MyPlanStateImpl with DiagnosticableTreeMixin implements _MyPlanState {
       __$$MyPlanStateImplCopyWithImpl<_$MyPlanStateImpl>(this, _$identity);
 }
 
-abstract class _MyPlanState implements MyPlanState {
+abstract class _MyPlanState implements MyPlanPageState {
   const factory _MyPlanState(
       {final List<Plan> bookmarkPlanList,
       final List<Plan> createPlanList}) = _$MyPlanStateImpl;
@@ -184,7 +184,7 @@ abstract class _MyPlanState implements MyPlanState {
   @override
   List<Plan> get createPlanList;
 
-  /// Create a copy of MyPlanState
+  /// Create a copy of MyPlanPageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
