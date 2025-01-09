@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../components/loading_overlay.dart';
