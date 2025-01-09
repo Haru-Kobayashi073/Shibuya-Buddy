@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
+import '../components/loading_overlay.dart';
 import 'components/bookmark_plan_list.dart';
 import 'components/nondata.dart';
 import 'my_plan_notifier.dart';
@@ -12,8 +14,8 @@ class BookmarkPlansTabView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncState = ref.watch(myPlanNotifierProvider);
-    final notifier = ref.watch(myPlanNotifierProvider.notifier);
+    final asyncState = ref.watch(myPlanPageNotifierProvider);
+    final notifier = ref.watch(myPlanPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
     final bookmarkItemi18n = i18n.myPlanPage.bookmarkItems;
 
@@ -25,12 +27,12 @@ class BookmarkPlansTabView extends ConsumerWidget {
                 message: bookmarkItemi18n.nondata,
                 labelText: bookmarkItemi18n.reloading,
                 onPressed: () async {
-                  await notifier.refreshBookmarkData();
+                  await notifier.buildBookmarkPlans();
                 },
               )
             : RefreshIndicator(
                 onRefresh: () async {
-                  await notifier.refreshBookmarkData();
+                  await notifier.buildBookmarkPlans();
                 },
                 child: ListView(
                   children: [
@@ -42,13 +44,11 @@ class BookmarkPlansTabView extends ConsumerWidget {
                 ),
               );
       },
-      loading: () {
-        return const Center(child: CircularProgressIndicator());
-      },
+      loading: Loading.new,
       error: (error, stack) {
         return ErrorPage(
           onRetry: () async {
-            await notifier.refreshBookmarkData();
+            await notifier.buildBookmarkPlans();
           },
         );
       },
