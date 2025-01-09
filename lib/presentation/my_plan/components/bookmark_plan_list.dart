@@ -15,7 +15,7 @@ class BookmarkPlanList extends ConsumerWidget {
   final List<Plan> plans;
 
   List<Widget> _buildPlanItems(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(myPlanNotifierProvider.notifier);
+    final notifier = ref.watch(myPlanPageNotifierProvider.notifier);
     final width = MediaQuery.of(context).size.width;
     return plans
         .map(

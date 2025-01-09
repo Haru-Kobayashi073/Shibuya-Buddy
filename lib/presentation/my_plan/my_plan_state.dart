@@ -6,8 +6,8 @@ import '../../domain/entities/plan.dart';
 part 'my_plan_state.freezed.dart';
 
 @freezed
-class MyPlanState with _$MyPlanState {
-  const factory MyPlanState({
+class MyPlanPageState with _$MyPlanPageState {
+  const factory MyPlanPageState({
     @Default([]) List<Plan> bookmarkPlanList,
     @Default([]) List<Plan> createPlanList,
   }) = _MyPlanState;

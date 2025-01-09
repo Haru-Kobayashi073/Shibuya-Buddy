@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
+import '../components/loading_overlay.dart';
 import 'components/nondata.dart';
 import 'components/plan_list.dart';
 import 'my_plan_notifier.dart';
@@ -12,8 +13,7 @@ class CreatedPlanTabView extends ConsumerWidget {
   const CreatedPlanTabView({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(myPlanNotifierProvider.notifier);
-    final asyncState = ref.watch(myPlanNotifierProvider);
+    final asyncState = ref.watch(myPlanPageNotifierProvider);
     final i18n = Translations.of(context);
     final createItemi18n = i18n.myPlanPage.createdPlansItems;
 
@@ -29,9 +29,7 @@ class CreatedPlanTabView extends ConsumerWidget {
                 },
               )
             : RefreshIndicator(
-                onRefresh: () async {
-                  await notifier.refreshBookmarkData();
-                },
+                onRefresh: () async {},
                 child: ListView(
                   children: [
                     Padding(
@@ -42,15 +40,11 @@ class CreatedPlanTabView extends ConsumerWidget {
                 ),
               );
       },
+      loading: Loading.new,
       error: (error, stack) {
         return ErrorPage(
-          onRetry: () async {
-            await notifier.refreshBookmarkData();
-          },
+          onRetry: () async {},
         );
-      },
-      loading: () {
-        return const Center(child: CircularProgressIndicator());
       },
     );
   }
