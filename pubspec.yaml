@@ -50,6 +50,7 @@ dependencies:
   go_router: ^14.3.0
   google_fonts: ^6.2.1
   google_generative_ai: ^0.4.6
+  google_maps_flutter: ^2.10.0
   google_sign_in: ^6.2.2
   hooks_riverpod: ^2.5.4
   image_picker: ^1.1.2
@@ -104,9 +105,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-      - assets/icons/
-      - assets/images/
-      - assets/lottie/
+    - assets/icons/
+    - assets/images/
+    - assets/lottie/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
