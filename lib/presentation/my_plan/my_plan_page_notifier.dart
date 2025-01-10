@@ -7,9 +7,9 @@ import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as custom;
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
-import 'my_plan_state.dart';
+import 'my_plan_page_state.dart';
 
-part 'my_plan_notifier.g.dart';
+part 'my_plan_page_notifier.g.dart';
 
 @riverpod
 class MyPlanPageNotifier extends _$MyPlanPageNotifier {

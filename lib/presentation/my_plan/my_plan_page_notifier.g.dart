@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_plan_notifier.dart';
+part of 'my_plan_page_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
