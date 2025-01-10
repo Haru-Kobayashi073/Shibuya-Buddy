@@ -4,8 +4,8 @@ import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
 
-class Nondata extends StatelessWidget {
-  const Nondata({
+class EmptyDataView extends StatelessWidget {
+  const EmptyDataView({
     super.key,
     required this.message,
     required this.labelText,
