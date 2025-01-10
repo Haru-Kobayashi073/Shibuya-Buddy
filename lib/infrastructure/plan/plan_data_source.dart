@@ -82,11 +82,8 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       final topic = await topicsorce.getTopicData(topicId: topicId.toString());
       topics.add(Topic(name: topic.name, thumbnailUrl: ''));
     }
-    return Plan(
-      id: planId,
-      title: data['title'].toString(),
-      description: data['description'].toString(),
-      thumbnailUrl: data['thumbnailUrl'].toString(),
+    final res = Plan.fromJson(data);
+    return res.copyWith(
       topics: topics,
     );
   }
