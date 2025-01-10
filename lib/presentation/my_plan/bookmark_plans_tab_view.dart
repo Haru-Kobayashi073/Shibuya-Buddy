@@ -33,13 +33,9 @@ class BookmarkPlansTabView extends ConsumerWidget {
                 onRefresh: () async {
                   await notifier.buildBookmarkPlans();
                 },
-                child: ListView(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: BookmarkPlanList(plans: plans),
-                    ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: BookmarkPlanList(plans: plans),
                 ),
               );
       },
