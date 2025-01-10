@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../domain/entities/plan.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../home/components/recent_plan.dart';
-import '../my_plan_notifier.dart';
+import '../my_plan_page_notifier.dart';
 
 class BookmarkPlanList extends ConsumerWidget {
   const BookmarkPlanList({
