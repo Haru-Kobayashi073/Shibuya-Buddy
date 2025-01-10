@@ -5,8 +5,8 @@ import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../components/loading_overlay.dart';
 import 'components/bookmark_plan_list.dart';
-import 'components/nondata.dart';
-import 'my_plan_notifier.dart';
+import 'components/empty_data.dart';
+import 'my_plan_page_notifier.dart';
 
 class BookmarkPlansTabView extends ConsumerWidget {
   const BookmarkPlansTabView({super.key});
@@ -22,7 +22,7 @@ class BookmarkPlansTabView extends ConsumerWidget {
       data: (state) {
         final plans = state.bookmarkPlanList;
         return plans.isEmpty
-            ? Nondata(
+            ? EmptyDataView(
                 message: bookmarkItemi18n.nondata,
                 labelText: bookmarkItemi18n.reloading,
                 onPressed: () async {

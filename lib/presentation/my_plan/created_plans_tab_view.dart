@@ -5,9 +5,9 @@ import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
-import 'components/nondata.dart';
+import 'components/empty_data.dart';
 import 'components/plan_list.dart';
-import 'my_plan_notifier.dart';
+import 'my_plan_page_notifier.dart';
 
 class CreatedPlanTabView extends ConsumerWidget {
   const CreatedPlanTabView({super.key});
@@ -21,7 +21,7 @@ class CreatedPlanTabView extends ConsumerWidget {
       data: (state) {
         final plans = state.createPlanList;
         return plans.isEmpty
-            ? Nondata(
+            ? EmptyDataView(
                 message: createItemi18n.nondata,
                 labelText: createItemi18n.createaplan,
                 onPressed: () async {
@@ -30,13 +30,9 @@ class CreatedPlanTabView extends ConsumerWidget {
               )
             : RefreshIndicator(
                 onRefresh: () async {},
-                child: ListView(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: PlanList(plans: plans),
-                    ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: PlanList(plans: plans),
                 ),
               );
       },
