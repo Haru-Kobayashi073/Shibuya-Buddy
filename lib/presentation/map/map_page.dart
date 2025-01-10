@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import 'components/day_tab_bar.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -21,36 +22,10 @@ class MapPage extends StatelessWidget {
             ),
           ),
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(48),
-            child: ColoredBox(
-              color: AppColor.white,
-              child: TabBar(
-                tabs: const [
-                  Tab(
-                    text: '参考プラン',
-                  ),
-                  Tab(text: 'マップ'),
-                ],
-                labelStyle: AppTextStyle.textStyle
-                    .copyWith(fontWeight: FontWeight.bold),
-                unselectedLabelStyle: AppTextStyle.textStyle.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.grey800,
-                ),
-                indicator: const UnderlineTabIndicator(
-                  borderSide: BorderSide(color: AppColor.black, width: 2),
-                ),
-                indicatorColor: AppColor.black,
-                indicatorSize: TabBarIndicatorSize.tab,
-              ),
-            ),
+            preferredSize:
+                Size.fromHeight(MediaQuery.of(context).size.height * 0.13),
+            child: const DayTabBar(),
           ),
-        ),
-        body: const TabBarView(
-          children: [
-            Center(child: Text('タブ1')),
-            Center(child: Text('タブ2')),
-          ],
         ),
       ),
     );
