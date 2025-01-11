@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
@@ -79,8 +82,30 @@ class MyPage extends ConsumerWidget {
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutThisApp,
-                          onTap: () async =>
-                              const AboutAppPageRouteData().push<void>(context),
+                          onTap: () async {
+                            final packageInfo =
+                                await PackageInfo.fromPlatform();
+                            if (context.mounted) {
+                              unawaited(
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Theme(
+                                      data: Theme.of(context).copyWith(
+                                        cardColor: Colors.white,
+                                      ),
+                                      child: LicensePage(
+                                        applicationName: packageInfo.appName,
+                                        applicationVersion:
+                                            '${packageInfo.version}'
+                                            '+${packageInfo.buildNumber}',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                          },
                         ),
                         ListTileWithIcon(
                           title: myPageItemi18n.aboutTheDeveloper,
