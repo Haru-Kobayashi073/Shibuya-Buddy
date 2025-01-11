@@ -50,7 +50,7 @@ class BookmarkPlanList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
+    return ListView(
       children: _buildPlanItems(context, ref),
     );
   }
