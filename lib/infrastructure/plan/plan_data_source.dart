@@ -82,10 +82,12 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       final topic = await topicsorce.getTopicData(topicId: topicId.toString());
       topics.add(Topic(name: topic.name, thumbnailUrl: ''));
     }
-    final res = Plan.fromJson(data);
-    return res.copyWith(
-      topics: topics,
-    );
+    final topicMaps = topics.map((topic) => topic.toJson()).toList();
+    final processedData = Map<String, dynamic>.from(data);
+    processedData['topics'] = topicMaps;
+
+    final res = Plan.fromJson(processedData);
+    return res.copyWith(id: planId);
   }
 
   Future<void> deleteBookmarkData({
