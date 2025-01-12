@@ -143,7 +143,7 @@ class PlanDetailPage extends ConsumerWidget {
         );
       },
       error: (_, __) => ErrorPage(
-        onRetry: () => ref.invalidate(planDetailPageNotifierProvider),
+        onRetry: () => ref.invalidate(planDetailPageNotifierProvider(plan)),
       ),
       loading: Loading.new,
     );
