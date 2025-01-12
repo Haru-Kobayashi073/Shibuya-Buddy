@@ -28,16 +28,13 @@ class HomePageNotifier extends _$HomePageNotifier {
   }
 
   Future<List<Plan>> getRecentPlans() async {
-    var recentPlans = <Plan>[];
     try {
-      final res = await planDataSource.getRecentPlansMadeByPersonal(
+      return await planDataSource.getRecentPlansMadeByPersonal(
         userId: currentUser.uid,
       );
-      recentPlans = res;
     } on Exception catch (e) {
       debugPrint(e.toString());
+      return <Plan>[];
     }
-
-    return recentPlans;
   }
 }
