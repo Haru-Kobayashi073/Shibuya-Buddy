@@ -25,8 +25,6 @@ class TopicDataSource extends _$TopicDataSource implements TopicRepository {
     if (topicData == null) {
       return const Topic(name: '', thumbnailUrl: 'thumbnailUrl');
     }
-    final ranking = int.tryParse(topicData['ranking'].toString()) ?? 0;
-    final ref = Topic.fromJson(topicData);
-    return ref.copyWith(ranking: ranking);
+    return Topic.fromJson(topicData);
   }
 }

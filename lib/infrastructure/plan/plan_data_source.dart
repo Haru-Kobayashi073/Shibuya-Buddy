@@ -48,10 +48,7 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   }
 
   Future<List<String>> getBookmarkedPlanIds() async {
-    final userData = fireauth.currentUser;
-    if (userData == null) {
-      return [];
-    }
+    final userData = fireauth.currentUser!;
     final snapshot =
         await firestore.collection('users').doc(userData.uid).get();
     if (!snapshot.exists ||
@@ -59,7 +56,7 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       return [];
     }
     final bookmarkedPlanIds = snapshot.data()!['bookmarkedPlanIds'];
-    if (bookmarkedPlanIds == null || bookmarkedPlanIds is! List<dynamic>) {
+    if (bookmarkedPlanIds is! List<dynamic>) {
       return [];
     }
     return List<String>.from(bookmarkedPlanIds);
@@ -69,25 +66,16 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
     final topics = <Topic>[];
     final snapshot =
         await firestore.collection('PopularPlans').doc(planId).get();
-    final data = snapshot.data();
-    if (data == null) {
-      return const Plan(
-        title: '',
-        description: '',
-        thumbnailUrl: '',
-        topics: [],
-      );
-    }
+    final data = snapshot.data()!;
     for (final topicId in data['topics'] as List) {
       final topic = await topicsorce.getTopicData(topicId: topicId.toString());
-      topics.add(Topic(name: topic.name, thumbnailUrl: ''));
+      topics.add(topic);
     }
-    final topicMaps = topics.map((topic) => topic.toJson()).toList();
-    final processedData = Map<String, dynamic>.from(data);
-    processedData['topics'] = topicMaps;
-
-    final res = Plan.fromJson(processedData);
-    return res.copyWith(id: planId);
+    final res = Plan.fromJson(data);
+    return res.copyWith(
+      id: planId,
+      topics: topics,
+    );
   }
 
   Future<void> deleteBookmarkData({
