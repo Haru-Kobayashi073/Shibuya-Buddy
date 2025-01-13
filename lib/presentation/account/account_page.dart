@@ -9,6 +9,7 @@ import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../components/confirm_dialog.dart';
 import '../components/wide_button.dart';
 import 'account_page_notifier.dart';
 
@@ -49,28 +50,17 @@ class AccountPage extends ConsumerWidget {
                 icon: SvgPicture.asset(Assets.icons.appleIcon),
                 onPressed: () async {
                   if (accountLinkage.appleLinkage) {
-                    //仮ダイアログ
                     await showDialog<void>(
                       context: context,
                       builder: (context) {
-                        return AlertDialog(
-                          title: Text(diaLogi18n.title),
-                          content: Text(diaLogi18n.appleText),
-                          actions: [
-                            TextButton(
-                              child: Text(diaLogi18n.no),
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                            TextButton(
-                              child: Text(diaLogi18n.yes),
-                              onPressed: () async {
-                                Navigator.pop(context);
-                                await notifier.unlinkSocialAccount(
-                                  SocialAuthDomain.apple,
-                                );
-                              },
-                            ),
-                          ],
+                        return ConfirmDialog(
+                          onConfirm: () async {
+                            await notifier.unlinkSocialAccount(
+                              SocialAuthDomain.apple,
+                            );
+                          },
+                          titleText: diaLogi18n.title,
+                          bodyText: diaLogi18n.appleText,
                         );
                       },
                     );
@@ -91,28 +81,17 @@ class AccountPage extends ConsumerWidget {
                 icon: SvgPicture.asset(Assets.icons.googleIcon),
                 onPressed: () async {
                   if (accountLinkage.googleLinkage) {
-                    //仮ダイアログ
                     await showDialog<void>(
                       context: context,
                       builder: (context) {
-                        return AlertDialog(
-                          title: Text(diaLogi18n.title),
-                          content: Text(diaLogi18n.googleText),
-                          actions: [
-                            TextButton(
-                              child: Text(diaLogi18n.no),
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                            TextButton(
-                              child: Text(diaLogi18n.yes),
-                              onPressed: () async {
-                                Navigator.pop(context);
-                                await notifier.unlinkSocialAccount(
-                                  SocialAuthDomain.google,
-                                );
-                              },
-                            ),
-                          ],
+                        return ConfirmDialog(
+                          onConfirm: () async {
+                            await notifier.unlinkSocialAccount(
+                              SocialAuthDomain.google,
+                            );
+                          },
+                          titleText: diaLogi18n.title,
+                          bodyText: diaLogi18n.googleText,
                         );
                       },
                     );

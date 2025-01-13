@@ -1,5 +1,8 @@
-// ignore: one_member_abstracts After creating the PlanRepository, we need to implement it in the data layer.
+import '../entities/topic.dart';
+
 abstract interface class TopicRepository {
+  Future<List<Topic>> getTopics();
+  Future<List<Topic>> getPopularTopics();
   Future<void> getTopicData({
     required String topicId,
   });

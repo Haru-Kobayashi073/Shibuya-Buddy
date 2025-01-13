@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../domain/entities/plan.dart';
 import '../home/components/recent_plan.dart';
 
@@ -16,9 +17,7 @@ class PlanList extends StatelessWidget {
           (plan) => Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: RecentPlan(
-              title: plan.title,
-              imageUrl: plan.thumbnailUrl,
-              tags: plan.topics.map((e) => e.name).toList(),
+              plan: plan,
             ),
           ),
         )

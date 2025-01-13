@@ -45,9 +45,7 @@ class BookmarkPlansTabView extends ConsumerWidget {
                               SizedBox(
                                 width: width * 0.8,
                                 child: RecentPlan(
-                                  title: plan.title,
-                                  imageUrl: plan.thumbnailUrl,
-                                  tags: plan.topics.map((e) => e.name).toList(),
+                                  plan: plan,
                                 ),
                               ),
                               const Spacer(),

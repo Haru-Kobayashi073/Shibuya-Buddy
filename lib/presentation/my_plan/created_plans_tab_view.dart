@@ -38,9 +38,7 @@ class CreatedPlanTabView extends ConsumerWidget {
                           (plan) => Padding(
                             padding: const EdgeInsets.only(bottom: 8),
                             child: RecentPlan(
-                              title: plan.title,
-                              imageUrl: plan.thumbnailUrl,
-                              tags: plan.topics.map((e) => e.name).toList(),
+                              plan: plan,
                             ),
                           ),
                         )
