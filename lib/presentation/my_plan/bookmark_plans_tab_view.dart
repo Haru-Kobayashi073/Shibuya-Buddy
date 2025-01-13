@@ -3,8 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/styles/app_color.dart';
 import '../components/loading_overlay.dart';
-import 'components/bookmark_plan_list.dart';
+import '../home/components/recent_plan.dart';
 import 'components/empty_data.dart';
 import 'my_plan_page_notifier.dart';
 
@@ -17,6 +18,7 @@ class BookmarkPlansTabView extends ConsumerWidget {
     final notifier = ref.watch(myPlanPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
     final bookmarkItemi18n = i18n.myPlanPage.bookmarkItems;
+    final width = MediaQuery.of(context).size.width;
 
     return asyncState.when(
       data: (state) {
@@ -35,7 +37,34 @@ class BookmarkPlansTabView extends ConsumerWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: BookmarkPlanList(plans: plans),
+                  child: ListView(
+                    children: plans
+                        .map(
+                          (plan) => Row(
+                            children: [
+                              SizedBox(
+                                width: width * 0.8,
+                                child: RecentPlan(
+                                  title: plan.title,
+                                  imageUrl: plan.thumbnailUrl,
+                                  tags: plan.topics.map((e) => e.name).toList(),
+                                ),
+                              ),
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () async {
+                                  await notifier.unBookmark(planId: plan.id);
+                                },
+                                icon: const Icon(
+                                  Icons.bookmark,
+                                  color: AppColor.yellow600Primary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
               );
       },

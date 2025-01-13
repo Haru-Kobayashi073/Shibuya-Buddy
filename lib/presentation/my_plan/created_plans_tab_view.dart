@@ -5,8 +5,8 @@ import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
+import '../home/components/recent_plan.dart';
 import 'components/empty_data.dart';
-import 'components/plan_list.dart';
 import 'my_plan_page_notifier.dart';
 
 class CreatedPlanTabView extends ConsumerWidget {
@@ -32,7 +32,20 @@ class CreatedPlanTabView extends ConsumerWidget {
                 onRefresh: () async {},
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: PlanList(plans: plans),
+                  child: Column(
+                    children: plans
+                        .map(
+                          (plan) => Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: RecentPlan(
+                              title: plan.title,
+                              imageUrl: plan.thumbnailUrl,
+                              tags: plan.topics.map((e) => e.name).toList(),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
               );
       },
