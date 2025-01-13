@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../domain/entities/plan.dart';
-import 'recent_plan.dart';
+import '../../domain/entities/plan.dart';
+import '../home/components/recent_plan.dart';
 
 class PlanList extends StatelessWidget {
   const PlanList({
