@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../i18n/strings.g.dart';
 import '../../my_plan/mock.dart';
-import 'plan_list.dart';
+import '../../components/plan_list.dart';
 import 'section_title.dart';
 
 class RecentPlansSection extends StatelessWidget {
