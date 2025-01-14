@@ -6,6 +6,7 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
+import '../my_plan/my_plan_page_notifier.dart';
 import 'plan_detail_page_state.dart';
 
 part 'plan_detail_page_notifier.g.dart';
@@ -64,6 +65,8 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
           state.requireValue.copyWith(plan: updatedPlan),
         );
       }
+      // あまりしたくはないが、MyPlanPageNotifierの状態を更新するためにinvalidateする
+      ref.invalidate(myPlanPageNotifierProvider);
     } on Exception catch (_) {
       scaffoldMessenger.showExceptionSnackBar(
         t.planDetailsPage.snackBar.error.failedToUpdateBookmark,
