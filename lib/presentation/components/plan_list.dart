@@ -11,23 +11,19 @@ class PlanList extends StatelessWidget {
 
   final List<Plan> plans;
 
-  List<Widget> _buildPlanItems() {
-    return plans
-        .map(
-          (plan) => Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: RecentPlan(
-              plan: plan,
-            ),
-          ),
-        )
-        .toList();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: _buildPlanItems(),
+      children: plans
+          .map(
+            (plan) => Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: RecentPlan(
+                plan: plan,
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }
