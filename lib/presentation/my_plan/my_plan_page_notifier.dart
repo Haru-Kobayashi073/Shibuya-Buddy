@@ -38,28 +38,28 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
       }
       state = AsyncValue.data(MyPlanPageState(bookmarkPlanList: plans));
       return plans;
-    } on FirebaseException catch (e) {
-      scaffoldMessenger
-          .showExceptionSnackBar('${snacki18n.failedGetPlanData}:$e');
-      state = const AsyncValue.data(MyPlanPageState());
+    } on FirebaseException catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(snacki18n.failedGetPlanData);
       return [];
-    } on Exception catch (e) {
-      scaffoldMessenger.showExceptionSnackBar('${snacki18n.displayError}:$e');
-      state = const AsyncValue.data(MyPlanPageState());
+    } on Exception catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(snacki18n.displayError);
       return [];
     }
   }
 
-  Future<void> unBookmark({
-    required Plan plan,
-  }) async {
-    final i18n = t.myPlanPage;
-    final snack = i18n.error.failedUnBookmark;
+  Future<void> unBookmark({required Plan plan}) async {
     try {
       await planDataSource.unbookmarkPlan(plan: plan);
-      await buildBookmarkPlans();
-    } on FirebaseException catch (e) {
-      scaffoldMessenger.showExceptionSnackBar('$snack:$e');
+      state = AsyncValue.data(
+        state.requireValue.copyWith(
+          bookmarkPlanList: state.requireValue.bookmarkPlanList
+              .where((element) => element.id != plan.id)
+              .toList(),
+        ),
+      );
+    } on FirebaseException catch (_) {
+      scaffoldMessenger
+          .showExceptionSnackBar(t.myPlanPage.error.failedUnBookmark);
     }
   }
 }
