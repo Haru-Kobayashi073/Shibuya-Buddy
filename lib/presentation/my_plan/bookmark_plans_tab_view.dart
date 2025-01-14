@@ -31,25 +31,28 @@ class BookmarkPlansTabView extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: plans
                     .map(
-                      (plan) => Row(
-                        children: [
-                          SizedBox(
-                            width: width * 0.8,
-                            child: RecentPlan(
-                              plan: plan,
+                      (plan) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: width * 0.8,
+                              child: RecentPlan(
+                                plan: plan,
+                              ),
                             ),
-                          ),
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () async {
-                              await notifier.unBookmark(plan: plan);
-                            },
-                            icon: const Icon(
-                              Icons.bookmark,
-                              color: AppColor.yellow600Primary,
+                            const Spacer(),
+                            IconButton(
+                              onPressed: () async {
+                                await notifier.unBookmark(plan: plan);
+                              },
+                              icon: const Icon(
+                                Icons.bookmark,
+                                color: AppColor.yellow600Primary,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     )
                     .toList(),
