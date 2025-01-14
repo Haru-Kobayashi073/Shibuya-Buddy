@@ -37,7 +37,8 @@ class BookmarkPlansTabView extends ConsumerWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: ListView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: plans
                         .map(
                           (plan) => Row(
@@ -67,13 +68,9 @@ class BookmarkPlansTabView extends ConsumerWidget {
               );
       },
       loading: Loading.new,
-      error: (error, stack) {
-        return ErrorPage(
-          onRetry: () async {
-            await notifier.buildBookmarkPlans();
-          },
-        );
-      },
+      error: (_, __) => ErrorPage(
+        onRetry: () async => notifier.buildBookmarkPlans(),
+      ),
     );
   }
 }

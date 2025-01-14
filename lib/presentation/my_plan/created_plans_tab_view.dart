@@ -33,6 +33,7 @@ class CreatedPlanTabView extends ConsumerWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: plans
                         .map(
                           (plan) => Padding(
@@ -48,11 +49,7 @@ class CreatedPlanTabView extends ConsumerWidget {
               );
       },
       loading: Loading.new,
-      error: (error, stack) {
-        return ErrorPage(
-          onRetry: () async {},
-        );
-      },
+      error: (_, __) => ErrorPage(onRetry: () async {}),
     );
   }
 }
