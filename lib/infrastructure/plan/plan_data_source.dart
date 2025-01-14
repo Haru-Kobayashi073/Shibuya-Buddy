@@ -5,7 +5,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
-import '../../domain/entities/topic.dart';
 import '../../domain/repositories/plan_repository.dart';
 import '../firebase/cloud_firestore_provider.dart';
 import '../firebase/firebase_auth_provider.dart';
@@ -76,6 +75,7 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
     return snapshot.docs.map((doc) => Plan.fromJson(doc.data())).toList();
   }
 
+  @override
   Future<List<String>> getBookmarkedPlanIds() async {
     final userData = fireauth.currentUser!;
     final snapshot =
@@ -87,22 +87,17 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
     return List<String>.from(bookmarkedPlanIds);
   }
 
+  @override
   Future<Plan> getPlanData({required String planId}) async {
-    final topics = <Topic>[];
-    final snapshot =
-        await firestore.collection('PopularPlans').doc(planId).get();
+    final snapshot = await firestore.collection('plans').doc(planId).get();
     final data = snapshot.data()!;
-    for (final topicId in data['topics'] as List) {
-      final topic = await topicsorce.getTopicData(topicId: topicId.toString());
-      topics.add(topic);
-    }
     final res = Plan.fromJson(data);
     return res.copyWith(
       id: planId,
-      topics: topics,
     );
   }
 
+  @override
   Future<void> deleteBookmarkData({
     required String planId,
   }) async {
