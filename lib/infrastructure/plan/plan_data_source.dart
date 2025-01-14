@@ -1,20 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/user.dart';
 import '../../domain/repositories/plan_repository.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import '../firebase/cloud_firestore_provider.dart';
-import '../firebase/firebase_auth_provider.dart';
 
 part 'plan_data_source.g.dart';
 
 @riverpod
 class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   FirebaseFirestore get firestore => ref.read(cloudFirestoreProvider);
-  User get currentUser => ref.watch(firebaseAuthProvider).currentUser!;
+  User get currentUser => ref.watch(currentUserProvider);
 
   @override
   void build() {
@@ -96,11 +96,7 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   @override
   Future<Plan> getPlanData({required String planId}) async {
     final snapshot = await firestore.collection('plans').doc(planId).get();
-    final data = snapshot.data()!;
-    final res = Plan.fromJson(data);
-    return res.copyWith(
-      id: planId,
-    );
+    return Plan.fromJson(snapshot.data()!);
   }
 
   @override
