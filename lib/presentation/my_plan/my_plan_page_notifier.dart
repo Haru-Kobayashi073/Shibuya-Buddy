@@ -21,9 +21,11 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
   @override
   Future<MyPlanPageState> build() async {
     final bookmarkPlans = await buildBookmarkPlans();
+    final createdPlans = await getCreatedPlans();
+
     return MyPlanPageState(
       bookmarkPlanList: bookmarkPlans,
-      createPlanList: [],
+      createPlanList: createdPlans,
     );
   }
 
@@ -43,6 +45,16 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
       return [];
     } on Exception catch (_) {
       scaffoldMessenger.showExceptionSnackBar(snacki18n.displayError);
+      return [];
+    }
+  }
+
+  Future<List<Plan>> getCreatedPlans() async {
+    try {
+      final plans = await planDataSource.getPlansMadeByPersonal();
+      return plans;
+    } on Exception catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(t.myPlanPage.error.displayError);
       return [];
     }
   }
