@@ -309,6 +309,7 @@ class _TranslationsPlanDetailsPageZhHant implements TranslationsPlanDetailsPageE
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeZhHant dateTime = _TranslationsPlanDetailsPageDateTimeZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageItemZhHant item = _TranslationsPlanDetailsPageItemZhHant._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarZhHant snackBar = _TranslationsPlanDetailsPageSnackBarZhHant._(_root);
 }
 
 // Path: errorPage
@@ -796,6 +797,16 @@ class _TranslationsPlanDetailsPageItemZhHant implements TranslationsPlanDetailsP
 	@override String get viewOnMap => '在地圖上查看';
 }
 
+// Path: planDetailsPage.snackBar
+class _TranslationsPlanDetailsPageSnackBarZhHant implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHant error = _TranslationsPlanDetailsPageSnackBarErrorZhHant._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHant._(this._root);
@@ -1077,6 +1088,16 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements Transl
 	@override String get duration => '終身';
 	@override String get discount => '';
 	@override String get price => '25,800日圓';
+}
+
+// Path: planDetailsPage.snackBar.error
+class _TranslationsPlanDetailsPageSnackBarErrorZhHant implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToUpdateBookmark => '更新書籤失敗，請稍後再試';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1366,6 +1387,7 @@ extension on TranslationsZhHant {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後再試';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

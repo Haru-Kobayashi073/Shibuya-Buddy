@@ -309,6 +309,7 @@ class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
 	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarJa snackBar = _TranslationsPlanDetailsPageSnackBarJa._(_root);
 }
 
 // Path: errorPage
@@ -796,6 +797,16 @@ class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageI
 	@override String get viewOnMap => '地図で見る';
 }
 
+// Path: planDetailsPage.snackBar
+class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsJa implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsJa._(this._root);
@@ -1077,6 +1088,16 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements Translatio
 	@override String get duration => '永年分';
 	@override String get discount => '';
 	@override String get price => '25,800円';
+}
+
+// Path: planDetailsPage.snackBar.error
+class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToUpdateBookmark => 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1366,6 +1387,7 @@ extension on TranslationsJa {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

@@ -337,7 +337,7 @@
                     "lifetime": "Lifetime",
                     "lifetimePrice": "25,800 yen"
                 }
-            }   
+            }
         },
         "features": {
             "title": "Features by Grade",
@@ -390,13 +390,18 @@
         },
         "upgradeButton": "Upgrade to Premium"
     },
-    "planDetailsPage":{
+    "planDetailsPage": {
         "dateTime": {
             "createOn": "Plan created on${date}",
             "dateFormat": "MM/dd/yyyy"
         },
-        "item":{
+        "item": {
             "viewOnMap": "View on Map"
+        },
+        "snackBar": {
+            "error": {
+                "failedToUpdateBookmark": "Failed to update the bookmark. Please try again later."
+            }
         }
     },
     "locales(map)": {

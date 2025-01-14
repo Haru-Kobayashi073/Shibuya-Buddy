@@ -309,6 +309,7 @@ class _TranslationsPlanDetailsPageZhHans implements TranslationsPlanDetailsPageE
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeZhHans dateTime = _TranslationsPlanDetailsPageDateTimeZhHans._(_root);
 	@override late final _TranslationsPlanDetailsPageItemZhHans item = _TranslationsPlanDetailsPageItemZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarZhHans snackBar = _TranslationsPlanDetailsPageSnackBarZhHans._(_root);
 }
 
 // Path: errorPage
@@ -796,6 +797,16 @@ class _TranslationsPlanDetailsPageItemZhHans implements TranslationsPlanDetailsP
 	@override String get viewOnMap => '在地图上查看';
 }
 
+// Path: planDetailsPage.snackBar
+class _TranslationsPlanDetailsPageSnackBarZhHans implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHans error = _TranslationsPlanDetailsPageSnackBarErrorZhHans._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHans implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHans._(this._root);
@@ -1077,6 +1088,16 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans implements Transl
 	@override String get duration => '终身';
 	@override String get discount => '';
 	@override String get price => '25,800日元';
+}
+
+// Path: planDetailsPage.snackBar.error
+class _TranslationsPlanDetailsPageSnackBarErrorZhHans implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToUpdateBookmark => '更新书签失败，请稍后再试';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1366,6 +1387,7 @@ extension on TranslationsZhHans {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新书签失败，请稍后再试';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

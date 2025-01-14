@@ -192,19 +192,19 @@
             "createdPlans": "作成したプラン",
             "bookmark": "ブックマーク"
         },
-        "bookmarkItems":{
-            "nondata":"ブックマークしているプランはありません。",
-            "reloading":"再読み込み"
+        "bookmarkItems": {
+            "nondata": "ブックマークしているプランはありません。",
+            "reloading": "再読み込み"
         },
-        "createdPlansItems":{
-            "nondata":"プランを作成してみよう!",
-            "createaplan":"プランを作成する"
+        "createdPlansItems": {
+            "nondata": "プランを作成してみよう!",
+            "createaplan": "プランを作成する"
         },
-        "error":{
-            "displayError":"プラン表示時に問題が発生しました。",
-            "failedGetId":"プランIDの取得に失敗しました。",
-            "failedGetPlanData":"プランデータ取得時に問題が発生しました。",
-            "failedUnBookmark":"ブックマーク解除時に問題が発生しました。"
+        "error": {
+            "displayError": "プラン表示時に問題が発生しました。",
+            "failedGetId": "プランIDの取得に失敗しました。",
+            "failedGetPlanData": "プランデータ取得時に問題が発生しました。",
+            "failedUnBookmark": "ブックマーク解除時に問題が発生しました。"
         }
     },
     "buddyChatPage": {
@@ -336,9 +336,8 @@
                     "or": "または",
                     "lifetime": "永年分",
                     "lifetimePrice": "25,800円"
-
                 }
-            }   
+            }
         },
         "features": {
             "title": "グレードごとの機能",
@@ -391,13 +390,18 @@
         },
         "upgradeButton": "プレミアムにアップグレード"
     },
-    "planDetailsPage":{
+    "planDetailsPage": {
         "dateTime": {
             "createOn": "${date}に作られたプラン",
             "dateFormat": "yyyy年MM月dd日"
         },
-        "item":{
+        "item": {
             "viewOnMap": "地図で見る"
+        },
+        "snackBar": {
+            "error": {
+                "failedToUpdateBookmark": "ブックマークの更新に失敗しました しばらくしてから再度お試しください"
+            }
         }
     },
     "locales(map)": {

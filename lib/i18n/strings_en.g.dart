@@ -313,6 +313,7 @@ class TranslationsPlanDetailsPageEn {
 	// Translations
 	late final TranslationsPlanDetailsPageDateTimeEn dateTime = TranslationsPlanDetailsPageDateTimeEn._(_root);
 	late final TranslationsPlanDetailsPageItemEn item = TranslationsPlanDetailsPageItemEn._(_root);
+	late final TranslationsPlanDetailsPageSnackBarEn snackBar = TranslationsPlanDetailsPageSnackBarEn._(_root);
 }
 
 // Path: errorPage
@@ -800,6 +801,16 @@ class TranslationsPlanDetailsPageItemEn {
 	String get viewOnMap => 'View on Map';
 }
 
+// Path: planDetailsPage.snackBar
+class TranslationsPlanDetailsPageSnackBarEn {
+	TranslationsPlanDetailsPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
+}
+
 // Path: authentication.signInPage.textFields
 class TranslationsAuthenticationSignInPageTextFieldsEn {
 	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
@@ -1081,6 +1092,16 @@ class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
 	String get duration => 'Lifetime';
 	String get discount => '';
 	String get price => '25,800 yen';
+}
+
+// Path: planDetailsPage.snackBar.error
+class TranslationsPlanDetailsPageSnackBarErrorEn {
+	TranslationsPlanDetailsPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToUpdateBookmark => 'Failed to update the bookmark. Please try again later.';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1370,6 +1391,7 @@ extension on Translations {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

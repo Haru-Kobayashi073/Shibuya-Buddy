@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
+import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
@@ -56,7 +57,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       }
     } on Exception catch (_) {
       scaffoldMessenger.showExceptionSnackBar(
-        'Failed to bookmark the plan. Please try again later.',
+        t.planDetailsPage.snackBar.error.failedToUpdateBookmark,
       );
     }
   }
