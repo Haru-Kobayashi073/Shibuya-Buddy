@@ -9,8 +9,8 @@ abstract interface class PlanRepository {
     required PlanPrompt planPrompt,
   });
 
-  Future<List<Plan>> getPlansMadeByPersonal({required String userId});
-  Future<List<Plan>> getRecentPlansMadeByPersonal({required String userId});
+  Future<List<Plan>> getPlansMadeByPersonal();
+  Future<List<Plan>> getRecentPlansMadeByPersonal();
 
   Future<List<Plan>> getPopularPlans();
   Future<void> bookmarkPlan({required Plan plan});

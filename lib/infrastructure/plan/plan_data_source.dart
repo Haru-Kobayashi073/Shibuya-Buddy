@@ -46,21 +46,19 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   }
 
   @override
-  Future<List<Plan>> getPlansMadeByPersonal({required String userId}) async {
+  Future<List<Plan>> getPlansMadeByPersonal() async {
     final snapshot = await firestore
         .collection('plans')
-        .where('author_id', isEqualTo: userId)
+        .where('author_id', isEqualTo: currentUser.uid)
         .get();
     return snapshot.docs.map((doc) => Plan.fromJson(doc.data())).toList();
   }
 
   @override
-  Future<List<Plan>> getRecentPlansMadeByPersonal({
-    required String userId,
-  }) async {
+  Future<List<Plan>> getRecentPlansMadeByPersonal() async {
     final snapshot = await firestore
         .collection('plans')
-        .where('author_id', isEqualTo: userId)
+        .where('author_id', isEqualTo: currentUser.uid)
         .orderBy('created_at', descending: true)
         .limit(5)
         .get();
