@@ -283,10 +283,19 @@ class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 
   // Translations
   @override
-  String get title => '我的計劃';
+  String get title => '我的方案';
   @override
   late final _TranslationsMyPlanPageTabsZhHant tabs =
       _TranslationsMyPlanPageTabsZhHant._(_root);
+  @override
+  late final _TranslationsMyPlanPageBookmarkItemsZhHant bookmarkItems =
+      _TranslationsMyPlanPageBookmarkItemsZhHant._(_root);
+  @override
+  late final _TranslationsMyPlanPageCreatedPlansItemsZhHant createdPlansItems =
+      _TranslationsMyPlanPageCreatedPlansItemsZhHant._(_root);
+  @override
+  late final _TranslationsMyPlanPageErrorZhHant error =
+      _TranslationsMyPlanPageErrorZhHant._(_root);
 }
 
 // Path: buddyChatPage
@@ -815,9 +824,55 @@ class _TranslationsMyPlanPageTabsZhHant
 
   // Translations
   @override
-  String get createdPlans => '已創建的計劃';
+  String get createdPlans => '已建立方案';
   @override
   String get bookmark => '書籤';
+}
+
+// Path: myPlanPage.bookmarkItems
+class _TranslationsMyPlanPageBookmarkItemsZhHant
+    implements TranslationsMyPlanPageBookmarkItemsEn {
+  _TranslationsMyPlanPageBookmarkItemsZhHant._(this._root);
+
+  final TranslationsZhHant _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get nondata => '暫無收藏方案。';
+  @override
+  String get reloading => '重新載入';
+}
+
+// Path: myPlanPage.createdPlansItems
+class _TranslationsMyPlanPageCreatedPlansItemsZhHant
+    implements TranslationsMyPlanPageCreatedPlansItemsEn {
+  _TranslationsMyPlanPageCreatedPlansItemsZhHant._(this._root);
+
+  final TranslationsZhHant _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get nondata => '開始建立方案吧！';
+  @override
+  String get createaplan => '建立方案';
+}
+
+// Path: myPlanPage.error
+class _TranslationsMyPlanPageErrorZhHant
+    implements TranslationsMyPlanPageErrorEn {
+  _TranslationsMyPlanPageErrorZhHant._(this._root);
+
+  final TranslationsZhHant _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get displayError => '顯示方案時發生錯誤。';
+  @override
+  String get failedGetId => '取得方案ID失敗。';
+  @override
+  String get failedGetPlanData => '取得方案資料時發生錯誤。';
+  @override
+  String get failedUnBookmark => '取消收藏時發生錯誤。';
 }
 
 // Path: buddyChatPage.textFields
@@ -1800,11 +1855,27 @@ extension on TranslationsZhHant {
       case 'changeThemePage.items.dark':
         return '黑暗';
       case 'myPlanPage.title':
-        return '我的計劃';
+        return '我的方案';
       case 'myPlanPage.tabs.createdPlans':
-        return '已創建的計劃';
+        return '已建立方案';
       case 'myPlanPage.tabs.bookmark':
         return '書籤';
+      case 'myPlanPage.bookmarkItems.nondata':
+        return '暫無收藏方案。';
+      case 'myPlanPage.bookmarkItems.reloading':
+        return '重新載入';
+      case 'myPlanPage.createdPlansItems.nondata':
+        return '開始建立方案吧！';
+      case 'myPlanPage.createdPlansItems.createaplan':
+        return '建立方案';
+      case 'myPlanPage.error.displayError':
+        return '顯示方案時發生錯誤。';
+      case 'myPlanPage.error.failedGetId':
+        return '取得方案ID失敗。';
+      case 'myPlanPage.error.failedGetPlanData':
+        return '取得方案資料時發生錯誤。';
+      case 'myPlanPage.error.failedUnBookmark':
+        return '取消收藏時發生錯誤。';
       case 'buddyChatPage.title':
         return 'Buddy的建議';
       case 'buddyChatPage.possibleChatCount':

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../domain/entities/plan.dart';
 import '../../../i18n/strings.g.dart';
+import '../../my_plan/mock.dart';
 import 'recent_plan.dart';
 import 'section_title.dart';
 
@@ -12,6 +13,7 @@ class RecentPlansSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
+    createDummyPlan();
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),

@@ -191,6 +191,20 @@
         "tabs": {
             "createdPlans": "作成したプラン",
             "bookmark": "ブックマーク"
+        },
+        "bookmarkItems":{
+            "nondata":"ブックマークしているプランはありません。",
+            "reloading":"再読み込み"
+        },
+        "createdPlansItems":{
+            "nondata":"プランを作成してみよう!",
+            "createaplan":"プランを作成する"
+        },
+        "error":{
+            "displayError":"プラン表示時に問題が発生しました。",
+            "failedGetId":"プランIDの取得に失敗しました。",
+            "failedGetPlanData":"プランデータ取得時に問題が発生しました。",
+            "failedUnBookmark":"ブックマーク解除時に問題が発生しました。"
         }
     },
     "buddyChatPage": {
