@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../domain/entities/plan.dart';
 import '../../../i18n/strings.g.dart';
 import '../../my_plan/mock.dart';
-import '../../components/plan_list.dart';
 import 'recent_plan.dart';
 import 'section_title.dart';
 

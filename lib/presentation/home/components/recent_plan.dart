@@ -6,7 +6,6 @@ import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/presistent_cached_network_image.dart';
-import '../../components/row_category_tags.dart';
 import 'category_tags.dart';
 
 class RecentPlan extends StatelessWidget {
