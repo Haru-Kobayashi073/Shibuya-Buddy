@@ -40,8 +40,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
           isBookmarked: false,
           bookmarkCount: plan.bookmarkCount - 1,
         );
-        // ブックマーク解除の処理を追加
-
+        await planDataSource.unbookmarkPlan(plan: updatedPlan);
         state = AsyncValue.data(
           state.requireValue.copyWith(plan: updatedPlan),
         );
