@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
@@ -6,12 +7,15 @@ import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/repositories/plan_repository.dart';
 import '../firebase/cloud_firestore_provider.dart';
+import '../firebase/firebase_auth_provider.dart';
 
 part 'plan_data_source.g.dart';
 
 @riverpod
 class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   FirebaseFirestore get firestore => ref.read(cloudFirestoreProvider);
+  User get currentUser => ref.watch(firebaseAuthProvider).currentUser!;
+
   @override
   void build() {
     return;
@@ -68,5 +72,13 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
     final snapshot =
         await firestore.collection('popular_plans').limit(10).get();
     return snapshot.docs.map((doc) => Plan.fromJson(doc.data())).toList();
+  }
+
+  @override
+  Future<void> bookmarkPlan({required Plan plan}) async {
+    await firestore.collection('plans').doc(plan.id).set(plan.toJson());
+    await firestore.collection('users').doc(currentUser.uid).update({
+      'bookmarkedPlanIds': FieldValue.arrayUnion([plan.id]),
+    });
   }
 }
