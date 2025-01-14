@@ -20,7 +20,7 @@ class CreatedPlanTabView extends ConsumerWidget {
     final i18n = Translations.of(context);
     final createItemi18n = i18n.myPlanPage.createdPlansItems;
 
-    return plans.isEmpty
+    return plans.isNotEmpty
         ? RefreshIndicator(
             onRefresh: () async => ref.invalidate(myPlanPageNotifierProvider),
             child: Padding(
