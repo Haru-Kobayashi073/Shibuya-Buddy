@@ -15,7 +15,8 @@ part 'my_plan_page_notifier.g.dart';
 class MyPlanPageNotifier extends _$MyPlanPageNotifier {
   custom.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
-  PlanDataSource get plan => ref.read(planDataSourceProvider.notifier);
+  PlanDataSource get planDataSource =>
+      ref.read(planDataSourceProvider.notifier);
 
   @override
   Future<MyPlanPageState> build() async {
@@ -30,10 +31,10 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
     final i18n = t.myPlanPage;
     final snacki18n = i18n.error;
     final plans = <Plan>[];
-    final planIds = await plan.getBookmarkedPlanIds();
+    final planIds = await planDataSource.getBookmarkedPlanIds();
     try {
       for (final id in planIds) {
-        plans.add(await plan.getPlanData(planId: id));
+        plans.add(await planDataSource.getPlanData(planId: id));
       }
       state = AsyncValue.data(MyPlanPageState(bookmarkPlanList: plans));
       return plans;
@@ -50,14 +51,12 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
   }
 
   Future<void> unBookmark({
-    required String planId,
+    required Plan plan,
   }) async {
     final i18n = t.myPlanPage;
     final snack = i18n.error.failedUnBookmark;
     try {
-      await plan.deleteBookmarkData(
-        planId: planId,
-      );
+      await planDataSource.unbookmarkPlan(plan: plan);
       await buildBookmarkPlans();
     } on FirebaseException catch (e) {
       scaffoldMessenger.showExceptionSnackBar('$snack:$e');

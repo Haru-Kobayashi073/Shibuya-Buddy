@@ -51,7 +51,7 @@ class BookmarkPlansTabView extends ConsumerWidget {
                               const Spacer(),
                               IconButton(
                                 onPressed: () async {
-                                  await notifier.unBookmark(planId: plan.id);
+                                  await notifier.unBookmark(plan: plan);
                                 },
                                 icon: const Icon(
                                   Icons.bookmark,
