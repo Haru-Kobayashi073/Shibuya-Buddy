@@ -14,4 +14,9 @@ abstract interface class PlanRepository {
   Future<List<Plan>> getRecentPlansMadeByPersonal({required String userId});
 
   Future<List<Plan>> getPopularPlans();
+  Future<List<String>> getBookmarkedPlanIds();
+  Future<Plan> getPlanData({required String planId});
+  Future<void> deleteBookmarkData({
+    required String planId,
+  });
 }
