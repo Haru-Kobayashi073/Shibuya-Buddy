@@ -20,7 +20,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
 
   @override
   Future<MyPlanPageState> build() async {
-    final bookmarkPlans = await buildBookmarkPlans();
+    final bookmarkPlans = await getBookmarkPlans();
     final createdPlans = await getCreatedPlans();
 
     return MyPlanPageState(
@@ -29,7 +29,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
     );
   }
 
-  Future<List<Plan>> buildBookmarkPlans() async {
+  Future<List<Plan>> getBookmarkPlans() async {
     final i18n = t.myPlanPage;
     final snacki18n = i18n.error;
     final plans = <Plan>[];
@@ -38,7 +38,6 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
       for (final id in planIds) {
         plans.add(await planDataSource.getPlanData(planId: id));
       }
-      state = AsyncValue.data(MyPlanPageState(bookmarkPlanList: plans));
       return plans;
     } on FirebaseException catch (_) {
       scaffoldMessenger.showExceptionSnackBar(snacki18n.failedGetPlanData);
