@@ -61,7 +61,11 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
 
   Future<void> unBookmark({required Plan plan}) async {
     try {
-      await planDataSource.unbookmarkPlan(plan: plan);
+      final updatedPlan = plan.copyWith(
+        isBookmarked: false,
+        bookmarkCount: plan.bookmarkCount - 1,
+      );
+      await planDataSource.unbookmarkPlan(plan: updatedPlan);
       state = AsyncValue.data(
         state.requireValue.copyWith(
           bookmarkPlanList: state.requireValue.bookmarkPlanList
