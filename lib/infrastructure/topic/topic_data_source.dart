@@ -17,6 +17,13 @@ class TopicDataSource extends _$TopicDataSource implements TopicRepository {
   }
 
   @override
+  Future<Topic> getTopicData({required String topicId}) async {
+    final snapshot = await firestore.collection('topics').doc(topicId).get();
+    final topicData = snapshot.data()!;
+    return Topic.fromJson(topicData);
+  }
+
+  @override
   Future<List<Topic>> getTopics() async {
     final snapshot = await firestore
         .collection('topics')

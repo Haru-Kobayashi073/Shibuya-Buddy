@@ -81,4 +81,36 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       'bookmarkedPlanIds': FieldValue.arrayUnion([plan.id]),
     });
   }
+
+  @override
+  Future<List<String>> getBookmarkedPlanIds() async {
+    final snapshot =
+        await firestore.collection('users').doc(currentUser.uid).get();
+    final bookmarkedPlanIds = snapshot.data()!['bookmarkedPlanIds'];
+    if (bookmarkedPlanIds is! List<dynamic>) {
+      return [];
+    }
+    return List<String>.from(bookmarkedPlanIds);
+  }
+
+  @override
+  Future<Plan> getPlanData({required String planId}) async {
+    final snapshot = await firestore.collection('plans').doc(planId).get();
+    final data = snapshot.data()!;
+    final res = Plan.fromJson(data);
+    return res.copyWith(
+      id: planId,
+    );
+  }
+
+  @override
+  Future<void> deleteBookmarkData({
+    required String planId,
+  }) async {
+    final planIds = await getBookmarkedPlanIds();
+    planIds.removeAt(planIds.indexOf(planId));
+    await firestore.collection('users').doc(currentUser.uid).update(
+      {'bookmarkedPlanIds': planIds},
+    );
+  }
 }

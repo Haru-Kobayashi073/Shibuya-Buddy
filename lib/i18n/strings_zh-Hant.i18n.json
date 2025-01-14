@@ -187,10 +187,24 @@
         }
     },
     "myPlanPage": {
-        "title": "我的計劃",
+        "title": "我的方案",
         "tabs": {
-            "createdPlans": "已創建的計劃",
+            "createdPlans": "已建立方案",
             "bookmark": "書籤"
+        },
+        "bookmarkItems": {
+            "nondata": "暫無收藏方案。",
+            "reloading": "重新載入"
+        },
+        "createdPlansItems": {
+            "nondata": "開始建立方案吧！",
+            "createaplan": "建立方案"
+        },
+        "error": {
+            "displayError": "顯示方案時發生錯誤。",
+            "failedGetId": "取得方案ID失敗。",
+            "failedGetPlanData": "取得方案資料時發生錯誤。",
+            "failedUnBookmark": "取消收藏時發生錯誤。"
         }
     },
     "buddyChatPage": {
