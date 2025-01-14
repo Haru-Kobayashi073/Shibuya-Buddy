@@ -21,14 +21,23 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
 
   @override
   Future<PlanDetailPageState> build(Plan plan) async {
+    final latestPlan = await getPlan();
     final places = await getPlaces();
-    return PlanDetailPageState(plan: plan, places: places);
+    return PlanDetailPageState(plan: latestPlan, places: places);
   }
 
   Future<List<Place>> getPlaces() async {
     final places = await placeDataSource.getPlacesByPlanId(planId: plan.id);
 
     return places;
+  }
+
+  Future<Plan> getPlan() async {
+    try {
+      return await planDataSource.getPlanData(planId: plan.id);
+    } on Exception catch (_) {
+      return plan;
+    }
   }
 
   Future<void> onBookmarkButtonTap() async {
