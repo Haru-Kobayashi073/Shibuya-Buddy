@@ -104,13 +104,10 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   }
 
   @override
-  Future<void> deleteBookmarkData({
-    required String planId,
-  }) async {
-    final planIds = await getBookmarkedPlanIds();
-    planIds.removeAt(planIds.indexOf(planId));
-    await firestore.collection('users').doc(currentUser.uid).update(
-      {'bookmarkedPlanIds': planIds},
-    );
+  Future<void> unbookmarkPlan({required Plan plan}) async {
+    await firestore.collection('plans').doc(plan.id).set(plan.toJson());
+    await firestore.collection('users').doc(currentUser.uid).update({
+      'bookmarkedPlanIds': FieldValue.arrayRemove([plan.id]),
+    });
   }
 }

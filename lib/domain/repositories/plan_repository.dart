@@ -16,7 +16,5 @@ abstract interface class PlanRepository {
   Future<void> bookmarkPlan({required Plan plan});
   Future<List<String>> getBookmarkedPlanIds();
   Future<Plan> getPlanData({required String planId});
-  Future<void> deleteBookmarkData({
-    required String planId,
-  });
+  Future<void> unbookmarkPlan({required Plan plan});
 }
