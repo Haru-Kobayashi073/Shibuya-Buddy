@@ -22,7 +22,8 @@ class PopularPlansPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Wrap(
             spacing: 8,
