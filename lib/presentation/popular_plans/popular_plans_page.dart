@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/plan_card.dart';
 
 class PopularPlansPage extends StatefulWidget {
-  const PopularPlansPage({super.key});
+  const PopularPlansPage({super.key, required this.plans});
+  final List<Plan> plans;
 
   @override
   State<PopularPlansPage> createState() => _PopularPlansPageState();

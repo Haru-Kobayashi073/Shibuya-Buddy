@@ -179,11 +179,12 @@ class PopularTopicsPageRouteData extends GoRouteData {
 }
 
 class PopularPlansPageRouteData extends GoRouteData {
-  const PopularPlansPageRouteData();
+  const PopularPlansPageRouteData(this.$extra);
+  final List<Plan> $extra;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const PopularPlansPage();
+    return PopularPlansPage(plans: $extra);
   }
 }
 
