@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../domain/entities/topic.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -13,6 +14,8 @@ class TopicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
+
     return SizedBox(
       width: (context.deviceWidth - 40) / 2,
       child: GestureDetector(
@@ -60,7 +63,8 @@ class TopicCard extends StatelessWidget {
                       ),
                       const Gap(4),
                       Text(
-                        '${topic.totalCount}件~',
+                        i18n.homePage.popularTopics
+                            .numberOfTopics(number: topic.totalCount),
                         style: AppTextStyle.textStyle.copyWith(
                           fontSize: 12,
                           color: AppColor.black,
