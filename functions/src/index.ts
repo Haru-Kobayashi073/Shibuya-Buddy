@@ -1,4 +1,4 @@
-import * as functions from "firebase-functions";
+import * as functions from "firebase-functions/v2";
 import * as admin from "firebase-admin";
 import * as scheduler from "firebase-functions/v2/scheduler";
 
@@ -36,28 +36,28 @@ export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () =
     }
 });
 
-export const scheduledRankingPlan = scheduler.onSchedule("every 168 hours", async () => {
-    const plansRef = firestore.collection("plans");
-    const popularPlansRef = firestore.collection("popular_plans");
+export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () => {
+    const topicsRef = firestore.collection("topics");
+    const popularTopicsRef = firestore.collection("popular_topics");
 
-    // popularPlansRefのドキュメントを削除
-    const snapshot = await popularPlansRef.get();
-    const deletePromises = snapshot.docs.map((doc) => popularPlansRef.doc(doc.id).delete());
+    // popularTopicsRefのドキュメントを削除
+    const snapshot = await popularTopicsRef.get();
+    const deletePromises = snapshot.docs.map((doc) => popularTopicsRef.doc(doc.id).delete());
     await Promise.all(deletePromises);
 
-    // plansRefから上位10件を取得し、popularPlansRefに設定
+    // topicsRefから上位10件を取得し、popularTopicsRefに設定
     try {
-        const plansSnapshot = await plansRef
-            .orderBy("bookmarkCount", "desc")
+        const topicsSnapshot = await topicsRef
+            .orderBy("total_count", "desc")
             .limit(10)
             .get();
 
-        const setPromises = plansSnapshot.docs.map((doc) => {
+        const setPromises = topicsSnapshot.docs.map((doc) => {
             const data = doc.data();
-            return popularPlansRef.doc(doc.id).set(data);
+            return popularTopicsRef.doc(doc.id).set(data);
         });
         await Promise.all(setPromises);
     } catch (error) {
-        console.error("Error ranking plans: ", error);
+        console.error("Error ranking topics: ", error);
     }
 });
