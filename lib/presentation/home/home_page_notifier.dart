@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
-import '../../domain/entities/user.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import 'home_page_state.dart';
@@ -13,7 +12,6 @@ part 'home_page_notifier.g.dart';
 class HomePageNotifier extends _$HomePageNotifier {
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
-  User get currentUser => ref.watch(currentUserProvider);
 
   @override
   Future<HomePageState> build() async {
@@ -29,9 +27,7 @@ class HomePageNotifier extends _$HomePageNotifier {
 
   Future<List<Plan>> getRecentPlans() async {
     try {
-      return await planDataSource.getRecentPlansMadeByPersonal(
-        userId: currentUser.uid,
-      );
+      return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
       debugPrint(e.toString());
       return <Plan>[];

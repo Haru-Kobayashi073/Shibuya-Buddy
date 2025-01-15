@@ -74,21 +74,17 @@ class PlanCard extends StatelessWidget {
                           padding: const EdgeInsets.all(8),
                           child: Column(
                             children: [
-                              Row(
-                                children: [
-                                  Flexible(
-                                    child: Text(
-                                      title,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: AppTextStyle.textStyle.copyWith(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        overflow: TextOverflow.clip,
-                                      ),
-                                    ),
+                              Flexible(
+                                child: Text(
+                                  title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: AppTextStyle.textStyle.copyWith(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    overflow: TextOverflow.clip,
                                   ),
-                                ],
+                                ),
                               ),
                               Flexible(
                                 child: Align(

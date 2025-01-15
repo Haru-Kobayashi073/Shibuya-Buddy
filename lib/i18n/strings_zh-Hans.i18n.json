@@ -189,8 +189,22 @@
     "myPlanPage": {
         "title": "我的计划",
         "tabs": {
-            "createdPlans": "已创建的计划",
-            "bookmark": "收藏夹"
+            "createdPlans": "已创建计划",
+            "bookmark": "书签"
+        },
+        "bookmarkItems": {
+            "nondata": "暂无收藏计划。",
+            "reloading": "重新加载"
+        },
+        "createdPlansItems": {
+            "nondata": "开始创建计划吧！",
+            "createaplan": "创建计划"
+        },
+        "error": {
+            "displayError": "显示计划时出现错误。",
+            "failedGetId": "获取计划ID失败。",
+            "failedGetPlanData": "获取计划数据时出现错误。",
+            "failedUnBookmark": "取消收藏时出现错误。"
         }
     },
     "buddyChatPage": {
@@ -323,7 +337,7 @@
                     "lifetime": "终身",
                     "lifetimePrice": "25,800日元"
                 }
-            }   
+            }
         },
         "features": {
             "title": "等级功能",
@@ -376,13 +390,18 @@
         },
         "upgradeButton": "升级到高级计划"
     },
-    "planDetailsPage":{
+    "planDetailsPage": {
         "dateTime": {
             "createOn": "${date}创建的计划",
             "dateFormat": "yyyy年MM月dd日"
         },
-        "item":{
+        "item": {
             "viewOnMap": "在地图上查看"
+        },
+        "snackBar": {
+            "error": {
+                "failedToUpdateBookmark": "更新书签失败，请稍后再试"
+            }
         }
     },
     "locales(map)": {
