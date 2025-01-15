@@ -1,30 +1,58 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
+import * as scheduler from "firebase-functions/v2/scheduler";
 
 admin.initializeApp();
 const firestore = admin.firestore();
 
-export const rankingPlan = functions.https.onCall((_, __) => {
+export const mockRankingPlan = functions.https.onCall(async (_, __) => {
     const plansRef = firestore.collection("plans");
     const popularPlansRef = firestore.collection("popular_plans");
 
-    popularPlansRef.get().then((snapshot) => {
-        snapshot.docs.map((doc) => {
-            popularPlansRef.doc(doc.id).delete();
-        });
-    });
+    // popularPlansRefのドキュメントを削除
+    const snapshot = await popularPlansRef.get();
+    const deletePromises = snapshot.docs.map((doc) => popularPlansRef.doc(doc.id).delete());
+    await Promise.all(deletePromises);
 
-    return plansRef
-        .orderBy("bookmarkedUserIds", "desc")
-        .limit(10)
-        .get()
-        .then((snapshot) => {
-            snapshot.docs.map((doc) => {
-                const data = doc.data();
-                popularPlansRef.doc(doc.id).set(data);
-            });
-        })
-        .catch((error) => {
-            console.error("Error ranking plans: ", error);
+    // plansRefから上位10件を取得し、popularPlansRefに設定
+    try {
+        const plansSnapshot = await plansRef
+            .orderBy("bookmarkCount", "desc")
+            .limit(10)
+            .get();
+
+        const setPromises = plansSnapshot.docs.map((doc) => {
+            const data = doc.data();
+            return popularPlansRef.doc(doc.id).set(data);
         });
+        await Promise.all(setPromises);
+    } catch (error) {
+        console.error("Error ranking plans: ", error);
+    }
+});
+
+export const scheduledRankingPlan = scheduler.onSchedule("every 168 hours", async () => {
+    const plansRef = firestore.collection("plans");
+    const popularPlansRef = firestore.collection("popular_plans");
+
+    // popularPlansRefのドキュメントを削除
+    const snapshot = await popularPlansRef.get();
+    const deletePromises = snapshot.docs.map((doc) => popularPlansRef.doc(doc.id).delete());
+    await Promise.all(deletePromises);
+
+    // plansRefから上位10件を取得し、popularPlansRefに設定
+    try {
+        const plansSnapshot = await plansRef
+            .orderBy("bookmarkCount", "desc")
+            .limit(10)
+            .get();
+
+        const setPromises = plansSnapshot.docs.map((doc) => {
+            const data = doc.data();
+            return popularPlansRef.doc(doc.id).set(data);
+        });
+        await Promise.all(setPromises);
+    } catch (error) {
+        console.error("Error ranking plans: ", error);
+    }
 });
