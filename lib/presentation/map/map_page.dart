@@ -4,13 +4,15 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../domain/entities/plan.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import './map_page_notifier.dart';
 import 'components/day_tab_bar.dart';
 
 class MapPage extends HookConsumerWidget {
-  const MapPage({super.key});
+  const MapPage({super.key, required this.plan});
+  final Plan plan;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
