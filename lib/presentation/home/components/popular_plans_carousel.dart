@@ -65,21 +65,19 @@ class PopularPlansCarousel extends HookWidget {
     );
   }
 
-  Widget buildCarouselItem(Map<String, Object> item) {
-    // 以下三つの定義にはエラーハンドリングが必要
-    final url = item['url']! as String;
-    final title = item['title']! as String;
-    final tags = item['tags']! as List<String>;
-
-    return Column(
-      children: [
-        Expanded(
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
+  Widget buildCarouselItem(Plan plan, BuildContext context) {
+    return GestureDetector(
+      onTap: () async => PlanDetailPageRouteData(plan).push<void>(context),
+      child: Column(
+        children: [
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
+              child: PersistentCachedNetworkImage(imageUrl: plan.thumbnailUrl),
             ),
-            child: PersistentCachedNetworkImage(imageUrl: url),
           ),
           buildBottomContainer(
             plan.title,
