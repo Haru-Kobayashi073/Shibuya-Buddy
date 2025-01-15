@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../presentation/about_app/about_app_page.dart';
@@ -447,10 +448,13 @@ class BuddyChatPageRouteData extends GoRouteData {
   ],
 )
 class PlanDetailPageRouteData extends GoRouteData {
-  const PlanDetailPageRouteData();
+  const PlanDetailPageRouteData(
+    this.$extra,
+  );
+  final Plan $extra;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const PlanDetailPage();
+    return PlanDetailPage(plan: $extra);
   }
 }

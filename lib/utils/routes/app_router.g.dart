@@ -639,20 +639,24 @@ RouteBase get $planDetailPageRouteData => GoRouteData.$route(
 
 extension $PlanDetailPageRouteDataExtension on PlanDetailPageRouteData {
   static PlanDetailPageRouteData _fromState(GoRouterState state) =>
-      const PlanDetailPageRouteData();
+      PlanDetailPageRouteData(
+        state.extra as Plan,
+      );
 
   String get location => GoRouteData.$location(
         '/planDetailPage',
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 extension $MapPageRouteDataExtension on MapPageRouteData {

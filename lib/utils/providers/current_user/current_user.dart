@@ -26,7 +26,7 @@ class CurrentUser extends _$CurrentUser {
     );
   }
 
-  Future<void> fetchUser(String userId) async {
+  Future<void> fetchUser() async {
     try {
       if (firebaseAuth.currentUser == null) {
         return;
