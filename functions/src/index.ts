@@ -17,7 +17,7 @@ export const mockRankingPlan = functions.https.onCall(async (_, __) => {
     // plansRefから上位10件を取得し、popularPlansRefに設定
     try {
         const plansSnapshot = await plansRef
-            .orderBy("bookmarkCount", "desc")
+            .orderBy("bookmark_count", "desc")
             .limit(10)
             .get();
 
