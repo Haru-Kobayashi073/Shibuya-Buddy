@@ -1,42 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '/gen/assets.gen.dart';
+import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/topic_card.dart';
-
-Map<String, Map<int, String>> topics = {
-  'アニメ': {
-    30: Assets.images.anime.path,
-  },
-  'ショッピング': {
-    208: Assets.images.shopping.path,
-  },
-  'アクティビティー': {
-    16: Assets.images.activity.path,
-  },
-  'グルメ': {
-    430: Assets.images.gourmet.path,
-  },
-  'もじもじもじもじもじもじもじもじもじもじもじもじもじもじもじ': {
-    430: Assets.images.gourmet.path,
-  },
-  'TextTextText': {
-    430: Assets.images.gourmet.path,
-  },
-  'TextTextTextTextTextText': {
-    999: Assets.images.gourmet.path,
-  },
-  'TextTextTextTextTextTextTextTextText': {
-    99999: Assets.images.gourmet.path,
-  },
-  'TextTextTextTextTextTextTextTextTextTextTextText': {
-    999999: Assets.images.gourmet.path,
-  },
-  'TextTextTextTextTextTextTextTextTextTextTextTextTextTextText': {
-    9999999: Assets.images.gourmet.path,
-  },
-};
 
 class PopularTopicsPage extends StatelessWidget {
   const PopularTopicsPage({super.key});
@@ -44,7 +12,39 @@ class PopularTopicsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
     final title = i18n.popularTopics.sectionName;
-    var ranking = 0;
+
+    final topics = [
+      Topic(
+        name: 'アニメ',
+        thumbnailUrl: Assets.images.anime.path,
+        ranking: 1,
+        totalCount: 30,
+      ),
+      Topic(
+        name: 'ショッピング',
+        thumbnailUrl: Assets.images.shopping.path,
+        ranking: 2,
+        totalCount: 300,
+      ),
+      Topic(
+        name: 'アクティビティー',
+        thumbnailUrl: Assets.images.activity.path,
+        ranking: 3,
+        totalCount: 30,
+      ),
+      Topic(
+        name: 'グルメ',
+        thumbnailUrl: Assets.images.gourmet.path,
+        ranking: 4,
+        totalCount: 30,
+      ),
+      Topic(
+        name: 'もじもじもじもじもじもじもじもじもじもじもじもじもじもじもじ',
+        thumbnailUrl: Assets.images.gourmet.path,
+        ranking: 5,
+        totalCount: 30,
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -55,33 +55,13 @@ class PopularTopicsPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: topics.entries.map((entry) {
-              final title = entry.key;
-              final path = entry.value;
-              final pathWidgets = <Widget>[];
-              for (final pathEntry in path.entries) {
-                ranking++;
-                final image = pathEntry.value;
-                final numberOfTopics = pathEntry.key;
-                pathWidgets.add(
-                  TopicCard(
-                    title: title,
-                    imagePath: image,
-                    numberOfTopics: numberOfTopics,
-                    ranking: ranking,
-                  ),
-                );
-              }
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: pathWidgets,
-              );
-            }).toList(),
+            children: topics.map((topic) => TopicCard(topic: topic)).toList(),
           ),
         ),
       ),
