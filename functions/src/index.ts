@@ -5,7 +5,12 @@ import * as scheduler from "firebase-functions/v2/scheduler";
 admin.initializeApp();
 const firestore = admin.firestore();
 
-export const mockRankingPlan = functions.https.onCall(async (_, __) => {
+functions.setGlobalOptions({
+    region: "asia-northeast1",
+    timeoutSeconds: 1800
+});
+
+export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () => {
     const plansRef = firestore.collection("plans");
     const popularPlansRef = firestore.collection("popular_plans");
 
