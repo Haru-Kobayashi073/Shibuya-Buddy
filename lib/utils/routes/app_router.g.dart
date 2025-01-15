@@ -660,21 +660,24 @@ extension $PlanDetailPageRouteDataExtension on PlanDetailPageRouteData {
 }
 
 extension $MapPageRouteDataExtension on MapPageRouteData {
-  static MapPageRouteData _fromState(GoRouterState state) =>
-      const MapPageRouteData();
+  static MapPageRouteData _fromState(GoRouterState state) => MapPageRouteData(
+        $extra: state.extra as Plan,
+      );
 
   String get location => GoRouteData.$location(
         '/planDetailPage/map',
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 // **************************************************************************

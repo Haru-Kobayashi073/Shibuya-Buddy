@@ -314,11 +314,15 @@ class BillDetailsPageRouteData extends GoRouteData {
 }
 
 class MapPageRouteData extends GoRouteData {
-  const MapPageRouteData();
+  const MapPageRouteData({
+    required this.$extra,
+  });
+
+  final Plan $extra;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const MapPage();
+    return MapPage(plan: $extra);
   }
 }
 
