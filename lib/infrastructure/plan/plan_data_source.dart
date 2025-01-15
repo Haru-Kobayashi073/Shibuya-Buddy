@@ -1,22 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/user.dart';
 import '../../domain/repositories/plan_repository.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import '../firebase/cloud_firestore_provider.dart';
-import '../firebase/firebase_auth_provider.dart';
-import '../topic/topic_data_source.dart';
 
 part 'plan_data_source.g.dart';
 
 @riverpod
 class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   FirebaseFirestore get firestore => ref.read(cloudFirestoreProvider);
-  FirebaseAuth get fireauth => ref.read(firebaseAuthProvider);
-  TopicDataSource get topicsorce => ref.read(topicDataSourceProvider.notifier);
+  User get currentUser => ref.watch(currentUserProvider);
+
   @override
   void build() {
     return;
@@ -47,21 +46,19 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   }
 
   @override
-  Future<List<Plan>> getPlansMadeByPersonal({required String userId}) async {
+  Future<List<Plan>> getPlansMadeByPersonal() async {
     final snapshot = await firestore
         .collection('plans')
-        .where('author_id', isEqualTo: userId)
+        .where('author_id', isEqualTo: currentUser.uid)
         .get();
     return snapshot.docs.map((doc) => Plan.fromJson(doc.data())).toList();
   }
 
   @override
-  Future<List<Plan>> getRecentPlansMadeByPersonal({
-    required String userId,
-  }) async {
+  Future<List<Plan>> getRecentPlansMadeByPersonal() async {
     final snapshot = await firestore
         .collection('plans')
-        .where('author_id', isEqualTo: userId)
+        .where('author_id', isEqualTo: currentUser.uid)
         .orderBy('created_at', descending: true)
         .limit(5)
         .get();
@@ -76,10 +73,17 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   }
 
   @override
+  Future<void> bookmarkPlan({required Plan plan}) async {
+    await firestore.collection('plans').doc(plan.id).set(plan.toJson());
+    await firestore.collection('users').doc(currentUser.uid).update({
+      'bookmarkedPlanIds': FieldValue.arrayUnion([plan.id]),
+    });
+  }
+
+  @override
   Future<List<String>> getBookmarkedPlanIds() async {
-    final userData = fireauth.currentUser!;
     final snapshot =
-        await firestore.collection('users').doc(userData.uid).get();
+        await firestore.collection('users').doc(currentUser.uid).get();
     final bookmarkedPlanIds = snapshot.data()!['bookmarkedPlanIds'];
     if (bookmarkedPlanIds is! List<dynamic>) {
       return [];
@@ -90,22 +94,14 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
   @override
   Future<Plan> getPlanData({required String planId}) async {
     final snapshot = await firestore.collection('plans').doc(planId).get();
-    final data = snapshot.data()!;
-    final res = Plan.fromJson(data);
-    return res.copyWith(
-      id: planId,
-    );
+    return Plan.fromJson(snapshot.data()!);
   }
 
   @override
-  Future<void> deleteBookmarkData({
-    required String planId,
-  }) async {
-    final userData = fireauth.currentUser;
-    final planIds = await getBookmarkedPlanIds();
-    planIds.removeAt(planIds.indexOf(planId));
-    await firestore.collection('users').doc(userData!.uid).update(
-      {'bookmarkedPlanIds': planIds},
-    );
+  Future<void> unbookmarkPlan({required Plan plan}) async {
+    await firestore.collection('plans').doc(plan.id).set(plan.toJson());
+    await firestore.collection('users').doc(currentUser.uid).update({
+      'bookmarkedPlanIds': FieldValue.arrayRemove([plan.id]),
+    });
   }
 }

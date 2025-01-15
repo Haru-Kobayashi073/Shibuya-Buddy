@@ -390,13 +390,18 @@
         },
         "upgradeButton": "升级到高级计划"
     },
-    "planDetailsPage":{
+    "planDetailsPage": {
         "dateTime": {
             "createOn": "${date}创建的计划",
             "dateFormat": "yyyy年MM月dd日"
         },
-        "item":{
+        "item": {
             "viewOnMap": "在地图上查看"
+        },
+        "snackBar": {
+            "error": {
+                "failedToUpdateBookmark": "更新书签失败，请稍后再试"
+            }
         }
     },
     "locales(map)": {
