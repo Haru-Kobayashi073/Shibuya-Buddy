@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/plan.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../home/components/category_tags.dart';
+import 'presistent_cached_network_image.dart';
 import 'ranking_label.dart';
 
 class PlanCard extends StatelessWidget {
-  const PlanCard({
-    super.key,
-    required this.title,
-    required this.imagePath,
-    required this.tags,
-    this.ranking,
-  });
-  final String title;
-  final String imagePath;
-  final int? ranking;
-  final List<String>? tags;
+  const PlanCard({super.key, required this.plan});
+  final Plan plan;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +20,7 @@ class PlanCard extends StatelessWidget {
           minHeight: 100,
         ),
         child: GestureDetector(
-          onTap: () {
-            debugPrint('タップ$title');
-            debugPrint(ranking.toString());
-          },
+          onTap: () {},
           child: DecoratedBox(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -42,21 +32,13 @@ class PlanCard extends StatelessWidget {
                   children: [
                     AspectRatio(
                       aspectRatio: 16 / 12,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(12),
-                            topRight: Radius.circular(12),
-                          ),
-                          image: imagePath.startsWith('https://')
-                              ? DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(imagePath),
-                                )
-                              : DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(imagePath),
-                                ),
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          topRight: Radius.circular(12),
+                        ),
+                        child: PersistentCachedNetworkImage(
+                          imageUrl: plan.thumbnailUrl,
                         ),
                       ),
                     ),
@@ -76,7 +58,7 @@ class PlanCard extends StatelessWidget {
                             children: [
                               Flexible(
                                 child: Text(
-                                  title,
+                                  plan.title,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: AppTextStyle.textStyle.copyWith(
@@ -90,9 +72,10 @@ class PlanCard extends StatelessWidget {
                                 child: Align(
                                   alignment: Alignment.topLeft,
                                   child: Offstage(
-                                    offstage: tags == null,
                                     child: CategoryTags(
-                                      tags: tags ?? [],
+                                      tags: plan.topics
+                                          .map((e) => e.name)
+                                          .toList(),
                                       tagColor: AppColor.white,
                                       spacing: 4,
                                     ),
@@ -106,7 +89,7 @@ class PlanCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                RankingLabel(ranking: ranking),
+                RankingLabel(ranking: plan.ranking),
               ],
             ),
           ),
