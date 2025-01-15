@@ -17,9 +17,10 @@ class HomePageNotifier extends _$HomePageNotifier {
   Future<HomePageState> build() async {
     await ref.read(currentUserProvider.notifier).fetchUser();
     final recentPlans = await getRecentPlans();
+    final popularPlans = await getPopularPlans();
 
     return HomePageState(
-      popularPlans: [],
+      popularPlans: popularPlans,
       popularTopics: [],
       recentPlans: recentPlans,
     );
@@ -28,6 +29,15 @@ class HomePageNotifier extends _$HomePageNotifier {
   Future<List<Plan>> getRecentPlans() async {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+      return <Plan>[];
+    }
+  }
+
+  Future<List<Plan>> getPopularPlans() async {
+    try {
+      return await planDataSource.getPopularPlans();
     } on Exception catch (e) {
       debugPrint(e.toString());
       return <Plan>[];
