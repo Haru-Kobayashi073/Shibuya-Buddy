@@ -26,8 +26,9 @@ export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () =
             .limit(10)
             .get();
 
-        const setPromises = plansSnapshot.docs.map((doc) => {
+        const setPromises = plansSnapshot.docs.map((doc, index) => {
             const data = doc.data();
+            data.ranking = index + 1;
             return popularPlansRef.doc(doc.id).set(data);
         });
         await Promise.all(setPromises);
@@ -52,8 +53,9 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
             .limit(10)
             .get();
 
-        const setPromises = topicsSnapshot.docs.map((doc) => {
+        const setPromises = topicsSnapshot.docs.map((doc, index) => {
             const data = doc.data();
+            data.ranking = index + 1;
             return popularTopicsRef.doc(doc.id).set(data);
         });
         await Promise.all(setPromises);
