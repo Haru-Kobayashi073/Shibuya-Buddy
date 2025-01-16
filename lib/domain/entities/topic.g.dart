@@ -11,6 +11,10 @@ _$TopicImpl _$$TopicImplFromJson(Map<String, dynamic> json) => _$TopicImpl(
       name: json['name'] as String,
       thumbnailUrl: json['thumbnail_url'] as String,
       totalCount: (json['total_count'] as num?)?.toInt() ?? 0,
+      relatedPlanIds: (json['related_plan_ids'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
       ranking: (json['ranking'] as num?)?.toInt(),
       createdAt: json['created_at'] as String? ?? '',
     );
@@ -21,6 +25,7 @@ Map<String, dynamic> _$$TopicImplToJson(_$TopicImpl instance) =>
       'name': instance.name,
       'thumbnail_url': instance.thumbnailUrl,
       'total_count': instance.totalCount,
+      'related_plan_ids': instance.relatedPlanIds,
       'ranking': instance.ranking,
       'created_at': instance.createdAt,
     };
