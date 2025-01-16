@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../domain/entities/topic.dart';
+import '../../i18n/strings.g.dart';
+import '../../utils/extensions/context.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import 'presistent_cached_network_image.dart';
 import 'ranking_label.dart';
 
 class TopicCard extends StatelessWidget {
-  const TopicCard({
-    super.key,
-    required this.title,
-    required this.imagePath,
-    required this.numberOfTopics,
-    required this.ranking,
-  });
-  final String title;
-  final String imagePath;
-  final int numberOfTopics;
-  final int? ranking;
+  const TopicCard({super.key, required this.topic});
+  final Topic topic;
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
+
     return SizedBox(
-      width: (MediaQuery.of(context).size.width - 44) / 2,
+      width: (context.deviceWidth - 40) / 2,
       child: GestureDetector(
-        onTap: () {
-          debugPrint('タップ$title');
-          debugPrint(ranking.toString());
-        },
+        onTap: () {},
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -44,51 +37,49 @@ class TopicCard extends StatelessWidget {
                         topLeft: Radius.circular(12),
                         topRight: Radius.circular(12),
                       ),
-                      child: PersistentCachedNetworkImage(imageUrl: imagePath),
+                      child: PersistentCachedNetworkImage(
+                        imageUrl: topic.thumbnailUrl,
+                      ),
                     ),
                   ),
-                  AspectRatio(
-                    aspectRatio: 16 / 3,
-                    child: DecoratedBox(
-                      decoration: const BoxDecoration(
-                        color: AppColor.blue50Background,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12),
-                        ),
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: AppColor.blue50Background,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(12),
+                        bottomRight: Radius.circular(12),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: AppTextStyle.textStyle.copyWith(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  overflow: TextOverflow.clip,
-                                ),
-                              ),
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            topic.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTextStyle.textStyle.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              overflow: TextOverflow.clip,
                             ),
-                            const Gap(4),
-                            Text(
-                              '$numberOfTopics件~',
-                              style: AppTextStyle.textStyle.copyWith(
-                                fontSize: 12,
-                                color: AppColor.black,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
+                        const Gap(4),
+                        Text(
+                          i18n.homePage.popularTopics
+                              .numberOfTopics(number: topic.totalCount),
+                          style: AppTextStyle.textStyle.copyWith(
+                            fontSize: 12,
+                            color: AppColor.black,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-              RankingLabel(ranking: ranking),
+              RankingLabel(ranking: topic.ranking),
             ],
           ),
         ),

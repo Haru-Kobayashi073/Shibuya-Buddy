@@ -6,7 +6,7 @@ part of 'plan_data_source.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$planDataSourceHash() => r'474d3b48bbb697afcb4369c71dac2389828e5ea1';
+String _$planDataSourceHash() => r'c6599c851fffa7e9df4aac4e635c0f467215e660';
 
 /// See also [PlanDataSource].
 @ProviderFor(PlanDataSource)

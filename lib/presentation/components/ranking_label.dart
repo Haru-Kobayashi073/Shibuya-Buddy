@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/extensions/context.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
@@ -27,32 +28,29 @@ class RankingLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = context.deviceWidth * 0.1;
+
     return Offstage(
       offstage: ranking == null,
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-              bottomRight: Radius.circular(80),
-              topRight: Radius.circular(20),
-              topLeft: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
-            ),
-            color: rankingColor(ranking),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            bottomRight: Radius.circular(32),
+            topRight: Radius.circular(8),
+            topLeft: Radius.circular(12),
+            bottomLeft: Radius.circular(8),
           ),
-          width: 45,
-          height: 45,
-          child: Align(
-            alignment: const Alignment(-0.1, -0.3),
-            child: Text(
-              '$ranking',
-              style: AppTextStyle.textStyle.copyWith(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: AppColor.white,
-              ),
-            ),
+          color: rankingColor(ranking),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7.5),
+        width: size,
+        height: size,
+        child: Text(
+          ranking.toString(),
+          style: AppTextStyle.textStyle.copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: AppColor.white,
           ),
         ),
       ),

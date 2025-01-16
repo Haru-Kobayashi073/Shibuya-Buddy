@@ -30,14 +30,7 @@ class PopularTopicsSection extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Wrap(
               spacing: 8,
-              children: topics.map((topic) {
-                return TopicCard(
-                  title: topic.name,
-                  imagePath: topic.thumbnailUrl,
-                  numberOfTopics: topic.totalCount,
-                  ranking: topic.ranking,
-                );
-              }).toList(),
+              children: topics.map((topic) => TopicCard(topic: topic)).toList(),
             ),
           ),
         ],

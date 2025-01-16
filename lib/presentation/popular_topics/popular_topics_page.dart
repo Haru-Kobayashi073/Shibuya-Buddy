@@ -24,19 +24,13 @@ class PopularTopicsPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: topics.map((topic) {
-              return TopicCard(
-                title: topic.name,
-                imagePath: topic.thumbnailUrl,
-                numberOfTopics: topic.totalCount,
-                ranking: topic.ranking,
-              );
-            }).toList(),
+            children: topics.map((topic) => TopicCard(topic: topic)).toList(),
           ),
         ),
       ),

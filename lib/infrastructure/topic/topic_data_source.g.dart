@@ -6,7 +6,7 @@ part of 'topic_data_source.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$topicDataSourceHash() => r'1e4fac09b8ff690b3a14830b3d147bc2c0e0b8d7';
+String _$topicDataSourceHash() => r'afdef5e5ffc4885b01fbbd534a6c8bc329ba70c3';
 
 /// See also [TopicDataSource].
 @ProviderFor(TopicDataSource)
