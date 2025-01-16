@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import 'presistent_cached_network_image.dart';
 import 'ranking_label.dart';
 
 class TopicCard extends StatelessWidget {
@@ -38,17 +39,12 @@ class TopicCard extends StatelessWidget {
                 children: [
                   AspectRatio(
                     aspectRatio: 16 / 12,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(imagePath),
-                          fit: BoxFit.cover,
-                        ),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
                       ),
+                      child: PersistentCachedNetworkImage(imageUrl: imagePath),
                     ),
                   ),
                   AspectRatio(
