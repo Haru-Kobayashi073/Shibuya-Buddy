@@ -67,8 +67,11 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
 
   @override
   Future<List<Plan>> getPopularPlans() async {
-    final snapshot =
-        await firestore.collection('popular_plans').limit(10).get();
+    final snapshot = await firestore
+        .collection('popular_plans')
+        .orderBy('ranking')
+        .limit(10)
+        .get();
     return snapshot.docs.map((doc) => Plan.fromJson(doc.data())).toList();
   }
 
