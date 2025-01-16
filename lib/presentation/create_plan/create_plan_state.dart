@@ -13,7 +13,8 @@ class CreatePlanState with _$CreatePlanState {
     @Default('') String numberOfPeople,
     @Default([]) List<String> transports,
     @Default([]) List<String> categories,
-    @Default([]) List<Topic> topics,
+    @Default([]) List<Topic> selectedTopics,
+    required List<Topic> topics,
   }) = _CreatePlanState;
   const CreatePlanState._();
 

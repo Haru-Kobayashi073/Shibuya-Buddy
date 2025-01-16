@@ -7,12 +7,12 @@ part of 'create_plan_notifier.dart';
 // **************************************************************************
 
 String _$createPlanNotifierHash() =>
-    r'ce4bf39645445d79c59d36767ba6d3fd23e1a7c1';
+    r'269adfb0704d9f45cbc9f92642ff626abc9e2d82';
 
 /// See also [CreatePlanNotifier].
 @ProviderFor(CreatePlanNotifier)
-final createPlanNotifierProvider =
-    AutoDisposeNotifierProvider<CreatePlanNotifier, CreatePlanState>.internal(
+final createPlanNotifierProvider = AutoDisposeAsyncNotifierProvider<
+    CreatePlanNotifier, CreatePlanState>.internal(
   CreatePlanNotifier.new,
   name: r'createPlanNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final createPlanNotifierProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$CreatePlanNotifier = AutoDisposeNotifier<CreatePlanState>;
+typedef _$CreatePlanNotifier = AutoDisposeAsyncNotifier<CreatePlanState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
