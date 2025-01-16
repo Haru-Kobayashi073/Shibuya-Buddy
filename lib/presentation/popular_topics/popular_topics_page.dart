@@ -30,7 +30,14 @@ class PopularTopicsPage extends StatelessWidget {
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: topics.map((topic) => TopicCard(topic: topic)).toList(),
+            children: topics
+                .map(
+                  (topic) => TopicCard(
+                    topic: topic,
+                    enableRanking: true,
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),

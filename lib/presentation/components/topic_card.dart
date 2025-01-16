@@ -10,8 +10,13 @@ import 'presistent_cached_network_image.dart';
 import 'ranking_label.dart';
 
 class TopicCard extends StatelessWidget {
-  const TopicCard({super.key, required this.topic});
+  const TopicCard({
+    super.key,
+    required this.topic,
+    this.enableRanking = false,
+  });
   final Topic topic;
+  final bool enableRanking;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +84,7 @@ class TopicCard extends StatelessWidget {
                   ),
                 ],
               ),
-              RankingLabel(ranking: topic.ranking),
+              if (enableRanking) RankingLabel(ranking: topic.ranking),
             ],
           ),
         ),
