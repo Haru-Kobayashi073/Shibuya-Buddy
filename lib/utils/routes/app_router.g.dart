@@ -17,6 +17,7 @@ List<RouteBase> get $appRoutes => [
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
       $planDetailPageRouteData,
+      $plansRelatedInTopicRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -647,6 +648,38 @@ extension $PlanDetailPageRouteDataExtension on PlanDetailPageRouteData {
 
   String get location => GoRouteData.$location(
         '/planDetailPage',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $plansRelatedInTopicRouteData => GoRouteData.$route(
+      path: '/plansRelatedInTopic',
+      factory: $PlansRelatedInTopicRouteDataExtension._fromState,
+    );
+
+extension $PlansRelatedInTopicRouteDataExtension
+    on PlansRelatedInTopicRouteData {
+  static PlansRelatedInTopicRouteData _fromState(GoRouterState state) =>
+      PlansRelatedInTopicRouteData(
+        topicName: state.uri.queryParameters['topic-name']!,
+        $extra: state.extra as List<String>,
+      );
+
+  String get location => GoRouteData.$location(
+        '/plansRelatedInTopic',
+        queryParams: {
+          'topic-name': topicName,
+        },
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);

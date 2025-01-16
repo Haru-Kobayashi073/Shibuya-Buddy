@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import 'presistent_cached_network_image.dart';
@@ -25,7 +26,10 @@ class TopicCard extends StatelessWidget {
     return SizedBox(
       width: (context.deviceWidth - 40) / 2,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () async => PlansRelatedInTopicRouteData(
+          topicName: topic.name,
+          $extra: topic.relatedPlanIds,
+        ).push(context),
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
