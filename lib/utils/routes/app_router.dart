@@ -8,6 +8,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../domain/entities/topic.dart';
 import '../../domain/entities/user.dart';
 import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
@@ -170,11 +171,12 @@ class MyPlanPageRouteData extends GoRouteData {
 }
 
 class PopularTopicsPageRouteData extends GoRouteData {
-  const PopularTopicsPageRouteData();
+  const PopularTopicsPageRouteData(this.$extra);
+  final List<Topic> $extra;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const PopularTopicsPage();
+    return PopularTopicsPage(topics: $extra);
   }
 }
 

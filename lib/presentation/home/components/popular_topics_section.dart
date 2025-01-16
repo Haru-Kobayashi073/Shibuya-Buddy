@@ -22,7 +22,7 @@ class PopularTopicsSection extends StatelessWidget {
           SectionTitle.medium(
             label: i18n.homePage.popularTopics.title,
             onPressed: () async {
-              await const PopularTopicsPageRouteData().push<void>(context);
+              await PopularTopicsPageRouteData(topics).push<void>(context);
             },
           ),
           const SizedBox(height: 8),

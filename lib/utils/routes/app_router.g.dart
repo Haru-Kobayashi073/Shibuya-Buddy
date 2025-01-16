@@ -173,20 +173,24 @@ extension $CreatePlanPageRouteDataExtension on CreatePlanPageRouteData {
 
 extension $PopularTopicsPageRouteDataExtension on PopularTopicsPageRouteData {
   static PopularTopicsPageRouteData _fromState(GoRouterState state) =>
-      const PopularTopicsPageRouteData();
+      PopularTopicsPageRouteData(
+        state.extra as List<Topic>,
+      );
 
   String get location => GoRouteData.$location(
         '/home/popularTopicsPage',
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 extension $PopularPlansPageRouteDataExtension on PopularPlansPageRouteData {
