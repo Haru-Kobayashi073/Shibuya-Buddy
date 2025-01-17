@@ -7,8 +7,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../domain/entities/plan.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../components/loading_overlay.dart';
 import './map_page_notifier.dart';
-import 'components/day_tab_bar.dart';
 
 class MapPage extends HookConsumerWidget {
   const MapPage({super.key, required this.plan});
@@ -30,34 +30,26 @@ class MapPage extends HookConsumerWidget {
       [],
     );
 
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColor.blue50Background,
-          title: Text(
-            '東京一泊二日',
-            style: AppTextStyle.textStyle.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
-          ),
-          bottom: PreferredSize(
-            preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height * 0.13),
-            child: const DayTabBar(),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.blue50Background,
+        title: Text(
+          '東京一泊二日',
+          style: AppTextStyle.textStyle.copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
           ),
         ),
-        body: location == null
-            ? const Center(child: CircularProgressIndicator())
-            : GoogleMap(
-                initialCameraPosition: CameraPosition(
-                  target: LatLng(location.latitude, location.longitude),
-                  zoom: 14,
-                ),
-                onMapCreated: (controller) => mapController.value = controller,
-              ),
       ),
+      body: location == null
+          ? const LoadingOverlay()
+          : GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: LatLng(location.latitude, location.longitude),
+                zoom: 14,
+              ),
+              onMapCreated: (controller) => mapController.value = controller,
+            ),
     );
   }
 }
