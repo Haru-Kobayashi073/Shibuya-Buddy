@@ -17,6 +17,7 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
       authorId: json['author_id'] as String? ?? '',
       ranking: (json['ranking'] as num?)?.toInt(),
       isBookmarked: json['is_bookmarked'] as bool? ?? false,
+      bookmarkCount: (json['bookmark_count'] as num?)?.toInt() ?? 0,
       createdAt: json['created_at'] as String?,
       updatedAt: json['updated_at'] as String?,
     );
@@ -31,6 +32,7 @@ Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
       'author_id': instance.authorId,
       'ranking': instance.ranking,
       'is_bookmarked': instance.isBookmarked,
+      'bookmark_count': instance.bookmarkCount,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
     };

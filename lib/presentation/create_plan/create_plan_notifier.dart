@@ -6,6 +6,7 @@ import 'package:uuid/uuid.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
+import '../../infrastructure/topic/topic_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'components/custom_cupertino_date_picker.dart';
 import 'create_plan_state.dart';
@@ -14,20 +15,34 @@ part 'create_plan_notifier.g.dart';
 
 @riverpod
 class CreatePlanNotifier extends _$CreatePlanNotifier {
+  TopicDataSource get topicDataSource =>
+      ref.read(topicDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
 
   @override
-  CreatePlanState build() {
-    return const CreatePlanState();
+  Future<CreatePlanState> build() async {
+    final topics = await getTopics();
+    return CreatePlanState(topics: topics);
   }
 
-  void clearTopics() {
-    state = state.copyWith(topics: []);
+  Future<List<Topic>> getTopics() async {
+    try {
+      return await topicDataSource.getTopics();
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+      return [];
+    }
+  }
+
+  void clearSelectedTopics() {
+    state = AsyncValue.data(
+      state.requireValue.copyWith(selectedTopics: []),
+    );
   }
 
   void updateSelectedTopics(Topic topic, {required bool isSelected}) {
-    final updatedTopics = List<Topic>.from(state.topics);
+    final updatedTopics = List<Topic>.from(state.requireValue.selectedTopics);
     if (isSelected) {
       if (!updatedTopics.contains(topic)) {
         updatedTopics.add(topic);
@@ -35,7 +50,9 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     } else {
       updatedTopics.remove(topic);
     }
-    state = state.copyWith(topics: updatedTopics);
+    state = AsyncValue.data(
+      state.requireValue.copyWith(selectedTopics: updatedTopics),
+    );
   }
 
   String _formatDate(DateTime date) {
@@ -53,23 +70,29 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
   }
 
   void updateNumberOfPeople(String selecteNum) {
-    state = state.copyWith(numberOfPeople: selecteNum);
+    state = AsyncValue.data(
+      state.requireValue.copyWith(numberOfPeople: selecteNum),
+    );
   }
 
   void updateTransport(String selectedTransport) {
     final updatedList = _toggleListField(
-      selectedItems: state.transports,
+      selectedItems: state.requireValue.transports,
       item: selectedTransport,
     );
-    state = state.copyWith(transports: updatedList);
+    state = AsyncValue.data(
+      state.requireValue.copyWith(transports: updatedList),
+    );
   }
 
   void updateCategory(String selectedCategory) {
     final updatedList = _toggleListField(
-      selectedItems: state.categories,
+      selectedItems: state.requireValue.categories,
       item: selectedCategory,
     );
-    state = state.copyWith(categories: updatedList);
+    state = AsyncValue.data(
+      state.requireValue.copyWith(categories: updatedList),
+    );
   }
 
   List<String> _toggleListField({
@@ -101,16 +124,20 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     );
 
     if (isStartDate) {
-      state = state.copyWith(startDate: _formatDate(chosenDate));
+      state = AsyncValue.data(
+        state.requireValue.copyWith(startDate: _formatDate(chosenDate)),
+      );
     } else {
-      state = state.copyWith(endDate: _formatDate(chosenDate));
+      state = AsyncValue.data(
+        state.requireValue.copyWith(endDate: _formatDate(chosenDate)),
+      );
     }
   }
 
   Future<void> submitPlanPrompt({
     required Future<void> Function(PlanPrompt) onNavigate,
   }) async {
-    if (!state.isSelectedAll()) {
+    if (!state.requireValue.isSelectedAll()) {
       scaffoldMessenger.showExceptionSnackBar(
         t.createPlanPage.snackBar.error.foundUnSelectedField,
       );
@@ -119,13 +146,13 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     final planPrompt = PlanPrompt(
       id: const Uuid().v4(),
       schedules: (
-        firstDate: state.startDate!,
-        lastDate: state.endDate!,
+        firstDate: state.requireValue.startDate!,
+        lastDate: state.requireValue.endDate!,
       ),
-      numberOfPeople: state.numberOfPeople,
-      transports: state.transports,
-      categories: state.categories,
-      topics: state.topics,
+      numberOfPeople: state.requireValue.numberOfPeople,
+      transports: state.requireValue.transports,
+      categories: state.requireValue.categories,
+      topics: state.requireValue.selectedTopics,
       createdAt: DateTime.now(),
     );
     await onNavigate(planPrompt);

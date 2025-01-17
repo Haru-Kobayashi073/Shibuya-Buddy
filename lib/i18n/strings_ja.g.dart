@@ -178,6 +178,9 @@ class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
 	// Translations
 	@override String get title => 'マイプラン';
 	@override late final _TranslationsMyPlanPageTabsJa tabs = _TranslationsMyPlanPageTabsJa._(_root);
+	@override late final _TranslationsMyPlanPageBookmarkItemsJa bookmarkItems = _TranslationsMyPlanPageBookmarkItemsJa._(_root);
+	@override late final _TranslationsMyPlanPageCreatedPlansItemsJa createdPlansItems = _TranslationsMyPlanPageCreatedPlansItemsJa._(_root);
+	@override late final _TranslationsMyPlanPageErrorJa error = _TranslationsMyPlanPageErrorJa._(_root);
 }
 
 // Path: buddyChatPage
@@ -306,6 +309,7 @@ class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
 	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarJa snackBar = _TranslationsPlanDetailsPageSnackBarJa._(_root);
 }
 
 // Path: errorPage
@@ -547,6 +551,41 @@ class _TranslationsMyPlanPageTabsJa implements TranslationsMyPlanPageTabsEn {
 	@override String get bookmark => 'ブックマーク';
 }
 
+// Path: myPlanPage.bookmarkItems
+class _TranslationsMyPlanPageBookmarkItemsJa implements TranslationsMyPlanPageBookmarkItemsEn {
+	_TranslationsMyPlanPageBookmarkItemsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get nondata => 'ブックマークしているプランはありません。';
+	@override String get reloading => '再読み込み';
+}
+
+// Path: myPlanPage.createdPlansItems
+class _TranslationsMyPlanPageCreatedPlansItemsJa implements TranslationsMyPlanPageCreatedPlansItemsEn {
+	_TranslationsMyPlanPageCreatedPlansItemsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get nondata => 'プランを作成してみよう!';
+	@override String get createaplan => 'プランを作成する';
+}
+
+// Path: myPlanPage.error
+class _TranslationsMyPlanPageErrorJa implements TranslationsMyPlanPageErrorEn {
+	_TranslationsMyPlanPageErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get displayError => 'プラン表示時に問題が発生しました。';
+	@override String get failedGetId => 'プランIDの取得に失敗しました。';
+	@override String get failedGetPlanData => 'プランデータ取得時に問題が発生しました。';
+	@override String get failedUnBookmark => 'ブックマーク解除時に問題が発生しました。';
+}
+
 // Path: buddyChatPage.textFields
 class _TranslationsBuddyChatPageTextFieldsJa implements TranslationsBuddyChatPageTextFieldsEn {
 	_TranslationsBuddyChatPageTextFieldsJa._(this._root);
@@ -756,6 +795,16 @@ class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageI
 
 	// Translations
 	@override String get viewOnMap => '地図で見る';
+}
+
+// Path: planDetailsPage.snackBar
+class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
 }
 
 // Path: authentication.signInPage.textFields
@@ -1041,6 +1090,16 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements Translatio
 	@override String get price => '25,800円';
 }
 
+// Path: planDetailsPage.snackBar.error
+class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToUpdateBookmark => 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
@@ -1220,6 +1279,14 @@ extension on TranslationsJa {
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
+			case 'myPlanPage.bookmarkItems.nondata': return 'ブックマークしているプランはありません。';
+			case 'myPlanPage.bookmarkItems.reloading': return '再読み込み';
+			case 'myPlanPage.createdPlansItems.nondata': return 'プランを作成してみよう!';
+			case 'myPlanPage.createdPlansItems.createaplan': return 'プランを作成する';
+			case 'myPlanPage.error.displayError': return 'プラン表示時に問題が発生しました。';
+			case 'myPlanPage.error.failedGetId': return 'プランIDの取得に失敗しました。';
+			case 'myPlanPage.error.failedGetPlanData': return 'プランデータ取得時に問題が発生しました。';
+			case 'myPlanPage.error.failedUnBookmark': return 'ブックマーク解除時に問題が発生しました。';
 			case 'buddyChatPage.title': return 'Buddyの提案';
 			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => 'メッセージは残り${possibleChatCount}回送信可能です';
 			case 'buddyChatPage.textFields.message': return 'メッセージを入力';
@@ -1320,6 +1387,7 @@ extension on TranslationsJa {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

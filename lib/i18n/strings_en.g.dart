@@ -182,6 +182,9 @@ class TranslationsMyPlanPageEn {
 	// Translations
 	String get title => 'My Plans';
 	late final TranslationsMyPlanPageTabsEn tabs = TranslationsMyPlanPageTabsEn._(_root);
+	late final TranslationsMyPlanPageBookmarkItemsEn bookmarkItems = TranslationsMyPlanPageBookmarkItemsEn._(_root);
+	late final TranslationsMyPlanPageCreatedPlansItemsEn createdPlansItems = TranslationsMyPlanPageCreatedPlansItemsEn._(_root);
+	late final TranslationsMyPlanPageErrorEn error = TranslationsMyPlanPageErrorEn._(_root);
 }
 
 // Path: buddyChatPage
@@ -310,6 +313,7 @@ class TranslationsPlanDetailsPageEn {
 	// Translations
 	late final TranslationsPlanDetailsPageDateTimeEn dateTime = TranslationsPlanDetailsPageDateTimeEn._(_root);
 	late final TranslationsPlanDetailsPageItemEn item = TranslationsPlanDetailsPageItemEn._(_root);
+	late final TranslationsPlanDetailsPageSnackBarEn snackBar = TranslationsPlanDetailsPageSnackBarEn._(_root);
 }
 
 // Path: errorPage
@@ -551,6 +555,41 @@ class TranslationsMyPlanPageTabsEn {
 	String get bookmark => 'Bookmarks';
 }
 
+// Path: myPlanPage.bookmarkItems
+class TranslationsMyPlanPageBookmarkItemsEn {
+	TranslationsMyPlanPageBookmarkItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get nondata => 'No bookmarked plans yet.';
+	String get reloading => 'Reload';
+}
+
+// Path: myPlanPage.createdPlansItems
+class TranslationsMyPlanPageCreatedPlansItemsEn {
+	TranslationsMyPlanPageCreatedPlansItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get nondata => 'Let\'s create a plan!';
+	String get createaplan => 'Create a Plan';
+}
+
+// Path: myPlanPage.error
+class TranslationsMyPlanPageErrorEn {
+	TranslationsMyPlanPageErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get displayError => 'An error occurred while displaying the plan.';
+	String get failedGetId => 'Failed to retrieve plan ID.';
+	String get failedGetPlanData => 'An error occurred while retrieving plan data.';
+	String get failedUnBookmark => 'Failed to remove bookmark.';
+}
+
 // Path: buddyChatPage.textFields
 class TranslationsBuddyChatPageTextFieldsEn {
 	TranslationsBuddyChatPageTextFieldsEn._(this._root);
@@ -760,6 +799,16 @@ class TranslationsPlanDetailsPageItemEn {
 
 	// Translations
 	String get viewOnMap => 'View on Map';
+}
+
+// Path: planDetailsPage.snackBar
+class TranslationsPlanDetailsPageSnackBarEn {
+	TranslationsPlanDetailsPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
 // Path: authentication.signInPage.textFields
@@ -1045,6 +1094,16 @@ class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
 	String get price => '25,800 yen';
 }
 
+// Path: planDetailsPage.snackBar.error
+class TranslationsPlanDetailsPageSnackBarErrorEn {
+	TranslationsPlanDetailsPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToUpdateBookmark => 'Failed to update the bookmark. Please try again later.';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(this._root);
@@ -1224,6 +1283,14 @@ extension on Translations {
 			case 'myPlanPage.title': return 'My Plans';
 			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
 			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
+			case 'myPlanPage.bookmarkItems.nondata': return 'No bookmarked plans yet.';
+			case 'myPlanPage.bookmarkItems.reloading': return 'Reload';
+			case 'myPlanPage.createdPlansItems.nondata': return 'Let\'s create a plan!';
+			case 'myPlanPage.createdPlansItems.createaplan': return 'Create a Plan';
+			case 'myPlanPage.error.displayError': return 'An error occurred while displaying the plan.';
+			case 'myPlanPage.error.failedGetId': return 'Failed to retrieve plan ID.';
+			case 'myPlanPage.error.failedGetPlanData': return 'An error occurred while retrieving plan data.';
+			case 'myPlanPage.error.failedUnBookmark': return 'Failed to remove bookmark.';
 			case 'buddyChatPage.title': return 'Buddy\'s Suggestions';
 			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => 'You can send ${possibleChatCount} more messages';
 			case 'buddyChatPage.textFields.message': return 'Enter message';
@@ -1324,6 +1391,7 @@ extension on Translations {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

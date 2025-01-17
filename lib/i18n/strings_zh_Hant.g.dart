@@ -176,8 +176,11 @@ class _TranslationsMyPlanPageZhHant implements TranslationsMyPlanPageEn {
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '我的計劃';
+	@override String get title => '我的方案';
 	@override late final _TranslationsMyPlanPageTabsZhHant tabs = _TranslationsMyPlanPageTabsZhHant._(_root);
+	@override late final _TranslationsMyPlanPageBookmarkItemsZhHant bookmarkItems = _TranslationsMyPlanPageBookmarkItemsZhHant._(_root);
+	@override late final _TranslationsMyPlanPageCreatedPlansItemsZhHant createdPlansItems = _TranslationsMyPlanPageCreatedPlansItemsZhHant._(_root);
+	@override late final _TranslationsMyPlanPageErrorZhHant error = _TranslationsMyPlanPageErrorZhHant._(_root);
 }
 
 // Path: buddyChatPage
@@ -306,6 +309,7 @@ class _TranslationsPlanDetailsPageZhHant implements TranslationsPlanDetailsPageE
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeZhHant dateTime = _TranslationsPlanDetailsPageDateTimeZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageItemZhHant item = _TranslationsPlanDetailsPageItemZhHant._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarZhHant snackBar = _TranslationsPlanDetailsPageSnackBarZhHant._(_root);
 }
 
 // Path: errorPage
@@ -543,8 +547,43 @@ class _TranslationsMyPlanPageTabsZhHant implements TranslationsMyPlanPageTabsEn 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get createdPlans => '已創建的計劃';
+	@override String get createdPlans => '已建立方案';
 	@override String get bookmark => '書籤';
+}
+
+// Path: myPlanPage.bookmarkItems
+class _TranslationsMyPlanPageBookmarkItemsZhHant implements TranslationsMyPlanPageBookmarkItemsEn {
+	_TranslationsMyPlanPageBookmarkItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get nondata => '暫無收藏方案。';
+	@override String get reloading => '重新載入';
+}
+
+// Path: myPlanPage.createdPlansItems
+class _TranslationsMyPlanPageCreatedPlansItemsZhHant implements TranslationsMyPlanPageCreatedPlansItemsEn {
+	_TranslationsMyPlanPageCreatedPlansItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get nondata => '開始建立方案吧！';
+	@override String get createaplan => '建立方案';
+}
+
+// Path: myPlanPage.error
+class _TranslationsMyPlanPageErrorZhHant implements TranslationsMyPlanPageErrorEn {
+	_TranslationsMyPlanPageErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get displayError => '顯示方案時發生錯誤。';
+	@override String get failedGetId => '取得方案ID失敗。';
+	@override String get failedGetPlanData => '取得方案資料時發生錯誤。';
+	@override String get failedUnBookmark => '取消收藏時發生錯誤。';
 }
 
 // Path: buddyChatPage.textFields
@@ -756,6 +795,16 @@ class _TranslationsPlanDetailsPageItemZhHant implements TranslationsPlanDetailsP
 
 	// Translations
 	@override String get viewOnMap => '在地圖上查看';
+}
+
+// Path: planDetailsPage.snackBar
+class _TranslationsPlanDetailsPageSnackBarZhHant implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHant error = _TranslationsPlanDetailsPageSnackBarErrorZhHant._(_root);
 }
 
 // Path: authentication.signInPage.textFields
@@ -1041,6 +1090,16 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements Transl
 	@override String get price => '25,800日圓';
 }
 
+// Path: planDetailsPage.snackBar.error
+class _TranslationsPlanDetailsPageSnackBarErrorZhHant implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToUpdateBookmark => '更新書籤失敗，請稍後再試';
+}
+
 // Path: authentication.emailVerificationPage.snackBar.error
 class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
 	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(this._root);
@@ -1217,9 +1276,17 @@ extension on TranslationsZhHant {
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';
 			case 'changeThemePage.items.dark': return '黑暗';
-			case 'myPlanPage.title': return '我的計劃';
-			case 'myPlanPage.tabs.createdPlans': return '已創建的計劃';
+			case 'myPlanPage.title': return '我的方案';
+			case 'myPlanPage.tabs.createdPlans': return '已建立方案';
 			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'myPlanPage.bookmarkItems.nondata': return '暫無收藏方案。';
+			case 'myPlanPage.bookmarkItems.reloading': return '重新載入';
+			case 'myPlanPage.createdPlansItems.nondata': return '開始建立方案吧！';
+			case 'myPlanPage.createdPlansItems.createaplan': return '建立方案';
+			case 'myPlanPage.error.displayError': return '顯示方案時發生錯誤。';
+			case 'myPlanPage.error.failedGetId': return '取得方案ID失敗。';
+			case 'myPlanPage.error.failedGetPlanData': return '取得方案資料時發生錯誤。';
+			case 'myPlanPage.error.failedUnBookmark': return '取消收藏時發生錯誤。';
 			case 'buddyChatPage.title': return 'Buddy的建議';
 			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
 			case 'buddyChatPage.textFields.message': return '輸入訊息';
@@ -1320,6 +1387,7 @@ extension on TranslationsZhHant {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後再試';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';
