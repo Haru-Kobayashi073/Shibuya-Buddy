@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 final isShowLoadingOverlayProvider = StateProvider.autoDispose((ref) => false);
 
@@ -32,8 +33,12 @@ class Loading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(),
+    return Center(
+      child: Lottie.asset(
+        'assets/lottie/Animation - 1736996724199.json',
+        width: 80,
+        height: 80,
+      ),
     );
   }
 }
