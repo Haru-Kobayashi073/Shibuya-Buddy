@@ -40,7 +40,14 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       },
     );
     for (final topic in plan.topics) {
-      await firestore.collection('topics').doc(topic.id).set(topic.toJson());
+      final updatedTopic = topic.copyWith(
+        totalCount: topic.totalCount + 1,
+        relatedPlanIds: topic.relatedPlanIds..add(plan.id),
+      );
+      await firestore
+          .collection('topics')
+          .doc(topic.id)
+          .set(updatedTopic.toJson());
     }
     return;
   }

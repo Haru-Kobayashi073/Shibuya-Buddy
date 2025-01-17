@@ -27,7 +27,7 @@ class TopicDataSource extends _$TopicDataSource implements TopicRepository {
   Future<List<Topic>> getTopics() async {
     final snapshot = await firestore
         .collection('topics')
-        .orderBy('created_at', descending: true)
+        .orderBy('total_count', descending: true)
         .get();
     return snapshot.docs.map((doc) => Topic.fromJson(doc.data())).toList();
   }

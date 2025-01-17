@@ -24,6 +24,7 @@ mixin _$Topic {
   String get name => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
+  List<String> get relatedPlanIds => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
 
@@ -46,6 +47,7 @@ abstract class $TopicCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       int totalCount,
+      List<String> relatedPlanIds,
       int? ranking,
       String createdAt});
 }
@@ -69,6 +71,7 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? totalCount = null,
+    Object? relatedPlanIds = null,
     Object? ranking = freezed,
     Object? createdAt = null,
   }) {
@@ -89,6 +92,10 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
               as int,
+      relatedPlanIds: null == relatedPlanIds
+          ? _value.relatedPlanIds
+          : relatedPlanIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       ranking: freezed == ranking
           ? _value.ranking
           : ranking // ignore: cast_nullable_to_non_nullable
@@ -113,6 +120,7 @@ abstract class _$$TopicImplCopyWith<$Res> implements $TopicCopyWith<$Res> {
       String name,
       String thumbnailUrl,
       int totalCount,
+      List<String> relatedPlanIds,
       int? ranking,
       String createdAt});
 }
@@ -134,6 +142,7 @@ class __$$TopicImplCopyWithImpl<$Res>
     Object? name = null,
     Object? thumbnailUrl = null,
     Object? totalCount = null,
+    Object? relatedPlanIds = null,
     Object? ranking = freezed,
     Object? createdAt = null,
   }) {
@@ -154,6 +163,10 @@ class __$$TopicImplCopyWithImpl<$Res>
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
               as int,
+      relatedPlanIds: null == relatedPlanIds
+          ? _value._relatedPlanIds
+          : relatedPlanIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       ranking: freezed == ranking
           ? _value.ranking
           : ranking // ignore: cast_nullable_to_non_nullable
@@ -175,8 +188,10 @@ class _$TopicImpl implements _Topic {
       required this.name,
       required this.thumbnailUrl,
       this.totalCount = 0,
+      final List<String> relatedPlanIds = const [],
       this.ranking,
-      this.createdAt = ''});
+      this.createdAt = ''})
+      : _relatedPlanIds = relatedPlanIds;
 
   factory _$TopicImpl.fromJson(Map<String, dynamic> json) =>
       _$$TopicImplFromJson(json);
@@ -191,6 +206,15 @@ class _$TopicImpl implements _Topic {
   @override
   @JsonKey()
   final int totalCount;
+  final List<String> _relatedPlanIds;
+  @override
+  @JsonKey()
+  List<String> get relatedPlanIds {
+    if (_relatedPlanIds is EqualUnmodifiableListView) return _relatedPlanIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_relatedPlanIds);
+  }
+
   @override
   final int? ranking;
   @override
@@ -199,7 +223,7 @@ class _$TopicImpl implements _Topic {
 
   @override
   String toString() {
-    return 'Topic(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, totalCount: $totalCount, ranking: $ranking, createdAt: $createdAt)';
+    return 'Topic(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, totalCount: $totalCount, relatedPlanIds: $relatedPlanIds, ranking: $ranking, createdAt: $createdAt)';
   }
 
   @override
@@ -213,6 +237,8 @@ class _$TopicImpl implements _Topic {
                 other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.totalCount, totalCount) ||
                 other.totalCount == totalCount) &&
+            const DeepCollectionEquality()
+                .equals(other._relatedPlanIds, _relatedPlanIds) &&
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -221,7 +247,14 @@ class _$TopicImpl implements _Topic {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, thumbnailUrl, totalCount, ranking, createdAt);
+      runtimeType,
+      id,
+      name,
+      thumbnailUrl,
+      totalCount,
+      const DeepCollectionEquality().hash(_relatedPlanIds),
+      ranking,
+      createdAt);
 
   /// Create a copy of Topic
   /// with the given fields replaced by the non-null parameter values.
@@ -245,6 +278,7 @@ abstract class _Topic implements Topic {
       required final String name,
       required final String thumbnailUrl,
       final int totalCount,
+      final List<String> relatedPlanIds,
       final int? ranking,
       final String createdAt}) = _$TopicImpl;
 
@@ -258,6 +292,8 @@ abstract class _Topic implements Topic {
   String get thumbnailUrl;
   @override
   int get totalCount;
+  @override
+  List<String> get relatedPlanIds;
   @override
   int? get ranking;
   @override
