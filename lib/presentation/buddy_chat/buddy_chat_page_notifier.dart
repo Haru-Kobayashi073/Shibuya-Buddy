@@ -103,14 +103,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       final targetPlan = targetMessage.plan!.copyWith(
         id: const Uuid().v4(),
         authorId: ref.read(currentUserProvider).uid,
-        topics: targetMessage.plan!.topics
-            .map(
-              (topic) => topic.copyWith(
-                id: const Uuid().v4(),
-                createdAt: DateTime.now().toIso8601String(),
-              ),
-            )
-            .toList(),
+        topics: targetMessage.plan!.topics,
         createdAt: DateTime.now().toIso8601String(),
       );
       final targetPlaces = targetMessage.places!
@@ -212,13 +205,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     return chatMessage.copyWith(
       plan: chatMessage.plan?.copyWith(
         thumbnailUrl: photoUrls[0],
-        topics: [
-          ...planPrompt.topics.where(
-            (topic) => !chatMessage.plan!.topics
-                .any((bTopic) => bTopic.name == topic.name),
-          ),
-          ...chatMessage.plan!.topics,
-        ],
+        topics: planPrompt.topics,
       ),
       places: chatMessage.places?.asMap().entries.map(
         (entry) {

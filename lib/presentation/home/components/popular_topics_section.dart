@@ -1,31 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '/gen/assets.gen.dart';
+import '../../../domain/entities/topic.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../utils/routes/app_router.dart';
 import '../../components/topic_card.dart';
 import 'section_title.dart';
 
-Map<String, Map<int, String>> topics = {
-  'アニメ': {
-    30: Assets.images.anime.path,
-  },
-  'ショッピング': {
-    208: Assets.images.shopping.path,
-  },
-  'アクティビティー': {
-    16: Assets.images.activity.path,
-  },
-  'グルメ': {
-    430: Assets.images.gourmet.path,
-  },
-  'もじもじもじもじもじもじもじもじもじもじもじもじもじもじもじ': {
-    430: Assets.images.gourmet.path,
-  },
-};
-
-class PopularTopics extends StatelessWidget {
-  const PopularTopics({super.key});
+class PopularTopicsSection extends StatelessWidget {
+  const PopularTopicsSection({super.key, required this.topics});
+  final List<Topic> topics;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +22,7 @@ class PopularTopics extends StatelessWidget {
           SectionTitle.medium(
             label: i18n.homePage.popularTopics.title,
             onPressed: () async {
-              await const PopularTopicsPageRouteData().push<void>(context);
+              await PopularTopicsPageRouteData(topics).push<void>(context);
             },
           ),
           const SizedBox(height: 8),
@@ -47,20 +30,7 @@ class PopularTopics extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Wrap(
               spacing: 8,
-              children: topics.entries.map(
-                (entry) {
-                  final title = entry.key;
-                  final path = entry.value;
-                  final imagePath = path.values.first;
-                  final numberOfTopics = path.keys.first;
-                  return TopicCard(
-                    title: title,
-                    imagePath: imagePath,
-                    numberOfTopics: numberOfTopics,
-                    ranking: null,
-                  );
-                },
-              ).toList(),
+              children: topics.map((topic) => TopicCard(topic: topic)).toList(),
             ),
           ),
         ],

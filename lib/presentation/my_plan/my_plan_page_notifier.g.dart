@@ -7,7 +7,7 @@ part of 'my_plan_page_notifier.dart';
 // **************************************************************************
 
 String _$myPlanPageNotifierHash() =>
-    r'c2bdad603900c9c7e5dfd3a2da0edeace66d7ca2';
+    r'b9acc312c2a5d9ab1dc3ffc0928b0c94701a1ad6';
 
 /// See also [MyPlanPageNotifier].
 @ProviderFor(MyPlanPageNotifier)

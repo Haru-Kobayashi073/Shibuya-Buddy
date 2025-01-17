@@ -23,9 +23,13 @@ class HomePage extends ConsumerWidget {
           body: SafeArea(
             child: CustomScrollView(
               slivers: [
-                const SliverToBoxAdapter(child: PopularPlansCarousel()),
+                SliverToBoxAdapter(
+                  child: PopularPlansCarousel(plans: value.popularPlans),
+                ),
                 const SliverGap(16),
-                const SliverToBoxAdapter(child: PopularTopics()),
+                SliverToBoxAdapter(
+                  child: PopularTopicsSection(topics: value.popularTopics),
+                ),
                 if (value.recentPlans != null && value.recentPlans!.isNotEmpty)
                   SliverToBoxAdapter(
                     child: RecentPlansSection(recentPlans: value.recentPlans!),

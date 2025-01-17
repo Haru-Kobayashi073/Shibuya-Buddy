@@ -22,6 +22,7 @@ mixin _$CreatePlanState {
   String get numberOfPeople => throw _privateConstructorUsedError;
   List<String> get transports => throw _privateConstructorUsedError;
   List<String> get categories => throw _privateConstructorUsedError;
+  List<Topic> get selectedTopics => throw _privateConstructorUsedError;
   List<Topic> get topics => throw _privateConstructorUsedError;
 
   /// Create a copy of CreatePlanState
@@ -44,6 +45,7 @@ abstract class $CreatePlanStateCopyWith<$Res> {
       String numberOfPeople,
       List<String> transports,
       List<String> categories,
+      List<Topic> selectedTopics,
       List<Topic> topics});
 }
 
@@ -68,6 +70,7 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
     Object? numberOfPeople = null,
     Object? transports = null,
     Object? categories = null,
+    Object? selectedTopics = null,
     Object? topics = null,
   }) {
     return _then(_value.copyWith(
@@ -95,6 +98,10 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectedTopics: null == selectedTopics
+          ? _value.selectedTopics
+          : selectedTopics // ignore: cast_nullable_to_non_nullable
+              as List<Topic>,
       topics: null == topics
           ? _value.topics
           : topics // ignore: cast_nullable_to_non_nullable
@@ -118,6 +125,7 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
       String numberOfPeople,
       List<String> transports,
       List<String> categories,
+      List<Topic> selectedTopics,
       List<Topic> topics});
 }
 
@@ -140,6 +148,7 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
     Object? numberOfPeople = null,
     Object? transports = null,
     Object? categories = null,
+    Object? selectedTopics = null,
     Object? topics = null,
   }) {
     return _then(_$CreatePlanStateImpl(
@@ -167,6 +176,10 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectedTopics: null == selectedTopics
+          ? _value._selectedTopics
+          : selectedTopics // ignore: cast_nullable_to_non_nullable
+              as List<Topic>,
       topics: null == topics
           ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
@@ -185,9 +198,11 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
       this.numberOfPeople = '',
       final List<String> transports = const [],
       final List<String> categories = const [],
-      final List<Topic> topics = const []})
+      final List<Topic> selectedTopics = const [],
+      required final List<Topic> topics})
       : _transports = transports,
         _categories = categories,
+        _selectedTopics = selectedTopics,
         _topics = topics,
         super._();
 
@@ -219,9 +234,17 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
     return EqualUnmodifiableListView(_categories);
   }
 
-  final List<Topic> _topics;
+  final List<Topic> _selectedTopics;
   @override
   @JsonKey()
+  List<Topic> get selectedTopics {
+    if (_selectedTopics is EqualUnmodifiableListView) return _selectedTopics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedTopics);
+  }
+
+  final List<Topic> _topics;
+  @override
   List<Topic> get topics {
     if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
@@ -230,7 +253,7 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
 
   @override
   String toString() {
-    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, transports: $transports, categories: $categories, topics: $topics)';
+    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, transports: $transports, categories: $categories, selectedTopics: $selectedTopics, topics: $topics)';
   }
 
   @override
@@ -249,6 +272,8 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
                 .equals(other._transports, _transports) &&
             const DeepCollectionEquality()
                 .equals(other._categories, _categories) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedTopics, _selectedTopics) &&
             const DeepCollectionEquality().equals(other._topics, _topics));
   }
 
@@ -261,6 +286,7 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
       numberOfPeople,
       const DeepCollectionEquality().hash(_transports),
       const DeepCollectionEquality().hash(_categories),
+      const DeepCollectionEquality().hash(_selectedTopics),
       const DeepCollectionEquality().hash(_topics));
 
   /// Create a copy of CreatePlanState
@@ -281,7 +307,8 @@ abstract class _CreatePlanState extends CreatePlanState {
       final String numberOfPeople,
       final List<String> transports,
       final List<String> categories,
-      final List<Topic> topics}) = _$CreatePlanStateImpl;
+      final List<Topic> selectedTopics,
+      required final List<Topic> topics}) = _$CreatePlanStateImpl;
   const _CreatePlanState._() : super._();
 
   @override
@@ -296,6 +323,8 @@ abstract class _CreatePlanState extends CreatePlanState {
   List<String> get transports;
   @override
   List<String> get categories;
+  @override
+  List<Topic> get selectedTopics;
   @override
   List<Topic> get topics;
 

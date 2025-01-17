@@ -11,6 +11,7 @@ abstract class Topic with _$Topic {
     required String name,
     required String thumbnailUrl,
     @Default(0) int totalCount,
+    @Default([]) List<String> relatedPlanIds,
     int? ranking,
     @Default('') String createdAt,
   }) = _Topic;

@@ -40,7 +40,14 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       },
     );
     for (final topic in plan.topics) {
-      await firestore.collection('topics').doc(topic.id).set(topic.toJson());
+      final updatedTopic = topic.copyWith(
+        totalCount: topic.totalCount + 1,
+        relatedPlanIds: topic.relatedPlanIds..add(plan.id),
+      );
+      await firestore
+          .collection('topics')
+          .doc(topic.id)
+          .set(updatedTopic.toJson());
     }
     return;
   }
@@ -67,8 +74,11 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
 
   @override
   Future<List<Plan>> getPopularPlans() async {
-    final snapshot =
-        await firestore.collection('popular_plans').limit(10).get();
+    final snapshot = await firestore
+        .collection('popular_plans')
+        .orderBy('ranking')
+        .limit(10)
+        .get();
     return snapshot.docs.map((doc) => Plan.fromJson(doc.data())).toList();
   }
 
