@@ -22,9 +22,11 @@ class TopicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
+    const padding = 16 * 2 + 8; // 16: padding, 8: spacing
+    final cardWidth = (context.deviceWidth - padding) / 2; // 横2列のため割る
 
     return SizedBox(
-      width: (context.deviceWidth - 40) / 2,
+      width: cardWidth,
       child: GestureDetector(
         onTap: () async => PlansRelatedInTopicRouteData(
           topicName: topic.name,
