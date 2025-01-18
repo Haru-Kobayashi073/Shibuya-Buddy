@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
@@ -25,7 +26,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       final packageId = getPackageId();
       await inAppPurchaseService.makePurchase(packageId);
     } on Exception catch (e) {
-      print('purchaseItem error: $e');
+      debugPrint('purchaseItem error: $e');
     }
   }
 
