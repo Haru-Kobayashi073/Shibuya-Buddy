@@ -1,21 +1,22 @@
 import 'dart:io';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../../domain/entities/user.dart';
+import '../current_user/current_user.dart';
+import 'in_app_purchase_service_state.dart';
 
 part 'in_app_purchase_service.g.dart';
 
 @Riverpod(keepAlive: true)
 class InAppPurchaseService extends _$InAppPurchaseService {
-  User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
+  User get currentUser => ref.read(currentUserProvider);
 
   @override
-  Future<void> build() async {
+  Future<InAppPurchaseServiceState> build() async {
     await Purchases.setLogLevel(LogLevel.verbose);
     const googleAPIKey = String.fromEnvironment('revenueCatGoogleAPIKey');
     const appleAPIKey = String.fromEnvironment('revenueCatAppleAPIKey');
@@ -27,12 +28,20 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       configuration = PurchasesConfiguration(appleAPIKey);
     }
     await Purchases.configure(configuration);
+    final result = await Purchases.logIn(currentUser.uid);
 
-    await getOfferingItems();
-    return;
+    final offerings = await getOfferingItems();
+    final isPremiumUser = await checkIsPremiumUser(
+      result.customerInfo,
+      'premium',
+    );
+    return InAppPurchaseServiceState(
+      offerings: offerings!,
+      isPremiumUser: isPremiumUser,
+    );
   }
 
-  Future<void> getOfferingItems() async {
+  Future<Offerings?> getOfferingItems() async {
     await Purchases.logIn(currentUser.uid);
     try {
       final offerings = await Purchases.getOfferings();
@@ -45,10 +54,64 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         for (final package in packages) {
           debugPrint('package: ${package.identifier}');
         }
+        return offerings;
       }
     } on PlatformException catch (e) {
-      // optional error handling
       debugPrint('getOfferingItems error: $e');
+    }
+    return null;
+  }
+
+  Future<bool> checkIsPremiumUser(
+    CustomerInfo customerInfo,
+    String entitlement,
+  ) async {
+    final entitlements = customerInfo.entitlements.all;
+    if (entitlements.isEmpty) {
+      return false;
+    }
+    if (!entitlements.containsKey(entitlement)) {
+      ///そもそもentitlementが設定されて無い場合
+      return false;
+    } else if (entitlements[entitlement]!.isActive) {
+      ///設定されていて、activeになっている場合
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<void> makePurchase(String packageId) async {
+    try {
+      Package package;
+      package = state
+          .requireValue.offerings.all['premium-plan']!.availablePackages
+          .firstWhere((element) => element.identifier == packageId);
+      await Purchases.logIn(currentUser.uid);
+      final customerInfo = await Purchases.purchasePackage(package);
+      final isPremiumUser = await checkIsPremiumUser(customerInfo, 'premium');
+      state = AsyncValue.data(
+        state.requireValue.copyWith(isPremiumUser: isPremiumUser),
+      );
+    } on PlatformException catch (e) {
+      debugPrint('makePurchase error $e');
+    }
+  }
+
+  Future<void> restorePurchase(String entitlement) async {
+    try {
+      final customerInfo = await Purchases.restorePurchases();
+      final isPremiumUser = await checkIsPremiumUser(customerInfo, entitlement);
+      if (!isPremiumUser) {
+        debugPrint('購入情報なし');
+      } else {
+        debugPrint('$entitlement 購入情報あり 復元する');
+      }
+      state = AsyncValue.data(
+        state.requireValue.copyWith(isPremiumUser: isPremiumUser),
+      );
+    } on PlatformException catch (e) {
+      debugPrint('purchase repo  restorePurchase error $e');
     }
   }
 }
