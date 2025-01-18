@@ -82,7 +82,8 @@ class PlanDetailPage extends ConsumerWidget {
                               label: planDetailPagei18n.item.viewOnMap,
                               color: AppColor.grey200,
                               onPressed: () async {
-                                await MapPageRouteData($extra: plan)
+                                final place = value.places;
+                                await MapPageRouteData($extra: place)
                                     .push<void>(context);
                               },
                             ),
