@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../components/wide_button.dart';
 import './purchase_item_card.dart';
 
-class BottomModal extends HookWidget {
+class BottomModal extends HookConsumerWidget {
   const BottomModal({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // useStateで状態を管理
     final selectedPlan =
         useState(t.billDetailsPage.pricingOptions.oneDay.duration);
 
-    return DecoratedBox(
+    return Container(
       decoration: BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.circular(20),
@@ -29,16 +30,14 @@ class BottomModal extends HookWidget {
           ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildPlanCardsRow(selectedPlan),
-            const Gap(16),
-            _buildUpgradeButton(selectedPlan),
-          ],
-        ),
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildPlanCardsRow(selectedPlan),
+          const Gap(16),
+          _buildUpgradeButton(selectedPlan),
+        ],
       ),
     );
   }
