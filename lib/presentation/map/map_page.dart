@@ -21,6 +21,7 @@ class MapPage extends StatelessWidget {
           ),
           zoom: 14,
         ),
+        myLocationButtonEnabled: false,
         markers: place
             .map(
               (place) => Marker(
