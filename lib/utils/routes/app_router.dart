@@ -318,17 +318,6 @@ class BillDetailsPageRouteData extends GoRouteData {
   }
 }
 
-class MapPageRouteData extends GoRouteData {
-  const MapPageRouteData({required this.$extra});
-
-  final List<Place> $extra;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return MapPage(place: $extra);
-  }
-}
-
 @TypedGoRoute<BillDetailsDialogRouteData>(
   path: Routes.billDetailsDialog,
 )
@@ -448,11 +437,6 @@ class BuddyChatPageRouteData extends GoRouteData {
 
 @TypedGoRoute<PlanDetailPageRouteData>(
   path: Routes.planDetailPage,
-  routes: [
-    TypedGoRoute<MapPageRouteData>(
-      path: Routes.map,
-    ),
-  ],
 )
 class PlanDetailPageRouteData extends GoRouteData {
   const PlanDetailPageRouteData(
@@ -483,5 +467,18 @@ class PlansRelatedInTopicRouteData extends GoRouteData {
       topicName: topicName,
       planIds: $extra,
     );
+  }
+}
+
+@TypedGoRoute<MapPageRouteData>(
+  path: '/map',
+)
+class MapPageRouteData extends GoRouteData {
+  const MapPageRouteData({required this.$extra});
+  final List<Place> $extra;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return MapPage(place: $extra);
   }
 }
