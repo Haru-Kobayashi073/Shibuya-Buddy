@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../components/wide_button.dart';
+import '../bill_detail_page_notifier.dart';
 import './purchase_item_card.dart';
 
 class BottomModal extends HookConsumerWidget {
@@ -13,9 +13,7 @@ class BottomModal extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // useStateで状態を管理
-    final selectedPlan =
-        useState(t.billDetailsPage.pricingOptions.oneDay.duration);
+    final selectedPlan = ref.watch(billDetailPageNotifierProvider);
 
     return Container(
       decoration: BoxDecoration(
@@ -34,15 +32,28 @@ class BottomModal extends HookConsumerWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildPlanCardsRow(selectedPlan),
+          _buildPlanCardsRow(
+            selectedPlan,
+            (value) => ref
+                .read(billDetailPageNotifierProvider.notifier)
+                .selectPlan(value!),
+          ),
           const Gap(16),
-          _buildUpgradeButton(selectedPlan),
+          _buildUpgradeButton(
+            selectedPlan,
+            () async => ref
+                .read(billDetailPageNotifierProvider.notifier)
+                .purchaseItem(),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildPlanCardsRow(ValueNotifier<String> selectedPlan) {
+  Widget _buildPlanCardsRow(
+    String selectedPlan,
+    void Function(String?) onItemTapped,
+  ) {
     final pricingOptions = t.billDetailsPage.pricingOptions;
 
     return SingleChildScrollView(
@@ -51,53 +62,60 @@ class BottomModal extends HookConsumerWidget {
       child: Wrap(
         spacing: 8,
         children: [
-          _buildPlanCard(
-            PricingOption(
+          PurchaseItemCard(
+            pricingOption: PricingOption(
               duration: pricingOptions.oneDay.duration,
               price: pricingOptions.oneDay.price,
               discount: pricingOptions.oneDay.discount,
             ),
-            selectedPlan,
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
           ),
-          _buildPlanCard(
-            PricingOption(
+          PurchaseItemCard(
+            pricingOption: PricingOption(
               duration: pricingOptions.threeDays.duration,
               price: pricingOptions.threeDays.price,
               discount: pricingOptions.threeDays.discount,
             ),
-            selectedPlan,
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
           ),
-          _buildPlanCard(
-            PricingOption(
+          PurchaseItemCard(
+            pricingOption: PricingOption(
               duration: pricingOptions.fiveDays.duration,
               price: pricingOptions.fiveDays.price,
               discount: pricingOptions.fiveDays.discount,
             ),
-            selectedPlan,
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
           ),
-          _buildPlanCard(
-            PricingOption(
+          PurchaseItemCard(
+            pricingOption: PricingOption(
               duration: pricingOptions.sevenDays.duration,
               price: pricingOptions.sevenDays.price,
               discount: pricingOptions.sevenDays.discount,
             ),
-            selectedPlan,
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
           ),
-          _buildPlanCard(
-            PricingOption(
+          PurchaseItemCard(
+            pricingOption: PricingOption(
               duration: pricingOptions.lifetime.duration,
               price: pricingOptions.lifetime.price,
               discount: pricingOptions.lifetime.discount,
             ),
-            selectedPlan,
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildUpgradeButton(ValueNotifier<String> selectedPlan) {
-    // Add selectedPlan as parameter
+  Widget _buildUpgradeButton(
+    String selectedPlan,
+    void Function() onSubmit,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: WideButton.gradient(
@@ -110,21 +128,8 @@ class BottomModal extends HookConsumerWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        onPressed: () {},
+        onPressed: onSubmit,
       ),
-    );
-  }
-
-  Widget _buildPlanCard(
-    PricingOption pricingOption,
-    ValueNotifier<String> selectedPlan,
-  ) {
-    return PurchaseItemCard(
-      pricingOption: pricingOption,
-      groupValue: selectedPlan.value,
-      onChanged: (value) {
-        selectedPlan.value = value!;
-      },
     );
   }
 }
