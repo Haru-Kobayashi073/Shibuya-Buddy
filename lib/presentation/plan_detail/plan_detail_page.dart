@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
+import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
@@ -82,8 +83,8 @@ class PlanDetailPage extends ConsumerWidget {
                               label: planDetailPagei18n.item.viewOnMap,
                               color: AppColor.grey200,
                               onPressed: () async {
-                                final place = value.places;
-                                await MapPageRouteData($extra: place)
+                                final places = value.places;
+                                await MapPageRouteData($extra: places)
                                     .push<void>(context);
                               },
                             ),
