@@ -2,15 +2,15 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../domain/entities/user.dart';
 import '../../domain/repositories/file_repository.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/dio/app_dio.dart';
-import '../firebase/firebase_auth_provider.dart';
 import '../firebase/firebase_storage_provider.dart';
 
 part 'file_data_source.g.dart';
@@ -20,7 +20,7 @@ class FileDataSource extends _$FileDataSource implements FileRepository {
   FirebaseStorage get _storage => ref.read(firebaseStorageProvider);
   ImagePicker get _imagePicker => ImagePicker();
   Dio get _apiClient => ref.read(appDioProvider);
-  User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
+  User get currentUser => ref.read(currentUserProvider);
 
   @override
   void build() {

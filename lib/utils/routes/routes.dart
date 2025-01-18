@@ -19,6 +19,7 @@ class Routes {
   static const changeTheme = 'changeTheme';
   static const createPlan = 'createPlan';
   static const popularTopicsPage = 'popularTopicsPage';
+  static const plansRelatedInTopic = '/plansRelatedInTopic';
   static const buddyChatPage = '/buddyChatPage';
   static const popularPlansPage = 'popularPlansPage';
   static const billDetails = 'billDetailsPage';

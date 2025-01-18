@@ -28,6 +28,7 @@ mixin _$Plan {
   String get authorId => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   bool get isBookmarked => throw _privateConstructorUsedError;
+  int get bookmarkCount => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
 
@@ -54,6 +55,7 @@ abstract class $PlanCopyWith<$Res> {
       String authorId,
       int? ranking,
       bool isBookmarked,
+      int bookmarkCount,
       String? createdAt,
       String? updatedAt});
 }
@@ -81,6 +83,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? authorId = null,
     Object? ranking = freezed,
     Object? isBookmarked = null,
+    Object? bookmarkCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -117,6 +120,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.isBookmarked
           : isBookmarked // ignore: cast_nullable_to_non_nullable
               as bool,
+      bookmarkCount: null == bookmarkCount
+          ? _value.bookmarkCount
+          : bookmarkCount // ignore: cast_nullable_to_non_nullable
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -145,6 +152,7 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       String authorId,
       int? ranking,
       bool isBookmarked,
+      int bookmarkCount,
       String? createdAt,
       String? updatedAt});
 }
@@ -169,6 +177,7 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? authorId = null,
     Object? ranking = freezed,
     Object? isBookmarked = null,
+    Object? bookmarkCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -205,6 +214,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.isBookmarked
           : isBookmarked // ignore: cast_nullable_to_non_nullable
               as bool,
+      bookmarkCount: null == bookmarkCount
+          ? _value.bookmarkCount
+          : bookmarkCount // ignore: cast_nullable_to_non_nullable
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -230,6 +243,7 @@ class _$PlanImpl implements _Plan {
       this.authorId = '',
       this.ranking,
       this.isBookmarked = false,
+      this.bookmarkCount = 0,
       this.createdAt,
       this.updatedAt})
       : _topics = topics;
@@ -263,13 +277,16 @@ class _$PlanImpl implements _Plan {
   @JsonKey()
   final bool isBookmarked;
   @override
+  @JsonKey()
+  final int bookmarkCount;
+  @override
   final String? createdAt;
   @override
   final String? updatedAt;
 
   @override
   String toString() {
-    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, bookmarkCount: $bookmarkCount, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -289,6 +306,8 @@ class _$PlanImpl implements _Plan {
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
             (identical(other.isBookmarked, isBookmarked) ||
                 other.isBookmarked == isBookmarked) &&
+            (identical(other.bookmarkCount, bookmarkCount) ||
+                other.bookmarkCount == bookmarkCount) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -307,6 +326,7 @@ class _$PlanImpl implements _Plan {
       authorId,
       ranking,
       isBookmarked,
+      bookmarkCount,
       createdAt,
       updatedAt);
 
@@ -336,6 +356,7 @@ abstract class _Plan implements Plan {
       final String authorId,
       final int? ranking,
       final bool isBookmarked,
+      final int bookmarkCount,
       final String? createdAt,
       final String? updatedAt}) = _$PlanImpl;
 
@@ -357,6 +378,8 @@ abstract class _Plan implements Plan {
   int? get ranking;
   @override
   bool get isBookmarked;
+  @override
+  int get bookmarkCount;
   @override
   String? get createdAt;
   @override

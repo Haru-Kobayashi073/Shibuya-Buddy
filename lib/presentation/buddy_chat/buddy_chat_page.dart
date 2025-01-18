@@ -15,6 +15,7 @@ import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
 import '../components/confirm_dialog.dart';
 import '../components/loading_overlay.dart';
+import '../home/home_page_notifier.dart';
 import 'buddy_chat_page_notifier.dart';
 import 'components/message_card.dart';
 
@@ -87,6 +88,7 @@ class BuddyChatPage extends HookConsumerWidget {
                       bodyText: t.confirmDialog.completeCreatePlan.description,
                       onConfirm: () async => notifier.completeCreatePlan(
                         onSuccess: () async {
+                          ref.invalidate(homePageNotifierProvider);
                           const HomeScreenRouteData().go(context);
                         },
                       ),

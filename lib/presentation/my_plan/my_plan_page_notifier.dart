@@ -15,52 +15,66 @@ part 'my_plan_page_notifier.g.dart';
 class MyPlanPageNotifier extends _$MyPlanPageNotifier {
   custom.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
-  PlanDataSource get plan => ref.read(planDataSourceProvider.notifier);
+  PlanDataSource get planDataSource =>
+      ref.read(planDataSourceProvider.notifier);
 
   @override
   Future<MyPlanPageState> build() async {
-    final bookmarkPlans = await buildBookmarkPlans();
+    final bookmarkPlans = await getBookmarkPlans();
+    final createdPlans = await getCreatedPlans();
+
     return MyPlanPageState(
       bookmarkPlanList: bookmarkPlans,
-      createPlanList: [],
+      createPlanList: createdPlans,
     );
   }
 
-  Future<List<Plan>> buildBookmarkPlans() async {
+  Future<List<Plan>> getBookmarkPlans() async {
     final i18n = t.myPlanPage;
     final snacki18n = i18n.error;
     final plans = <Plan>[];
-    final planIds = await plan.getBookmarkedPlanIds();
+    final planIds = await planDataSource.getBookmarkedPlanIds();
     try {
       for (final id in planIds) {
-        plans.add(await plan.getPlanData(planId: id));
+        plans.add(await planDataSource.getPlanData(planId: id));
       }
-      state = AsyncValue.data(MyPlanPageState(bookmarkPlanList: plans));
       return plans;
-    } on FirebaseException catch (e) {
-      scaffoldMessenger
-          .showExceptionSnackBar('${snacki18n.failedGetPlanData}:$e');
-      state = const AsyncValue.data(MyPlanPageState());
+    } on FirebaseException catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(snacki18n.failedGetPlanData);
       return [];
-    } on Exception catch (e) {
-      scaffoldMessenger.showExceptionSnackBar('${snacki18n.displayError}:$e');
-      state = const AsyncValue.data(MyPlanPageState());
+    } on Exception catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(snacki18n.displayError);
       return [];
     }
   }
 
-  Future<void> unBookmark({
-    required String planId,
-  }) async {
-    final i18n = t.myPlanPage;
-    final snack = i18n.error.failedUnBookmark;
+  Future<List<Plan>> getCreatedPlans() async {
     try {
-      await plan.deleteBookmarkData(
-        planId: planId,
+      final plans = await planDataSource.getPlansMadeByPersonal();
+      return plans;
+    } on Exception catch (_) {
+      scaffoldMessenger.showExceptionSnackBar(t.myPlanPage.error.displayError);
+      return [];
+    }
+  }
+
+  Future<void> unBookmark({required Plan plan}) async {
+    try {
+      final updatedPlan = plan.copyWith(
+        isBookmarked: false,
+        bookmarkCount: plan.bookmarkCount - 1,
       );
-      await buildBookmarkPlans();
-    } on FirebaseException catch (e) {
-      scaffoldMessenger.showExceptionSnackBar('$snack:$e');
+      await planDataSource.unbookmarkPlan(plan: updatedPlan);
+      state = AsyncValue.data(
+        state.requireValue.copyWith(
+          bookmarkPlanList: state.requireValue.bookmarkPlanList
+              .where((element) => element.id != plan.id)
+              .toList(),
+        ),
+      );
+    } on FirebaseException catch (_) {
+      scaffoldMessenger
+          .showExceptionSnackBar(t.myPlanPage.error.failedUnBookmark);
     }
   }
 }

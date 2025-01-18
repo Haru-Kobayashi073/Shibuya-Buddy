@@ -1,41 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
-import '../create_plan_notifier.dart';
 
-class SelectionModal extends ConsumerWidget {
+class SelectionModal extends StatelessWidget {
   const SelectionModal({
     super.key,
     required this.selectionList,
-    required this.field,
+    required this.selectedItems,
     required this.title,
     this.isSingleSelect = false,
     required this.onTapCheckBox,
   });
 
   final List<String> selectionList;
-  final SelectionField field;
+  final List<String> selectedItems;
   final String title;
   final bool isSingleSelect;
   final void Function(String item) onTapCheckBox;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(createPlanNotifierProvider);
-
-    var selectedItems = <String>[];
-    switch (field) {
-      case SelectionField.transport:
-        selectedItems = state.transports;
-      case SelectionField.numberOfPeople:
-        selectedItems.add(state.numberOfPeople);
-      case SelectionField.category:
-        selectedItems = state.categories;
-    }
-
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -97,10 +83,4 @@ class SelectionModal extends ConsumerWidget {
       ),
     );
   }
-}
-
-enum SelectionField {
-  transport,
-  numberOfPeople,
-  category,
 }

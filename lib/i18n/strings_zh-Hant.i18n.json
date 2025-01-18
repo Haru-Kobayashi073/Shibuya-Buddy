@@ -336,9 +336,8 @@
                     "or": "或者",
                     "lifetime": "終身",
                     "lifetimePrice": "25,800日圓"
-
                 }
-            }   
+            }
         },
         "features": {
             "title": "等級功能",
@@ -391,13 +390,18 @@
         },
         "upgradeButton": "升級到高級方案"
     },
-    "planDetailsPage":{
+    "planDetailsPage": {
         "dateTime": {
             "createOn": "${date}建立的方案",
             "dateFormat": "yyyy年MM月dd日"
         },
-        "item":{
+        "item": {
             "viewOnMap": "在地圖上查看"
+        },
+        "snackBar": {
+            "error": {
+                "failedToUpdateBookmark": "更新書籤失敗，請稍後再試"
+            }
         }
     },
     "locales(map)": {
