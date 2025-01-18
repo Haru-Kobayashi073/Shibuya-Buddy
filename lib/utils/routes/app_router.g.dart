@@ -661,7 +661,7 @@ extension $PlanDetailPageRouteDataExtension on PlanDetailPageRouteData {
 
 extension $MapPageRouteDataExtension on MapPageRouteData {
   static MapPageRouteData _fromState(GoRouterState state) => MapPageRouteData(
-        $extra: state.extra as Plan,
+        $extra: state.extra as List<Place>,
       );
 
   String get location => GoRouteData.$location(

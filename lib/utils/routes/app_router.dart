@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
@@ -314,15 +315,13 @@ class BillDetailsPageRouteData extends GoRouteData {
 }
 
 class MapPageRouteData extends GoRouteData {
-  const MapPageRouteData({
-    required this.$extra,
-  });
+  const MapPageRouteData({required this.$extra});
 
-  final Plan $extra;
+  final List<Place> $extra;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return MapPage(plan: $extra);
+    return MapPage(place: $extra);
   }
 }
 
