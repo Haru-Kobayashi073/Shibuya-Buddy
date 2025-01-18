@@ -6,7 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
-import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
