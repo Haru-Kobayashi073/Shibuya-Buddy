@@ -44,18 +44,54 @@ class BottomModal extends HookWidget {
   }
 
   Widget _buildPlanCardsRow(ValueNotifier<String> selectedPlan) {
+    final pricingOptions = t.billDetailsPage.pricingOptions;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.only(left: 16),
-      child: Row(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Wrap(
+        spacing: 8,
         children: [
-          ..._buildPlanCards(selectedPlan).map(
-            (card) => Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: card,
+          _buildPlanCard(
+            PricingOption(
+              duration: pricingOptions.oneDay.duration,
+              price: pricingOptions.oneDay.price,
+              discount: pricingOptions.oneDay.discount,
             ),
+            selectedPlan,
           ),
-          const Gap(16),
+          _buildPlanCard(
+            PricingOption(
+              duration: pricingOptions.threeDays.duration,
+              price: pricingOptions.threeDays.price,
+              discount: pricingOptions.threeDays.discount,
+            ),
+            selectedPlan,
+          ),
+          _buildPlanCard(
+            PricingOption(
+              duration: pricingOptions.fiveDays.duration,
+              price: pricingOptions.fiveDays.price,
+              discount: pricingOptions.fiveDays.discount,
+            ),
+            selectedPlan,
+          ),
+          _buildPlanCard(
+            PricingOption(
+              duration: pricingOptions.sevenDays.duration,
+              price: pricingOptions.sevenDays.price,
+              discount: pricingOptions.sevenDays.discount,
+            ),
+            selectedPlan,
+          ),
+          _buildPlanCard(
+            PricingOption(
+              duration: pricingOptions.lifetime.duration,
+              price: pricingOptions.lifetime.price,
+              discount: pricingOptions.lifetime.discount,
+            ),
+            selectedPlan,
+          ),
         ],
       ),
     );
@@ -80,63 +116,13 @@ class BottomModal extends HookWidget {
     );
   }
 
-  List<Widget> _buildPlanCards(ValueNotifier<String> selectedPlan) {
-    final pricingOptions = t.billDetailsPage.pricingOptions;
-
-    return [
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.oneDay.duration,
-          price: pricingOptions.oneDay.price,
-          discount: pricingOptions.oneDay.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.threeDays.duration,
-          price: pricingOptions.threeDays.price,
-          discount: pricingOptions.threeDays.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.fiveDays.duration,
-          price: pricingOptions.fiveDays.price,
-          discount: pricingOptions.fiveDays.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.sevenDays.duration,
-          price: pricingOptions.sevenDays.price,
-          discount: pricingOptions.sevenDays.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.lifetime.duration,
-          price: pricingOptions.lifetime.price,
-          discount: pricingOptions.lifetime.discount,
-        ),
-        selectedPlan,
-      ),
-    ];
-  }
-
   Widget _buildPlanCard(
     PricingOption pricingOption,
     ValueNotifier<String> selectedPlan,
   ) {
     return PurchaseItemCard(
-      label: pricingOption.duration,
-      price: pricingOption.price,
-      discount: pricingOption.discount,
+      pricingOption: pricingOption,
       groupValue: selectedPlan.value,
-      value: pricingOption.duration,
       onChanged: (value) {
         selectedPlan.value = value!;
       },
@@ -144,7 +130,7 @@ class BottomModal extends HookWidget {
   }
 }
 
-class PricingOption {
+final class PricingOption {
   PricingOption({
     required this.duration,
     required this.price,
