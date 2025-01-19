@@ -4,7 +4,7 @@ part 'location.freezed.dart';
 part 'location.g.dart';
 
 @freezed
-class Location with _$Location {
+abstract class Location with _$Location {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Location({
     required double latitude,
