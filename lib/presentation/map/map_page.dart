@@ -3,6 +3,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/entities/place.dart';
+import '../../i18n/strings.g.dart';
+import '../../utils/styles/app_text_style.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({
@@ -22,13 +24,12 @@ class MapPage extends StatelessWidget {
       await launchUrl(uriScheme);
     } else if (await canLaunchUrl(uriFallback)) {
       await launchUrl(uriFallback);
-    } else {
-      debugPrint('Could not open Google Maps.');
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final i18n = Translations.of(context);
     final markers = places.map((place) {
       final lat = place.location.latitude;
       final lng = place.location.longitude;
@@ -50,7 +51,13 @@ class MapPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('マップ'),
+        title: Text(
+          i18n.mapPage.title,
+          style: AppTextStyle.textStyle.copyWith(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
