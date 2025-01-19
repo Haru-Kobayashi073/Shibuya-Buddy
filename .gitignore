@@ -127,3 +127,6 @@ lib/generated_plugin_registrant.dart
 
 # Android Google Play
 ./android/release.jks
+
+# Google Map ApiKey
+.env
