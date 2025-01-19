@@ -479,6 +479,6 @@ class MapPageRouteData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return MapPage(place: $extra);
+    return MapPage(places: $extra);
   }
 }
