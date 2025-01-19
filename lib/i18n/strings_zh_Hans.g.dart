@@ -56,6 +56,7 @@ class TranslationsZhHans implements Translations {
 		'zh': '中文',
 	};
 	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
+	@override late final _TranslationsMapPageZhHans mapPage = _TranslationsMapPageZhHans._(_root);
 }
 
 // Path: navigationBar
@@ -322,6 +323,16 @@ class _TranslationsErrorPageZhHans implements TranslationsErrorPageEn {
 	@override String get title => '发生错误...';
 	@override String get message => '请检查您的网络连接并重试。';
 	@override String get retryButton => '重试';
+}
+
+// Path: mapPage
+class _TranslationsMapPageZhHans implements TranslationsMapPageEn {
+	_TranslationsMapPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '地图';
 }
 
 // Path: navigationBar.items
@@ -1394,6 +1405,7 @@ extension on TranslationsZhHans {
 			case 'errorPage.title': return '发生错误...';
 			case 'errorPage.message': return '请检查您的网络连接并重试。';
 			case 'errorPage.retryButton': return '重试';
+			case 'mapPage.title': return '地图';
 			default: return null;
 		}
 	}

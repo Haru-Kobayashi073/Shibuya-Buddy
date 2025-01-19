@@ -413,5 +413,8 @@
         "title": "發生錯誤...",
         "message": "請檢查您的網絡連接並重試。",
         "retryButton": "重試"
+    },
+    "mapPage": {
+        "title": "地圖"
     }
 }
