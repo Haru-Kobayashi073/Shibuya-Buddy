@@ -148,6 +148,28 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     }
   }
 
+  Future<void> rankDownToStandard() async {
+    try {
+      final result = await Purchases.logIn(currentUser.uid);
+      final isPremium = _isPremiumUser(result.customerInfo);
+
+      if (!isPremium) {
+        await userDataSource.editUser(
+          user: currentUser.copyWith(
+            billingGrade: BillingGrade.standard,
+            premiumPlanExpirationDate: null,
+          ),
+        );
+        state = AsyncValue.data(
+          state.requireValue.copyWith(isPremiumUser: false),
+        );
+        ref.invalidate(currentUserProvider);
+      }
+    } on Exception catch (e) {
+      debugPrint('rankDownToStandard error $e');
+    }
+  }
+
   MemberState _getMemberState(CustomerInfo customerInfo) {
     final pastPurchases = customerInfo.nonSubscriptionTransactions;
     DateTime? resultDate;
