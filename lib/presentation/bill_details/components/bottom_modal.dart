@@ -45,6 +45,7 @@ class BottomModal extends HookConsumerWidget {
                 .read(billDetailPageNotifierProvider.notifier)
                 .purchaseItem(),
           ),
+          const Gap(16),
         ],
       ),
     );

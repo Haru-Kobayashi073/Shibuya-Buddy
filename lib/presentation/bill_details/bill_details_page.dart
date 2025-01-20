@@ -17,37 +17,65 @@ class BillDetailsPage extends StatelessWidget {
   final bool isDialog;
   @override
   Widget build(BuildContext context) {
-    const bottomModalHeight = 150.0;
+    const bottomModalHeight = 182.0;
 
     return Scaffold(
       body: SafeArea(
         top: false,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: bottomModalHeight),
-          child: CustomScrollView(
-            slivers: [
-              SliverAppBar(
-                systemOverlayStyle: const SystemUiOverlayStyle(
-                  statusBarBrightness: Brightness.light,
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              systemOverlayStyle: const SystemUiOverlayStyle(
+                statusBarBrightness: Brightness.light,
+              ),
+              expandedHeight: 250,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Image.asset(
+                  Assets.images.billingHeader.path,
+                  fit: BoxFit.cover,
                 ),
-                expandedHeight: 250,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset(
-                    Assets.images.billingHeader.path,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                pinned: true,
-                backgroundColor: Colors.transparent,
-                surfaceTintColor: Colors.transparent,
-                leading: isDialog
-                    ? const SizedBox()
-                    : Padding(
+              ),
+              pinned: true,
+              backgroundColor: Colors.transparent,
+              surfaceTintColor: Colors.transparent,
+              leading: isDialog
+                  ? const SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: AppColor.white,
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          alignment: Alignment.center,
+                          iconSize: 24,
+                          icon: const Icon(
+                            Symbols.arrow_back_ios_new,
+                            color: AppColor.black,
+                            weight: 600,
+                          ),
+                          onPressed: () {
+                            context.pop();
+                          },
+                        ),
+                      ),
+                    ),
+              actions: isDialog
+                  ? [
+                      Padding(
                         padding: const EdgeInsets.all(8),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             color: AppColor.white,
-                            borderRadius: BorderRadius.circular(50),
+                            shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.1),
@@ -60,7 +88,7 @@ class BillDetailsPage extends StatelessWidget {
                             alignment: Alignment.center,
                             iconSize: 24,
                             icon: const Icon(
-                              Symbols.arrow_back_ios_new,
+                              Symbols.close,
                               color: AppColor.black,
                               weight: 600,
                             ),
@@ -70,55 +98,25 @@ class BillDetailsPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                actions: isDialog
-                    ? [
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: AppColor.white,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 4,
-                                  offset: const Offset(0, 2),
-                                ),
-                              ],
-                            ),
-                            child: IconButton(
-                              alignment: Alignment.center,
-                              iconSize: 24,
-                              icon: const Icon(
-                                Symbols.close,
-                                color: AppColor.black,
-                                weight: 600,
-                              ),
-                              onPressed: () {
-                                context.pop();
-                              },
-                            ),
-                          ),
-                        ),
-                      ]
-                    : null,
-              ),
-              const SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      PremiumPlan(),
-                      Gap(32),
-                      PlanTable(),
-                      Gap(32),
-                      GradeBasedFeatures(),
-                    ],
-                  ),
+                    ]
+                  : null,
+            ),
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    PremiumPlan(),
+                    Gap(32),
+                    PlanTable(),
+                    Gap(32),
+                    GradeBasedFeatures(),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            const SliverGap(bottomModalHeight),
+          ],
         ),
       ),
       bottomSheet: const BottomModal(),
