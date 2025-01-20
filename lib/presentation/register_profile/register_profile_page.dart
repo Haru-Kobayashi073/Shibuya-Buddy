@@ -104,6 +104,7 @@ class RegisterProfilePage extends HookConsumerWidget {
                   keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   label: i18nRegisterProfilePage.textFields,
+                  maxBytes: 16,
                 ),
                 const Gap(24),
                 WideButton(
