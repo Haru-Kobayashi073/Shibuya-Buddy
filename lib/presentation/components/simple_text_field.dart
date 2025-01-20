@@ -37,7 +37,7 @@ class SimpleTextField extends StatelessWidget {
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       obscureText: obscureText,
-      validator: (value) => validateMaxBytes(value, maxBytes),
+      validator: validator,
       cursorColor: AppColor.blue800Secondary,
       style: AppTextStyle.textStyle.copyWith(
         color: AppColor.black,
@@ -70,17 +70,4 @@ class SimpleTextField extends StatelessWidget {
       ),
     );
   }
-}
-
-// バイト数計算をする関数
-String? validateMaxBytes(String? value, int? maxBytes) {
-  if (maxBytes != null && value != null) {
-    final byteCount = value.runes.fold(0, (sum, char) {
-      return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
-    });
-    if (byteCount > maxBytes) {
-      return '入力は最大8字までです';
-    }
-  }
-  return null;
 }
