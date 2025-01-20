@@ -317,7 +317,11 @@
         "planProposalMessage": "I’ve come up with this plan! What do you think?"
     },
     "billDetailsPage": {
-        "title": "Premium Plan",
+        "title": {
+            "defaultTitle": "Premium Plan",
+            "createPlan": "Do you want to enable unlimited plan creation?",
+            "chat": "Do you want to enjoy unlimited chatting?"
+        },
         "description": "By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.",
         "pricingPlan": {
             "title": "Pricing Plan",

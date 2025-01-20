@@ -317,7 +317,11 @@
         "planProposalMessage": "我考慮了這個計劃！您覺得怎麼樣？"
     },
     "billDetailsPage": {
-        "title": "高級方案",
+        "title": {
+            "defaultTitle": "高級方案",
+            "createPlan": "是否希望啟用無限制的計劃建立？",
+            "chat": "想享受無限制的聊天嗎？"
+        },
         "description": "訂閱高級方案後，您可以更舒適地享受澀谷觀光。",
         "pricingPlan": {
             "title": "價格方案",

@@ -317,7 +317,11 @@
         "planProposalMessage": "我考虑了这个计划！您觉得怎么样？"
     },
     "billDetailsPage": {
-        "title": "高级计划",
+        "title": {
+            "defaultTitle": "高级计划",
+            "createPlan": "是否希望启用无限制的计划创建？",
+            "chat": "想享受无限制的聊天吗？"
+        },
         "description": "订阅高级计划后，您可以更舒适地享受涩谷观光。",
         "pricingPlan": {
             "title": "价格计划",

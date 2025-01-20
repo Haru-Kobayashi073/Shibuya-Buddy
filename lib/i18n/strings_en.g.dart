@@ -296,7 +296,7 @@ class TranslationsBillDetailsPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Premium Plan';
+	late final TranslationsBillDetailsPageTitleEn title = TranslationsBillDetailsPageTitleEn._(_root);
 	String get description => 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
 	late final TranslationsBillDetailsPagePricingPlanEn pricingPlan = TranslationsBillDetailsPagePricingPlanEn._(_root);
 	late final TranslationsBillDetailsPageFeaturesEn features = TranslationsBillDetailsPageFeaturesEn._(_root);
@@ -742,6 +742,18 @@ class TranslationsConfirmDialogCompleteCreatePlanEn {
 	// Translations
 	String get title => 'Confirm the plan?';
 	String get description => 'The plan in the last message will be saved.';
+}
+
+// Path: billDetailsPage.title
+class TranslationsBillDetailsPageTitleEn {
+	TranslationsBillDetailsPageTitleEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get defaultTitle => 'Premium Plan';
+	String get createPlan => 'Do you want to enable unlimited plan creation?';
+	String get chat => 'Do you want to enjoy unlimited chatting?';
 }
 
 // Path: billDetailsPage.pricingPlan
@@ -1382,7 +1394,9 @@ extension on Translations {
 			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
 			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
 			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
-			case 'billDetailsPage.title': return 'Premium Plan';
+			case 'billDetailsPage.title.defaultTitle': return 'Premium Plan';
+			case 'billDetailsPage.title.createPlan': return 'Do you want to enable unlimited plan creation?';
+			case 'billDetailsPage.title.chat': return 'Do you want to enjoy unlimited chatting?';
 			case 'billDetailsPage.description': return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
 			case 'billDetailsPage.pricingPlan.title': return 'Pricing Plan';
 			case 'billDetailsPage.pricingPlan.columns.standard': return 'Standard';

@@ -292,7 +292,7 @@ class _TranslationsBillDetailsPageZhHant implements TranslationsBillDetailsPageE
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '高級方案';
+	@override late final _TranslationsBillDetailsPageTitleZhHant title = _TranslationsBillDetailsPageTitleZhHant._(_root);
 	@override String get description => '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
 	@override late final _TranslationsBillDetailsPagePricingPlanZhHant pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHant._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesZhHant features = _TranslationsBillDetailsPageFeaturesZhHant._(_root);
@@ -738,6 +738,18 @@ class _TranslationsConfirmDialogCompleteCreatePlanZhHant implements Translations
 	// Translations
 	@override String get title => '確定要保存計劃嗎？';
 	@override String get description => '最後一條訊息中的計劃將被保存';
+}
+
+// Path: billDetailsPage.title
+class _TranslationsBillDetailsPageTitleZhHant implements TranslationsBillDetailsPageTitleEn {
+	_TranslationsBillDetailsPageTitleZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultTitle => '高級方案';
+	@override String get createPlan => '是否希望啟用無限制的計劃建立？';
+	@override String get chat => '想享受無限制的聊天嗎？';
 }
 
 // Path: billDetailsPage.pricingPlan
@@ -1378,7 +1390,9 @@ extension on TranslationsZhHant {
 			case 'confirmDialog.completeCreatePlan.title': return '確定要保存計劃嗎？';
 			case 'confirmDialog.completeCreatePlan.description': return '最後一條訊息中的計劃將被保存';
 			case 'prompt.planProposalMessage': return '我考慮了這個計劃！您覺得怎麼樣？';
-			case 'billDetailsPage.title': return '高級方案';
+			case 'billDetailsPage.title.defaultTitle': return '高級方案';
+			case 'billDetailsPage.title.createPlan': return '是否希望啟用無限制的計劃建立？';
+			case 'billDetailsPage.title.chat': return '想享受無限制的聊天嗎？';
 			case 'billDetailsPage.description': return '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
 			case 'billDetailsPage.pricingPlan.title': return '價格方案';
 			case 'billDetailsPage.pricingPlan.columns.standard': return '標準';

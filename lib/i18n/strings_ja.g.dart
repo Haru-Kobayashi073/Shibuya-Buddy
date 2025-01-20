@@ -292,7 +292,7 @@ class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'プレミアムプラン';
+	@override late final _TranslationsBillDetailsPageTitleJa title = _TranslationsBillDetailsPageTitleJa._(_root);
 	@override String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
 	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
@@ -738,6 +738,18 @@ class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConf
 	// Translations
 	@override String get title => 'プランを確定しますか？';
 	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
+}
+
+// Path: billDetailsPage.title
+class _TranslationsBillDetailsPageTitleJa implements TranslationsBillDetailsPageTitleEn {
+	_TranslationsBillDetailsPageTitleJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultTitle => 'プレミアムプラン';
+	@override String get createPlan => '無制限のプラン作成を可能にしますか？';
+	@override String get chat => '無制限のチャットを楽しみたいですか？';
 }
 
 // Path: billDetailsPage.pricingPlan
@@ -1378,7 +1390,9 @@ extension on TranslationsJa {
 			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
 			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
 			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
-			case 'billDetailsPage.title': return 'プレミアムプラン';
+			case 'billDetailsPage.title.defaultTitle': return 'プレミアムプラン';
+			case 'billDetailsPage.title.createPlan': return '無制限のプラン作成を可能にしますか？';
+			case 'billDetailsPage.title.chat': return '無制限のチャットを楽しみたいですか？';
 			case 'billDetailsPage.description': return 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
 			case 'billDetailsPage.pricingPlan.title': return '料金プラン';
 			case 'billDetailsPage.pricingPlan.columns.standard': return 'スタンダード';

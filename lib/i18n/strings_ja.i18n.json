@@ -317,7 +317,11 @@
         "planProposalMessage": "こんなプランを考えてみました！いかがですか？"
     },
     "billDetailsPage": {
-        "title": "プレミアムプラン",
+        "title": {
+            "defaultTitle": "プレミアムプラン",
+            "createPlan": "無制限のプラン作成を可能にしますか？",
+            "chat": "無制限のチャットを楽しみたいですか？"
+        },
         "description": "プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。",
         "pricingPlan": {
             "title": "料金プラン",
