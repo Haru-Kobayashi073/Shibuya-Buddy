@@ -176,10 +176,10 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   int? getEffectivePeriodFromProductId(String productId) {
     return switch (productId) {
       'unlimited_premium' || 'unlimited_premium_v1' => null,
-      '7day-premium' || '7day_premium_v1' => 7,
-      '5day-premium' || '5day_premium_v1' => 5,
-      '3day-premium' || '3day_premium_v1' => 3,
-      '1day-premium' || '1day_premium_v1' => 1,
+      '7day_premium' || '7day_premium_v1' => 7,
+      '5day_premium' || '5day_premium_v1' => 5,
+      '3day_premium' || '3day_premium_v1' => 3,
+      '1day_premium' || '1day_premium_v1' => 1,
       _ => null,
     };
   }
