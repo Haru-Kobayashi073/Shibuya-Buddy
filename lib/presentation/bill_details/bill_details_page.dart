@@ -10,6 +10,7 @@ import 'components/bottom_modal.dart';
 import 'components/grade_based_features.dart';
 import 'components/plan_table.dart';
 import 'components/premium_plan.dart';
+import 'components/restore_purchase_section.dart';
 
 class BillDetailsPage extends StatelessWidget {
   const BillDetailsPage({super.key, this.isDialog = false});
@@ -111,6 +112,8 @@ class BillDetailsPage extends StatelessWidget {
                     PlanTable(),
                     Gap(32),
                     GradeBasedFeatures(),
+                    Gap(32),
+                    RestorePurchaseSection(),
                   ],
                 ),
               ),
