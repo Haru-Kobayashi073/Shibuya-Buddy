@@ -10,10 +10,8 @@ import '../../components/presistent_cached_network_image.dart';
 class AccountStatus extends StatelessWidget {
   const AccountStatus({
     super.key,
-    required this.effectiveDate, //プレミアムユーザーの有効期限
     required this.user,
   });
-  final DateTime? effectiveDate;
   final User user;
 
   @override
@@ -27,9 +25,9 @@ class AccountStatus extends StatelessWidget {
     final createFormat =
         DateFormat(acountStatusi18n.dateTime.registeredOnFormat)
             .format(user.createdAt);
-    final effectiveFormat = effectiveDate != null
+    final effectiveFormat = user.premiumPlanExpirationDate != null
         ? DateFormat(acountStatusi18n.dateTime.validUntilFormat)
-            .format(effectiveDate!)
+            .format(user.premiumPlanExpirationDate!.toLocal())
         : null;
 
     return Container(
@@ -98,7 +96,7 @@ class AccountStatus extends StatelessWidget {
                 const Spacer(),
                 if (isPremiumGrade(user.billingGrade))
                   Offstage(
-                    offstage: effectiveDate == null,
+                    offstage: user.premiumPlanExpirationDate == null,
                     child: Text(
                       acountStatusi18n.dateTime
                           .validUntil(date: effectiveFormat.toString()),
