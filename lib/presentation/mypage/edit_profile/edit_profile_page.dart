@@ -23,6 +23,7 @@ class EditProfilePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = useTextEditingController(text: user.name);
     final state = ref.watch(editProfilePageNotifierProvider(user));
+    final formKey = GlobalKey<FormState>();
     final notifier = ref.read(editProfilePageNotifierProvider(user).notifier);
 
     return state.when(
@@ -63,14 +64,17 @@ class EditProfilePage extends HookConsumerWidget {
                         ),
                       ),
                       const Gap(32),
-                      SimpleTextField(
-                        controller: controller,
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.done,
-                        validator: Validator.common,
-                        onFieldSubmitted: (_) {},
-                        label: t.editProfilePage.textFields.name,
-                        maxBytes: 16,
+                      Form(
+                        key: formKey,
+                        child: SimpleTextField(
+                          controller: controller,
+                          keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.done,
+                          validator: Validator.common,
+                          onFieldSubmitted: (_) {},
+                          label: t.editProfilePage.textFields.name,
+                          maxBytes: 16,
+                        ),
                       ),
                     ],
                   ),
@@ -79,10 +83,12 @@ class EditProfilePage extends HookConsumerWidget {
                     label: t.editProfilePage.buttons.submit,
                     color: AppColor.yellow600Primary,
                     onPressed: () async {
-                      await notifier.editProfile(
-                        name: controller.text,
-                        onSuccess: () => context.pop(),
-                      );
+                      if (formKey.currentState!.validate()) {
+                        await notifier.editProfile(
+                          name: controller.text,
+                          onSuccess: () => context.pop(),
+                        );
+                      }
                     },
                   ),
                 ],
