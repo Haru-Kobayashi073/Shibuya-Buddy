@@ -69,9 +69,11 @@ class HomePageNotifier extends _$HomePageNotifier {
     final isStandardUser = user.billingGrade == BillingGrade.standard;
     final createdPlansCount = state.requireValue.recentPlans.length;
 
-    if (isStandardUser && createdPlansCount < 2) {
+    if (isStandardUser &&
+        createdPlansCount < BillingGradeOptions.possibleCreatePlanCount) {
       onUnlimitedUser();
-    } else if (isStandardUser && createdPlansCount >= 2) {
+    } else if (isStandardUser &&
+        createdPlansCount >= BillingGradeOptions.possibleCreatePlanCount) {
       needUpgradeToPremium();
     } else if (!isStandardUser) {
       onUnlimitedUser();
