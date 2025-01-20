@@ -123,20 +123,24 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     }
   }
 
-  Future<void> restorePurchase() async {
+  Future<bool> canRestorePurchase() async {
     try {
       final customerInfo = await Purchases.restorePurchases();
       final isPremiumUser = await checkIsPremiumUser(customerInfo);
       if (!isPremiumUser) {
         debugPrint('購入情報なし');
+        return false;
       } else {
         debugPrint('購入情報あり 復元する');
       }
       state = AsyncValue.data(
         state.requireValue.copyWith(isPremiumUser: isPremiumUser),
       );
+      ref.invalidate(currentUserProvider);
+      return true;
     } on PlatformException catch (e) {
       debugPrint('purchase repo  restorePurchase error $e');
+      return false;
     }
   }
 
@@ -147,7 +151,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     final activeProductIds = allPurchasedProductIdentifiers.map(
       (id) {
         final purchaseDate = allPurchaseDates[id]!;
-        final now = DateTime.now();
+        final now = DateTime.now().toUtc();
         final purchaseDateTime = DateTime.parse(purchaseDate);
         final diff = now.difference(purchaseDateTime);
 
