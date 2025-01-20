@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../gen/assets.gen.dart';
+import '../../utils/billing_grade_options.dart';
 import '../../utils/styles/app_color.dart';
 import 'components/bottom_modal.dart';
 import 'components/grade_based_features.dart';
@@ -13,9 +14,15 @@ import 'components/premium_plan.dart';
 import 'components/restore_purchase_section.dart';
 
 class BillDetailsPage extends StatelessWidget {
-  const BillDetailsPage({super.key, this.isDialog = false});
+  const BillDetailsPage({
+    super.key,
+    this.isDialog = false,
+    this.feature = BillingLimitedFeatures.none,
+  });
 
   final bool isDialog;
+  final BillingLimitedFeatures feature;
+
   @override
   Widget build(BuildContext context) {
     const bottomModalHeight = 182.0;
@@ -102,18 +109,18 @@ class BillDetailsPage extends StatelessWidget {
                     ]
                   : null,
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    PremiumPlan(),
-                    Gap(32),
-                    PlanTable(),
-                    Gap(32),
-                    GradeBasedFeatures(),
-                    Gap(32),
-                    RestorePurchaseSection(),
+                    PremiumPlan(feature: feature),
+                    const Gap(32),
+                    const PlanTable(),
+                    const Gap(32),
+                    const GradeBasedFeatures(),
+                    const Gap(32),
+                    const RestorePurchaseSection(),
                   ],
                 ),
               ),

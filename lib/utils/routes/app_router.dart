@@ -36,6 +36,7 @@ import '../../presentation/sign_in/sign_in_page.dart';
 import '../../presentation/sign_up/sign_up_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
+import '../billing_grade_options.dart';
 import 'routes.dart';
 
 part 'app_router.g.dart';
@@ -320,14 +321,16 @@ class BillDetailsPageRouteData extends GoRouteData {
   path: Routes.billDetailsDialog,
 )
 class BillDetailsDialogRouteData extends GoRouteData {
-  const BillDetailsDialogRouteData();
+  const BillDetailsDialogRouteData(this.feature);
+  final BillingLimitedFeatures feature;
 
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return MaterialPage<void>(
       key: state.pageKey,
-      child: const BillDetailsPage(
+      child: BillDetailsPage(
         isDialog: true,
+        feature: feature,
       ),
       fullscreenDialog: true,
     );
