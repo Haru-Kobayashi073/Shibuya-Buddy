@@ -25,6 +25,7 @@ class EditProfilePage extends HookConsumerWidget {
     final state = ref.watch(editProfilePageNotifierProvider(user));
     final formKey = GlobalKey<FormState>();
     final notifier = ref.read(editProfilePageNotifierProvider(user).notifier);
+    const maxBytes = 16;
 
     return state.when(
       data: (value) {
@@ -70,10 +71,11 @@ class EditProfilePage extends HookConsumerWidget {
                           controller: controller,
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.done,
-                          validator: Validator.common,
+                          validator: (value) =>
+                              Validator.userName(value, maxBytes),
                           onFieldSubmitted: (_) {},
                           label: t.editProfilePage.textFields.name,
-                          maxBytes: 16,
+                          maxBytes: maxBytes,
                         ),
                       ),
                     ],
