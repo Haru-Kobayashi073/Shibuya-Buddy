@@ -15,6 +15,9 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
               ?.map((e) => e as String)
               .toList() ??
           const [],
+      premiumPlanExpirationDate: _$JsonConverterFromJson<String, DateTime>(
+          json['premiumPlanExpirationDate'],
+          const DateTimeConverter().fromJson),
       createdAt:
           const DateTimeConverter().fromJson(json['createdAt'] as String),
       updateAt: _$JsonConverterFromJson<String, DateTime>(
@@ -28,6 +31,8 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'imageUrl': instance.imageUrl,
       'billingGrade': _$BillingGradeEnumMap[instance.billingGrade]!,
       'bookmarkedPlanIds': instance.bookmarkedPlanIds,
+      'premiumPlanExpirationDate': _$JsonConverterToJson<String, DateTime>(
+          instance.premiumPlanExpirationDate, const DateTimeConverter().toJson),
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'updateAt': _$JsonConverterToJson<String, DateTime>(
           instance.updateAt, const DateTimeConverter().toJson),
