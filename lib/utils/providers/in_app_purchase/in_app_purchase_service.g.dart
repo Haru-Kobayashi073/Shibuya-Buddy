@@ -7,7 +7,7 @@ part of 'in_app_purchase_service.dart';
 // **************************************************************************
 
 String _$inAppPurchaseServiceHash() =>
-    r'81095b7fec7cc1a9adef0ec5b035cd9253e1ad29';
+    r'b516067b484963af5bb34ba0e8eee38011545ae9';
 
 /// See also [InAppPurchaseService].
 @ProviderFor(InAppPurchaseService)

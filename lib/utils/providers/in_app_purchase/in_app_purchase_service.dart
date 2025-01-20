@@ -6,6 +6,7 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../domain/entities/user.dart';
+import '../../../infrastructure/user/user_data_source.dart';
 import '../current_user/current_user.dart';
 import 'in_app_purchase_service_state.dart';
 
@@ -13,6 +14,8 @@ part 'in_app_purchase_service.g.dart';
 
 @Riverpod(keepAlive: true)
 class InAppPurchaseService extends _$InAppPurchaseService {
+  UserDataSource get userDataSource =>
+      ref.read(userDataSourceProvider.notifier);
   User get currentUser => ref.read(currentUserProvider);
 
   @override
@@ -113,5 +116,34 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     } on PlatformException catch (e) {
       debugPrint('purchase repo  restorePurchase error $e');
     }
+  }
+
+  List<String> getValidActiveItems(CustomerInfo customerInfo) {
+    final allPurchasedProductIdentifiers =
+        customerInfo.allPurchasedProductIdentifiers;
+    final allPurchaseDates = customerInfo.allPurchaseDates;
+    final activeProductIds = allPurchasedProductIdentifiers.map(
+      (id) {
+        final purchaseDate = allPurchaseDates[id]!;
+        final now = DateTime.now();
+        final purchaseDateTime = DateTime.parse(purchaseDate);
+        final diff = now.difference(purchaseDateTime);
+
+        final isActive = switch (id) {
+          'unlimited-premium' => true,
+          '7day-premium' => diff.inDays < 7,
+          '5day-premium' => diff.inDays < 5,
+          '3day-premium' => diff.inDays < 3,
+          '1day-premium' => diff.inDays < 1,
+          _ => false,
+        };
+        if (isActive) {
+          return id;
+        }
+        return null;
+      },
+    ).toList();
+
+    return activeProductIds.whereType<String>().toList();
   }
 }
