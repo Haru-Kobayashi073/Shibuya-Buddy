@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/topic.dart';
+import '../../domain/entities/user.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../infrastructure/topic/topic_data_source.dart';
 import '../../utils/providers/current_user/current_user.dart';
@@ -29,7 +30,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     return HomePageState(
       popularPlans: popularPlans,
       popularTopics: popularTopics,
-      recentPlans: recentPlans,
+      recentPlans: recentPlans ?? <Plan>[],
     );
   }
 
@@ -51,12 +52,29 @@ class HomePageNotifier extends _$HomePageNotifier {
     }
   }
 
-  Future<List<Plan>> getRecentPlans() async {
+  Future<List<Plan>?> getRecentPlans() async {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
       debugPrint(e.toString());
-      return <Plan>[];
+    }
+    return null;
+  }
+
+  void onCreatePlanButtonPressed({
+    required void Function() onUnlimitedUser,
+    required void Function() needUpgradeToPremium,
+  }) {
+    final user = ref.watch(currentUserProvider);
+    final isStandardUser = user.billingGrade == BillingGrade.standard;
+    final createdPlansCount = state.requireValue.recentPlans.length;
+
+    if (isStandardUser && createdPlansCount < 2) {
+      onUnlimitedUser();
+    } else if (isStandardUser && createdPlansCount >= 2) {
+      needUpgradeToPremium();
+    } else if (!isStandardUser) {
+      onUnlimitedUser();
     }
   }
 }
