@@ -145,8 +145,8 @@
         "passwordMatch": "密码不匹配",
         "informationRequired": "请输入信息",
         "urlInvalid": "URL格式不正确",
-        "userNameRequired": "请输入您的用户名",
-        "userNameMaxLength": "用户名必须为8个字符或更少"
+        "usernameRequired": "请输入您的用户名",
+        "usernameMaxLength": "用户名必须为8个字符或更少"
     },
     "myPage": {
         "unregisteredUserName": "未注册",

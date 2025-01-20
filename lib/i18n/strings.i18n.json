@@ -146,7 +146,7 @@
         "informationRequired": "Please enter the information",
         "urlInvalid": "The URL format is incorrect",
         "usernameRequired": "Please enter your username",
-        "userNameMaxLength": "The username must be 16 characters or fewer"
+        "usernameMaxLength": "The username must be 16 characters or fewer"
     },
     "myPage": {
         "unregisteredUserName": "Unregistered",

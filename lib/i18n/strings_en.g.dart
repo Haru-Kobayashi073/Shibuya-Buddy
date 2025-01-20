@@ -130,7 +130,7 @@ class TranslationsValidationEn {
 	String get informationRequired => 'Please enter the information';
 	String get urlInvalid => 'The URL format is incorrect';
 	String get usernameRequired => 'Please enter your username';
-	String get userNameMaxLength => 'The username must be 16 characters or fewer';
+	String get usernameMaxLength => 'The username must be 16 characters or fewer';
 }
 
 // Path: myPage
@@ -1268,7 +1268,7 @@ extension on Translations {
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
 			case 'validation.usernameRequired': return 'Please enter your username';
-			case 'validation.userNameMaxLength': return 'The username must be 16 characters or fewer';
+			case 'validation.usernameMaxLength': return 'The username must be 16 characters or fewer';
 			case 'myPage.unregisteredUserName': return 'Unregistered';
 			case 'myPage.editProfile': return 'Edit Profile';
 			case 'myPage.premiumPlan': return 'Premium Plan';

@@ -145,8 +145,8 @@
         "passwordMatch": "パスワードが一致しません",
         "informationRequired": "情報を入力してください",
         "urlInvalid": "URLの形式が正しくありません",
-        "userNameRequired": "ユーザーネームを入力してください",
-        "userNameMaxLength": "ユーザーネームは8文字以内である必要があります"
+        "usernameRequired": "ユーザーネームを入力してください",
+        "usernameMaxLength": "ユーザーネームは8文字以内である必要があります"
     },
     "myPage": {
         "unregisteredUserName": "未登録",

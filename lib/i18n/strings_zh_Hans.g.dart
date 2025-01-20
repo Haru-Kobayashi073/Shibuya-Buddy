@@ -125,8 +125,8 @@ class _TranslationsValidationZhHans implements TranslationsValidationEn {
 	@override String get passwordMatch => '密码不匹配';
 	@override String get informationRequired => '请输入信息';
 	@override String get urlInvalid => 'URL格式不正确';
-	@override String get userNameRequired => '请输入您的用户名';
-	@override String get userNameMaxLength => '用户名必须为8个字符或更少';
+	@override String get usernameRequired => '请输入您的用户名';
+	@override String get usernameMaxLength => '用户名必须为8个字符或更少';
 }
 
 // Path: myPage
@@ -1263,8 +1263,8 @@ extension on TranslationsZhHans {
 			case 'validation.passwordMatch': return '密码不匹配';
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
-			case 'validation.userNameRequired': return '请输入您的用户名';
-			case 'validation.userNameMaxLength': return '用户名必须为8个字符或更少';
+			case 'validation.usernameRequired': return '请输入您的用户名';
+			case 'validation.usernameMaxLength': return '用户名必须为8个字符或更少';
 			case 'myPage.unregisteredUserName': return '未注册';
 			case 'myPage.editProfile': return '编辑个人资料';
 			case 'myPage.premiumPlan': return '高级计划';
