@@ -28,3 +28,10 @@ class MyPageNotifier extends _$MyPageNotifier {
     }
   }
 }
+
+@riverpod
+Stream<User> currentUserStream(CurrentUserStreamRef ref) {
+  final userDataSource = ref.read(userDataSourceProvider.notifier);
+  final currentUser = ref.read(currentUserProvider);
+  return userDataSource.fetchUserStream(userId: currentUser.uid);
+}
