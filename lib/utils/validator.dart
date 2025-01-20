@@ -70,14 +70,14 @@ class Validator {
   /// ユーザーネーム入力時のバリデーション
   static String? userName(String? value, int? maxBytes) {
     if (value == null || value.isEmpty) {
-      return 'ユーザーネームを入力してください';
+      return _i18nValidation.usernameRequired;
     }
     if (maxBytes != null) {
       final byteCount = value.runes.fold(0, (sum, char) {
         return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
       });
       if (byteCount > maxBytes) {
-        return '入力は最大8字までです';
+        return _i18nValidation.usernameMaxLength;
       }
     }
     return null;
