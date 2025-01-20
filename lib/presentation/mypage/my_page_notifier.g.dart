@@ -6,7 +6,7 @@ part of 'my_page_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentUserStreamHash() => r'07402f2b0a3a69963829ad50b9f471badd34c167';
+String _$currentUserStreamHash() => r'01333c72d4b1fd08e723ae15b60dde62087e6abc';
 
 /// See also [currentUserStream].
 @ProviderFor(currentUserStream)
