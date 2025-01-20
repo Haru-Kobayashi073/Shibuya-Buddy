@@ -34,10 +34,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     final result = await Purchases.logIn(currentUser.uid);
 
     final offerings = await getOfferingItems();
-    final isPremiumUser = await checkIsPremiumUser(
-      result.customerInfo,
-      'premium',
-    );
+    final isPremiumUser = await checkIsPremiumUser(result.customerInfo);
     return InAppPurchaseServiceState(
       offerings: offerings!,
       isPremiumUser: isPremiumUser,
@@ -65,9 +62,9 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   }
 
   Future<bool> checkIsPremiumUser(
-    CustomerInfo customerInfo,
-    String entitlement,
-  ) async {
+    CustomerInfo customerInfo, {
+    String entitlement = 'premium',
+  }) async {
     final entitlements = customerInfo.entitlements.all;
     if (entitlements.isEmpty) {
       return false;
@@ -116,7 +113,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       } else {
         return;
       }
-      final isPremiumUser = await checkIsPremiumUser(customerInfo, 'premium');
+      final isPremiumUser = await checkIsPremiumUser(customerInfo);
       state = AsyncValue.data(
         state.requireValue.copyWith(isPremiumUser: isPremiumUser),
       );
@@ -126,14 +123,14 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     }
   }
 
-  Future<void> restorePurchase(String entitlement) async {
+  Future<void> restorePurchase() async {
     try {
       final customerInfo = await Purchases.restorePurchases();
-      final isPremiumUser = await checkIsPremiumUser(customerInfo, entitlement);
+      final isPremiumUser = await checkIsPremiumUser(customerInfo);
       if (!isPremiumUser) {
         debugPrint('購入情報なし');
       } else {
-        debugPrint('$entitlement 購入情報あり 復元する');
+        debugPrint('購入情報あり 復元する');
       }
       state = AsyncValue.data(
         state.requireValue.copyWith(isPremiumUser: isPremiumUser),
