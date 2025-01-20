@@ -70,6 +70,7 @@ class EditProfilePage extends HookConsumerWidget {
                         validator: Validator.common,
                         onFieldSubmitted: (_) {},
                         label: t.editProfilePage.textFields.name,
+                        maxBytes: 16,
                       ),
                     ],
                   ),
