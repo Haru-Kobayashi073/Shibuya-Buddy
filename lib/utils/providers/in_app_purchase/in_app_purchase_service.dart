@@ -34,10 +34,10 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     final result = await Purchases.logIn(currentUser.uid);
 
     final offerings = await getOfferingItems();
-    final isPremiumUser = await checkIsPremiumUser(result.customerInfo);
+    final isPremium = isPremiumUser(result.customerInfo);
     return InAppPurchaseServiceState(
       offerings: offerings!,
-      isPremiumUser: isPremiumUser,
+      isPremiumUser: isPremium,
     );
   }
 
@@ -61,19 +61,10 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     return null;
   }
 
-  Future<bool> checkIsPremiumUser(
-    CustomerInfo customerInfo, {
-    String entitlement = 'premium',
-  }) async {
-    final entitlements = customerInfo.entitlements.all;
-    if (entitlements.isEmpty) {
-      return false;
-    }
-    if (!entitlements.containsKey(entitlement)) {
-      ///そもそもentitlementが設定されて無い場合
-      return false;
-    } else if (entitlements[entitlement]!.isActive) {
-      ///設定されていて、activeになっている場合
+  bool isPremiumUser(CustomerInfo customerInfo) {
+    final memberState = getMemberState(customerInfo);
+    if (memberState.resultRemainingTime != null ||
+        memberState.isUnlimitedPremium) {
       return true;
     } else {
       return false;
@@ -113,9 +104,9 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       } else {
         return;
       }
-      final isPremiumUser = await checkIsPremiumUser(customerInfo);
+      final isPremium = isPremiumUser(customerInfo);
       state = AsyncValue.data(
-        state.requireValue.copyWith(isPremiumUser: isPremiumUser),
+        state.requireValue.copyWith(isPremiumUser: isPremium),
       );
       ref.invalidate(currentUserProvider);
     } on PlatformException catch (e) {
@@ -126,51 +117,68 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   Future<bool> canRestorePurchase() async {
     try {
       final customerInfo = await Purchases.restorePurchases();
-      final isPremiumUser = await checkIsPremiumUser(customerInfo);
-      if (!isPremiumUser) {
-        debugPrint('購入情報なし');
-        return false;
+      final memberState = getMemberState(customerInfo);
+      if (memberState.resultRemainingTime != null ||
+          memberState.isUnlimitedPremium) {
+        if (memberState.isUnlimitedPremium) {
+          await userDataSource.editUser(
+            user: currentUser.copyWith(
+              billingGrade: BillingGrade.premiumWithUnlimited,
+            ),
+          );
+        } else {
+          await userDataSource.editUser(
+            user: currentUser.copyWith(
+              billingGrade: BillingGrade.premiumWithPeriod,
+              premiumPlanExpirationDate: memberState.resultRemainingTime,
+            ),
+          );
+        }
+        state = AsyncValue.data(
+          state.requireValue.copyWith(isPremiumUser: true),
+        );
+        ref.invalidate(currentUserProvider);
+        return true;
       } else {
-        debugPrint('購入情報あり 復元する');
+        return false;
       }
-      state = AsyncValue.data(
-        state.requireValue.copyWith(isPremiumUser: isPremiumUser),
-      );
-      ref.invalidate(currentUserProvider);
-      return true;
     } on PlatformException catch (e) {
       debugPrint('purchase repo  restorePurchase error $e');
       return false;
     }
   }
 
-  List<String> getValidActiveItems(CustomerInfo customerInfo) {
-    final allPurchasedProductIdentifiers =
-        customerInfo.allPurchasedProductIdentifiers;
-    final allPurchaseDates = customerInfo.allPurchaseDates;
-    final activeProductIds = allPurchasedProductIdentifiers.map(
-      (id) {
-        final purchaseDate = allPurchaseDates[id]!;
-        final now = DateTime.now().toUtc();
-        final purchaseDateTime = DateTime.parse(purchaseDate);
-        final diff = now.difference(purchaseDateTime);
+  MemberState getMemberState(CustomerInfo customerInfo) {
+    final pastPurchases = customerInfo.nonSubscriptionTransactions;
+    DateTime? resultDate;
+    var isUnlimitedPremium = false;
+    for (final pastPurchase in pastPurchases) {
+      final pastPurchasedProductId = pastPurchase.productIdentifier;
 
-        final isActive = switch (id) {
-          'unlimited_premium' || 'unlimited_premium_v1' => true,
-          '7day-premium' || '7day_premium_v1' => diff.inDays < 7,
-          '5day-premium' || '5day_premium_v1' => diff.inDays < 5,
-          '3day-premium' || '3day_premium_v1' => diff.inDays < 3,
-          '1day-premium' || '1day_premium_v1' => diff.inDays < 1,
-          _ => false,
-        };
-        if (isActive) {
-          return id;
-        }
-        return null;
-      },
-    ).toList();
+      if (pastPurchasedProductId == 'unlimited_premium' ||
+          pastPurchasedProductId == 'unlimited_premium_v1') {
+        isUnlimitedPremium = true;
+        break;
+      }
 
-    return activeProductIds.whereType<String>().toList();
+      final pastPurchasedDate = DateTime.parse(pastPurchase.purchaseDate);
+      final expirationDate = pastPurchasedDate.add(
+        Duration(
+          days: getEffectivePeriodFromProductId(pastPurchasedProductId)!,
+        ),
+      );
+      // 余っている分の時間　＝　有効期限　ー　現在時刻
+      final now = DateTime.now().toUtc();
+      final remainingTime = expirationDate.difference(now);
+
+      if (!remainingTime.isNegative) {
+        resultDate = (resultDate ?? now).add(remainingTime);
+      }
+    }
+    return (
+      resultRemainingTime: resultDate,
+      isUnlimitedPremium: isUnlimitedPremium,
+    );
   }
 
   int? getEffectivePeriodFromProductId(String productId) {
@@ -219,3 +227,8 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     return null;
   }
 }
+
+typedef MemberState = ({
+  DateTime? resultRemainingTime,
+  bool isUnlimitedPremium
+});
