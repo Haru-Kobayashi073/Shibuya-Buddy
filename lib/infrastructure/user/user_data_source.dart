@@ -31,4 +31,13 @@ class UserDataSource extends _$UserDataSource implements UserRepository {
   Future<void> editUser({required User user}) async {
     await firestore.collection('users').doc(user.uid).update(user.toJson());
   }
+
+  @override
+  Stream<User> fetchUserStream({required String userId}) {
+    final stream =
+        firestore.collection('users').doc(userId).snapshots().map((event) {
+      return User.fromJson(event.data()!);
+    });
+    return stream;
+  }
 }
