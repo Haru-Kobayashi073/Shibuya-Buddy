@@ -69,7 +69,10 @@ class Validator {
 
   /// ユーザーネーム入力時のバリデーション
   static String? userName(String? value, int? maxBytes) {
-    if (maxBytes != null && value != null) {
+    if (value == null || value.isEmpty) {
+      return 'ユーザーネームを入力してください';
+    }
+    if (maxBytes != null) {
       final byteCount = value.runes.fold(0, (sum, char) {
         return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
       });
