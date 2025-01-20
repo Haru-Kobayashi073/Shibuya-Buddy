@@ -40,9 +40,10 @@ class PlanDataSource extends _$PlanDataSource implements PlanRepository {
       },
     );
     for (final topic in plan.topics) {
+      final updatedRelatedPlanIds = [...topic.relatedPlanIds, plan.id];
       final updatedTopic = topic.copyWith(
         totalCount: topic.totalCount + 1,
-        relatedPlanIds: topic.relatedPlanIds..add(plan.id),
+        relatedPlanIds: updatedRelatedPlanIds,
       );
       await firestore
           .collection('topics')
