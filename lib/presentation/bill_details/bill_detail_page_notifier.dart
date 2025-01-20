@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
+import '../components/loading_overlay.dart';
 
 part 'bill_detail_page_notifier.g.dart';
 
@@ -23,10 +24,13 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
 
   Future<void> purchaseItem() async {
     try {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = true;
       final packageId = getPackageId();
       await inAppPurchaseService.makePurchase(packageId);
     } on Exception catch (e) {
       debugPrint('purchaseItem error: $e');
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
