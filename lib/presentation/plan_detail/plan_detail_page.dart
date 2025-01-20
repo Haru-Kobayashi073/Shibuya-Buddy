@@ -9,6 +9,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import '../../domain/entities/plan.dart';
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/loading_overlay.dart';
@@ -80,7 +81,11 @@ class PlanDetailPage extends ConsumerWidget {
                               ),
                               label: planDetailPagei18n.item.viewOnMap,
                               color: AppColor.grey200,
-                              onPressed: () {},
+                              onPressed: () async {
+                                final places = value.places;
+                                await MapPageRouteData($extra: places)
+                                    .push<void>(context);
+                              },
                             ),
                             const Gap(16),
                             Column(

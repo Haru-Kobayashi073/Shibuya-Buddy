@@ -413,5 +413,8 @@
         "title": "发生错误...",
         "message": "请检查您的网络连接并重试。",
         "retryButton": "重试"
+    },
+    "mapPage": {
+        "title": "地图"
     }
 }

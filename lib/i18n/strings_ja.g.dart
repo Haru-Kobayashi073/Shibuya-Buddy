@@ -56,6 +56,7 @@ class TranslationsJa implements Translations {
 		'zh': '中国語',
 	};
 	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
+	@override late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
 }
 
 // Path: navigationBar
@@ -322,6 +323,16 @@ class _TranslationsErrorPageJa implements TranslationsErrorPageEn {
 	@override String get title => 'エラーが発生しました...';
 	@override String get message => '通信環境を確認し、もう一度お試しください';
 	@override String get retryButton => 'もう一度読み込む';
+}
+
+// Path: mapPage
+class _TranslationsMapPageJa implements TranslationsMapPageEn {
+	_TranslationsMapPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'マップ';
 }
 
 // Path: navigationBar.items
@@ -1394,6 +1405,7 @@ extension on TranslationsJa {
 			case 'errorPage.title': return 'エラーが発生しました...';
 			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
 			case 'errorPage.retryButton': return 'もう一度読み込む';
+			case 'mapPage.title': return 'マップ';
 			default: return null;
 		}
 	}
