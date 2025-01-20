@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -58,7 +59,7 @@ class SectionTitle extends StatelessWidget {
             icon: const Icon(Icons.arrow_forward_ios),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            onPressed: onPressed,
+            onPressed: () => const MyPlanPageRouteData().go(context),
             iconSize: iconSize,
           ),
         ),
