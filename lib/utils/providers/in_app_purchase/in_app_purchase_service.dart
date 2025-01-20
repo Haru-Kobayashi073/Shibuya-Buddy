@@ -16,7 +16,7 @@ part 'in_app_purchase_service.g.dart';
 class InAppPurchaseService extends _$InAppPurchaseService {
   UserDataSource get userDataSource =>
       ref.read(userDataSourceProvider.notifier);
-  User get currentUser => ref.read(currentUserProvider);
+  User get currentUser => ref.watch(currentUserProvider);
 
   @override
   Future<InAppPurchaseServiceState> build() async {
@@ -45,7 +45,6 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   }
 
   Future<Offerings?> getOfferingItems() async {
-    await Purchases.logIn(currentUser.uid);
     try {
       final offerings = await Purchases.getOfferings();
 
@@ -91,13 +90,13 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       package = state
           .requireValue.offerings.all['premium-plan']!.availablePackages
           .firstWhere((element) => element.identifier == packageId);
-      await Purchases.logIn(currentUser.uid);
       final customerInfo = await Purchases.purchasePackage(package);
       final productId = getproductIdFromPackageId(packageId);
 
       if (customerInfo.allPurchasedProductIdentifiers.contains(productId)) {
         // プレミアムプランの有効期限をDateTime型で取得
-        final premiumPlanExpirationDate = DateTime.now().add(
+        final premiumPlanExpirationDate =
+            (currentUser.premiumPlanExpirationDate ?? DateTime.now()).add(
           Duration(days: getEffectivePeriodFromPackageId(packageId)!),
         );
         if (package.identifier == 'unlimited-premium') {
@@ -121,6 +120,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       state = AsyncValue.data(
         state.requireValue.copyWith(isPremiumUser: isPremiumUser),
       );
+      ref.invalidate(currentUserProvider);
     } on PlatformException catch (e) {
       debugPrint('makePurchase error $e');
     }
