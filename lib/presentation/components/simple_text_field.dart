@@ -37,12 +37,11 @@ class SimpleTextField extends StatelessWidget {
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       obscureText: obscureText,
-      validator: validator,
+      validator: (value) => validateMaxBytes(value, maxBytes),
       cursorColor: AppColor.blue800Secondary,
       style: AppTextStyle.textStyle.copyWith(
         color: AppColor.black,
       ),
-      onChanged: _handleInputChange,
       onFieldSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
         suffixIcon: icon,
@@ -71,34 +70,17 @@ class SimpleTextField extends StatelessWidget {
       ),
     );
   }
+}
 
-  // 必要に応じて、バイト数チェックを行う
-  void _handleInputChange(String value) {
-    if (maxBytes != null) {
-      final byteCount = value.runes.fold(0, (sum, char) {
-        return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
-      });
-      if (byteCount > maxBytes!) {
-        _trimInputToMaxBytes(value);
-      }
+// バイト数計算をする関数
+String? validateMaxBytes(String? value, int? maxBytes) {
+  if (maxBytes != null && value != null) {
+    final byteCount = value.runes.fold(0, (sum, char) {
+      return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
+    });
+    if (byteCount > maxBytes) {
+      return '入力は最大8字までです';
     }
   }
-
-  // バイト数が制限を超えた場合のトリミング処理
-  void _trimInputToMaxBytes(String value) {
-    var truncatedValue = '';
-    var currentByteCount = 0;
-    for (final char in value.runes) {
-      final charBytes = char > 255 ? 2 : 1;
-      if (currentByteCount + charBytes <= maxBytes!) {
-        truncatedValue += String.fromCharCode(char);
-      }
-      currentByteCount += charBytes;
-    }
-    controller
-      ..text = truncatedValue
-      ..selection = TextSelection.fromPosition(
-        TextPosition(offset: truncatedValue.length),
-      );
-  }
+  return null;
 }
