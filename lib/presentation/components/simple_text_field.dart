@@ -83,7 +83,8 @@ class SimpleTextField extends StatelessWidget {
       }
     }
   }
- // バイト数が制限を超えた場合のトリミング処理
+
+  // バイト数が制限を超えた場合のトリミング処理
   void _trimInputToMaxBytes(String value) {
     var truncatedValue = '';
     var currentByteCount = 0;
