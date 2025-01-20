@@ -297,7 +297,9 @@ class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
 	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions = _TranslationsBillDetailsPagePricingOptionsJa._(_root);
+	@override late final _TranslationsBillDetailsPageRestorePurchaseSectionJa restorePurchaseSection = _TranslationsBillDetailsPageRestorePurchaseSectionJa._(_root);
 	@override String get upgradeButton => 'プレミアムにアップグレード';
+	@override late final _TranslationsBillDetailsPageSnackBarJa snackBar = _TranslationsBillDetailsPageSnackBarJa._(_root);
 }
 
 // Path: planDetailsPage
@@ -776,6 +778,28 @@ class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
 }
 
+// Path: billDetailsPage.restorePurchaseSection
+class _TranslationsBillDetailsPageRestorePurchaseSectionJa implements TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	_TranslationsBillDetailsPageRestorePurchaseSectionJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '購入の復元';
+	@override String get description => '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
+	@override String get button => '購入を復元';
+}
+
+// Path: billDetailsPage.snackBar
+class _TranslationsBillDetailsPageSnackBarJa implements TranslationsBillDetailsPageSnackBarEn {
+	_TranslationsBillDetailsPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageSnackBarErrorJa error = _TranslationsBillDetailsPageSnackBarErrorJa._(_root);
+}
+
 // Path: planDetailsPage.dateTime
 class _TranslationsPlanDetailsPageDateTimeJa implements TranslationsPlanDetailsPageDateTimeEn {
 	_TranslationsPlanDetailsPageDateTimeJa._(this._root);
@@ -1090,6 +1114,18 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements Translatio
 	@override String get price => '25,800円';
 }
 
+// Path: billDetailsPage.snackBar.error
+class _TranslationsBillDetailsPageSnackBarErrorJa implements TranslationsBillDetailsPageSnackBarErrorEn {
+	_TranslationsBillDetailsPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToPurchase => '購入に失敗しました。時間をおいて再度お試しください。';
+	@override String get PurchaseHistoryNotFound => '購入履歴がありません。';
+	@override String get failedToRestorePurchase => '購入の復元に失敗しました。時間をおいて再度お試しください';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
@@ -1383,7 +1419,13 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '永年分';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
+			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';
+			case 'billDetailsPage.restorePurchaseSection.description': return '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
+			case 'billDetailsPage.restorePurchaseSection.button': return '購入を復元';
 			case 'billDetailsPage.upgradeButton': return 'プレミアムにアップグレード';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return '購入に失敗しました。時間をおいて再度お試しください。';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '購入履歴がありません。';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return '購入の復元に失敗しました。時間をおいて再度お試しください';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';

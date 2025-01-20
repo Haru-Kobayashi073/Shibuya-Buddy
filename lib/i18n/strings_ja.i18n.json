@@ -388,7 +388,19 @@
                 "price": "25,800円"
             }
         },
-        "upgradeButton": "プレミアムにアップグレード"
+        "restorePurchaseSection": {
+            "title": "購入の復元",
+            "description": "過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。",
+            "button": "購入を復元"
+        },
+        "upgradeButton": "プレミアムにアップグレード",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "購入に失敗しました。時間をおいて再度お試しください。",
+                "PurchaseHistoryNotFound": "購入履歴がありません。",
+                "failedToRestorePurchase": "購入の復元に失敗しました。時間をおいて再度お試しください"
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

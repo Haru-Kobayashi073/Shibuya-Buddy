@@ -388,7 +388,19 @@
                 "price": "25,800 yen"
             }
         },
-        "upgradeButton": "Upgrade to Premium"
+        "restorePurchaseSection": {
+            "title": "Restore Purchase",
+            "description": "If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.",
+            "button": "Restore Purchase"
+        },
+        "upgradeButton": "Upgrade to Premium",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "Purchase failed. Please try again later.",
+                "PurchaseHistoryNotFound": "No purchase history found.",
+                "failedToRestorePurchase": "Failed to restore purchase. Please try again later."
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

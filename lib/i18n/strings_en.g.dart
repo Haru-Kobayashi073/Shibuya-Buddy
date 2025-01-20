@@ -301,7 +301,9 @@ class TranslationsBillDetailsPageEn {
 	late final TranslationsBillDetailsPagePricingPlanEn pricingPlan = TranslationsBillDetailsPagePricingPlanEn._(_root);
 	late final TranslationsBillDetailsPageFeaturesEn features = TranslationsBillDetailsPageFeaturesEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsEn pricingOptions = TranslationsBillDetailsPagePricingOptionsEn._(_root);
+	late final TranslationsBillDetailsPageRestorePurchaseSectionEn restorePurchaseSection = TranslationsBillDetailsPageRestorePurchaseSectionEn._(_root);
 	String get upgradeButton => 'Upgrade to Premium';
+	late final TranslationsBillDetailsPageSnackBarEn snackBar = TranslationsBillDetailsPageSnackBarEn._(_root);
 }
 
 // Path: planDetailsPage
@@ -780,6 +782,28 @@ class TranslationsBillDetailsPagePricingOptionsEn {
 	late final TranslationsBillDetailsPagePricingOptionsLifetimeEn lifetime = TranslationsBillDetailsPagePricingOptionsLifetimeEn._(_root);
 }
 
+// Path: billDetailsPage.restorePurchaseSection
+class TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	TranslationsBillDetailsPageRestorePurchaseSectionEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Restore Purchase';
+	String get description => 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
+	String get button => 'Restore Purchase';
+}
+
+// Path: billDetailsPage.snackBar
+class TranslationsBillDetailsPageSnackBarEn {
+	TranslationsBillDetailsPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsBillDetailsPageSnackBarErrorEn error = TranslationsBillDetailsPageSnackBarErrorEn._(_root);
+}
+
 // Path: planDetailsPage.dateTime
 class TranslationsPlanDetailsPageDateTimeEn {
 	TranslationsPlanDetailsPageDateTimeEn._(this._root);
@@ -1094,6 +1118,18 @@ class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
 	String get price => '25,800 yen';
 }
 
+// Path: billDetailsPage.snackBar.error
+class TranslationsBillDetailsPageSnackBarErrorEn {
+	TranslationsBillDetailsPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToPurchase => 'Purchase failed. Please try again later.';
+	String get PurchaseHistoryNotFound => 'No purchase history found.';
+	String get failedToRestorePurchase => 'Failed to restore purchase. Please try again later.';
+}
+
 // Path: planDetailsPage.snackBar.error
 class TranslationsPlanDetailsPageSnackBarErrorEn {
 	TranslationsPlanDetailsPageSnackBarErrorEn._(this._root);
@@ -1387,7 +1423,13 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
+			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
+			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
+			case 'billDetailsPage.restorePurchaseSection.button': return 'Restore Purchase';
 			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return 'Purchase failed. Please try again later.';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return 'No purchase history found.';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return 'Failed to restore purchase. Please try again later.';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';

@@ -388,7 +388,19 @@
                 "price": "25,800日元"
             }
         },
-        "upgradeButton": "升级到高级计划"
+        "restorePurchaseSection": {
+            "title": "恢复购买",
+            "description": "如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。",
+            "button": "恢复购买"
+        },
+        "upgradeButton": "升级到高级计划",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "购买失败，请稍后再试。",
+                "PurchaseHistoryNotFound": "未找到购买记录。",
+                "failedToRestorePurchase": "恢复购买失败，请稍后再试"
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

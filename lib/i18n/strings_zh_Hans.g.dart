@@ -297,7 +297,9 @@ class _TranslationsBillDetailsPageZhHans implements TranslationsBillDetailsPageE
 	@override late final _TranslationsBillDetailsPagePricingPlanZhHans pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHans._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesZhHans features = _TranslationsBillDetailsPageFeaturesZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsZhHans pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageRestorePurchaseSectionZhHans restorePurchaseSection = _TranslationsBillDetailsPageRestorePurchaseSectionZhHans._(_root);
 	@override String get upgradeButton => '升级到高级计划';
+	@override late final _TranslationsBillDetailsPageSnackBarZhHans snackBar = _TranslationsBillDetailsPageSnackBarZhHans._(_root);
 }
 
 // Path: planDetailsPage
@@ -776,6 +778,28 @@ class _TranslationsBillDetailsPagePricingOptionsZhHans implements TranslationsBi
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(_root);
 }
 
+// Path: billDetailsPage.restorePurchaseSection
+class _TranslationsBillDetailsPageRestorePurchaseSectionZhHans implements TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	_TranslationsBillDetailsPageRestorePurchaseSectionZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '恢复购买';
+	@override String get description => '如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。';
+	@override String get button => '恢复购买';
+}
+
+// Path: billDetailsPage.snackBar
+class _TranslationsBillDetailsPageSnackBarZhHans implements TranslationsBillDetailsPageSnackBarEn {
+	_TranslationsBillDetailsPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageSnackBarErrorZhHans error = _TranslationsBillDetailsPageSnackBarErrorZhHans._(_root);
+}
+
 // Path: planDetailsPage.dateTime
 class _TranslationsPlanDetailsPageDateTimeZhHans implements TranslationsPlanDetailsPageDateTimeEn {
 	_TranslationsPlanDetailsPageDateTimeZhHans._(this._root);
@@ -1090,6 +1114,18 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans implements Transl
 	@override String get price => '25,800日元';
 }
 
+// Path: billDetailsPage.snackBar.error
+class _TranslationsBillDetailsPageSnackBarErrorZhHans implements TranslationsBillDetailsPageSnackBarErrorEn {
+	_TranslationsBillDetailsPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToPurchase => '购买失败，请稍后再试。';
+	@override String get PurchaseHistoryNotFound => '未找到购买记录。';
+	@override String get failedToRestorePurchase => '恢复购买失败，请稍后再试';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorZhHans implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorZhHans._(this._root);
@@ -1383,7 +1419,13 @@ extension on TranslationsZhHans {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '终身';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日元';
+			case 'billDetailsPage.restorePurchaseSection.title': return '恢复购买';
+			case 'billDetailsPage.restorePurchaseSection.description': return '如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。';
+			case 'billDetailsPage.restorePurchaseSection.button': return '恢复购买';
 			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return '购买失败，请稍后再试。';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '未找到购买记录。';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return '恢复购买失败，请稍后再试';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
