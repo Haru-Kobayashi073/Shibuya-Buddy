@@ -60,6 +60,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 		'zh': 'Chinese',
 	};
 	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
+	late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
 }
 
 // Path: navigationBar
@@ -326,6 +327,16 @@ class TranslationsErrorPageEn {
 	String get title => 'An error occurred...';
 	String get message => 'Please check your network connection and try again.';
 	String get retryButton => 'Retry';
+}
+
+// Path: mapPage
+class TranslationsMapPageEn {
+	TranslationsMapPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Map';
 }
 
 // Path: navigationBar.items
@@ -1398,6 +1409,7 @@ extension on Translations {
 			case 'errorPage.title': return 'An error occurred...';
 			case 'errorPage.message': return 'Please check your network connection and try again.';
 			case 'errorPage.retryButton': return 'Retry';
+			case 'mapPage.title': return 'Map';
 			default: return null;
 		}
 	}

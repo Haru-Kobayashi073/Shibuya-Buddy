@@ -18,6 +18,7 @@ List<RouteBase> get $appRoutes => [
       $buddyChatPageRouteData,
       $planDetailPageRouteData,
       $plansRelatedInTopicRouteData,
+      $mapPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -680,6 +681,32 @@ extension $PlansRelatedInTopicRouteDataExtension
         queryParams: {
           'topic-name': topicName,
         },
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $mapPageRouteData => GoRouteData.$route(
+      path: '/map',
+      factory: $MapPageRouteDataExtension._fromState,
+    );
+
+extension $MapPageRouteDataExtension on MapPageRouteData {
+  static MapPageRouteData _fromState(GoRouterState state) => MapPageRouteData(
+        $extra: state.extra as List<Place>,
+      );
+
+  String get location => GoRouteData.$location(
+        '/map',
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);
