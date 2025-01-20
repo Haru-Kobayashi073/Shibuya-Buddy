@@ -34,7 +34,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     final result = await Purchases.logIn(currentUser.uid);
 
     final offerings = await getOfferingItems();
-    final isPremium = isPremiumUser(result.customerInfo);
+    final isPremium = _isPremiumUser(result.customerInfo);
     return InAppPurchaseServiceState(
       offerings: offerings!,
       isPremiumUser: isPremium,
@@ -61,8 +61,8 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     return null;
   }
 
-  bool isPremiumUser(CustomerInfo customerInfo) {
-    final memberState = getMemberState(customerInfo);
+  bool _isPremiumUser(CustomerInfo customerInfo) {
+    final memberState = _getMemberState(customerInfo);
     if (memberState.resultRemainingTime != null ||
         memberState.isUnlimitedPremium) {
       return true;
@@ -79,13 +79,13 @@ class InAppPurchaseService extends _$InAppPurchaseService {
           .requireValue.offerings.all['premium-plan']!.availablePackages
           .firstWhere((element) => element.identifier == packageId);
       final customerInfo = await Purchases.purchasePackage(package);
-      final productId = getproductIdFromPackageId(packageId);
+      final productId = _getproductIdFromPackageId(packageId);
 
       if (customerInfo.allPurchasedProductIdentifiers.contains(productId)) {
         // プレミアムプランの有効期限をDateTime型で取得
         final premiumPlanExpirationDate =
             (currentUser.premiumPlanExpirationDate ?? DateTime.now()).add(
-          Duration(days: getEffectivePeriodFromPackageId(packageId)!),
+          Duration(days: _getEffectivePeriodFromPackageId(packageId)!),
         );
         if (package.identifier == 'unlimited-premium') {
           await userDataSource.editUser(
@@ -104,7 +104,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       } else {
         return;
       }
-      final isPremium = isPremiumUser(customerInfo);
+      final isPremium = _isPremiumUser(customerInfo);
       state = AsyncValue.data(
         state.requireValue.copyWith(isPremiumUser: isPremium),
       );
@@ -117,7 +117,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   Future<bool> canRestorePurchase() async {
     try {
       final customerInfo = await Purchases.restorePurchases();
-      final memberState = getMemberState(customerInfo);
+      final memberState = _getMemberState(customerInfo);
       if (memberState.resultRemainingTime != null ||
           memberState.isUnlimitedPremium) {
         if (memberState.isUnlimitedPremium) {
@@ -148,7 +148,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     }
   }
 
-  MemberState getMemberState(CustomerInfo customerInfo) {
+  MemberState _getMemberState(CustomerInfo customerInfo) {
     final pastPurchases = customerInfo.nonSubscriptionTransactions;
     DateTime? resultDate;
     var isUnlimitedPremium = false;
@@ -164,7 +164,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       final pastPurchasedDate = DateTime.parse(pastPurchase.purchaseDate);
       final expirationDate = pastPurchasedDate.add(
         Duration(
-          days: getEffectivePeriodFromProductId(pastPurchasedProductId)!,
+          days: _getEffectivePeriodFromProductId(pastPurchasedProductId)!,
         ),
       );
       // 余っている分の時間　＝　有効期限　ー　現在時刻
@@ -181,7 +181,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     );
   }
 
-  int? getEffectivePeriodFromProductId(String productId) {
+  int? _getEffectivePeriodFromProductId(String productId) {
     return switch (productId) {
       'unlimited_premium' || 'unlimited_premium_v1' => null,
       '7day_premium' || '7day_premium_v1' => 7,
@@ -192,7 +192,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     };
   }
 
-  int? getEffectivePeriodFromPackageId(String packageId) {
+  int? _getEffectivePeriodFromPackageId(String packageId) {
     return switch (packageId) {
       'unlimited-premium' => null,
       '7day-premium' => 7,
@@ -203,7 +203,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     };
   }
 
-  String? getproductIdFromPackageId(String packageId) {
+  String? _getproductIdFromPackageId(String packageId) {
     if (Platform.isIOS) {
       return switch (packageId) {
         'unlimited-premium' => 'unlimited_premium',
