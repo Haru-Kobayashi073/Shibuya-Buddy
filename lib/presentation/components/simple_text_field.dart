@@ -42,30 +42,7 @@ class SimpleTextField extends StatelessWidget {
       style: AppTextStyle.textStyle.copyWith(
         color: AppColor.black,
       ),
-      onChanged: (value) {
-        if (maxBytes != null) {
-          final byteCount = value.runes.fold(0, (sum, char) {
-            return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
-          });
-          if (byteCount > maxBytes!) {
-            // 制限を超えた場合にトリミング
-            var truncatedValue = '';
-            var currentByteCount = 0;
-            for (final char in value.runes) {
-              final charBytes = char > 255 ? 2 : 1;
-              if (currentByteCount + charBytes <= maxBytes!) {
-                truncatedValue += String.fromCharCode(char);
-              }
-              currentByteCount += charBytes;
-            }
-            controller
-              ..text = truncatedValue
-              ..selection = TextSelection.fromPosition(
-                TextPosition(offset: truncatedValue.length),
-              );
-          }
-        }
-      },
+      onChanged: _handleInputChange,
       onFieldSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
         suffixIcon: icon,
@@ -93,5 +70,34 @@ class SimpleTextField extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // 必要に応じて、バイト数チェックを行う
+  void _handleInputChange(String value) {
+    if (maxBytes != null) {
+      final byteCount = value.runes.fold(0, (sum, char) {
+        return sum + (char > 255 ? 2 : 1); // 全角:2バイト, 半角:1バイト
+      });
+      if (byteCount > maxBytes!) {
+        _trimInputToMaxBytes(value);
+      }
+    }
+  }
+ // バイト数が制限を超えた場合のトリミング処理
+  void _trimInputToMaxBytes(String value) {
+    var truncatedValue = '';
+    var currentByteCount = 0;
+    for (final char in value.runes) {
+      final charBytes = char > 255 ? 2 : 1;
+      if (currentByteCount + charBytes <= maxBytes!) {
+        truncatedValue += String.fromCharCode(char);
+      }
+      currentByteCount += charBytes;
+    }
+    controller
+      ..text = truncatedValue
+      ..selection = TextSelection.fromPosition(
+        TextPosition(offset: truncatedValue.length),
+      );
   }
 }
