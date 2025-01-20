@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomePageState {
   List<Plan> get popularPlans => throw _privateConstructorUsedError;
   List<Topic> get popularTopics => throw _privateConstructorUsedError;
-  List<Plan>? get recentPlans => throw _privateConstructorUsedError;
+  List<Plan> get recentPlans => throw _privateConstructorUsedError;
 
   /// Create a copy of HomePageState
   /// with the given fields replaced by the non-null parameter values.
@@ -36,7 +36,7 @@ abstract class $HomePageStateCopyWith<$Res> {
   $Res call(
       {List<Plan> popularPlans,
       List<Topic> popularTopics,
-      List<Plan>? recentPlans});
+      List<Plan> recentPlans});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
   $Res call({
     Object? popularPlans = null,
     Object? popularTopics = null,
-    Object? recentPlans = freezed,
+    Object? recentPlans = null,
   }) {
     return _then(_value.copyWith(
       popularPlans: null == popularPlans
@@ -67,10 +67,10 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
           ? _value.popularTopics
           : popularTopics // ignore: cast_nullable_to_non_nullable
               as List<Topic>,
-      recentPlans: freezed == recentPlans
+      recentPlans: null == recentPlans
           ? _value.recentPlans
           : recentPlans // ignore: cast_nullable_to_non_nullable
-              as List<Plan>?,
+              as List<Plan>,
     ) as $Val);
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$HomePageStateImplCopyWith<$Res>
   $Res call(
       {List<Plan> popularPlans,
       List<Topic> popularTopics,
-      List<Plan>? recentPlans});
+      List<Plan> recentPlans});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$HomePageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? popularPlans = null,
     Object? popularTopics = null,
-    Object? recentPlans = freezed,
+    Object? recentPlans = null,
   }) {
     return _then(_$HomePageStateImpl(
       popularPlans: null == popularPlans
@@ -115,10 +115,10 @@ class __$$HomePageStateImplCopyWithImpl<$Res>
           ? _value._popularTopics
           : popularTopics // ignore: cast_nullable_to_non_nullable
               as List<Topic>,
-      recentPlans: freezed == recentPlans
+      recentPlans: null == recentPlans
           ? _value._recentPlans
           : recentPlans // ignore: cast_nullable_to_non_nullable
-              as List<Plan>?,
+              as List<Plan>,
     ));
   }
 }
@@ -129,7 +129,7 @@ class _$HomePageStateImpl implements _HomePageState {
   const _$HomePageStateImpl(
       {required final List<Plan> popularPlans,
       required final List<Topic> popularTopics,
-      final List<Plan>? recentPlans})
+      final List<Plan> recentPlans = const []})
       : _popularPlans = popularPlans,
         _popularTopics = popularTopics,
         _recentPlans = recentPlans;
@@ -150,14 +150,13 @@ class _$HomePageStateImpl implements _HomePageState {
     return EqualUnmodifiableListView(_popularTopics);
   }
 
-  final List<Plan>? _recentPlans;
+  final List<Plan> _recentPlans;
   @override
-  List<Plan>? get recentPlans {
-    final value = _recentPlans;
-    if (value == null) return null;
+  @JsonKey()
+  List<Plan> get recentPlans {
     if (_recentPlans is EqualUnmodifiableListView) return _recentPlans;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_recentPlans);
   }
 
   @override
@@ -198,14 +197,14 @@ abstract class _HomePageState implements HomePageState {
   const factory _HomePageState(
       {required final List<Plan> popularPlans,
       required final List<Topic> popularTopics,
-      final List<Plan>? recentPlans}) = _$HomePageStateImpl;
+      final List<Plan> recentPlans}) = _$HomePageStateImpl;
 
   @override
   List<Plan> get popularPlans;
   @override
   List<Topic> get popularTopics;
   @override
-  List<Plan>? get recentPlans;
+  List<Plan> get recentPlans;
 
   /// Create a copy of HomePageState
   /// with the given fields replaced by the non-null parameter values.

@@ -10,6 +10,6 @@ abstract class HomePageState with _$HomePageState {
   const factory HomePageState({
     required List<Plan> popularPlans,
     required List<Topic> popularTopics,
-    List<Plan>? recentPlans,
+    @Default([]) List<Plan> recentPlans,
   }) = _HomePageState;
 }
