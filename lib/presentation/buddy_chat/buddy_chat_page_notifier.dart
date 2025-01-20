@@ -31,7 +31,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
-      ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
+      ref.watch(currentUserProvider).billingGrade == BillingGrade.standard;
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
@@ -41,7 +41,12 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   Future<void> sendMessage({
     required String message,
     required void Function() onSuccess,
+    required void Function() needUpgradeToPremium,
   }) async {
+    if (isStandardGradeUser && state.requireValue.possibleChatCount == 0) {
+      needUpgradeToPremium();
+      return;
+    }
     final userMessage = ChatMessage(
       id: const Uuid().v4(),
       author: ChatAuthor.user,
