@@ -540,10 +540,15 @@ extension $CompleteSendEmailPageRouteDataExtension
 
 extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
   static SignUpPageRouteData _fromState(GoRouterState state) =>
-      const SignUpPageRouteData();
+      SignUpPageRouteData(
+        title: state.uri.queryParameters['title'] ?? '',
+      );
 
   String get location => GoRouteData.$location(
         '/signIn/signUp',
+        queryParams: {
+          if (title != '') 'title': title,
+        },
       );
 
   void go(BuildContext context) => context.go(location);

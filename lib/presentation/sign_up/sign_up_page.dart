@@ -15,7 +15,11 @@ import '../components/wide_button.dart';
 import 'sign_up_page_notifier.dart';
 
 class SignUpPage extends HookConsumerWidget {
-  const SignUpPage({super.key});
+  const SignUpPage({
+    super.key,
+    this.fromEmailVerify = false,
+  });
+  final bool fromEmailVerify;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -43,7 +47,9 @@ class SignUpPage extends HookConsumerWidget {
               SliverGap(context.deviceHeight * 0.05),
               SliverToBoxAdapter(
                 child: Text(
-                  i18nSignUpPage.title,
+                  fromEmailVerify
+                      ? i18nSignUpPage.title.modifyEmail
+                      : i18nSignUpPage.title.defaultText,
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -89,7 +95,9 @@ class SignUpPage extends HookConsumerWidget {
               const SliverGap(24),
               SliverToBoxAdapter(
                 child: WideButton(
-                  label: i18nSignUpPage.button,
+                  label: fromEmailVerify
+                      ? i18nSignUpPage.button.modifyEmail
+                      : i18nSignUpPage.button.defaultText,
                   color: AppColor.yellow600Primary,
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {

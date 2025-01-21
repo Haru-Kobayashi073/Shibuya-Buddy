@@ -381,11 +381,14 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
 }
 
 class SignUpPageRouteData extends GoRouteData {
-  const SignUpPageRouteData();
+  const SignUpPageRouteData({
+    required this.fromEmailVerify,
+  });
+  final bool fromEmailVerify;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignUpPage();
+    return SignUpPage(fromEmailVerify: fromEmailVerify);
   }
 }
 
