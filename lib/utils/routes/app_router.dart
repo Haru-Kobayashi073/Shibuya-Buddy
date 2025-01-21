@@ -347,14 +347,7 @@ class BillDetailsDialogRouteData extends GoRouteData {
         ),
       ],
     ),
-    TypedGoRoute<SignUpPageRouteData>(
-      path: Routes.signUp,
-      routes: [
-        TypedGoRoute<EmailVerificationPageRouteData>(
-          path: Routes.emailVerification,
-        ),
-      ],
-    ),
+    TypedGoRoute<SignUpPageRouteData>(path: Routes.signUp),
   ],
 )
 class SignInPageRouteData extends GoRouteData {
@@ -396,6 +389,9 @@ class SignUpPageRouteData extends GoRouteData {
   }
 }
 
+@TypedGoRoute<EmailVerificationPageRouteData>(
+  path: Routes.emailVerification,
+)
 class EmailVerificationPageRouteData extends GoRouteData {
   const EmailVerificationPageRouteData({
     required this.email,

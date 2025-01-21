@@ -14,6 +14,7 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $billDetailsDialogRouteData,
       $signInPageRouteData,
+      $emailVerificationPageRouteData,
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
       $planDetailPageRouteData,
@@ -473,12 +474,6 @@ RouteBase get $signInPageRouteData => GoRouteData.$route(
         GoRouteData.$route(
           path: 'signUp',
           factory: $SignUpPageRouteDataExtension._fromState,
-          routes: [
-            GoRouteData.$route(
-              path: 'emailVerification',
-              factory: $EmailVerificationPageRouteDataExtension._fromState,
-            ),
-          ],
         ),
       ],
     );
@@ -561,6 +556,11 @@ extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $emailVerificationPageRouteData => GoRouteData.$route(
+      path: '/emailVerification',
+      factory: $EmailVerificationPageRouteDataExtension._fromState,
+    );
+
 extension $EmailVerificationPageRouteDataExtension
     on EmailVerificationPageRouteData {
   static EmailVerificationPageRouteData _fromState(GoRouterState state) =>
@@ -569,7 +569,7 @@ extension $EmailVerificationPageRouteDataExtension
       );
 
   String get location => GoRouteData.$location(
-        '/signIn/signUp/emailVerification',
+        '/emailVerification',
         queryParams: {
           'email': email,
         },
