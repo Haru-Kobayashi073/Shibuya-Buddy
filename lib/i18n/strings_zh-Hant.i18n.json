@@ -87,12 +87,18 @@
             }
         },
         "signUpPage": {
-            "title": "註冊",
+            "title": {
+                "defaultText": "新用戶註冊",
+                "modifyEmail": "更改電子郵件地址"
+            },
             "textFields": {
                 "email": "電子郵件地址",
                 "password": "密碼"
             },
-            "button": "註冊"
+            "button": {
+                "defaultText": "註冊",
+                "modifyEmail": "更改"
+            }
         },
         "emailVerificationPage": {
             "title": "電子郵件地址驗證",

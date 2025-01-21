@@ -475,9 +475,9 @@ class TranslationsAuthenticationSignUpPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Sign Up';
+	late final TranslationsAuthenticationSignUpPageTitleEn title = TranslationsAuthenticationSignUpPageTitleEn._(_root);
 	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
-	String get button => 'Sign Up';
+	late final TranslationsAuthenticationSignUpPageButtonEn button = TranslationsAuthenticationSignUpPageButtonEn._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -886,6 +886,17 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 	String get submit => 'Submit';
 }
 
+// Path: authentication.signUpPage.title
+class TranslationsAuthenticationSignUpPageTitleEn {
+	TranslationsAuthenticationSignUpPageTitleEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get defaultText => 'Sign Up';
+	String get modifyEmail => 'Change Email Address';
+}
+
 // Path: authentication.signUpPage.textFields
 class TranslationsAuthenticationSignUpPageTextFieldsEn {
 	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
@@ -895,6 +906,17 @@ class TranslationsAuthenticationSignUpPageTextFieldsEn {
 	// Translations
 	String get email => 'Email Address';
 	String get password => 'Password';
+}
+
+// Path: authentication.signUpPage.button
+class TranslationsAuthenticationSignUpPageButtonEn {
+	TranslationsAuthenticationSignUpPageButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get defaultText => 'Sign Up';
+	String get modifyEmail => 'Change Email Address';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1235,10 +1257,12 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
-			case 'authentication.signUpPage.title': return 'Sign Up';
+			case 'authentication.signUpPage.title.defaultText': return 'Sign Up';
+			case 'authentication.signUpPage.title.modifyEmail': return 'Change Email Address';
 			case 'authentication.signUpPage.textFields.email': return 'Email Address';
 			case 'authentication.signUpPage.textFields.password': return 'Password';
-			case 'authentication.signUpPage.button': return 'Sign Up';
+			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
+			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';

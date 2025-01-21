@@ -87,12 +87,18 @@
             }
         },
         "signUpPage": {
-            "title": "Sign Up",
+            "title": {
+                "defaultText": "Sign Up",
+                "modifyEmail": "Change Email Address"
+            },
             "textFields": {
                 "email": "Email Address",
                 "password": "Password"
             },
-            "button": "Sign Up"
+            "button": {
+                "defaultText": "Sign Up",
+                "modifyEmail": "Change Email Address"
+            }
         },
         "emailVerificationPage": {
             "title": "Email Address Verification",

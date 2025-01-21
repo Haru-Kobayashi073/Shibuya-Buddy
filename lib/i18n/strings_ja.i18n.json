@@ -76,12 +76,18 @@
             }
         },
         "signUpPage": {
-            "title": "新規登録",
+            "title": {
+                "defaultText": "新規登録",
+                "modifyEmail": "メールアドレスの変更"
+            },
             "textFields": {
                 "email": "メールアドレス",
                 "password": "パスワード"
             },
-            "button": "新規登録"
+            "button": {
+                "defaultText": "新規登録",
+                "modifyEmail": "変更"
+            }
         },
         "emailVerificationPage": {
             "title": "メールアドレスの確認",
@@ -95,7 +101,7 @@
             },
             "snackBar": {
                 "success": "送信が完了しました",
-                "emailVerification":"メールアドレスの認証が完了していません",
+                "emailVerification": "メールアドレスの認証が完了していません",
                 "error": {
                     "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
                 }

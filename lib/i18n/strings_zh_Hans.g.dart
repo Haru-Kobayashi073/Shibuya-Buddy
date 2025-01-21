@@ -471,9 +471,9 @@ class _TranslationsAuthenticationSignUpPageZhHans implements TranslationsAuthent
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '注册';
+	@override late final _TranslationsAuthenticationSignUpPageTitleZhHans title = _TranslationsAuthenticationSignUpPageTitleZhHans._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHans._(_root);
-	@override String get button => '注册';
+	@override late final _TranslationsAuthenticationSignUpPageButtonZhHans button = _TranslationsAuthenticationSignUpPageButtonZhHans._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -882,6 +882,17 @@ class _TranslationsAuthenticationResetPasswordPageButtonsZhHans implements Trans
 	@override String get submit => '发送';
 }
 
+// Path: authentication.signUpPage.title
+class _TranslationsAuthenticationSignUpPageTitleZhHans implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新用户注册';
+	@override String get modifyEmail => '更改邮箱地址';
+}
+
 // Path: authentication.signUpPage.textFields
 class _TranslationsAuthenticationSignUpPageTextFieldsZhHans implements TranslationsAuthenticationSignUpPageTextFieldsEn {
 	_TranslationsAuthenticationSignUpPageTextFieldsZhHans._(this._root);
@@ -891,6 +902,17 @@ class _TranslationsAuthenticationSignUpPageTextFieldsZhHans implements Translati
 	// Translations
 	@override String get email => '邮箱地址';
 	@override String get password => '密码';
+}
+
+// Path: authentication.signUpPage.button
+class _TranslationsAuthenticationSignUpPageButtonZhHans implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '注册';
+	@override String get modifyEmail => '更改';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1231,10 +1253,12 @@ extension on TranslationsZhHans {
 			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
 			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
 			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
-			case 'authentication.signUpPage.title': return '注册';
+			case 'authentication.signUpPage.title.defaultText': return '新用户注册';
+			case 'authentication.signUpPage.title.modifyEmail': return '更改邮箱地址';
 			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
 			case 'authentication.signUpPage.textFields.password': return '密码';
-			case 'authentication.signUpPage.button': return '注册';
+			case 'authentication.signUpPage.button.defaultText': return '注册';
+			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的${email}发送确认邮件。';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';

@@ -461,9 +461,9 @@ class _TranslationsAuthenticationSignUpPageJa implements TranslationsAuthenticat
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '新規登録';
+	@override late final _TranslationsAuthenticationSignUpPageTitleJa title = _TranslationsAuthenticationSignUpPageTitleJa._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageTextFieldsJa textFields = _TranslationsAuthenticationSignUpPageTextFieldsJa._(_root);
-	@override String get button => '新規登録';
+	@override late final _TranslationsAuthenticationSignUpPageButtonJa button = _TranslationsAuthenticationSignUpPageButtonJa._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -866,6 +866,17 @@ class _TranslationsAuthenticationResetPasswordPageButtonsJa implements Translati
 	@override String get submit => '送信';
 }
 
+// Path: authentication.signUpPage.title
+class _TranslationsAuthenticationSignUpPageTitleJa implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新規登録';
+	@override String get modifyEmail => 'メールアドレスの変更';
+}
+
 // Path: authentication.signUpPage.textFields
 class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsAuthenticationSignUpPageTextFieldsEn {
 	_TranslationsAuthenticationSignUpPageTextFieldsJa._(this._root);
@@ -875,6 +886,17 @@ class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsA
 	// Translations
 	@override String get email => 'メールアドレス';
 	@override String get password => 'パスワード';
+}
+
+// Path: authentication.signUpPage.button
+class _TranslationsAuthenticationSignUpPageButtonJa implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新規登録';
+	@override String get modifyEmail => '変更';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1224,10 +1246,12 @@ extension on TranslationsJa {
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
 			case 'authentication.resetPasswordPage.buttons.submit': return '送信';
-			case 'authentication.signUpPage.title': return '新規登録';
+			case 'authentication.signUpPage.title.defaultText': return '新規登録';
+			case 'authentication.signUpPage.title.modifyEmail': return 'メールアドレスの変更';
 			case 'authentication.signUpPage.textFields.email': return 'メールアドレス';
 			case 'authentication.signUpPage.textFields.password': return 'パスワード';
-			case 'authentication.signUpPage.button': return '新規登録';
+			case 'authentication.signUpPage.button.defaultText': return '新規登録';
+			case 'authentication.signUpPage.button.modifyEmail': return '変更';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認メールの再送信は、60秒ごとに1回可能です。';
