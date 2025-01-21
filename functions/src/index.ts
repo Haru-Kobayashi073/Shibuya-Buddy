@@ -1,9 +1,8 @@
 import * as functions from "firebase-functions/v2";
-import * as admin from "firebase-admin";
+const { onDocumentCreated, firestore } = require("firebase-functions/v2/firestore");
 import * as scheduler from "firebase-functions/v2/scheduler";
+import { QueryDocumentSnapshot } from "firebase-admin/firestore";
 
-admin.initializeApp();
-const firestore = admin.firestore();
 
 functions.setGlobalOptions({
     region: "asia-northeast1",
@@ -16,7 +15,9 @@ export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () =
 
     // popularPlansRefのドキュメントを削除
     const snapshot = await popularPlansRef.get();
-    const deletePromises = snapshot.docs.map((doc) => popularPlansRef.doc(doc.id).delete());
+    const deletePromises = snapshot.docs.map((doc: QueryDocumentSnapshot) =>
+        popularPlansRef.doc(doc.id).delete()
+    );
     await Promise.all(deletePromises);
 
     // plansRefから上位10件を取得し、popularPlansRefに設定
@@ -26,7 +27,7 @@ export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () =
             .limit(10)
             .get();
 
-        const setPromises = plansSnapshot.docs.map((doc, index) => {
+        const setPromises = plansSnapshot.docs.map((doc: QueryDocumentSnapshot, index: number) => {
             const data = doc.data();
             data.ranking = index + 1;
             return popularPlansRef.doc(doc.id).set(data);
@@ -43,7 +44,9 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
 
     // popularTopicsRefのドキュメントを削除
     const snapshot = await popularTopicsRef.get();
-    const deletePromises = snapshot.docs.map((doc) => popularTopicsRef.doc(doc.id).delete());
+    const deletePromises = snapshot.docs.map((doc: QueryDocumentSnapshot) =>
+        popularTopicsRef.doc(doc.id).delete()
+    );
     await Promise.all(deletePromises);
 
     // topicsRefから上位10件を取得し、popularTopicsRefに設定
@@ -53,7 +56,7 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
             .limit(10)
             .get();
 
-        const setPromises = topicsSnapshot.docs.map((doc, index) => {
+        const setPromises = topicsSnapshot.docs.map((doc: QueryDocumentSnapshot, index: number) => {
             const data = doc.data();
             data.ranking = index + 1;
             return popularTopicsRef.doc(doc.id).set(data);
