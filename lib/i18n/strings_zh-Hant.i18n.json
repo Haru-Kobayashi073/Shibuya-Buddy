@@ -106,6 +106,7 @@
             },
             "snackBar": {
                 "success": "發送成功",
+                "emailVerification": "電子郵件地址尚未驗證。",
                 "error": {
                     "unexpected": "發生錯誤，請稍後再試。"
                 }

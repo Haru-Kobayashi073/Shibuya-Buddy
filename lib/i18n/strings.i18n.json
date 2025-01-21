@@ -106,6 +106,7 @@
             },
             "snackBar": {
                 "success": "Email sent successfully",
+                "emailVerification": "Email address is not verified.",
                 "error": {
                     "unexpected": "An error occurred. Please try again later."
                 }

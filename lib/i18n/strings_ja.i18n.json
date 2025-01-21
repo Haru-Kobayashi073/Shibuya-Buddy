@@ -95,6 +95,7 @@
             },
             "snackBar": {
                 "success": "送信が完了しました",
+                "emailVerification":"メールアドレスの認証が完了していません",
                 "error": {
                     "unexpected": "エラーが発生しました。時間をおいて再度お試しください"
                 }
