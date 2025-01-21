@@ -33,24 +33,27 @@ class RecentPlan extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                plan.title,
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+          Flexible(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  plan.title,
+                  style: AppTextStyle.textStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              const SizedBox(height: 4),
-              CategoryTags(
-                tags: plan.topics.map((e) => e.name).toList(),
-                tagColor: AppColor.blue50Background,
-                spacing: 8,
-              ),
-            ],
+                const SizedBox(height: 4),
+                CategoryTags(
+                  tags: plan.topics.map((e) => e.name).toList(),
+                  tagColor: AppColor.blue50Background,
+                  spacing: 8,
+                ),
+              ],
+            ),
           ),
         ],
       ),
