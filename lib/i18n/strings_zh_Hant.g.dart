@@ -1316,6 +1316,8 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant
   @override
   String get success => '發送成功';
   @override
+  String get emailVerification => '電子郵件地址尚未驗證。';
+  @override
   late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant
       error =
       _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(
@@ -1802,6 +1804,8 @@ extension on TranslationsZhHant {
         return '修改電子郵件地址';
       case 'authentication.emailVerificationPage.snackBar.success':
         return '發送成功';
+      case 'authentication.emailVerificationPage.snackBar.emailVerification':
+        return '電子郵件地址尚未驗證。';
       case 'authentication.emailVerificationPage.snackBar.error.unexpected':
         return '發生錯誤，請稍後再試。';
       case 'authentication.registerProfilePage.title':

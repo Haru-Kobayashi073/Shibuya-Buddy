@@ -1025,6 +1025,7 @@ class TranslationsAuthenticationEmailVerificationPageSnackBarEn {
 
   // Translations
   String get success => 'Email sent successfully';
+  String get emailVerification => 'Email address is not verified.';
   late final TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn
       error =
       TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(_root);
@@ -1429,6 +1430,8 @@ extension on Translations {
         return 'Edit Email Address';
       case 'authentication.emailVerificationPage.snackBar.success':
         return 'Email sent successfully';
+      case 'authentication.emailVerificationPage.snackBar.emailVerification':
+        return 'Email address is not verified.';
       case 'authentication.emailVerificationPage.snackBar.error.unexpected':
         return 'An error occurred. Please try again later.';
       case 'authentication.registerProfilePage.title':

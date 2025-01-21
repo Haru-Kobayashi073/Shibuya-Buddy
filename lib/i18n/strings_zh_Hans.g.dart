@@ -1316,6 +1316,8 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans
   @override
   String get success => '发送成功';
   @override
+  String get emailVerification => '邮箱地址尚未验证。';
+  @override
   late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans
       error =
       _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(
@@ -1802,6 +1804,8 @@ extension on TranslationsZhHans {
         return '修改邮箱地址';
       case 'authentication.emailVerificationPage.snackBar.success':
         return '发送成功';
+      case 'authentication.emailVerificationPage.snackBar.emailVerification':
+        return '邮箱地址尚未验证。';
       case 'authentication.emailVerificationPage.snackBar.error.unexpected':
         return '发生错误，请稍后再试。';
       case 'authentication.registerProfilePage.title':

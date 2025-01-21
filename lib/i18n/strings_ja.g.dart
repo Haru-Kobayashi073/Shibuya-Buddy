@@ -1273,6 +1273,8 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarJa
   @override
   String get success => '送信が完了しました';
   @override
+  String get emailVerification => 'メールアドレスの認証が完了していません';
+  @override
   late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa
       error =
       _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(_root);
@@ -1764,6 +1766,8 @@ extension on TranslationsJa {
         return 'メールアドレスの修正';
       case 'authentication.emailVerificationPage.snackBar.success':
         return '送信が完了しました';
+      case 'authentication.emailVerificationPage.snackBar.emailVerification':
+        return 'メールアドレスの認証が完了していません';
       case 'authentication.emailVerificationPage.snackBar.error.unexpected':
         return 'エラーが発生しました。時間をおいて再度お試しください';
       case 'authentication.registerProfilePage.title':
