@@ -541,13 +541,16 @@ extension $CompleteSendEmailPageRouteDataExtension
 extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
   static SignUpPageRouteData _fromState(GoRouterState state) =>
       SignUpPageRouteData(
-        title: state.uri.queryParameters['title'] ?? '',
+        fromEmailVerify: _$convertMapValue('from-email-verify',
+                state.uri.queryParameters, _$boolConverter) ??
+            false,
       );
 
   String get location => GoRouteData.$location(
         '/signIn/signUp',
         queryParams: {
-          if (title != '') 'title': title,
+          if (fromEmailVerify != false)
+            'from-email-verify': fromEmailVerify.toString(),
         },
       );
 
@@ -559,6 +562,26 @@ extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+T? _$convertMapValue<T>(
+  String key,
+  Map<String, String> map,
+  T Function(String) converter,
+) {
+  final value = map[key];
+  return value == null ? null : converter(value);
+}
+
+bool _$boolConverter(String value) {
+  switch (value) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      throw UnsupportedError('Cannot convert "$value" into a bool.');
+  }
 }
 
 RouteBase get $emailVerificationPageRouteData => GoRouteData.$route(

@@ -382,7 +382,7 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
 
 class SignUpPageRouteData extends GoRouteData {
   const SignUpPageRouteData({
-    required this.fromEmailVerify,
+    this.fromEmailVerify = false,
   });
   final bool fromEmailVerify;
 
