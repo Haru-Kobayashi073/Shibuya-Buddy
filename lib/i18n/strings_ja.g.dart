@@ -125,6 +125,8 @@ class _TranslationsValidationJa implements TranslationsValidationEn {
 	@override String get passwordMatch => 'パスワードが一致しません';
 	@override String get informationRequired => '情報を入力してください';
 	@override String get urlInvalid => 'URLの形式が正しくありません';
+	@override String get usernameRequired => 'ユーザーネームを入力してください';
+	@override String get usernameMaxLength => 'ユーザーネームは8文字以内である必要があります';
 }
 
 // Path: myPage
@@ -1263,6 +1265,8 @@ extension on TranslationsJa {
 			case 'validation.passwordMatch': return 'パスワードが一致しません';
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
+			case 'validation.usernameRequired': return 'ユーザーネームを入力してください';
+			case 'validation.usernameMaxLength': return 'ユーザーネームは8文字以内である必要があります';
 			case 'myPage.unregisteredUserName': return '未登録';
 			case 'myPage.editProfile': return 'プロフィール編集';
 			case 'myPage.premiumPlan': return 'プレミアムプラン';
