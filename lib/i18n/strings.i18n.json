@@ -144,7 +144,9 @@
         "passwordWeak": "Please combine alphanumeric characters for the password",
         "passwordMatch": "Passwords do not match",
         "informationRequired": "Please enter the information",
-        "urlInvalid": "The URL format is incorrect"
+        "urlInvalid": "The URL format is incorrect",
+        "usernameRequired": "Please enter your username",
+        "usernameMaxLength": "The username must be 16 characters or fewer"
     },
     "myPage": {
         "unregisteredUserName": "Unregistered",

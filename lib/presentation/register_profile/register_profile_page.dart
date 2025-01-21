@@ -28,6 +28,7 @@ class RegisterProfilePage extends HookConsumerWidget {
     final formKey = useFormStateKey();
     final state = ref.watch(registerProfilePageNotifierProvider);
     final notifier = ref.read(registerProfilePageNotifierProvider.notifier);
+    const maxBytes = 16;
 
     Future<void> registerProfile() async {
       if (state.pickedFile == null && nameController.text.isEmpty) {
@@ -36,7 +37,8 @@ class RegisterProfilePage extends HookConsumerWidget {
             );
         return;
       }
-      if (state.pickedFile != null || formKey.currentState!.validate()) {
+
+      if (formKey.currentState?.validate() ?? false) {
         await notifier.registerInformation(
           name: nameController.text,
           onSuccess: () => context.go(
@@ -100,10 +102,11 @@ class RegisterProfilePage extends HookConsumerWidget {
                 SimpleTextField(
                   controller: nameController,
                   onFieldSubmitted: (_) async => registerProfile(),
-                  validator: Validator.common,
+                  validator: (value) => Validator.userName(value, maxBytes),
                   keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   label: i18nRegisterProfilePage.textFields,
+                  maxBytes: 16,
                 ),
                 const Gap(24),
                 WideButton(
