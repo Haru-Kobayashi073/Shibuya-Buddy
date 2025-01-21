@@ -39,7 +39,7 @@ class SignInPage extends HookConsumerWidget {
           password: passwordController.text,
           onSuccess: () async => const HomeScreenRouteData().go(context),
           onFailure: () async =>
-              EmailVerificationPageRouteData(email: emailController.text).go(
+              EmailVerificationPageRouteData(email: emailController.text).push(
             context,
           ),
         );
