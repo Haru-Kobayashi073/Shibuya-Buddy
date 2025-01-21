@@ -56,6 +56,7 @@ class TranslationsZhHans implements Translations {
 		'zh': '中文',
 	};
 	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
+	@override late final _TranslationsMapPageZhHans mapPage = _TranslationsMapPageZhHans._(_root);
 }
 
 // Path: navigationBar
@@ -124,6 +125,8 @@ class _TranslationsValidationZhHans implements TranslationsValidationEn {
 	@override String get passwordMatch => '密码不匹配';
 	@override String get informationRequired => '请输入信息';
 	@override String get urlInvalid => 'URL格式不正确';
+	@override String get usernameRequired => '请输入您的用户名';
+	@override String get usernameMaxLength => '用户名必须为8个字符或更少';
 }
 
 // Path: myPage
@@ -326,6 +329,16 @@ class _TranslationsErrorPageZhHans implements TranslationsErrorPageEn {
 	@override String get retryButton => '重试';
 }
 
+// Path: mapPage
+class _TranslationsMapPageZhHans implements TranslationsMapPageEn {
+	_TranslationsMapPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '地图';
+}
+
 // Path: navigationBar.items
 class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsZhHans._(this._root);
@@ -460,9 +473,9 @@ class _TranslationsAuthenticationSignUpPageZhHans implements TranslationsAuthent
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '注册';
+	@override late final _TranslationsAuthenticationSignUpPageTitleZhHans title = _TranslationsAuthenticationSignUpPageTitleZhHans._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHans._(_root);
-	@override String get button => '注册';
+	@override late final _TranslationsAuthenticationSignUpPageButtonZhHans button = _TranslationsAuthenticationSignUpPageButtonZhHans._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -905,6 +918,17 @@ class _TranslationsAuthenticationResetPasswordPageButtonsZhHans implements Trans
 	@override String get submit => '发送';
 }
 
+// Path: authentication.signUpPage.title
+class _TranslationsAuthenticationSignUpPageTitleZhHans implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新用户注册';
+	@override String get modifyEmail => '更改邮箱地址';
+}
+
 // Path: authentication.signUpPage.textFields
 class _TranslationsAuthenticationSignUpPageTextFieldsZhHans implements TranslationsAuthenticationSignUpPageTextFieldsEn {
 	_TranslationsAuthenticationSignUpPageTextFieldsZhHans._(this._root);
@@ -914,6 +938,17 @@ class _TranslationsAuthenticationSignUpPageTextFieldsZhHans implements Translati
 	// Translations
 	@override String get email => '邮箱地址';
 	@override String get password => '密码';
+}
+
+// Path: authentication.signUpPage.button
+class _TranslationsAuthenticationSignUpPageButtonZhHans implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '注册';
+	@override String get modifyEmail => '更改';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -937,6 +972,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHans implements 
 
 	// Translations
 	@override String get success => '发送成功';
+	@override String get emailVerification => '邮箱地址尚未验证。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHans._(_root);
 }
 
@@ -1265,10 +1301,12 @@ extension on TranslationsZhHans {
 			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
 			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
 			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
-			case 'authentication.signUpPage.title': return '注册';
+			case 'authentication.signUpPage.title.defaultText': return '新用户注册';
+			case 'authentication.signUpPage.title.modifyEmail': return '更改邮箱地址';
 			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
 			case 'authentication.signUpPage.textFields.password': return '密码';
-			case 'authentication.signUpPage.button': return '注册';
+			case 'authentication.signUpPage.button.defaultText': return '注册';
+			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的${email}发送确认邮件。';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';
@@ -1277,6 +1315,7 @@ extension on TranslationsZhHans {
 			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
 			case 'authentication.emailVerificationPage.snackBar.success': return '发送成功';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return '邮箱地址尚未验证。';
 			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
 			case 'authentication.registerProfilePage.title': return '注册个人信息';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
@@ -1298,6 +1337,8 @@ extension on TranslationsZhHans {
 			case 'validation.passwordMatch': return '密码不匹配';
 			case 'validation.informationRequired': return '请输入信息';
 			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'validation.usernameRequired': return '请输入您的用户名';
+			case 'validation.usernameMaxLength': return '用户名必须为8个字符或更少';
 			case 'myPage.unregisteredUserName': return '未注册';
 			case 'myPage.editProfile': return '编辑个人资料';
 			case 'myPage.premiumPlan': return '高级计划';
@@ -1450,6 +1491,7 @@ extension on TranslationsZhHans {
 			case 'errorPage.title': return '发生错误...';
 			case 'errorPage.message': return '请检查您的网络连接并重试。';
 			case 'errorPage.retryButton': return '重试';
+			case 'mapPage.title': return '地图';
 			default: return null;
 		}
 	}

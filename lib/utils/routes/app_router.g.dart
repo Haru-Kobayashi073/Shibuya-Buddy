@@ -14,10 +14,12 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $billDetailsDialogRouteData,
       $signInPageRouteData,
+      $emailVerificationPageRouteData,
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
       $planDetailPageRouteData,
       $plansRelatedInTopicRouteData,
+      $mapPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -489,12 +491,6 @@ RouteBase get $signInPageRouteData => GoRouteData.$route(
         GoRouteData.$route(
           path: 'signUp',
           factory: $SignUpPageRouteDataExtension._fromState,
-          routes: [
-            GoRouteData.$route(
-              path: 'emailVerification',
-              factory: $EmailVerificationPageRouteDataExtension._fromState,
-            ),
-          ],
         ),
       ],
     );
@@ -561,10 +557,18 @@ extension $CompleteSendEmailPageRouteDataExtension
 
 extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
   static SignUpPageRouteData _fromState(GoRouterState state) =>
-      const SignUpPageRouteData();
+      SignUpPageRouteData(
+        fromEmailVerify: _$convertMapValue('from-email-verify',
+                state.uri.queryParameters, _$boolConverter) ??
+            false,
+      );
 
   String get location => GoRouteData.$location(
         '/signIn/signUp',
+        queryParams: {
+          if (fromEmailVerify != false)
+            'from-email-verify': fromEmailVerify.toString(),
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -577,6 +581,31 @@ extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+T? _$convertMapValue<T>(
+  String key,
+  Map<String, String> map,
+  T Function(String) converter,
+) {
+  final value = map[key];
+  return value == null ? null : converter(value);
+}
+
+bool _$boolConverter(String value) {
+  switch (value) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      throw UnsupportedError('Cannot convert "$value" into a bool.');
+  }
+}
+
+RouteBase get $emailVerificationPageRouteData => GoRouteData.$route(
+      path: '/emailVerification',
+      factory: $EmailVerificationPageRouteDataExtension._fromState,
+    );
+
 extension $EmailVerificationPageRouteDataExtension
     on EmailVerificationPageRouteData {
   static EmailVerificationPageRouteData _fromState(GoRouterState state) =>
@@ -585,7 +614,7 @@ extension $EmailVerificationPageRouteDataExtension
       );
 
   String get location => GoRouteData.$location(
-        '/signIn/signUp/emailVerification',
+        '/emailVerification',
         queryParams: {
           'email': email,
         },
@@ -697,6 +726,32 @@ extension $PlansRelatedInTopicRouteDataExtension
         queryParams: {
           'topic-name': topicName,
         },
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $mapPageRouteData => GoRouteData.$route(
+      path: '/map',
+      factory: $MapPageRouteDataExtension._fromState,
+    );
+
+extension $MapPageRouteDataExtension on MapPageRouteData {
+  static MapPageRouteData _fromState(GoRouterState state) => MapPageRouteData(
+        $extra: state.extra as List<Place>,
+      );
+
+  String get location => GoRouteData.$location(
+        '/map',
       );
 
   void go(BuildContext context) => context.go(location, extra: $extra);

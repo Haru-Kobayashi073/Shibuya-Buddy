@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/topic.dart';
@@ -23,6 +24,7 @@ import '../../presentation/components/bottom_navigation.dart';
 import '../../presentation/create_plan/create_plan_page.dart';
 import '../../presentation/email_verification/email_verification_page.dart';
 import '../../presentation/home/home_page.dart';
+import '../../presentation/map/map_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/edit_profile/edit_profile_page.dart';
 import '../../presentation/mypage/my_page.dart';
@@ -348,14 +350,7 @@ class BillDetailsDialogRouteData extends GoRouteData {
         ),
       ],
     ),
-    TypedGoRoute<SignUpPageRouteData>(
-      path: Routes.signUp,
-      routes: [
-        TypedGoRoute<EmailVerificationPageRouteData>(
-          path: Routes.emailVerification,
-        ),
-      ],
-    ),
+    TypedGoRoute<SignUpPageRouteData>(path: Routes.signUp),
   ],
 )
 class SignInPageRouteData extends GoRouteData {
@@ -389,14 +384,20 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
 }
 
 class SignUpPageRouteData extends GoRouteData {
-  const SignUpPageRouteData();
+  const SignUpPageRouteData({
+    this.fromEmailVerify = false,
+  });
+  final bool fromEmailVerify;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignUpPage();
+    return SignUpPage(fromEmailVerify: fromEmailVerify);
   }
 }
 
+@TypedGoRoute<EmailVerificationPageRouteData>(
+  path: Routes.emailVerification,
+)
 class EmailVerificationPageRouteData extends GoRouteData {
   const EmailVerificationPageRouteData({
     required this.email,
@@ -468,5 +469,18 @@ class PlansRelatedInTopicRouteData extends GoRouteData {
       topicName: topicName,
       planIds: $extra,
     );
+  }
+}
+
+@TypedGoRoute<MapPageRouteData>(
+  path: '/map',
+)
+class MapPageRouteData extends GoRouteData {
+  const MapPageRouteData({required this.$extra});
+  final List<Place> $extra;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return MapPage(places: $extra);
   }
 }

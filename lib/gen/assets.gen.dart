@@ -73,8 +73,12 @@ class $AssetsLottieGen {
   String get animation1734615191322 =>
       'assets/lottie/Animation - 1734615191322.json';
 
+  /// File path: assets/lottie/Animation - 1736996724199.json
+  String get animation1736996724199 =>
+      'assets/lottie/Animation - 1736996724199.json';
+
   /// List of all assets
-  List<String> get values => [animation1734615191322];
+  List<String> get values => [animation1734615191322, animation1736996724199];
 }
 
 class Assets {

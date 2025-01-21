@@ -15,7 +15,9 @@ class SimpleTextField extends StatelessWidget {
     required this.onFieldSubmitted,
     this.icon,
     required this.label,
+    this.maxBytes,
   });
+
   final TextEditingController controller;
   final FocusNode? focusNode;
   final TextInputType keyboardType;
@@ -25,6 +27,7 @@ class SimpleTextField extends StatelessWidget {
   final void Function(String) onFieldSubmitted;
   final Widget? icon;
   final String label;
+  final int? maxBytes;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class SimpleTextField extends StatelessWidget {
       style: AppTextStyle.textStyle.copyWith(
         color: AppColor.black,
       ),
+      onFieldSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
         suffixIcon: icon,
         border: const OutlineInputBorder(

@@ -87,12 +87,18 @@
             }
         },
         "signUpPage": {
-            "title": "注册",
+            "title": {
+                "defaultText": "新用户注册",
+                "modifyEmail": "更改邮箱地址"
+            },
             "textFields": {
                 "email": "邮箱地址",
                 "password": "密码"
             },
-            "button": "注册"
+            "button": {
+                "defaultText": "注册",
+                "modifyEmail": "更改"
+            }
         },
         "emailVerificationPage": {
             "title": "邮箱地址验证",
@@ -106,6 +112,7 @@
             },
             "snackBar": {
                 "success": "发送成功",
+                "emailVerification": "邮箱地址尚未验证。",
                 "error": {
                     "unexpected": "发生错误，请稍后再试。"
                 }
@@ -144,7 +151,9 @@
         "passwordWeak": "密码应包含字母和数字的组合",
         "passwordMatch": "密码不匹配",
         "informationRequired": "请输入信息",
-        "urlInvalid": "URL格式不正确"
+        "urlInvalid": "URL格式不正确",
+        "usernameRequired": "请输入您的用户名",
+        "usernameMaxLength": "用户名必须为8个字符或更少"
     },
     "myPage": {
         "unregisteredUserName": "未注册",
@@ -429,5 +438,8 @@
         "title": "发生错误...",
         "message": "请检查您的网络连接并重试。",
         "retryButton": "重试"
+    },
+    "mapPage": {
+        "title": "地图"
     }
 }

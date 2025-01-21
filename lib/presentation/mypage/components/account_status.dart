@@ -61,17 +61,22 @@ class AccountStatus extends StatelessWidget {
                         ),
                 ),
                 const SizedBox(width: 8),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 3),
-                  child: Text(
-                    user.name ?? myPageItemi18n.unregisteredUserName,
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 3),
+                    child: Text(
+                      user.name ?? myPageItemi18n.unregisteredUserName,
+                      style: AppTextStyle.textStyle.copyWith(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      softWrap: false,
                     ),
                   ),
                 ),
-                const Spacer(),
+                const SizedBox(width: 8),
                 Text(
                   acountStatusi18n.dateTime.registeredOn(date: createFormat),
                   style: AppTextStyle.textStyle.copyWith(

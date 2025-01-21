@@ -56,6 +56,7 @@ class TranslationsJa implements Translations {
 		'zh': '中国語',
 	};
 	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
+	@override late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
 }
 
 // Path: navigationBar
@@ -124,6 +125,8 @@ class _TranslationsValidationJa implements TranslationsValidationEn {
 	@override String get passwordMatch => 'パスワードが一致しません';
 	@override String get informationRequired => '情報を入力してください';
 	@override String get urlInvalid => 'URLの形式が正しくありません';
+	@override String get usernameRequired => 'ユーザーネームを入力してください';
+	@override String get usernameMaxLength => 'ユーザーネームは8文字以内である必要があります';
 }
 
 // Path: myPage
@@ -326,6 +329,16 @@ class _TranslationsErrorPageJa implements TranslationsErrorPageEn {
 	@override String get retryButton => 'もう一度読み込む';
 }
 
+// Path: mapPage
+class _TranslationsMapPageJa implements TranslationsMapPageEn {
+	_TranslationsMapPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'マップ';
+}
+
 // Path: navigationBar.items
 class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsJa._(this._root);
@@ -450,9 +463,9 @@ class _TranslationsAuthenticationSignUpPageJa implements TranslationsAuthenticat
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '新規登録';
+	@override late final _TranslationsAuthenticationSignUpPageTitleJa title = _TranslationsAuthenticationSignUpPageTitleJa._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageTextFieldsJa textFields = _TranslationsAuthenticationSignUpPageTextFieldsJa._(_root);
-	@override String get button => '新規登録';
+	@override late final _TranslationsAuthenticationSignUpPageButtonJa button = _TranslationsAuthenticationSignUpPageButtonJa._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -889,6 +902,17 @@ class _TranslationsAuthenticationResetPasswordPageButtonsJa implements Translati
 	@override String get submit => '送信';
 }
 
+// Path: authentication.signUpPage.title
+class _TranslationsAuthenticationSignUpPageTitleJa implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新規登録';
+	@override String get modifyEmail => 'メールアドレスの変更';
+}
+
 // Path: authentication.signUpPage.textFields
 class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsAuthenticationSignUpPageTextFieldsEn {
 	_TranslationsAuthenticationSignUpPageTextFieldsJa._(this._root);
@@ -898,6 +922,17 @@ class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsA
 	// Translations
 	@override String get email => 'メールアドレス';
 	@override String get password => 'パスワード';
+}
+
+// Path: authentication.signUpPage.button
+class _TranslationsAuthenticationSignUpPageButtonJa implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新規登録';
+	@override String get modifyEmail => '変更';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -921,6 +956,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarJa implements Tran
 
 	// Translations
 	@override String get success => '送信が完了しました';
+	@override String get emailVerification => 'メールアドレスの認証が完了していません';
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(_root);
 }
 
@@ -1258,10 +1294,12 @@ extension on TranslationsJa {
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
 			case 'authentication.resetPasswordPage.buttons.submit': return '送信';
-			case 'authentication.signUpPage.title': return '新規登録';
+			case 'authentication.signUpPage.title.defaultText': return '新規登録';
+			case 'authentication.signUpPage.title.modifyEmail': return 'メールアドレスの変更';
 			case 'authentication.signUpPage.textFields.email': return 'メールアドレス';
 			case 'authentication.signUpPage.textFields.password': return 'パスワード';
-			case 'authentication.signUpPage.button': return '新規登録';
+			case 'authentication.signUpPage.button.defaultText': return '新規登録';
+			case 'authentication.signUpPage.button.modifyEmail': return '変更';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認メールの再送信は、60秒ごとに1回可能です。';
@@ -1270,6 +1308,7 @@ extension on TranslationsJa {
 			case 'authentication.emailVerificationPage.buttons.toNext': return '次へ';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'メールアドレスの修正';
 			case 'authentication.emailVerificationPage.snackBar.success': return '送信が完了しました';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return 'メールアドレスの認証が完了していません';
 			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return 'エラーが発生しました。時間をおいて再度お試しください';
 			case 'authentication.registerProfilePage.title': return 'プロフィールの登録';
 			case 'authentication.registerProfilePage.textFields': return '名前';
@@ -1298,6 +1337,8 @@ extension on TranslationsJa {
 			case 'validation.passwordMatch': return 'パスワードが一致しません';
 			case 'validation.informationRequired': return '情報を入力してください';
 			case 'validation.urlInvalid': return 'URLの形式が正しくありません';
+			case 'validation.usernameRequired': return 'ユーザーネームを入力してください';
+			case 'validation.usernameMaxLength': return 'ユーザーネームは8文字以内である必要があります';
 			case 'myPage.unregisteredUserName': return '未登録';
 			case 'myPage.editProfile': return 'プロフィール編集';
 			case 'myPage.premiumPlan': return 'プレミアムプラン';
@@ -1450,6 +1491,7 @@ extension on TranslationsJa {
 			case 'errorPage.title': return 'エラーが発生しました...';
 			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
 			case 'errorPage.retryButton': return 'もう一度読み込む';
+			case 'mapPage.title': return 'マップ';
 			default: return null;
 		}
 	}

@@ -60,6 +60,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 		'zh': 'Chinese',
 	};
 	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
+	late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
 }
 
 // Path: navigationBar
@@ -128,6 +129,8 @@ class TranslationsValidationEn {
 	String get passwordMatch => 'Passwords do not match';
 	String get informationRequired => 'Please enter the information';
 	String get urlInvalid => 'The URL format is incorrect';
+	String get usernameRequired => 'Please enter your username';
+	String get usernameMaxLength => 'The username must be 16 characters or fewer';
 }
 
 // Path: myPage
@@ -330,6 +333,16 @@ class TranslationsErrorPageEn {
 	String get retryButton => 'Retry';
 }
 
+// Path: mapPage
+class TranslationsMapPageEn {
+	TranslationsMapPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Map';
+}
+
 // Path: navigationBar.items
 class TranslationsNavigationBarItemsEn {
 	TranslationsNavigationBarItemsEn._(this._root);
@@ -464,9 +477,9 @@ class TranslationsAuthenticationSignUpPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Sign Up';
+	late final TranslationsAuthenticationSignUpPageTitleEn title = TranslationsAuthenticationSignUpPageTitleEn._(_root);
 	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
-	String get button => 'Sign Up';
+	late final TranslationsAuthenticationSignUpPageButtonEn button = TranslationsAuthenticationSignUpPageButtonEn._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -909,6 +922,17 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 	String get submit => 'Submit';
 }
 
+// Path: authentication.signUpPage.title
+class TranslationsAuthenticationSignUpPageTitleEn {
+	TranslationsAuthenticationSignUpPageTitleEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get defaultText => 'Sign Up';
+	String get modifyEmail => 'Change Email Address';
+}
+
 // Path: authentication.signUpPage.textFields
 class TranslationsAuthenticationSignUpPageTextFieldsEn {
 	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
@@ -918,6 +942,17 @@ class TranslationsAuthenticationSignUpPageTextFieldsEn {
 	// Translations
 	String get email => 'Email Address';
 	String get password => 'Password';
+}
+
+// Path: authentication.signUpPage.button
+class TranslationsAuthenticationSignUpPageButtonEn {
+	TranslationsAuthenticationSignUpPageButtonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get defaultText => 'Sign Up';
+	String get modifyEmail => 'Change Email Address';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -941,6 +976,7 @@ class TranslationsAuthenticationEmailVerificationPageSnackBarEn {
 
 	// Translations
 	String get success => 'Email sent successfully';
+	String get emailVerification => 'Email address is not verified.';
 	late final TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn error = TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn._(_root);
 }
 
@@ -1269,10 +1305,12 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
-			case 'authentication.signUpPage.title': return 'Sign Up';
+			case 'authentication.signUpPage.title.defaultText': return 'Sign Up';
+			case 'authentication.signUpPage.title.modifyEmail': return 'Change Email Address';
 			case 'authentication.signUpPage.textFields.email': return 'Email Address';
 			case 'authentication.signUpPage.textFields.password': return 'Password';
-			case 'authentication.signUpPage.button': return 'Sign Up';
+			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
+			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';
@@ -1281,6 +1319,7 @@ extension on Translations {
 			case 'authentication.emailVerificationPage.buttons.toNext': return 'Next';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'Edit Email Address';
 			case 'authentication.emailVerificationPage.snackBar.success': return 'Email sent successfully';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return 'Email address is not verified.';
 			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
 			case 'authentication.registerProfilePage.title': return 'Profile Registration';
 			case 'authentication.registerProfilePage.textFields': return 'Name';
@@ -1302,6 +1341,8 @@ extension on Translations {
 			case 'validation.passwordMatch': return 'Passwords do not match';
 			case 'validation.informationRequired': return 'Please enter the information';
 			case 'validation.urlInvalid': return 'The URL format is incorrect';
+			case 'validation.usernameRequired': return 'Please enter your username';
+			case 'validation.usernameMaxLength': return 'The username must be 16 characters or fewer';
 			case 'myPage.unregisteredUserName': return 'Unregistered';
 			case 'myPage.editProfile': return 'Edit Profile';
 			case 'myPage.premiumPlan': return 'Premium Plan';
@@ -1454,6 +1495,7 @@ extension on Translations {
 			case 'errorPage.title': return 'An error occurred...';
 			case 'errorPage.message': return 'Please check your network connection and try again.';
 			case 'errorPage.retryButton': return 'Retry';
+			case 'mapPage.title': return 'Map';
 			default: return null;
 		}
 	}
