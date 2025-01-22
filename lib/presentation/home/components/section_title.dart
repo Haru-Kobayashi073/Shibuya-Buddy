@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../../my_plan/my_plan_page_notifier.dart';
 
-class SectionTitle extends StatelessWidget {
+class SectionTitle extends ConsumerWidget {
   const SectionTitle({
     super.key,
     required this.label,
@@ -41,7 +44,7 @@ class SectionTitle extends StatelessWidget {
   final double iconSize;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         Text(
@@ -58,7 +61,10 @@ class SectionTitle extends StatelessWidget {
             icon: const Icon(Icons.arrow_forward_ios),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            onPressed: onPressed,
+            onPressed: () {
+              ref.read(selectedIndexProvider.notifier).state = 0;
+              const MyPlanPageRouteData().go(context);
+            },
             iconSize: iconSize,
           ),
         ),
