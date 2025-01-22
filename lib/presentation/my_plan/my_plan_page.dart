@@ -9,7 +9,6 @@ import 'bookmark_plans_tab_view.dart';
 import 'created_plans_tab_view.dart';
 import 'my_plan_page_notifier.dart';
 
-
 class MyPlanPage extends ConsumerStatefulWidget {
   const MyPlanPage({super.key});
 
