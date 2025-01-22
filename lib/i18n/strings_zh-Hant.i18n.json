@@ -87,12 +87,18 @@
             }
         },
         "signUpPage": {
-            "title": "註冊",
+            "title": {
+                "defaultText": "新用戶註冊",
+                "modifyEmail": "更改電子郵件地址"
+            },
             "textFields": {
                 "email": "電子郵件地址",
                 "password": "密碼"
             },
-            "button": "註冊"
+            "button": {
+                "defaultText": "註冊",
+                "modifyEmail": "更改"
+            }
         },
         "emailVerificationPage": {
             "title": "電子郵件地址驗證",
@@ -106,6 +112,7 @@
             },
             "snackBar": {
                 "success": "發送成功",
+                "emailVerification": "電子郵件地址尚未驗證。",
                 "error": {
                     "unexpected": "發生錯誤，請稍後再試。"
                 }
@@ -144,7 +151,9 @@
         "passwordWeak": "密碼應包含字母和數字的組合",
         "passwordMatch": "密碼不匹配",
         "informationRequired": "請輸入信息",
-        "urlInvalid": "URL格式不正確"
+        "urlInvalid": "URL格式不正確",
+        "usernameRequired": "請輸入您的使用者名稱",
+        "usernameMaxLength": "使用者名稱必須為8個字符或更少"
     },
     "myPage": {
         "unregisteredUserName": "未註冊",

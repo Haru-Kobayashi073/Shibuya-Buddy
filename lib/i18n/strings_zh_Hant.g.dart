@@ -125,6 +125,8 @@ class _TranslationsValidationZhHant implements TranslationsValidationEn {
 	@override String get passwordMatch => '密碼不匹配';
 	@override String get informationRequired => '請輸入信息';
 	@override String get urlInvalid => 'URL格式不正確';
+	@override String get usernameRequired => '請輸入您的使用者名稱';
+	@override String get usernameMaxLength => '使用者名稱必須為8個字符或更少';
 }
 
 // Path: myPage
@@ -469,9 +471,9 @@ class _TranslationsAuthenticationSignUpPageZhHant implements TranslationsAuthent
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '註冊';
+	@override late final _TranslationsAuthenticationSignUpPageTitleZhHant title = _TranslationsAuthenticationSignUpPageTitleZhHant._(_root);
 	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHant._(_root);
-	@override String get button => '註冊';
+	@override late final _TranslationsAuthenticationSignUpPageButtonZhHant button = _TranslationsAuthenticationSignUpPageButtonZhHant._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -880,6 +882,17 @@ class _TranslationsAuthenticationResetPasswordPageButtonsZhHant implements Trans
 	@override String get submit => '發送';
 }
 
+// Path: authentication.signUpPage.title
+class _TranslationsAuthenticationSignUpPageTitleZhHant implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '新用戶註冊';
+	@override String get modifyEmail => '更改電子郵件地址';
+}
+
 // Path: authentication.signUpPage.textFields
 class _TranslationsAuthenticationSignUpPageTextFieldsZhHant implements TranslationsAuthenticationSignUpPageTextFieldsEn {
 	_TranslationsAuthenticationSignUpPageTextFieldsZhHant._(this._root);
@@ -889,6 +902,17 @@ class _TranslationsAuthenticationSignUpPageTextFieldsZhHant implements Translati
 	// Translations
 	@override String get email => '電子郵件地址';
 	@override String get password => '密碼';
+}
+
+// Path: authentication.signUpPage.button
+class _TranslationsAuthenticationSignUpPageButtonZhHant implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultText => '註冊';
+	@override String get modifyEmail => '更改';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -912,6 +936,7 @@ class _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant implements 
 
 	// Translations
 	@override String get success => '發送成功';
+	@override String get emailVerification => '電子郵件地址尚未驗證。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorZhHant._(_root);
 }
 
@@ -1228,10 +1253,12 @@ extension on TranslationsZhHant {
 			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';
 			case 'authentication.resetPasswordPage.textFields.email': return '電子郵件地址';
 			case 'authentication.resetPasswordPage.buttons.submit': return '發送';
-			case 'authentication.signUpPage.title': return '註冊';
+			case 'authentication.signUpPage.title.defaultText': return '新用戶註冊';
+			case 'authentication.signUpPage.title.modifyEmail': return '更改電子郵件地址';
 			case 'authentication.signUpPage.textFields.email': return '電子郵件地址';
 			case 'authentication.signUpPage.textFields.password': return '密碼';
-			case 'authentication.signUpPage.button': return '註冊';
+			case 'authentication.signUpPage.button.defaultText': return '註冊';
+			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
@@ -1240,6 +1267,7 @@ extension on TranslationsZhHant {
 			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
 			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改電子郵件地址';
 			case 'authentication.emailVerificationPage.snackBar.success': return '發送成功';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return '電子郵件地址尚未驗證。';
 			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
 			case 'authentication.registerProfilePage.title': return '註冊個人資訊';
 			case 'authentication.registerProfilePage.textFields': return '姓名';
@@ -1261,6 +1289,8 @@ extension on TranslationsZhHant {
 			case 'validation.passwordMatch': return '密碼不匹配';
 			case 'validation.informationRequired': return '請輸入信息';
 			case 'validation.urlInvalid': return 'URL格式不正確';
+			case 'validation.usernameRequired': return '請輸入您的使用者名稱';
+			case 'validation.usernameMaxLength': return '使用者名稱必須為8個字符或更少';
 			case 'myPage.unregisteredUserName': return '未註冊';
 			case 'myPage.editProfile': return '編輯個人資料';
 			case 'myPage.premiumPlan': return '進階方案';

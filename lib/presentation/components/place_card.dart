@@ -106,15 +106,18 @@ class PlaceCard extends StatelessWidget {
                           ),
                         ),
                         const Gap(8),
-                        Text(
-                          place.getParsedOpeningHours(),
-                          maxLines: 2,
-                          style: AppTextStyle.textStyle.copyWith(
-                            fontSize: 12,
-                            color: AppColor.black,
+                        Flexible(
+                          child: Text(
+                            place.getParsedOpeningHours(),
+                            maxLines: 2,
+                            style: AppTextStyle.textStyle.copyWith(
+                              fontSize: 12,
+                              color: AppColor.black,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
@@ -132,16 +135,18 @@ class PlaceCard extends StatelessWidget {
                           ),
                         ),
                         const Gap(8),
-                        Text(
-                          place.averageAmount,
-                          maxLines: 2,
-                          style: AppTextStyle.textStyle.copyWith(
-                            fontSize: 12,
-                            color: AppColor.black,
+                        Flexible(
+                          child: Text(
+                            place.averageAmount,
+                            maxLines: 2,
+                            style: AppTextStyle.textStyle.copyWith(
+                              fontSize: 12,
+                              color: AppColor.black,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            softWrap: true,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          softWrap: true,
-                          overflow: TextOverflow.visible,
                         ),
                       ],
                     ),

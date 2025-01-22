@@ -87,12 +87,18 @@
             }
         },
         "signUpPage": {
-            "title": "Sign Up",
+            "title": {
+                "defaultText": "Sign Up",
+                "modifyEmail": "Change Email Address"
+            },
             "textFields": {
                 "email": "Email Address",
                 "password": "Password"
             },
-            "button": "Sign Up"
+            "button": {
+                "defaultText": "Sign Up",
+                "modifyEmail": "Change Email Address"
+            }
         },
         "emailVerificationPage": {
             "title": "Email Address Verification",
@@ -106,6 +112,7 @@
             },
             "snackBar": {
                 "success": "Email sent successfully",
+                "emailVerification": "Email address is not verified.",
                 "error": {
                     "unexpected": "An error occurred. Please try again later."
                 }
@@ -144,7 +151,9 @@
         "passwordWeak": "Please combine alphanumeric characters for the password",
         "passwordMatch": "Passwords do not match",
         "informationRequired": "Please enter the information",
-        "urlInvalid": "The URL format is incorrect"
+        "urlInvalid": "The URL format is incorrect",
+        "usernameRequired": "Please enter your username",
+        "usernameMaxLength": "The username must be 16 characters or fewer"
     },
     "myPage": {
         "unregisteredUserName": "Unregistered",

@@ -347,14 +347,7 @@ class BillDetailsDialogRouteData extends GoRouteData {
         ),
       ],
     ),
-    TypedGoRoute<SignUpPageRouteData>(
-      path: Routes.signUp,
-      routes: [
-        TypedGoRoute<EmailVerificationPageRouteData>(
-          path: Routes.emailVerification,
-        ),
-      ],
-    ),
+    TypedGoRoute<SignUpPageRouteData>(path: Routes.signUp),
   ],
 )
 class SignInPageRouteData extends GoRouteData {
@@ -388,14 +381,20 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
 }
 
 class SignUpPageRouteData extends GoRouteData {
-  const SignUpPageRouteData();
+  const SignUpPageRouteData({
+    this.fromEmailVerify = false,
+  });
+  final bool fromEmailVerify;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignUpPage();
+    return SignUpPage(fromEmailVerify: fromEmailVerify);
   }
 }
 
+@TypedGoRoute<EmailVerificationPageRouteData>(
+  path: Routes.emailVerification,
+)
 class EmailVerificationPageRouteData extends GoRouteData {
   const EmailVerificationPageRouteData({
     required this.email,

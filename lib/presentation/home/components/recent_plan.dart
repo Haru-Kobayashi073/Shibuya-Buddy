@@ -6,7 +6,7 @@ import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/presistent_cached_network_image.dart';
-import 'category_tags.dart';
+import '../../components/row_category_tags.dart';
 
 class RecentPlan extends StatelessWidget {
   const RecentPlan({
@@ -33,24 +33,27 @@ class RecentPlan extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                plan.title,
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+          Flexible(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  plan.title,
+                  style: AppTextStyle.textStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              const SizedBox(height: 4),
-              CategoryTags(
-                tags: plan.topics.map((e) => e.name).toList(),
-                tagColor: AppColor.blue50Background,
-                spacing: 8,
-              ),
-            ],
+                const SizedBox(height: 4),
+                RowCategoryTags(
+                  tags: plan.topics.map((e) => e.name).toList(),
+                  tagColor: AppColor.blue50Background,
+                  spacing: 8,
+                ),
+              ],
+            ),
           ),
         ],
       ),
