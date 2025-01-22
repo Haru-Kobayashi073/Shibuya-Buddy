@@ -1,7 +1,7 @@
 import * as functions from "firebase-functions/v2";
 const { onDocumentCreated, firestore } = require("firebase-functions/v2/firestore");
 import * as scheduler from "firebase-functions/v2/scheduler";
-import { QueryDocumentSnapshot } from "firebase-admin/firestore";
+import { QueryDocumentSnapshot, DocumentSnapshot } from "firebase-admin/firestore";
 
 
 functions.setGlobalOptions({
@@ -66,3 +66,16 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
         console.error("Error ranking topics: ", error);
     }
 });
+
+export const setRankDownToStandardTask = onDocumentCreated("plans/{planId}", async (event: DocumentSnapshot) => {
+    const planId = event.id;
+    const planRef = firestore.collection("plans").doc(planId);
+
+    const planSnapshot = await planRef.get();
+    const planData = planSnapshot.data();
+
+    if (planData.bookmark_count < 10) {
+        await planRef.update({ ranking: null });
+    }
+}
+);
