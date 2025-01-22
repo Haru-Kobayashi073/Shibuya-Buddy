@@ -21,7 +21,6 @@ PurchaseRecipt _$PurchaseReciptFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PurchaseRecipt {
   String get id => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime? get premiumPlanExpirationDate => throw _privateConstructorUsedError;
 
@@ -42,9 +41,7 @@ abstract class $PurchaseReciptCopyWith<$Res> {
       _$PurchaseReciptCopyWithImpl<$Res, PurchaseRecipt>;
   @useResult
   $Res call(
-      {String id,
-      String userId,
-      @DateTimeConverter() DateTime? premiumPlanExpirationDate});
+      {String id, @DateTimeConverter() DateTime? premiumPlanExpirationDate});
 }
 
 /// @nodoc
@@ -63,17 +60,12 @@ class _$PurchaseReciptCopyWithImpl<$Res, $Val extends PurchaseRecipt>
   @override
   $Res call({
     Object? id = null,
-    Object? userId = null,
     Object? premiumPlanExpirationDate = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
               as String,
       premiumPlanExpirationDate: freezed == premiumPlanExpirationDate
           ? _value.premiumPlanExpirationDate
@@ -92,9 +84,7 @@ abstract class _$$PurchaseReciptImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String userId,
-      @DateTimeConverter() DateTime? premiumPlanExpirationDate});
+      {String id, @DateTimeConverter() DateTime? premiumPlanExpirationDate});
 }
 
 /// @nodoc
@@ -111,17 +101,12 @@ class __$$PurchaseReciptImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? userId = null,
     Object? premiumPlanExpirationDate = freezed,
   }) {
     return _then(_$PurchaseReciptImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
               as String,
       premiumPlanExpirationDate: freezed == premiumPlanExpirationDate
           ? _value.premiumPlanExpirationDate
@@ -135,9 +120,7 @@ class __$$PurchaseReciptImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PurchaseReciptImpl implements _PurchaseRecipt {
   const _$PurchaseReciptImpl(
-      {required this.id,
-      required this.userId,
-      @DateTimeConverter() this.premiumPlanExpirationDate});
+      {required this.id, @DateTimeConverter() this.premiumPlanExpirationDate});
 
   factory _$PurchaseReciptImpl.fromJson(Map<String, dynamic> json) =>
       _$$PurchaseReciptImplFromJson(json);
@@ -145,14 +128,12 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
   @override
   final String id;
   @override
-  final String userId;
-  @override
   @DateTimeConverter()
   final DateTime? premiumPlanExpirationDate;
 
   @override
   String toString() {
-    return 'PurchaseRecipt(id: $id, userId: $userId, premiumPlanExpirationDate: $premiumPlanExpirationDate)';
+    return 'PurchaseRecipt(id: $id, premiumPlanExpirationDate: $premiumPlanExpirationDate)';
   }
 
   @override
@@ -161,7 +142,6 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
         (other.runtimeType == runtimeType &&
             other is _$PurchaseReciptImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.premiumPlanExpirationDate,
                     premiumPlanExpirationDate) ||
                 other.premiumPlanExpirationDate == premiumPlanExpirationDate));
@@ -169,8 +149,7 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, userId, premiumPlanExpirationDate);
+  int get hashCode => Object.hash(runtimeType, id, premiumPlanExpirationDate);
 
   /// Create a copy of PurchaseRecipt
   /// with the given fields replaced by the non-null parameter values.
@@ -192,7 +171,6 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
 abstract class _PurchaseRecipt implements PurchaseRecipt {
   const factory _PurchaseRecipt(
           {required final String id,
-          required final String userId,
           @DateTimeConverter() final DateTime? premiumPlanExpirationDate}) =
       _$PurchaseReciptImpl;
 
@@ -201,8 +179,6 @@ abstract class _PurchaseRecipt implements PurchaseRecipt {
 
   @override
   String get id;
-  @override
-  String get userId;
   @override
   @DateTimeConverter()
   DateTime? get premiumPlanExpirationDate;

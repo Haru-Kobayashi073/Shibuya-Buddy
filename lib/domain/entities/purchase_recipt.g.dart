@@ -9,7 +9,6 @@ part of 'purchase_recipt.dart';
 _$PurchaseReciptImpl _$$PurchaseReciptImplFromJson(Map<String, dynamic> json) =>
     _$PurchaseReciptImpl(
       id: json['id'] as String,
-      userId: json['userId'] as String,
       premiumPlanExpirationDate: _$JsonConverterFromJson<String, DateTime>(
           json['premiumPlanExpirationDate'],
           const DateTimeConverter().fromJson),
@@ -19,7 +18,6 @@ Map<String, dynamic> _$$PurchaseReciptImplToJson(
         _$PurchaseReciptImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'userId': instance.userId,
       'premiumPlanExpirationDate': _$JsonConverterToJson<String, DateTime>(
           instance.premiumPlanExpirationDate, const DateTimeConverter().toJson),
     };

@@ -9,7 +9,6 @@ part 'purchase_recipt.g.dart';
 abstract class PurchaseRecipt with _$PurchaseRecipt {
   const factory PurchaseRecipt({
     required String id,
-    required String userId,
     @DateTimeConverter() DateTime? premiumPlanExpirationDate,
   }) = _PurchaseRecipt;
 
