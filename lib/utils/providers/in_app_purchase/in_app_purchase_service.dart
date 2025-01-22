@@ -5,8 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../domain/entities/purchase_recipt.dart';
 import '../../../domain/entities/user.dart';
-import '../../../infrastructure/user/user_data_source.dart';
+import '../../../infrastructure/purchase/purchase_data_source.dart';
 import '../current_user/current_user.dart';
 import 'in_app_purchase_service_state.dart';
 
@@ -14,8 +15,8 @@ part 'in_app_purchase_service.g.dart';
 
 @Riverpod(keepAlive: true)
 class InAppPurchaseService extends _$InAppPurchaseService {
-  UserDataSource get userDataSource =>
-      ref.read(userDataSourceProvider.notifier);
+  PurchaseDataSource get purchaseDataSource =>
+      ref.read(purchaseDataSourceProvider.notifier);
   User get currentUser => ref.watch(currentUserProvider);
 
   @override
@@ -87,20 +88,15 @@ class InAppPurchaseService extends _$InAppPurchaseService {
             (currentUser.premiumPlanExpirationDate ?? DateTime.now()).add(
           Duration(days: _getEffectivePeriodFromPackageId(packageId)!),
         );
-        if (package.identifier == 'unlimited-premium') {
-          await userDataSource.editUser(
-            user: currentUser.copyWith(
-              billingGrade: BillingGrade.premiumWithUnlimited,
-            ),
-          );
-        } else {
-          await userDataSource.editUser(
-            user: currentUser.copyWith(
-              billingGrade: BillingGrade.premiumWithPeriod,
-              premiumPlanExpirationDate: premiumPlanExpirationDate,
-            ),
-          );
-        }
+        final isPremiumWithUnlimited =
+            package.identifier == 'unlimited-premium';
+        await purchaseDataSource.createPurchaseRecipt(
+          purchaseRecipt: PurchaseRecipt(
+            id: currentUser.uid,
+            premiumPlanExpirationDate:
+                isPremiumWithUnlimited ? null : premiumPlanExpirationDate,
+          ),
+        );
       } else {
         return;
       }
@@ -120,20 +116,12 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       final memberState = _getMemberState(customerInfo);
       if (memberState.resultRemainingTime != null ||
           memberState.isUnlimitedPremium) {
-        if (memberState.isUnlimitedPremium) {
-          await userDataSource.editUser(
-            user: currentUser.copyWith(
-              billingGrade: BillingGrade.premiumWithUnlimited,
-            ),
-          );
-        } else {
-          await userDataSource.editUser(
-            user: currentUser.copyWith(
-              billingGrade: BillingGrade.premiumWithPeriod,
-              premiumPlanExpirationDate: memberState.resultRemainingTime,
-            ),
-          );
-        }
+        await purchaseDataSource.createPurchaseRecipt(
+          purchaseRecipt: PurchaseRecipt(
+            id: currentUser.uid,
+            premiumPlanExpirationDate: memberState.resultRemainingTime,
+          ),
+        );
         state = AsyncValue.data(
           state.requireValue.copyWith(isPremiumUser: true),
         );
@@ -154,12 +142,6 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       final isPremium = _isPremiumUser(result.customerInfo);
 
       if (!isPremium) {
-        await userDataSource.editUser(
-          user: currentUser.copyWith(
-            billingGrade: BillingGrade.standard,
-            premiumPlanExpirationDate: null,
-          ),
-        );
         state = AsyncValue.data(
           state.requireValue.copyWith(isPremiumUser: false),
         );
@@ -173,14 +155,15 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   MemberState _getMemberState(CustomerInfo customerInfo) {
     final pastPurchases = customerInfo.nonSubscriptionTransactions;
     DateTime? resultDate;
-    var isUnlimitedPremium = false;
     for (final pastPurchase in pastPurchases) {
       final pastPurchasedProductId = pastPurchase.productIdentifier;
 
       if (pastPurchasedProductId == 'unlimited_premium' ||
           pastPurchasedProductId == 'unlimited_premium_v1') {
-        isUnlimitedPremium = true;
-        break;
+        return (
+          resultRemainingTime: null,
+          isUnlimitedPremium: true,
+        );
       }
 
       final pastPurchasedDate = DateTime.parse(pastPurchase.purchaseDate);
@@ -199,7 +182,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     }
     return (
       resultRemainingTime: resultDate,
-      isUnlimitedPremium: isUnlimitedPremium,
+      isUnlimitedPremium: false,
     );
   }
 
