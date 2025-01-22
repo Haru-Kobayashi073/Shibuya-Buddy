@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
@@ -10,15 +9,42 @@ import 'bookmark_plans_tab_view.dart';
 import 'created_plans_tab_view.dart';
 import 'my_plan_page_notifier.dart';
 
-class MyPlanPage extends ConsumerWidget {
+
+class MyPlanPage extends ConsumerStatefulWidget {
   const MyPlanPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyPlanPage> createState() => _MyPlanPageState();
+}
+
+class _MyPlanPageState extends ConsumerState<MyPlanPage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 2)
+      ..addListener(() {
+        ref.read(selectedIndexProvider.notifier).state = _tabController.index;
+      });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final selectedIndex = ref.watch(selectedIndexProvider);
     final state = ref.watch(myPlanPageNotifierProvider);
     final i18n = Translations.of(context);
     final titlei18n = i18n.myPlanPage.title;
     final tabi18n = i18n.myPlanPage.tabs;
+
+    _tabController.index = selectedIndex;
 
     return state.when(
       data: (value) {
@@ -34,6 +60,10 @@ class MyPlanPage extends ConsumerWidget {
                 ),
               ),
               bottom: TabBar(
+                controller: _tabController,
+                onTap: (index) {
+                  ref.read(selectedIndexProvider.notifier).state = index;
+                },
                 indicatorWeight: 4,
                 labelStyle: AppTextStyle.textStyle
                     .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
@@ -50,6 +80,7 @@ class MyPlanPage extends ConsumerWidget {
               ),
             ),
             body: TabBarView(
+              controller: _tabController,
               children: [
                 CreatedPlanTabView(plans: value.createPlanList),
                 BookmarkPlansTabView(plans: value.bookmarkPlanList),
