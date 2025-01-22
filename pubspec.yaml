@@ -42,7 +42,6 @@ dependencies:
   firebase_storage: ^12.3.7
   flutter:
     sdk: flutter
-  flutter_config: ^2.0.2
   flutter_hooks: ^0.20.5
   flutter_launcher_icons: ^0.14.3
   flutter_localizations:
