@@ -1,27 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../create_plan_notifier.dart';
 
-class SelectionModal extends StatelessWidget {
+class SelectionModal extends ConsumerWidget {
   const SelectionModal({
     super.key,
-    required this.selectionList,
-    required this.selectedItems,
+    required this.selectionField,
     required this.title,
-    this.isSingleSelect = false,
     required this.onTapCheckBox,
   });
 
-  final List<String> selectionList;
-  final List<String> selectedItems;
+  final SelectionField selectionField;
   final String title;
-  final bool isSingleSelect;
   final void Function(String item) onTapCheckBox;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(createPlanNotifierProvider);
+    var selectionList = <String>[]; // 選択肢
+    var selectedItems = <String>[]; // 選択されたアイテム
+    switch (selectionField) {
+      case SelectionField.transport:
+        selectionList = t.createPlanPage.transportOptions;
+        selectedItems = state.requireValue.transports;
+      case SelectionField.numberOfPeople:
+        selectionList = t.createPlanPage.numberOfPeopleOptions;
+        selectedItems.add(state.requireValue.numberOfPeople);
+      case SelectionField.category:
+        selectionList = t.createPlanPage.categoryOptions;
+        selectedItems = state.requireValue.categories;
+    }
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -83,4 +97,10 @@ class SelectionModal extends StatelessWidget {
       ),
     );
   }
+}
+
+enum SelectionField {
+  transport,
+  numberOfPeople,
+  category,
 }
