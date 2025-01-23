@@ -20,6 +20,7 @@ List<RouteBase> get $appRoutes => [
       $planDetailPageRouteData,
       $plansRelatedInTopicRouteData,
       $mapPageRouteData,
+      $sMSVerificationPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -747,6 +748,30 @@ extension $MapPageRouteDataExtension on MapPageRouteData {
 
   void replace(BuildContext context) =>
       context.replace(location, extra: $extra);
+}
+
+RouteBase get $sMSVerificationPageRouteData => GoRouteData.$route(
+      path: 'smsVerification',
+      factory: $SMSVerificationPageRouteDataExtension._fromState,
+    );
+
+extension $SMSVerificationPageRouteDataExtension
+    on SMSVerificationPageRouteData {
+  static SMSVerificationPageRouteData _fromState(GoRouterState state) =>
+      const SMSVerificationPageRouteData();
+
+  String get location => GoRouteData.$location(
+        'smsVerification',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 // **************************************************************************

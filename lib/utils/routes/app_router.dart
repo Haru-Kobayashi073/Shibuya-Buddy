@@ -36,6 +36,7 @@ import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
 import '../../presentation/sign_up/sign_up_page.dart';
+import '../../presentation/sms_verification/sms_verification_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
 import 'routes.dart';
@@ -479,5 +480,17 @@ class MapPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MapPage(places: $extra);
+  }
+}
+
+@TypedGoRoute<SMSVerificationPageRouteData>(
+  path: Routes.smsVerification,
+)
+class SMSVerificationPageRouteData extends GoRouteData {
+  const SMSVerificationPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SmsVerificationPage();
   }
 }
