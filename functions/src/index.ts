@@ -1,13 +1,20 @@
 import * as functions from "firebase-functions/v2";
 const { onDocumentCreated, firestore } = require("firebase-functions/v2/firestore");
 import * as scheduler from "firebase-functions/v2/scheduler";
-import { QueryDocumentSnapshot, DocumentSnapshot } from "firebase-admin/firestore";
+import { CloudTasksClient } from '@google-cloud/tasks';
+import { QueryDocumentSnapshot } from "firebase-admin/firestore";
 
 
 functions.setGlobalOptions({
     region: "asia-northeast1",
-    timeoutSeconds: 1800
+    timeoutSeconds: 540,
 });
+
+const cloudTasksClient = new CloudTasksClient();
+
+const googleCloudProjectId = 'shibuya-buddy';
+const region = 'asia-northeast1';
+const queue = 'premium-plan-queue';
 
 export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () => {
     const plansRef = firestore.collection("plans");
@@ -67,15 +74,52 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
     }
 });
 
-export const setRankDownToStandardTask = onDocumentCreated("plans/{planId}", async (event: DocumentSnapshot) => {
-    const planId = event.id;
-    const planRef = firestore.collection("plans").doc(planId);
+export const setRankDownToStandardTask = onDocumentCreated("users/{userId}/purchse_recipt/{reciptId}", async (event: any) => {
+    // eventから日付を取得し、Unixタイムスタンプに変換
+    const executionDate = new Date(event.data.executionDate);
+    const executionTimestamp = Math.floor(executionDate.getTime() / 1000);
 
-    const planSnapshot = await planRef.get();
-    const planData = planSnapshot.data();
+    const url = `https://${region}-${googleCloudProjectId}.cloudfunctions.net/rankDownToStandard?user_id=${event.params.userId}`;
 
-    if (planData.bookmark_count < 10) {
-        await planRef.update({ ranking: null });
+    const parent = cloudTasksClient.queuePath(googleCloudProjectId, region, queue);
+    const task = {
+        scheduleTime: {
+            seconds: executionTimestamp,
+        },
+        httpRequest: {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            httpMethod: 'POST' as const,
+            url,
+        },
+    };
+
+    const request = { parent: parent, task: task };
+    const [response] = await cloudTasksClient.createTask(request);
+    console.log(`Created task ${response.name}`);
+});
+
+export const rankDownToStandard = functions.https.onRequest((req: any, res: any) => {
+    const purchaseReciptRef = firestore.collection("users").doc(req.params.user_id).collection("purchase_recipt").doc(req.params.user_id);
+
+    const purchaseReciptSnapshot = purchaseReciptRef.delete();
+
+    if (!purchaseReciptSnapshot.exists) {
+        return res.status(404).send("purchase recipt not found");
     }
-}
-);
+
+    const userRef = firestore.collection("users").doc(req.params.user_id);
+    const userSnapshot = userRef.get();
+
+    if (!userSnapshot.exists) {
+        return res.status(404).send("user not found");
+    }
+
+    const user = userSnapshot.data();
+    user.billingGrade = "standard";
+    userRef.premiumPlanExpirationDate = null;
+    userRef.update(user);
+
+    return res.status(200).send("success");
+});
