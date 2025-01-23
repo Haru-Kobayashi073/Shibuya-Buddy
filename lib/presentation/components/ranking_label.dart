@@ -30,7 +30,6 @@ class RankingLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     final devicesize = context.deviceWidth;
     final size = devicesize * 0.1;
-    debugPrint(devicesize.toString());
     return Offstage(
       offstage: ranking == null,
       child: Container(
