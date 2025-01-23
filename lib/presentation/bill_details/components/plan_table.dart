@@ -10,6 +10,7 @@ class PlanTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.width;
     final headerStyle = AppTextStyle.textStyle.copyWith(
       fontSize: 16,
       fontWeight: FontWeight.bold,
@@ -103,67 +104,76 @@ class PlanTable extends StatelessWidget {
                   ),
                   height: 200,
                   margin: const EdgeInsets.only(left: 1, bottom: 1),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
                     children: [
-                      Column(
+                      SizedBox(
+                        width: deviceWidth * 0.03,
+                      ),
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            t.billDetailsPage.pricingPlan.details.premiumPrice
-                                .days,
-                            style: planTextStyle,
-                          ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Gap(8),
                               Text(
                                 t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.daily,
+                                    .premiumPrice.days,
                                 style: planTextStyle,
                               ),
-                              Text(
-                                t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.threeDays,
-                                style: planTextStyle,
-                              ),
-                              Text(
-                                t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.fiveDays,
-                                style: planTextStyle,
-                              ),
-                              Text(
-                                t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.sevenDays,
-                                style: planTextStyle,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Gap(8),
+                                  Text(
+                                    t.billDetailsPage.pricingPlan.details
+                                        .premiumPrice.daily,
+                                    style: planTextStyle,
+                                  ),
+                                  Text(
+                                    t.billDetailsPage.pricingPlan.details
+                                        .premiumPrice.threeDays,
+                                    style: planTextStyle,
+                                  ),
+                                  Text(
+                                    t.billDetailsPage.pricingPlan.details
+                                        .premiumPrice.fiveDays,
+                                    style: planTextStyle,
+                                  ),
+                                  Text(
+                                    t.billDetailsPage.pricingPlan.details
+                                        .premiumPrice.sevenDays,
+                                    style: planTextStyle,
+                                  ),
+                                ],
                               ),
                             ],
-                          ),
-                        ],
-                      ),
-                      const Gap(12),
-                      Text(
-                        t.billDetailsPage.pricingPlan.details.premiumPrice.or,
-                        style: AppTextStyle.textStyle.copyWith(
-                          fontSize: 12,
-                        ),
-                      ),
-                      const Gap(12),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            t.billDetailsPage.pricingPlan.details.premiumPrice
-                                .lifetime,
-                            style: planTextStyle,
                           ),
                           const Gap(12),
                           Text(
                             t.billDetailsPage.pricingPlan.details.premiumPrice
-                                .lifetimePrice,
-                            style: planTextStyle,
+                                .or,
+                            style: AppTextStyle.textStyle.copyWith(
+                              fontSize: 12,
+                            ),
+                          ),
+                          const Gap(12),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                t.billDetailsPage.pricingPlan.details
+                                    .premiumPrice.lifetime,
+                                style: planTextStyle,
+                              ),
+                              const Gap(12),
+                              Text(
+                                t.billDetailsPage.pricingPlan.details
+                                    .premiumPrice.lifetimePrice,
+                                style: planTextStyle,
+                              ),
+                            ],
                           ),
                         ],
                       ),
