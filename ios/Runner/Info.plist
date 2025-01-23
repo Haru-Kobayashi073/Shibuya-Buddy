@@ -59,6 +59,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>GoogleMapAPIKey</key>
-  <string>${GoogleMapApiKey}</string>
+  <string>${GoogleMapAPIKey}</string>
 </dict>
 </plist>
