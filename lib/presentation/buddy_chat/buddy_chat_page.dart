@@ -189,27 +189,30 @@ class BuddyChatPage extends HookConsumerWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
             child: IntrinsicHeight(
-              child: TextFormField(
-                expands: true,
-                maxLines: null,
-                cursorColor: AppColor.black,
-                keyboardType: TextInputType.multiline,
-                validator: Validator.common,
-                maxLength: 256,
-                controller: textController,
-                onFieldSubmitted: (_) async => sendMessage(),
-                decoration: InputDecoration(
-                  counter: const SizedBox.shrink(),
-                  filled: true,
-                  fillColor: AppColor.grey200,
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+              child: SingleChildScrollView(
+                child: TextFormField(
+                  minLines: 1,
+                  maxLines: 6,
+                  cursorColor: AppColor.black,
+                  keyboardType: TextInputType.multiline,
+                  validator: Validator.common,
+                  maxLength: 256,
+                  controller: textController,
+                  onFieldSubmitted: (_) async => sendMessage(),
+                  decoration: InputDecoration(
+                    counter: const SizedBox.shrink(),
+                    filled: true,
+                    fillColor: AppColor.grey200,
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    hintText: localizedHintText,
                   ),
-                  hintText: localizedHintText,
                 ),
               ),
             ),
