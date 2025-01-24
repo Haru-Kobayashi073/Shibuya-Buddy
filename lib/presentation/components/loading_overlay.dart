@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../utils/styles/app_color.dart';
+import '../../gen/assets.gen.dart';
 
 final isShowLoadingOverlayProvider = StateProvider.autoDispose((ref) => false);
 
@@ -36,10 +36,10 @@ class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.white,
+      backgroundColor: Colors.transparent,
       body: Center(
         child: Lottie.asset(
-          'assets/lottie/Animation - 1736996724199.json',
+          Assets.lottie.animation1736996724199,
           width: 80,
           height: 80,
         ),
