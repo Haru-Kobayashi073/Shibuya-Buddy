@@ -751,7 +751,7 @@ extension $MapPageRouteDataExtension on MapPageRouteData {
 }
 
 RouteBase get $sMSVerificationPageRouteData => GoRouteData.$route(
-      path: 'smsVerification',
+      path: '/smsVerification',
       factory: $SMSVerificationPageRouteDataExtension._fromState,
     );
 
@@ -761,7 +761,7 @@ extension $SMSVerificationPageRouteDataExtension
       const SMSVerificationPageRouteData();
 
   String get location => GoRouteData.$location(
-        'smsVerification',
+        '/smsVerification',
       );
 
   void go(BuildContext context) => context.go(location);

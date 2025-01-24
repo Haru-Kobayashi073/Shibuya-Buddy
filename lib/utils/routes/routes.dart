@@ -26,5 +26,5 @@ class Routes {
   static const billDetailsDialog = '/billDetailsDialog';
   static const planDetailPage = '/planDetailPage';
   static const map = 'map';
-  static const smsVerification = 'smsVerification';
+  static const smsVerification = '/smsVerification';
 }
