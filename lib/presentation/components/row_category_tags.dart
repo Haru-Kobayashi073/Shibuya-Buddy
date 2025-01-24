@@ -104,6 +104,6 @@ class RowCategoryTags extends StatelessWidget {
       ),
       textDirection: TextDirection.ltr,
     )..layout();
-    return textPainter.width + 16;
+    return textPainter.width + 18;
   }
 }
