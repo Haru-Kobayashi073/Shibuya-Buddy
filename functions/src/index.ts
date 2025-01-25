@@ -1,8 +1,12 @@
 import * as functions from "firebase-functions/v2";
-const { onDocumentCreated, firestore } = require("firebase-functions/v2/firestore");
+import { onDocumentCreated, onDocumentDeleted } from "firebase-functions/v2/firestore";
 import * as scheduler from "firebase-functions/v2/scheduler";
 import { CloudTasksClient } from '@google-cloud/tasks';
 import { QueryDocumentSnapshot } from "firebase-admin/firestore";
+import * as admin from "firebase-admin";
+
+admin.initializeApp();
+const firestore = admin.firestore();
 
 
 functions.setGlobalOptions({
@@ -14,7 +18,7 @@ const cloudTasksClient = new CloudTasksClient();
 
 const googleCloudProjectId = 'shibuya-buddy';
 const region = 'asia-northeast1';
-const queue = 'premium-plan-queue';
+const queue = 'premium-grade-queue';
 
 export const scheduledrankingplan = scheduler.onSchedule("0 0 * * 0", async () => {
     const plansRef = firestore.collection("plans");
@@ -74,52 +78,81 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
     }
 });
 
-export const setRankDownToStandardTask = onDocumentCreated("users/{userId}/purchse_recipt/{reciptId}", async (event: any) => {
+export const createRankDownToStandardTask = onDocumentCreated("users/{userId}/purchase_recipts/{reciptId}", async (event: any) => {
+
+    const data = event.data.data();
     // eventから日付を取得し、Unixタイムスタンプに変換
-    const executionDate = new Date(event.data.executionDate);
+    console.log(data.premiumPlanExpirationDate);
+    const executionDate = new Date(data.premiumPlanExpirationDate);
+    console.log(executionDate);
     const executionTimestamp = Math.floor(executionDate.getTime() / 1000);
+    console.log(executionTimestamp);
 
     const url = `https://${region}-${googleCloudProjectId}.cloudfunctions.net/rankDownToStandard?user_id=${event.params.userId}`;
 
     const parent = cloudTasksClient.queuePath(googleCloudProjectId, region, queue);
     const task = {
-        scheduleTime: {
-            seconds: executionTimestamp,
-        },
         httpRequest: {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             httpMethod: 'POST' as const,
-            url,
+            url: url,
+        },
+        scheduleTime: {
+            seconds: executionTimestamp,
         },
     };
 
     const request = { parent: parent, task: task };
-    const [response] = await cloudTasksClient.createTask(request);
-    console.log(`Created task ${response.name}`);
+
+    try {
+        const [response] = await cloudTasksClient.createTask(request);
+        console.log(`Created task ${response.name}`);
+        const purchaseReciptRef = firestore.collection("users").doc(event.params.userId).collection("purchase_recipts").doc(event.params.reciptId);
+        purchaseReciptRef.update({ rankDownToStandardTaskPath: response.name });
+    } catch (error) {
+        console.error("Error creating task: ", error);
+    }
 });
 
-export const rankDownToStandard = functions.https.onRequest((req: any, res: any) => {
-    const purchaseReciptRef = firestore.collection("users").doc(req.params.user_id).collection("purchase_recipt").doc(req.params.user_id);
+export const deleteRankDownToStandardTask = onDocumentDeleted("users/{userId}/purchase_recipts/{reciptId}", async (event: any) => {
+    const data = event.data.data();
+    if (data.rankDownToStandardTaskPath) {
+        try {
+            await cloudTasksClient.deleteTask({ name: data.rankDownToStandardTaskPath });
+            console.log(`Deleted task ${data.rankDownToStandardTaskPath}`);
+        } catch (error) {
+            console.error("Error deleting task: ", error);
+        }
+    }
+});
 
-    const purchaseReciptSnapshot = purchaseReciptRef.delete();
+export const rankDownToStandard = functions.https.onRequest(async (req: any, res: any) => {
+    const purchaseReciptRef = firestore.collection("users").doc(req.params.user_id).collection("purchase_recipts").doc(req.params.user_id);
+    try {
 
-    if (!purchaseReciptSnapshot.exists) {
-        return res.status(404).send("purchase recipt not found");
+        await purchaseReciptRef.delete();
+    } catch (error) {
+        console.error("Error deleting purchase recipt: ", error);
+        return res.status(500).send("Error deleting purchase recipt");
     }
 
     const userRef = firestore.collection("users").doc(req.params.user_id);
-    const userSnapshot = userRef.get();
 
-    if (!userSnapshot.exists) {
-        return res.status(404).send("user not found");
+    try {
+        const userSnapshot = await userRef.get();
+        const user = userSnapshot.data();
+        if (!user) {
+            return res.status(404).send("User not found");
+        }
+        user.billingGrade = "standard";
+        user.premiumPlanExpirationDate = null;
+        userRef.update(user);
+
+        return res.status(200).send("success");
+    } catch (error) {
+        console.error("Error updating user: ", error);
+        return res.status(500).send("Error updating user");
     }
-
-    const user = userSnapshot.data();
-    user.billingGrade = "standard";
-    userRef.premiumPlanExpirationDate = null;
-    userRef.update(user);
-
-    return res.status(200).send("success");
 });
