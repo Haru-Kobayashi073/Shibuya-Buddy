@@ -500,13 +500,19 @@ class PhoneNumberInputPageRouteData extends GoRouteData {
   path: Routes.smsVerification,
 )
 class SMSVerificationPageRouteData extends GoRouteData {
-  const SMSVerificationPageRouteData({this.phoneNumber = ''});
+  const SMSVerificationPageRouteData({
+    required this.phoneNumber,
+    required this.verificationId,
+  });
+
   final String phoneNumber;
+  final String verificationId;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return SmsVerificationPage(
       phoneNumber: phoneNumber,
+      verificationId: verificationId,
     );
   }
 }

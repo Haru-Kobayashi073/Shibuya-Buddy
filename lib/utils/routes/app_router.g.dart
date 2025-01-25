@@ -784,13 +784,15 @@ extension $SMSVerificationPageRouteDataExtension
     on SMSVerificationPageRouteData {
   static SMSVerificationPageRouteData _fromState(GoRouterState state) =>
       SMSVerificationPageRouteData(
-        phoneNumber: state.uri.queryParameters['phone-number'] ?? '',
+        phoneNumber: state.uri.queryParameters['phone-number']!,
+        verificationId: state.uri.queryParameters['verification-id']!,
       );
 
   String get location => GoRouteData.$location(
         '/smsVerification',
         queryParams: {
-          if (phoneNumber != '') 'phone-number': phoneNumber,
+          'phone-number': phoneNumber,
+          'verification-id': verificationId,
         },
       );
 
