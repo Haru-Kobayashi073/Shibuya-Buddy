@@ -89,6 +89,26 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   }
 
   @override
+  Future<void> sendSmsCode({
+    required String phoneNumber,
+    required void Function(String verificationId) onCodeSent,
+    required void Function(FirebaseAuthException error) onError,
+  }) async {
+    final auth = FirebaseAuth.instance;
+    await auth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        // 自動認証成功時の処理
+      },
+      verificationFailed: onError,
+      codeSent: (String verificationId, int? resendToken) {
+        onCodeSent(verificationId); // SMSコードが送信された場合
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
+  }
+
+  @override
   Future<void> linkPhoneNumber(String verificationId, String smsCode) async {
     final credential = PhoneAuthProvider.credential(
       verificationId: verificationId,
