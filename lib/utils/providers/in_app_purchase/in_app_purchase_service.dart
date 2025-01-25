@@ -80,7 +80,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
           .requireValue.offerings.all['premium-plan']!.availablePackages
           .firstWhere((element) => element.identifier == packageId);
       final customerInfo = await Purchases.purchasePackage(package);
-      final productId = _getproductIdFromPackageId(packageId);
+      final productId = _getProductIdFromPackageId(packageId);
 
       if (customerInfo.allPurchasedProductIdentifiers.contains(productId)) {
         // プレミアムプランの有効期限をDateTime型で取得
@@ -133,22 +133,6 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     } on PlatformException catch (e) {
       debugPrint('purchase repo  restorePurchase error $e');
       return false;
-    }
-  }
-
-  Future<void> rankDownToStandard() async {
-    try {
-      final result = await Purchases.logIn(currentUser.uid);
-      final isPremium = _isPremiumUser(result.customerInfo);
-
-      if (!isPremium) {
-        state = AsyncValue.data(
-          state.requireValue.copyWith(isPremiumUser: false),
-        );
-        ref.invalidate(currentUserProvider);
-      }
-    } on Exception catch (e) {
-      debugPrint('rankDownToStandard error $e');
     }
   }
 
@@ -208,7 +192,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     };
   }
 
-  String? _getproductIdFromPackageId(String packageId) {
+  String? _getProductIdFromPackageId(String packageId) {
     if (Platform.isIOS) {
       return switch (packageId) {
         'unlimited-premium' => 'unlimited_premium',
