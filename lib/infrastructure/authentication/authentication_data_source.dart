@@ -89,6 +89,23 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   }
 
   @override
+  Future<void> linkPhoneNumber(String verificationId, String smsCode) async {
+    final credential = PhoneAuthProvider.credential(
+      verificationId: verificationId,
+      smsCode: smsCode,
+    );
+    await firebaseAuth.currentUser?.linkWithCredential(credential);
+  }
+
+  @override
+  Future<bool> isSmsVerified() async {
+    await firebaseAuth.currentUser?.reload();
+    return firebaseAuth.currentUser?.providerData
+            .any((userInfo) => userInfo.providerId == 'phone') ??
+        false;
+  }
+
+  @override
   Future<void> linkWithCredential(AuthCredential credential) async {
     await firebaseAuth.currentUser?.linkWithCredential(credential);
   }
