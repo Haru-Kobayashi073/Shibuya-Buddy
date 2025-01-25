@@ -20,6 +20,7 @@ List<RouteBase> get $appRoutes => [
       $planDetailPageRouteData,
       $plansRelatedInTopicRouteData,
       $mapPageRouteData,
+      $phoneNumberInputPageRouteData,
       $sMSVerificationPageRouteData,
     ];
 
@@ -748,6 +749,30 @@ extension $MapPageRouteDataExtension on MapPageRouteData {
 
   void replace(BuildContext context) =>
       context.replace(location, extra: $extra);
+}
+
+RouteBase get $phoneNumberInputPageRouteData => GoRouteData.$route(
+      path: '/phoneNumberInput',
+      factory: $PhoneNumberInputPageRouteDataExtension._fromState,
+    );
+
+extension $PhoneNumberInputPageRouteDataExtension
+    on PhoneNumberInputPageRouteData {
+  static PhoneNumberInputPageRouteData _fromState(GoRouterState state) =>
+      const PhoneNumberInputPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/phoneNumberInput',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $sMSVerificationPageRouteData => GoRouteData.$route(

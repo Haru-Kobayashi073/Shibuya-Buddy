@@ -28,6 +28,7 @@ import '../../presentation/map/map_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/edit_profile/edit_profile_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/phone_number_input/phone_number_input_page.dart';
 import '../../presentation/plan_detail/plan_detail_page.dart';
 import '../../presentation/plans_related_in_topic/plans_related_in_topic_page.dart';
 import '../../presentation/popular_plans/popular_plans_page.dart';
@@ -483,6 +484,18 @@ class MapPageRouteData extends GoRouteData {
   }
 }
 
+@TypedGoRoute<PhoneNumberInputPageRouteData>(
+  path: Routes.phoneNumberInput,
+)
+class PhoneNumberInputPageRouteData extends GoRouteData {
+  const PhoneNumberInputPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PhoneNumberInputPage();
+  }
+}
+
 @TypedGoRoute<SMSVerificationPageRouteData>(
   path: Routes.smsVerification,
 )
@@ -492,6 +505,8 @@ class SMSVerificationPageRouteData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return SmsVerificationPage(phoneNumber: phoneNumber,);
+    return SmsVerificationPage(
+      phoneNumber: phoneNumber,
+    );
   }
 }
