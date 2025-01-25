@@ -36,6 +36,7 @@ class ChangeLanguagePage extends ConsumerWidget {
             itemi18n.english,
             itemi18n.simplifiedChinese,
             itemi18n.traditionalChinese,
+            itemi18n.korean,
           ]
               .map(
                 (locale) => RadioButtonWithText<String>(

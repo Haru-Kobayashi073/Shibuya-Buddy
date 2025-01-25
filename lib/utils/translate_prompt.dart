@@ -15,6 +15,7 @@ class TranslatePrompt {
       AppLocale.ja => jaPrompt(),
       AppLocale.zhHans => zhHansPrompt(),
       AppLocale.zhHant => zhHantPrompt(),
+      AppLocale.kr => krPrompt(),
     };
   }
 
@@ -169,5 +170,43 @@ class TranslatePrompt {
 
       Please output in English.
   ''';
+  }
+
+  String krPrompt() {
+    return '''
+      시부야 구 내에서 관광 계획을 세워주세요.
+
+      날짜는 ${planPrompt.schedules.firstDate}부터 ${planPrompt.schedules.lastDate}까지 고려해주세요.
+
+      인원은 ${planPrompt.numberOfPeople}명입니다.
+
+      교통수단은 ${planPrompt.transports.join(',')}입니다.
+
+      카테고리는 ${planPrompt.categories.join(',')}입니다.
+
+      여행 주제는 ${planPrompt.topics.join(',')}입니다.
+
+      출력은 다음 형식으로 해주세요.
+
+      - 계획과 관련된 이미지 URL(이미지를 생성하고 URL을 반환해주세요)
+      - 계획 개요 제목(제안하는 장소와 관련된 제목)
+      - 계획과 관련된 주제 목록
+        - 주제 이름
+        - 주제 썸네일 URL(이미지를 생성하고 URL을 반환해주세요)
+      - 관광지 제목
+      - 관광지 이름
+      - 관광지 썸네일 URL(이미지를 생성하고 URL을 반환해주세요)
+      - 관광지 운영 시간
+      - 관광지 평균 예산
+      - 관광지 웹사이트 URL
+      - 관광지의 위도, 경도
+      - 계획 개요에 대한 메시지 전송
+
+      관광지 제안은 지명이 아닌 장소를 제안해주세요.
+
+      URL에 대해서는 실제로 접근 가능한 것을 출력해주세요.
+
+      한국어로 출력해주세요.
+    ''';
   }
 }
