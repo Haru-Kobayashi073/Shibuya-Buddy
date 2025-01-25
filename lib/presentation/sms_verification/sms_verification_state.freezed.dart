@@ -16,11 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SmsVerificationState {
-  String get phoneNumber => throw _privateConstructorUsedError;
-  String get verificationId => throw _privateConstructorUsedError;
-  String get smsCode => throw _privateConstructorUsedError;
-  SmsVerificationButtonState get buttonState =>
+  bool get isSmsVerified => throw _privateConstructorUsedError;
+  SmsVerificationButtonState get smsVerificationButtonState =>
       throw _privateConstructorUsedError;
+  int get resendEmailVerificationCountdown =>
+      throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
+  String get smsCode => throw _privateConstructorUsedError;
+  String get verificationId => throw _privateConstructorUsedError;
 
   /// Create a copy of SmsVerificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -36,10 +39,12 @@ abstract class $SmsVerificationStateCopyWith<$Res> {
       _$SmsVerificationStateCopyWithImpl<$Res, SmsVerificationState>;
   @useResult
   $Res call(
-      {String phoneNumber,
-      String verificationId,
+      {bool isSmsVerified,
+      SmsVerificationButtonState smsVerificationButtonState,
+      int resendEmailVerificationCountdown,
+      String phoneNumber,
       String smsCode,
-      SmsVerificationButtonState buttonState});
+      String verificationId});
 }
 
 /// @nodoc
@@ -58,28 +63,38 @@ class _$SmsVerificationStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isSmsVerified = null,
+    Object? smsVerificationButtonState = null,
+    Object? resendEmailVerificationCountdown = null,
     Object? phoneNumber = null,
-    Object? verificationId = null,
     Object? smsCode = null,
-    Object? buttonState = null,
+    Object? verificationId = null,
   }) {
     return _then(_value.copyWith(
+      isSmsVerified: null == isSmsVerified
+          ? _value.isSmsVerified
+          : isSmsVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      smsVerificationButtonState: null == smsVerificationButtonState
+          ? _value.smsVerificationButtonState
+          : smsVerificationButtonState // ignore: cast_nullable_to_non_nullable
+              as SmsVerificationButtonState,
+      resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
+          ? _value.resendEmailVerificationCountdown
+          : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
+              as int,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationId: null == verificationId
-          ? _value.verificationId
-          : verificationId // ignore: cast_nullable_to_non_nullable
               as String,
       smsCode: null == smsCode
           ? _value.smsCode
           : smsCode // ignore: cast_nullable_to_non_nullable
               as String,
-      buttonState: null == buttonState
-          ? _value.buttonState
-          : buttonState // ignore: cast_nullable_to_non_nullable
-              as SmsVerificationButtonState,
+      verificationId: null == verificationId
+          ? _value.verificationId
+          : verificationId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -93,10 +108,12 @@ abstract class _$$SmsVerificationStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String phoneNumber,
-      String verificationId,
+      {bool isSmsVerified,
+      SmsVerificationButtonState smsVerificationButtonState,
+      int resendEmailVerificationCountdown,
+      String phoneNumber,
       String smsCode,
-      SmsVerificationButtonState buttonState});
+      String verificationId});
 }
 
 /// @nodoc
@@ -112,28 +129,38 @@ class __$$SmsVerificationStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isSmsVerified = null,
+    Object? smsVerificationButtonState = null,
+    Object? resendEmailVerificationCountdown = null,
     Object? phoneNumber = null,
-    Object? verificationId = null,
     Object? smsCode = null,
-    Object? buttonState = null,
+    Object? verificationId = null,
   }) {
     return _then(_$SmsVerificationStateImpl(
+      isSmsVerified: null == isSmsVerified
+          ? _value.isSmsVerified
+          : isSmsVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      smsVerificationButtonState: null == smsVerificationButtonState
+          ? _value.smsVerificationButtonState
+          : smsVerificationButtonState // ignore: cast_nullable_to_non_nullable
+              as SmsVerificationButtonState,
+      resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
+          ? _value.resendEmailVerificationCountdown
+          : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
+              as int,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationId: null == verificationId
-          ? _value.verificationId
-          : verificationId // ignore: cast_nullable_to_non_nullable
               as String,
       smsCode: null == smsCode
           ? _value.smsCode
           : smsCode // ignore: cast_nullable_to_non_nullable
               as String,
-      buttonState: null == buttonState
-          ? _value.buttonState
-          : buttonState // ignore: cast_nullable_to_non_nullable
-              as SmsVerificationButtonState,
+      verificationId: null == verificationId
+          ? _value.verificationId
+          : verificationId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -142,27 +169,35 @@ class __$$SmsVerificationStateImplCopyWithImpl<$Res>
 
 class _$SmsVerificationStateImpl implements _SmsVerificationState {
   const _$SmsVerificationStateImpl(
-      {this.phoneNumber = '',
-      this.verificationId = '',
+      {this.isSmsVerified = false,
+      this.smsVerificationButtonState = SmsVerificationButtonState.initialize,
+      this.resendEmailVerificationCountdown = 60,
+      this.phoneNumber = '',
       this.smsCode = '',
-      this.buttonState = SmsVerificationButtonState.idle});
+      this.verificationId = ''});
 
+  @override
+  @JsonKey()
+  final bool isSmsVerified;
+  @override
+  @JsonKey()
+  final SmsVerificationButtonState smsVerificationButtonState;
+  @override
+  @JsonKey()
+  final int resendEmailVerificationCountdown;
   @override
   @JsonKey()
   final String phoneNumber;
   @override
   @JsonKey()
-  final String verificationId;
-  @override
-  @JsonKey()
   final String smsCode;
   @override
   @JsonKey()
-  final SmsVerificationButtonState buttonState;
+  final String verificationId;
 
   @override
   String toString() {
-    return 'SmsVerificationState(phoneNumber: $phoneNumber, verificationId: $verificationId, smsCode: $smsCode, buttonState: $buttonState)';
+    return 'SmsVerificationState(isSmsVerified: $isSmsVerified, smsVerificationButtonState: $smsVerificationButtonState, resendEmailVerificationCountdown: $resendEmailVerificationCountdown, phoneNumber: $phoneNumber, smsCode: $smsCode, verificationId: $verificationId)';
   }
 
   @override
@@ -170,18 +205,32 @@ class _$SmsVerificationStateImpl implements _SmsVerificationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SmsVerificationStateImpl &&
+            (identical(other.isSmsVerified, isSmsVerified) ||
+                other.isSmsVerified == isSmsVerified) &&
+            (identical(other.smsVerificationButtonState,
+                    smsVerificationButtonState) ||
+                other.smsVerificationButtonState ==
+                    smsVerificationButtonState) &&
+            (identical(other.resendEmailVerificationCountdown,
+                    resendEmailVerificationCountdown) ||
+                other.resendEmailVerificationCountdown ==
+                    resendEmailVerificationCountdown) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.verificationId, verificationId) ||
-                other.verificationId == verificationId) &&
             (identical(other.smsCode, smsCode) || other.smsCode == smsCode) &&
-            (identical(other.buttonState, buttonState) ||
-                other.buttonState == buttonState));
+            (identical(other.verificationId, verificationId) ||
+                other.verificationId == verificationId));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, phoneNumber, verificationId, smsCode, buttonState);
+      runtimeType,
+      isSmsVerified,
+      smsVerificationButtonState,
+      resendEmailVerificationCountdown,
+      phoneNumber,
+      smsCode,
+      verificationId);
 
   /// Create a copy of SmsVerificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -196,20 +245,25 @@ class _$SmsVerificationStateImpl implements _SmsVerificationState {
 
 abstract class _SmsVerificationState implements SmsVerificationState {
   const factory _SmsVerificationState(
-          {final String phoneNumber,
-          final String verificationId,
-          final String smsCode,
-          final SmsVerificationButtonState buttonState}) =
-      _$SmsVerificationStateImpl;
+      {final bool isSmsVerified,
+      final SmsVerificationButtonState smsVerificationButtonState,
+      final int resendEmailVerificationCountdown,
+      final String phoneNumber,
+      final String smsCode,
+      final String verificationId}) = _$SmsVerificationStateImpl;
 
+  @override
+  bool get isSmsVerified;
+  @override
+  SmsVerificationButtonState get smsVerificationButtonState;
+  @override
+  int get resendEmailVerificationCountdown;
   @override
   String get phoneNumber;
   @override
-  String get verificationId;
-  @override
   String get smsCode;
   @override
-  SmsVerificationButtonState get buttonState;
+  String get verificationId;
 
   /// Create a copy of SmsVerificationState
   /// with the given fields replaced by the non-null parameter values.

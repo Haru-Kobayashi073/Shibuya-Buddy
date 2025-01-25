@@ -5,14 +5,14 @@ part 'sms_verification_state.freezed.dart';
 @freezed
 abstract class SmsVerificationState with _$SmsVerificationState {
   const factory SmsVerificationState({
+    @Default(false) bool isSmsVerified,
+    @Default(SmsVerificationButtonState.initialize)
+    SmsVerificationButtonState smsVerificationButtonState,
+    @Default(60) int resendEmailVerificationCountdown,
     @Default('') String phoneNumber,
-    @Default('') String verificationId,
     @Default('') String smsCode,
-    @Default(SmsVerificationButtonState.idle)
-    SmsVerificationButtonState buttonState,
+    @Default('') String verificationId,
   }) = _SmsVerificationState;
-
-  factory SmsVerificationState.initial() => const SmsVerificationState();
 }
 
-enum SmsVerificationButtonState { idle, loading, success, error }
+enum SmsVerificationButtonState { initialize, resend, coolDown, verified }
