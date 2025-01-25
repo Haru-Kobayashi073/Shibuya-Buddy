@@ -96,9 +96,8 @@ class EmailVerificationPage extends ConsumerWidget {
                   : AppColor.yellow600Primary,
               onPressed: () async {
                 if (state.isEmailVerified) {
-                  await const SMSVerificationPageRouteData(
-                    phoneNumber: '+8108012345678',
-                  ).push<void>(context);
+                  await const PhoneNumberInputPageRouteData()
+                      .push<void>(context);
                   // context.go(const RegisterProfilePageRouteData().location);
                 } else {
                   await notifier.sendEmailVerification();
