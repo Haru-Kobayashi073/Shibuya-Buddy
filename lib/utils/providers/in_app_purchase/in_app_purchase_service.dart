@@ -74,6 +74,8 @@ class InAppPurchaseService extends _$InAppPurchaseService {
 
   Future<void> makePurchase(String packageId) async {
     try {
+      final isPremiumUser = state.requireValue.isPremiumUser;
+
       Package package;
       // 購入するパッケージを取得
       package = state
@@ -90,6 +92,22 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         );
         final isPremiumWithUnlimited =
             package.identifier == 'unlimited-premium';
+
+        final purchaseRecipt = PurchaseRecipt(
+          id: currentUser.uid,
+          premiumPlanExpirationDate:
+              isPremiumWithUnlimited ? null : premiumPlanExpirationDate,
+        );
+
+        if (isPremiumUser) {
+          await purchaseDataSource.updatePurchaseInformation(
+            purchaseRecipt: purchaseRecipt,
+          );
+        } else {
+          await purchaseDataSource.createPurchaseRecipt(
+            purchaseRecipt: purchaseRecipt,
+          );
+        }
         await purchaseDataSource.createPurchaseRecipt(
           purchaseRecipt: PurchaseRecipt(
             id: currentUser.uid,
