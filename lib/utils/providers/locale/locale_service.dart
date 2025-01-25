@@ -65,7 +65,7 @@ class LocaleService extends _$LocaleService {
       AppLocale.ja => i18nLanguage.japanese,
       AppLocale.zhHans => i18nLanguage.simplifiedChinese,
       AppLocale.zhHant => i18nLanguage.traditionalChinese,
-      AppLocale.kr => i18nLanguage.traditionalChinese,
+      AppLocale.kr => i18nLanguage.korean,
     };
   }
 }
