@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../utils/extensions/context.dart';
 import '../../utils/routes/app_router.dart';
@@ -14,8 +13,14 @@ import '../components/wide_button.dart';
 import 'sms_verification_page_notifier.dart';
 
 class SmsVerificationPage extends HookConsumerWidget {
-  const SmsVerificationPage({super.key, required this.phoneNumber});
+  const SmsVerificationPage({
+    super.key,
+    required this.phoneNumber,
+    required this.verificationId,
+  });
+
   final String phoneNumber;
+  final String verificationId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,6 +28,16 @@ class SmsVerificationPage extends HookConsumerWidget {
     final notifier = ref.read(smsVerificationNotifierProvider.notifier);
 
     final smsCodeController = useTextEditingController();
+
+    useEffect(
+      () {
+        Future.microtask(() {
+          notifier.setVerificationId(verificationId);
+        });
+        return null;
+      },
+      [],
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -35,13 +50,6 @@ class SmsVerificationPage extends HookConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // デバッグ用
-            ElevatedButton(
-              onPressed: () async {
-                await notifier.sendSmsCode(phoneNumber: phoneNumber);
-              },
-              child: const Text('send'),
-            ),
             Gap(context.deviceHeight * 0.05),
             Text(
               'SMS認証',
@@ -81,23 +89,17 @@ class SmsVerificationPage extends HookConsumerWidget {
               onFieldSubmitted: (_) {},
             ),
             const Gap(32),
-            Align(
-              child: state.isSmsVerified
-                  ? Icon(
-                      Icons.check_circle_outline_rounded,
-                      color: AppColor.blue600Primary,
-                      size: context.deviceWidth * 0.4,
-                    )
-                  : LoadingAnimationWidget.inkDrop(
-                      color: AppColor.blue600Primary,
-                      size: context.deviceWidth * 0.2,
-                    ),
-            ),
-            const Gap(32),
             WideButton(
               label: '認証する',
               color: AppColor.yellow600Primary,
               onPressed: () async {
+                if (state.verificationId.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('認証IDが存在しません。')),
+                  );
+                  return;
+                }
+
                 await notifier.verifySmsCode(
                   smsCodeController.text.trim(),
                   () {
