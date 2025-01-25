@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -97,7 +96,10 @@ class EmailVerificationPage extends ConsumerWidget {
                   : AppColor.yellow600Primary,
               onPressed: () async {
                 if (state.isEmailVerified) {
-                  context.go(const RegisterProfilePageRouteData().location);
+                  await const SMSVerificationPageRouteData(
+                    phoneNumber: '+8108012345678',
+                  ).push<void>(context);
+                  // context.go(const RegisterProfilePageRouteData().location);
                 } else {
                   await notifier.sendEmailVerification();
                 }
