@@ -9,6 +9,7 @@ part 'purchase_recipt.g.dart';
 abstract class PurchaseRecipt with _$PurchaseRecipt {
   const factory PurchaseRecipt({
     required String id,
+    String? rankDownToStandardTaskPath, // スタンダードに自動降格を行うタスクのパス
     @DateTimeConverter() DateTime? premiumPlanExpirationDate,
   }) = _PurchaseRecipt;
 
