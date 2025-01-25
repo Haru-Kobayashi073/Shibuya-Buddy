@@ -758,10 +758,15 @@ RouteBase get $sMSVerificationPageRouteData => GoRouteData.$route(
 extension $SMSVerificationPageRouteDataExtension
     on SMSVerificationPageRouteData {
   static SMSVerificationPageRouteData _fromState(GoRouterState state) =>
-      const SMSVerificationPageRouteData();
+      SMSVerificationPageRouteData(
+        phoneNumber: state.uri.queryParameters['phone-number'] ?? '',
+      );
 
   String get location => GoRouteData.$location(
         '/smsVerification',
+        queryParams: {
+          if (phoneNumber != '') 'phone-number': phoneNumber,
+        },
       );
 
   void go(BuildContext context) => context.go(location);

@@ -487,10 +487,11 @@ class MapPageRouteData extends GoRouteData {
   path: Routes.smsVerification,
 )
 class SMSVerificationPageRouteData extends GoRouteData {
-  const SMSVerificationPageRouteData();
+  const SMSVerificationPageRouteData({this.phoneNumber = ''});
+  final String phoneNumber;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SmsVerificationPage();
+    return SmsVerificationPage(phoneNumber: phoneNumber,);
   }
 }
