@@ -7,7 +7,7 @@ part of 'purchase_data_source.dart';
 // **************************************************************************
 
 String _$purchaseDataSourceHash() =>
-    r'04583473c9474446bbd7f73dacb8123721d7cc3d';
+    r'05f93be300cac6286fdf4e6ec68a99a02083f830';
 
 /// See also [PurchaseDataSource].
 @ProviderFor(PurchaseDataSource)

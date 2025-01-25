@@ -47,14 +47,18 @@ class PurchaseDataSource extends _$PurchaseDataSource
 
   @override
   Future<void> updatePurchaseInformation({
-    required BillingGrade billingGrade,
-    required DateTime updatedPremiumPlanExpirationDate,
+    required PurchaseRecipt purchaseRecipt,
   }) async {
+    final billingGrade = purchaseRecipt.premiumPlanExpirationDate != null
+        ? BillingGrade.premiumWithPeriod
+        : BillingGrade.premiumWithUnlimited;
+
     await firestore.collection('users').doc(user.uid).set(
           user
               .copyWith(
                 billingGrade: billingGrade,
-                premiumPlanExpirationDate: updatedPremiumPlanExpirationDate,
+                premiumPlanExpirationDate:
+                    purchaseRecipt.premiumPlanExpirationDate,
               )
               .toJson(),
         );
@@ -64,8 +68,13 @@ class PurchaseDataSource extends _$PurchaseDataSource
         .doc(user.uid)
         .collection('purchase_recipts')
         .doc(user.uid)
-        .update({
-      'premiumPlanExpirationDate': updatedPremiumPlanExpirationDate,
-    });
+        .delete();
+
+    await firestore
+        .collection('users')
+        .doc(user.uid)
+        .collection('purchase_recipts')
+        .doc(user.uid)
+        .set(purchaseRecipt.toJson());
   }
 }
