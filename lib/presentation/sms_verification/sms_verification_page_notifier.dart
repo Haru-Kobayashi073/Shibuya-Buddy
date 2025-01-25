@@ -13,60 +13,15 @@ part 'sms_verification_page_notifier.g.dart';
 class SmsVerificationNotifier extends _$SmsVerificationNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
+
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
 
   @override
-  SmsVerificationState build() {
-    // SMS認証が完了しているかを定期的に確認
-    final timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
-      final smsVerified = await authenticationDataSource.isSmsVerified();
-      if (smsVerified) {
-        timer.cancel();
-        state = state.copyWith(
-          isSmsVerified: true,
-          smsVerificationButtonState: SmsVerificationButtonState.verified,
-        );
-      }
-    });
+  SmsVerificationState build() => const SmsVerificationState();
 
-    // Timerの破棄処理を登録
-    ref.onDispose(timer.cancel);
-
-    return const SmsVerificationState();
-  }
-
-  Future<void> sendSmsCode({required String phoneNumber}) async {
-    if (state.smsVerificationButtonState ==
-        SmsVerificationButtonState.coolDown) {
-      return; // クールダウン中は処理を行わない
-    }
-
-    try {
-      await authenticationDataSource.sendSmsCode(
-        phoneNumber: phoneNumber,
-        onCodeSent: (verificationId) {
-          state = state.copyWith(
-            verificationId: verificationId,
-            smsVerificationButtonState: SmsVerificationButtonState.coolDown,
-          );
-          _startCoolDownTimer();
-        },
-        onError: (error) {
-          state = state.copyWith(
-            smsVerificationButtonState: SmsVerificationButtonState.initialize,
-          );
-          scaffoldMessenger.showExceptionSnackBar(
-            'SMSコードの送信中にエラーが発生しました: ${error.message}',
-          );
-        },
-      );
-    } catch (error) {
-      state = state.copyWith(
-        smsVerificationButtonState: SmsVerificationButtonState.initialize,
-      );
-      scaffoldMessenger.showExceptionSnackBar('予期しないエラーが発生しました: $error');
-    }
+  void setVerificationId(String verificationId) {
+    state = state.copyWith(verificationId: verificationId);
   }
 
   Future<void> verifySmsCode(String smsCode, VoidCallback onSuccess) async {
@@ -82,11 +37,28 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
       );
       state = state.copyWith(isSmsVerified: true);
       scaffoldMessenger.showSuccessSnackBar('認証に成功しました！');
-
-      // 成功時のコールバックを呼び出す
       onSuccess();
     } catch (error) {
       scaffoldMessenger.showExceptionSnackBar('認証に失敗しました: $error');
+    }
+  }
+
+  Future<void> sendSmsCode(String phoneNumber) async {
+    try {
+      await authenticationDataSource.sendSmsCode(
+        phoneNumber: phoneNumber,
+        onCodeSent: (verificationId) {
+          state = state.copyWith(verificationId: verificationId);
+          scaffoldMessenger.showSuccessSnackBar('SMSコードが送信されました！');
+        },
+        onError: (error) {
+          scaffoldMessenger.showExceptionSnackBar(
+            'SMSコードの送信に失敗しました: ${error.message}',
+          );
+        },
+      );
+    } catch (error) {
+      scaffoldMessenger.showExceptionSnackBar('予期しないエラーが発生しました: $error');
     }
   }
 
@@ -105,17 +77,5 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         );
       }
     });
-  }
-
-  void updatePhoneNumber(String phoneNumber) {
-    // 日本の番号を+81形式に変換
-    if (phoneNumber.startsWith('0')) {
-      phoneNumber = '+81${phoneNumber.substring(1)}';
-    }
-    state = state.copyWith(phoneNumber: phoneNumber);
-  }
-
-  void updateSmsCode(String smsCode) {
-    state = state.copyWith(smsCode: smsCode);
   }
 }
