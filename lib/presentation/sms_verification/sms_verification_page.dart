@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
@@ -25,6 +26,8 @@ class SmsVerificationPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final i18n = Translations.of(context);
+    final i18nSmsVerificationPage = i18n.authentication.smsVerificationPage;
     final state = ref.watch(smsVerificationNotifierProvider);
     final notifier = ref.read(smsVerificationNotifierProvider.notifier);
     final smsCodeController = useTextEditingController();
@@ -52,7 +55,7 @@ class SmsVerificationPage extends HookConsumerWidget {
           children: [
             Gap(context.deviceHeight * 0.05),
             Text(
-              'SMS認証',
+              i18nSmsVerificationPage.title,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -60,11 +63,11 @@ class SmsVerificationPage extends HookConsumerWidget {
             ),
             const Gap(16),
             Text(
-              '以下の電話番号にSMSコードを送信しました：$phoneNumber',
+              '${i18nSmsVerificationPage.sendSms}$phoneNumber',
               style: AppTextStyle.textStyle.copyWith(fontSize: 16),
             ),
             Text(
-              'コードを入力して、電話番号の認証を完了してください。',
+              i18nSmsVerificationPage.pleaseInputCode,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -73,7 +76,9 @@ class SmsVerificationPage extends HookConsumerWidget {
             const Gap(8),
             if (state.buttonState == SmsVerificationButtonState.coolDown)
               Text(
-                '再送信可能まで ${state.resendCooldown}秒',
+                '${i18nSmsVerificationPage.resend.untilRetransmissionPossible} '
+                '${state.resendCooldown} '
+                '${i18nSmsVerificationPage.resend.second}',
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 14,
                   color: AppColor.grey600,
@@ -89,7 +94,7 @@ class SmsVerificationPage extends HookConsumerWidget {
                   }
                 },
                 child: Text(
-                  '再送信する',
+                  i18nSmsVerificationPage.resend.title,
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 14,
                     color: AppColor.blue600Primary,
@@ -100,7 +105,7 @@ class SmsVerificationPage extends HookConsumerWidget {
               ),
             const Gap(32),
             SimpleTextField(
-              label: 'SMSコードを入力',
+              label: i18nSmsVerificationPage.smsCode,
               controller: smsCodeController,
               validator: Validator.common,
               textInputAction: TextInputAction.done,
@@ -109,7 +114,7 @@ class SmsVerificationPage extends HookConsumerWidget {
             ),
             const Gap(32),
             WideButton(
-              label: '認証する',
+              label: i18nSmsVerificationPage.verify,
               color: AppColor.yellow600Primary,
               onPressed: () async {
                 if (state.verificationId.isEmpty) {
@@ -126,7 +131,7 @@ class SmsVerificationPage extends HookConsumerWidget {
             ),
             const Gap(16),
             WideButton(
-              label: '電話番号を修正する',
+              label: i18nSmsVerificationPage.fixPhoneNumber,
               color: AppColor.blue50Background,
               onPressed: Navigator.of(context).pop,
             ),
