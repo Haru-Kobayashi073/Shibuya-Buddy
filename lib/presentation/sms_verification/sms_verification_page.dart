@@ -71,10 +71,9 @@ class SmsVerificationPage extends HookConsumerWidget {
               ),
             ),
             const Gap(8),
-            if (state.smsVerificationButtonState ==
-                SmsVerificationButtonState.coolDown)
+            if (state.buttonState == SmsVerificationButtonState.coolDown)
               Text(
-                '再送信可能まで ${state.resendEmailVerificationCountdown}秒',
+                '再送信可能まで ${state.resendCooldown}秒',
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 14,
                   color: AppColor.grey600,
@@ -83,7 +82,7 @@ class SmsVerificationPage extends HookConsumerWidget {
             else
               InkWell(
                 onTap: () async {
-                  if (state.smsVerificationButtonState !=
+                  if (state.buttonState !=
                       SmsVerificationButtonState.coolDown) {
                     await notifier.sendSmsCode(phoneNumber);
                     notifier.startCoolDownTimer();
