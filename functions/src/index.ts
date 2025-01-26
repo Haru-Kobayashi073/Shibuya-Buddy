@@ -81,6 +81,11 @@ export const scheduledrankingtopic = scheduler.onSchedule("0 0 * * 0", async () 
 export const createRankDownToStandardTask = onDocumentCreated("users/{userId}/purchase_recipts/{reciptId}", async (event: any) => {
 
     const data = event.data.data();
+
+    // 無期限プレミアムは日付を持たないため、処理を終了
+    if (!data.premiumPlanExpirationDate) {
+        return;
+    }
     // eventから日付を取得し、Unixタイムスタンプに変換
     console.log(data.premiumPlanExpirationDate);
     const executionDate = new Date(data.premiumPlanExpirationDate);
