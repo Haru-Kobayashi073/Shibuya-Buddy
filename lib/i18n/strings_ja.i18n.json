@@ -184,7 +184,8 @@
             "japanese": "日本語",
             "english": "英語",
             "simplifiedChinese": "中国語（簡体字）",
-            "traditionalChinese": "中国語（繁体字）"
+            "traditionalChinese": "中国語（繁体字）",
+            "korean": "韓国語"
         }
     },
     "changeThemePage": {
@@ -416,7 +417,8 @@
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",
-        "zh": "中国語"
+        "zh": "中国語",
+        "kr": "韓国語"
     },
     "errorPage": {
         "title": "エラーが発生しました...",
