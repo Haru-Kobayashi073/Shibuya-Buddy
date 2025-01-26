@@ -84,7 +84,6 @@ export const createRankDownToStandardTask = onDocumentCreated("users/{userId}/pu
     // eventから日付を取得し、Unixタイムスタンプに変換
     console.log(data.premiumPlanExpirationDate);
     const executionDate = new Date(data.premiumPlanExpirationDate);
-    console.log(executionDate);
     const executionTimestamp = Math.floor(executionDate.getTime() / 1000);
     console.log(executionTimestamp);
 
@@ -129,16 +128,23 @@ export const deleteRankDownToStandardTask = onDocumentDeleted("users/{userId}/pu
 });
 
 export const rankDownToStandard = functions.https.onRequest(async (req: any, res: any) => {
-    const purchaseReciptRef = firestore.collection("users").doc(req.params.user_id).collection("purchase_recipts").doc(req.params.user_id);
-    try {
+    const userId = req.query.user_id;
 
+    if (!userId) {
+        return res.status(400).send("User ID is required");
+    }
+
+    console.log(userId);
+    const purchaseReciptRef = firestore.collection("users").doc(userId).collection("purchase_recipts").doc(userId);
+    try {
         await purchaseReciptRef.delete();
+        console.log("Deleted purchase recipt");
     } catch (error) {
         console.error("Error deleting purchase recipt: ", error);
         return res.status(500).send("Error deleting purchase recipt");
     }
 
-    const userRef = firestore.collection("users").doc(req.params.user_id);
+    const userRef = firestore.collection("users").doc(userId);
 
     try {
         const userSnapshot = await userRef.get();
@@ -150,6 +156,7 @@ export const rankDownToStandard = functions.https.onRequest(async (req: any, res
         user.premiumPlanExpirationDate = null;
         userRef.update(user);
 
+        console.log("Updated user");
         return res.status(200).send("success");
     } catch (error) {
         console.error("Error updating user: ", error);
