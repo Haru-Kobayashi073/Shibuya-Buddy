@@ -1214,14 +1214,14 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKr implements Tr
 	final TranslationsKr _root; // ignore: unused_field
 
 	// Translations
-	@override String get days => '기간 구매';
-	@override String get daily => '・1일 300원';
-	@override String get threeDays => '・3일 855원';
-	@override String get fiveDays => '・5일 1,480원';
-	@override String get sevenDays => '・7일 2,070원';
+	@override String get days => '일수별 구매';
+	@override String daily({required Object price}) => '・1일 ${price}';
+	@override String threeDays({required Object price}) => '・3일 ${price}';
+	@override String fiveDays({required Object price}) => '・5일 ${price}';
+	@override String sevenDays({required Object price}) => '・7일 ${price}';
 	@override String get or => '또는';
-	@override String get lifetime => '평생';
-	@override String get lifetimePrice => '25,800원';
+	@override String get lifetime => '영구 이용';
+	@override String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1442,14 +1442,14 @@ extension on TranslationsKr {
 			case 'billDetailsPage.pricingPlan.columns.standard': return '스탠다드';
 			case 'billDetailsPage.pricingPlan.columns.premium': return '프리미엄';
 			case 'billDetailsPage.pricingPlan.details.free': return '무료 🎉';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '기간 구매';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1일 300원';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3일 855원';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5일 1,480원';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7일 2,070원';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '일수별 구매';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1일 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3일 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5일 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '또는';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '평생';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800원';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '영구 이용';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '등급별 기능';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '플랜 생성 가능 횟수';
 			case 'billDetailsPage.features.rows.chatLimit': return '플랜 생성 중 채팅 가능 횟수';

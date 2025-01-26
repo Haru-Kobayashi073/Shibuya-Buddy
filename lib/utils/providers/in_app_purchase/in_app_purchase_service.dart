@@ -51,8 +51,9 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     for (final package in packages) {
       final purchaseItemConfig =
           PurchaseItemConfigX.fromPackageId(package.identifier);
+      final storeProduct = package.storeProduct;
       purchaseItemPrices[purchaseItemConfig.packageId] =
-          package.storeProduct.priceString + package.storeProduct.currencyCode;
+          '${storeProduct.price.floor()}${storeProduct.currencyCode}';
     }
     return purchaseItemPrices;
   }

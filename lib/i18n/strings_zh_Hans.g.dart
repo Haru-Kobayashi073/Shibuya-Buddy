@@ -1215,13 +1215,13 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans implement
 
 	// Translations
 	@override String get days => '按天数购买';
-	@override String get daily => '・1日 300日元';
-	@override String get threeDays => '・3日 855日元';
-	@override String get fiveDays => '・5日 1,480日元';
-	@override String get sevenDays => '・7日 2,070日元';
+	@override String daily({required Object price}) => '・1天 ${price}';
+	@override String threeDays({required Object price}) => '・3天 ${price}';
+	@override String fiveDays({required Object price}) => '・5天 ${price}';
+	@override String sevenDays({required Object price}) => '・7天 ${price}';
 	@override String get or => '或者';
-	@override String get lifetime => '终身';
-	@override String get lifetimePrice => '25,800日元';
+	@override String get lifetime => '永久版';
+	@override String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1443,13 +1443,13 @@ extension on TranslationsZhHans {
 			case 'billDetailsPage.pricingPlan.columns.premium': return '高级';
 			case 'billDetailsPage.pricingPlan.details.free': return '免费 🎉';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天数购买';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日元';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日元';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日元';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '终身';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永久版';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '等级功能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '可创建的计划次数';
 			case 'billDetailsPage.features.rows.chatLimit': return '计划创建期间可用聊天次数';

@@ -1215,13 +1215,13 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements Tr
 
 	// Translations
 	@override String get days => '日数分購入';
-	@override String get daily => '・1日 300円';
-	@override String get threeDays => '・3日 855円';
-	@override String get fiveDays => '・5日 1,480円';
-	@override String get sevenDays => '・7日 2,070円';
+	@override String daily({required Object price}) => '・1日 ${price}';
+	@override String threeDays({required Object price}) => '・3日 ${price}';
+	@override String fiveDays({required Object price}) => '・5日 ${price}';
+	@override String sevenDays({required Object price}) => '・7日 ${price}';
 	@override String get or => 'または';
 	@override String get lifetime => '永年分';
-	@override String get lifetimePrice => '25,800円';
+	@override String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1443,13 +1443,13 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingPlan.columns.premium': return 'プレミアム';
 			case 'billDetailsPage.pricingPlan.details.free': return '無料 🎉';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '日数分購入';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300円';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855円';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480円';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1日 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3日 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5日 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'または';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永年分';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'グレードごとの機能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'プランの作成可能回数';
 			case 'billDetailsPage.features.rows.chatLimit': return 'プラン作成中のチャット可能回数';

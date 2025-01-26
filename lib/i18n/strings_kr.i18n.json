@@ -342,14 +342,14 @@
             "details": {
                 "free": "무료 🎉",
                 "premiumPrice": {
-                    "days": "기간 구매",
-                    "daily": "・1일 300원",
-                    "threeDays": "・3일 855원",
-                    "fiveDays": "・5일 1,480원",
-                    "sevenDays": "・7일 2,070원",
+                    "days": "일수별 구매",
+                    "daily": "・1일 ${price}",
+                    "threeDays": "・3일 ${price}",
+                    "fiveDays": "・5일 ${price}",
+                    "sevenDays": "・7일 ${price}",
                     "or": "또는",
-                    "lifetime": "평생",
-                    "lifetimePrice": "25,800원"
+                    "lifetime": "영구 이용",
+                    "lifetimePrice": "${price}"
                 }
             }
         },

@@ -343,13 +343,13 @@
                 "free": "無料 🎉",
                 "premiumPrice": {
                     "days": "日数分購入",
-                    "daily": "・1日 300円",
-                    "threeDays": "・3日 855円",
-                    "fiveDays": "・5日 1,480円",
-                    "sevenDays": "・7日 2,070円",
+                    "daily": "・1日 ${price}",
+                    "threeDays": "・3日 ${price}",
+                    "fiveDays": "・5日 ${price}",
+                    "sevenDays": "・7日 ${price}",
                     "or": "または",
                     "lifetime": "永年分",
-                    "lifetimePrice": "25,800円"
+                    "lifetimePrice": "${price}"
                 }
             }
         },

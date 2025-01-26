@@ -343,13 +343,13 @@
                 "free": "免费 🎉",
                 "premiumPrice": {
                     "days": "按天数购买",
-                    "daily": "・1日 300日元",
-                    "threeDays": "・3日 855日元",
-                    "fiveDays": "・5日 1,480日元",
-                    "sevenDays": "・7日 2,070日元",
+                    "daily": "・1天 ${price}",
+                    "threeDays": "・3天 ${price}",
+                    "fiveDays": "・5天 ${price}",
+                    "sevenDays": "・7天 ${price}",
                     "or": "或者",
-                    "lifetime": "终身",
-                    "lifetimePrice": "25,800日元"
+                    "lifetime": "永久版",
+                    "lifetimePrice": "${price}"
                 }
             }
         },

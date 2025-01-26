@@ -1218,14 +1218,14 @@ class TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get days => 'Purchase by duration';
-	String get daily => '・1 day 300 yen';
-	String get threeDays => '・3 days 855 yen';
-	String get fiveDays => '・5 days 1,480 yen';
-	String get sevenDays => '・7 days 2,070 yen';
+	String get days => 'Purchase by days';
+	String daily({required Object price}) => '・1 day ${price}';
+	String threeDays({required Object price}) => '・3 days ${price}';
+	String fiveDays({required Object price}) => '・5 days ${price}';
+	String sevenDays({required Object price}) => '・7 days ${price}';
 	String get or => 'or';
 	String get lifetime => 'Lifetime';
-	String get lifetimePrice => '25,800 yen';
+	String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1446,14 +1446,14 @@ extension on Translations {
 			case 'billDetailsPage.pricingPlan.columns.standard': return 'Standard';
 			case 'billDetailsPage.pricingPlan.columns.premium': return 'Premium';
 			case 'billDetailsPage.pricingPlan.details.free': return 'Free 🎉';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return 'Purchase by duration';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1 day 300 yen';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3 days 855 yen';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5 days 1,480 yen';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7 days 2,070 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return 'Purchase by days';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1 day ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3 days ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5 days ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7 days ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'or';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return 'Lifetime';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'Features by Grade';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'Number of plans that can be created';
 			case 'billDetailsPage.features.rows.chatLimit': return 'Number of chats available during plan creation';
