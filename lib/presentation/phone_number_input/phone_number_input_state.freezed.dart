@@ -16,14 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PhoneNumberInputState {
-  bool get isSmsVerified => throw _privateConstructorUsedError;
-  SmsVerificationButtonState get smsVerificationButtonState =>
-      throw _privateConstructorUsedError;
-  int get resendEmailVerificationCountdown =>
-      throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
-  String get smsCode => throw _privateConstructorUsedError;
-  String get verificationId => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError; // 現在入力されている電話番号
+  bool get isLoading => throw _privateConstructorUsedError; // API呼び出し中かどうか
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of PhoneNumberInputState
   /// with the given fields replaced by the non-null parameter values.
@@ -38,13 +33,7 @@ abstract class $PhoneNumberInputStateCopyWith<$Res> {
           $Res Function(PhoneNumberInputState) then) =
       _$PhoneNumberInputStateCopyWithImpl<$Res, PhoneNumberInputState>;
   @useResult
-  $Res call(
-      {bool isSmsVerified,
-      SmsVerificationButtonState smsVerificationButtonState,
-      int resendEmailVerificationCountdown,
-      String phoneNumber,
-      String smsCode,
-      String verificationId});
+  $Res call({String phoneNumber, bool isLoading, String? errorMessage});
 }
 
 /// @nodoc
@@ -63,38 +52,23 @@ class _$PhoneNumberInputStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSmsVerified = null,
-    Object? smsVerificationButtonState = null,
-    Object? resendEmailVerificationCountdown = null,
     Object? phoneNumber = null,
-    Object? smsCode = null,
-    Object? verificationId = null,
+    Object? isLoading = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      isSmsVerified: null == isSmsVerified
-          ? _value.isSmsVerified
-          : isSmsVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
-      smsVerificationButtonState: null == smsVerificationButtonState
-          ? _value.smsVerificationButtonState
-          : smsVerificationButtonState // ignore: cast_nullable_to_non_nullable
-              as SmsVerificationButtonState,
-      resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
-          ? _value.resendEmailVerificationCountdown
-          : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
-              as int,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      smsCode: null == smsCode
-          ? _value.smsCode
-          : smsCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationId: null == verificationId
-          ? _value.verificationId
-          : verificationId // ignore: cast_nullable_to_non_nullable
-              as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -108,13 +82,7 @@ abstract class _$$PhoneNumberInputStateImplCopyWith<$Res>
       __$$PhoneNumberInputStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isSmsVerified,
-      SmsVerificationButtonState smsVerificationButtonState,
-      int resendEmailVerificationCountdown,
-      String phoneNumber,
-      String smsCode,
-      String verificationId});
+  $Res call({String phoneNumber, bool isLoading, String? errorMessage});
 }
 
 /// @nodoc
@@ -131,38 +99,23 @@ class __$$PhoneNumberInputStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSmsVerified = null,
-    Object? smsVerificationButtonState = null,
-    Object? resendEmailVerificationCountdown = null,
     Object? phoneNumber = null,
-    Object? smsCode = null,
-    Object? verificationId = null,
+    Object? isLoading = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$PhoneNumberInputStateImpl(
-      isSmsVerified: null == isSmsVerified
-          ? _value.isSmsVerified
-          : isSmsVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
-      smsVerificationButtonState: null == smsVerificationButtonState
-          ? _value.smsVerificationButtonState
-          : smsVerificationButtonState // ignore: cast_nullable_to_non_nullable
-              as SmsVerificationButtonState,
-      resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
-          ? _value.resendEmailVerificationCountdown
-          : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
-              as int,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      smsCode: null == smsCode
-          ? _value.smsCode
-          : smsCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationId: null == verificationId
-          ? _value.verificationId
-          : verificationId // ignore: cast_nullable_to_non_nullable
-              as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -171,35 +124,22 @@ class __$$PhoneNumberInputStateImplCopyWithImpl<$Res>
 
 class _$PhoneNumberInputStateImpl implements _PhoneNumberInputState {
   const _$PhoneNumberInputStateImpl(
-      {this.isSmsVerified = false,
-      this.smsVerificationButtonState = SmsVerificationButtonState.initialize,
-      this.resendEmailVerificationCountdown = 60,
-      this.phoneNumber = '',
-      this.smsCode = '',
-      this.verificationId = ''});
+      {this.phoneNumber = '', this.isLoading = false, this.errorMessage});
 
-  @override
-  @JsonKey()
-  final bool isSmsVerified;
-  @override
-  @JsonKey()
-  final SmsVerificationButtonState smsVerificationButtonState;
-  @override
-  @JsonKey()
-  final int resendEmailVerificationCountdown;
   @override
   @JsonKey()
   final String phoneNumber;
+// 現在入力されている電話番号
   @override
   @JsonKey()
-  final String smsCode;
+  final bool isLoading;
+// API呼び出し中かどうか
   @override
-  @JsonKey()
-  final String verificationId;
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'PhoneNumberInputState(isSmsVerified: $isSmsVerified, smsVerificationButtonState: $smsVerificationButtonState, resendEmailVerificationCountdown: $resendEmailVerificationCountdown, phoneNumber: $phoneNumber, smsCode: $smsCode, verificationId: $verificationId)';
+    return 'PhoneNumberInputState(phoneNumber: $phoneNumber, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -207,32 +147,17 @@ class _$PhoneNumberInputStateImpl implements _PhoneNumberInputState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PhoneNumberInputStateImpl &&
-            (identical(other.isSmsVerified, isSmsVerified) ||
-                other.isSmsVerified == isSmsVerified) &&
-            (identical(other.smsVerificationButtonState,
-                    smsVerificationButtonState) ||
-                other.smsVerificationButtonState ==
-                    smsVerificationButtonState) &&
-            (identical(other.resendEmailVerificationCountdown,
-                    resendEmailVerificationCountdown) ||
-                other.resendEmailVerificationCountdown ==
-                    resendEmailVerificationCountdown) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.smsCode, smsCode) || other.smsCode == smsCode) &&
-            (identical(other.verificationId, verificationId) ||
-                other.verificationId == verificationId));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isSmsVerified,
-      smsVerificationButtonState,
-      resendEmailVerificationCountdown,
-      phoneNumber,
-      smsCode,
-      verificationId);
+  int get hashCode =>
+      Object.hash(runtimeType, phoneNumber, isLoading, errorMessage);
 
   /// Create a copy of PhoneNumberInputState
   /// with the given fields replaced by the non-null parameter values.
@@ -246,25 +171,16 @@ class _$PhoneNumberInputStateImpl implements _PhoneNumberInputState {
 
 abstract class _PhoneNumberInputState implements PhoneNumberInputState {
   const factory _PhoneNumberInputState(
-      {final bool isSmsVerified,
-      final SmsVerificationButtonState smsVerificationButtonState,
-      final int resendEmailVerificationCountdown,
-      final String phoneNumber,
-      final String smsCode,
-      final String verificationId}) = _$PhoneNumberInputStateImpl;
+      {final String phoneNumber,
+      final bool isLoading,
+      final String? errorMessage}) = _$PhoneNumberInputStateImpl;
 
   @override
-  bool get isSmsVerified;
+  String get phoneNumber; // 現在入力されている電話番号
   @override
-  SmsVerificationButtonState get smsVerificationButtonState;
+  bool get isLoading; // API呼び出し中かどうか
   @override
-  int get resendEmailVerificationCountdown;
-  @override
-  String get phoneNumber;
-  @override
-  String get smsCode;
-  @override
-  String get verificationId;
+  String? get errorMessage;
 
   /// Create a copy of PhoneNumberInputState
   /// with the given fields replaced by the non-null parameter values.

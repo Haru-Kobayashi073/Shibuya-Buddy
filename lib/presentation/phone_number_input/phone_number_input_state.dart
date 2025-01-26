@@ -3,16 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'phone_number_input_state.freezed.dart';
 
 @freezed
-abstract class PhoneNumberInputState with _$PhoneNumberInputState {
+class PhoneNumberInputState with _$PhoneNumberInputState {
   const factory PhoneNumberInputState({
-    @Default(false) bool isSmsVerified,
-    @Default(SmsVerificationButtonState.initialize)
-    SmsVerificationButtonState smsVerificationButtonState,
-    @Default(60) int resendEmailVerificationCountdown,
-    @Default('') String phoneNumber,
-    @Default('') String smsCode,
-    @Default('') String verificationId,
+    @Default('') String phoneNumber, // 現在入力されている電話番号
+    @Default(false) bool isLoading, // API呼び出し中かどうか
+    String? errorMessage, // エラーメッセージ（表示用）
   }) = _PhoneNumberInputState;
 }
-
-enum SmsVerificationButtonState { initialize, resend, coolDown, verified }
