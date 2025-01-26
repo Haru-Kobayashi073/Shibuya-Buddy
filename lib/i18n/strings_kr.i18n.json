@@ -131,6 +131,29 @@
                 "changeEmail": "이메일 주소 변경"
             }
         },
+        "phoneNumberInputPage": {
+            "title": "전화번호 입력",
+            "discription": {
+                "receive": "SMS 코드를 받으려면",
+                "internationalFormat": "국제 전화번호 형식으로",
+                "input": "전화번호를 입력해주세요"
+            },
+            "phoneNumber": "전화번호",
+            "sendSmsCode": "SMS 코드 보내기"
+        },
+        "smsVerificationPage": {
+            "title": "SMS 인증",
+            "sendSms": "다음 전화번호로 SMS 코드를 보냈습니다:",
+            "pleaseInputCode": "코드를 입력하여 전화번호 인증을 완료하세요.",
+            "resend": {
+                "title": "재전송",
+                "untilRetransmissionPossible": "재전송 가능 시간까지",
+                "second": "초"
+            },
+            "smsCode": "SMS 코드",
+            "verify": "인증",
+            "fixPhoneNumber": "전화번호 수정"
+        },
         "firebaseAuth": {
             "error": {
                 "networkRequestFailed": "통신 환경이 좋은 곳에서 다시 시도해주세요.",
@@ -427,28 +450,5 @@
     },
     "mapPage": {
         "title": "지도"
-    },
-    "phoneNumberInputPage": {
-        "title": "전화번호 입력",
-        "discription": {
-            "receive": "SMS 코드를 받으려면",
-            "internationalFormat": "국제 전화번호 형식으로",
-            "input": "전화번호를 입력해주세요"
-        },
-        "phoneNumber": "전화번호",
-        "sendSmsCode": "SMS 코드 보내기"
-    },
-    "smsVerificationPage": {
-        "title": "SMS 인증",
-        "sendSms": "다음 전화번호로 SMS 코드를 보냈습니다:",
-        "pleaseInputCode": "코드를 입력하여 전화번호 인증을 완료하세요.",
-        "resend": {
-            "title": "재전송",
-            "untilRetransmissionPossible": "재전송 가능 시간까지",
-            "second": "초"
-        },
-        "smsCode": "SMS 코드",
-        "verify": "인증",
-        "fixPhoneNumber": "전화번호 수정"
     }
 }

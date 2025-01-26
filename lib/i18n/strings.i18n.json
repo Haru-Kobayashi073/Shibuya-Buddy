@@ -141,6 +141,29 @@
                 "resendEmail": "Resend Confirmation Email",
                 "changeEmail": "Change Email Address"
             }
+        },
+        "phoneNumberInputPage": {
+            "title": "Enter Phone Number",
+            "discription": {
+                "receive": "To receive the SMS code",
+                "internationalFormat": "in international phone number format",
+                "input": "please enter your phone number"
+            },
+            "phoneNumber": "Phone Number",
+            "sendSmsCode": "Send SMS Code"
+        },
+        "smsVerificationPage": {
+            "title": "SMS Verification",
+            "sendSms": "SMS code has been sent to the following phone number:",
+            "pleaseInputCode": "Please enter the code to complete phone number verification.",
+            "resend": {
+                "title": "Resend",
+                "untilRetransmissionPossible": "Until retransmission possible",
+                "second": "seconds"
+            },
+            "smsCode": "SMS Code",
+            "verify": "Verify",
+            "fixPhoneNumber": "Edit Phone Number"
         }
     },
     "validation": {
@@ -426,28 +449,5 @@
     },
     "mapPage": {
         "title": "Map"
-    },
-    "phoneNumberInputPage": {
-        "title": "Enter Phone Number",
-        "discription": {
-            "receive": "To receive the SMS code",
-            "internationalFormat": "in international phone number format",
-            "input": "please enter your phone number"
-        },
-        "phoneNumber": "Phone Number",
-        "sendSmsCode": "Send SMS Code"
-    },
-    "smsVerificationPage": {
-        "title": "SMS Verification",
-        "sendSms": "SMS code has been sent to the following phone number:",
-        "pleaseInputCode": "Please enter the code to complete phone number verification.",
-        "resend": {
-            "title": "Resend",
-            "untilRetransmissionPossible": "Until retransmission possible",
-            "second": "seconds"
-        },
-        "smsCode": "SMS Code",
-        "verify": "Verify",
-        "fixPhoneNumber": "Edit Phone Number"
     }
 }

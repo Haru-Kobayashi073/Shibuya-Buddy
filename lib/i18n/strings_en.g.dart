@@ -61,8 +61,6 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	};
 	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
 	late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
-	late final TranslationsPhoneNumberInputPageEn phoneNumberInputPage = TranslationsPhoneNumberInputPageEn._(_root);
-	late final TranslationsSmsVerificationPageEn smsVerificationPage = TranslationsSmsVerificationPageEn._(_root);
 }
 
 // Path: navigationBar
@@ -114,6 +112,8 @@ class TranslationsAuthenticationEn {
 	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
 	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
+	late final TranslationsAuthenticationPhoneNumberInputPageEn phoneNumberInputPage = TranslationsAuthenticationPhoneNumberInputPageEn._(_root);
+	late final TranslationsAuthenticationSmsVerificationPageEn smsVerificationPage = TranslationsAuthenticationSmsVerificationPageEn._(_root);
 }
 
 // Path: validation
@@ -343,35 +343,6 @@ class TranslationsMapPageEn {
 	String get title => 'Map';
 }
 
-// Path: phoneNumberInputPage
-class TranslationsPhoneNumberInputPageEn {
-	TranslationsPhoneNumberInputPageEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Enter Phone Number';
-	late final TranslationsPhoneNumberInputPageDiscriptionEn discription = TranslationsPhoneNumberInputPageDiscriptionEn._(_root);
-	String get phoneNumber => 'Phone Number';
-	String get sendSmsCode => 'Send SMS Code';
-}
-
-// Path: smsVerificationPage
-class TranslationsSmsVerificationPageEn {
-	TranslationsSmsVerificationPageEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'SMS Verification';
-	String get sendSms => 'SMS code has been sent to the following phone number:';
-	String get pleaseInputCode => 'Please enter the code to complete phone number verification.';
-	late final TranslationsSmsVerificationPageResendEn resend = TranslationsSmsVerificationPageResendEn._(_root);
-	String get smsCode => 'SMS Code';
-	String get verify => 'Verify';
-	String get fixPhoneNumber => 'Edit Phone Number';
-}
-
 // Path: navigationBar.items
 class TranslationsNavigationBarItemsEn {
 	TranslationsNavigationBarItemsEn._(this._root);
@@ -549,6 +520,35 @@ class TranslationsAuthenticationCompleteSendEmailPageEn {
 	String description({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
 	String get successResendEmail => 'Confirmation email has been resent';
 	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
+}
+
+// Path: authentication.phoneNumberInputPage
+class TranslationsAuthenticationPhoneNumberInputPageEn {
+	TranslationsAuthenticationPhoneNumberInputPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Enter Phone Number';
+	late final TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn discription = TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn._(_root);
+	String get phoneNumber => 'Phone Number';
+	String get sendSmsCode => 'Send SMS Code';
+}
+
+// Path: authentication.smsVerificationPage
+class TranslationsAuthenticationSmsVerificationPageEn {
+	TranslationsAuthenticationSmsVerificationPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'SMS Verification';
+	String get sendSms => 'SMS code has been sent to the following phone number:';
+	String get pleaseInputCode => 'Please enter the code to complete phone number verification.';
+	late final TranslationsAuthenticationSmsVerificationPageResendEn resend = TranslationsAuthenticationSmsVerificationPageResendEn._(_root);
+	String get smsCode => 'SMS Code';
+	String get verify => 'Verify';
+	String get fixPhoneNumber => 'Edit Phone Number';
 }
 
 // Path: myPage.accountStatus
@@ -856,30 +856,6 @@ class TranslationsPlanDetailsPageSnackBarEn {
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
-// Path: phoneNumberInputPage.discription
-class TranslationsPhoneNumberInputPageDiscriptionEn {
-	TranslationsPhoneNumberInputPageDiscriptionEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get receive => 'To receive the SMS code';
-	String get internationalFormat => 'in international phone number format';
-	String get input => 'please enter your phone number';
-}
-
-// Path: smsVerificationPage.resend
-class TranslationsSmsVerificationPageResendEn {
-	TranslationsSmsVerificationPageResendEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Resend';
-	String get untilRetransmissionPossible => 'Until retransmission possible';
-	String get second => 'seconds';
-}
-
 // Path: authentication.signInPage.textFields
 class TranslationsAuthenticationSignInPageTextFieldsEn {
 	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
@@ -1031,6 +1007,30 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get toSignIn => 'To Login Screen';
 	String get resendEmail => 'Resend Confirmation Email';
 	String get changeEmail => 'Change Email Address';
+}
+
+// Path: authentication.phoneNumberInputPage.discription
+class TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get receive => 'To receive the SMS code';
+	String get internationalFormat => 'in international phone number format';
+	String get input => 'please enter your phone number';
+}
+
+// Path: authentication.smsVerificationPage.resend
+class TranslationsAuthenticationSmsVerificationPageResendEn {
+	TranslationsAuthenticationSmsVerificationPageResendEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Resend';
+	String get untilRetransmissionPossible => 'Until retransmission possible';
+	String get second => 'seconds';
 }
 
 // Path: myPage.accountStatus.dateTime
@@ -1341,6 +1341,21 @@ extension on Translations {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'To Login Screen';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return 'Resend Confirmation Email';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'Change Email Address';
+			case 'authentication.phoneNumberInputPage.title': return 'Enter Phone Number';
+			case 'authentication.phoneNumberInputPage.discription.receive': return 'To receive the SMS code';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international phone number format';
+			case 'authentication.phoneNumberInputPage.discription.input': return 'please enter your phone number';
+			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
+			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
+			case 'authentication.smsVerificationPage.title': return 'SMS Verification';
+			case 'authentication.smsVerificationPage.sendSms': return 'SMS code has been sent to the following phone number:';
+			case 'authentication.smsVerificationPage.pleaseInputCode': return 'Please enter the code to complete phone number verification.';
+			case 'authentication.smsVerificationPage.resend.title': return 'Resend';
+			case 'authentication.smsVerificationPage.resend.untilRetransmissionPossible': return 'Until retransmission possible';
+			case 'authentication.smsVerificationPage.resend.second': return 'seconds';
+			case 'authentication.smsVerificationPage.smsCode': return 'SMS Code';
+			case 'authentication.smsVerificationPage.verify': return 'Verify';
+			case 'authentication.smsVerificationPage.fixPhoneNumber': return 'Edit Phone Number';
 			case 'validation.emailRequired': return 'Please enter your email address';
 			case 'validation.emailInvalid': return 'The email address format is incorrect';
 			case 'validation.passwordRequired': return 'Please enter your password';
@@ -1497,21 +1512,6 @@ extension on Translations {
 			case 'errorPage.message': return 'Please check your network connection and try again.';
 			case 'errorPage.retryButton': return 'Retry';
 			case 'mapPage.title': return 'Map';
-			case 'phoneNumberInputPage.title': return 'Enter Phone Number';
-			case 'phoneNumberInputPage.discription.receive': return 'To receive the SMS code';
-			case 'phoneNumberInputPage.discription.internationalFormat': return 'in international phone number format';
-			case 'phoneNumberInputPage.discription.input': return 'please enter your phone number';
-			case 'phoneNumberInputPage.phoneNumber': return 'Phone Number';
-			case 'phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
-			case 'smsVerificationPage.title': return 'SMS Verification';
-			case 'smsVerificationPage.sendSms': return 'SMS code has been sent to the following phone number:';
-			case 'smsVerificationPage.pleaseInputCode': return 'Please enter the code to complete phone number verification.';
-			case 'smsVerificationPage.resend.title': return 'Resend';
-			case 'smsVerificationPage.resend.untilRetransmissionPossible': return 'Until retransmission possible';
-			case 'smsVerificationPage.resend.second': return 'seconds';
-			case 'smsVerificationPage.smsCode': return 'SMS Code';
-			case 'smsVerificationPage.verify': return 'Verify';
-			case 'smsVerificationPage.fixPhoneNumber': return 'Edit Phone Number';
 			default: return null;
 		}
 	}

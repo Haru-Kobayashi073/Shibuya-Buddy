@@ -141,6 +141,29 @@
                 "resendEmail": "重新發送確認郵件",
                 "changeEmail": "更改電子郵件地址"
             }
+        },
+        "phoneNumberInputPage": {
+            "title": "輸入電話號碼",
+            "discription": {
+                "receive": "以接收 SMS 驗證碼",
+                "internationalFormat": "使用國際電話號碼格式",
+                "input": "請輸入您的電話號碼"
+            },
+            "phoneNumber": "電話號碼",
+            "sendSmsCode": "發送 SMS 驗證碼"
+        },
+        "smsVerificationPage": {
+            "title": "SMS 驗證",
+            "sendSms": "SMS 驗證碼已發送至以下電話號碼：",
+            "pleaseInputCode": "請輸入驗證碼以完成電話號碼驗證。",
+            "resend": {
+                "title": "重新發送",
+                "untilRetransmissionPossible": "重新發送時間倒數",
+                "second": "秒"
+            },
+            "smsCode": "SMS 驗證碼",
+            "verify": "驗證",
+            "fixPhoneNumber": "修改電話號碼"
         }
     },
     "validation": {
@@ -426,28 +449,5 @@
     },
     "mapPage": {
         "title": "地圖"
-    },
-    "phoneNumberInputPage": {
-        "title": "輸入電話號碼",
-        "discription": {
-            "receive": "以接收 SMS 驗證碼",
-            "internationalFormat": "使用國際電話號碼格式",
-            "input": "請輸入您的電話號碼"
-        },
-        "phoneNumber": "電話號碼",
-        "sendSmsCode": "發送 SMS 驗證碼"
-    },
-    "smsVerificationPage": {
-        "title": "SMS 驗證",
-        "sendSms": "SMS 驗證碼已發送至以下電話號碼：",
-        "pleaseInputCode": "請輸入驗證碼以完成電話號碼驗證。",
-        "resend": {
-            "title": "重新發送",
-            "untilRetransmissionPossible": "重新發送時間倒數",
-            "second": "秒"
-        },
-        "smsCode": "SMS 驗證碼",
-        "verify": "驗證",
-        "fixPhoneNumber": "修改電話號碼"
     }
 }

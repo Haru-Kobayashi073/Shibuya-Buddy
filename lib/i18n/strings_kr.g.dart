@@ -58,8 +58,6 @@ class TranslationsKr implements Translations {
 	};
 	@override late final _TranslationsErrorPageKr errorPage = _TranslationsErrorPageKr._(_root);
 	@override late final _TranslationsMapPageKr mapPage = _TranslationsMapPageKr._(_root);
-	@override late final _TranslationsPhoneNumberInputPageKr phoneNumberInputPage = _TranslationsPhoneNumberInputPageKr._(_root);
-	@override late final _TranslationsSmsVerificationPageKr smsVerificationPage = _TranslationsSmsVerificationPageKr._(_root);
 }
 
 // Path: navigationBar
@@ -110,6 +108,8 @@ class _TranslationsAuthenticationKr implements TranslationsAuthenticationEn {
 	@override late final _TranslationsAuthenticationEmailVerificationPageKr emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageKr._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageKr registerProfilePage = _TranslationsAuthenticationRegisterProfilePageKr._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageKr completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageKr._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageKr phoneNumberInputPage = _TranslationsAuthenticationPhoneNumberInputPageKr._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageKr smsVerificationPage = _TranslationsAuthenticationSmsVerificationPageKr._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthKr firebaseAuth = _TranslationsAuthenticationFirebaseAuthKr._(_root);
 }
 
@@ -340,35 +340,6 @@ class _TranslationsMapPageKr implements TranslationsMapPageEn {
 	@override String get title => '지도';
 }
 
-// Path: phoneNumberInputPage
-class _TranslationsPhoneNumberInputPageKr implements TranslationsPhoneNumberInputPageEn {
-	_TranslationsPhoneNumberInputPageKr._(this._root);
-
-	final TranslationsKr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '전화번호 입력';
-	@override late final _TranslationsPhoneNumberInputPageDiscriptionKr discription = _TranslationsPhoneNumberInputPageDiscriptionKr._(_root);
-	@override String get phoneNumber => '전화번호';
-	@override String get sendSmsCode => 'SMS 코드 보내기';
-}
-
-// Path: smsVerificationPage
-class _TranslationsSmsVerificationPageKr implements TranslationsSmsVerificationPageEn {
-	_TranslationsSmsVerificationPageKr._(this._root);
-
-	final TranslationsKr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'SMS 인증';
-	@override String get sendSms => '다음 전화번호로 SMS 코드를 보냈습니다:';
-	@override String get pleaseInputCode => '코드를 입력하여 전화번호 인증을 완료하세요.';
-	@override late final _TranslationsSmsVerificationPageResendKr resend = _TranslationsSmsVerificationPageResendKr._(_root);
-	@override String get smsCode => 'SMS 코드';
-	@override String get verify => '인증';
-	@override String get fixPhoneNumber => '전화번호 수정';
-}
-
 // Path: navigationBar.items
 class _TranslationsNavigationBarItemsKr implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsKr._(this._root);
@@ -536,6 +507,35 @@ class _TranslationsAuthenticationCompleteSendEmailPageKr implements Translations
 	@override String description({required Object email}) => '비밀번호 재설정 이메일이 ${email}로 발송되었습니다. \n 재설정 후 로그인 화면에서 로그인하세요.';
 	@override String get successResendEmail => '확인 이메일을 재발송했습니다.';
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsKr buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsKr._(_root);
+}
+
+// Path: authentication.phoneNumberInputPage
+class _TranslationsAuthenticationPhoneNumberInputPageKr implements TranslationsAuthenticationPhoneNumberInputPageEn {
+	_TranslationsAuthenticationPhoneNumberInputPageKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '전화번호 입력';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr._(_root);
+	@override String get phoneNumber => '전화번호';
+	@override String get sendSmsCode => 'SMS 코드 보내기';
+}
+
+// Path: authentication.smsVerificationPage
+class _TranslationsAuthenticationSmsVerificationPageKr implements TranslationsAuthenticationSmsVerificationPageEn {
+	_TranslationsAuthenticationSmsVerificationPageKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS 인증';
+	@override String get sendSms => '다음 전화번호로 SMS 코드를 보냈습니다:';
+	@override String get pleaseInputCode => '코드를 입력하여 전화번호 인증을 완료하세요.';
+	@override late final _TranslationsAuthenticationSmsVerificationPageResendKr resend = _TranslationsAuthenticationSmsVerificationPageResendKr._(_root);
+	@override String get smsCode => 'SMS 코드';
+	@override String get verify => '인증';
+	@override String get fixPhoneNumber => '전화번호 수정';
 }
 
 // Path: authentication.firebaseAuth
@@ -853,30 +853,6 @@ class _TranslationsPlanDetailsPageSnackBarKr implements TranslationsPlanDetailsP
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorKr error = _TranslationsPlanDetailsPageSnackBarErrorKr._(_root);
 }
 
-// Path: phoneNumberInputPage.discription
-class _TranslationsPhoneNumberInputPageDiscriptionKr implements TranslationsPhoneNumberInputPageDiscriptionEn {
-	_TranslationsPhoneNumberInputPageDiscriptionKr._(this._root);
-
-	final TranslationsKr _root; // ignore: unused_field
-
-	// Translations
-	@override String get receive => 'SMS 코드를 받으려면';
-	@override String get internationalFormat => '국제 전화번호 형식으로';
-	@override String get input => '전화번호를 입력해주세요';
-}
-
-// Path: smsVerificationPage.resend
-class _TranslationsSmsVerificationPageResendKr implements TranslationsSmsVerificationPageResendEn {
-	_TranslationsSmsVerificationPageResendKr._(this._root);
-
-	final TranslationsKr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '재전송';
-	@override String get untilRetransmissionPossible => '재전송 가능 시간까지';
-	@override String get second => '초';
-}
-
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsKr implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsKr._(this._root);
@@ -1012,6 +988,30 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsKr implements Trans
 	@override String get toSignIn => '로그인 화면으로';
 	@override String get resendEmail => '확인 이메일 재발송';
 	@override String get changeEmail => '이메일 주소 변경';
+}
+
+// Path: authentication.phoneNumberInputPage.discription
+class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr implements TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	_TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => 'SMS 코드를 받으려면';
+	@override String get internationalFormat => '국제 전화번호 형식으로';
+	@override String get input => '전화번호를 입력해주세요';
+}
+
+// Path: authentication.smsVerificationPage.resend
+class _TranslationsAuthenticationSmsVerificationPageResendKr implements TranslationsAuthenticationSmsVerificationPageResendEn {
+	_TranslationsAuthenticationSmsVerificationPageResendKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '재전송';
+	@override String get untilRetransmissionPossible => '재전송 가능 시간까지';
+	@override String get second => '초';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -1331,6 +1331,21 @@ extension on TranslationsKr {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '로그인 화면으로';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '확인 이메일 재발송';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '이메일 주소 변경';
+			case 'authentication.phoneNumberInputPage.title': return '전화번호 입력';
+			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
+			case 'authentication.phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.phoneNumber': return '전화번호';
+			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
+			case 'authentication.smsVerificationPage.title': return 'SMS 인증';
+			case 'authentication.smsVerificationPage.sendSms': return '다음 전화번호로 SMS 코드를 보냈습니다:';
+			case 'authentication.smsVerificationPage.pleaseInputCode': return '코드를 입력하여 전화번호 인증을 완료하세요.';
+			case 'authentication.smsVerificationPage.resend.title': return '재전송';
+			case 'authentication.smsVerificationPage.resend.untilRetransmissionPossible': return '재전송 가능 시간까지';
+			case 'authentication.smsVerificationPage.resend.second': return '초';
+			case 'authentication.smsVerificationPage.smsCode': return 'SMS 코드';
+			case 'authentication.smsVerificationPage.verify': return '인증';
+			case 'authentication.smsVerificationPage.fixPhoneNumber': return '전화번호 수정';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '통신 환경이 좋은 곳에서 다시 시도해주세요.';
 			case 'authentication.firebaseAuth.error.weakPassword': return '비밀번호가 너무 짧습니다. 6자 이상 입력해주세요.';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '이메일 주소 형식이 올바르지 않습니다.';
@@ -1495,21 +1510,6 @@ extension on TranslationsKr {
 			case 'errorPage.message': return '통신 환경을 확인하고 다시 시도해주세요.';
 			case 'errorPage.retryButton': return '다시 불러오기';
 			case 'mapPage.title': return '지도';
-			case 'phoneNumberInputPage.title': return '전화번호 입력';
-			case 'phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
-			case 'phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
-			case 'phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
-			case 'phoneNumberInputPage.phoneNumber': return '전화번호';
-			case 'phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
-			case 'smsVerificationPage.title': return 'SMS 인증';
-			case 'smsVerificationPage.sendSms': return '다음 전화번호로 SMS 코드를 보냈습니다:';
-			case 'smsVerificationPage.pleaseInputCode': return '코드를 입력하여 전화번호 인증을 완료하세요.';
-			case 'smsVerificationPage.resend.title': return '재전송';
-			case 'smsVerificationPage.resend.untilRetransmissionPossible': return '재전송 가능 시간까지';
-			case 'smsVerificationPage.resend.second': return '초';
-			case 'smsVerificationPage.smsCode': return 'SMS 코드';
-			case 'smsVerificationPage.verify': return '인증';
-			case 'smsVerificationPage.fixPhoneNumber': return '전화번호 수정';
 			default: return null;
 		}
 	}

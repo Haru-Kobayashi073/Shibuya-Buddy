@@ -57,8 +57,6 @@ class TranslationsZhHant implements Translations {
 	};
 	@override late final _TranslationsErrorPageZhHant errorPage = _TranslationsErrorPageZhHant._(_root);
 	@override late final _TranslationsMapPageZhHant mapPage = _TranslationsMapPageZhHant._(_root);
-	@override late final _TranslationsPhoneNumberInputPageZhHant phoneNumberInputPage = _TranslationsPhoneNumberInputPageZhHant._(_root);
-	@override late final _TranslationsSmsVerificationPageZhHant smsVerificationPage = _TranslationsSmsVerificationPageZhHant._(_root);
 }
 
 // Path: navigationBar
@@ -110,6 +108,8 @@ class _TranslationsAuthenticationZhHant implements TranslationsAuthenticationEn 
 	@override late final _TranslationsAuthenticationEmailVerificationPageZhHant emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageZhHant registerProfilePage = _TranslationsAuthenticationRegisterProfilePageZhHant._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHant completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageZhHant phoneNumberInputPage = _TranslationsAuthenticationPhoneNumberInputPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageZhHant smsVerificationPage = _TranslationsAuthenticationSmsVerificationPageZhHant._(_root);
 }
 
 // Path: validation
@@ -339,35 +339,6 @@ class _TranslationsMapPageZhHant implements TranslationsMapPageEn {
 	@override String get title => '地圖';
 }
 
-// Path: phoneNumberInputPage
-class _TranslationsPhoneNumberInputPageZhHant implements TranslationsPhoneNumberInputPageEn {
-	_TranslationsPhoneNumberInputPageZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '輸入電話號碼';
-	@override late final _TranslationsPhoneNumberInputPageDiscriptionZhHant discription = _TranslationsPhoneNumberInputPageDiscriptionZhHant._(_root);
-	@override String get phoneNumber => '電話號碼';
-	@override String get sendSmsCode => '發送 SMS 驗證碼';
-}
-
-// Path: smsVerificationPage
-class _TranslationsSmsVerificationPageZhHant implements TranslationsSmsVerificationPageEn {
-	_TranslationsSmsVerificationPageZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'SMS 驗證';
-	@override String get sendSms => 'SMS 驗證碼已發送至以下電話號碼：';
-	@override String get pleaseInputCode => '請輸入驗證碼以完成電話號碼驗證。';
-	@override late final _TranslationsSmsVerificationPageResendZhHant resend = _TranslationsSmsVerificationPageResendZhHant._(_root);
-	@override String get smsCode => 'SMS 驗證碼';
-	@override String get verify => '驗證';
-	@override String get fixPhoneNumber => '修改電話號碼';
-}
-
 // Path: navigationBar.items
 class _TranslationsNavigationBarItemsZhHant implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsZhHant._(this._root);
@@ -545,6 +516,35 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHant implements Translat
 	@override String description({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
 	@override String get successResendEmail => '確認郵件已重新發送';
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant._(_root);
+}
+
+// Path: authentication.phoneNumberInputPage
+class _TranslationsAuthenticationPhoneNumberInputPageZhHant implements TranslationsAuthenticationPhoneNumberInputPageEn {
+	_TranslationsAuthenticationPhoneNumberInputPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '輸入電話號碼';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant._(_root);
+	@override String get phoneNumber => '電話號碼';
+	@override String get sendSmsCode => '發送 SMS 驗證碼';
+}
+
+// Path: authentication.smsVerificationPage
+class _TranslationsAuthenticationSmsVerificationPageZhHant implements TranslationsAuthenticationSmsVerificationPageEn {
+	_TranslationsAuthenticationSmsVerificationPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS 驗證';
+	@override String get sendSms => 'SMS 驗證碼已發送至以下電話號碼：';
+	@override String get pleaseInputCode => '請輸入驗證碼以完成電話號碼驗證。';
+	@override late final _TranslationsAuthenticationSmsVerificationPageResendZhHant resend = _TranslationsAuthenticationSmsVerificationPageResendZhHant._(_root);
+	@override String get smsCode => 'SMS 驗證碼';
+	@override String get verify => '驗證';
+	@override String get fixPhoneNumber => '修改電話號碼';
 }
 
 // Path: myPage.accountStatus
@@ -852,30 +852,6 @@ class _TranslationsPlanDetailsPageSnackBarZhHant implements TranslationsPlanDeta
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHant error = _TranslationsPlanDetailsPageSnackBarErrorZhHant._(_root);
 }
 
-// Path: phoneNumberInputPage.discription
-class _TranslationsPhoneNumberInputPageDiscriptionZhHant implements TranslationsPhoneNumberInputPageDiscriptionEn {
-	_TranslationsPhoneNumberInputPageDiscriptionZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get receive => '以接收 SMS 驗證碼';
-	@override String get internationalFormat => '使用國際電話號碼格式';
-	@override String get input => '請輸入您的電話號碼';
-}
-
-// Path: smsVerificationPage.resend
-class _TranslationsSmsVerificationPageResendZhHant implements TranslationsSmsVerificationPageResendEn {
-	_TranslationsSmsVerificationPageResendZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '重新發送';
-	@override String get untilRetransmissionPossible => '重新發送時間倒數';
-	@override String get second => '秒';
-}
-
 // Path: authentication.signInPage.textFields
 class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements TranslationsAuthenticationSignInPageTextFieldsEn {
 	_TranslationsAuthenticationSignInPageTextFieldsZhHant._(this._root);
@@ -1027,6 +1003,30 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHant implements T
 	@override String get toSignIn => '前往登入畫面';
 	@override String get resendEmail => '重新發送確認郵件';
 	@override String get changeEmail => '更改電子郵件地址';
+}
+
+// Path: authentication.phoneNumberInputPage.discription
+class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant implements TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	_TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => '以接收 SMS 驗證碼';
+	@override String get internationalFormat => '使用國際電話號碼格式';
+	@override String get input => '請輸入您的電話號碼';
+}
+
+// Path: authentication.smsVerificationPage.resend
+class _TranslationsAuthenticationSmsVerificationPageResendZhHant implements TranslationsAuthenticationSmsVerificationPageResendEn {
+	_TranslationsAuthenticationSmsVerificationPageResendZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重新發送';
+	@override String get untilRetransmissionPossible => '重新發送時間倒數';
+	@override String get second => '秒';
 }
 
 // Path: myPage.accountStatus.dateTime
@@ -1337,6 +1337,21 @@ extension on TranslationsZhHant {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登入畫面';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新發送確認郵件';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改電子郵件地址';
+			case 'authentication.phoneNumberInputPage.title': return '輸入電話號碼';
+			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 驗證碼';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '使用國際電話號碼格式';
+			case 'authentication.phoneNumberInputPage.discription.input': return '請輸入您的電話號碼';
+			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話號碼';
+			case 'authentication.phoneNumberInputPage.sendSmsCode': return '發送 SMS 驗證碼';
+			case 'authentication.smsVerificationPage.title': return 'SMS 驗證';
+			case 'authentication.smsVerificationPage.sendSms': return 'SMS 驗證碼已發送至以下電話號碼：';
+			case 'authentication.smsVerificationPage.pleaseInputCode': return '請輸入驗證碼以完成電話號碼驗證。';
+			case 'authentication.smsVerificationPage.resend.title': return '重新發送';
+			case 'authentication.smsVerificationPage.resend.untilRetransmissionPossible': return '重新發送時間倒數';
+			case 'authentication.smsVerificationPage.resend.second': return '秒';
+			case 'authentication.smsVerificationPage.smsCode': return 'SMS 驗證碼';
+			case 'authentication.smsVerificationPage.verify': return '驗證';
+			case 'authentication.smsVerificationPage.fixPhoneNumber': return '修改電話號碼';
 			case 'validation.emailRequired': return '請輸入電子郵件地址';
 			case 'validation.emailInvalid': return '電子郵件地址格式不正確';
 			case 'validation.passwordRequired': return '請輸入密碼';
@@ -1493,21 +1508,6 @@ extension on TranslationsZhHant {
 			case 'errorPage.message': return '請檢查您的網絡連接並重試。';
 			case 'errorPage.retryButton': return '重試';
 			case 'mapPage.title': return '地圖';
-			case 'phoneNumberInputPage.title': return '輸入電話號碼';
-			case 'phoneNumberInputPage.discription.receive': return '以接收 SMS 驗證碼';
-			case 'phoneNumberInputPage.discription.internationalFormat': return '使用國際電話號碼格式';
-			case 'phoneNumberInputPage.discription.input': return '請輸入您的電話號碼';
-			case 'phoneNumberInputPage.phoneNumber': return '電話號碼';
-			case 'phoneNumberInputPage.sendSmsCode': return '發送 SMS 驗證碼';
-			case 'smsVerificationPage.title': return 'SMS 驗證';
-			case 'smsVerificationPage.sendSms': return 'SMS 驗證碼已發送至以下電話號碼：';
-			case 'smsVerificationPage.pleaseInputCode': return '請輸入驗證碼以完成電話號碼驗證。';
-			case 'smsVerificationPage.resend.title': return '重新發送';
-			case 'smsVerificationPage.resend.untilRetransmissionPossible': return '重新發送時間倒數';
-			case 'smsVerificationPage.resend.second': return '秒';
-			case 'smsVerificationPage.smsCode': return 'SMS 驗證碼';
-			case 'smsVerificationPage.verify': return '驗證';
-			case 'smsVerificationPage.fixPhoneNumber': return '修改電話號碼';
 			default: return null;
 		}
 	}
