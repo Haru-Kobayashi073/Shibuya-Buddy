@@ -54,10 +54,11 @@ class TranslationsZhHans implements Translations {
 		'en': '英语',
 		'ja': '日语',
 		'zh': '中文',
-		'kr': '韩语',
 	};
 	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
 	@override late final _TranslationsMapPageZhHans mapPage = _TranslationsMapPageZhHans._(_root);
+	@override late final _TranslationsPhoneNumberInputPageZhHans phoneNumberInputPage = _TranslationsPhoneNumberInputPageZhHans._(_root);
+	@override late final _TranslationsSmsVerificationPageZhHans smsVerificationPage = _TranslationsSmsVerificationPageZhHans._(_root);
 }
 
 // Path: navigationBar
@@ -338,6 +339,35 @@ class _TranslationsMapPageZhHans implements TranslationsMapPageEn {
 	@override String get title => '地图';
 }
 
+// Path: phoneNumberInputPage
+class _TranslationsPhoneNumberInputPageZhHans implements TranslationsPhoneNumberInputPageEn {
+	_TranslationsPhoneNumberInputPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '输入电话号码';
+	@override late final _TranslationsPhoneNumberInputPageDiscriptionZhHans discription = _TranslationsPhoneNumberInputPageDiscriptionZhHans._(_root);
+	@override String get phoneNumber => '电话号码';
+	@override String get sendSmsCode => '发送 SMS 验证码';
+}
+
+// Path: smsVerificationPage
+class _TranslationsSmsVerificationPageZhHans implements TranslationsSmsVerificationPageEn {
+	_TranslationsSmsVerificationPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS 验证';
+	@override String get sendSms => 'SMS 验证码已发送至以下电话号码：';
+	@override String get pleaseInputCode => '请输入验证码以完成电话号码验证。';
+	@override late final _TranslationsSmsVerificationPageResendZhHans resend = _TranslationsSmsVerificationPageResendZhHans._(_root);
+	@override String get smsCode => 'SMS 验证码';
+	@override String get verify => '验证';
+	@override String get fixPhoneNumber => '修改电话号码';
+}
+
 // Path: navigationBar.items
 class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsZhHans._(this._root);
@@ -540,7 +570,6 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get simplifiedChinese => '中文（简体）';
 	@override String get traditionalChinese => '中文（繁体）';
-	@override String get korean => '韩语';
 }
 
 // Path: changeThemePage.items
@@ -820,6 +849,30 @@ class _TranslationsPlanDetailsPageSnackBarZhHans implements TranslationsPlanDeta
 
 	// Translations
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHans error = _TranslationsPlanDetailsPageSnackBarErrorZhHans._(_root);
+}
+
+// Path: phoneNumberInputPage.discription
+class _TranslationsPhoneNumberInputPageDiscriptionZhHans implements TranslationsPhoneNumberInputPageDiscriptionEn {
+	_TranslationsPhoneNumberInputPageDiscriptionZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => '以接收 SMS 验证码';
+	@override String get internationalFormat => '使用国际电话号码格式';
+	@override String get input => '请输入您的电话号码';
+}
+
+// Path: smsVerificationPage.resend
+class _TranslationsSmsVerificationPageResendZhHans implements TranslationsSmsVerificationPageResendEn {
+	_TranslationsSmsVerificationPageResendZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重新发送';
+	@override String get untilRetransmissionPossible => '重新发送倒计时';
+	@override String get second => '秒';
 }
 
 // Path: authentication.signInPage.textFields
@@ -1315,7 +1368,6 @@ extension on TranslationsZhHans {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
-			case 'changeLanguagePage.items.korean': return '韩语';
 			case 'changeThemePage.title': return '主题';
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';
@@ -1435,11 +1487,25 @@ extension on TranslationsZhHans {
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';
-			case 'locales.kr': return '韩语';
 			case 'errorPage.title': return '发生错误...';
 			case 'errorPage.message': return '请检查您的网络连接并重试。';
 			case 'errorPage.retryButton': return '重试';
 			case 'mapPage.title': return '地图';
+			case 'phoneNumberInputPage.title': return '输入电话号码';
+			case 'phoneNumberInputPage.discription.receive': return '以接收 SMS 验证码';
+			case 'phoneNumberInputPage.discription.internationalFormat': return '使用国际电话号码格式';
+			case 'phoneNumberInputPage.discription.input': return '请输入您的电话号码';
+			case 'phoneNumberInputPage.phoneNumber': return '电话号码';
+			case 'phoneNumberInputPage.sendSmsCode': return '发送 SMS 验证码';
+			case 'smsVerificationPage.title': return 'SMS 验证';
+			case 'smsVerificationPage.sendSms': return 'SMS 验证码已发送至以下电话号码：';
+			case 'smsVerificationPage.pleaseInputCode': return '请输入验证码以完成电话号码验证。';
+			case 'smsVerificationPage.resend.title': return '重新发送';
+			case 'smsVerificationPage.resend.untilRetransmissionPossible': return '重新发送倒计时';
+			case 'smsVerificationPage.resend.second': return '秒';
+			case 'smsVerificationPage.smsCode': return 'SMS 验证码';
+			case 'smsVerificationPage.verify': return '验证';
+			case 'smsVerificationPage.fixPhoneNumber': return '修改电话号码';
 			default: return null;
 		}
 	}

@@ -184,8 +184,7 @@
             "japanese": "日本語",
             "english": "英語",
             "simplifiedChinese": "中国語（簡体字）",
-            "traditionalChinese": "中国語（繁体字）",
-            "korean": "韓国語"
+            "traditionalChinese": "中国語（繁体字）"
         }
     },
     "changeThemePage": {
@@ -417,8 +416,7 @@
     "locales(map)": {
         "en": "英語",
         "ja": "日本語",
-        "zh": "中国語",
-        "kr": "韓国語"
+        "zh": "中国語"
     },
     "errorPage": {
         "title": "エラーが発生しました...",
@@ -427,5 +425,28 @@
     },
     "mapPage": {
         "title": "マップ"
+    },
+    "phoneNumberInputPage": {
+        "title": "電話番号を入力,",
+        "discription": {
+            "receive": "SMSコードを受け取るために",
+            "internationalFormat" : "国際電話番号形式",
+            "input": "で電話番号を入力してください"
+        },
+        "phoneNumber": "電話番号",
+        "sendSmsCode": "SMSコードを送信"
+    },
+    "smsVerificationPage": {
+        "title": "SMS認証",
+        "sendSms": "以下の電話番号にSMSコードを送信しました：",
+        "pleaseInputCode": "コードを入力して、電話番号の認証を完了してください。",
+        "resend": {
+            "title": "再送信する",
+            "untilRetransmissionPossible": "再送信可能まで",
+            "second": "秒"
+        },
+        "smsCode": "SMSコード",
+        "verify": "認証する",
+        "fixPhoneNumber": "電話番号を修正する"
     }
 }

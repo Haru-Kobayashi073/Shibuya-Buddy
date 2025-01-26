@@ -184,8 +184,7 @@
             "japanese": "日语",
             "english": "英语",
             "simplifiedChinese": "中文(简体字)",
-            "traditionalChinese": "中文(繁体字)",
-            "korean": "韓語"
+            "traditionalChinese": "中文(繁体字)"
         }
     },
     "changeThemePage": {
@@ -417,8 +416,7 @@
     "locales(map)": {
         "en": "英語",
         "ja": "日語",
-        "zh": "中文",
-        "kr": "韓語"
+        "zh": "中文"
     },
     "errorPage": {
         "title": "發生錯誤...",
@@ -427,5 +425,28 @@
     },
     "mapPage": {
         "title": "地圖"
+    },
+    "phoneNumberInputPage": {
+        "title": "輸入電話號碼",
+        "discription": {
+            "receive": "以接收 SMS 驗證碼",
+            "internationalFormat": "使用國際電話號碼格式",
+            "input": "請輸入您的電話號碼"
+        },
+        "phoneNumber": "電話號碼",
+        "sendSmsCode": "發送 SMS 驗證碼"
+    },
+    "smsVerificationPage": {
+        "title": "SMS 驗證",
+        "sendSms": "SMS 驗證碼已發送至以下電話號碼：",
+        "pleaseInputCode": "請輸入驗證碼以完成電話號碼驗證。",
+        "resend": {
+            "title": "重新發送",
+            "untilRetransmissionPossible": "重新發送時間倒數",
+            "second": "秒"
+        },
+        "smsCode": "SMS 驗證碼",
+        "verify": "驗證",
+        "fixPhoneNumber": "修改電話號碼"
     }
 }

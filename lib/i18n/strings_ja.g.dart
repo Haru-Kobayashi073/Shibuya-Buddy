@@ -54,10 +54,11 @@ class TranslationsJa implements Translations {
 		'en': '英語',
 		'ja': '日本語',
 		'zh': '中国語',
-		'kr': '韓国語',
 	};
 	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
 	@override late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
+	@override late final _TranslationsPhoneNumberInputPageJa phoneNumberInputPage = _TranslationsPhoneNumberInputPageJa._(_root);
+	@override late final _TranslationsSmsVerificationPageJa smsVerificationPage = _TranslationsSmsVerificationPageJa._(_root);
 }
 
 // Path: navigationBar
@@ -338,6 +339,35 @@ class _TranslationsMapPageJa implements TranslationsMapPageEn {
 	@override String get title => 'マップ';
 }
 
+// Path: phoneNumberInputPage
+class _TranslationsPhoneNumberInputPageJa implements TranslationsPhoneNumberInputPageEn {
+	_TranslationsPhoneNumberInputPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '電話番号を入力,';
+	@override late final _TranslationsPhoneNumberInputPageDiscriptionJa discription = _TranslationsPhoneNumberInputPageDiscriptionJa._(_root);
+	@override String get phoneNumber => '電話番号';
+	@override String get sendSmsCode => 'SMSコードを送信';
+}
+
+// Path: smsVerificationPage
+class _TranslationsSmsVerificationPageJa implements TranslationsSmsVerificationPageEn {
+	_TranslationsSmsVerificationPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS認証';
+	@override String get sendSms => '以下の電話番号にSMSコードを送信しました：';
+	@override String get pleaseInputCode => 'コードを入力して、電話番号の認証を完了してください。';
+	@override late final _TranslationsSmsVerificationPageResendJa resend = _TranslationsSmsVerificationPageResendJa._(_root);
+	@override String get smsCode => 'SMSコード';
+	@override String get verify => '認証する';
+	@override String get fixPhoneNumber => '電話番号を修正する';
+}
+
 // Path: navigationBar.items
 class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItemsEn {
 	_TranslationsNavigationBarItemsJa._(this._root);
@@ -540,7 +570,6 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 	@override String get english => '英語';
 	@override String get simplifiedChinese => '中国語（簡体字）';
 	@override String get traditionalChinese => '中国語（繁体字）';
-	@override String get korean => '韓国語';
 }
 
 // Path: changeThemePage.items
@@ -820,6 +849,30 @@ class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsP
 
 	// Translations
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
+}
+
+// Path: phoneNumberInputPage.discription
+class _TranslationsPhoneNumberInputPageDiscriptionJa implements TranslationsPhoneNumberInputPageDiscriptionEn {
+	_TranslationsPhoneNumberInputPageDiscriptionJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => 'SMSコードを受け取るために';
+	@override String get internationalFormat => '国際電話番号形式';
+	@override String get input => 'で電話番号を入力してください';
+}
+
+// Path: smsVerificationPage.resend
+class _TranslationsSmsVerificationPageResendJa implements TranslationsSmsVerificationPageResendEn {
+	_TranslationsSmsVerificationPageResendJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '再送信する';
+	@override String get untilRetransmissionPossible => '再送信可能まで';
+	@override String get second => '秒';
 }
 
 // Path: authentication.signInPage.textFields
@@ -1315,7 +1368,6 @@ extension on TranslationsJa {
 			case 'changeLanguagePage.items.english': return '英語';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
-			case 'changeLanguagePage.items.korean': return '韓国語';
 			case 'changeThemePage.title': return 'テーマ';
 			case 'changeThemePage.items.system': return 'システム';
 			case 'changeThemePage.items.light': return 'ライト';
@@ -1435,11 +1487,25 @@ extension on TranslationsJa {
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
-			case 'locales.kr': return '韓国語';
 			case 'errorPage.title': return 'エラーが発生しました...';
 			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
 			case 'errorPage.retryButton': return 'もう一度読み込む';
 			case 'mapPage.title': return 'マップ';
+			case 'phoneNumberInputPage.title': return '電話番号を入力,';
+			case 'phoneNumberInputPage.discription.receive': return 'SMSコードを受け取るために';
+			case 'phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式';
+			case 'phoneNumberInputPage.discription.input': return 'で電話番号を入力してください';
+			case 'phoneNumberInputPage.phoneNumber': return '電話番号';
+			case 'phoneNumberInputPage.sendSmsCode': return 'SMSコードを送信';
+			case 'smsVerificationPage.title': return 'SMS認証';
+			case 'smsVerificationPage.sendSms': return '以下の電話番号にSMSコードを送信しました：';
+			case 'smsVerificationPage.pleaseInputCode': return 'コードを入力して、電話番号の認証を完了してください。';
+			case 'smsVerificationPage.resend.title': return '再送信する';
+			case 'smsVerificationPage.resend.untilRetransmissionPossible': return '再送信可能まで';
+			case 'smsVerificationPage.resend.second': return '秒';
+			case 'smsVerificationPage.smsCode': return 'SMSコード';
+			case 'smsVerificationPage.verify': return '認証する';
+			case 'smsVerificationPage.fixPhoneNumber': return '電話番号を修正する';
 			default: return null;
 		}
 	}

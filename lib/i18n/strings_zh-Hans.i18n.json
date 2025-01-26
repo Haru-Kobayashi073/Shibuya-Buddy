@@ -184,8 +184,7 @@
             "japanese": "日本人",
             "english": "英语",
             "simplifiedChinese": "中文（简体）",
-            "traditionalChinese": "中文（繁体）",
-            "korean": "韩语"
+            "traditionalChinese": "中文（繁体）"
         }
     },
     "changeThemePage": {
@@ -417,8 +416,7 @@
     "locales(map)": {
         "en": "英语",
         "ja": "日语",
-        "zh": "中文",
-        "kr": "韩语"
+        "zh": "中文"
     },
     "errorPage": {
         "title": "发生错误...",
@@ -427,5 +425,28 @@
     },
     "mapPage": {
         "title": "地图"
+    },
+    "phoneNumberInputPage": {
+        "title": "输入电话号码",
+        "discription": {
+            "receive": "以接收 SMS 验证码",
+            "internationalFormat": "使用国际电话号码格式",
+            "input": "请输入您的电话号码"
+        },
+        "phoneNumber": "电话号码",
+        "sendSmsCode": "发送 SMS 验证码"
+    },
+    "smsVerificationPage": {
+        "title": "SMS 验证",
+        "sendSms": "SMS 验证码已发送至以下电话号码：",
+        "pleaseInputCode": "请输入验证码以完成电话号码验证。",
+        "resend": {
+            "title": "重新发送",
+            "untilRetransmissionPossible": "重新发送倒计时",
+            "second": "秒"
+        },
+        "smsCode": "SMS 验证码",
+        "verify": "验证",
+        "fixPhoneNumber": "修改电话号码"
     }
 }

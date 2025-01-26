@@ -58,6 +58,8 @@ class TranslationsKr implements Translations {
 	};
 	@override late final _TranslationsErrorPageKr errorPage = _TranslationsErrorPageKr._(_root);
 	@override late final _TranslationsMapPageKr mapPage = _TranslationsMapPageKr._(_root);
+	@override late final _TranslationsPhoneNumberInputPageKr phoneNumberInputPage = _TranslationsPhoneNumberInputPageKr._(_root);
+	@override late final _TranslationsSmsVerificationPageKr smsVerificationPage = _TranslationsSmsVerificationPageKr._(_root);
 }
 
 // Path: navigationBar
@@ -336,6 +338,35 @@ class _TranslationsMapPageKr implements TranslationsMapPageEn {
 
 	// Translations
 	@override String get title => '지도';
+}
+
+// Path: phoneNumberInputPage
+class _TranslationsPhoneNumberInputPageKr implements TranslationsPhoneNumberInputPageEn {
+	_TranslationsPhoneNumberInputPageKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '전화번호 입력';
+	@override late final _TranslationsPhoneNumberInputPageDiscriptionKr discription = _TranslationsPhoneNumberInputPageDiscriptionKr._(_root);
+	@override String get phoneNumber => '전화번호';
+	@override String get sendSmsCode => 'SMS 코드 보내기';
+}
+
+// Path: smsVerificationPage
+class _TranslationsSmsVerificationPageKr implements TranslationsSmsVerificationPageEn {
+	_TranslationsSmsVerificationPageKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS 인증';
+	@override String get sendSms => '다음 전화번호로 SMS 코드를 보냈습니다:';
+	@override String get pleaseInputCode => '코드를 입력하여 전화번호 인증을 완료하세요.';
+	@override late final _TranslationsSmsVerificationPageResendKr resend = _TranslationsSmsVerificationPageResendKr._(_root);
+	@override String get smsCode => 'SMS 코드';
+	@override String get verify => '인증';
+	@override String get fixPhoneNumber => '전화번호 수정';
 }
 
 // Path: navigationBar.items
@@ -820,6 +851,30 @@ class _TranslationsPlanDetailsPageSnackBarKr implements TranslationsPlanDetailsP
 
 	// Translations
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorKr error = _TranslationsPlanDetailsPageSnackBarErrorKr._(_root);
+}
+
+// Path: phoneNumberInputPage.discription
+class _TranslationsPhoneNumberInputPageDiscriptionKr implements TranslationsPhoneNumberInputPageDiscriptionEn {
+	_TranslationsPhoneNumberInputPageDiscriptionKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => 'SMS 코드를 받으려면';
+	@override String get internationalFormat => '국제 전화번호 형식으로';
+	@override String get input => '전화번호를 입력해주세요';
+}
+
+// Path: smsVerificationPage.resend
+class _TranslationsSmsVerificationPageResendKr implements TranslationsSmsVerificationPageResendEn {
+	_TranslationsSmsVerificationPageResendKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '재전송';
+	@override String get untilRetransmissionPossible => '재전송 가능 시간까지';
+	@override String get second => '초';
 }
 
 // Path: authentication.signInPage.textFields
@@ -1440,6 +1495,21 @@ extension on TranslationsKr {
 			case 'errorPage.message': return '통신 환경을 확인하고 다시 시도해주세요.';
 			case 'errorPage.retryButton': return '다시 불러오기';
 			case 'mapPage.title': return '지도';
+			case 'phoneNumberInputPage.title': return '전화번호 입력';
+			case 'phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
+			case 'phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
+			case 'phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
+			case 'phoneNumberInputPage.phoneNumber': return '전화번호';
+			case 'phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
+			case 'smsVerificationPage.title': return 'SMS 인증';
+			case 'smsVerificationPage.sendSms': return '다음 전화번호로 SMS 코드를 보냈습니다:';
+			case 'smsVerificationPage.pleaseInputCode': return '코드를 입력하여 전화번호 인증을 완료하세요.';
+			case 'smsVerificationPage.resend.title': return '재전송';
+			case 'smsVerificationPage.resend.untilRetransmissionPossible': return '재전송 가능 시간까지';
+			case 'smsVerificationPage.resend.second': return '초';
+			case 'smsVerificationPage.smsCode': return 'SMS 코드';
+			case 'smsVerificationPage.verify': return '인증';
+			case 'smsVerificationPage.fixPhoneNumber': return '전화번호 수정';
 			default: return null;
 		}
 	}
