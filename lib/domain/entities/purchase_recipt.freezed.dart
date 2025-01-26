@@ -25,6 +25,8 @@ mixin _$PurchaseRecipt {
       throw _privateConstructorUsedError; // スタンダードに自動降格を行うタスクのパス
   @DateTimeConverter()
   DateTime? get premiumPlanExpirationDate => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this PurchaseRecipt to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,7 +47,8 @@ abstract class $PurchaseReciptCopyWith<$Res> {
   $Res call(
       {String id,
       String? rankDownToStandardTaskPath,
-      @DateTimeConverter() DateTime? premiumPlanExpirationDate});
+      @DateTimeConverter() DateTime? premiumPlanExpirationDate,
+      @DateTimeConverter() DateTime createdAt});
 }
 
 /// @nodoc
@@ -66,6 +69,7 @@ class _$PurchaseReciptCopyWithImpl<$Res, $Val extends PurchaseRecipt>
     Object? id = null,
     Object? rankDownToStandardTaskPath = freezed,
     Object? premiumPlanExpirationDate = freezed,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -80,6 +84,10 @@ class _$PurchaseReciptCopyWithImpl<$Res, $Val extends PurchaseRecipt>
           ? _value.premiumPlanExpirationDate
           : premiumPlanExpirationDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -95,7 +103,8 @@ abstract class _$$PurchaseReciptImplCopyWith<$Res>
   $Res call(
       {String id,
       String? rankDownToStandardTaskPath,
-      @DateTimeConverter() DateTime? premiumPlanExpirationDate});
+      @DateTimeConverter() DateTime? premiumPlanExpirationDate,
+      @DateTimeConverter() DateTime createdAt});
 }
 
 /// @nodoc
@@ -114,6 +123,7 @@ class __$$PurchaseReciptImplCopyWithImpl<$Res>
     Object? id = null,
     Object? rankDownToStandardTaskPath = freezed,
     Object? premiumPlanExpirationDate = freezed,
+    Object? createdAt = null,
   }) {
     return _then(_$PurchaseReciptImpl(
       id: null == id
@@ -128,6 +138,10 @@ class __$$PurchaseReciptImplCopyWithImpl<$Res>
           ? _value.premiumPlanExpirationDate
           : premiumPlanExpirationDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -138,7 +152,8 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
   const _$PurchaseReciptImpl(
       {required this.id,
       this.rankDownToStandardTaskPath,
-      @DateTimeConverter() this.premiumPlanExpirationDate});
+      @DateTimeConverter() this.premiumPlanExpirationDate,
+      @DateTimeConverter() required this.createdAt});
 
   factory _$PurchaseReciptImpl.fromJson(Map<String, dynamic> json) =>
       _$$PurchaseReciptImplFromJson(json);
@@ -151,10 +166,13 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
   @override
   @DateTimeConverter()
   final DateTime? premiumPlanExpirationDate;
+  @override
+  @DateTimeConverter()
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'PurchaseRecipt(id: $id, rankDownToStandardTaskPath: $rankDownToStandardTaskPath, premiumPlanExpirationDate: $premiumPlanExpirationDate)';
+    return 'PurchaseRecipt(id: $id, rankDownToStandardTaskPath: $rankDownToStandardTaskPath, premiumPlanExpirationDate: $premiumPlanExpirationDate, createdAt: $createdAt)';
   }
 
   @override
@@ -169,13 +187,15 @@ class _$PurchaseReciptImpl implements _PurchaseRecipt {
                     rankDownToStandardTaskPath) &&
             (identical(other.premiumPlanExpirationDate,
                     premiumPlanExpirationDate) ||
-                other.premiumPlanExpirationDate == premiumPlanExpirationDate));
+                other.premiumPlanExpirationDate == premiumPlanExpirationDate) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, rankDownToStandardTaskPath, premiumPlanExpirationDate);
+  int get hashCode => Object.hash(runtimeType, id, rankDownToStandardTaskPath,
+      premiumPlanExpirationDate, createdAt);
 
   /// Create a copy of PurchaseRecipt
   /// with the given fields replaced by the non-null parameter values.
@@ -198,7 +218,8 @@ abstract class _PurchaseRecipt implements PurchaseRecipt {
   const factory _PurchaseRecipt(
           {required final String id,
           final String? rankDownToStandardTaskPath,
-          @DateTimeConverter() final DateTime? premiumPlanExpirationDate}) =
+          @DateTimeConverter() final DateTime? premiumPlanExpirationDate,
+          @DateTimeConverter() required final DateTime createdAt}) =
       _$PurchaseReciptImpl;
 
   factory _PurchaseRecipt.fromJson(Map<String, dynamic> json) =
@@ -211,6 +232,9 @@ abstract class _PurchaseRecipt implements PurchaseRecipt {
   @override
   @DateTimeConverter()
   DateTime? get premiumPlanExpirationDate;
+  @override
+  @DateTimeConverter()
+  DateTime get createdAt;
 
   /// Create a copy of PurchaseRecipt
   /// with the given fields replaced by the non-null parameter values.

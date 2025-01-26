@@ -97,6 +97,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
           id: currentUser.uid,
           premiumPlanExpirationDate:
               isPremiumWithUnlimited ? null : premiumPlanExpirationDate,
+          createdAt: DateTime.now(),
         );
 
         if (isPremiumUser) {
@@ -108,13 +109,6 @@ class InAppPurchaseService extends _$InAppPurchaseService {
             purchaseRecipt: purchaseRecipt,
           );
         }
-        await purchaseDataSource.createPurchaseRecipt(
-          purchaseRecipt: PurchaseRecipt(
-            id: currentUser.uid,
-            premiumPlanExpirationDate:
-                isPremiumWithUnlimited ? null : premiumPlanExpirationDate,
-          ),
-        );
       } else {
         return;
       }
@@ -138,6 +132,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
           purchaseRecipt: PurchaseRecipt(
             id: currentUser.uid,
             premiumPlanExpirationDate: memberState.resultRemainingTime,
+            createdAt: DateTime.now(),
           ),
         );
         state = AsyncValue.data(

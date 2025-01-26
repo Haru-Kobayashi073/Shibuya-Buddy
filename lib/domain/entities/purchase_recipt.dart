@@ -11,6 +11,7 @@ abstract class PurchaseRecipt with _$PurchaseRecipt {
     required String id,
     String? rankDownToStandardTaskPath, // スタンダードに自動降格を行うタスクのパス
     @DateTimeConverter() DateTime? premiumPlanExpirationDate,
+    @DateTimeConverter() required DateTime createdAt,
   }) = _PurchaseRecipt;
 
   factory PurchaseRecipt.fromJson(Map<String, dynamic> json) =>

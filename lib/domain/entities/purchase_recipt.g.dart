@@ -13,6 +13,8 @@ _$PurchaseReciptImpl _$$PurchaseReciptImplFromJson(Map<String, dynamic> json) =>
       premiumPlanExpirationDate: _$JsonConverterFromJson<String, DateTime>(
           json['premiumPlanExpirationDate'],
           const DateTimeConverter().fromJson),
+      createdAt:
+          const DateTimeConverter().fromJson(json['createdAt'] as String),
     );
 
 Map<String, dynamic> _$$PurchaseReciptImplToJson(
@@ -22,6 +24,7 @@ Map<String, dynamic> _$$PurchaseReciptImplToJson(
       'rankDownToStandardTaskPath': instance.rankDownToStandardTaskPath,
       'premiumPlanExpirationDate': _$JsonConverterToJson<String, DateTime>(
           instance.premiumPlanExpirationDate, const DateTimeConverter().toJson),
+      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(
