@@ -120,8 +120,7 @@ class SmsVerificationPage extends HookConsumerWidget {
                 }
                 await notifier.verifySmsCode(
                   smsCodeController.text.trim(),
-                  () =>
-                      const RegisterProfilePageRouteData().push<void>(context),
+                  () => const RegisterProfilePageRouteData().go(context),
                 );
               },
             ),
