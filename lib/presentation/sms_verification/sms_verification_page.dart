@@ -31,7 +31,9 @@ class SmsVerificationPage extends HookConsumerWidget {
 
     useEffect(
       () {
-        notifier.setVerificationId(verificationId);
+        Future.microtask(() {
+          notifier.setVerificationId(verificationId);
+        });
         return null;
       },
       [],
