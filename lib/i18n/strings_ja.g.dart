@@ -570,6 +570,7 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 	@override String get english => '英語';
 	@override String get simplifiedChinese => '中国語（簡体字）';
 	@override String get traditionalChinese => '中国語（繁体字）';
+	@override String get korean => '韓国語';
 }
 
 // Path: changeThemePage.items
@@ -1368,6 +1369,7 @@ extension on TranslationsJa {
 			case 'changeLanguagePage.items.english': return '英語';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
+			case 'changeLanguagePage.items.korean': return '韓国語';
 			case 'changeThemePage.title': return 'テーマ';
 			case 'changeThemePage.items.system': return 'システム';
 			case 'changeThemePage.items.light': return 'ライト';

@@ -574,7 +574,7 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get english => 'English';
 	String get simplifiedChinese => 'Chinese (Simplified)';
 	String get traditionalChinese => 'Chinese (Traditional)';
-  String get korean => 'Korean';
+	String get korean => 'korean';
 }
 
 // Path: changeThemePage.items
@@ -1373,6 +1373,7 @@ extension on Translations {
 			case 'changeLanguagePage.items.english': return 'English';
 			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
 			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
+			case 'changeLanguagePage.items.korean': return 'korean';
 			case 'changeThemePage.title': return 'Theme';
 			case 'changeThemePage.items.system': return 'System';
 			case 'changeThemePage.items.light': return 'Light';

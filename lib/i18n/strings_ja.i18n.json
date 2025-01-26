@@ -184,7 +184,8 @@
             "japanese": "日本語",
             "english": "英語",
             "simplifiedChinese": "中国語（簡体字）",
-            "traditionalChinese": "中国語（繁体字）"
+            "traditionalChinese": "中国語（繁体字）",
+            "korean": "韓国語"
         }
     },
     "changeThemePage": {

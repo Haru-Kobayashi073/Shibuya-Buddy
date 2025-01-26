@@ -570,6 +570,7 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get simplifiedChinese => '中文（简体）';
 	@override String get traditionalChinese => '中文（繁体）';
+	@override String get korean => '韩语';
 }
 
 // Path: changeThemePage.items
@@ -1368,6 +1369,7 @@ extension on TranslationsZhHans {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
+			case 'changeLanguagePage.items.korean': return '韩语';
 			case 'changeThemePage.title': return '主题';
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';
