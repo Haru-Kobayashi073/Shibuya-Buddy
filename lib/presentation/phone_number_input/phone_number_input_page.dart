@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../utils/extensions/context.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
+import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
 import '../components/simple_text_field.dart';
 import '../components/wide_button.dart';
@@ -24,15 +27,37 @@ class PhoneNumberInputPage extends HookConsumerWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Gap(context.deviceHeight * 0.05),
+            Text(
               '電話番号入力',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: AppTextStyle.textStyle.copyWith(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            const SizedBox(height: 16),
+            const Gap(16),
+            Flexible(
+              child: Text(
+                'SMSコードを受け取るために電話番号を入力してください。',
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Flexible(
+              child: Text(
+                '「SMSコードを送信」ボタンを押した後、認証ページに遷移しますのでそのままお待ち下さい。',
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const Gap(32),
             SimpleTextField(
               controller: phoneNumberController,
               keyboardType: TextInputType.phone,
@@ -44,7 +69,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               label: '電話番号',
               onFieldSubmitted: (_) {},
             ),
-            const SizedBox(height: 16),
+            const Gap(32),
             WideButton(
               label: 'SMSコードを送信',
               color: AppColor.yellow600Primary,
