@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../utils/extensions/context.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../../utils/validator.dart';
-import '../components/simple_text_field.dart';
 import '../components/wide_button.dart';
 import 'phone_number_input_page_notifier.dart';
+
 
 class PhoneNumberInputPage extends HookConsumerWidget {
   const PhoneNumberInputPage({super.key});
@@ -19,6 +19,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final phoneNumberController = useTextEditingController();
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
+    final completePhoneNumber = useState<String>('');
 
     return Scaffold(
       appBar: AppBar(
@@ -58,24 +59,42 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               ),
             ),
             const Gap(32),
-            SimpleTextField(
+            IntlPhoneField(
               controller: phoneNumberController,
-              keyboardType: TextInputType.phone,
-              textInputAction: TextInputAction.done,
-              validator: (value) {
-                Validator.common(value);
-                return null;
+              cursorColor: AppColor.blue800Secondary,
+              decoration: InputDecoration(
+                labelText: '電話番号',
+                labelStyle: AppTextStyle.textStyle.copyWith(
+                  color: AppColor.blue900Tertiary,
+                ),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.blue800Secondary,
+                  ),
+                ),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.blue800Secondary,
+                  ),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.blue800Secondary,
+                    width: 2,
+                  ),
+                ),
+              ),
+              initialCountryCode: 'JP',
+              onChanged: (phone) {
+                completePhoneNumber.value = phone.completeNumber;
               },
-              label: '電話番号',
-              onFieldSubmitted: (_) {},
             ),
             const Gap(32),
             WideButton(
               label: 'SMSコードを送信',
               color: AppColor.yellow600Primary,
               onPressed: () async {
-                final phoneNumber = phoneNumberController.text.trim();
-                if (phoneNumber.isEmpty) {
+                if (completePhoneNumber.value.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('電話番号を入力してください。')),
                   );
@@ -84,10 +103,10 @@ class PhoneNumberInputPage extends HookConsumerWidget {
 
                 try {
                   final verificationId =
-                      await notifier.sendSmsCode(phoneNumber);
+                      await notifier.sendSmsCode(completePhoneNumber.value);
 
                   await SMSVerificationPageRouteData(
-                    phoneNumber: phoneNumber,
+                    phoneNumber: completePhoneNumber.value,
                     verificationId: verificationId,
                   ).push<void>(context);
                 } catch (error) {
