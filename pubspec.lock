@@ -1334,18 +1334,18 @@ packages:
     dependency: "direct main"
     description:
       name: purchases_flutter
-      sha256: "0318e53a759c7ab2a04d9f9efcb5bb7f152fa0ac1a5f88a439c6ff21b1bca4c2"
+      sha256: a1ff9c888a66ca0dc4d23c39849baef161ae292f4a31c3f7f9a64dd0ac61a4f7
       url: "https://pub.dev"
     source: hosted
-    version: "8.4.0"
+    version: "8.4.3"
   retrofit:
     dependency: "direct main"
     description:
       name: retrofit
-      sha256: c6cc9ad3374e6d07008343140a67afffaaa34cdf6bf08d4847d91417a99dcf45
+      sha256: "3c9885ef3dbc5dc4b3fb0a40c972ab52e4dad04d52dac9bba24dfa76cf100451"
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.2"
+    version: "4.4.1"
   retrofit_generator:
     dependency: "direct dev"
     description:
