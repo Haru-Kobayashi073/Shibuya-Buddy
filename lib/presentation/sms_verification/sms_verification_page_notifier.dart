@@ -62,7 +62,12 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
     }
   }
 
-  void _startCoolDownTimer() {
+  void startCoolDownTimer() {
+    state = state.copyWith(
+      smsVerificationButtonState: SmsVerificationButtonState.coolDown,
+      resendEmailVerificationCountdown: 60,
+    );
+
     Timer.periodic(const Duration(seconds: 1), (timer) {
       final countdown = state.resendEmailVerificationCountdown - 1;
       if (countdown <= 0) {
