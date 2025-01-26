@@ -103,18 +103,19 @@ class InAppPurchaseService extends _$InAppPurchaseService {
 
       if (customerInfo.allPurchasedProductIdentifiers
           .contains(purchaseItemConfig.productId)) {
-        // プレミアムプランの有効期限をDateTime型で取得
-        final premiumPlanExpirationDate =
-            (currentUser.premiumPlanExpirationDate ?? DateTime.now()).add(
-          Duration(days: purchaseItemConfig.effectiveDays!),
-        );
         final isPremiumWithUnlimited =
             package.identifier == PurchaseItemConfig.unlimitedPremium.packageId;
 
+        // プレミアムプランの有効期限をDateTime型で取得
+        final premiumPlanExpirationDate = isPremiumWithUnlimited
+            ? null
+            : (currentUser.premiumPlanExpirationDate ?? DateTime.now()).add(
+                Duration(days: purchaseItemConfig.effectiveDays!),
+              );
+
         final purchaseRecipt = PurchaseRecipt(
           id: currentUser.uid,
-          premiumPlanExpirationDate:
-              isPremiumWithUnlimited ? null : premiumPlanExpirationDate,
+          premiumPlanExpirationDate: premiumPlanExpirationDate,
           createdAt: DateTime.now(),
         );
 
