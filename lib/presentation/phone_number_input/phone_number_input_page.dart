@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
@@ -16,6 +17,8 @@ class PhoneNumberInputPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final i18n = Translations.of(context);
+    final i18nPhoneNumberInputPage = i18n.authentication.phoneNumberInputPage;
     final phoneNumberController = useTextEditingController();
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
     final completePhoneNumber = useState<String>('');
@@ -34,7 +37,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
           children: [
             Gap(context.deviceHeight * 0.05),
             Text(
-              '電話番号入力',
+              i18nPhoneNumberInputPage.title,
               style: AppTextStyle.textStyle.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -46,13 +49,16 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 16,
                 ),
-                children: const [
-                  TextSpan(text: 'SMSコードを受け取るために、'),
+                children: [
                   TextSpan(
-                    text: '国際電話番号形式',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    text: i18nPhoneNumberInputPage.discription.receive,
                   ),
-                  TextSpan(text: 'で電話番号を入力してください。'),
+                  TextSpan(
+                    text: i18nPhoneNumberInputPage
+                        .discription.internationalFormat,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(text: i18nPhoneNumberInputPage.discription.input),
                 ],
               ),
             ),
@@ -71,7 +77,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               controller: phoneNumberController,
               cursorColor: AppColor.blue800Secondary,
               decoration: InputDecoration(
-                labelText: '電話番号',
+                labelText: i18nPhoneNumberInputPage.phoneNumber,
                 labelStyle: AppTextStyle.textStyle.copyWith(
                   color: AppColor.blue900Tertiary,
                 ),
@@ -102,7 +108,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
             ),
             const Gap(32),
             WideButton(
-              label: 'SMSコードを送信',
+              label: i18nPhoneNumberInputPage.sendSmsCode,
               color: AppColor.yellow600Primary,
               onPressed: () async {
                 if (completePhoneNumber.value.isEmpty) {
