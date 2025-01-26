@@ -54,6 +54,7 @@ class TranslationsZhHant implements Translations {
 		'en': '英語',
 		'ja': '日語',
 		'zh': '中文',
+		'kr': '韓語',
 	};
 	@override late final _TranslationsErrorPageZhHant errorPage = _TranslationsErrorPageZhHant._(_root);
 	@override late final _TranslationsMapPageZhHant mapPage = _TranslationsMapPageZhHant._(_root);
@@ -541,6 +542,7 @@ class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLa
 	@override String get english => '英语';
 	@override String get simplifiedChinese => '中文(简体字)';
 	@override String get traditionalChinese => '中文(繁体字)';
+	@override String get korean => '韓語';
 }
 
 // Path: changeThemePage.items
@@ -1361,6 +1363,7 @@ extension on TranslationsZhHant {
 			case 'changeLanguagePage.items.english': return '英语';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文(简体字)';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '韓語';
 			case 'changeThemePage.title': return '主题';
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';
@@ -1488,6 +1491,7 @@ extension on TranslationsZhHant {
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';
+			case 'locales.kr': return '韓語';
 			case 'errorPage.title': return '發生錯誤...';
 			case 'errorPage.message': return '請檢查您的網絡連接並重試。';
 			case 'errorPage.retryButton': return '重試';

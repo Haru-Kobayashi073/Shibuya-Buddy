@@ -28,8 +28,8 @@ class RankingLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = context.deviceWidth * 0.1;
-
+    final devicesize = context.deviceWidth;
+    final size = devicesize * 0.1;
     return Offstage(
       offstage: ranking == null,
       child: Container(
@@ -42,7 +42,10 @@ class RankingLabel extends StatelessWidget {
           ),
           color: rankingColor(ranking),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7.5),
+        padding: EdgeInsets.symmetric(
+          horizontal: ranking! < 10 ? devicesize * 0.03 : devicesize * 0.01,
+          vertical: devicesize * 0.01,
+        ),
         width: size,
         height: size,
         child: Text(

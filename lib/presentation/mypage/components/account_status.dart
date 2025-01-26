@@ -45,6 +45,7 @@ class AccountStatus extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -87,7 +88,8 @@ class AccountStatus extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 32),
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   isPremiumGrade(user.billingGrade)
@@ -98,7 +100,6 @@ class AccountStatus extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                const Spacer(),
                 if (isPremiumGrade(user.billingGrade))
                   Offstage(
                     offstage: user.premiumPlanExpirationDate == null,

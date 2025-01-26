@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
@@ -78,3 +79,5 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
     }
   }
 }
+
+final selectedIndexProvider = StateProvider<int>((ref) => 0);

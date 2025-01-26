@@ -58,6 +58,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 		'en': 'English',
 		'ja': 'Japanese',
 		'zh': 'Chinese',
+		'kr': 'Korean',
 	};
 	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
 	late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
@@ -289,7 +290,7 @@ class TranslationsPromptEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get planProposalMessage => 'I’ve come up with this plan! What do you think?';
+	String get planProposalMessage => 'I\'ve come up with this plan! What do you think?';
 }
 
 // Path: billDetailsPage
@@ -545,6 +546,7 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get english => 'English';
 	String get simplifiedChinese => 'Chinese (Simplified)';
 	String get traditionalChinese => 'Chinese (Traditional)';
+	String get korean => 'Korean';
 }
 
 // Path: changeThemePage.items
@@ -1365,6 +1367,7 @@ extension on Translations {
 			case 'changeLanguagePage.items.english': return 'English';
 			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
 			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
+			case 'changeLanguagePage.items.korean': return 'Korean';
 			case 'changeThemePage.title': return 'Theme';
 			case 'changeThemePage.items.system': return 'System';
 			case 'changeThemePage.items.light': return 'Light';
@@ -1434,7 +1437,7 @@ extension on Translations {
 			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
 			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
 			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
-			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
+			case 'prompt.planProposalMessage': return 'I\'ve come up with this plan! What do you think?';
 			case 'billDetailsPage.title.defaultTitle': return 'Premium Plan';
 			case 'billDetailsPage.title.createPlan': return 'Do you want to enable unlimited plan creation?';
 			case 'billDetailsPage.title.chat': return 'Do you want to enjoy unlimited chatting?';
@@ -1492,6 +1495,7 @@ extension on Translations {
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';
+			case 'locales.kr': return 'Korean';
 			case 'errorPage.title': return 'An error occurred...';
 			case 'errorPage.message': return 'Please check your network connection and try again.';
 			case 'errorPage.retryButton': return 'Retry';

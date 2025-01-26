@@ -184,7 +184,8 @@
             "japanese": "Japanese",
             "english": "English",
             "simplifiedChinese": "Chinese (Simplified)",
-            "traditionalChinese": "Chinese (Traditional)"
+            "traditionalChinese": "Chinese (Traditional)",
+            "korean": "Korean"
         }
     },
     "changeThemePage": {
@@ -323,7 +324,7 @@
         }
     },
     "prompt": {
-        "planProposalMessage": "I’ve come up with this plan! What do you think?"
+        "planProposalMessage": "I've come up with this plan! What do you think?"
     },
     "billDetailsPage": {
         "title": {
@@ -432,7 +433,8 @@
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",
-        "zh": "Chinese"
+        "zh": "Chinese",
+        "kr": "Korean"
     },
     "errorPage": {
         "title": "An error occurred...",

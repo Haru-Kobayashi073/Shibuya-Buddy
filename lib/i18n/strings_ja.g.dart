@@ -54,6 +54,7 @@ class TranslationsJa implements Translations {
 		'en': '英語',
 		'ja': '日本語',
 		'zh': '中国語',
+		'kr': '韓国語',
 	};
 	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
 	@override late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
@@ -541,6 +542,7 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 	@override String get english => '英語';
 	@override String get simplifiedChinese => '中国語（簡体字）';
 	@override String get traditionalChinese => '中国語（繁体字）';
+	@override String get korean => '韓国語';
 }
 
 // Path: changeThemePage.items
@@ -1361,6 +1363,7 @@ extension on TranslationsJa {
 			case 'changeLanguagePage.items.english': return '英語';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
+			case 'changeLanguagePage.items.korean': return '韓国語';
 			case 'changeThemePage.title': return 'テーマ';
 			case 'changeThemePage.items.system': return 'システム';
 			case 'changeThemePage.items.light': return 'ライト';
@@ -1488,6 +1491,7 @@ extension on TranslationsJa {
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
+			case 'locales.kr': return '韓国語';
 			case 'errorPage.title': return 'エラーが発生しました...';
 			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
 			case 'errorPage.retryButton': return 'もう一度読み込む';

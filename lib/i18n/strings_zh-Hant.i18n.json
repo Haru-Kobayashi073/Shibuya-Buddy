@@ -184,7 +184,8 @@
             "japanese": "日语",
             "english": "英语",
             "simplifiedChinese": "中文(简体字)",
-            "traditionalChinese": "中文(繁体字)"
+            "traditionalChinese": "中文(繁体字)",
+            "korean": "韓語"
         }
     },
     "changeThemePage": {
@@ -432,7 +433,8 @@
     "locales(map)": {
         "en": "英語",
         "ja": "日語",
-        "zh": "中文"
+        "zh": "中文",
+        "kr": "韓語"
     },
     "errorPage": {
         "title": "發生錯誤...",
