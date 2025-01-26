@@ -29,6 +29,8 @@ class StartUpPage extends HookConsumerWidget {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 message.showExceptionSnackBar(i18n.emailVerification);
               });
+            } else if (user.phoneNumber == null) {
+              context.go(const PhoneNumberInputPageRouteData().location);
             } else {
               context.go(const HomeScreenRouteData().location);
             }
