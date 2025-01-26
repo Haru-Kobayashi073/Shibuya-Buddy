@@ -11,7 +11,6 @@ import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
 import 'phone_number_input_page_notifier.dart';
 
-
 class PhoneNumberInputPage extends HookConsumerWidget {
   const PhoneNumberInputPage({super.key});
 
@@ -20,6 +19,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
     final phoneNumberController = useTextEditingController();
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
     final completePhoneNumber = useState<String>('');
+    final selectedCountryCode = useState<String>('US'); // 初期値をアメリカに設定
 
     return Scaffold(
       appBar: AppBar(
@@ -41,23 +41,31 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               ),
             ),
             const Gap(16),
-            Flexible(
-              child: Text(
-                'SMSコードを受け取るために電話番号を入力してください。',
+            RichText(
+              text: TextSpan(
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                ),
+                children: const [
+                  TextSpan(text: 'SMSコードを受け取るために、'),
+                  TextSpan(
+                    text: '国際電話番号形式',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(text: 'で電話番号を入力してください。'),
+                ],
+              ),
+            ),
+            const Gap(8),
+            if (selectedCountryCode.value == 'JP') ...[
+              Text(
+                '例：日本の電話番号「090-1234-5678」の場合、国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 16,
                 ),
               ),
-            ),
-            Flexible(
-              child: Text(
-                '「SMSコードを送信」ボタンを押した後、認証ページに遷移しますのでそのままお待ち下さい。',
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+              const Gap(8),
+            ],
             const Gap(32),
             IntlPhoneField(
               controller: phoneNumberController,
@@ -84,9 +92,12 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                   ),
                 ),
               ),
-              initialCountryCode: 'JP',
+              initialCountryCode: 'US', // 初期国コードをアメリカに設定
               onChanged: (phone) {
                 completePhoneNumber.value = phone.completeNumber;
+              },
+              onCountryChanged: (country) {
+                selectedCountryCode.value = country.code;
               },
             ),
             const Gap(32),
