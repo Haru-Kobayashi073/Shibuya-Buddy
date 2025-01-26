@@ -62,25 +62,31 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
     }
   }
 
-  void startCoolDownTimer() {
-    state = state.copyWith(
-      smsVerificationButtonState: SmsVerificationButtonState.coolDown,
-      resendEmailVerificationCountdown: 60,
-    );
+void startCoolDownTimer() {
+  // クールダウンの開始
+  state = state.copyWith(
+    buttonState: SmsVerificationButtonState.coolDown,
+    resendCooldown: 60, // 初期化
+  );
 
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      final countdown = state.resendEmailVerificationCountdown - 1;
-      if (countdown <= 0) {
-        timer.cancel();
-        state = state.copyWith(
-          smsVerificationButtonState: SmsVerificationButtonState.resend,
-          resendEmailVerificationCountdown: 60,
-        );
-      } else {
-        state = state.copyWith(
-          resendEmailVerificationCountdown: countdown,
-        );
-      }
-    });
-  }
+  // タイマーを1秒ごとに実行
+  Timer.periodic(const Duration(seconds: 1), (timer) {
+    final countdown = state.resendCooldown - 1;
+
+    // カウントが0になったらクールダウンを終了
+    if (countdown <= 0) {
+      timer.cancel();
+      state = state.copyWith(
+        buttonState: SmsVerificationButtonState.resend,
+        resendCooldown: 60, // 次回に備えてリセット
+      );
+    } else {
+      // カウントを減少させる
+      state = state.copyWith(
+        resendCooldown: countdown,
+      );
+    }
+  });
+}
+
 }
