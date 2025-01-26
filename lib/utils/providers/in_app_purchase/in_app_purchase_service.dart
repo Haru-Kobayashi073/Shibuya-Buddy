@@ -10,6 +10,7 @@ import '../../../domain/entities/user.dart';
 import '../../../infrastructure/purchase/purchase_data_source.dart';
 import '../current_user/current_user.dart';
 import 'in_app_purchase_service_state.dart';
+import 'purchase_item_config.dart';
 
 part 'in_app_purchase_service.g.dart';
 
@@ -18,6 +19,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
   PurchaseDataSource get purchaseDataSource =>
       ref.read(purchaseDataSourceProvider.notifier);
   User get currentUser => ref.watch(currentUserProvider);
+  String get offeringId => 'premium-plan';
 
   @override
   Future<InAppPurchaseServiceState> build() async {
@@ -78,20 +80,22 @@ class InAppPurchaseService extends _$InAppPurchaseService {
 
       Package package;
       // 購入するパッケージを取得
-      package = state
-          .requireValue.offerings.all['premium-plan']!.availablePackages
+      package = state.requireValue.offerings.all[offeringId]!.availablePackages
           .firstWhere((element) => element.identifier == packageId);
       final customerInfo = await Purchases.purchasePackage(package);
-      final productId = _getProductIdFromPackageId(packageId);
 
-      if (customerInfo.allPurchasedProductIdentifiers.contains(productId)) {
+      // 購入したパッケージの情報を取得
+      final purchaseItemConfig = PurchaseItemConfigX.fromPackageId(packageId);
+
+      if (customerInfo.allPurchasedProductIdentifiers
+          .contains(purchaseItemConfig.productId)) {
         // プレミアムプランの有効期限をDateTime型で取得
         final premiumPlanExpirationDate =
             (currentUser.premiumPlanExpirationDate ?? DateTime.now()).add(
-          Duration(days: _getEffectivePeriodFromPackageId(packageId)!),
+          Duration(days: purchaseItemConfig.effectiveDays!),
         );
         final isPremiumWithUnlimited =
-            package.identifier == 'unlimited-premium';
+            package.identifier == PurchaseItemConfig.unlimitedPremium.packageId;
 
         final purchaseRecipt = PurchaseRecipt(
           id: currentUser.uid,
@@ -155,8 +159,11 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     for (final pastPurchase in pastPurchases) {
       final pastPurchasedProductId = pastPurchase.productIdentifier;
 
-      if (pastPurchasedProductId == 'unlimited_premium' ||
-          pastPurchasedProductId == 'unlimited_premium_v1') {
+      // 購入した商品の情報を取得
+      final purchaseItemConfig =
+          PurchaseItemConfigX.fromProductId(pastPurchasedProductId);
+
+      if (purchaseItemConfig == PurchaseItemConfig.unlimitedPremium) {
         return (
           resultRemainingTime: null,
           isUnlimitedPremium: true,
@@ -165,9 +172,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
 
       final pastPurchasedDate = DateTime.parse(pastPurchase.purchaseDate);
       final expirationDate = pastPurchasedDate.add(
-        Duration(
-          days: _getEffectivePeriodFromProductId(pastPurchasedProductId)!,
-        ),
+        Duration(days: purchaseItemConfig.effectiveDays!),
       );
       // 余っている分の時間　＝　有効期限　ー　現在時刻
       final now = DateTime.now().toUtc();
@@ -181,52 +186,6 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       resultRemainingTime: resultDate,
       isUnlimitedPremium: false,
     );
-  }
-
-  int? _getEffectivePeriodFromProductId(String productId) {
-    return switch (productId) {
-      'unlimited_premium' || 'unlimited_premium_v1' => null,
-      '7day_premium' || '7day_premium_v1' => 7,
-      '5day_premium' || '5day_premium_v1' => 5,
-      '3day_premium' || '3day_premium_v1' => 3,
-      '1day_premium' || '1day_premium_v1' => 1,
-      _ => null,
-    };
-  }
-
-  int? _getEffectivePeriodFromPackageId(String packageId) {
-    return switch (packageId) {
-      'unlimited-premium' => null,
-      '7day-premium' => 7,
-      '5day-premium' => 5,
-      '3day-premium' => 3,
-      r'$rc_lifetime' => 1,
-      _ => null,
-    };
-  }
-
-  String? _getProductIdFromPackageId(String packageId) {
-    if (Platform.isIOS) {
-      return switch (packageId) {
-        'unlimited-premium' => 'unlimited_premium',
-        '7day-premium' => '7day_premium',
-        '5day-premium' => '5day_premium',
-        '3day-premium' => '3day_premium',
-        r'$rc_lifetime' => '1day_premium',
-        _ => null,
-      };
-    } else if (Platform.isAndroid) {
-      return switch (packageId) {
-        'unlimited-premium' => 'unlimited_premium_v1',
-        '7day-premium' => '7day_premium_v1',
-        '5day-premium' => '5day_premium_v1',
-        '3day-premium' => '3day_premium_v1',
-        r'$rc_lifetime' => '1day_premium_v1',
-        _ => null,
-      };
-    }
-
-    return null;
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
+import '../../utils/providers/in_app_purchase/purchase_item_config.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
 
@@ -62,15 +63,15 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
 
   String _getPackageId() {
     if (state == t.billDetailsPage.pricingOptions.oneDay.duration) {
-      return r'$rc_lifetime';
+      return PurchaseItemConfig.oneDay.packageId;
     } else if (state == t.billDetailsPage.pricingOptions.threeDays.duration) {
-      return '3day-premium';
+      return PurchaseItemConfig.threeDays.packageId;
     } else if (state == t.billDetailsPage.pricingOptions.fiveDays.duration) {
-      return '5day-premium';
+      return PurchaseItemConfig.fiveDays.packageId;
     } else if (state == t.billDetailsPage.pricingOptions.sevenDays.duration) {
-      return '7day-premium';
+      return PurchaseItemConfig.sevenDays.packageId;
     } else if (state == t.billDetailsPage.pricingOptions.lifetime.duration) {
-      return 'unlimited-premium';
+      return PurchaseItemConfig.unlimitedPremium.packageId;
     } else {
       return '';
     }
