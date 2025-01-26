@@ -7,5 +7,5 @@ abstract class BillDetailPageState with _$BillDetailPageState {
   const factory BillDetailPageState({
     required String selectedItemString,
     required Map<String, String> purchaseItemPrices,
-}) = _BillDetailPageState;
+  }) = _BillDetailPageState;
 }
