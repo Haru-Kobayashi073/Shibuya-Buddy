@@ -11,6 +11,7 @@ import '../../utils/validator.dart';
 import '../components/simple_text_field.dart';
 import '../components/wide_button.dart';
 import 'sms_verification_page_notifier.dart';
+import 'sms_verification_state.dart';
 
 class SmsVerificationPage extends HookConsumerWidget {
   const SmsVerificationPage({
@@ -26,14 +27,11 @@ class SmsVerificationPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(smsVerificationNotifierProvider);
     final notifier = ref.read(smsVerificationNotifierProvider.notifier);
-
     final smsCodeController = useTextEditingController();
 
     useEffect(
       () {
-        Future.microtask(() {
-          notifier.setVerificationId(verificationId);
-        });
+        notifier.setVerificationId(verificationId);
         return null;
       },
       [],
@@ -59,31 +57,51 @@ class SmsVerificationPage extends HookConsumerWidget {
               ),
             ),
             const Gap(16),
-            Flexible(
-              child: Text(
-                '以下の電話番号にSMSコードを送信しました：$phoneNumber',
-                style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                ),
+            Text(
+              '以下の電話番号にSMSコードを送信しました：$phoneNumber',
+              style: AppTextStyle.textStyle.copyWith(fontSize: 16),
+            ),
+            Text(
+              'コードを入力して、電話番号の認証を完了してください。',
+              style: AppTextStyle.textStyle.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Flexible(
-              child: Text(
-                'コードを入力して、電話番号の認証を完了してください。',
+            const Gap(8),
+            if (state.smsVerificationButtonState ==
+                SmsVerificationButtonState.coolDown)
+              Text(
+                '再送信可能まで ${state.resendEmailVerificationCountdown}秒',
                 style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  color: AppColor.grey600,
+                ),
+              )
+            else
+              InkWell(
+                onTap: () async {
+                  if (state.smsVerificationButtonState !=
+                      SmsVerificationButtonState.coolDown) {
+                    await notifier.sendSmsCode(phoneNumber);
+                    notifier.startCoolDownTimer();
+                  }
+                },
+                child: Text(
+                  '再送信する',
+                  style: AppTextStyle.textStyle.copyWith(
+                    fontSize: 14,
+                    color: AppColor.blue600Primary,
+                    decoration: TextDecoration.underline,
+                    decorationColor: AppColor.blue600Primary,
+                  ),
                 ),
               ),
-            ),
             const Gap(32),
             SimpleTextField(
               label: 'SMSコードを入力',
               controller: smsCodeController,
-              validator: (value) {
-                Validator.common(value);
-                return null;
-              },
+              validator: Validator.common,
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.number,
               onFieldSubmitted: (_) {},
@@ -99,12 +117,10 @@ class SmsVerificationPage extends HookConsumerWidget {
                   );
                   return;
                 }
-
                 await notifier.verifySmsCode(
                   smsCodeController.text.trim(),
-                  () {
-                    const RegisterProfilePageRouteData().push<void>(context);
-                  },
+                  () =>
+                      const RegisterProfilePageRouteData().push<void>(context),
                 );
               },
             ),
@@ -112,9 +128,7 @@ class SmsVerificationPage extends HookConsumerWidget {
             WideButton(
               label: '電話番号を修正する',
               color: AppColor.blue50Background,
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              onPressed: Navigator.of(context).pop,
             ),
           ],
         ),
