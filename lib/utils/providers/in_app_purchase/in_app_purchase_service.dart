@@ -44,6 +44,19 @@ class InAppPurchaseService extends _$InAppPurchaseService {
     );
   }
 
+  Map<String, String> getPurchaseItemPrice() {
+    final offerings = state.requireValue.offerings;
+    final packages = offerings.all[offeringId]!.availablePackages;
+    final purchaseItemPrices = <String, String>{};
+    for (final package in packages) {
+      final purchaseItemConfig =
+          PurchaseItemConfigX.fromPackageId(package.identifier);
+      purchaseItemPrices[purchaseItemConfig.packageId] =
+          package.storeProduct.priceString + package.storeProduct.currencyCode;
+    }
+    return purchaseItemPrices;
+  }
+
   Future<Offerings?> getOfferingItems() async {
     try {
       final offerings = await Purchases.getOfferings();
