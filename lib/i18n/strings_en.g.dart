@@ -574,6 +574,7 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get english => 'English';
 	String get simplifiedChinese => 'Chinese (Simplified)';
 	String get traditionalChinese => 'Chinese (Traditional)';
+  String get korean => 'Korean';
 }
 
 // Path: changeThemePage.items
