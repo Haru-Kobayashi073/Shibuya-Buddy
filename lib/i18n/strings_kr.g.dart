@@ -296,12 +296,14 @@ class _TranslationsBillDetailsPageKr implements TranslationsBillDetailsPageEn {
 	final TranslationsKr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '프리미엄 플랜';
+	@override late final _TranslationsBillDetailsPageTitleKr title = _TranslationsBillDetailsPageTitleKr._(_root);
 	@override String get description => '프리미엄 플랜에 가입하시면 더욱 편리하게 시부야 관광을 즐기실 수 있습니다.';
 	@override late final _TranslationsBillDetailsPagePricingPlanKr pricingPlan = _TranslationsBillDetailsPagePricingPlanKr._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesKr features = _TranslationsBillDetailsPageFeaturesKr._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsKr pricingOptions = _TranslationsBillDetailsPagePricingOptionsKr._(_root);
+	@override late final _TranslationsBillDetailsPageRestorePurchaseSectionKr restorePurchaseSection = _TranslationsBillDetailsPageRestorePurchaseSectionKr._(_root);
 	@override String get upgradeButton => '프리미엄으로 업그레이드';
+	@override late final _TranslationsBillDetailsPageSnackBarKr snackBar = _TranslationsBillDetailsPageSnackBarKr._(_root);
 }
 
 // Path: planDetailsPage
@@ -753,6 +755,18 @@ class _TranslationsConfirmDialogCompleteCreatePlanKr implements TranslationsConf
 	@override String get description => '마지막 메시지에 포함된 플랜이 저장됩니다.';
 }
 
+// Path: billDetailsPage.title
+class _TranslationsBillDetailsPageTitleKr implements TranslationsBillDetailsPageTitleEn {
+	_TranslationsBillDetailsPageTitleKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultTitle => '프리미엄 플랜';
+	@override String get createPlan => '무제한 플랜 생성을 활성화하시겠습니까?';
+	@override String get chat => '무제한 채팅을 즐기고 싶으신가요?';
+}
+
 // Path: billDetailsPage.pricingPlan
 class _TranslationsBillDetailsPagePricingPlanKr implements TranslationsBillDetailsPagePricingPlanEn {
 	_TranslationsBillDetailsPagePricingPlanKr._(this._root);
@@ -789,6 +803,28 @@ class _TranslationsBillDetailsPagePricingOptionsKr implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysKr fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysKr._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysKr sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysKr._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeKr lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeKr._(_root);
+}
+
+// Path: billDetailsPage.restorePurchaseSection
+class _TranslationsBillDetailsPageRestorePurchaseSectionKr implements TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	_TranslationsBillDetailsPageRestorePurchaseSectionKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '구매 복원';
+	@override String get description => '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';
+	@override String get button => '구매 복원';
+}
+
+// Path: billDetailsPage.snackBar
+class _TranslationsBillDetailsPageSnackBarKr implements TranslationsBillDetailsPageSnackBarEn {
+	_TranslationsBillDetailsPageSnackBarKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageSnackBarErrorKr error = _TranslationsBillDetailsPageSnackBarErrorKr._(_root);
 }
 
 // Path: planDetailsPage.dateTime
@@ -1128,6 +1164,18 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeKr implements Translatio
 	@override String get price => '25,800원';
 }
 
+// Path: billDetailsPage.snackBar.error
+class _TranslationsBillDetailsPageSnackBarErrorKr implements TranslationsBillDetailsPageSnackBarErrorEn {
+	_TranslationsBillDetailsPageSnackBarErrorKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToPurchase => '구매에 실패했습니다. 잠시 후 다시 시도해주세요.';
+	@override String get PurchaseHistoryNotFound => '구매 기록이 없습니다.';
+	@override String get failedToRestorePurchase => '구매 복원에 실패했습니다. 잠시 후 다시 시도해주세요.';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorKr implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorKr._(this._root);
@@ -1386,7 +1434,9 @@ extension on TranslationsKr {
 			case 'confirmDialog.completeCreatePlan.title': return '플랜을 확정하시겠습니까?';
 			case 'confirmDialog.completeCreatePlan.description': return '마지막 메시지에 포함된 플랜이 저장됩니다.';
 			case 'prompt.planProposalMessage': return '이런 플랜은 어떠신가요?';
-			case 'billDetailsPage.title': return '프리미엄 플랜';
+			case 'billDetailsPage.title.defaultTitle': return '프리미엄 플랜';
+			case 'billDetailsPage.title.createPlan': return '무제한 플랜 생성을 활성화하시겠습니까?';
+			case 'billDetailsPage.title.chat': return '무제한 채팅을 즐기고 싶으신가요?';
 			case 'billDetailsPage.description': return '프리미엄 플랜에 가입하시면 더욱 편리하게 시부야 관광을 즐기실 수 있습니다.';
 			case 'billDetailsPage.pricingPlan.title': return '요금 플랜';
 			case 'billDetailsPage.pricingPlan.columns.standard': return '스탠다드';
@@ -1427,7 +1477,13 @@ extension on TranslationsKr {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '평생';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800원';
+			case 'billDetailsPage.restorePurchaseSection.title': return '구매 복원';
+			case 'billDetailsPage.restorePurchaseSection.description': return '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';
+			case 'billDetailsPage.restorePurchaseSection.button': return '구매 복원';
 			case 'billDetailsPage.upgradeButton': return '프리미엄으로 업그레이드';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return '구매에 실패했습니다. 잠시 후 다시 시도해주세요.';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '구매 기록이 없습니다.';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return '구매 복원에 실패했습니다. 잠시 후 다시 시도해주세요.';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}에 생성된 플랜';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy년 MM월 dd일';
 			case 'planDetailsPage.item.viewOnMap': return '지도에서 보기';

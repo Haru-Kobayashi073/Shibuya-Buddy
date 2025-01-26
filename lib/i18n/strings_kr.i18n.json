@@ -327,7 +327,11 @@
         "planProposalMessage": "이런 플랜은 어떠신가요?"
     },
     "billDetailsPage": {
-        "title": "프리미엄 플랜",
+        "title": {
+            "defaultTitle": "프리미엄 플랜",
+            "createPlan": "무제한 플랜 생성을 활성화하시겠습니까?",
+            "chat": "무제한 채팅을 즐기고 싶으신가요?"
+        },
         "description": "프리미엄 플랜에 가입하시면 더욱 편리하게 시부야 관광을 즐기실 수 있습니다.",
         "pricingPlan": {
             "title": "요금 플랜",
@@ -398,7 +402,19 @@
                 "price": "25,800원"
             }
         },
-        "upgradeButton": "프리미엄으로 업그레이드"
+        "restorePurchaseSection": {
+            "title": "구매 복원",
+            "description": "이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.",
+            "button": "구매 복원"
+        },
+        "upgradeButton": "프리미엄으로 업그레이드",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "구매에 실패했습니다. 잠시 후 다시 시도해주세요.",
+                "PurchaseHistoryNotFound": "구매 기록이 없습니다.",
+                "failedToRestorePurchase": "구매 복원에 실패했습니다. 잠시 후 다시 시도해주세요."
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {
