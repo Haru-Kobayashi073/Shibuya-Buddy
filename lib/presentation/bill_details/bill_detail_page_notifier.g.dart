@@ -7,12 +7,12 @@ part of 'bill_detail_page_notifier.dart';
 // **************************************************************************
 
 String _$billDetailPageNotifierHash() =>
-    r'94798148fd78a91633f5733a462a6d38ea795565';
+    r'56b90a923e335798bdc2eb36a42cd45bf4bedee4';
 
 /// See also [BillDetailPageNotifier].
 @ProviderFor(BillDetailPageNotifier)
-final billDetailPageNotifierProvider =
-    AutoDisposeNotifierProvider<BillDetailPageNotifier, String>.internal(
+final billDetailPageNotifierProvider = AutoDisposeNotifierProvider<
+    BillDetailPageNotifier, BillDetailPageState>.internal(
   BillDetailPageNotifier.new,
   name: r'billDetailPageNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final billDetailPageNotifierProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$BillDetailPageNotifier = AutoDisposeNotifier<String>;
+typedef _$BillDetailPageNotifier = AutoDisposeNotifier<BillDetailPageState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

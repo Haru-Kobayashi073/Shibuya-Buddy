@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
+import '../../../utils/providers/in_app_purchase/purchase_item_config.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../components/wide_button.dart';
 import '../bill_detail_page_notifier.dart';
@@ -13,7 +14,8 @@ class BottomModal extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedPlan = ref.watch(billDetailPageNotifierProvider);
+    final selectedPlan =
+        ref.watch(billDetailPageNotifierProvider).selectedItemString;
 
     return Container(
       decoration: BoxDecoration(
@@ -34,6 +36,7 @@ class BottomModal extends HookConsumerWidget {
         children: [
           _buildPlanCardsRow(
             selectedPlan,
+            ref.watch(billDetailPageNotifierProvider).purchaseItemPrices,
             (value) => ref
                 .read(billDetailPageNotifierProvider.notifier)
                 .selectPlan(value!),
@@ -53,6 +56,7 @@ class BottomModal extends HookConsumerWidget {
 
   Widget _buildPlanCardsRow(
     String selectedPlan,
+    Map<String, String> purchaseItemPrices,
     void Function(String?) onItemTapped,
   ) {
     final pricingOptions = t.billDetailsPage.pricingOptions;
@@ -66,7 +70,7 @@ class BottomModal extends HookConsumerWidget {
           PurchaseItemCard(
             pricingOption: PricingOption(
               duration: pricingOptions.oneDay.duration,
-              price: pricingOptions.oneDay.price,
+              price: purchaseItemPrices[PurchaseItemConfig.oneDay.packageId]!,
               discount: pricingOptions.oneDay.discount,
             ),
             groupValue: selectedPlan,
@@ -75,7 +79,8 @@ class BottomModal extends HookConsumerWidget {
           PurchaseItemCard(
             pricingOption: PricingOption(
               duration: pricingOptions.threeDays.duration,
-              price: pricingOptions.threeDays.price,
+              price:
+                  purchaseItemPrices[PurchaseItemConfig.threeDays.packageId]!,
               discount: pricingOptions.threeDays.discount,
             ),
             groupValue: selectedPlan,
@@ -84,7 +89,7 @@ class BottomModal extends HookConsumerWidget {
           PurchaseItemCard(
             pricingOption: PricingOption(
               duration: pricingOptions.fiveDays.duration,
-              price: pricingOptions.fiveDays.price,
+              price: purchaseItemPrices[PurchaseItemConfig.fiveDays.packageId]!,
               discount: pricingOptions.fiveDays.discount,
             ),
             groupValue: selectedPlan,
@@ -93,7 +98,8 @@ class BottomModal extends HookConsumerWidget {
           PurchaseItemCard(
             pricingOption: PricingOption(
               duration: pricingOptions.sevenDays.duration,
-              price: pricingOptions.sevenDays.price,
+              price:
+                  purchaseItemPrices[PurchaseItemConfig.sevenDays.packageId]!,
               discount: pricingOptions.sevenDays.discount,
             ),
             groupValue: selectedPlan,
@@ -102,7 +108,8 @@ class BottomModal extends HookConsumerWidget {
           PurchaseItemCard(
             pricingOption: PricingOption(
               duration: pricingOptions.lifetime.duration,
-              price: pricingOptions.lifetime.price,
+              price: purchaseItemPrices[
+                  PurchaseItemConfig.unlimitedPremium.packageId]!,
               discount: pricingOptions.lifetime.discount,
             ),
             groupValue: selectedPlan,

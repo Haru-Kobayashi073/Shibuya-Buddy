@@ -6,6 +6,7 @@ import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
 import '../../utils/providers/in_app_purchase/purchase_item_config.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
+import 'bill_detail_page_state.dart';
 
 part 'bill_detail_page_notifier.g.dart';
 
@@ -19,13 +20,28 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       t.billDetailsPage.snackBar.error;
 
   @override
-  String build() {
-    return t.billDetailsPage.pricingOptions.oneDay.duration;
+  BillDetailPageState build() {
+    final purchaseItemPrices = getPurchaseItemPrice();
+
+    return BillDetailPageState(
+      selectedItemString: t.billDetailsPage.pricingOptions.oneDay.duration,
+      purchaseItemPrices: purchaseItemPrices,
+    );
   }
 
   void selectPlan(String duration) {
-    state = duration;
+    state = state.copyWith(selectedItemString: duration);
     return;
+  }
+
+  Map<String, String> getPurchaseItemPrice() {
+    try {
+      final price = inAppPurchaseService.getPurchaseItemPrice();
+      return price;
+    } on Exception catch (e) {
+      debugPrint('getPurchaseItemPrice error: $e');
+      return {};
+    }
   }
 
   Future<void> purchaseItem() async {
@@ -62,15 +78,21 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
   }
 
   String _getPackageId() {
-    if (state == t.billDetailsPage.pricingOptions.oneDay.duration) {
+    final selectedItemString = state.selectedItemString;
+    if (selectedItemString ==
+        t.billDetailsPage.pricingOptions.oneDay.duration) {
       return PurchaseItemConfig.oneDay.packageId;
-    } else if (state == t.billDetailsPage.pricingOptions.threeDays.duration) {
+    } else if (selectedItemString ==
+        t.billDetailsPage.pricingOptions.threeDays.duration) {
       return PurchaseItemConfig.threeDays.packageId;
-    } else if (state == t.billDetailsPage.pricingOptions.fiveDays.duration) {
+    } else if (selectedItemString ==
+        t.billDetailsPage.pricingOptions.fiveDays.duration) {
       return PurchaseItemConfig.fiveDays.packageId;
-    } else if (state == t.billDetailsPage.pricingOptions.sevenDays.duration) {
+    } else if (selectedItemString ==
+        t.billDetailsPage.pricingOptions.sevenDays.duration) {
       return PurchaseItemConfig.sevenDays.packageId;
-    } else if (state == t.billDetailsPage.pricingOptions.lifetime.duration) {
+    } else if (selectedItemString ==
+        t.billDetailsPage.pricingOptions.lifetime.duration) {
       return PurchaseItemConfig.unlimitedPremium.packageId;
     } else {
       return '';
