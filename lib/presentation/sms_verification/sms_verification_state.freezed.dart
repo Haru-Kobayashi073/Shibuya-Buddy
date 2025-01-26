@@ -16,14 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SmsVerificationState {
-  bool get isSmsVerified => throw _privateConstructorUsedError;
-  SmsVerificationButtonState get smsVerificationButtonState =>
-      throw _privateConstructorUsedError;
-  int get resendEmailVerificationCountdown =>
-      throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
-  String get smsCode => throw _privateConstructorUsedError;
-  String get verificationId => throw _privateConstructorUsedError;
+  String get verificationId => throw _privateConstructorUsedError; // 現在の認証ID
+  String get phoneNumber => throw _privateConstructorUsedError; // 電話番号
+  bool get isSmsVerified =>
+      throw _privateConstructorUsedError; // SMS認証が成功したかどうか
+  SmsVerificationButtonState get buttonState =>
+      throw _privateConstructorUsedError; // ボタンの状態
+  int get resendCooldown =>
+      throw _privateConstructorUsedError; // 再送信のクールダウン残り時間
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of SmsVerificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -39,12 +40,12 @@ abstract class $SmsVerificationStateCopyWith<$Res> {
       _$SmsVerificationStateCopyWithImpl<$Res, SmsVerificationState>;
   @useResult
   $Res call(
-      {bool isSmsVerified,
-      SmsVerificationButtonState smsVerificationButtonState,
-      int resendEmailVerificationCountdown,
+      {String verificationId,
       String phoneNumber,
-      String smsCode,
-      String verificationId});
+      bool isSmsVerified,
+      SmsVerificationButtonState buttonState,
+      int resendCooldown,
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -63,38 +64,38 @@ class _$SmsVerificationStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSmsVerified = null,
-    Object? smsVerificationButtonState = null,
-    Object? resendEmailVerificationCountdown = null,
-    Object? phoneNumber = null,
-    Object? smsCode = null,
     Object? verificationId = null,
+    Object? phoneNumber = null,
+    Object? isSmsVerified = null,
+    Object? buttonState = null,
+    Object? resendCooldown = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      isSmsVerified: null == isSmsVerified
-          ? _value.isSmsVerified
-          : isSmsVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
-      smsVerificationButtonState: null == smsVerificationButtonState
-          ? _value.smsVerificationButtonState
-          : smsVerificationButtonState // ignore: cast_nullable_to_non_nullable
-              as SmsVerificationButtonState,
-      resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
-          ? _value.resendEmailVerificationCountdown
-          : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
-              as int,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      smsCode: null == smsCode
-          ? _value.smsCode
-          : smsCode // ignore: cast_nullable_to_non_nullable
-              as String,
       verificationId: null == verificationId
           ? _value.verificationId
           : verificationId // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSmsVerified: null == isSmsVerified
+          ? _value.isSmsVerified
+          : isSmsVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as SmsVerificationButtonState,
+      resendCooldown: null == resendCooldown
+          ? _value.resendCooldown
+          : resendCooldown // ignore: cast_nullable_to_non_nullable
+              as int,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -108,12 +109,12 @@ abstract class _$$SmsVerificationStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isSmsVerified,
-      SmsVerificationButtonState smsVerificationButtonState,
-      int resendEmailVerificationCountdown,
+      {String verificationId,
       String phoneNumber,
-      String smsCode,
-      String verificationId});
+      bool isSmsVerified,
+      SmsVerificationButtonState buttonState,
+      int resendCooldown,
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -129,38 +130,38 @@ class __$$SmsVerificationStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSmsVerified = null,
-    Object? smsVerificationButtonState = null,
-    Object? resendEmailVerificationCountdown = null,
-    Object? phoneNumber = null,
-    Object? smsCode = null,
     Object? verificationId = null,
+    Object? phoneNumber = null,
+    Object? isSmsVerified = null,
+    Object? buttonState = null,
+    Object? resendCooldown = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$SmsVerificationStateImpl(
-      isSmsVerified: null == isSmsVerified
-          ? _value.isSmsVerified
-          : isSmsVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
-      smsVerificationButtonState: null == smsVerificationButtonState
-          ? _value.smsVerificationButtonState
-          : smsVerificationButtonState // ignore: cast_nullable_to_non_nullable
-              as SmsVerificationButtonState,
-      resendEmailVerificationCountdown: null == resendEmailVerificationCountdown
-          ? _value.resendEmailVerificationCountdown
-          : resendEmailVerificationCountdown // ignore: cast_nullable_to_non_nullable
-              as int,
-      phoneNumber: null == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      smsCode: null == smsCode
-          ? _value.smsCode
-          : smsCode // ignore: cast_nullable_to_non_nullable
-              as String,
       verificationId: null == verificationId
           ? _value.verificationId
           : verificationId // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSmsVerified: null == isSmsVerified
+          ? _value.isSmsVerified
+          : isSmsVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as SmsVerificationButtonState,
+      resendCooldown: null == resendCooldown
+          ? _value.resendCooldown
+          : resendCooldown // ignore: cast_nullable_to_non_nullable
+              as int,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -169,35 +170,39 @@ class __$$SmsVerificationStateImplCopyWithImpl<$Res>
 
 class _$SmsVerificationStateImpl implements _SmsVerificationState {
   const _$SmsVerificationStateImpl(
-      {this.isSmsVerified = false,
-      this.smsVerificationButtonState = SmsVerificationButtonState.initialize,
-      this.resendEmailVerificationCountdown = 60,
+      {this.verificationId = '',
       this.phoneNumber = '',
-      this.smsCode = '',
-      this.verificationId = ''});
+      this.isSmsVerified = false,
+      this.buttonState = SmsVerificationButtonState.initialize,
+      this.resendCooldown = 60,
+      this.errorMessage});
 
-  @override
-  @JsonKey()
-  final bool isSmsVerified;
-  @override
-  @JsonKey()
-  final SmsVerificationButtonState smsVerificationButtonState;
-  @override
-  @JsonKey()
-  final int resendEmailVerificationCountdown;
-  @override
-  @JsonKey()
-  final String phoneNumber;
-  @override
-  @JsonKey()
-  final String smsCode;
   @override
   @JsonKey()
   final String verificationId;
+// 現在の認証ID
+  @override
+  @JsonKey()
+  final String phoneNumber;
+// 電話番号
+  @override
+  @JsonKey()
+  final bool isSmsVerified;
+// SMS認証が成功したかどうか
+  @override
+  @JsonKey()
+  final SmsVerificationButtonState buttonState;
+// ボタンの状態
+  @override
+  @JsonKey()
+  final int resendCooldown;
+// 再送信のクールダウン残り時間
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'SmsVerificationState(isSmsVerified: $isSmsVerified, smsVerificationButtonState: $smsVerificationButtonState, resendEmailVerificationCountdown: $resendEmailVerificationCountdown, phoneNumber: $phoneNumber, smsCode: $smsCode, verificationId: $verificationId)';
+    return 'SmsVerificationState(verificationId: $verificationId, phoneNumber: $phoneNumber, isSmsVerified: $isSmsVerified, buttonState: $buttonState, resendCooldown: $resendCooldown, errorMessage: $errorMessage)';
   }
 
   @override
@@ -205,32 +210,23 @@ class _$SmsVerificationStateImpl implements _SmsVerificationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SmsVerificationStateImpl &&
-            (identical(other.isSmsVerified, isSmsVerified) ||
-                other.isSmsVerified == isSmsVerified) &&
-            (identical(other.smsVerificationButtonState,
-                    smsVerificationButtonState) ||
-                other.smsVerificationButtonState ==
-                    smsVerificationButtonState) &&
-            (identical(other.resendEmailVerificationCountdown,
-                    resendEmailVerificationCountdown) ||
-                other.resendEmailVerificationCountdown ==
-                    resendEmailVerificationCountdown) &&
+            (identical(other.verificationId, verificationId) ||
+                other.verificationId == verificationId) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.smsCode, smsCode) || other.smsCode == smsCode) &&
-            (identical(other.verificationId, verificationId) ||
-                other.verificationId == verificationId));
+            (identical(other.isSmsVerified, isSmsVerified) ||
+                other.isSmsVerified == isSmsVerified) &&
+            (identical(other.buttonState, buttonState) ||
+                other.buttonState == buttonState) &&
+            (identical(other.resendCooldown, resendCooldown) ||
+                other.resendCooldown == resendCooldown) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isSmsVerified,
-      smsVerificationButtonState,
-      resendEmailVerificationCountdown,
-      phoneNumber,
-      smsCode,
-      verificationId);
+  int get hashCode => Object.hash(runtimeType, verificationId, phoneNumber,
+      isSmsVerified, buttonState, resendCooldown, errorMessage);
 
   /// Create a copy of SmsVerificationState
   /// with the given fields replaced by the non-null parameter values.
@@ -245,25 +241,25 @@ class _$SmsVerificationStateImpl implements _SmsVerificationState {
 
 abstract class _SmsVerificationState implements SmsVerificationState {
   const factory _SmsVerificationState(
-      {final bool isSmsVerified,
-      final SmsVerificationButtonState smsVerificationButtonState,
-      final int resendEmailVerificationCountdown,
+      {final String verificationId,
       final String phoneNumber,
-      final String smsCode,
-      final String verificationId}) = _$SmsVerificationStateImpl;
+      final bool isSmsVerified,
+      final SmsVerificationButtonState buttonState,
+      final int resendCooldown,
+      final String? errorMessage}) = _$SmsVerificationStateImpl;
 
   @override
-  bool get isSmsVerified;
+  String get verificationId; // 現在の認証ID
   @override
-  SmsVerificationButtonState get smsVerificationButtonState;
+  String get phoneNumber; // 電話番号
   @override
-  int get resendEmailVerificationCountdown;
+  bool get isSmsVerified; // SMS認証が成功したかどうか
   @override
-  String get phoneNumber;
+  SmsVerificationButtonState get buttonState; // ボタンの状態
   @override
-  String get smsCode;
+  int get resendCooldown; // 再送信のクールダウン残り時間
   @override
-  String get verificationId;
+  String? get errorMessage;
 
   /// Create a copy of SmsVerificationState
   /// with the given fields replaced by the non-null parameter values.
