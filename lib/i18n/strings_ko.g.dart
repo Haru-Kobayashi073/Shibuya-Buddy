@@ -393,6 +393,7 @@ class _TranslationsAccountPageItemsKo implements TranslationsAccountPageItemsEn 
 	@override String get linkedWithApple => 'Apple 연동';
 	@override String get alreadyLinkedGoogle => 'Google 연동 완료';
 	@override String get alreadyLinkedApple => 'Apple 연동 완료';
+	@override String get deleteAccount => '계정 삭제';
 }
 
 // Path: accountPage.snackBar
@@ -413,6 +414,8 @@ class _TranslationsAccountPageSnackBarKo implements TranslationsAccountPageSnack
 	@override String get unlinkageFailure => '계정 연동 해제에 실패했습니다.';
 	@override String get operationNotAllowed => '제공자가 비활성화되었습니다. 개발자에게 문의하세요.';
 	@override String get unknownError => '알 수 없는 오류가 발생했습니다.';
+	@override String get deleteAccount => '계정이 삭제되었습니다.';
+	@override String get deleteAccountFailure => '계정 삭제에 실패했습니다.';
 }
 
 // Path: accountPage.diaLog
@@ -427,6 +430,10 @@ class _TranslationsAccountPageDiaLogKo implements TranslationsAccountPageDiaLogE
 	@override String get title => '계정 연동 해제 확인';
 	@override String get googleText => '현재 계정과 Google 계정의 연동을 해제하시겠습니까?';
 	@override String get appleText => '현재 계정과 Apple 계정의 연동을 해제하시겠습니까?';
+	@override String get signOut => '로그아웃하시겠습니까?';
+	@override String get signOutText => '앱 기능을 이용하려면 다시 로그인해야 합니다.';
+	@override String get deleteAccount => '계정을 삭제하시겠습니까?';
+	@override String get deleteAccountText => '계정을 삭제하면 모든 데이터가 삭제됩니다.';
 }
 
 // Path: authentication.signInPage
@@ -1219,6 +1226,7 @@ extension on TranslationsKo {
 			case 'accountPage.items.linkedWithApple': return 'Apple 연동';
 			case 'accountPage.items.alreadyLinkedGoogle': return 'Google 연동 완료';
 			case 'accountPage.items.alreadyLinkedApple': return 'Apple 연동 완료';
+			case 'accountPage.items.deleteAccount': return '계정 삭제';
 			case 'accountPage.snackBar.signOut': return '로그아웃되었습니다.';
 			case 'accountPage.snackBar.signOutFailure': return '로그아웃 중 오류가 발생했습니다.';
 			case 'accountPage.snackBar.successfulLinkage': return '계정 연동에 성공했습니다.';
@@ -1230,11 +1238,17 @@ extension on TranslationsKo {
 			case 'accountPage.snackBar.unlinkageFailure': return '계정 연동 해제에 실패했습니다.';
 			case 'accountPage.snackBar.operationNotAllowed': return '제공자가 비활성화되었습니다. 개발자에게 문의하세요.';
 			case 'accountPage.snackBar.unknownError': return '알 수 없는 오류가 발생했습니다.';
+			case 'accountPage.snackBar.deleteAccount': return '계정이 삭제되었습니다.';
+			case 'accountPage.snackBar.deleteAccountFailure': return '계정 삭제에 실패했습니다.';
 			case 'accountPage.diaLog.yes': return '예';
 			case 'accountPage.diaLog.no': return '아니요';
 			case 'accountPage.diaLog.title': return '계정 연동 해제 확인';
 			case 'accountPage.diaLog.googleText': return '현재 계정과 Google 계정의 연동을 해제하시겠습니까?';
 			case 'accountPage.diaLog.appleText': return '현재 계정과 Apple 계정의 연동을 해제하시겠습니까?';
+			case 'accountPage.diaLog.signOut': return '로그아웃하시겠습니까?';
+			case 'accountPage.diaLog.signOutText': return '앱 기능을 이용하려면 다시 로그인해야 합니다.';
+			case 'accountPage.diaLog.deleteAccount': return '계정을 삭제하시겠습니까?';
+			case 'accountPage.diaLog.deleteAccountText': return '계정을 삭제하면 모든 데이터가 삭제됩니다.';
 			case 'authentication.signInPage.title': return '로그인';
 			case 'authentication.signInPage.optionText': return ' 또는 ';
 			case 'authentication.signInPage.textFields.email': return '이메일 주소';

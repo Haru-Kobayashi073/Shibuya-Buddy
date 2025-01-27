@@ -393,6 +393,7 @@ class _TranslationsAccountPageItemsZhHans implements TranslationsAccountPageItem
 	@override String get linkedWithApple => '与Apple连接';
 	@override String get alreadyLinkedGoogle => '已与Google连接';
 	@override String get alreadyLinkedApple => '已与Apple连接';
+	@override String get deleteAccount => '删除账户';
 }
 
 // Path: accountPage.snackBar
@@ -413,6 +414,8 @@ class _TranslationsAccountPageSnackBarZhHans implements TranslationsAccountPageS
 	@override String get unlinkageFailure => '解除账户关联失败。';
 	@override String get operationNotAllowed => '提供者无效。请联系开发者。';
 	@override String get unknownError => '发生未知错误。';
+	@override String get deleteAccount => '账户已删除。';
+	@override String get deleteAccountFailure => '删除账户失败。';
 }
 
 // Path: accountPage.diaLog
@@ -427,6 +430,10 @@ class _TranslationsAccountPageDiaLogZhHans implements TranslationsAccountPageDia
 	@override String get title => '确认解除账户连接';
 	@override String get googleText => '是否要解除当前账户与Google账户的连接？';
 	@override String get appleText => '是否要解除当前账户与Apple账户的连接？';
+	@override String get signOut => '您要退出登录吗？';
+	@override String get signOutText => '使用应用功能需要重新登录。';
+	@override String get deleteAccount => '您要删除账户吗？';
+	@override String get deleteAccountText => '删除账户后，所有数据将被删除。';
 }
 
 // Path: authentication.signInPage
@@ -1219,6 +1226,7 @@ extension on TranslationsZhHans {
 			case 'accountPage.items.linkedWithApple': return '与Apple连接';
 			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
 			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
+			case 'accountPage.items.deleteAccount': return '删除账户';
 			case 'accountPage.snackBar.signOut': return '已成功退出登录。';
 			case 'accountPage.snackBar.signOutFailure': return '退出登录时发生错误。';
 			case 'accountPage.snackBar.successfulLinkage': return '账户关联成功。';
@@ -1230,11 +1238,17 @@ extension on TranslationsZhHans {
 			case 'accountPage.snackBar.unlinkageFailure': return '解除账户关联失败。';
 			case 'accountPage.snackBar.operationNotAllowed': return '提供者无效。请联系开发者。';
 			case 'accountPage.snackBar.unknownError': return '发生未知错误。';
+			case 'accountPage.snackBar.deleteAccount': return '账户已删除。';
+			case 'accountPage.snackBar.deleteAccountFailure': return '删除账户失败。';
 			case 'accountPage.diaLog.yes': return '是';
 			case 'accountPage.diaLog.no': return '否';
 			case 'accountPage.diaLog.title': return '确认解除账户连接';
 			case 'accountPage.diaLog.googleText': return '是否要解除当前账户与Google账户的连接？';
 			case 'accountPage.diaLog.appleText': return '是否要解除当前账户与Apple账户的连接？';
+			case 'accountPage.diaLog.signOut': return '您要退出登录吗？';
+			case 'accountPage.diaLog.signOutText': return '使用应用功能需要重新登录。';
+			case 'accountPage.diaLog.deleteAccount': return '您要删除账户吗？';
+			case 'accountPage.diaLog.deleteAccountText': return '删除账户后，所有数据将被删除。';
 			case 'authentication.signInPage.title': return '登录';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '电子邮件地址';

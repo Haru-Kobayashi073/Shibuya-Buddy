@@ -397,6 +397,7 @@ class TranslationsAccountPageItemsEn {
 	String get linkedWithApple => 'Linked with Apple';
 	String get alreadyLinkedGoogle => 'Already Linked with Google';
 	String get alreadyLinkedApple => 'Already Linked with Apple';
+	String get deleteAccount => 'Delete Account';
 }
 
 // Path: accountPage.snackBar
@@ -417,6 +418,8 @@ class TranslationsAccountPageSnackBarEn {
 	String get unlinkageFailure => 'Failed to remove account linkage.';
 	String get operationNotAllowed => 'Provider is invalid. Please contact the developer.';
 	String get unknownError => 'An unknown error occurred.';
+	String get deleteAccount => 'Your account has been deleted.';
+	String get deleteAccountFailure => 'Failed to delete your account.';
 }
 
 // Path: accountPage.diaLog
@@ -431,6 +434,10 @@ class TranslationsAccountPageDiaLogEn {
 	String get title => 'Confirm Account Unlinking';
 	String get googleText => 'Do you want to unlink the current account from your Google account?';
 	String get appleText => 'Do you want to unlink the current account from your Apple account?';
+	String get signOut => 'Do you want to sign out?';
+	String get signOutText => 'Re-login is required to use the app\'s features.';
+	String get deleteAccount => 'Do you want to delete your account?';
+	String get deleteAccountText => 'Deleting your account will remove all data.';
 }
 
 // Path: authentication.signInPage
@@ -1223,6 +1230,7 @@ extension on Translations {
 			case 'accountPage.items.linkedWithApple': return 'Linked with Apple';
 			case 'accountPage.items.alreadyLinkedGoogle': return 'Already Linked with Google';
 			case 'accountPage.items.alreadyLinkedApple': return 'Already Linked with Apple';
+			case 'accountPage.items.deleteAccount': return 'Delete Account';
 			case 'accountPage.snackBar.signOut': return 'You have been logged out.';
 			case 'accountPage.snackBar.signOutFailure': return 'An error occurred while signing out.';
 			case 'accountPage.snackBar.successfulLinkage': return 'Account linked successfully.';
@@ -1234,11 +1242,17 @@ extension on Translations {
 			case 'accountPage.snackBar.unlinkageFailure': return 'Failed to remove account linkage.';
 			case 'accountPage.snackBar.operationNotAllowed': return 'Provider is invalid. Please contact the developer.';
 			case 'accountPage.snackBar.unknownError': return 'An unknown error occurred.';
+			case 'accountPage.snackBar.deleteAccount': return 'Your account has been deleted.';
+			case 'accountPage.snackBar.deleteAccountFailure': return 'Failed to delete your account.';
 			case 'accountPage.diaLog.yes': return 'Yes';
 			case 'accountPage.diaLog.no': return 'No';
 			case 'accountPage.diaLog.title': return 'Confirm Account Unlinking';
 			case 'accountPage.diaLog.googleText': return 'Do you want to unlink the current account from your Google account?';
 			case 'accountPage.diaLog.appleText': return 'Do you want to unlink the current account from your Apple account?';
+			case 'accountPage.diaLog.signOut': return 'Do you want to sign out?';
+			case 'accountPage.diaLog.signOutText': return 'Re-login is required to use the app\'s features.';
+			case 'accountPage.diaLog.deleteAccount': return 'Do you want to delete your account?';
+			case 'accountPage.diaLog.deleteAccountText': return 'Deleting your account will remove all data.';
 			case 'authentication.signInPage.title': return 'Sign In';
 			case 'authentication.signInPage.optionText': return ' or ';
 			case 'authentication.signInPage.textFields.email': return 'Email Address';
