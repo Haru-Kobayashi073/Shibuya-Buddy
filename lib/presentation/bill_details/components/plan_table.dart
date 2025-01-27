@@ -103,9 +103,8 @@ class PlanTable extends StatelessWidget {
                   ),
                   height: 200,
                   margin: const EdgeInsets.only(left: 1, bottom: 1),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                  child: tableBuilder(
+                    [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -176,5 +175,26 @@ class PlanTable extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  LayoutBuilder tableBuilder(List<Widget> children) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return (constraints.maxWidth < 220)
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children,
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children,
+              );
+      },
+    );
+  }
+
+  double getWidgetWidth(List<Widget> children, BuildContext context) {
+    final box = context.findRenderObject()! as RenderBox;
+    return box.size.width;
   }
 }
