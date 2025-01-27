@@ -410,7 +410,7 @@
                 "standard": {
                     "label": "スタンダード",
                     "planCreationLimit": "2回",
-                    "chatLimit": "3回"
+                    "chatLimit": "2回"
                 },
                 "premium": {
                     "label": "プレミアム",
@@ -442,7 +442,7 @@
             },
             "lifetime": {
                 "duration": "永年分",
-                "discount": "",
+                "discount": "-20%",
                 "price": "25,800円"
             }
         },

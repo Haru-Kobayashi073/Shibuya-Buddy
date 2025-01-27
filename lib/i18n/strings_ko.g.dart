@@ -1252,7 +1252,7 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeKo implements Translatio
 
 	// Translations
 	@override String get duration => '평생';
-	@override String get discount => '';
+	@override String get discount => '-20%';
 	@override String get price => '25,800원';
 }
 
@@ -1325,7 +1325,7 @@ class _TranslationsBillDetailsPageFeaturesColumnsStandardKo implements Translati
 	// Translations
 	@override String get label => '스탠다드';
 	@override String get planCreationLimit => '2회';
-	@override String get chatLimit => '3회';
+	@override String get chatLimit => '2회';
 }
 
 // Path: billDetailsPage.features.columns.premium
@@ -1582,7 +1582,7 @@ extension on TranslationsKo {
 			case 'billDetailsPage.features.rows.exclusiveFeatures': return '플랜 인증 기능';
 			case 'billDetailsPage.features.columns.standard.label': return '스탠다드';
 			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2회';
-			case 'billDetailsPage.features.columns.standard.chatLimit': return '3회';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '2회';
 			case 'billDetailsPage.features.columns.premium.label': return '프리미엄';
 			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '무제한';
 			case 'billDetailsPage.features.columns.premium.chatLimit': return '무제한';
@@ -1599,7 +1599,7 @@ extension on TranslationsKo {
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070원';
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '평생';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800원';
 			case 'billDetailsPage.restorePurchaseSection.title': return '구매 복원';
 			case 'billDetailsPage.restorePurchaseSection.description': return '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';

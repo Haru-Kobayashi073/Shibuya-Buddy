@@ -1252,7 +1252,7 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements Translatio
 
 	// Translations
 	@override String get duration => '永年分';
-	@override String get discount => '';
+	@override String get discount => '-20%';
 	@override String get price => '25,800円';
 }
 
@@ -1325,7 +1325,7 @@ class _TranslationsBillDetailsPageFeaturesColumnsStandardJa implements Translati
 	// Translations
 	@override String get label => 'スタンダード';
 	@override String get planCreationLimit => '2回';
-	@override String get chatLimit => '3回';
+	@override String get chatLimit => '2回';
 }
 
 // Path: billDetailsPage.features.columns.premium
@@ -1582,7 +1582,7 @@ extension on TranslationsJa {
 			case 'billDetailsPage.features.rows.exclusiveFeatures': return 'プランの認証機能';
 			case 'billDetailsPage.features.columns.standard.label': return 'スタンダード';
 			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2回';
-			case 'billDetailsPage.features.columns.standard.chatLimit': return '3回';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '2回';
 			case 'billDetailsPage.features.columns.premium.label': return 'プレミアム';
 			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '無制限';
 			case 'billDetailsPage.features.columns.premium.chatLimit': return '無制限';
@@ -1599,7 +1599,7 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070円';
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '永年分';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
 			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';
 			case 'billDetailsPage.restorePurchaseSection.description': return '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';

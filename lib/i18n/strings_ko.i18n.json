@@ -410,7 +410,7 @@
                 "standard": {
                     "label": "스탠다드",
                     "planCreationLimit": "2회",
-                    "chatLimit": "3회"
+                    "chatLimit": "2회"
                 },
                 "premium": {
                     "label": "프리미엄",
@@ -442,7 +442,7 @@
             },
             "lifetime": {
                 "duration": "평생",
-                "discount": "",
+                "discount": "-20%",
                 "price": "25,800원"
             }
         },
