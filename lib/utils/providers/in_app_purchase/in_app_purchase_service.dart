@@ -23,7 +23,10 @@ class InAppPurchaseService extends _$InAppPurchaseService {
 
   @override
   Future<InAppPurchaseServiceState> build() async {
-    await Purchases.setLogLevel(LogLevel.verbose);
+    const flavor = String.fromEnvironment('flavor');
+    await Purchases.setLogLevel(
+      flavor == 'prod' ? LogLevel.error : LogLevel.verbose,
+    );
     const googleAPIKey = String.fromEnvironment('revenueCatGoogleAPIKey');
     const appleAPIKey = String.fromEnvironment('revenueCatAppleAPIKey');
 
