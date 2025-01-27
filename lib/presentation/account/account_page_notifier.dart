@@ -32,7 +32,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
     final user = firebaseAuth.currentUser;
     return user?.providerData.any(
           (userInfo) =>
-              userInfo.providerId == SocialAuthDomain.apple.toString(),
+              userInfo.providerId == SocialAuthDomain.apple.providerId,
         ) ??
         false;
   }
@@ -41,7 +41,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
     final user = firebaseAuth.currentUser;
     return user?.providerData.any(
           (userInfo) =>
-              userInfo.providerId == SocialAuthDomain.google.toString(),
+              userInfo.providerId == SocialAuthDomain.google.providerId,
         ) ??
         false;
   }
