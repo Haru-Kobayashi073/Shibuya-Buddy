@@ -94,9 +94,8 @@ Future<void> sendSmsCode({
   required void Function(String verificationId) onCodeSent,
   required void Function(FirebaseAuthException error) onError,
 }) async {
-  final auth = FirebaseAuth.instance;
 
-  await auth.verifyPhoneNumber(
+  await firebaseAuth.verifyPhoneNumber(
     phoneNumber: phoneNumber,
     verificationCompleted: (PhoneAuthCredential credential) async {
     },
