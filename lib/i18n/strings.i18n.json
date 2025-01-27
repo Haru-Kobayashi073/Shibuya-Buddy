@@ -325,7 +325,8 @@
         "submitButton": "Submit Plan to AI",
         "snackBar": {
             "error": {
-                "foundUnSelectedField": "There are unselected items. Please select all items."
+                "foundUnSelectedField": "There are unselected items. Please select all items.",
+                "invalidDateRange": "The start date must be set before the end date."
             }
         }
     },
@@ -454,7 +455,8 @@
     "locales(map)": {
         "en": "English",
         "ja": "Japanese",
-        "zh": "Chinese"
+        "zh": "Chinese",
+        "ko": "Korean"
     },
     "errorPage": {
         "title": "An error occurred...",

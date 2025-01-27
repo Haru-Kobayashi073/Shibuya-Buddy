@@ -10,13 +10,13 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class TranslationsKr implements Translations {
+class TranslationsKo implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsKr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsKo({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.kr,
+		    locale: AppLocale.ko,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
@@ -24,100 +24,100 @@ class TranslationsKr implements Translations {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
 
-	/// Metadata for the translations of <kr>.
+	/// Metadata for the translations of <ko>.
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
 	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-	late final TranslationsKr _root = this; // ignore: unused_field
+	late final TranslationsKo _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsNavigationBarKr navigationBar = _TranslationsNavigationBarKr._(_root);
-	@override late final _TranslationsHomePageKr homePage = _TranslationsHomePageKr._(_root);
-	@override late final _TranslationsAccountPageKr accountPage = _TranslationsAccountPageKr._(_root);
-	@override late final _TranslationsAuthenticationKr authentication = _TranslationsAuthenticationKr._(_root);
-	@override late final _TranslationsValidationKr validation = _TranslationsValidationKr._(_root);
-	@override late final _TranslationsMyPageKr myPage = _TranslationsMyPageKr._(_root);
-	@override late final _TranslationsChangeLanguagePageKr changeLanguagePage = _TranslationsChangeLanguagePageKr._(_root);
-	@override late final _TranslationsChangeThemePageKr changeThemePage = _TranslationsChangeThemePageKr._(_root);
-	@override late final _TranslationsMyPlanPageKr myPlanPage = _TranslationsMyPlanPageKr._(_root);
-	@override late final _TranslationsBuddyChatPageKr buddyChatPage = _TranslationsBuddyChatPageKr._(_root);
-	@override late final _TranslationsPopularTopicsKr popularTopics = _TranslationsPopularTopicsKr._(_root);
-	@override late final _TranslationsCreatePlanPageKr createPlanPage = _TranslationsCreatePlanPageKr._(_root);
-	@override late final _TranslationsEditProfilePageKr editProfilePage = _TranslationsEditProfilePageKr._(_root);
-	@override late final _TranslationsConfirmDialogKr confirmDialog = _TranslationsConfirmDialogKr._(_root);
-	@override late final _TranslationsPromptKr prompt = _TranslationsPromptKr._(_root);
-	@override late final _TranslationsBillDetailsPageKr billDetailsPage = _TranslationsBillDetailsPageKr._(_root);
-	@override late final _TranslationsPlanDetailsPageKr planDetailsPage = _TranslationsPlanDetailsPageKr._(_root);
+	@override late final _TranslationsNavigationBarKo navigationBar = _TranslationsNavigationBarKo._(_root);
+	@override late final _TranslationsHomePageKo homePage = _TranslationsHomePageKo._(_root);
+	@override late final _TranslationsAccountPageKo accountPage = _TranslationsAccountPageKo._(_root);
+	@override late final _TranslationsAuthenticationKo authentication = _TranslationsAuthenticationKo._(_root);
+	@override late final _TranslationsValidationKo validation = _TranslationsValidationKo._(_root);
+	@override late final _TranslationsMyPageKo myPage = _TranslationsMyPageKo._(_root);
+	@override late final _TranslationsChangeLanguagePageKo changeLanguagePage = _TranslationsChangeLanguagePageKo._(_root);
+	@override late final _TranslationsChangeThemePageKo changeThemePage = _TranslationsChangeThemePageKo._(_root);
+	@override late final _TranslationsMyPlanPageKo myPlanPage = _TranslationsMyPlanPageKo._(_root);
+	@override late final _TranslationsBuddyChatPageKo buddyChatPage = _TranslationsBuddyChatPageKo._(_root);
+	@override late final _TranslationsPopularTopicsKo popularTopics = _TranslationsPopularTopicsKo._(_root);
+	@override late final _TranslationsCreatePlanPageKo createPlanPage = _TranslationsCreatePlanPageKo._(_root);
+	@override late final _TranslationsEditProfilePageKo editProfilePage = _TranslationsEditProfilePageKo._(_root);
+	@override late final _TranslationsConfirmDialogKo confirmDialog = _TranslationsConfirmDialogKo._(_root);
+	@override late final _TranslationsPromptKo prompt = _TranslationsPromptKo._(_root);
+	@override late final _TranslationsBillDetailsPageKo billDetailsPage = _TranslationsBillDetailsPageKo._(_root);
+	@override late final _TranslationsPlanDetailsPageKo planDetailsPage = _TranslationsPlanDetailsPageKo._(_root);
 	@override Map<String, String> get locales => {
 		'en': '영어',
 		'ja': '일본어',
 		'zh': '중국어',
 		'ko': '한국어',
 	};
-	@override late final _TranslationsErrorPageKr errorPage = _TranslationsErrorPageKr._(_root);
-	@override late final _TranslationsMapPageKr mapPage = _TranslationsMapPageKr._(_root);
+	@override late final _TranslationsErrorPageKo errorPage = _TranslationsErrorPageKo._(_root);
+	@override late final _TranslationsMapPageKo mapPage = _TranslationsMapPageKo._(_root);
 }
 
 // Path: navigationBar
-class _TranslationsNavigationBarKr implements TranslationsNavigationBarEn {
-	_TranslationsNavigationBarKr._(this._root);
+class _TranslationsNavigationBarKo implements TranslationsNavigationBarEn {
+	_TranslationsNavigationBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsNavigationBarItemsKr items = _TranslationsNavigationBarItemsKr._(_root);
+	@override late final _TranslationsNavigationBarItemsKo items = _TranslationsNavigationBarItemsKo._(_root);
 }
 
 // Path: homePage
-class _TranslationsHomePageKr implements TranslationsHomePageEn {
-	_TranslationsHomePageKr._(this._root);
+class _TranslationsHomePageKo implements TranslationsHomePageEn {
+	_TranslationsHomePageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsHomePagePopularPlansKr popularPlans = _TranslationsHomePagePopularPlansKr._(_root);
-	@override late final _TranslationsHomePagePopularTopicsKr popularTopics = _TranslationsHomePagePopularTopicsKr._(_root);
-	@override late final _TranslationsHomePageRecentPlansKr recentPlans = _TranslationsHomePageRecentPlansKr._(_root);
+	@override late final _TranslationsHomePagePopularPlansKo popularPlans = _TranslationsHomePagePopularPlansKo._(_root);
+	@override late final _TranslationsHomePagePopularTopicsKo popularTopics = _TranslationsHomePagePopularTopicsKo._(_root);
+	@override late final _TranslationsHomePageRecentPlansKo recentPlans = _TranslationsHomePageRecentPlansKo._(_root);
 }
 
 // Path: accountPage
-class _TranslationsAccountPageKr implements TranslationsAccountPageEn {
-	_TranslationsAccountPageKr._(this._root);
+class _TranslationsAccountPageKo implements TranslationsAccountPageEn {
+	_TranslationsAccountPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '계정';
-	@override late final _TranslationsAccountPageItemsKr items = _TranslationsAccountPageItemsKr._(_root);
-	@override late final _TranslationsAccountPageSnackBarKr snackBar = _TranslationsAccountPageSnackBarKr._(_root);
-	@override late final _TranslationsAccountPageDiaLogKr diaLog = _TranslationsAccountPageDiaLogKr._(_root);
+	@override late final _TranslationsAccountPageItemsKo items = _TranslationsAccountPageItemsKo._(_root);
+	@override late final _TranslationsAccountPageSnackBarKo snackBar = _TranslationsAccountPageSnackBarKo._(_root);
+	@override late final _TranslationsAccountPageDiaLogKo diaLog = _TranslationsAccountPageDiaLogKo._(_root);
 }
 
 // Path: authentication
-class _TranslationsAuthenticationKr implements TranslationsAuthenticationEn {
-	_TranslationsAuthenticationKr._(this._root);
+class _TranslationsAuthenticationKo implements TranslationsAuthenticationEn {
+	_TranslationsAuthenticationKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationSignInPageKr signInPage = _TranslationsAuthenticationSignInPageKr._(_root);
-	@override late final _TranslationsAuthenticationResetPasswordPageKr resetPasswordPage = _TranslationsAuthenticationResetPasswordPageKr._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageKr signUpPage = _TranslationsAuthenticationSignUpPageKr._(_root);
-	@override late final _TranslationsAuthenticationEmailVerificationPageKr emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageKr._(_root);
-	@override late final _TranslationsAuthenticationRegisterProfilePageKr registerProfilePage = _TranslationsAuthenticationRegisterProfilePageKr._(_root);
-	@override late final _TranslationsAuthenticationCompleteSendEmailPageKr completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageKr._(_root);
-	@override late final _TranslationsAuthenticationPhoneNumberInputPageKr phoneNumberInputPage = _TranslationsAuthenticationPhoneNumberInputPageKr._(_root);
-	@override late final _TranslationsAuthenticationSmsVerificationPageKr smsVerificationPage = _TranslationsAuthenticationSmsVerificationPageKr._(_root);
-	@override late final _TranslationsAuthenticationFirebaseAuthKr firebaseAuth = _TranslationsAuthenticationFirebaseAuthKr._(_root);
+	@override late final _TranslationsAuthenticationSignInPageKo signInPage = _TranslationsAuthenticationSignInPageKo._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageKo resetPasswordPage = _TranslationsAuthenticationResetPasswordPageKo._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageKo signUpPage = _TranslationsAuthenticationSignUpPageKo._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageKo emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageKo._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageKo registerProfilePage = _TranslationsAuthenticationRegisterProfilePageKo._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageKo completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageKo._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageKo phoneNumberInputPage = _TranslationsAuthenticationPhoneNumberInputPageKo._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageKo smsVerificationPage = _TranslationsAuthenticationSmsVerificationPageKo._(_root);
+	@override late final _TranslationsAuthenticationFirebaseAuthKo firebaseAuth = _TranslationsAuthenticationFirebaseAuthKo._(_root);
 }
 
 // Path: validation
-class _TranslationsValidationKr implements TranslationsValidationEn {
-	_TranslationsValidationKr._(this._root);
+class _TranslationsValidationKo implements TranslationsValidationEn {
+	_TranslationsValidationKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get emailRequired => '이메일 주소를 입력해주세요.';
@@ -133,10 +133,10 @@ class _TranslationsValidationKr implements TranslationsValidationEn {
 }
 
 // Path: myPage
-class _TranslationsMyPageKr implements TranslationsMyPageEn {
-	_TranslationsMyPageKr._(this._root);
+class _TranslationsMyPageKo implements TranslationsMyPageEn {
+	_TranslationsMyPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get unregisteredUserName => '미등록';
@@ -150,81 +150,81 @@ class _TranslationsMyPageKr implements TranslationsMyPageEn {
 	@override String get termsOfUsePrivacyPolicy => '이용약관 및 개인정보 처리방침';
 	@override String get aboutThisApp => '앱 정보';
 	@override String get aboutTheDeveloper => '개발자 정보';
-	@override late final _TranslationsMyPageAccountStatusKr accountStatus = _TranslationsMyPageAccountStatusKr._(_root);
+	@override late final _TranslationsMyPageAccountStatusKo accountStatus = _TranslationsMyPageAccountStatusKo._(_root);
 }
 
 // Path: changeLanguagePage
-class _TranslationsChangeLanguagePageKr implements TranslationsChangeLanguagePageEn {
-	_TranslationsChangeLanguagePageKr._(this._root);
+class _TranslationsChangeLanguagePageKo implements TranslationsChangeLanguagePageEn {
+	_TranslationsChangeLanguagePageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '언어';
-	@override late final _TranslationsChangeLanguagePageItemsKr items = _TranslationsChangeLanguagePageItemsKr._(_root);
+	@override late final _TranslationsChangeLanguagePageItemsKo items = _TranslationsChangeLanguagePageItemsKo._(_root);
 }
 
 // Path: changeThemePage
-class _TranslationsChangeThemePageKr implements TranslationsChangeThemePageEn {
-	_TranslationsChangeThemePageKr._(this._root);
+class _TranslationsChangeThemePageKo implements TranslationsChangeThemePageEn {
+	_TranslationsChangeThemePageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '테마';
-	@override late final _TranslationsChangeThemePageItemsKr items = _TranslationsChangeThemePageItemsKr._(_root);
+	@override late final _TranslationsChangeThemePageItemsKo items = _TranslationsChangeThemePageItemsKo._(_root);
 }
 
 // Path: myPlanPage
-class _TranslationsMyPlanPageKr implements TranslationsMyPlanPageEn {
-	_TranslationsMyPlanPageKr._(this._root);
+class _TranslationsMyPlanPageKo implements TranslationsMyPlanPageEn {
+	_TranslationsMyPlanPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '내 플랜';
-	@override late final _TranslationsMyPlanPageTabsKr tabs = _TranslationsMyPlanPageTabsKr._(_root);
-	@override late final _TranslationsMyPlanPageBookmarkItemsKr bookmarkItems = _TranslationsMyPlanPageBookmarkItemsKr._(_root);
-	@override late final _TranslationsMyPlanPageCreatedPlansItemsKr createdPlansItems = _TranslationsMyPlanPageCreatedPlansItemsKr._(_root);
-	@override late final _TranslationsMyPlanPageErrorKr error = _TranslationsMyPlanPageErrorKr._(_root);
+	@override late final _TranslationsMyPlanPageTabsKo tabs = _TranslationsMyPlanPageTabsKo._(_root);
+	@override late final _TranslationsMyPlanPageBookmarkItemsKo bookmarkItems = _TranslationsMyPlanPageBookmarkItemsKo._(_root);
+	@override late final _TranslationsMyPlanPageCreatedPlansItemsKo createdPlansItems = _TranslationsMyPlanPageCreatedPlansItemsKo._(_root);
+	@override late final _TranslationsMyPlanPageErrorKo error = _TranslationsMyPlanPageErrorKo._(_root);
 }
 
 // Path: buddyChatPage
-class _TranslationsBuddyChatPageKr implements TranslationsBuddyChatPageEn {
-	_TranslationsBuddyChatPageKr._(this._root);
+class _TranslationsBuddyChatPageKo implements TranslationsBuddyChatPageEn {
+	_TranslationsBuddyChatPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '버디의 제안';
 	@override String possibleChatCount({required Object possibleChatCount}) => '메시지를 ${possibleChatCount}번 더 보낼 수 있습니다.';
-	@override late final _TranslationsBuddyChatPageTextFieldsKr textFields = _TranslationsBuddyChatPageTextFieldsKr._(_root);
-	@override late final _TranslationsBuddyChatPageButtonsKr buttons = _TranslationsBuddyChatPageButtonsKr._(_root);
-	@override late final _TranslationsBuddyChatPagePlaceCardKr placeCard = _TranslationsBuddyChatPagePlaceCardKr._(_root);
-	@override late final _TranslationsBuddyChatPageSnackBarKr snackBar = _TranslationsBuddyChatPageSnackBarKr._(_root);
+	@override late final _TranslationsBuddyChatPageTextFieldsKo textFields = _TranslationsBuddyChatPageTextFieldsKo._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsKo buttons = _TranslationsBuddyChatPageButtonsKo._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardKo placeCard = _TranslationsBuddyChatPagePlaceCardKo._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarKo snackBar = _TranslationsBuddyChatPageSnackBarKo._(_root);
 }
 
 // Path: popularTopics
-class _TranslationsPopularTopicsKr implements TranslationsPopularTopicsEn {
-	_TranslationsPopularTopicsKr._(this._root);
+class _TranslationsPopularTopicsKo implements TranslationsPopularTopicsEn {
+	_TranslationsPopularTopicsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get sectionName => '인기 주제';
 }
 
 // Path: createPlanPage
-class _TranslationsCreatePlanPageKr implements TranslationsCreatePlanPageEn {
-	_TranslationsCreatePlanPageKr._(this._root);
+class _TranslationsCreatePlanPageKo implements TranslationsCreatePlanPageEn {
+	_TranslationsCreatePlanPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '플랜 생성';
-	@override late final _TranslationsCreatePlanPageLabelKr label = _TranslationsCreatePlanPageLabelKr._(_root);
-	@override late final _TranslationsCreatePlanPageHintTextKr hintText = _TranslationsCreatePlanPageHintTextKr._(_root);
-	@override late final _TranslationsCreatePlanPageModalKr modal = _TranslationsCreatePlanPageModalKr._(_root);
+	@override late final _TranslationsCreatePlanPageLabelKo label = _TranslationsCreatePlanPageLabelKo._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextKo hintText = _TranslationsCreatePlanPageHintTextKo._(_root);
+	@override late final _TranslationsCreatePlanPageModalKo modal = _TranslationsCreatePlanPageModalKo._(_root);
 	@override List<String> get numberOfPeopleOptions => [
 		'1명',
 		'2명',
@@ -253,76 +253,76 @@ class _TranslationsCreatePlanPageKr implements TranslationsCreatePlanPageEn {
 		'영화',
 	];
 	@override String get submitButton => '플랜을 AI에 전달하기';
-	@override late final _TranslationsCreatePlanPageSnackBarKr snackBar = _TranslationsCreatePlanPageSnackBarKr._(_root);
+	@override late final _TranslationsCreatePlanPageSnackBarKo snackBar = _TranslationsCreatePlanPageSnackBarKo._(_root);
 }
 
 // Path: editProfilePage
-class _TranslationsEditProfilePageKr implements TranslationsEditProfilePageEn {
-	_TranslationsEditProfilePageKr._(this._root);
+class _TranslationsEditProfilePageKo implements TranslationsEditProfilePageEn {
+	_TranslationsEditProfilePageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '편집';
-	@override late final _TranslationsEditProfilePageTextFieldsKr textFields = _TranslationsEditProfilePageTextFieldsKr._(_root);
-	@override late final _TranslationsEditProfilePageButtonsKr buttons = _TranslationsEditProfilePageButtonsKr._(_root);
-	@override late final _TranslationsEditProfilePageSnackBarKr snackBar = _TranslationsEditProfilePageSnackBarKr._(_root);
+	@override late final _TranslationsEditProfilePageTextFieldsKo textFields = _TranslationsEditProfilePageTextFieldsKo._(_root);
+	@override late final _TranslationsEditProfilePageButtonsKo buttons = _TranslationsEditProfilePageButtonsKo._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarKo snackBar = _TranslationsEditProfilePageSnackBarKo._(_root);
 }
 
 // Path: confirmDialog
-class _TranslationsConfirmDialogKr implements TranslationsConfirmDialogEn {
-	_TranslationsConfirmDialogKr._(this._root);
+class _TranslationsConfirmDialogKo implements TranslationsConfirmDialogEn {
+	_TranslationsConfirmDialogKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsConfirmDialogAnswersKr answers = _TranslationsConfirmDialogAnswersKr._(_root);
-	@override late final _TranslationsConfirmDialogPopPageKr popPage = _TranslationsConfirmDialogPopPageKr._(_root);
-	@override late final _TranslationsConfirmDialogCompleteCreatePlanKr completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanKr._(_root);
+	@override late final _TranslationsConfirmDialogAnswersKo answers = _TranslationsConfirmDialogAnswersKo._(_root);
+	@override late final _TranslationsConfirmDialogPopPageKo popPage = _TranslationsConfirmDialogPopPageKo._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanKo completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanKo._(_root);
 }
 
 // Path: prompt
-class _TranslationsPromptKr implements TranslationsPromptEn {
-	_TranslationsPromptKr._(this._root);
+class _TranslationsPromptKo implements TranslationsPromptEn {
+	_TranslationsPromptKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get planProposalMessage => '이런 플랜은 어떠신가요?';
 }
 
 // Path: billDetailsPage
-class _TranslationsBillDetailsPageKr implements TranslationsBillDetailsPageEn {
-	_TranslationsBillDetailsPageKr._(this._root);
+class _TranslationsBillDetailsPageKo implements TranslationsBillDetailsPageEn {
+	_TranslationsBillDetailsPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '프리미엄 플랜';
 	@override String get description => '프리미엄 플랜에 가입하시면 더욱 편리하게 시부야 관광을 즐기실 수 있습니다.';
-	@override late final _TranslationsBillDetailsPagePricingPlanKr pricingPlan = _TranslationsBillDetailsPagePricingPlanKr._(_root);
-	@override late final _TranslationsBillDetailsPageFeaturesKr features = _TranslationsBillDetailsPageFeaturesKr._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsKr pricingOptions = _TranslationsBillDetailsPagePricingOptionsKr._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanKo pricingPlan = _TranslationsBillDetailsPagePricingPlanKo._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesKo features = _TranslationsBillDetailsPageFeaturesKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsKo pricingOptions = _TranslationsBillDetailsPagePricingOptionsKo._(_root);
 	@override String get upgradeButton => '프리미엄으로 업그레이드';
 }
 
 // Path: planDetailsPage
-class _TranslationsPlanDetailsPageKr implements TranslationsPlanDetailsPageEn {
-	_TranslationsPlanDetailsPageKr._(this._root);
+class _TranslationsPlanDetailsPageKo implements TranslationsPlanDetailsPageEn {
+	_TranslationsPlanDetailsPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsPlanDetailsPageDateTimeKr dateTime = _TranslationsPlanDetailsPageDateTimeKr._(_root);
-	@override late final _TranslationsPlanDetailsPageItemKr item = _TranslationsPlanDetailsPageItemKr._(_root);
-	@override late final _TranslationsPlanDetailsPageSnackBarKr snackBar = _TranslationsPlanDetailsPageSnackBarKr._(_root);
+	@override late final _TranslationsPlanDetailsPageDateTimeKo dateTime = _TranslationsPlanDetailsPageDateTimeKo._(_root);
+	@override late final _TranslationsPlanDetailsPageItemKo item = _TranslationsPlanDetailsPageItemKo._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarKo snackBar = _TranslationsPlanDetailsPageSnackBarKo._(_root);
 }
 
 // Path: errorPage
-class _TranslationsErrorPageKr implements TranslationsErrorPageEn {
-	_TranslationsErrorPageKr._(this._root);
+class _TranslationsErrorPageKo implements TranslationsErrorPageEn {
+	_TranslationsErrorPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '오류가 발생했습니다...';
@@ -331,20 +331,20 @@ class _TranslationsErrorPageKr implements TranslationsErrorPageEn {
 }
 
 // Path: mapPage
-class _TranslationsMapPageKr implements TranslationsMapPageEn {
-	_TranslationsMapPageKr._(this._root);
+class _TranslationsMapPageKo implements TranslationsMapPageEn {
+	_TranslationsMapPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '지도';
 }
 
 // Path: navigationBar.items
-class _TranslationsNavigationBarItemsKr implements TranslationsNavigationBarItemsEn {
-	_TranslationsNavigationBarItemsKr._(this._root);
+class _TranslationsNavigationBarItemsKo implements TranslationsNavigationBarItemsEn {
+	_TranslationsNavigationBarItemsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => '홈';
@@ -353,20 +353,20 @@ class _TranslationsNavigationBarItemsKr implements TranslationsNavigationBarItem
 }
 
 // Path: homePage.popularPlans
-class _TranslationsHomePagePopularPlansKr implements TranslationsHomePagePopularPlansEn {
-	_TranslationsHomePagePopularPlansKr._(this._root);
+class _TranslationsHomePagePopularPlansKo implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '인기 플랜';
 }
 
 // Path: homePage.popularTopics
-class _TranslationsHomePagePopularTopicsKr implements TranslationsHomePagePopularTopicsEn {
-	_TranslationsHomePagePopularTopicsKr._(this._root);
+class _TranslationsHomePagePopularTopicsKo implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '인기 주제';
@@ -374,20 +374,20 @@ class _TranslationsHomePagePopularTopicsKr implements TranslationsHomePagePopula
 }
 
 // Path: homePage.recentPlans
-class _TranslationsHomePageRecentPlansKr implements TranslationsHomePageRecentPlansEn {
-	_TranslationsHomePageRecentPlansKr._(this._root);
+class _TranslationsHomePageRecentPlansKo implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '최근 생성된 플랜';
 }
 
 // Path: accountPage.items
-class _TranslationsAccountPageItemsKr implements TranslationsAccountPageItemsEn {
-	_TranslationsAccountPageItemsKr._(this._root);
+class _TranslationsAccountPageItemsKo implements TranslationsAccountPageItemsEn {
+	_TranslationsAccountPageItemsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get signOut => '로그아웃';
@@ -398,10 +398,10 @@ class _TranslationsAccountPageItemsKr implements TranslationsAccountPageItemsEn 
 }
 
 // Path: accountPage.snackBar
-class _TranslationsAccountPageSnackBarKr implements TranslationsAccountPageSnackBarEn {
-	_TranslationsAccountPageSnackBarKr._(this._root);
+class _TranslationsAccountPageSnackBarKo implements TranslationsAccountPageSnackBarEn {
+	_TranslationsAccountPageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get signOut => '로그아웃되었습니다.';
@@ -418,10 +418,10 @@ class _TranslationsAccountPageSnackBarKr implements TranslationsAccountPageSnack
 }
 
 // Path: accountPage.diaLog
-class _TranslationsAccountPageDiaLogKr implements TranslationsAccountPageDiaLogEn {
-	_TranslationsAccountPageDiaLogKr._(this._root);
+class _TranslationsAccountPageDiaLogKo implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get yes => '예';
@@ -432,141 +432,141 @@ class _TranslationsAccountPageDiaLogKr implements TranslationsAccountPageDiaLogE
 }
 
 // Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageKr implements TranslationsAuthenticationSignInPageEn {
-	_TranslationsAuthenticationSignInPageKr._(this._root);
+class _TranslationsAuthenticationSignInPageKo implements TranslationsAuthenticationSignInPageEn {
+	_TranslationsAuthenticationSignInPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '로그인';
 	@override String get optionText => ' 또는 ';
-	@override late final _TranslationsAuthenticationSignInPageTextFieldsKr textFields = _TranslationsAuthenticationSignInPageTextFieldsKr._(_root);
-	@override late final _TranslationsAuthenticationSignInPageButtonsKr buttons = _TranslationsAuthenticationSignInPageButtonsKr._(_root);
+	@override late final _TranslationsAuthenticationSignInPageTextFieldsKo textFields = _TranslationsAuthenticationSignInPageTextFieldsKo._(_root);
+	@override late final _TranslationsAuthenticationSignInPageButtonsKo buttons = _TranslationsAuthenticationSignInPageButtonsKo._(_root);
 }
 
 // Path: authentication.resetPasswordPage
-class _TranslationsAuthenticationResetPasswordPageKr implements TranslationsAuthenticationResetPasswordPageEn {
-	_TranslationsAuthenticationResetPasswordPageKr._(this._root);
+class _TranslationsAuthenticationResetPasswordPageKo implements TranslationsAuthenticationResetPasswordPageEn {
+	_TranslationsAuthenticationResetPasswordPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '비밀번호 재설정';
 	@override String get description => '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
-	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsKr textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsKr._(_root);
-	@override late final _TranslationsAuthenticationResetPasswordPageButtonsKr buttons = _TranslationsAuthenticationResetPasswordPageButtonsKr._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsKo textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsKo._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageButtonsKo buttons = _TranslationsAuthenticationResetPasswordPageButtonsKo._(_root);
 }
 
 // Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageKr implements TranslationsAuthenticationSignUpPageEn {
-	_TranslationsAuthenticationSignUpPageKr._(this._root);
+class _TranslationsAuthenticationSignUpPageKo implements TranslationsAuthenticationSignUpPageEn {
+	_TranslationsAuthenticationSignUpPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationSignUpPageTitleKr title = _TranslationsAuthenticationSignUpPageTitleKr._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageTextFieldsKr textFields = _TranslationsAuthenticationSignUpPageTextFieldsKr._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageButtonKr button = _TranslationsAuthenticationSignUpPageButtonKr._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageTitleKo title = _TranslationsAuthenticationSignUpPageTitleKo._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageTextFieldsKo textFields = _TranslationsAuthenticationSignUpPageTextFieldsKo._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageButtonKo button = _TranslationsAuthenticationSignUpPageButtonKo._(_root);
 }
 
 // Path: authentication.emailVerificationPage
-class _TranslationsAuthenticationEmailVerificationPageKr implements TranslationsAuthenticationEmailVerificationPageEn {
-	_TranslationsAuthenticationEmailVerificationPageKr._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageKo implements TranslationsAuthenticationEmailVerificationPageEn {
+	_TranslationsAuthenticationEmailVerificationPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '이메일 주소 확인';
 	@override String descriptionForDestination({required Object email}) => '입력한 ${email}로 확인 이메일을 발송합니다.';
 	@override String get descriptionForCoolDown => '확인 이메일 재발송은 60초마다 1회 가능합니다.';
-	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsKr buttons = _TranslationsAuthenticationEmailVerificationPageButtonsKr._(_root);
-	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarKr snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarKr._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsKo buttons = _TranslationsAuthenticationEmailVerificationPageButtonsKo._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarKo snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarKo._(_root);
 }
 
 // Path: authentication.registerProfilePage
-class _TranslationsAuthenticationRegisterProfilePageKr implements TranslationsAuthenticationRegisterProfilePageEn {
-	_TranslationsAuthenticationRegisterProfilePageKr._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageKo implements TranslationsAuthenticationRegisterProfilePageEn {
+	_TranslationsAuthenticationRegisterProfilePageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '프로필 등록';
 	@override String get textFields => '이름';
-	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsKr buttons = _TranslationsAuthenticationRegisterProfilePageButtonsKr._(_root);
-	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarKr snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarKr._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsKo buttons = _TranslationsAuthenticationRegisterProfilePageButtonsKo._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarKo snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarKo._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
-class _TranslationsAuthenticationCompleteSendEmailPageKr implements TranslationsAuthenticationCompleteSendEmailPageEn {
-	_TranslationsAuthenticationCompleteSendEmailPageKr._(this._root);
+class _TranslationsAuthenticationCompleteSendEmailPageKo implements TranslationsAuthenticationCompleteSendEmailPageEn {
+	_TranslationsAuthenticationCompleteSendEmailPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '발송 완료';
 	@override String description({required Object email}) => '비밀번호 재설정 이메일이 ${email}로 발송되었습니다. \n 재설정 후 로그인 화면에서 로그인하세요.';
 	@override String get successResendEmail => '확인 이메일을 재발송했습니다.';
-	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsKr buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsKr._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsKo buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsKo._(_root);
 }
 
 // Path: authentication.phoneNumberInputPage
-class _TranslationsAuthenticationPhoneNumberInputPageKr implements TranslationsAuthenticationPhoneNumberInputPageEn {
-	_TranslationsAuthenticationPhoneNumberInputPageKr._(this._root);
+class _TranslationsAuthenticationPhoneNumberInputPageKo implements TranslationsAuthenticationPhoneNumberInputPageEn {
+	_TranslationsAuthenticationPhoneNumberInputPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '전화번호 입력';
-	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo._(_root);
 	@override String get phoneNumber => '전화번호';
 	@override String get sendSmsCode => 'SMS 코드 보내기';
-	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo._(_root);
 }
 
 // Path: authentication.smsVerificationPage
-class _TranslationsAuthenticationSmsVerificationPageKr implements TranslationsAuthenticationSmsVerificationPageEn {
-	_TranslationsAuthenticationSmsVerificationPageKr._(this._root);
+class _TranslationsAuthenticationSmsVerificationPageKo implements TranslationsAuthenticationSmsVerificationPageEn {
+	_TranslationsAuthenticationSmsVerificationPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'SMS 인증';
 	@override String get sendSms => '다음 전화번호로 SMS 코드를 보냈습니다:';
 	@override String get pleaseInputCode => '코드를 입력하여 전화번호 인증을 완료하세요.';
-	@override late final _TranslationsAuthenticationSmsVerificationPageResendKr resend = _TranslationsAuthenticationSmsVerificationPageResendKr._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageResendKo resend = _TranslationsAuthenticationSmsVerificationPageResendKo._(_root);
 	@override String get smsCode => 'SMS 코드';
 	@override String get verify => '인증';
 	@override String get fixPhoneNumber => '전화번호 수정';
-	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo._(_root);
 }
 
 // Path: authentication.firebaseAuth
-class _TranslationsAuthenticationFirebaseAuthKr implements TranslationsAuthenticationFirebaseAuthEn {
-	_TranslationsAuthenticationFirebaseAuthKr._(this._root);
+class _TranslationsAuthenticationFirebaseAuthKo implements TranslationsAuthenticationFirebaseAuthEn {
+	_TranslationsAuthenticationFirebaseAuthKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationFirebaseAuthErrorKr error = _TranslationsAuthenticationFirebaseAuthErrorKr._(_root);
+	@override late final _TranslationsAuthenticationFirebaseAuthErrorKo error = _TranslationsAuthenticationFirebaseAuthErrorKo._(_root);
 }
 
 // Path: myPage.accountStatus
-class _TranslationsMyPageAccountStatusKr implements TranslationsMyPageAccountStatusEn {
-	_TranslationsMyPageAccountStatusKr._(this._root);
+class _TranslationsMyPageAccountStatusKo implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsMyPageAccountStatusDateTimeKr dateTime = _TranslationsMyPageAccountStatusDateTimeKr._(_root);
+	@override late final _TranslationsMyPageAccountStatusDateTimeKo dateTime = _TranslationsMyPageAccountStatusDateTimeKo._(_root);
 	@override String get premium => '프리미엄 회원';
 	@override String get standard => '스탠다드 회원';
 }
 
 // Path: changeLanguagePage.items
-class _TranslationsChangeLanguagePageItemsKr implements TranslationsChangeLanguagePageItemsEn {
-	_TranslationsChangeLanguagePageItemsKr._(this._root);
+class _TranslationsChangeLanguagePageItemsKo implements TranslationsChangeLanguagePageItemsEn {
+	_TranslationsChangeLanguagePageItemsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get japanese => '일본어';
@@ -577,10 +577,10 @@ class _TranslationsChangeLanguagePageItemsKr implements TranslationsChangeLangua
 }
 
 // Path: changeThemePage.items
-class _TranslationsChangeThemePageItemsKr implements TranslationsChangeThemePageItemsEn {
-	_TranslationsChangeThemePageItemsKr._(this._root);
+class _TranslationsChangeThemePageItemsKo implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get system => '시스템';
@@ -589,10 +589,10 @@ class _TranslationsChangeThemePageItemsKr implements TranslationsChangeThemePage
 }
 
 // Path: myPlanPage.tabs
-class _TranslationsMyPlanPageTabsKr implements TranslationsMyPlanPageTabsEn {
-	_TranslationsMyPlanPageTabsKr._(this._root);
+class _TranslationsMyPlanPageTabsKo implements TranslationsMyPlanPageTabsEn {
+	_TranslationsMyPlanPageTabsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get createdPlans => '생성한 플랜';
@@ -600,10 +600,10 @@ class _TranslationsMyPlanPageTabsKr implements TranslationsMyPlanPageTabsEn {
 }
 
 // Path: myPlanPage.bookmarkItems
-class _TranslationsMyPlanPageBookmarkItemsKr implements TranslationsMyPlanPageBookmarkItemsEn {
-	_TranslationsMyPlanPageBookmarkItemsKr._(this._root);
+class _TranslationsMyPlanPageBookmarkItemsKo implements TranslationsMyPlanPageBookmarkItemsEn {
+	_TranslationsMyPlanPageBookmarkItemsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get nondata => '북마크된 플랜이 없습니다.';
@@ -611,10 +611,10 @@ class _TranslationsMyPlanPageBookmarkItemsKr implements TranslationsMyPlanPageBo
 }
 
 // Path: myPlanPage.createdPlansItems
-class _TranslationsMyPlanPageCreatedPlansItemsKr implements TranslationsMyPlanPageCreatedPlansItemsEn {
-	_TranslationsMyPlanPageCreatedPlansItemsKr._(this._root);
+class _TranslationsMyPlanPageCreatedPlansItemsKo implements TranslationsMyPlanPageCreatedPlansItemsEn {
+	_TranslationsMyPlanPageCreatedPlansItemsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get nondata => '플랜을 생성해보세요!';
@@ -622,10 +622,10 @@ class _TranslationsMyPlanPageCreatedPlansItemsKr implements TranslationsMyPlanPa
 }
 
 // Path: myPlanPage.error
-class _TranslationsMyPlanPageErrorKr implements TranslationsMyPlanPageErrorEn {
-	_TranslationsMyPlanPageErrorKr._(this._root);
+class _TranslationsMyPlanPageErrorKo implements TranslationsMyPlanPageErrorEn {
+	_TranslationsMyPlanPageErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get displayError => '플랜 표시 중 문제가 발생했습니다.';
@@ -635,30 +635,30 @@ class _TranslationsMyPlanPageErrorKr implements TranslationsMyPlanPageErrorEn {
 }
 
 // Path: buddyChatPage.textFields
-class _TranslationsBuddyChatPageTextFieldsKr implements TranslationsBuddyChatPageTextFieldsEn {
-	_TranslationsBuddyChatPageTextFieldsKr._(this._root);
+class _TranslationsBuddyChatPageTextFieldsKo implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get message => '메시지를 입력하세요.';
 }
 
 // Path: buddyChatPage.buttons
-class _TranslationsBuddyChatPageButtonsKr implements TranslationsBuddyChatPageButtonsEn {
-	_TranslationsBuddyChatPageButtonsKr._(this._root);
+class _TranslationsBuddyChatPageButtonsKo implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get send => '완료';
 }
 
 // Path: buddyChatPage.placeCard
-class _TranslationsBuddyChatPagePlaceCardKr implements TranslationsBuddyChatPagePlaceCardEn {
-	_TranslationsBuddyChatPagePlaceCardKr._(this._root);
+class _TranslationsBuddyChatPagePlaceCardKo implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get openingHours => '영업시간';
@@ -667,20 +667,20 @@ class _TranslationsBuddyChatPagePlaceCardKr implements TranslationsBuddyChatPage
 }
 
 // Path: buddyChatPage.snackBar
-class _TranslationsBuddyChatPageSnackBarKr implements TranslationsBuddyChatPageSnackBarEn {
-	_TranslationsBuddyChatPageSnackBarKr._(this._root);
+class _TranslationsBuddyChatPageSnackBarKo implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsBuddyChatPageSnackBarErrorKr error = _TranslationsBuddyChatPageSnackBarErrorKr._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarErrorKo error = _TranslationsBuddyChatPageSnackBarErrorKo._(_root);
 }
 
 // Path: createPlanPage.label
-class _TranslationsCreatePlanPageLabelKr implements TranslationsCreatePlanPageLabelEn {
-	_TranslationsCreatePlanPageLabelKr._(this._root);
+class _TranslationsCreatePlanPageLabelKo implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get location => '목적지';
@@ -693,71 +693,71 @@ class _TranslationsCreatePlanPageLabelKr implements TranslationsCreatePlanPageLa
 }
 
 // Path: createPlanPage.hintText
-class _TranslationsCreatePlanPageHintTextKr implements TranslationsCreatePlanPageHintTextEn {
-	_TranslationsCreatePlanPageHintTextKr._(this._root);
+class _TranslationsCreatePlanPageHintTextKo implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get location => '시부야';
 }
 
 // Path: createPlanPage.modal
-class _TranslationsCreatePlanPageModalKr implements TranslationsCreatePlanPageModalEn {
-	_TranslationsCreatePlanPageModalKr._(this._root);
+class _TranslationsCreatePlanPageModalKo implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '날짜 선택';
 }
 
 // Path: createPlanPage.snackBar
-class _TranslationsCreatePlanPageSnackBarKr implements TranslationsCreatePlanPageSnackBarEn {
-	_TranslationsCreatePlanPageSnackBarKr._(this._root);
+class _TranslationsCreatePlanPageSnackBarKo implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsCreatePlanPageSnackBarErrorKr error = _TranslationsCreatePlanPageSnackBarErrorKr._(_root);
+	@override late final _TranslationsCreatePlanPageSnackBarErrorKo error = _TranslationsCreatePlanPageSnackBarErrorKo._(_root);
 }
 
 // Path: editProfilePage.textFields
-class _TranslationsEditProfilePageTextFieldsKr implements TranslationsEditProfilePageTextFieldsEn {
-	_TranslationsEditProfilePageTextFieldsKr._(this._root);
+class _TranslationsEditProfilePageTextFieldsKo implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get name => '이름';
 }
 
 // Path: editProfilePage.buttons
-class _TranslationsEditProfilePageButtonsKr implements TranslationsEditProfilePageButtonsEn {
-	_TranslationsEditProfilePageButtonsKr._(this._root);
+class _TranslationsEditProfilePageButtonsKo implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get submit => '저장';
 }
 
 // Path: editProfilePage.snackBar
-class _TranslationsEditProfilePageSnackBarKr implements TranslationsEditProfilePageSnackBarEn {
-	_TranslationsEditProfilePageSnackBarKr._(this._root);
+class _TranslationsEditProfilePageSnackBarKo implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get success => '업데이트되었습니다.';
-	@override late final _TranslationsEditProfilePageSnackBarErrorKr error = _TranslationsEditProfilePageSnackBarErrorKr._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarErrorKo error = _TranslationsEditProfilePageSnackBarErrorKo._(_root);
 }
 
 // Path: confirmDialog.answers
-class _TranslationsConfirmDialogAnswersKr implements TranslationsConfirmDialogAnswersEn {
-	_TranslationsConfirmDialogAnswersKr._(this._root);
+class _TranslationsConfirmDialogAnswersKo implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get yes => '예';
@@ -765,10 +765,10 @@ class _TranslationsConfirmDialogAnswersKr implements TranslationsConfirmDialogAn
 }
 
 // Path: confirmDialog.popPage
-class _TranslationsConfirmDialogPopPageKr implements TranslationsConfirmDialogPopPageEn {
-	_TranslationsConfirmDialogPopPageKr._(this._root);
+class _TranslationsConfirmDialogPopPageKo implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '이전 화면으로 돌아가시겠습니까?';
@@ -776,10 +776,10 @@ class _TranslationsConfirmDialogPopPageKr implements TranslationsConfirmDialogPo
 }
 
 // Path: confirmDialog.completeCreatePlan
-class _TranslationsConfirmDialogCompleteCreatePlanKr implements TranslationsConfirmDialogCompleteCreatePlanEn {
-	_TranslationsConfirmDialogCompleteCreatePlanKr._(this._root);
+class _TranslationsConfirmDialogCompleteCreatePlanKo implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '플랜을 확정하시겠습니까?';
@@ -787,48 +787,48 @@ class _TranslationsConfirmDialogCompleteCreatePlanKr implements TranslationsConf
 }
 
 // Path: billDetailsPage.pricingPlan
-class _TranslationsBillDetailsPagePricingPlanKr implements TranslationsBillDetailsPagePricingPlanEn {
-	_TranslationsBillDetailsPagePricingPlanKr._(this._root);
+class _TranslationsBillDetailsPagePricingPlanKo implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '요금 플랜';
-	@override late final _TranslationsBillDetailsPagePricingPlanColumnsKr columns = _TranslationsBillDetailsPagePricingPlanColumnsKr._(_root);
-	@override late final _TranslationsBillDetailsPagePricingPlanDetailsKr details = _TranslationsBillDetailsPagePricingPlanDetailsKr._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanColumnsKo columns = _TranslationsBillDetailsPagePricingPlanColumnsKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsKo details = _TranslationsBillDetailsPagePricingPlanDetailsKo._(_root);
 }
 
 // Path: billDetailsPage.features
-class _TranslationsBillDetailsPageFeaturesKr implements TranslationsBillDetailsPageFeaturesEn {
-	_TranslationsBillDetailsPageFeaturesKr._(this._root);
+class _TranslationsBillDetailsPageFeaturesKo implements TranslationsBillDetailsPageFeaturesEn {
+	_TranslationsBillDetailsPageFeaturesKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '등급별 기능';
-	@override late final _TranslationsBillDetailsPageFeaturesRowsKr rows = _TranslationsBillDetailsPageFeaturesRowsKr._(_root);
-	@override late final _TranslationsBillDetailsPageFeaturesColumnsKr columns = _TranslationsBillDetailsPageFeaturesColumnsKr._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesRowsKo rows = _TranslationsBillDetailsPageFeaturesRowsKo._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsKo columns = _TranslationsBillDetailsPageFeaturesColumnsKo._(_root);
 }
 
 // Path: billDetailsPage.pricingOptions
-class _TranslationsBillDetailsPagePricingOptionsKr implements TranslationsBillDetailsPagePricingOptionsEn {
-	_TranslationsBillDetailsPagePricingOptionsKr._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsKo implements TranslationsBillDetailsPagePricingOptionsEn {
+	_TranslationsBillDetailsPagePricingOptionsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayKr oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayKr._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysKr threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysKr._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysKr fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysKr._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysKr sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysKr._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeKr lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeKr._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayKo oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysKo threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysKo fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysKo sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeKo lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeKo._(_root);
 }
 
 // Path: planDetailsPage.dateTime
-class _TranslationsPlanDetailsPageDateTimeKr implements TranslationsPlanDetailsPageDateTimeEn {
-	_TranslationsPlanDetailsPageDateTimeKr._(this._root);
+class _TranslationsPlanDetailsPageDateTimeKo implements TranslationsPlanDetailsPageDateTimeEn {
+	_TranslationsPlanDetailsPageDateTimeKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String createOn({required Object date}) => '${date}에 생성된 플랜';
@@ -836,30 +836,30 @@ class _TranslationsPlanDetailsPageDateTimeKr implements TranslationsPlanDetailsP
 }
 
 // Path: planDetailsPage.item
-class _TranslationsPlanDetailsPageItemKr implements TranslationsPlanDetailsPageItemEn {
-	_TranslationsPlanDetailsPageItemKr._(this._root);
+class _TranslationsPlanDetailsPageItemKo implements TranslationsPlanDetailsPageItemEn {
+	_TranslationsPlanDetailsPageItemKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get viewOnMap => '지도에서 보기';
 }
 
 // Path: planDetailsPage.snackBar
-class _TranslationsPlanDetailsPageSnackBarKr implements TranslationsPlanDetailsPageSnackBarEn {
-	_TranslationsPlanDetailsPageSnackBarKr._(this._root);
+class _TranslationsPlanDetailsPageSnackBarKo implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsPlanDetailsPageSnackBarErrorKr error = _TranslationsPlanDetailsPageSnackBarErrorKr._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorKo error = _TranslationsPlanDetailsPageSnackBarErrorKo._(_root);
 }
 
 // Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsKr implements TranslationsAuthenticationSignInPageTextFieldsEn {
-	_TranslationsAuthenticationSignInPageTextFieldsKr._(this._root);
+class _TranslationsAuthenticationSignInPageTextFieldsKo implements TranslationsAuthenticationSignInPageTextFieldsEn {
+	_TranslationsAuthenticationSignInPageTextFieldsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get email => '이메일 주소';
@@ -867,10 +867,10 @@ class _TranslationsAuthenticationSignInPageTextFieldsKr implements TranslationsA
 }
 
 // Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsKr implements TranslationsAuthenticationSignInPageButtonsEn {
-	_TranslationsAuthenticationSignInPageButtonsKr._(this._root);
+class _TranslationsAuthenticationSignInPageButtonsKo implements TranslationsAuthenticationSignInPageButtonsEn {
+	_TranslationsAuthenticationSignInPageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get signIn => '로그인';
@@ -882,30 +882,30 @@ class _TranslationsAuthenticationSignInPageButtonsKr implements TranslationsAuth
 }
 
 // Path: authentication.resetPasswordPage.textFields
-class _TranslationsAuthenticationResetPasswordPageTextFieldsKr implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
-	_TranslationsAuthenticationResetPasswordPageTextFieldsKr._(this._root);
+class _TranslationsAuthenticationResetPasswordPageTextFieldsKo implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	_TranslationsAuthenticationResetPasswordPageTextFieldsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get email => '이메일 주소';
 }
 
 // Path: authentication.resetPasswordPage.buttons
-class _TranslationsAuthenticationResetPasswordPageButtonsKr implements TranslationsAuthenticationResetPasswordPageButtonsEn {
-	_TranslationsAuthenticationResetPasswordPageButtonsKr._(this._root);
+class _TranslationsAuthenticationResetPasswordPageButtonsKo implements TranslationsAuthenticationResetPasswordPageButtonsEn {
+	_TranslationsAuthenticationResetPasswordPageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get submit => '발송';
 }
 
 // Path: authentication.signUpPage.title
-class _TranslationsAuthenticationSignUpPageTitleKr implements TranslationsAuthenticationSignUpPageTitleEn {
-	_TranslationsAuthenticationSignUpPageTitleKr._(this._root);
+class _TranslationsAuthenticationSignUpPageTitleKo implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get defaultText => '회원가입';
@@ -913,10 +913,10 @@ class _TranslationsAuthenticationSignUpPageTitleKr implements TranslationsAuthen
 }
 
 // Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsKr implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-	_TranslationsAuthenticationSignUpPageTextFieldsKr._(this._root);
+class _TranslationsAuthenticationSignUpPageTextFieldsKo implements TranslationsAuthenticationSignUpPageTextFieldsEn {
+	_TranslationsAuthenticationSignUpPageTextFieldsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get email => '이메일 주소';
@@ -924,10 +924,10 @@ class _TranslationsAuthenticationSignUpPageTextFieldsKr implements TranslationsA
 }
 
 // Path: authentication.signUpPage.button
-class _TranslationsAuthenticationSignUpPageButtonKr implements TranslationsAuthenticationSignUpPageButtonEn {
-	_TranslationsAuthenticationSignUpPageButtonKr._(this._root);
+class _TranslationsAuthenticationSignUpPageButtonKo implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get defaultText => '회원가입';
@@ -935,10 +935,10 @@ class _TranslationsAuthenticationSignUpPageButtonKr implements TranslationsAuthe
 }
 
 // Path: authentication.emailVerificationPage.buttons
-class _TranslationsAuthenticationEmailVerificationPageButtonsKr implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
-	_TranslationsAuthenticationEmailVerificationPageButtonsKr._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageButtonsKo implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	_TranslationsAuthenticationEmailVerificationPageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get sendEmail => '확인 이메일 발송';
@@ -948,22 +948,22 @@ class _TranslationsAuthenticationEmailVerificationPageButtonsKr implements Trans
 }
 
 // Path: authentication.emailVerificationPage.snackBar
-class _TranslationsAuthenticationEmailVerificationPageSnackBarKr implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
-	_TranslationsAuthenticationEmailVerificationPageSnackBarKr._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageSnackBarKo implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get success => '발송이 완료되었습니다.';
 	@override String get emailVerification => '이메일 주소 인증이 완료되지 않았습니다.';
-	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorKr error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorKr._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorKo error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorKo._(_root);
 }
 
 // Path: authentication.registerProfilePage.buttons
-class _TranslationsAuthenticationRegisterProfilePageButtonsKr implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
-	_TranslationsAuthenticationRegisterProfilePageButtonsKr._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageButtonsKo implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	_TranslationsAuthenticationRegisterProfilePageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get submit => '완료';
@@ -971,20 +971,20 @@ class _TranslationsAuthenticationRegisterProfilePageButtonsKr implements Transla
 }
 
 // Path: authentication.registerProfilePage.snackBar
-class _TranslationsAuthenticationRegisterProfilePageSnackBarKr implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
-	_TranslationsAuthenticationRegisterProfilePageSnackBarKr._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageSnackBarKo implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKr error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKr._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKo error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKo._(_root);
 }
 
 // Path: authentication.completeSendEmailPage.buttons
-class _TranslationsAuthenticationCompleteSendEmailPageButtonsKr implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
-	_TranslationsAuthenticationCompleteSendEmailPageButtonsKr._(this._root);
+class _TranslationsAuthenticationCompleteSendEmailPageButtonsKo implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	_TranslationsAuthenticationCompleteSendEmailPageButtonsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get toSignIn => '로그인 화면으로';
@@ -993,10 +993,10 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsKr implements Trans
 }
 
 // Path: authentication.phoneNumberInputPage.discription
-class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr implements TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
-	_TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr._(this._root);
+class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo implements TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	_TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get receive => 'SMS 코드를 받으려면';
@@ -1005,10 +1005,10 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr implements Tr
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
-class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
-	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr._(this._root);
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get empty => '전화번호를 입력해주세요';
@@ -1019,10 +1019,10 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr impleme
 }
 
 // Path: authentication.smsVerificationPage.resend
-class _TranslationsAuthenticationSmsVerificationPageResendKr implements TranslationsAuthenticationSmsVerificationPageResendEn {
-	_TranslationsAuthenticationSmsVerificationPageResendKr._(this._root);
+class _TranslationsAuthenticationSmsVerificationPageResendKo implements TranslationsAuthenticationSmsVerificationPageResendEn {
+	_TranslationsAuthenticationSmsVerificationPageResendKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '재전송';
@@ -1031,10 +1031,10 @@ class _TranslationsAuthenticationSmsVerificationPageResendKr implements Translat
 }
 
 // Path: authentication.smsVerificationPage.scaffoldMessenger
-class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
-	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr._(this._root);
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get empty => 'SMS 코드를 입력해주세요';
@@ -1044,10 +1044,10 @@ class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr implemen
 }
 
 // Path: authentication.firebaseAuth.error
-class _TranslationsAuthenticationFirebaseAuthErrorKr implements TranslationsAuthenticationFirebaseAuthErrorEn {
-	_TranslationsAuthenticationFirebaseAuthErrorKr._(this._root);
+class _TranslationsAuthenticationFirebaseAuthErrorKo implements TranslationsAuthenticationFirebaseAuthErrorEn {
+	_TranslationsAuthenticationFirebaseAuthErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get networkRequestFailed => '통신 환경이 좋은 곳에서 다시 시도해주세요.';
@@ -1060,10 +1060,10 @@ class _TranslationsAuthenticationFirebaseAuthErrorKr implements TranslationsAuth
 }
 
 // Path: myPage.accountStatus.dateTime
-class _TranslationsMyPageAccountStatusDateTimeKr implements TranslationsMyPageAccountStatusDateTimeEn {
-	_TranslationsMyPageAccountStatusDateTimeKr._(this._root);
+class _TranslationsMyPageAccountStatusDateTimeKo implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String registeredOn({required Object date}) => '${date}에 등록됨';
@@ -1073,10 +1073,10 @@ class _TranslationsMyPageAccountStatusDateTimeKr implements TranslationsMyPageAc
 }
 
 // Path: buddyChatPage.snackBar.error
-class _TranslationsBuddyChatPageSnackBarErrorKr implements TranslationsBuddyChatPageSnackBarErrorEn {
-	_TranslationsBuddyChatPageSnackBarErrorKr._(this._root);
+class _TranslationsBuddyChatPageSnackBarErrorKo implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get failedRecieveMessage => '답변 수신에 실패했습니다. 잠시 후 다시 시도해주세요.';
@@ -1084,10 +1084,10 @@ class _TranslationsBuddyChatPageSnackBarErrorKr implements TranslationsBuddyChat
 }
 
 // Path: createPlanPage.snackBar.error
-class _TranslationsCreatePlanPageSnackBarErrorKr implements TranslationsCreatePlanPageSnackBarErrorEn {
-	_TranslationsCreatePlanPageSnackBarErrorKr._(this._root);
+class _TranslationsCreatePlanPageSnackBarErrorKo implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get foundUnSelectedField => '선택되지 않은 항목이 있습니다. 모든 항목을 선택해주세요.';
@@ -1095,10 +1095,10 @@ class _TranslationsCreatePlanPageSnackBarErrorKr implements TranslationsCreatePl
 }
 
 // Path: editProfilePage.snackBar.error
-class _TranslationsEditProfilePageSnackBarErrorKr implements TranslationsEditProfilePageSnackBarErrorEn {
-	_TranslationsEditProfilePageSnackBarErrorKr._(this._root);
+class _TranslationsEditProfilePageSnackBarErrorKo implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get noChange => '변경 사항이 없습니다.';
@@ -1107,10 +1107,10 @@ class _TranslationsEditProfilePageSnackBarErrorKr implements TranslationsEditPro
 }
 
 // Path: billDetailsPage.pricingPlan.columns
-class _TranslationsBillDetailsPagePricingPlanColumnsKr implements TranslationsBillDetailsPagePricingPlanColumnsEn {
-	_TranslationsBillDetailsPagePricingPlanColumnsKr._(this._root);
+class _TranslationsBillDetailsPagePricingPlanColumnsKo implements TranslationsBillDetailsPagePricingPlanColumnsEn {
+	_TranslationsBillDetailsPagePricingPlanColumnsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get standard => '스탠다드';
@@ -1118,21 +1118,21 @@ class _TranslationsBillDetailsPagePricingPlanColumnsKr implements TranslationsBi
 }
 
 // Path: billDetailsPage.pricingPlan.details
-class _TranslationsBillDetailsPagePricingPlanDetailsKr implements TranslationsBillDetailsPagePricingPlanDetailsEn {
-	_TranslationsBillDetailsPagePricingPlanDetailsKr._(this._root);
+class _TranslationsBillDetailsPagePricingPlanDetailsKo implements TranslationsBillDetailsPagePricingPlanDetailsEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get free => '무료 🎉';
-	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKr premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKr._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo._(_root);
 }
 
 // Path: billDetailsPage.features.rows
-class _TranslationsBillDetailsPageFeaturesRowsKr implements TranslationsBillDetailsPageFeaturesRowsEn {
-	_TranslationsBillDetailsPageFeaturesRowsKr._(this._root);
+class _TranslationsBillDetailsPageFeaturesRowsKo implements TranslationsBillDetailsPageFeaturesRowsEn {
+	_TranslationsBillDetailsPageFeaturesRowsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get planCreationLimit => '플랜 생성 가능 횟수';
@@ -1143,21 +1143,21 @@ class _TranslationsBillDetailsPageFeaturesRowsKr implements TranslationsBillDeta
 }
 
 // Path: billDetailsPage.features.columns
-class _TranslationsBillDetailsPageFeaturesColumnsKr implements TranslationsBillDetailsPageFeaturesColumnsEn {
-	_TranslationsBillDetailsPageFeaturesColumnsKr._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsKo implements TranslationsBillDetailsPageFeaturesColumnsEn {
+	_TranslationsBillDetailsPageFeaturesColumnsKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardKr standard = _TranslationsBillDetailsPageFeaturesColumnsStandardKr._(_root);
-	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumKr premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumKr._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardKo standard = _TranslationsBillDetailsPageFeaturesColumnsStandardKo._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumKo premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumKo._(_root);
 }
 
 // Path: billDetailsPage.pricingOptions.oneDay
-class _TranslationsBillDetailsPagePricingOptionsOneDayKr implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
-	_TranslationsBillDetailsPagePricingOptionsOneDayKr._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsOneDayKo implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	_TranslationsBillDetailsPagePricingOptionsOneDayKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get duration => '1일';
@@ -1166,10 +1166,10 @@ class _TranslationsBillDetailsPagePricingOptionsOneDayKr implements Translations
 }
 
 // Path: billDetailsPage.pricingOptions.threeDays
-class _TranslationsBillDetailsPagePricingOptionsThreeDaysKr implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
-	_TranslationsBillDetailsPagePricingOptionsThreeDaysKr._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsThreeDaysKo implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsThreeDaysKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get duration => '3일';
@@ -1178,10 +1178,10 @@ class _TranslationsBillDetailsPagePricingOptionsThreeDaysKr implements Translati
 }
 
 // Path: billDetailsPage.pricingOptions.fiveDays
-class _TranslationsBillDetailsPagePricingOptionsFiveDaysKr implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
-	_TranslationsBillDetailsPagePricingOptionsFiveDaysKr._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsFiveDaysKo implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsFiveDaysKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get duration => '5일';
@@ -1190,10 +1190,10 @@ class _TranslationsBillDetailsPagePricingOptionsFiveDaysKr implements Translatio
 }
 
 // Path: billDetailsPage.pricingOptions.sevenDays
-class _TranslationsBillDetailsPagePricingOptionsSevenDaysKr implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
-	_TranslationsBillDetailsPagePricingOptionsSevenDaysKr._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsSevenDaysKo implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsSevenDaysKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get duration => '7일';
@@ -1202,10 +1202,10 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysKr implements Translati
 }
 
 // Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeKr implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeKr._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsLifetimeKo implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	_TranslationsBillDetailsPagePricingOptionsLifetimeKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get duration => '평생';
@@ -1214,30 +1214,30 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeKr implements Translatio
 }
 
 // Path: planDetailsPage.snackBar.error
-class _TranslationsPlanDetailsPageSnackBarErrorKr implements TranslationsPlanDetailsPageSnackBarErrorEn {
-	_TranslationsPlanDetailsPageSnackBarErrorKr._(this._root);
+class _TranslationsPlanDetailsPageSnackBarErrorKo implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get failedToUpdateBookmark => '북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요.';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
-class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorKr implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
-	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorKr._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorKo implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get unexpected => '오류가 발생했습니다. 잠시 후 다시 시도하세요.';
 }
 
 // Path: authentication.registerProfilePage.snackBar.error
-class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKr implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
-	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorKr._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKo implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get submitIfAllEmpty => '입력해주세요.';
@@ -1245,10 +1245,10 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKr implements T
 }
 
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
-class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKr implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
-	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKr._(this._root);
+class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get days => '기간 구매';
@@ -1262,10 +1262,10 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKr implements Tr
 }
 
 // Path: billDetailsPage.features.columns.standard
-class _TranslationsBillDetailsPageFeaturesColumnsStandardKr implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
-	_TranslationsBillDetailsPageFeaturesColumnsStandardKr._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsStandardKo implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	_TranslationsBillDetailsPageFeaturesColumnsStandardKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get label => '스탠다드';
@@ -1274,10 +1274,10 @@ class _TranslationsBillDetailsPageFeaturesColumnsStandardKr implements Translati
 }
 
 // Path: billDetailsPage.features.columns.premium
-class _TranslationsBillDetailsPageFeaturesColumnsPremiumKr implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
-	_TranslationsBillDetailsPageFeaturesColumnsPremiumKr._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsPremiumKo implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	_TranslationsBillDetailsPageFeaturesColumnsPremiumKo._(this._root);
 
-	final TranslationsKr _root; // ignore: unused_field
+	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get label => '프리미엄';
@@ -1287,7 +1287,7 @@ class _TranslationsBillDetailsPageFeaturesColumnsPremiumKr implements Translatio
 
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
-extension on TranslationsKr {
+extension on TranslationsKo {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'navigationBar.items.home': return '홈';

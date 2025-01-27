@@ -54,6 +54,7 @@ class TranslationsZhHans implements Translations {
 		'en': '英语',
 		'ja': '日语',
 		'zh': '中文',
+		'ko': '韩语',
 	};
 	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
 	@override late final _TranslationsMapPageZhHans mapPage = _TranslationsMapPageZhHans._(_root);
@@ -1090,6 +1091,7 @@ class _TranslationsCreatePlanPageSnackBarErrorZhHans implements TranslationsCrea
 
 	// Translations
 	@override String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
+	@override String get invalidDateRange => '开始日期必须在结束日期之前设置。';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1479,6 +1481,7 @@ extension on TranslationsZhHans {
 			case 'createPlanPage.defaultTopics.3': return '电影';
 			case 'createPlanPage.submitButton': return '提交计划给AI';
 			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
+			case 'createPlanPage.snackBar.error.invalidDateRange': return '开始日期必须在结束日期之前设置。';
 			case 'editProfilePage.title': return '编辑个人资料';
 			case 'editProfilePage.textFields.name': return '姓名';
 			case 'editProfilePage.buttons.submit': return '保存';
@@ -1542,6 +1545,7 @@ extension on TranslationsZhHans {
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';
+			case 'locales.ko': return '韩语';
 			case 'errorPage.title': return '发生错误...';
 			case 'errorPage.message': return '请检查您的网络连接并重试。';
 			case 'errorPage.retryButton': return '重试';

@@ -15,7 +15,7 @@ class TranslatePrompt {
       AppLocale.ja => jaPrompt(),
       AppLocale.zhHans => zhHansPrompt(),
       AppLocale.zhHant => zhHantPrompt(),
-      AppLocale.kr => krPrompt(),
+      AppLocale.ko => krPrompt(),
     };
   }
 
