@@ -41,7 +41,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
             i18n.success,
           );
           // 遷移処理をonSuccessで受け取る
-          onSuccess.call(verificationId);
+          onSuccess(verificationId);
         },
         onError: (error) {
           // 電話番号が間違っている場合やサーバーエラーの場合
