@@ -12,6 +12,7 @@ List<RouteBase> get $appRoutes => [
       $homeScreenRouteData,
       $myPlanPageRouteData,
       $myPageRouteData,
+      $billDetailsPageRouteData,
       $billDetailsDialogRouteData,
       $signInPageRouteData,
       $emailVerificationPageRouteData,
@@ -261,10 +262,6 @@ RouteBase get $myPageRouteData => GoRouteData.$route(
           path: 'changeTheme',
           factory: $ChangeThemePageRouteDataExtension._fromState,
         ),
-        GoRouteData.$route(
-          path: 'billDetailsPage',
-          factory: $BillDetailsPageRouteDataExtension._fromState,
-        ),
       ],
     );
 
@@ -418,12 +415,17 @@ extension $ChangeThemePageRouteDataExtension on ChangeThemePageRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $billDetailsPageRouteData => GoRouteData.$route(
+      path: '/billDetailsPage',
+      factory: $BillDetailsPageRouteDataExtension._fromState,
+    );
+
 extension $BillDetailsPageRouteDataExtension on BillDetailsPageRouteData {
   static BillDetailsPageRouteData _fromState(GoRouterState state) =>
       const BillDetailsPageRouteData();
 
   String get location => GoRouteData.$location(
-        '/myPage/billDetailsPage',
+        '/billDetailsPage',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -443,10 +445,16 @@ RouteBase get $billDetailsDialogRouteData => GoRouteData.$route(
 
 extension $BillDetailsDialogRouteDataExtension on BillDetailsDialogRouteData {
   static BillDetailsDialogRouteData _fromState(GoRouterState state) =>
-      const BillDetailsDialogRouteData();
+      BillDetailsDialogRouteData(
+        _$BillingLimitedFeaturesEnumMap
+            ._$fromName(state.uri.queryParameters['feature']!),
+      );
 
   String get location => GoRouteData.$location(
         '/billDetailsDialog',
+        queryParams: {
+          'feature': _$BillingLimitedFeaturesEnumMap[feature],
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -457,6 +465,17 @@ extension $BillDetailsDialogRouteDataExtension on BillDetailsDialogRouteData {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+const _$BillingLimitedFeaturesEnumMap = {
+  BillingLimitedFeatures.createPlan: 'create-plan',
+  BillingLimitedFeatures.chatToBuddy: 'chat-to-buddy',
+  BillingLimitedFeatures.none: 'none',
+};
+
+extension<T extends Enum> on Map<T, String> {
+  T _$fromName(String value) =>
+      entries.singleWhere((element) => element.value == value).key;
 }
 
 RouteBase get $signInPageRouteData => GoRouteData.$route(

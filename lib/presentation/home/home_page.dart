@@ -3,6 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../error_page.dart';
+import '../../utils/billing_grade_options.dart';
+import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
 import 'components/create_plan_button.dart';
 import 'components/popular_plans_carousel.dart';
@@ -16,6 +18,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(homePageNotifierProvider);
+    final notifier = ref.read(homePageNotifierProvider.notifier);
 
     return state.when(
       data: (value) {
@@ -30,14 +33,25 @@ class HomePage extends ConsumerWidget {
                 SliverToBoxAdapter(
                   child: PopularTopicsSection(topics: value.popularTopics),
                 ),
-                if (value.recentPlans != null && value.recentPlans!.isNotEmpty)
+                if (value.recentPlans.isNotEmpty)
                   SliverToBoxAdapter(
-                    child: RecentPlansSection(recentPlans: value.recentPlans!),
+                    child: RecentPlansSection(recentPlans: value.recentPlans),
                   ),
               ],
             ),
           ),
-          floatingActionButton: const CreatePlanButton(),
+          floatingActionButton: CreatePlanButton(
+            onPressed: () => notifier.onCreatePlanButtonPressed(
+              onUnlimitedUser: () async {
+                await const CreatePlanPageRouteData().push<void>(context);
+              },
+              needUpgradeToPremium: () async {
+                await const BillDetailsDialogRouteData(
+                  BillingLimitedFeatures.createPlan,
+                ).push<void>(context);
+              },
+            ),
+          ),
         );
       },
       error: (_, __) =>

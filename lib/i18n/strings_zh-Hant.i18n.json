@@ -371,7 +371,11 @@
         "planProposalMessage": "我考慮了這個計劃！您覺得怎麼樣？"
     },
     "billDetailsPage": {
-        "title": "高級方案",
+        "title": {
+            "defaultTitle": "高級方案",
+            "createPlan": "是否希望啟用無限制的計劃建立？",
+            "chat": "想享受無限制的聊天嗎？"
+        },
         "description": "訂閱高級方案後，您可以更舒適地享受澀谷觀光。",
         "pricingPlan": {
             "title": "價格方案",
@@ -383,13 +387,13 @@
                 "free": "免費 🎉",
                 "premiumPrice": {
                     "days": "按天數購買",
-                    "daily": "・1日 300日圓",
-                    "threeDays": "・3日 855日圓",
-                    "fiveDays": "・5日 1,480日圓",
-                    "sevenDays": "・7日 2,070日圓",
+                    "daily": "・1天 ${price}",
+                    "threeDays": "・3天 ${price}",
+                    "fiveDays": "・5天 ${price}",
+                    "sevenDays": "・7天 ${price}",
                     "or": "或者",
-                    "lifetime": "終身",
-                    "lifetimePrice": "25,800日圓"
+                    "lifetime": "永久版",
+                    "lifetimePrice": "${price}"
                 }
             }
         },
@@ -442,7 +446,19 @@
                 "price": "25,800日圓"
             }
         },
-        "upgradeButton": "升級到高級方案"
+        "restorePurchaseSection": {
+            "title": "恢復購買",
+            "description": "如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。",
+            "button": "恢復購買"
+        },
+        "upgradeButton": "升級到高級方案",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "購買失敗，請稍後再試。",
+                "PurchaseHistoryNotFound": "未找到購買記錄。",
+                "failedToRestorePurchase": "恢復購買失敗，請稍後再試"
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

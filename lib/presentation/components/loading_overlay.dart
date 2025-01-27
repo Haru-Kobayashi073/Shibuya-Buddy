@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../utils/styles/app_color.dart';
+import '../../gen/assets.gen.dart';
 
 final isShowLoadingOverlayProvider = StateProvider.autoDispose((ref) => false);
 
@@ -23,7 +23,7 @@ class LoadingOverlay extends ConsumerWidget {
       child: ColoredBox(
         color: backgroundColor,
         child: const SizedBox.expand(
-          child: Loading(),
+          child: Loading(backgroundColor: Colors.transparent),
         ),
       ),
     );
@@ -31,15 +31,16 @@ class LoadingOverlay extends ConsumerWidget {
 }
 
 class Loading extends StatelessWidget {
-  const Loading({super.key});
+  const Loading({super.key, this.backgroundColor = Colors.white});
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.white,
+      backgroundColor: backgroundColor,
       body: Center(
         child: Lottie.asset(
-          'assets/lottie/Animation - 1736996724199.json',
+          Assets.lottie.animation1736996724199,
           width: 80,
           height: 80,
         ),

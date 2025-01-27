@@ -371,7 +371,11 @@
         "planProposalMessage": "こんなプランを考えてみました！いかがですか？"
     },
     "billDetailsPage": {
-        "title": "プレミアムプラン",
+        "title": {
+            "defaultTitle": "プレミアムプラン",
+            "createPlan": "無制限のプラン作成を可能にしますか？",
+            "chat": "無制限のチャットを楽しみたいですか？"
+        },
         "description": "プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。",
         "pricingPlan": {
             "title": "料金プラン",
@@ -383,13 +387,13 @@
                 "free": "無料 🎉",
                 "premiumPrice": {
                     "days": "日数分購入",
-                    "daily": "・1日 300円",
-                    "threeDays": "・3日 855円",
-                    "fiveDays": "・5日 1,480円",
-                    "sevenDays": "・7日 2,070円",
+                    "daily": "・1日 ${price}",
+                    "threeDays": "・3日 ${price}",
+                    "fiveDays": "・5日 ${price}",
+                    "sevenDays": "・7日 ${price}",
                     "or": "または",
                     "lifetime": "永年分",
-                    "lifetimePrice": "25,800円"
+                    "lifetimePrice": "${price}"
                 }
             }
         },
@@ -442,7 +446,19 @@
                 "price": "25,800円"
             }
         },
-        "upgradeButton": "プレミアムにアップグレード"
+        "restorePurchaseSection": {
+            "title": "購入の復元",
+            "description": "過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。",
+            "button": "購入を復元"
+        },
+        "upgradeButton": "プレミアムにアップグレード",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "購入に失敗しました。時間をおいて再度お試しください。",
+                "PurchaseHistoryNotFound": "購入履歴がありません。",
+                "failedToRestorePurchase": "購入の復元に失敗しました。時間をおいて再度お試しください"
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

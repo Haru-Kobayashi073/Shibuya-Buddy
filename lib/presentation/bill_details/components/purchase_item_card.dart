@@ -3,28 +3,23 @@ import 'package:gap/gap.dart';
 
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import 'bottom_modal.dart';
 
 class PurchaseItemCard extends StatelessWidget {
   const PurchaseItemCard({
     super.key,
-    required this.label,
-    required this.price,
+    required this.pricingOption,
     required this.groupValue,
-    required this.value,
     required this.onChanged,
-    this.discount,
   });
 
-  final String label;
-  final String price;
+  final PricingOption pricingOption;
   final String groupValue;
-  final String value;
-  final String? discount;
   final ValueChanged<String?> onChanged;
 
   @override
   Widget build(BuildContext context) {
-    final isSelected = groupValue == value;
+    final isSelected = groupValue == pricingOption.duration;
 
     return Stack(
       clipBehavior: Clip.none,
@@ -42,7 +37,7 @@ class PurchaseItemCard extends StatelessWidget {
               ),
             ),
             child: RadioListTile<String>(
-              value: value,
+              value: pricingOption.duration,
               groupValue: groupValue,
               onChanged: onChanged,
               activeColor: AppColor.yellow600Primary,
@@ -53,7 +48,7 @@ class PurchaseItemCard extends StatelessWidget {
               title: Column(
                 children: [
                   Text(
-                    label,
+                    pricingOption.duration,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -63,7 +58,7 @@ class PurchaseItemCard extends StatelessWidget {
                   ),
                   const Gap(4),
                   Text(
-                    price,
+                    pricingOption.price,
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -76,7 +71,8 @@ class PurchaseItemCard extends StatelessWidget {
             ),
           ),
         ),
-        if (discount != null && discount!.isNotEmpty)
+        if (pricingOption.discount != null &&
+            pricingOption.discount!.isNotEmpty)
           Positioned(
             top: 0,
             left: 0,
@@ -94,7 +90,7 @@ class PurchaseItemCard extends StatelessWidget {
               height: 35,
               child: Center(
                 child: Text(
-                  discount!,
+                  pricingOption.discount!,
                   style: AppTextStyle.textStyle.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 10,

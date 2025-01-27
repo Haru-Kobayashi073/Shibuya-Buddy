@@ -6,8 +6,10 @@ import 'package:lottie/lottie.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
+import '../../error_page.dart';
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/billing_grade_options.dart';
 import '../../utils/hooks/use_form_state_key.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
@@ -45,6 +47,16 @@ class BuddyChatPage extends HookConsumerWidget {
         await notifier.sendMessage(
           message: textController.text,
           onSuccess: textController.clear,
+          needUpgradeToPremium: () async => const BillDetailsDialogRouteData(
+            BillingLimitedFeatures.chatToBuddy,
+          ).push<bool>(context).then((updatedPremium) {
+            if (updatedPremium == null) {
+              return;
+            }
+            if (updatedPremium) {
+              notifier.changeStandardConfigToPremium();
+            }
+          }),
         );
       }
     }
@@ -139,7 +151,11 @@ class BuddyChatPage extends HookConsumerWidget {
             ),
           );
         },
-        error: (_, __) => const SizedBox.shrink(),
+        error: (e, s) {
+          return ErrorPage(
+            onRetry: () => ref.invalidate(buddyChatPageNotifierProvider),
+          );
+        },
         loading: () => const Loading(),
       ),
     );

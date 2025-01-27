@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
+import '../../../utils/billing_grade_options.dart';
+import '../../../utils/providers/in_app_purchase/purchase_item_config.dart';
+import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../components/wide_button.dart';
+import '../bill_detail_page_notifier.dart';
 import './purchase_item_card.dart';
 
-class BottomModal extends HookWidget {
-  const BottomModal({super.key});
+class BottomModal extends HookConsumerWidget {
+  const BottomModal({super.key, required this.feature});
+  final BillingLimitedFeatures feature;
 
   @override
-  Widget build(BuildContext context) {
-    // useStateで状態を管理
+  Widget build(BuildContext context, WidgetRef ref) {
     final selectedPlan =
-        useState(t.billDetailsPage.pricingOptions.oneDay.duration);
+        ref.watch(billDetailPageNotifierProvider).selectedItemString;
 
-    return DecoratedBox(
+    return Container(
       decoration: BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.circular(20),
@@ -29,30 +34,30 @@ class BottomModal extends HookWidget {
           ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildPlanCardsRow(selectedPlan),
-            const Gap(16),
-            _buildUpgradeButton(selectedPlan),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPlanCardsRow(ValueNotifier<String> selectedPlan) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.only(left: 16),
-      child: Row(
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          ..._buildPlanCards(selectedPlan).map(
-            (card) => Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: card,
+          _buildPlanCardsRow(
+            selectedPlan,
+            ref.watch(billDetailPageNotifierProvider).purchaseItemPrices,
+            (value) => ref
+                .read(billDetailPageNotifierProvider.notifier)
+                .selectPlan(value!),
+          ),
+          const Gap(16),
+          _buildUpgradeButton(
+            selectedPlan,
+            () async =>
+                ref.read(billDetailPageNotifierProvider.notifier).purchaseItem(
+              onSuccess: () {
+                return switch (feature) {
+                  BillingLimitedFeatures.chatToBuddy => context.pop(true),
+                  BillingLimitedFeatures.createPlan =>
+                    const CreatePlanPageRouteData().pushReplacement(context),
+                  BillingLimitedFeatures.none => context.pop(true),
+                };
+              },
             ),
           ),
           const Gap(16),
@@ -61,8 +66,76 @@ class BottomModal extends HookWidget {
     );
   }
 
-  Widget _buildUpgradeButton(ValueNotifier<String> selectedPlan) {
-    // Add selectedPlan as parameter
+  Widget _buildPlanCardsRow(
+    String selectedPlan,
+    Map<String, String> purchaseItemPrices,
+    void Function(String?) onItemTapped,
+  ) {
+    final pricingOptions = t.billDetailsPage.pricingOptions;
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Wrap(
+        spacing: 8,
+        children: [
+          PurchaseItemCard(
+            pricingOption: PricingOption(
+              duration: pricingOptions.oneDay.duration,
+              price: purchaseItemPrices[PurchaseItemConfig.oneDay.packageId]!,
+              discount: pricingOptions.oneDay.discount,
+            ),
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
+          ),
+          PurchaseItemCard(
+            pricingOption: PricingOption(
+              duration: pricingOptions.threeDays.duration,
+              price:
+                  purchaseItemPrices[PurchaseItemConfig.threeDays.packageId]!,
+              discount: pricingOptions.threeDays.discount,
+            ),
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
+          ),
+          PurchaseItemCard(
+            pricingOption: PricingOption(
+              duration: pricingOptions.fiveDays.duration,
+              price: purchaseItemPrices[PurchaseItemConfig.fiveDays.packageId]!,
+              discount: pricingOptions.fiveDays.discount,
+            ),
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
+          ),
+          PurchaseItemCard(
+            pricingOption: PricingOption(
+              duration: pricingOptions.sevenDays.duration,
+              price:
+                  purchaseItemPrices[PurchaseItemConfig.sevenDays.packageId]!,
+              discount: pricingOptions.sevenDays.discount,
+            ),
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
+          ),
+          PurchaseItemCard(
+            pricingOption: PricingOption(
+              duration: pricingOptions.lifetime.duration,
+              price: purchaseItemPrices[
+                  PurchaseItemConfig.unlimitedPremium.packageId]!,
+              discount: pricingOptions.lifetime.discount,
+            ),
+            groupValue: selectedPlan,
+            onChanged: onItemTapped,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUpgradeButton(
+    String selectedPlan,
+    void Function() onSubmit,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: WideButton.gradient(
@@ -75,76 +148,13 @@ class BottomModal extends HookWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        onPressed: () {},
+        onPressed: onSubmit,
       ),
-    );
-  }
-
-  List<Widget> _buildPlanCards(ValueNotifier<String> selectedPlan) {
-    final pricingOptions = t.billDetailsPage.pricingOptions;
-
-    return [
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.oneDay.duration,
-          price: pricingOptions.oneDay.price,
-          discount: pricingOptions.oneDay.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.threeDays.duration,
-          price: pricingOptions.threeDays.price,
-          discount: pricingOptions.threeDays.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.fiveDays.duration,
-          price: pricingOptions.fiveDays.price,
-          discount: pricingOptions.fiveDays.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.sevenDays.duration,
-          price: pricingOptions.sevenDays.price,
-          discount: pricingOptions.sevenDays.discount,
-        ),
-        selectedPlan,
-      ),
-      _buildPlanCard(
-        PricingOption(
-          duration: pricingOptions.lifetime.duration,
-          price: pricingOptions.lifetime.price,
-          discount: pricingOptions.lifetime.discount,
-        ),
-        selectedPlan,
-      ),
-    ];
-  }
-
-  Widget _buildPlanCard(
-    PricingOption pricingOption,
-    ValueNotifier<String> selectedPlan,
-  ) {
-    return PurchaseItemCard(
-      label: pricingOption.duration,
-      price: pricingOption.price,
-      discount: pricingOption.discount,
-      groupValue: selectedPlan.value,
-      value: pricingOption.duration,
-      onChanged: (value) {
-        selectedPlan.value = value!;
-      },
     );
   }
 }
 
-class PricingOption {
+final class PricingOption {
   PricingOption({
     required this.duration,
     required this.price,

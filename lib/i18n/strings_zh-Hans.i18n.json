@@ -372,7 +372,11 @@
         "planProposalMessage": "我考虑了这个计划！您觉得怎么样？"
     },
     "billDetailsPage": {
-        "title": "高级计划",
+        "title": {
+            "defaultTitle": "高级计划",
+            "createPlan": "是否希望启用无限制的计划创建？",
+            "chat": "想享受无限制的聊天吗？"
+        },
         "description": "订阅高级计划后，您可以更舒适地享受涩谷观光。",
         "pricingPlan": {
             "title": "价格计划",
@@ -384,13 +388,13 @@
                 "free": "免费 🎉",
                 "premiumPrice": {
                     "days": "按天数购买",
-                    "daily": "・1日 300日元",
-                    "threeDays": "・3日 855日元",
-                    "fiveDays": "・5日 1,480日元",
-                    "sevenDays": "・7日 2,070日元",
+                    "daily": "・1天 ${price}",
+                    "threeDays": "・3天 ${price}",
+                    "fiveDays": "・5天 ${price}",
+                    "sevenDays": "・7天 ${price}",
                     "or": "或者",
-                    "lifetime": "终身",
-                    "lifetimePrice": "25,800日元"
+                    "lifetime": "永久版",
+                    "lifetimePrice": "${price}"
                 }
             }
         },
@@ -443,7 +447,19 @@
                 "price": "25,800日元"
             }
         },
-        "upgradeButton": "升级到高级计划"
+        "restorePurchaseSection": {
+            "title": "恢复购买",
+            "description": "如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。",
+            "button": "恢复购买"
+        },
+        "upgradeButton": "升级到高级计划",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "购买失败，请稍后再试。",
+                "PurchaseHistoryNotFound": "未找到购买记录。",
+                "failedToRestorePurchase": "恢复购买失败，请稍后再试"
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

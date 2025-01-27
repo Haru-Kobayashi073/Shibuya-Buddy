@@ -145,11 +145,8 @@ class CreatePlanPage extends HookConsumerWidget {
                             return SizedBox(
                               height: 300,
                               child: SelectionModal(
-                                selectionList:
-                                    t.createPlanPage.numberOfPeopleOptions,
-                                selectedItems: [planState.numberOfPeople],
+                                selectionField: SelectionField.numberOfPeople,
                                 title: t.createPlanPage.label.numberOfPeople,
-                                isSingleSelect: true,
                                 onTapCheckBox:
                                     planNotifier.updateNumberOfPeople,
                               ),
@@ -173,9 +170,7 @@ class CreatePlanPage extends HookConsumerWidget {
                             return SizedBox(
                               height: 300,
                               child: SelectionModal(
-                                selectionList:
-                                    t.createPlanPage.transportOptions,
-                                selectedItems: planState.transports,
+                                selectionField: SelectionField.transport,
                                 title: t.createPlanPage.label.transport,
                                 onTapCheckBox: planNotifier.updateTransport,
                               ),
@@ -197,8 +192,7 @@ class CreatePlanPage extends HookConsumerWidget {
                             return SizedBox(
                               height: 300,
                               child: SelectionModal(
-                                selectionList: t.createPlanPage.categoryOptions,
-                                selectedItems: planState.categories,
+                                selectionField: SelectionField.category,
                                 title: t.createPlanPage.label.category,
                                 onTapCheckBox: planNotifier.updateCategory,
                               ),

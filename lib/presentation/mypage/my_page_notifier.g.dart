@@ -6,6 +6,21 @@ part of 'my_page_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$currentUserStreamHash() => r'01333c72d4b1fd08e723ae15b60dde62087e6abc';
+
+/// See also [currentUserStream].
+@ProviderFor(currentUserStream)
+final currentUserStreamProvider = AutoDisposeStreamProvider<User>.internal(
+  currentUserStream,
+  name: r'currentUserStreamProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentUserStreamHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CurrentUserStreamRef = AutoDisposeStreamProviderRef<User>;
 String _$myPageNotifierHash() => r'8f880743d5d6527c71b335560539cd38ff886153';
 
 /// See also [MyPageNotifier].

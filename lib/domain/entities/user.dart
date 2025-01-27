@@ -13,6 +13,7 @@ abstract class User with _$User {
     String? imageUrl,
     required BillingGrade billingGrade,
     @Default([]) List<String> bookmarkedPlanIds,
+    @DateTimeConverter() DateTime? premiumPlanExpirationDate,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverter() DateTime? updateAt,
   }) = _User;

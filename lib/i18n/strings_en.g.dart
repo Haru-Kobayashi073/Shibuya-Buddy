@@ -302,12 +302,14 @@ class TranslationsBillDetailsPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Premium Plan';
+	late final TranslationsBillDetailsPageTitleEn title = TranslationsBillDetailsPageTitleEn._(_root);
 	String get description => 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
 	late final TranslationsBillDetailsPagePricingPlanEn pricingPlan = TranslationsBillDetailsPagePricingPlanEn._(_root);
 	late final TranslationsBillDetailsPageFeaturesEn features = TranslationsBillDetailsPageFeaturesEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsEn pricingOptions = TranslationsBillDetailsPagePricingOptionsEn._(_root);
+	late final TranslationsBillDetailsPageRestorePurchaseSectionEn restorePurchaseSection = TranslationsBillDetailsPageRestorePurchaseSectionEn._(_root);
 	String get upgradeButton => 'Upgrade to Premium';
+	late final TranslationsBillDetailsPageSnackBarEn snackBar = TranslationsBillDetailsPageSnackBarEn._(_root);
 }
 
 // Path: planDetailsPage
@@ -797,6 +799,18 @@ class TranslationsConfirmDialogCompleteCreatePlanEn {
 	String get description => 'The plan in the last message will be saved.';
 }
 
+// Path: billDetailsPage.title
+class TranslationsBillDetailsPageTitleEn {
+	TranslationsBillDetailsPageTitleEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get defaultTitle => 'Premium Plan';
+	String get createPlan => 'Do you want to enable unlimited plan creation?';
+	String get chat => 'Do you want to enjoy unlimited chatting?';
+}
+
 // Path: billDetailsPage.pricingPlan
 class TranslationsBillDetailsPagePricingPlanEn {
 	TranslationsBillDetailsPagePricingPlanEn._(this._root);
@@ -833,6 +847,28 @@ class TranslationsBillDetailsPagePricingOptionsEn {
 	late final TranslationsBillDetailsPagePricingOptionsFiveDaysEn fiveDays = TranslationsBillDetailsPagePricingOptionsFiveDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsSevenDaysEn sevenDays = TranslationsBillDetailsPagePricingOptionsSevenDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsLifetimeEn lifetime = TranslationsBillDetailsPagePricingOptionsLifetimeEn._(_root);
+}
+
+// Path: billDetailsPage.restorePurchaseSection
+class TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	TranslationsBillDetailsPageRestorePurchaseSectionEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Restore Purchase';
+	String get description => 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
+	String get button => 'Restore Purchase';
+}
+
+// Path: billDetailsPage.snackBar
+class TranslationsBillDetailsPageSnackBarEn {
+	TranslationsBillDetailsPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsBillDetailsPageSnackBarErrorEn error = TranslationsBillDetailsPageSnackBarErrorEn._(_root);
 }
 
 // Path: planDetailsPage.dateTime
@@ -1224,6 +1260,18 @@ class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
 	String get price => '25,800 yen';
 }
 
+// Path: billDetailsPage.snackBar.error
+class TranslationsBillDetailsPageSnackBarErrorEn {
+	TranslationsBillDetailsPageSnackBarErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToPurchase => 'Purchase failed. Please try again later.';
+	String get PurchaseHistoryNotFound => 'No purchase history found.';
+	String get failedToRestorePurchase => 'Failed to restore purchase. Please try again later.';
+}
+
 // Path: planDetailsPage.snackBar.error
 class TranslationsPlanDetailsPageSnackBarErrorEn {
 	TranslationsPlanDetailsPageSnackBarErrorEn._(this._root);
@@ -1262,14 +1310,14 @@ class TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get days => 'Purchase by duration';
-	String get daily => '・1 day 300 yen';
-	String get threeDays => '・3 days 855 yen';
-	String get fiveDays => '・5 days 1,480 yen';
-	String get sevenDays => '・7 days 2,070 yen';
+	String get days => 'Purchase by days';
+	String daily({required Object price}) => '・1 day ${price}';
+	String threeDays({required Object price}) => '・3 days ${price}';
+	String fiveDays({required Object price}) => '・5 days ${price}';
+	String sevenDays({required Object price}) => '・7 days ${price}';
 	String get or => 'or';
 	String get lifetime => 'Lifetime';
-	String get lifetimePrice => '25,800 yen';
+	String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1514,20 +1562,22 @@ extension on Translations {
 			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
 			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
 			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
-			case 'billDetailsPage.title': return 'Premium Plan';
+			case 'billDetailsPage.title.defaultTitle': return 'Premium Plan';
+			case 'billDetailsPage.title.createPlan': return 'Do you want to enable unlimited plan creation?';
+			case 'billDetailsPage.title.chat': return 'Do you want to enjoy unlimited chatting?';
 			case 'billDetailsPage.description': return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
 			case 'billDetailsPage.pricingPlan.title': return 'Pricing Plan';
 			case 'billDetailsPage.pricingPlan.columns.standard': return 'Standard';
 			case 'billDetailsPage.pricingPlan.columns.premium': return 'Premium';
 			case 'billDetailsPage.pricingPlan.details.free': return 'Free 🎉';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return 'Purchase by duration';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1 day 300 yen';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3 days 855 yen';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5 days 1,480 yen';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7 days 2,070 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return 'Purchase by days';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1 day ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3 days ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5 days ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7 days ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'or';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return 'Lifetime';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'Features by Grade';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'Number of plans that can be created';
 			case 'billDetailsPage.features.rows.chatLimit': return 'Number of chats available during plan creation';
@@ -1555,7 +1605,13 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
+			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
+			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
+			case 'billDetailsPage.restorePurchaseSection.button': return 'Restore Purchase';
 			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return 'Purchase failed. Please try again later.';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return 'No purchase history found.';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return 'Failed to restore purchase. Please try again later.';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';

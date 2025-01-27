@@ -15,7 +15,7 @@ import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
 import '../../presentation/account/account_page.dart';
 import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
-import '../../presentation/bill_details/bill_details_page.dart';
+import '../../presentation/bill_details/bill_detail_page.dart';
 import '../../presentation/buddy_chat/buddy_chat_page.dart';
 import '../../presentation/change_language/change_language_page.dart';
 import '../../presentation/change_theme/change_theme_page.dart';
@@ -40,6 +40,7 @@ import '../../presentation/sign_up/sign_up_page.dart';
 import '../../presentation/sms_verification/sms_verification_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
+import '../billing_grade_options.dart';
 import 'routes.dart';
 
 part 'app_router.g.dart';
@@ -222,9 +223,6 @@ class PopularPlansPageRouteData extends GoRouteData {
     TypedGoRoute<ChangeThemePageRouteData>(
       path: Routes.changeTheme,
     ),
-    TypedGoRoute<BillDetailsPageRouteData>(
-      path: Routes.billDetails,
-    ),
   ],
 )
 class MyPageRouteData extends GoRouteData {
@@ -311,6 +309,9 @@ class ChangeThemePageRouteData extends GoRouteData {
   }
 }
 
+@TypedGoRoute<BillDetailsPageRouteData>(
+  path: Routes.billDetails,
+)
 class BillDetailsPageRouteData extends GoRouteData {
   const BillDetailsPageRouteData();
 
@@ -324,14 +325,16 @@ class BillDetailsPageRouteData extends GoRouteData {
   path: Routes.billDetailsDialog,
 )
 class BillDetailsDialogRouteData extends GoRouteData {
-  const BillDetailsDialogRouteData();
+  const BillDetailsDialogRouteData(this.feature);
+  final BillingLimitedFeatures feature;
 
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return MaterialPage<void>(
       key: state.pageKey,
-      child: const BillDetailsPage(
+      child: BillDetailsPage(
         isDialog: true,
+        feature: feature,
       ),
       fullscreenDialog: true,
     );

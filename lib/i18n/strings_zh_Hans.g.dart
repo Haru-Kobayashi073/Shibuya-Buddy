@@ -298,12 +298,14 @@ class _TranslationsBillDetailsPageZhHans implements TranslationsBillDetailsPageE
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '高级计划';
+	@override late final _TranslationsBillDetailsPageTitleZhHans title = _TranslationsBillDetailsPageTitleZhHans._(_root);
 	@override String get description => '订阅高级计划后，您可以更舒适地享受涩谷观光。';
 	@override late final _TranslationsBillDetailsPagePricingPlanZhHans pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHans._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesZhHans features = _TranslationsBillDetailsPageFeaturesZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsZhHans pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageRestorePurchaseSectionZhHans restorePurchaseSection = _TranslationsBillDetailsPageRestorePurchaseSectionZhHans._(_root);
 	@override String get upgradeButton => '升级到高级计划';
+	@override late final _TranslationsBillDetailsPageSnackBarZhHans snackBar = _TranslationsBillDetailsPageSnackBarZhHans._(_root);
 }
 
 // Path: planDetailsPage
@@ -793,6 +795,18 @@ class _TranslationsConfirmDialogCompleteCreatePlanZhHans implements Translations
 	@override String get description => '最后一条消息中的计划将被保存';
 }
 
+// Path: billDetailsPage.title
+class _TranslationsBillDetailsPageTitleZhHans implements TranslationsBillDetailsPageTitleEn {
+	_TranslationsBillDetailsPageTitleZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultTitle => '高级计划';
+	@override String get createPlan => '是否希望启用无限制的计划创建？';
+	@override String get chat => '想享受无限制的聊天吗？';
+}
+
 // Path: billDetailsPage.pricingPlan
 class _TranslationsBillDetailsPagePricingPlanZhHans implements TranslationsBillDetailsPagePricingPlanEn {
 	_TranslationsBillDetailsPagePricingPlanZhHans._(this._root);
@@ -829,6 +843,28 @@ class _TranslationsBillDetailsPagePricingOptionsZhHans implements TranslationsBi
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHans._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans._(_root);
+}
+
+// Path: billDetailsPage.restorePurchaseSection
+class _TranslationsBillDetailsPageRestorePurchaseSectionZhHans implements TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	_TranslationsBillDetailsPageRestorePurchaseSectionZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '恢复购买';
+	@override String get description => '如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。';
+	@override String get button => '恢复购买';
+}
+
+// Path: billDetailsPage.snackBar
+class _TranslationsBillDetailsPageSnackBarZhHans implements TranslationsBillDetailsPageSnackBarEn {
+	_TranslationsBillDetailsPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageSnackBarErrorZhHans error = _TranslationsBillDetailsPageSnackBarErrorZhHans._(_root);
 }
 
 // Path: planDetailsPage.dateTime
@@ -1220,6 +1256,18 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHans implements Transl
 	@override String get price => '25,800日元';
 }
 
+// Path: billDetailsPage.snackBar.error
+class _TranslationsBillDetailsPageSnackBarErrorZhHans implements TranslationsBillDetailsPageSnackBarErrorEn {
+	_TranslationsBillDetailsPageSnackBarErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToPurchase => '购买失败，请稍后再试。';
+	@override String get PurchaseHistoryNotFound => '未找到购买记录。';
+	@override String get failedToRestorePurchase => '恢复购买失败，请稍后再试';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorZhHans implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorZhHans._(this._root);
@@ -1259,13 +1307,13 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans implement
 
 	// Translations
 	@override String get days => '按天数购买';
-	@override String get daily => '・1日 300日元';
-	@override String get threeDays => '・3日 855日元';
-	@override String get fiveDays => '・5日 1,480日元';
-	@override String get sevenDays => '・7日 2,070日元';
+	@override String daily({required Object price}) => '・1天 ${price}';
+	@override String threeDays({required Object price}) => '・3天 ${price}';
+	@override String fiveDays({required Object price}) => '・5天 ${price}';
+	@override String sevenDays({required Object price}) => '・7天 ${price}';
 	@override String get or => '或者';
-	@override String get lifetime => '终身';
-	@override String get lifetimePrice => '25,800日元';
+	@override String get lifetime => '永久版';
+	@override String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1510,20 +1558,22 @@ extension on TranslationsZhHans {
 			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
 			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
 			case 'prompt.planProposalMessage': return '我考虑了这个计划！您觉得怎么样？';
-			case 'billDetailsPage.title': return '高级计划';
+			case 'billDetailsPage.title.defaultTitle': return '高级计划';
+			case 'billDetailsPage.title.createPlan': return '是否希望启用无限制的计划创建？';
+			case 'billDetailsPage.title.chat': return '想享受无限制的聊天吗？';
 			case 'billDetailsPage.description': return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
 			case 'billDetailsPage.pricingPlan.title': return '价格计划';
 			case 'billDetailsPage.pricingPlan.columns.standard': return '标准';
 			case 'billDetailsPage.pricingPlan.columns.premium': return '高级';
 			case 'billDetailsPage.pricingPlan.details.free': return '免费 🎉';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天数购买';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日元';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日元';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日元';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '终身';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永久版';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '等级功能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '可创建的计划次数';
 			case 'billDetailsPage.features.rows.chatLimit': return '计划创建期间可用聊天次数';
@@ -1551,7 +1601,13 @@ extension on TranslationsZhHans {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '终身';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日元';
+			case 'billDetailsPage.restorePurchaseSection.title': return '恢复购买';
+			case 'billDetailsPage.restorePurchaseSection.description': return '如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。';
+			case 'billDetailsPage.restorePurchaseSection.button': return '恢复购买';
 			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return '购买失败，请稍后再试。';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '未找到购买记录。';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return '恢复购买失败，请稍后再试';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';

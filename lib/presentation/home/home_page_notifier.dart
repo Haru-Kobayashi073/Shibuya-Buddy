@@ -3,9 +3,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../domain/entities/topic.dart';
+import '../../domain/entities/user.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../infrastructure/topic/topic_data_source.dart';
+import '../../utils/billing_grade_options.dart';
 import '../../utils/providers/current_user/current_user.dart';
+import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
 import 'home_page_state.dart';
 
 part 'home_page_notifier.g.dart';
@@ -19,7 +22,11 @@ class HomePageNotifier extends _$HomePageNotifier {
 
   @override
   Future<HomePageState> build() async {
+    const flavor = String.fromEnvironment('flavor');
     await ref.read(currentUserProvider.notifier).fetchUser();
+    if (flavor == 'prod') {
+      await ref.read(inAppPurchaseServiceProvider.notifier).build();
+    }
     final popularPlans = await getPopularPlans();
     final popularTopics = await getPopularTopics();
     final recentPlans = await getRecentPlans();
@@ -27,7 +34,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     return HomePageState(
       popularPlans: popularPlans,
       popularTopics: popularTopics,
-      recentPlans: recentPlans,
+      recentPlans: recentPlans ?? <Plan>[],
     );
   }
 
@@ -49,12 +56,31 @@ class HomePageNotifier extends _$HomePageNotifier {
     }
   }
 
-  Future<List<Plan>> getRecentPlans() async {
+  Future<List<Plan>?> getRecentPlans() async {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
       debugPrint(e.toString());
-      return <Plan>[];
+    }
+    return null;
+  }
+
+  void onCreatePlanButtonPressed({
+    required void Function() onUnlimitedUser,
+    required void Function() needUpgradeToPremium,
+  }) {
+    final user = ref.watch(currentUserProvider);
+    final isStandardUser = user.billingGrade == BillingGrade.standard;
+    final createdPlansCount = state.requireValue.recentPlans.length;
+
+    if (isStandardUser &&
+        createdPlansCount < BillingGradeOptions.possibleCreatePlanCount) {
+      onUnlimitedUser();
+    } else if (isStandardUser &&
+        createdPlansCount >= BillingGradeOptions.possibleCreatePlanCount) {
+      needUpgradeToPremium();
+    } else if (!isStandardUser) {
+      onUnlimitedUser();
     }
   }
 }

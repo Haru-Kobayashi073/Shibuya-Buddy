@@ -29,7 +29,10 @@ class PersistentCachedNetworkImage extends StatelessWidget {
       progressIndicatorBuilder: (_, __, DownloadProgress? loadingProgress) {
         if (loadingProgress != null) {
           return Center(
-            child: CircularProgressIndicator(value: loadingProgress.progress),
+            child: CircularProgressIndicator(
+              value: loadingProgress.progress,
+              color: AppColor.yellow600Primary,
+            ),
           );
         }
         return const SizedBox.shrink();

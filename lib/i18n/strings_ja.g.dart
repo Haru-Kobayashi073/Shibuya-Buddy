@@ -298,12 +298,14 @@ class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'プレミアムプラン';
+	@override late final _TranslationsBillDetailsPageTitleJa title = _TranslationsBillDetailsPageTitleJa._(_root);
 	@override String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
 	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions = _TranslationsBillDetailsPagePricingOptionsJa._(_root);
+	@override late final _TranslationsBillDetailsPageRestorePurchaseSectionJa restorePurchaseSection = _TranslationsBillDetailsPageRestorePurchaseSectionJa._(_root);
 	@override String get upgradeButton => 'プレミアムにアップグレード';
+	@override late final _TranslationsBillDetailsPageSnackBarJa snackBar = _TranslationsBillDetailsPageSnackBarJa._(_root);
 }
 
 // Path: planDetailsPage
@@ -793,6 +795,18 @@ class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConf
 	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
 }
 
+// Path: billDetailsPage.title
+class _TranslationsBillDetailsPageTitleJa implements TranslationsBillDetailsPageTitleEn {
+	_TranslationsBillDetailsPageTitleJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultTitle => 'プレミアムプラン';
+	@override String get createPlan => '無制限のプラン作成を可能にしますか？';
+	@override String get chat => '無制限のチャットを楽しみたいですか？';
+}
+
 // Path: billDetailsPage.pricingPlan
 class _TranslationsBillDetailsPagePricingPlanJa implements TranslationsBillDetailsPagePricingPlanEn {
 	_TranslationsBillDetailsPagePricingPlanJa._(this._root);
@@ -829,6 +843,28 @@ class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
+}
+
+// Path: billDetailsPage.restorePurchaseSection
+class _TranslationsBillDetailsPageRestorePurchaseSectionJa implements TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	_TranslationsBillDetailsPageRestorePurchaseSectionJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '購入の復元';
+	@override String get description => '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
+	@override String get button => '購入を復元';
+}
+
+// Path: billDetailsPage.snackBar
+class _TranslationsBillDetailsPageSnackBarJa implements TranslationsBillDetailsPageSnackBarEn {
+	_TranslationsBillDetailsPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageSnackBarErrorJa error = _TranslationsBillDetailsPageSnackBarErrorJa._(_root);
 }
 
 // Path: planDetailsPage.dateTime
@@ -1220,6 +1256,18 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements Translatio
 	@override String get price => '25,800円';
 }
 
+// Path: billDetailsPage.snackBar.error
+class _TranslationsBillDetailsPageSnackBarErrorJa implements TranslationsBillDetailsPageSnackBarErrorEn {
+	_TranslationsBillDetailsPageSnackBarErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToPurchase => '購入に失敗しました。時間をおいて再度お試しください。';
+	@override String get PurchaseHistoryNotFound => '購入履歴がありません。';
+	@override String get failedToRestorePurchase => '購入の復元に失敗しました。時間をおいて再度お試しください';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
@@ -1259,13 +1307,13 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements Tr
 
 	// Translations
 	@override String get days => '日数分購入';
-	@override String get daily => '・1日 300円';
-	@override String get threeDays => '・3日 855円';
-	@override String get fiveDays => '・5日 1,480円';
-	@override String get sevenDays => '・7日 2,070円';
+	@override String daily({required Object price}) => '・1日 ${price}';
+	@override String threeDays({required Object price}) => '・3日 ${price}';
+	@override String fiveDays({required Object price}) => '・5日 ${price}';
+	@override String sevenDays({required Object price}) => '・7日 ${price}';
 	@override String get or => 'または';
 	@override String get lifetime => '永年分';
-	@override String get lifetimePrice => '25,800円';
+	@override String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1510,20 +1558,22 @@ extension on TranslationsJa {
 			case 'confirmDialog.completeCreatePlan.title': return 'プランを確定しますか？';
 			case 'confirmDialog.completeCreatePlan.description': return '一番最後のメッセージに含まれるプランが保存されます';
 			case 'prompt.planProposalMessage': return 'こんなプランを考えてみました！いかがですか？';
-			case 'billDetailsPage.title': return 'プレミアムプラン';
+			case 'billDetailsPage.title.defaultTitle': return 'プレミアムプラン';
+			case 'billDetailsPage.title.createPlan': return '無制限のプラン作成を可能にしますか？';
+			case 'billDetailsPage.title.chat': return '無制限のチャットを楽しみたいですか？';
 			case 'billDetailsPage.description': return 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
 			case 'billDetailsPage.pricingPlan.title': return '料金プラン';
 			case 'billDetailsPage.pricingPlan.columns.standard': return 'スタンダード';
 			case 'billDetailsPage.pricingPlan.columns.premium': return 'プレミアム';
 			case 'billDetailsPage.pricingPlan.details.free': return '無料 🎉';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '日数分購入';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300円';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855円';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480円';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1日 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3日 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5日 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'または';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永年分';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800円';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'グレードごとの機能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'プランの作成可能回数';
 			case 'billDetailsPage.features.rows.chatLimit': return 'プラン作成中のチャット可能回数';
@@ -1551,7 +1601,13 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '永年分';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
+			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';
+			case 'billDetailsPage.restorePurchaseSection.description': return '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
+			case 'billDetailsPage.restorePurchaseSection.button': return '購入を復元';
 			case 'billDetailsPage.upgradeButton': return 'プレミアムにアップグレード';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return '購入に失敗しました。時間をおいて再度お試しください。';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '購入履歴がありません。';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return '購入の復元に失敗しました。時間をおいて再度お試しください';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';

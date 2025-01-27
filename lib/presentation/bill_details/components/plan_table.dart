@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
+import '../../../utils/providers/in_app_purchase/purchase_item_config.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../bill_detail_page_notifier.dart';
 
-class PlanTable extends StatelessWidget {
+class PlanTable extends ConsumerWidget {
   const PlanTable({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final purchaseItemPrices =
+        ref.watch(billDetailPageNotifierProvider).purchaseItemPrices;
     final headerStyle = AppTextStyle.textStyle.copyWith(
       fontSize: 16,
       fontWeight: FontWeight.bold,
@@ -120,22 +125,38 @@ class PlanTable extends StatelessWidget {
                               const Gap(8),
                               Text(
                                 t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.daily,
+                                    .premiumPrice
+                                    .daily(
+                                  price: purchaseItemPrices[
+                                      PurchaseItemConfig.oneDay.packageId]!,
+                                ),
                                 style: planTextStyle,
                               ),
                               Text(
                                 t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.threeDays,
+                                    .premiumPrice
+                                    .threeDays(
+                                  price: purchaseItemPrices[
+                                      PurchaseItemConfig.threeDays.packageId]!,
+                                ),
                                 style: planTextStyle,
                               ),
                               Text(
                                 t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.fiveDays,
+                                    .premiumPrice
+                                    .fiveDays(
+                                  price: purchaseItemPrices[
+                                      PurchaseItemConfig.fiveDays.packageId]!,
+                                ),
                                 style: planTextStyle,
                               ),
                               Text(
                                 t.billDetailsPage.pricingPlan.details
-                                    .premiumPrice.sevenDays,
+                                    .premiumPrice
+                                    .sevenDays(
+                                  price: purchaseItemPrices[
+                                      PurchaseItemConfig.sevenDays.packageId]!,
+                                ),
                                 style: planTextStyle,
                               ),
                             ],
@@ -161,7 +182,10 @@ class PlanTable extends StatelessWidget {
                           const Gap(12),
                           Text(
                             t.billDetailsPage.pricingPlan.details.premiumPrice
-                                .lifetimePrice,
+                                .lifetimePrice(
+                              price: purchaseItemPrices[PurchaseItemConfig
+                                  .unlimitedPremium.packageId]!,
+                            ),
                             style: planTextStyle,
                           ),
                         ],

@@ -372,7 +372,11 @@
         "planProposalMessage": "I’ve come up with this plan! What do you think?"
     },
     "billDetailsPage": {
-        "title": "Premium Plan",
+        "title": {
+            "defaultTitle": "Premium Plan",
+            "createPlan": "Do you want to enable unlimited plan creation?",
+            "chat": "Do you want to enjoy unlimited chatting?"
+        },
         "description": "By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.",
         "pricingPlan": {
             "title": "Pricing Plan",
@@ -383,14 +387,14 @@
             "details": {
                 "free": "Free 🎉",
                 "premiumPrice": {
-                    "days": "Purchase by duration",
-                    "daily": "・1 day 300 yen",
-                    "threeDays": "・3 days 855 yen",
-                    "fiveDays": "・5 days 1,480 yen",
-                    "sevenDays": "・7 days 2,070 yen",
+                    "days": "Purchase by days",
+                    "daily": "・1 day ${price}",
+                    "threeDays": "・3 days ${price}",
+                    "fiveDays": "・5 days ${price}",
+                    "sevenDays": "・7 days ${price}",
                     "or": "or",
                     "lifetime": "Lifetime",
-                    "lifetimePrice": "25,800 yen"
+                    "lifetimePrice": "${price}"
                 }
             }
         },
@@ -443,7 +447,19 @@
                 "price": "25,800 yen"
             }
         },
-        "upgradeButton": "Upgrade to Premium"
+        "restorePurchaseSection": {
+            "title": "Restore Purchase",
+            "description": "If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.",
+            "button": "Restore Purchase"
+        },
+        "upgradeButton": "Upgrade to Premium",
+        "snackBar": {
+            "error": {
+                "failedToPurchase": "Purchase failed. Please try again later.",
+                "PurchaseHistoryNotFound": "No purchase history found.",
+                "failedToRestorePurchase": "Failed to restore purchase. Please try again later."
+            }
+        }
     },
     "planDetailsPage": {
         "dateTime": {

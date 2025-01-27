@@ -7,6 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../domain/entities/user.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../utils/extensions/context.dart';
+import '../../../utils/hooks/use_form_state_key.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../../utils/validator.dart';
@@ -23,7 +24,7 @@ class EditProfilePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = useTextEditingController(text: user.name);
     final state = ref.watch(editProfilePageNotifierProvider(user));
-    final formKey = GlobalKey<FormState>();
+    final formKey = useFormStateKey();
     final notifier = ref.read(editProfilePageNotifierProvider(user).notifier);
     const maxBytes = 16;
 

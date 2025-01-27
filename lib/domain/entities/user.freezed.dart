@@ -26,6 +26,8 @@ mixin _$User {
   BillingGrade get billingGrade => throw _privateConstructorUsedError;
   List<String> get bookmarkedPlanIds => throw _privateConstructorUsedError;
   @DateTimeConverter()
+  DateTime? get premiumPlanExpirationDate => throw _privateConstructorUsedError;
+  @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime? get updateAt => throw _privateConstructorUsedError;
@@ -50,6 +52,7 @@ abstract class $UserCopyWith<$Res> {
       String? imageUrl,
       BillingGrade billingGrade,
       List<String> bookmarkedPlanIds,
+      @DateTimeConverter() DateTime? premiumPlanExpirationDate,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime? updateAt});
 }
@@ -74,6 +77,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? imageUrl = freezed,
     Object? billingGrade = null,
     Object? bookmarkedPlanIds = null,
+    Object? premiumPlanExpirationDate = freezed,
     Object? createdAt = null,
     Object? updateAt = freezed,
   }) {
@@ -98,6 +102,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.bookmarkedPlanIds
           : bookmarkedPlanIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      premiumPlanExpirationDate: freezed == premiumPlanExpirationDate
+          ? _value.premiumPlanExpirationDate
+          : premiumPlanExpirationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -123,6 +131,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? imageUrl,
       BillingGrade billingGrade,
       List<String> bookmarkedPlanIds,
+      @DateTimeConverter() DateTime? premiumPlanExpirationDate,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime? updateAt});
 }
@@ -144,6 +153,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? billingGrade = null,
     Object? bookmarkedPlanIds = null,
+    Object? premiumPlanExpirationDate = freezed,
     Object? createdAt = null,
     Object? updateAt = freezed,
   }) {
@@ -168,6 +178,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value._bookmarkedPlanIds
           : bookmarkedPlanIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      premiumPlanExpirationDate: freezed == premiumPlanExpirationDate
+          ? _value.premiumPlanExpirationDate
+          : premiumPlanExpirationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -189,6 +203,7 @@ class _$UserImpl implements _User {
       this.imageUrl,
       required this.billingGrade,
       final List<String> bookmarkedPlanIds = const [],
+      @DateTimeConverter() this.premiumPlanExpirationDate,
       @DateTimeConverter() required this.createdAt,
       @DateTimeConverter() this.updateAt})
       : _bookmarkedPlanIds = bookmarkedPlanIds;
@@ -216,6 +231,9 @@ class _$UserImpl implements _User {
 
   @override
   @DateTimeConverter()
+  final DateTime? premiumPlanExpirationDate;
+  @override
+  @DateTimeConverter()
   final DateTime createdAt;
   @override
   @DateTimeConverter()
@@ -223,7 +241,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(uid: $uid, name: $name, imageUrl: $imageUrl, billingGrade: $billingGrade, bookmarkedPlanIds: $bookmarkedPlanIds, createdAt: $createdAt, updateAt: $updateAt)';
+    return 'User(uid: $uid, name: $name, imageUrl: $imageUrl, billingGrade: $billingGrade, bookmarkedPlanIds: $bookmarkedPlanIds, premiumPlanExpirationDate: $premiumPlanExpirationDate, createdAt: $createdAt, updateAt: $updateAt)';
   }
 
   @override
@@ -239,6 +257,9 @@ class _$UserImpl implements _User {
                 other.billingGrade == billingGrade) &&
             const DeepCollectionEquality()
                 .equals(other._bookmarkedPlanIds, _bookmarkedPlanIds) &&
+            (identical(other.premiumPlanExpirationDate,
+                    premiumPlanExpirationDate) ||
+                other.premiumPlanExpirationDate == premiumPlanExpirationDate) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updateAt, updateAt) ||
@@ -254,6 +275,7 @@ class _$UserImpl implements _User {
       imageUrl,
       billingGrade,
       const DeepCollectionEquality().hash(_bookmarkedPlanIds),
+      premiumPlanExpirationDate,
       createdAt,
       updateAt);
 
@@ -280,6 +302,7 @@ abstract class _User implements User {
       final String? imageUrl,
       required final BillingGrade billingGrade,
       final List<String> bookmarkedPlanIds,
+      @DateTimeConverter() final DateTime? premiumPlanExpirationDate,
       @DateTimeConverter() required final DateTime createdAt,
       @DateTimeConverter() final DateTime? updateAt}) = _$UserImpl;
 
@@ -295,6 +318,9 @@ abstract class _User implements User {
   BillingGrade get billingGrade;
   @override
   List<String> get bookmarkedPlanIds;
+  @override
+  @DateTimeConverter()
+  DateTime? get premiumPlanExpirationDate;
   @override
   @DateTimeConverter()
   DateTime get createdAt;

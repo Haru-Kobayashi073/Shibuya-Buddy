@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
@@ -75,22 +74,23 @@ class GradeBasedFeatures extends StatelessWidget {
         t.billDetailsPage.features.columns.standard.chatLimit,
         t.billDetailsPage.features.columns.premium.chatLimit,
       ],
-      [
-        t.billDetailsPage.features.rows.timelineAccess,
-        Symbols.close,
-        Symbols.circle,
-      ],
-      [t.billDetailsPage.features.rows.adFree, Symbols.close, Symbols.circle],
-      [
-        t.billDetailsPage.features.rows.exclusiveFeatures,
-        Symbols.close,
-        Symbols.circle,
-      ],
+      // [
+      //   t.billDetailsPage.features.rows.timelineAccess,
+      //   Symbols.close,
+      //   Symbols.circle,
+      // ],
+      // ignore: lines_longer_than_80_chars
+      // [t.billDetailsPage.features.rows.adFree, Symbols.close, Symbols.circle],
+      // [
+      //   t.billDetailsPage.features.rows.exclusiveFeatures,
+      //   Symbols.close,
+      //   Symbols.circle,
+      // ],
     ];
 
     return rows.map((row) {
       return _buildRow(
-        label: row[0] as String,
+        label: row[0],
         standard: row[1],
         premium: row[2],
         textStyle: textStyle,

@@ -41,7 +41,12 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   Future<void> sendMessage({
     required String message,
     required void Function() onSuccess,
+    required void Function() needUpgradeToPremium,
   }) async {
+    if (isStandardGradeUser && state.requireValue.possibleChatCount == 0) {
+      needUpgradeToPremium();
+      return;
+    }
     final userMessage = ChatMessage(
       id: const Uuid().v4(),
       author: ChatAuthor.user,
@@ -74,9 +79,13 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(
           messages: [...state.requireValue.messages, buddyMessage],
-          possibleChatCount: isStandardGradeUser
-              ? state.requireValue.possibleChatCount! - 1
-              : null,
+          possibleChatCount: state.requireValue.messages.length == 3
+              ? isStandardGradeUser
+                  ? BillingGradeOptions.possibleChatCount - 1
+                  : null
+              : isStandardGradeUser
+                  ? state.requireValue.possibleChatCount! - 1
+                  : null,
         ),
       );
     } on Exception catch (_) {
@@ -173,8 +182,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
     return BuddyChatPageState(
       messages: messages,
-      possibleChatCount:
-          isStandardGradeUser ? BillingGradeOptions.possibleChatCount : null,
+      possibleChatCount: null,
       scrollController: scrollController,
     );
   }
@@ -215,6 +223,14 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
           );
         },
       ).toList(),
+    );
+  }
+
+  void changeStandardConfigToPremium() {
+    state = AsyncValue.data(
+      state.requireValue.copyWith(
+        possibleChatCount: null,
+      ),
     );
   }
 }

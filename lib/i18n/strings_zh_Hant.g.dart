@@ -298,12 +298,14 @@ class _TranslationsBillDetailsPageZhHant implements TranslationsBillDetailsPageE
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '高級方案';
+	@override late final _TranslationsBillDetailsPageTitleZhHant title = _TranslationsBillDetailsPageTitleZhHant._(_root);
 	@override String get description => '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
 	@override late final _TranslationsBillDetailsPagePricingPlanZhHant pricingPlan = _TranslationsBillDetailsPagePricingPlanZhHant._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesZhHant features = _TranslationsBillDetailsPageFeaturesZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsZhHant pricingOptions = _TranslationsBillDetailsPagePricingOptionsZhHant._(_root);
+	@override late final _TranslationsBillDetailsPageRestorePurchaseSectionZhHant restorePurchaseSection = _TranslationsBillDetailsPageRestorePurchaseSectionZhHant._(_root);
 	@override String get upgradeButton => '升級到高級方案';
+	@override late final _TranslationsBillDetailsPageSnackBarZhHant snackBar = _TranslationsBillDetailsPageSnackBarZhHant._(_root);
 }
 
 // Path: planDetailsPage
@@ -793,6 +795,18 @@ class _TranslationsConfirmDialogCompleteCreatePlanZhHant implements Translations
 	@override String get description => '最後一條訊息中的計劃將被保存';
 }
 
+// Path: billDetailsPage.title
+class _TranslationsBillDetailsPageTitleZhHant implements TranslationsBillDetailsPageTitleEn {
+	_TranslationsBillDetailsPageTitleZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get defaultTitle => '高級方案';
+	@override String get createPlan => '是否希望啟用無限制的計劃建立？';
+	@override String get chat => '想享受無限制的聊天嗎？';
+}
+
 // Path: billDetailsPage.pricingPlan
 class _TranslationsBillDetailsPagePricingPlanZhHant implements TranslationsBillDetailsPagePricingPlanEn {
 	_TranslationsBillDetailsPagePricingPlanZhHant._(this._root);
@@ -829,6 +843,28 @@ class _TranslationsBillDetailsPagePricingOptionsZhHant implements TranslationsBi
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(_root);
+}
+
+// Path: billDetailsPage.restorePurchaseSection
+class _TranslationsBillDetailsPageRestorePurchaseSectionZhHant implements TranslationsBillDetailsPageRestorePurchaseSectionEn {
+	_TranslationsBillDetailsPageRestorePurchaseSectionZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '恢復購買';
+	@override String get description => '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';
+	@override String get button => '恢復購買';
+}
+
+// Path: billDetailsPage.snackBar
+class _TranslationsBillDetailsPageSnackBarZhHant implements TranslationsBillDetailsPageSnackBarEn {
+	_TranslationsBillDetailsPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsBillDetailsPageSnackBarErrorZhHant error = _TranslationsBillDetailsPageSnackBarErrorZhHant._(_root);
 }
 
 // Path: planDetailsPage.dateTime
@@ -1220,6 +1256,18 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements Transl
 	@override String get price => '25,800日圓';
 }
 
+// Path: billDetailsPage.snackBar.error
+class _TranslationsBillDetailsPageSnackBarErrorZhHant implements TranslationsBillDetailsPageSnackBarErrorEn {
+	_TranslationsBillDetailsPageSnackBarErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToPurchase => '購買失敗，請稍後再試。';
+	@override String get PurchaseHistoryNotFound => '未找到購買記錄。';
+	@override String get failedToRestorePurchase => '恢復購買失敗，請稍後再試';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorZhHant implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorZhHant._(this._root);
@@ -1259,13 +1307,13 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant implement
 
 	// Translations
 	@override String get days => '按天數購買';
-	@override String get daily => '・1日 300日圓';
-	@override String get threeDays => '・3日 855日圓';
-	@override String get fiveDays => '・5日 1,480日圓';
-	@override String get sevenDays => '・7日 2,070日圓';
+	@override String daily({required Object price}) => '・1天 ${price}';
+	@override String threeDays({required Object price}) => '・3天 ${price}';
+	@override String fiveDays({required Object price}) => '・5天 ${price}';
+	@override String sevenDays({required Object price}) => '・7天 ${price}';
 	@override String get or => '或者';
-	@override String get lifetime => '終身';
-	@override String get lifetimePrice => '25,800日圓';
+	@override String get lifetime => '永久版';
+	@override String lifetimePrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1510,20 +1558,22 @@ extension on TranslationsZhHant {
 			case 'confirmDialog.completeCreatePlan.title': return '確定要保存計劃嗎？';
 			case 'confirmDialog.completeCreatePlan.description': return '最後一條訊息中的計劃將被保存';
 			case 'prompt.planProposalMessage': return '我考慮了這個計劃！您覺得怎麼樣？';
-			case 'billDetailsPage.title': return '高級方案';
+			case 'billDetailsPage.title.defaultTitle': return '高級方案';
+			case 'billDetailsPage.title.createPlan': return '是否希望啟用無限制的計劃建立？';
+			case 'billDetailsPage.title.chat': return '想享受無限制的聊天嗎？';
 			case 'billDetailsPage.description': return '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
 			case 'billDetailsPage.pricingPlan.title': return '價格方案';
 			case 'billDetailsPage.pricingPlan.columns.standard': return '標準';
 			case 'billDetailsPage.pricingPlan.columns.premium': return '高級';
 			case 'billDetailsPage.pricingPlan.details.free': return '免費 🎉';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天數購買';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日圓';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日圓';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日圓';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5天 ${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '終身';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永久版';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '等級功能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '可創建的方案次數';
 			case 'billDetailsPage.features.rows.chatLimit': return '方案創建期間可用聊天次數';
@@ -1551,7 +1601,13 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '終身';
 			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日圓';
+			case 'billDetailsPage.restorePurchaseSection.title': return '恢復購買';
+			case 'billDetailsPage.restorePurchaseSection.description': return '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';
+			case 'billDetailsPage.restorePurchaseSection.button': return '恢復購買';
 			case 'billDetailsPage.upgradeButton': return '升級到高級方案';
+			case 'billDetailsPage.snackBar.error.failedToPurchase': return '購買失敗，請稍後再試。';
+			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '未找到購買記錄。';
+			case 'billDetailsPage.snackBar.error.failedToRestorePurchase': return '恢復購買失敗，請稍後再試';
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
