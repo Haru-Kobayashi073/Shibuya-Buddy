@@ -166,7 +166,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         return false;
       }
     } on PlatformException catch (e) {
-      debugPrint('purchase repo  restorePurchase error $e');
+      debugPrint('purchase repo restorePurchase error $e');
       return false;
     }
   }
