@@ -221,9 +221,6 @@ class PopularPlansPageRouteData extends GoRouteData {
     TypedGoRoute<ChangeThemePageRouteData>(
       path: Routes.changeTheme,
     ),
-    TypedGoRoute<BillDetailsPageRouteData>(
-      path: Routes.billDetails,
-    ),
   ],
 )
 class MyPageRouteData extends GoRouteData {
@@ -310,6 +307,9 @@ class ChangeThemePageRouteData extends GoRouteData {
   }
 }
 
+@TypedGoRoute<BillDetailsPageRouteData>(
+  path: Routes.billDetails,
+)
 class BillDetailsPageRouteData extends GoRouteData {
   const BillDetailsPageRouteData();
 

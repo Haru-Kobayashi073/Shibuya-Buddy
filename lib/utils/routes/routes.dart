@@ -22,7 +22,7 @@ class Routes {
   static const plansRelatedInTopic = '/plansRelatedInTopic';
   static const buddyChatPage = '/buddyChatPage';
   static const popularPlansPage = 'popularPlansPage';
-  static const billDetails = 'billDetailsPage';
+  static const billDetails = '/billDetailsPage';
   static const billDetailsDialog = '/billDetailsDialog';
   static const planDetailPage = '/planDetailPage';
   static const map = 'map';
