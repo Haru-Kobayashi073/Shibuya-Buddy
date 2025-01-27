@@ -6,7 +6,6 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
-import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
@@ -22,7 +21,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
     final phoneNumberController = useTextEditingController();
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
     final completePhoneNumber = useState<String>('');
-    final selectedCountryCode = useState<String>('US'); // 初期値をアメリカに設定
+    final selectedCountryCode = useState<String>('US');
 
     return Scaffold(
       appBar: AppBar(
@@ -63,6 +62,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               ),
             ),
             const Gap(8),
+            // 日本+81が選択されていた場合のみ注釈を出す
             if (selectedCountryCode.value == 'JP') ...[
               Text(
                 '例：日本の電話番号「090-1234-5678」の場合、国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
@@ -111,24 +111,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               label: i18nPhoneNumberInputPage.sendSmsCode,
               color: AppColor.yellow600Primary,
               onPressed: () async {
-                if (completePhoneNumber.value.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('電話番号を入力してください。')),
-                  );
-                  return;
-                }
-
-                try {
-                  final verificationId =
-                      await notifier.sendSmsCode(completePhoneNumber.value);
-
-                  await SMSVerificationPageRouteData(
-                    phoneNumber: completePhoneNumber.value,
-                    verificationId: verificationId,
-                  ).push<void>(context);
-                } catch (error) {
-                  print('SMSコード送信中にエラーが発生しました: $error');
-                }
+                await notifier.sendSmsCode(context,completePhoneNumber.value);
               },
             ),
           ],
