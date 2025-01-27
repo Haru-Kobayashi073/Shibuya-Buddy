@@ -46,13 +46,6 @@ class PlaceCard extends StatelessWidget {
                 ),
               ),
             ),
-            Offstage(
-              offstage: (endindex == null) || (index == endindex),
-              child: const SizedBox(
-                height: 450, //数値固定を修正する
-                child: VerticalDivider(),
-              ),
-            ),
           ],
         ),
         const Gap(8),
@@ -61,8 +54,9 @@ class PlaceCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child:
-                    PersistentCachedNetworkImage(imageUrl: place.thumbnailUrl),
+                child: PersistentCachedNetworkImage(
+                  imageUrl: place.thumbnailUrl,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8),

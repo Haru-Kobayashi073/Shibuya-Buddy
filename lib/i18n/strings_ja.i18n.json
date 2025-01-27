@@ -138,6 +138,42 @@
                 "changeEmail": "メールアドレスの変更"
             }
         },
+        "phoneNumberInputPage": {
+            "title": "電話番号を入力,",
+            "discription": {
+                "receive": "SMSコードを受け取るために",
+                "internationalFormat" : "国際電話番号形式",
+                "input": "で電話番号を入力してください"
+            },
+            "phoneNumber": "電話番号",
+            "sendSmsCode": "SMSコードを送信",
+            "scaffoldMessenger": {
+                "empty": "電話番号を入力してください",
+                "success": "SMSコードを送信しました",
+                "error": "SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。",
+                "unexpectedError": "予期しないエラーが発生しました:",
+                "phoneNumberVerificaiton": "電話番号認証が完了していません"
+            }
+        },
+        "smsVerificationPage": {
+            "title": "SMS認証",
+            "sendSms": "以下の電話番号にSMSコードを送信しました：",
+            "pleaseInputCode": "コードを入力して、電話番号の認証を完了してください。",
+            "resend": {
+                "title": "再送信する",
+                "untilRetransmissionPossible": "再送信可能まで",
+                "second": "秒"
+            },
+            "smsCode": "SMSコード",
+            "verify": "認証する",
+            "fixPhoneNumber": "電話番号を修正する",
+            "scaffoldMessenger": {
+                "empty": "SMSコードを入力してください",
+                "success": "認証に成功しました",
+                "error": "認証に失敗しました。SMSコードをご確認の上、再度お試しください。",
+                "unexpectedError": "予期しないエラーが発生しました:"
+            }
+        },
         "firebaseAuth": {
             "error": {
                 "networkRequestFailed": "通信環境がいい所で再度やり直してください",

@@ -33,6 +33,7 @@ class PlanDetailPage extends ConsumerWidget {
 
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)
         .format(DateTime.now());
+
     return state.when(
       data: (value) {
         return Scaffold(
@@ -131,13 +132,6 @@ class PlanDetailPage extends ConsumerWidget {
                           onPressed: notifier.onBookmarkButtonTap,
                         ),
                         const Gap(16),
-                        CircleIconButton(
-                          icon: Icons.share,
-                          iconColor: AppColor.black,
-                          onPressed: () {
-                            debugPrint('Tap!');
-                          },
-                        ),
                       ],
                     ),
                   ),

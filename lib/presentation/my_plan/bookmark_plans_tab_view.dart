@@ -25,37 +25,39 @@ class BookmarkPlansTabView extends ConsumerWidget {
     return plans.isNotEmpty
         ? RefreshIndicator(
             onRefresh: () async => ref.invalidate(myPlanPageNotifierProvider),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: plans
-                    .map(
-                      (plan) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: width * 0.8,
-                              child: RecentPlan(
-                                plan: plan,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: plans
+                      .map(
+                        (plan) => Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: width * 0.8,
+                                child: RecentPlan(
+                                  plan: plan,
+                                ),
                               ),
-                            ),
-                            const Spacer(),
-                            IconButton(
-                              onPressed: () async {
-                                await notifier.unBookmark(plan: plan);
-                              },
-                              icon: const Icon(
-                                Icons.bookmark,
-                                color: AppColor.yellow600Primary,
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () async {
+                                  await notifier.unBookmark(plan: plan);
+                                },
+                                icon: const Icon(
+                                  Icons.bookmark,
+                                  color: AppColor.yellow600Primary,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+                ),
               ),
             ),
           )

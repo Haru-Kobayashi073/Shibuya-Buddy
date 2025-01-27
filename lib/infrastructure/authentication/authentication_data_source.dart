@@ -89,6 +89,42 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   }
 
   @override
+  Future<void> sendSmsCode({
+    required String phoneNumber,
+    required void Function(String verificationId) onCodeSent,
+    required void Function(FirebaseAuthException error) onError,
+  }) async {
+    await firebaseAuth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) async {},
+      verificationFailed: onError,
+      codeSent: (String verificationId, int? resendToken) {
+        onCodeSent(verificationId);
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        onCodeSent(verificationId);
+      },
+    );
+  }
+
+  @override
+  Future<void> linkPhoneNumber(String verificationId, String smsCode) async {
+    final credential = PhoneAuthProvider.credential(
+      verificationId: verificationId,
+      smsCode: smsCode,
+    );
+    await firebaseAuth.currentUser?.linkWithCredential(credential);
+  }
+
+  @override
+  Future<bool> isSmsVerified() async {
+    await firebaseAuth.currentUser?.reload();
+    return firebaseAuth.currentUser?.providerData
+            .any((userInfo) => userInfo.providerId == 'phone') ??
+        false;
+  }
+
+  @override
   Future<void> linkWithCredential(AuthCredential credential) async {
     await firebaseAuth.currentUser?.linkWithCredential(credential);
   }

@@ -113,6 +113,8 @@ class TranslationsAuthenticationEn {
 	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
 	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
+	late final TranslationsAuthenticationPhoneNumberInputPageEn phoneNumberInputPage = TranslationsAuthenticationPhoneNumberInputPageEn._(_root);
+	late final TranslationsAuthenticationSmsVerificationPageEn smsVerificationPage = TranslationsAuthenticationSmsVerificationPageEn._(_root);
 }
 
 // Path: validation
@@ -290,7 +292,7 @@ class TranslationsPromptEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get planProposalMessage => 'I\'ve come up with this plan! What do you think?';
+	String get planProposalMessage => 'I’ve come up with this plan! What do you think?';
 }
 
 // Path: billDetailsPage
@@ -528,6 +530,37 @@ class TranslationsAuthenticationCompleteSendEmailPageEn {
 	late final TranslationsAuthenticationCompleteSendEmailPageButtonsEn buttons = TranslationsAuthenticationCompleteSendEmailPageButtonsEn._(_root);
 }
 
+// Path: authentication.phoneNumberInputPage
+class TranslationsAuthenticationPhoneNumberInputPageEn {
+	TranslationsAuthenticationPhoneNumberInputPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Enter Phone Number';
+	late final TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn discription = TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn._(_root);
+	String get phoneNumber => 'Phone Number';
+	String get sendSmsCode => 'Send SMS Code';
+	late final TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn scaffoldMessenger = TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn._(_root);
+}
+
+// Path: authentication.smsVerificationPage
+class TranslationsAuthenticationSmsVerificationPageEn {
+	TranslationsAuthenticationSmsVerificationPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'SMS Verification';
+	String get sendSms => 'SMS code has been sent to the following phone number:';
+	String get pleaseInputCode => 'Please enter the code to complete phone number verification.';
+	late final TranslationsAuthenticationSmsVerificationPageResendEn resend = TranslationsAuthenticationSmsVerificationPageResendEn._(_root);
+	String get smsCode => 'SMS Code';
+	String get verify => 'Verify';
+	String get fixPhoneNumber => 'Edit Phone Number';
+	late final TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn scaffoldMessenger = TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn._(_root);
+}
+
 // Path: myPage.accountStatus
 class TranslationsMyPageAccountStatusEn {
 	TranslationsMyPageAccountStatusEn._(this._root);
@@ -551,7 +584,7 @@ class TranslationsChangeLanguagePageItemsEn {
 	String get english => 'English';
 	String get simplifiedChinese => 'Chinese (Simplified)';
 	String get traditionalChinese => 'Chinese (Traditional)';
-	String get korean => 'Korean';
+	String get korean => 'korean';
 }
 
 // Path: changeThemePage.items
@@ -986,6 +1019,57 @@ class TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
 	String get changeEmail => 'Change Email Address';
 }
 
+// Path: authentication.phoneNumberInputPage.discription
+class TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get receive => 'To receive the SMS code';
+	String get internationalFormat => 'in international phone number format';
+	String get input => 'please enter your phone number';
+}
+
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get empty => 'Please enter your phone number';
+	String get success => 'SMS code has been sent';
+	String get error => 'Failed to send SMS code. Please check your phone number and try again.';
+	String get unexpectedError => 'An unexpected error occurred:';
+	String get phoneNumberVerificaiton => 'Phone number verification is not completed.';
+}
+
+// Path: authentication.smsVerificationPage.resend
+class TranslationsAuthenticationSmsVerificationPageResendEn {
+	TranslationsAuthenticationSmsVerificationPageResendEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Resend';
+	String get untilRetransmissionPossible => 'Until retransmission possible';
+	String get second => 'seconds';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get empty => 'Please enter the SMS code';
+	String get success => 'Verification successful';
+	String get error => 'Verification failed. Please check the SMS code and try again.';
+	String get unexpectedError => 'An unexpected error occurred:';
+}
+
 // Path: myPage.accountStatus.dateTime
 class TranslationsMyPageAccountStatusDateTimeEn {
 	TranslationsMyPageAccountStatusDateTimeEn._(this._root);
@@ -1302,6 +1386,30 @@ extension on Translations {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'To Login Screen';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return 'Resend Confirmation Email';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'Change Email Address';
+			case 'authentication.phoneNumberInputPage.title': return 'Enter Phone Number';
+			case 'authentication.phoneNumberInputPage.discription.receive': return 'To receive the SMS code';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international phone number format';
+			case 'authentication.phoneNumberInputPage.discription.input': return 'please enter your phone number';
+			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
+			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return 'Please enter your phone number';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS code has been sent';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'Failed to send SMS code. Please check your phone number and try again.';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return 'Phone number verification is not completed.';
+			case 'authentication.smsVerificationPage.title': return 'SMS Verification';
+			case 'authentication.smsVerificationPage.sendSms': return 'SMS code has been sent to the following phone number:';
+			case 'authentication.smsVerificationPage.pleaseInputCode': return 'Please enter the code to complete phone number verification.';
+			case 'authentication.smsVerificationPage.resend.title': return 'Resend';
+			case 'authentication.smsVerificationPage.resend.untilRetransmissionPossible': return 'Until retransmission possible';
+			case 'authentication.smsVerificationPage.resend.second': return 'seconds';
+			case 'authentication.smsVerificationPage.smsCode': return 'SMS Code';
+			case 'authentication.smsVerificationPage.verify': return 'Verify';
+			case 'authentication.smsVerificationPage.fixPhoneNumber': return 'Edit Phone Number';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'Please enter the SMS code';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return 'Verification successful';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return 'Verification failed. Please check the SMS code and try again.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';
 			case 'validation.emailRequired': return 'Please enter your email address';
 			case 'validation.emailInvalid': return 'The email address format is incorrect';
 			case 'validation.passwordRequired': return 'Please enter your password';
@@ -1334,7 +1442,7 @@ extension on Translations {
 			case 'changeLanguagePage.items.english': return 'English';
 			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
 			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
-			case 'changeLanguagePage.items.korean': return 'Korean';
+			case 'changeLanguagePage.items.korean': return 'korean';
 			case 'changeThemePage.title': return 'Theme';
 			case 'changeThemePage.items.system': return 'System';
 			case 'changeThemePage.items.light': return 'Light';
@@ -1405,7 +1513,7 @@ extension on Translations {
 			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
 			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
 			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
-			case 'prompt.planProposalMessage': return 'I\'ve come up with this plan! What do you think?';
+			case 'prompt.planProposalMessage': return 'I’ve come up with this plan! What do you think?';
 			case 'billDetailsPage.title': return 'Premium Plan';
 			case 'billDetailsPage.description': return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
 			case 'billDetailsPage.pricingPlan.title': return 'Pricing Plan';

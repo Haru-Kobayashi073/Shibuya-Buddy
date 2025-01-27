@@ -7,7 +7,7 @@ part of 'authentication_data_source.dart';
 // **************************************************************************
 
 String _$authenticationDataSourceHash() =>
-    r'd3db1c9bedae2f8d8a3bbb28410d0a658a188fb6';
+    r'2183be09a5cb7f83f27da1eb880675b909bbd315';
 
 /// See also [AuthenticationDataSource].
 @ProviderFor(AuthenticationDataSource)

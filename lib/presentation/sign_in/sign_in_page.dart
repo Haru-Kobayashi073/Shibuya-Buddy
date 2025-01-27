@@ -212,24 +212,6 @@ class SignInPage extends HookConsumerWidget {
                     onPressed: () async => notifier.signInWithGoogle(),
                   ),
                 ),
-                const SliverGap(16),
-                SliverToBoxAdapter(
-                  child: FilledButton(
-                    style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      backgroundColor: AppColor.white,
-                    ),
-                    onPressed: () => const HomeScreenRouteData().go(context),
-                    child: Text(
-                      i18nSignInPage.buttons.signInAfter,
-                      style: AppTextStyle.textStyle.copyWith(
-                        fontSize: 14,
-                        color: AppColor.grey600,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
