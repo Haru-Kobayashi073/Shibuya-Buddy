@@ -111,7 +111,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               label: i18nPhoneNumberInputPage.sendSmsCode,
               color: AppColor.yellow600Primary,
               onPressed: () async {
-                await notifier.sendSmsCode(context,completePhoneNumber.value);
+                await notifier.sendSmsCode(context, completePhoneNumber.value);
               },
             ),
           ],
