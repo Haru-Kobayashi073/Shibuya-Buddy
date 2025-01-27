@@ -25,7 +25,8 @@
             "linkedWithGoogle": "与Google连接",
             "linkedWithApple": "与Apple连接",
             "alreadyLinkedGoogle": "已与Google连接",
-            "alreadyLinkedApple": "已与Apple连接"
+            "alreadyLinkedApple": "已与Apple连接",
+            "deleteAccount": "删除账户"
         },
         "snackBar": {
             "signOut": "已成功退出登录。",
@@ -38,14 +39,20 @@
             "linkageCancelled": "账户关联已取消。",
             "unlinkageFailure": "解除账户关联失败。",
             "operationNotAllowed": "提供者无效。请联系开发者。",
-            "unknownError": "发生未知错误。"
+            "unknownError": "发生未知错误。",
+            "deleteAccount": "账户已删除。",
+            "deleteAccountFailure": "删除账户失败。"
         },
         "diaLog": {
             "yes": "是",
             "no": "否",
             "title": "确认解除账户连接",
             "googleText": "是否要解除当前账户与Google账户的连接？",
-            "appleText": "是否要解除当前账户与Apple账户的连接？"
+            "appleText": "是否要解除当前账户与Apple账户的连接？",
+            "signOut": "您要退出登录吗？",
+            "signOutText": "使用应用功能需要重新登录。",
+            "deleteAccount": "您要删除账户吗？",
+            "deleteAccountText": "删除账户后，所有数据将被删除。"
         }
     },
     "authentication": {

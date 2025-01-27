@@ -395,6 +395,7 @@ class _TranslationsAccountPageItemsJa implements TranslationsAccountPageItemsEn 
 	@override String get linkedWithApple => 'Appleで連携';
 	@override String get alreadyLinkedGoogle => 'Google連携済み';
 	@override String get alreadyLinkedApple => 'Appleで連携済み';
+	@override String get deleteAccount => 'アカウント削除';
 }
 
 // Path: accountPage.snackBar
@@ -415,6 +416,8 @@ class _TranslationsAccountPageSnackBarJa implements TranslationsAccountPageSnack
 	@override String get unlinkageFailure => 'アカウントの連携解除に失敗しました。';
 	@override String get operationNotAllowed => 'プロパイダーが無効です。開発者にお問い合わせください。';
 	@override String get unknownError => '不明なエラーが発生しました。';
+	@override String get deleteAccount => 'アカウントを削除しました。';
+	@override String get deleteAccountFailure => 'アカウントの削除に失敗しました。';
 }
 
 // Path: accountPage.diaLog
@@ -429,6 +432,10 @@ class _TranslationsAccountPageDiaLogJa implements TranslationsAccountPageDiaLogE
 	@override String get title => 'アカウント連携解除の確認';
 	@override String get googleText => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
 	@override String get appleText => '現在のアカウントとAppleアカウントの連携を解除しますか？';
+	@override String get signOut => 'ログアウトしますか？';
+	@override String get signOutText => 'アプリの機能を利用するためには再ログインが必要です。';
+	@override String get deleteAccount => 'アカウントを削除しますか？';
+	@override String get deleteAccountText => 'アカウントを削除すると、すべてのデータが削除されます。';
 }
 
 // Path: authentication.signInPage
@@ -1303,6 +1310,7 @@ extension on TranslationsJa {
 			case 'accountPage.items.linkedWithApple': return 'Appleで連携';
 			case 'accountPage.items.alreadyLinkedGoogle': return 'Google連携済み';
 			case 'accountPage.items.alreadyLinkedApple': return 'Appleで連携済み';
+			case 'accountPage.items.deleteAccount': return 'アカウント削除';
 			case 'accountPage.snackBar.signOut': return 'ログアウトしました。';
 			case 'accountPage.snackBar.signOutFailure': return 'ログアウト時にエラーが発生しました。';
 			case 'accountPage.snackBar.successfulLinkage': return 'アカウント連携に成功しました。';
@@ -1314,11 +1322,17 @@ extension on TranslationsJa {
 			case 'accountPage.snackBar.unlinkageFailure': return 'アカウントの連携解除に失敗しました。';
 			case 'accountPage.snackBar.operationNotAllowed': return 'プロパイダーが無効です。開発者にお問い合わせください。';
 			case 'accountPage.snackBar.unknownError': return '不明なエラーが発生しました。';
+			case 'accountPage.snackBar.deleteAccount': return 'アカウントを削除しました。';
+			case 'accountPage.snackBar.deleteAccountFailure': return 'アカウントの削除に失敗しました。';
 			case 'accountPage.diaLog.yes': return 'はい';
 			case 'accountPage.diaLog.no': return 'いいえ';
 			case 'accountPage.diaLog.title': return 'アカウント連携解除の確認';
 			case 'accountPage.diaLog.googleText': return '現在のアカウントとGoogleアカウントの連携を解除しますか？';
 			case 'accountPage.diaLog.appleText': return '現在のアカウントとAppleアカウントの連携を解除しますか？';
+			case 'accountPage.diaLog.signOut': return 'ログアウトしますか？';
+			case 'accountPage.diaLog.signOutText': return 'アプリの機能を利用するためには再ログインが必要です。';
+			case 'accountPage.diaLog.deleteAccount': return 'アカウントを削除しますか？';
+			case 'accountPage.diaLog.deleteAccountText': return 'アカウントを削除すると、すべてのデータが削除されます。';
 			case 'authentication.signInPage.title': return 'ログイン';
 			case 'authentication.signInPage.optionText': return ' または ';
 			case 'authentication.signInPage.textFields.email': return 'メールアドレス';

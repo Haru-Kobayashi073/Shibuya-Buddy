@@ -25,7 +25,8 @@
             "linkedWithGoogle": "Google 연동",
             "linkedWithApple": "Apple 연동",
             "alreadyLinkedGoogle": "Google 연동 완료",
-            "alreadyLinkedApple": "Apple 연동 완료"
+            "alreadyLinkedApple": "Apple 연동 완료",
+            "deleteAccount": "계정 삭제"
         },
         "snackBar": {
             "signOut": "로그아웃되었습니다.",
@@ -38,14 +39,20 @@
             "linkageCancelled": "계정 연동이 취소되었습니다.",
             "unlinkageFailure": "계정 연동 해제에 실패했습니다.",
             "operationNotAllowed": "제공자가 비활성화되었습니다. 개발자에게 문의하세요.",
-            "unknownError": "알 수 없는 오류가 발생했습니다."
+            "unknownError": "알 수 없는 오류가 발생했습니다.",
+            "deleteAccount": "계정이 삭제되었습니다.",
+            "deleteAccountFailure": "계정 삭제에 실패했습니다."
         },
         "diaLog": {
             "yes": "예",
             "no": "아니요",
             "title": "계정 연동 해제 확인",
             "googleText": "현재 계정과 Google 계정의 연동을 해제하시겠습니까?",
-            "appleText": "현재 계정과 Apple 계정의 연동을 해제하시겠습니까?"
+            "appleText": "현재 계정과 Apple 계정의 연동을 해제하시겠습니까?",
+            "signOut": "로그아웃하시겠습니까?",
+            "signOutText": "앱 기능을 이용하려면 다시 로그인해야 합니다.",
+            "deleteAccount": "계정을 삭제하시겠습니까?",
+            "deleteAccountText": "계정을 삭제하면 모든 데이터가 삭제됩니다."
         }
     },
     "authentication": {
