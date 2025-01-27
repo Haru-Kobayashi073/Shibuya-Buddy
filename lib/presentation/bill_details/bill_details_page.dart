@@ -103,16 +103,16 @@ class BillDetailsPage extends StatelessWidget {
                       ]
                     : null,
               ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16),
                   child: Column(
                     children: [
-                      const PremiumPlan(),
-                      const Gap(32),
+                      PremiumPlan(),
+                      Gap(32),
                       PlanTable(),
-                      const Gap(32),
-                      const GradeBasedFeatures(),
+                      Gap(32),
+                      GradeBasedFeatures(),
                     ],
                   ),
                 ),
