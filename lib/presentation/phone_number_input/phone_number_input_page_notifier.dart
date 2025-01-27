@@ -1,12 +1,10 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart' hide ScaffoldMessenger;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
-import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
 
 part 'phone_number_input_page_notifier.g.dart';
@@ -21,13 +19,15 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
   @override
   void build() {}
 
-  Future<void> sendSmsCode(BuildContext context, String phoneNumber) async {
-    final i18n = Translations.of(context);
-    final i18nPhoneNumberInputPage = i18n.authentication.phoneNumberInputPage;
+  Future<void> sendSmsCode(
+    String phoneNumber,
+    void Function(String verificationId) onSuccess,
+  ) async {
+    final i18n = t.authentication.phoneNumberInputPage.scaffoldMessenger;
     if (phoneNumber.isEmpty) {
       // 電話番号が空の場合
       scaffoldMessenger.showExceptionSnackBar(
-        i18nPhoneNumberInputPage.scaffoldMessenger.empty,
+        i18n.empty,
       );
       return;
     }
@@ -38,26 +38,22 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
         onCodeSent: (verificationId) async {
           // SMSコードの送信に成功した場合
           scaffoldMessenger.showSuccessSnackBar(
-            i18nPhoneNumberInputPage.scaffoldMessenger.success,
+            i18n.success,
           );
-
-          // 次の画面に遷移
-          await SMSVerificationPageRouteData(
-            phoneNumber: phoneNumber,
-            verificationId: verificationId,
-          ).push<void>(context);
+          // 遷移処理をonSuccessで受け取る
+          onSuccess.call(verificationId);
         },
         onError: (error) {
           // 電話番号が間違っている場合やサーバーエラーの場合
           scaffoldMessenger.showExceptionSnackBar(
-            i18nPhoneNumberInputPage.scaffoldMessenger.error,
+            i18n.error,
           );
         },
       );
     } on Exception catch (error) {
       // その他の例外エラー
       scaffoldMessenger.showExceptionSnackBar(
-        '${i18nPhoneNumberInputPage.scaffoldMessenger.unexpectedError} $error',
+        '${i18n.unexpectedError} $error',
       );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;

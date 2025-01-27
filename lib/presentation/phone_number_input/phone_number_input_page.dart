@@ -6,6 +6,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/wide_button.dart';
@@ -98,7 +99,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                   ),
                 ),
               ),
-              initialCountryCode: 'US', // 初期国コードをアメリカに設定
+              initialCountryCode: 'US',
               onChanged: (phone) {
                 completePhoneNumber.value = phone.completeNumber;
               },
@@ -111,7 +112,15 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               label: i18nPhoneNumberInputPage.sendSmsCode,
               color: AppColor.yellow600Primary,
               onPressed: () async {
-                await notifier.sendSmsCode(context, completePhoneNumber.value);
+                await notifier.sendSmsCode(
+                  completePhoneNumber.value,
+                  (verificationId) async {
+                    await SMSVerificationPageRouteData(
+                      phoneNumber: completePhoneNumber.value,
+                      verificationId: verificationId,
+                    ).push<void>(context);
+                  },
+                );
               },
             ),
           ],
