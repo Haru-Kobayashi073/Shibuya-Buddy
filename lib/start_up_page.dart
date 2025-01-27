@@ -15,7 +15,8 @@ class StartUpPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(firebaseAuthStateListenerProvider);
     final message = ref.watch(scaffoldMessengerProvider.notifier);
-    final i18n = t.authentication.emailVerificationPage.snackBar;
+    final i18nEmail = t.authentication.emailVerificationPage.snackBar;
+    final i18nPhone = t.authentication.phoneNumberInputPage.scaffoldMessenger;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       user.when(
@@ -27,10 +28,14 @@ class StartUpPage extends HookConsumerWidget {
                     .location,
               );
               WidgetsBinding.instance.addPostFrameCallback((_) {
-                message.showExceptionSnackBar(i18n.emailVerification);
+                message.showExceptionSnackBar(i18nEmail.emailVerification);
               });
             } else if (user.phoneNumber == null) {
               context.go(const PhoneNumberInputPageRouteData().location);
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                message
+                    .showExceptionSnackBar(i18nPhone.phoneNumberVerificaiton);
+              });
             } else {
               context.go(const HomeScreenRouteData().location);
             }
