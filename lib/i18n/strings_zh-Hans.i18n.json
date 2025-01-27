@@ -411,7 +411,7 @@
                 "standard": {
                     "label": "标准",
                     "planCreationLimit": "2次",
-                    "chatLimit": "3次"
+                    "chatLimit": "2次"
                 },
                 "premium": {
                     "label": "高级",
@@ -443,7 +443,7 @@
             },
             "lifetime": {
                 "duration": "终身",
-                "discount": "",
+                "discount": "-20%",
                 "price": "25,800日元"
             }
         },

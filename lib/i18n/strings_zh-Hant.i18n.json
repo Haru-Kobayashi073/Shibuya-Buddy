@@ -410,7 +410,7 @@
                 "standard": {
                     "label": "標準",
                     "planCreationLimit": "2次",
-                    "chatLimit": "3次"
+                    "chatLimit": "2次"
                 },
                 "premium": {
                     "label": "高級",
@@ -442,7 +442,7 @@
             },
             "lifetime": {
                 "duration": "終身",
-                "discount": "",
+                "discount": "-20%",
                 "price": "25,800日圓"
             }
         },

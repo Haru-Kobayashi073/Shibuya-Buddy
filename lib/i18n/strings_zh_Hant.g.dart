@@ -1252,7 +1252,7 @@ class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements Transl
 
 	// Translations
 	@override String get duration => '終身';
-	@override String get discount => '';
+	@override String get discount => '-20%';
 	@override String get price => '25,800日圓';
 }
 
@@ -1325,7 +1325,7 @@ class _TranslationsBillDetailsPageFeaturesColumnsStandardZhHant implements Trans
 	// Translations
 	@override String get label => '標準';
 	@override String get planCreationLimit => '2次';
-	@override String get chatLimit => '3次';
+	@override String get chatLimit => '2次';
 }
 
 // Path: billDetailsPage.features.columns.premium
@@ -1582,7 +1582,7 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.features.rows.exclusiveFeatures': return '方案認證功能';
 			case 'billDetailsPage.features.columns.standard.label': return '標準';
 			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2次';
-			case 'billDetailsPage.features.columns.standard.chatLimit': return '3次';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '2次';
 			case 'billDetailsPage.features.columns.premium.label': return '高級';
 			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '無限制';
 			case 'billDetailsPage.features.columns.premium.chatLimit': return '無限制';
@@ -1599,7 +1599,7 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日圓';
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return '終身';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日圓';
 			case 'billDetailsPage.restorePurchaseSection.title': return '恢復購買';
 			case 'billDetailsPage.restorePurchaseSection.description': return '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';

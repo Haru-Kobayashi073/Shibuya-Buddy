@@ -411,7 +411,7 @@
                 "standard": {
                     "label": "Standard",
                     "planCreationLimit": "2 times",
-                    "chatLimit": "3 times"
+                    "chatLimit": "2 times"
                 },
                 "premium": {
                     "label": "Premium",
@@ -443,7 +443,7 @@
             },
             "lifetime": {
                 "duration": "Lifetime",
-                "discount": "",
+                "discount": "-20%",
                 "price": "25,800 yen"
             }
         },

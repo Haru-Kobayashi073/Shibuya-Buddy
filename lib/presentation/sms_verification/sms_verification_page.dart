@@ -48,84 +48,87 @@ class SmsVerificationPage extends HookConsumerWidget {
         forceMaterialTransparency: true,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Gap(context.deviceHeight * 0.05),
-            Text(
-              i18nSmsVerificationPage.title,
-              style: AppTextStyle.textStyle.copyWith(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Gap(16),
-            Text(
-              '${i18nSmsVerificationPage.sendSms} $phoneNumber',
-              style: AppTextStyle.textStyle.copyWith(fontSize: 16),
-            ),
-            Text(
-              i18nSmsVerificationPage.pleaseInputCode,
-              style: AppTextStyle.textStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Gap(8),
-            if (state.buttonState == SmsVerificationButtonState.coolDown)
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Gap(context.deviceHeight * 0.05),
               Text(
-                '${i18nSmsVerificationPage.resend.untilRetransmissionPossible} '
-                '${state.resendCooldown} '
-                '${i18nSmsVerificationPage.resend.second}',
+                i18nSmsVerificationPage.title,
                 style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 14,
-                  color: AppColor.grey600,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-              )
-            else
-              InkWell(
-                onTap: () async => notifier.sendSmsCode(phoneNumber),
-                child: Text(
-                  i18nSmsVerificationPage.resend.title,
+              ),
+              const Gap(16),
+              Text(
+                '${i18nSmsVerificationPage.sendSms} $phoneNumber',
+                style: AppTextStyle.textStyle.copyWith(fontSize: 16),
+              ),
+              Text(
+                i18nSmsVerificationPage.pleaseInputCode,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Gap(8),
+              if (state.buttonState == SmsVerificationButtonState.coolDown)
+                Text(
+                  // ignore: lines_longer_than_80_chars long line
+                  '${i18nSmsVerificationPage.resend.untilRetransmissionPossible} '
+                  '${state.resendCooldown} '
+                  '${i18nSmsVerificationPage.resend.second}',
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 14,
-                    color: AppColor.blue600Primary,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColor.blue600Primary,
+                    color: AppColor.grey600,
+                  ),
+                )
+              else
+                InkWell(
+                  onTap: () async => notifier.sendSmsCode(phoneNumber),
+                  child: Text(
+                    i18nSmsVerificationPage.resend.title,
+                    style: AppTextStyle.textStyle.copyWith(
+                      fontSize: 14,
+                      color: AppColor.blue600Primary,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColor.blue600Primary,
+                    ),
                   ),
                 ),
+              const Gap(32),
+              SimpleTextField(
+                label: i18nSmsVerificationPage.smsCode,
+                controller: smsCodeController,
+                validator: Validator.common,
+                textInputAction: TextInputAction.done,
+                keyboardType: TextInputType.number,
+                onFieldSubmitted: (_) {},
               ),
-            const Gap(32),
-            SimpleTextField(
-              label: i18nSmsVerificationPage.smsCode,
-              controller: smsCodeController,
-              validator: Validator.common,
-              textInputAction: TextInputAction.done,
-              keyboardType: TextInputType.number,
-              onFieldSubmitted: (_) {},
-            ),
-            const Gap(32),
-            WideButton(
-              label: i18nSmsVerificationPage.verify,
-              color: AppColor.yellow600Primary,
-              onPressed: () async {
-                await notifier.verifySmsCode(
-                  smsCodeController.text.trim(),
-                  () {
-                    const RegisterProfilePageRouteData().go(context);
-                  },
-                );
-                const Gap(16);
-                WideButton(
-                  label: i18nSmsVerificationPage.fixPhoneNumber,
-                  color: AppColor.blue50Background,
-                  onPressed: () => Navigator.of(context).pop(),
-                );
-              },
-            ),
-          ],
+              const Gap(32),
+              WideButton(
+                label: i18nSmsVerificationPage.verify,
+                color: AppColor.yellow600Primary,
+                onPressed: () async {
+                  await notifier.verifySmsCode(
+                    smsCodeController.text.trim(),
+                    () {
+                      const RegisterProfilePageRouteData().go(context);
+                    },
+                  );
+                  const Gap(16);
+                  WideButton(
+                    label: i18nSmsVerificationPage.fixPhoneNumber,
+                    color: AppColor.blue50Background,
+                    onPressed: () => Navigator.of(context).pop(),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

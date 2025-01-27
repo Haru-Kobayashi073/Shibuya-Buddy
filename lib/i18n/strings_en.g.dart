@@ -1256,7 +1256,7 @@ class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
 
 	// Translations
 	String get duration => 'Lifetime';
-	String get discount => '';
+	String get discount => '-20%';
 	String get price => '25,800 yen';
 }
 
@@ -1329,7 +1329,7 @@ class TranslationsBillDetailsPageFeaturesColumnsStandardEn {
 	// Translations
 	String get label => 'Standard';
 	String get planCreationLimit => '2 times';
-	String get chatLimit => '3 times';
+	String get chatLimit => '2 times';
 }
 
 // Path: billDetailsPage.features.columns.premium
@@ -1586,7 +1586,7 @@ extension on Translations {
 			case 'billDetailsPage.features.rows.exclusiveFeatures': return 'Plan authentication features';
 			case 'billDetailsPage.features.columns.standard.label': return 'Standard';
 			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2 times';
-			case 'billDetailsPage.features.columns.standard.chatLimit': return '3 times';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '2 times';
 			case 'billDetailsPage.features.columns.premium.label': return 'Premium';
 			case 'billDetailsPage.features.columns.premium.planCreationLimit': return 'Unlimited';
 			case 'billDetailsPage.features.columns.premium.chatLimit': return 'Unlimited';
@@ -1603,7 +1603,7 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070 yen';
 			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
 			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
 			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
