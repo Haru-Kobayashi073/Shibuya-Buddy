@@ -121,12 +121,14 @@ flutter_icons:
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: "assets/splash_screen_images/Star 1.png"
+  image: "assets/splash_screen_images/shibuya-buddy.png"
   color_dark: "#262626"
   fullscreen: true
+  android: true
+  ios: true
   android_12:
     icon_background_color: "#FFFFFF"
-    image: "assets/splash_screen_images/Star 1.png"
+    image: "assets/splash_screen_images/shibuya-buddy.png"
     icon_background_color_dark: "#262626"
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
