@@ -22,7 +22,7 @@ class LocaleService extends _$LocaleService {
       'ja' => AppLocale.ja,
       'zhHans' => AppLocale.zhHans,
       'zhHant' => AppLocale.zhHant,
-      'kr' => AppLocale.kr,
+      'ko' => AppLocale.ko,
       _ => AppLocale.en,
     };
   }
@@ -51,7 +51,7 @@ class LocaleService extends _$LocaleService {
       _ when i18nLanguage.japanese == text => AppLocale.ja,
       _ when i18nLanguage.simplifiedChinese == text => AppLocale.zhHans,
       _ when i18nLanguage.traditionalChinese == text => AppLocale.zhHant,
-      _ when i18nLanguage.korean == text => AppLocale.kr,
+      _ when i18nLanguage.korean == text => AppLocale.ko,
       _ => AppLocale.en,
     };
   }
@@ -65,7 +65,7 @@ class LocaleService extends _$LocaleService {
       AppLocale.ja => i18nLanguage.japanese,
       AppLocale.zhHans => i18nLanguage.simplifiedChinese,
       AppLocale.zhHant => i18nLanguage.traditionalChinese,
-      AppLocale.kr => i18nLanguage.korean,
+      AppLocale.ko => i18nLanguage.korean,
     };
   }
 }

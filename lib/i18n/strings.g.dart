@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 5
-/// Strings: 1215 (243 per locale)
+/// Strings: 1220 (244 per locale)
 ///
-/// Built on 2025-01-26 at 17:47 UTC
+/// Built on 2025-01-27 at 12:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -18,7 +18,7 @@ import 'package:slang_flutter/slang_flutter.dart';
 export 'package:slang_flutter/slang_flutter.dart';
 
 import 'strings_ja.g.dart' deferred as l_ja;
-import 'strings_kr.g.dart' deferred as l_kr;
+import 'strings_ko.g.dart' deferred as l_ko;
 import 'strings_zh_Hans.g.dart' deferred as l_zh_Hans;
 import 'strings_zh_Hant.g.dart' deferred as l_zh_Hant;
 part 'strings_en.g.dart';
@@ -32,7 +32,7 @@ part 'strings_en.g.dart';
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	en(languageCode: 'en'),
 	ja(languageCode: 'ja'),
-	kr(languageCode: 'kr'),
+	ko(languageCode: 'ko'),
 	zhHans(languageCode: 'zh', scriptCode: 'Hans'),
 	zhHant(languageCode: 'zh', scriptCode: 'Hant');
 
@@ -66,9 +66,9 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
-			case AppLocale.kr:
-				await l_kr.loadLibrary();
-				return l_kr.TranslationsKr(
+			case AppLocale.ko:
+				await l_ko.loadLibrary();
+				return l_ko.TranslationsKo(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -109,8 +109,8 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
-			case AppLocale.kr:
-				return l_kr.TranslationsKr(
+			case AppLocale.ko:
+				return l_ko.TranslationsKo(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,

@@ -58,7 +58,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 		'en': 'English',
 		'ja': 'Japanese',
 		'zh': 'Chinese',
-		'kr': 'Korean',
+		'ko': 'Korean',
 	};
 	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
 	late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
@@ -1047,6 +1047,7 @@ class TranslationsCreatePlanPageSnackBarErrorEn {
 
 	// Translations
 	String get foundUnSelectedField => 'There are unselected items. Please select all items.';
+	String get invalidDateRange => 'The start date must be set before the end date.';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1424,6 +1425,7 @@ extension on Translations {
 			case 'createPlanPage.defaultTopics.3': return 'Movies';
 			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
 			case 'createPlanPage.snackBar.error.foundUnSelectedField': return 'There are unselected items. Please select all items.';
+			case 'createPlanPage.snackBar.error.invalidDateRange': return 'The start date must be set before the end date.';
 			case 'editProfilePage.title': return 'Edit Profile';
 			case 'editProfilePage.textFields.name': return 'Name';
 			case 'editProfilePage.buttons.submit': return 'Save';
@@ -1495,7 +1497,7 @@ extension on Translations {
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';
-			case 'locales.kr': return 'Korean';
+			case 'locales.ko': return 'Korean';
 			case 'errorPage.title': return 'An error occurred...';
 			case 'errorPage.message': return 'Please check your network connection and try again.';
 			case 'errorPage.retryButton': return 'Retry';

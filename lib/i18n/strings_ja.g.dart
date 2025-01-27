@@ -54,7 +54,7 @@ class TranslationsJa implements Translations {
 		'en': '英語',
 		'ja': '日本語',
 		'zh': '中国語',
-		'kr': '韓国語',
+		'ko': '韓国語',
 	};
 	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
 	@override late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
@@ -1043,6 +1043,7 @@ class _TranslationsCreatePlanPageSnackBarErrorJa implements TranslationsCreatePl
 
 	// Translations
 	@override String get foundUnSelectedField => '選択されていない項目があります 全ての項目を選択してください';
+	@override String get invalidDateRange => '開始日は終了日より前に設定してください。';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1420,6 +1421,7 @@ extension on TranslationsJa {
 			case 'createPlanPage.defaultTopics.3': return '映画';
 			case 'createPlanPage.submitButton': return 'プランをAIに伝える';
 			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '選択されていない項目があります 全ての項目を選択してください';
+			case 'createPlanPage.snackBar.error.invalidDateRange': return '開始日は終了日より前に設定してください。';
 			case 'editProfilePage.title': return '編集';
 			case 'editProfilePage.textFields.name': return '名前';
 			case 'editProfilePage.buttons.submit': return '保存';
@@ -1491,7 +1493,7 @@ extension on TranslationsJa {
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
-			case 'locales.kr': return '韓国語';
+			case 'locales.ko': return '韓国語';
 			case 'errorPage.title': return 'エラーが発生しました...';
 			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
 			case 'errorPage.retryButton': return 'もう一度読み込む';
