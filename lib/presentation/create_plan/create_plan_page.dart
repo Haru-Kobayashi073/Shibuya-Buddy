@@ -224,12 +224,14 @@ class CreatePlanPage extends HookConsumerWidget {
                     WideButton(
                       label: t.createPlanPage.submitButton,
                       color: AppColor.yellow600Primary,
-                      onPressed: () async => planNotifier.submitPlanPrompt(
-                        onNavigate: (planPrompt) async {
-                          await BuddyChatPageRouteData(planPrompt)
-                              .push<void>(context);
-                        },
-                      ),
+                      onPressed: () async {
+                        await planNotifier.submitPlanPrompt(
+                          onNavigate: (planPrompt) async {
+                            await BuddyChatPageRouteData(planPrompt)
+                                .push<void>(context);
+                          },
+                        );
+                      },
                     ),
                   ],
                 ),
