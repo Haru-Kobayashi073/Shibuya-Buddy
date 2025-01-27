@@ -86,7 +86,7 @@ class SmsVerificationPage extends HookConsumerWidget {
               )
             else
               InkWell(
-                onTap: () async => notifier.sendSmsCode(context, phoneNumber),
+                onTap: () async => notifier.sendSmsCode(phoneNumber),
                 child: Text(
                   i18nSmsVerificationPage.resend.title,
                   style: AppTextStyle.textStyle.copyWith(

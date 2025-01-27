@@ -58,10 +58,9 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
     }
   }
 
-  Future<void> sendSmsCode(BuildContext context, String phoneNumber) async {
-    final i18n = Translations.of(context);
+  Future<void> sendSmsCode(String phoneNumber) async {
     final i18nPhoneNumberInputScaffoldMessenger =
-        i18n.authentication.phoneNumberInputPage.scaffoldMessenger;
+        t.authentication.phoneNumberInputPage.scaffoldMessenger;
     if (phoneNumber.isEmpty) {
       scaffoldMessenger
           .showExceptionSnackBar(i18nPhoneNumberInputScaffoldMessenger.empty);
