@@ -66,7 +66,8 @@ class PhoneNumberInputPage extends HookConsumerWidget {
             // 日本+81が選択されていた場合のみ注釈を出す
             if (selectedCountryCode.value == 'JP') ...[
               Text(
-                '例：日本の電話番号「090-1234-5678」の場合、国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
+                '例：日本の電話番号「090-1234-5678」の場合、'
+                '国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 16,
                 ),
