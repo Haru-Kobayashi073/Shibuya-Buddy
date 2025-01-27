@@ -129,7 +129,7 @@ class BillDetailsPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomSheet: const BottomModal(),
+      bottomSheet: BottomModal(feature: feature),
     );
   }
 }

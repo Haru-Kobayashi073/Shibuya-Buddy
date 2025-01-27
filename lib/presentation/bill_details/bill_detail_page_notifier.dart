@@ -44,11 +44,12 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
     }
   }
 
-  Future<void> purchaseItem() async {
+  Future<void> purchaseItem({required void Function() onSuccess}) async {
     try {
       ref.read(isShowLoadingOverlayProvider.notifier).state = true;
       final packageId = _getPackageId();
       await inAppPurchaseService.makePurchase(packageId);
+      onSuccess();
     } on Exception catch (e) {
       debugPrint('purchaseItem error: $e');
       scaffoldMessenger

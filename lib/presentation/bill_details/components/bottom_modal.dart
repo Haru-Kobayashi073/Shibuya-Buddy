@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
+import '../../../utils/billing_grade_options.dart';
 import '../../../utils/providers/in_app_purchase/purchase_item_config.dart';
+import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../components/wide_button.dart';
 import '../bill_detail_page_notifier.dart';
 import './purchase_item_card.dart';
 
 class BottomModal extends HookConsumerWidget {
-  const BottomModal({super.key});
+  const BottomModal({super.key, required this.feature});
+  final BillingLimitedFeatures feature;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -44,9 +48,17 @@ class BottomModal extends HookConsumerWidget {
           const Gap(16),
           _buildUpgradeButton(
             selectedPlan,
-            () async => ref
-                .read(billDetailPageNotifierProvider.notifier)
-                .purchaseItem(),
+            () async =>
+                ref.read(billDetailPageNotifierProvider.notifier).purchaseItem(
+              onSuccess: () {
+                return switch (feature) {
+                  BillingLimitedFeatures.chatToBuddy => context.pop(),
+                  BillingLimitedFeatures.createPlan =>
+                    const CreatePlanPageRouteData().pushReplacement(context),
+                  BillingLimitedFeatures.none => context.pop(),
+                };
+              },
+            ),
           ),
           const Gap(16),
         ],
