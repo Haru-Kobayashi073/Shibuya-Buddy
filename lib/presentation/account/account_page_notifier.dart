@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
@@ -62,30 +61,32 @@ class AccountPageNotifier extends _$AccountPageNotifier {
   }
 
   Future<void> linkedWithApple() async {
-    debugPrint('ダミー');
-    state = state.copyWith(appleLinkage: true);
-  }
-
-  Future<void> linkedWithGoogle() async {
     try {
-      final credential = await authenticationDataSource.signInWithGoogle();
-      await linkedSocialAccount(credential);
-      state = state.copyWith(googleLinkage: true);
-    } on Exception {
-      scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
-    }
-  }
-
-  Future<void> linkedSocialAccount(AuthCredential credential) async {
-    try {
-      //アカウント連携
-      await authenticationDataSource.linkWithCredential(credential);
+      await authenticationDataSource.signInWithApple();
+      state = state.copyWith(appleLinkage: true);
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.successfulLinkage);
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
+    } on Exception {
+      scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
+    }
+  }
+
+  Future<void> linkedWithGoogle() async {
+    try {
+      await authenticationDataSource.signInWithGoogle();
+      state = state.copyWith(googleLinkage: true);
+      scaffoldMessenger.showSuccessSnackBar(snackBari18n.successfulLinkage);
+    } on FirebaseAuthException catch (e) {
+      final exceptionMessage = e.toLocalizedMessage;
+      ref
+          .read(scaffoldMessengerProvider.notifier)
+          .showExceptionSnackBar(exceptionMessage);
+    } on Exception {
+      scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
   }
 
