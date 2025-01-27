@@ -49,9 +49,9 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         i18n.success,
       );
       onSuccess();
-    } catch (error) {
+    } on Object catch (error) {
       scaffoldMessenger.showExceptionSnackBar(
-        i18n.error,
+        '${i18n.error} $error',
       );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -84,9 +84,9 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
           );
         },
       );
-    } catch (error) {
+    } on Exception catch (error) {
       scaffoldMessenger.showExceptionSnackBar(
-        i18nPhoneNumberInputScaffoldMessenger.unexpectedError,
+        '${i18nPhoneNumberInputScaffoldMessenger.unexpectedError} $error',
       );
     }
   }
