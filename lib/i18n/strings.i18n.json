@@ -419,7 +419,7 @@
         "en": "English",
         "ja": "Japanese",
         "zh": "Chinese",
-        "kr": "Korean"
+        "ko": "Korean"
     },
     "errorPage": {
         "title": "An error occurred...",

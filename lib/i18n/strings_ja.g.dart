@@ -11,1419 +11,999 @@ import 'strings.g.dart';
 
 // Path: <root>
 class TranslationsJa implements Translations {
-  /// You can call this constructor and build your own translation instance of this locale.
-  /// Constructing via the enum [AppLocale.build] is preferred.
-  TranslationsJa(
-      {Map<String, Node>? overrides,
-      PluralResolver? cardinalResolver,
-      PluralResolver? ordinalResolver})
-      : assert(overrides == null,
-            'Set "translation_overrides: true" in order to enable this feature.'),
-        $meta = TranslationMetadata(
-          locale: AppLocale.ja,
-          overrides: overrides ?? {},
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        ) {
-    $meta.setFlatMapFunction(_flatMapFunction);
-  }
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	TranslationsJa({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.ja,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
 
-  /// Metadata for the translations of <ja>.
-  @override
-  final TranslationMetadata<AppLocale, Translations> $meta;
+	/// Metadata for the translations of <ja>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
-  /// Access flat map
-  @override
-  dynamic operator [](String key) => $meta.getTranslation(key);
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-  late final TranslationsJa _root = this; // ignore: unused_field
+	late final TranslationsJa _root = this; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarJa navigationBar =
-      _TranslationsNavigationBarJa._(_root);
-  @override
-  late final _TranslationsHomePageJa homePage =
-      _TranslationsHomePageJa._(_root);
-  @override
-  late final _TranslationsAccountPageJa accountPage =
-      _TranslationsAccountPageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationJa authentication =
-      _TranslationsAuthenticationJa._(_root);
-  @override
-  late final _TranslationsValidationJa validation =
-      _TranslationsValidationJa._(_root);
-  @override
-  late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
-  @override
-  late final _TranslationsChangeLanguagePageJa changeLanguagePage =
-      _TranslationsChangeLanguagePageJa._(_root);
-  @override
-  late final _TranslationsChangeThemePageJa changeThemePage =
-      _TranslationsChangeThemePageJa._(_root);
-  @override
-  late final _TranslationsMyPlanPageJa myPlanPage =
-      _TranslationsMyPlanPageJa._(_root);
-  @override
-  late final _TranslationsBuddyChatPageJa buddyChatPage =
-      _TranslationsBuddyChatPageJa._(_root);
-  @override
-  late final _TranslationsPopularTopicsJa popularTopics =
-      _TranslationsPopularTopicsJa._(_root);
-  @override
-  late final _TranslationsCreatePlanPageJa createPlanPage =
-      _TranslationsCreatePlanPageJa._(_root);
-  @override
-  late final _TranslationsEditProfilePageJa editProfilePage =
-      _TranslationsEditProfilePageJa._(_root);
-  @override
-  late final _TranslationsConfirmDialogJa confirmDialog =
-      _TranslationsConfirmDialogJa._(_root);
-  @override
-  late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPageJa billDetailsPage =
-      _TranslationsBillDetailsPageJa._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageJa planDetailsPage =
-      _TranslationsPlanDetailsPageJa._(_root);
-  @override
-  Map<String, String> get locales => {
-        'en': '英語',
-        'ja': '日本語',
-        'zh': '中国語',
-        'kr': '韓国語',
-      };
-  @override
-  late final _TranslationsErrorPageJa errorPage =
-      _TranslationsErrorPageJa._(_root);
-  @override
-  late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
+	// Translations
+	@override late final _TranslationsNavigationBarJa navigationBar = _TranslationsNavigationBarJa._(_root);
+	@override late final _TranslationsHomePageJa homePage = _TranslationsHomePageJa._(_root);
+	@override late final _TranslationsAccountPageJa accountPage = _TranslationsAccountPageJa._(_root);
+	@override late final _TranslationsAuthenticationJa authentication = _TranslationsAuthenticationJa._(_root);
+	@override late final _TranslationsValidationJa validation = _TranslationsValidationJa._(_root);
+	@override late final _TranslationsMyPageJa myPage = _TranslationsMyPageJa._(_root);
+	@override late final _TranslationsChangeLanguagePageJa changeLanguagePage = _TranslationsChangeLanguagePageJa._(_root);
+	@override late final _TranslationsChangeThemePageJa changeThemePage = _TranslationsChangeThemePageJa._(_root);
+	@override late final _TranslationsMyPlanPageJa myPlanPage = _TranslationsMyPlanPageJa._(_root);
+	@override late final _TranslationsBuddyChatPageJa buddyChatPage = _TranslationsBuddyChatPageJa._(_root);
+	@override late final _TranslationsPopularTopicsJa popularTopics = _TranslationsPopularTopicsJa._(_root);
+	@override late final _TranslationsCreatePlanPageJa createPlanPage = _TranslationsCreatePlanPageJa._(_root);
+	@override late final _TranslationsEditProfilePageJa editProfilePage = _TranslationsEditProfilePageJa._(_root);
+	@override late final _TranslationsConfirmDialogJa confirmDialog = _TranslationsConfirmDialogJa._(_root);
+	@override late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
+	@override late final _TranslationsBillDetailsPageJa billDetailsPage = _TranslationsBillDetailsPageJa._(_root);
+	@override late final _TranslationsPlanDetailsPageJa planDetailsPage = _TranslationsPlanDetailsPageJa._(_root);
+	@override Map<String, String> get locales => {
+		'en': '英語',
+		'ja': '日本語',
+		'zh': '中国語',
+		'ko': '韓国語',
+	};
+	@override late final _TranslationsErrorPageJa errorPage = _TranslationsErrorPageJa._(_root);
+	@override late final _TranslationsMapPageJa mapPage = _TranslationsMapPageJa._(_root);
 }
 
 // Path: navigationBar
 class _TranslationsNavigationBarJa implements TranslationsNavigationBarEn {
-  _TranslationsNavigationBarJa._(this._root);
+	_TranslationsNavigationBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarItemsJa items =
-      _TranslationsNavigationBarItemsJa._(_root);
+	// Translations
+	@override late final _TranslationsNavigationBarItemsJa items = _TranslationsNavigationBarItemsJa._(_root);
 }
 
 // Path: homePage
 class _TranslationsHomePageJa implements TranslationsHomePageEn {
-  _TranslationsHomePageJa._(this._root);
+	_TranslationsHomePageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsHomePagePopularPlansJa popularPlans =
-      _TranslationsHomePagePopularPlansJa._(_root);
-  @override
-  late final _TranslationsHomePagePopularTopicsJa popularTopics =
-      _TranslationsHomePagePopularTopicsJa._(_root);
-  @override
-  late final _TranslationsHomePageRecentPlansJa recentPlans =
-      _TranslationsHomePageRecentPlansJa._(_root);
+	// Translations
+	@override late final _TranslationsHomePagePopularPlansJa popularPlans = _TranslationsHomePagePopularPlansJa._(_root);
+	@override late final _TranslationsHomePagePopularTopicsJa popularTopics = _TranslationsHomePagePopularTopicsJa._(_root);
+	@override late final _TranslationsHomePageRecentPlansJa recentPlans = _TranslationsHomePageRecentPlansJa._(_root);
 }
 
 // Path: accountPage
 class _TranslationsAccountPageJa implements TranslationsAccountPageEn {
-  _TranslationsAccountPageJa._(this._root);
+	_TranslationsAccountPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'アカウント';
-  @override
-  late final _TranslationsAccountPageItemsJa items =
-      _TranslationsAccountPageItemsJa._(_root);
-  @override
-  late final _TranslationsAccountPageSnackBarJa snackBar =
-      _TranslationsAccountPageSnackBarJa._(_root);
-  @override
-  late final _TranslationsAccountPageDiaLogJa diaLog =
-      _TranslationsAccountPageDiaLogJa._(_root);
+	// Translations
+	@override String get title => 'アカウント';
+	@override late final _TranslationsAccountPageItemsJa items = _TranslationsAccountPageItemsJa._(_root);
+	@override late final _TranslationsAccountPageSnackBarJa snackBar = _TranslationsAccountPageSnackBarJa._(_root);
+	@override late final _TranslationsAccountPageDiaLogJa diaLog = _TranslationsAccountPageDiaLogJa._(_root);
 }
 
 // Path: authentication
 class _TranslationsAuthenticationJa implements TranslationsAuthenticationEn {
-  _TranslationsAuthenticationJa._(this._root);
+	_TranslationsAuthenticationJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationSignInPageJa signInPage =
-      _TranslationsAuthenticationSignInPageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationResetPasswordPageJa resetPasswordPage =
-      _TranslationsAuthenticationResetPasswordPageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationSignUpPageJa signUpPage =
-      _TranslationsAuthenticationSignUpPageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageJa
-      emailVerificationPage =
-      _TranslationsAuthenticationEmailVerificationPageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageJa
-      registerProfilePage =
-      _TranslationsAuthenticationRegisterProfilePageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationCompleteSendEmailPageJa
-      completeSendEmailPage =
-      _TranslationsAuthenticationCompleteSendEmailPageJa._(_root);
-  @override
-  late final _TranslationsAuthenticationFirebaseAuthJa firebaseAuth =
-      _TranslationsAuthenticationFirebaseAuthJa._(_root);
+	// Translations
+	@override late final _TranslationsAuthenticationSignInPageJa signInPage = _TranslationsAuthenticationSignInPageJa._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageJa resetPasswordPage = _TranslationsAuthenticationResetPasswordPageJa._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageJa signUpPage = _TranslationsAuthenticationSignUpPageJa._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageJa emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageJa._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageJa registerProfilePage = _TranslationsAuthenticationRegisterProfilePageJa._(_root);
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageJa completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageJa._(_root);
+	@override late final _TranslationsAuthenticationFirebaseAuthJa firebaseAuth = _TranslationsAuthenticationFirebaseAuthJa._(_root);
 }
 
 // Path: validation
 class _TranslationsValidationJa implements TranslationsValidationEn {
-  _TranslationsValidationJa._(this._root);
+	_TranslationsValidationJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get emailRequired => 'メールアドレスを入力してください';
-  @override
-  String get emailInvalid => 'メールアドレスの形式が正しくありません';
-  @override
-  String get passwordRequired => 'パスワードを入力してください';
-  @override
-  String get passwordShort => 'パスワードは少なくとも8文字以上である必要があります';
-  @override
-  String get passwordWeak => 'パスワードは半角英数字を組み合わせてください';
-  @override
-  String get passwordMatch => 'パスワードが一致しません';
-  @override
-  String get informationRequired => '情報を入力してください';
-  @override
-  String get urlInvalid => 'URLの形式が正しくありません';
-  @override
-  String get usernameRequired => 'ユーザーネームを入力してください';
-  @override
-  String get usernameMaxLength => 'ユーザーネームは8文字以内である必要があります';
+	// Translations
+	@override String get emailRequired => 'メールアドレスを入力してください';
+	@override String get emailInvalid => 'メールアドレスの形式が正しくありません';
+	@override String get passwordRequired => 'パスワードを入力してください';
+	@override String get passwordShort => 'パスワードは少なくとも8文字以上である必要があります';
+	@override String get passwordWeak => 'パスワードは半角英数字を組み合わせてください';
+	@override String get passwordMatch => 'パスワードが一致しません';
+	@override String get informationRequired => '情報を入力してください';
+	@override String get urlInvalid => 'URLの形式が正しくありません';
+	@override String get usernameRequired => 'ユーザーネームを入力してください';
+	@override String get usernameMaxLength => 'ユーザーネームは8文字以内である必要があります';
 }
 
 // Path: myPage
 class _TranslationsMyPageJa implements TranslationsMyPageEn {
-  _TranslationsMyPageJa._(this._root);
+	_TranslationsMyPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get unregisteredUserName => '未登録';
-  @override
-  String get editProfile => 'プロフィール編集';
-  @override
-  String get premiumPlan => 'プレミアムプラン';
-  @override
-  String get details => '詳細';
-  @override
-  String get settings => '設定';
-  @override
-  String get account => 'アカウント';
-  @override
-  String get language => '言語';
-  @override
-  String get theme => 'テーマ';
-  @override
-  String get termsOfUsePrivacyPolicy => '利用規約・プライバシーポリシー';
-  @override
-  String get aboutThisApp => 'このアプリについて';
-  @override
-  String get aboutTheDeveloper => '開発者について';
-  @override
-  late final _TranslationsMyPageAccountStatusJa accountStatus =
-      _TranslationsMyPageAccountStatusJa._(_root);
+	// Translations
+	@override String get unregisteredUserName => '未登録';
+	@override String get editProfile => 'プロフィール編集';
+	@override String get premiumPlan => 'プレミアムプラン';
+	@override String get details => '詳細';
+	@override String get settings => '設定';
+	@override String get account => 'アカウント';
+	@override String get language => '言語';
+	@override String get theme => 'テーマ';
+	@override String get termsOfUsePrivacyPolicy => '利用規約・プライバシーポリシー';
+	@override String get aboutThisApp => 'このアプリについて';
+	@override String get aboutTheDeveloper => '開発者について';
+	@override late final _TranslationsMyPageAccountStatusJa accountStatus = _TranslationsMyPageAccountStatusJa._(_root);
 }
 
 // Path: changeLanguagePage
-class _TranslationsChangeLanguagePageJa
-    implements TranslationsChangeLanguagePageEn {
-  _TranslationsChangeLanguagePageJa._(this._root);
+class _TranslationsChangeLanguagePageJa implements TranslationsChangeLanguagePageEn {
+	_TranslationsChangeLanguagePageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '言語';
-  @override
-  late final _TranslationsChangeLanguagePageItemsJa items =
-      _TranslationsChangeLanguagePageItemsJa._(_root);
+	// Translations
+	@override String get title => '言語';
+	@override late final _TranslationsChangeLanguagePageItemsJa items = _TranslationsChangeLanguagePageItemsJa._(_root);
 }
 
 // Path: changeThemePage
 class _TranslationsChangeThemePageJa implements TranslationsChangeThemePageEn {
-  _TranslationsChangeThemePageJa._(this._root);
+	_TranslationsChangeThemePageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'テーマ';
-  @override
-  late final _TranslationsChangeThemePageItemsJa items =
-      _TranslationsChangeThemePageItemsJa._(_root);
+	// Translations
+	@override String get title => 'テーマ';
+	@override late final _TranslationsChangeThemePageItemsJa items = _TranslationsChangeThemePageItemsJa._(_root);
 }
 
 // Path: myPlanPage
 class _TranslationsMyPlanPageJa implements TranslationsMyPlanPageEn {
-  _TranslationsMyPlanPageJa._(this._root);
+	_TranslationsMyPlanPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'マイプラン';
-  @override
-  late final _TranslationsMyPlanPageTabsJa tabs =
-      _TranslationsMyPlanPageTabsJa._(_root);
-  @override
-  late final _TranslationsMyPlanPageBookmarkItemsJa bookmarkItems =
-      _TranslationsMyPlanPageBookmarkItemsJa._(_root);
-  @override
-  late final _TranslationsMyPlanPageCreatedPlansItemsJa createdPlansItems =
-      _TranslationsMyPlanPageCreatedPlansItemsJa._(_root);
-  @override
-  late final _TranslationsMyPlanPageErrorJa error =
-      _TranslationsMyPlanPageErrorJa._(_root);
+	// Translations
+	@override String get title => 'マイプラン';
+	@override late final _TranslationsMyPlanPageTabsJa tabs = _TranslationsMyPlanPageTabsJa._(_root);
+	@override late final _TranslationsMyPlanPageBookmarkItemsJa bookmarkItems = _TranslationsMyPlanPageBookmarkItemsJa._(_root);
+	@override late final _TranslationsMyPlanPageCreatedPlansItemsJa createdPlansItems = _TranslationsMyPlanPageCreatedPlansItemsJa._(_root);
+	@override late final _TranslationsMyPlanPageErrorJa error = _TranslationsMyPlanPageErrorJa._(_root);
 }
 
 // Path: buddyChatPage
 class _TranslationsBuddyChatPageJa implements TranslationsBuddyChatPageEn {
-  _TranslationsBuddyChatPageJa._(this._root);
+	_TranslationsBuddyChatPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'Buddyの提案';
-  @override
-  String possibleChatCount({required Object possibleChatCount}) =>
-      'メッセージは残り${possibleChatCount}回送信可能です';
-  @override
-  late final _TranslationsBuddyChatPageTextFieldsJa textFields =
-      _TranslationsBuddyChatPageTextFieldsJa._(_root);
-  @override
-  late final _TranslationsBuddyChatPageButtonsJa buttons =
-      _TranslationsBuddyChatPageButtonsJa._(_root);
-  @override
-  late final _TranslationsBuddyChatPagePlaceCardJa placeCard =
-      _TranslationsBuddyChatPagePlaceCardJa._(_root);
-  @override
-  late final _TranslationsBuddyChatPageSnackBarJa snackBar =
-      _TranslationsBuddyChatPageSnackBarJa._(_root);
+	// Translations
+	@override String get title => 'Buddyの提案';
+	@override String possibleChatCount({required Object possibleChatCount}) => 'メッセージは残り${possibleChatCount}回送信可能です';
+	@override late final _TranslationsBuddyChatPageTextFieldsJa textFields = _TranslationsBuddyChatPageTextFieldsJa._(_root);
+	@override late final _TranslationsBuddyChatPageButtonsJa buttons = _TranslationsBuddyChatPageButtonsJa._(_root);
+	@override late final _TranslationsBuddyChatPagePlaceCardJa placeCard = _TranslationsBuddyChatPagePlaceCardJa._(_root);
+	@override late final _TranslationsBuddyChatPageSnackBarJa snackBar = _TranslationsBuddyChatPageSnackBarJa._(_root);
 }
 
 // Path: popularTopics
 class _TranslationsPopularTopicsJa implements TranslationsPopularTopicsEn {
-  _TranslationsPopularTopicsJa._(this._root);
+	_TranslationsPopularTopicsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get sectionName => '人気のトピック';
+	// Translations
+	@override String get sectionName => '人気のトピック';
 }
 
 // Path: createPlanPage
 class _TranslationsCreatePlanPageJa implements TranslationsCreatePlanPageEn {
-  _TranslationsCreatePlanPageJa._(this._root);
+	_TranslationsCreatePlanPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'プランの作成';
-  @override
-  late final _TranslationsCreatePlanPageLabelJa label =
-      _TranslationsCreatePlanPageLabelJa._(_root);
-  @override
-  late final _TranslationsCreatePlanPageHintTextJa hintText =
-      _TranslationsCreatePlanPageHintTextJa._(_root);
-  @override
-  late final _TranslationsCreatePlanPageModalJa modal =
-      _TranslationsCreatePlanPageModalJa._(_root);
-  @override
-  List<String> get numberOfPeopleOptions => [
-        '1人',
-        '2人',
-        '3人',
-        '4人',
-        '5人',
-        '6人以上',
-      ];
-  @override
-  List<String> get transportOptions => [
-        '電車',
-        '徒歩',
-        '車',
-        'バス',
-      ];
-  @override
-  List<String> get categoryOptions => [
-        '子連れ向け',
-        '大人向け',
-        'エンタメ',
-        'アクティビティ',
-        '歴史',
-      ];
-  @override
-  List<String> get defaultTopics => [
-        'グルメ',
-        'ショッピング',
-        'アクティビティ',
-        '映画',
-      ];
-  @override
-  String get submitButton => 'プランをAIに伝える';
-  @override
-  late final _TranslationsCreatePlanPageSnackBarJa snackBar =
-      _TranslationsCreatePlanPageSnackBarJa._(_root);
+	// Translations
+	@override String get title => 'プランの作成';
+	@override late final _TranslationsCreatePlanPageLabelJa label = _TranslationsCreatePlanPageLabelJa._(_root);
+	@override late final _TranslationsCreatePlanPageHintTextJa hintText = _TranslationsCreatePlanPageHintTextJa._(_root);
+	@override late final _TranslationsCreatePlanPageModalJa modal = _TranslationsCreatePlanPageModalJa._(_root);
+	@override List<String> get numberOfPeopleOptions => [
+		'1人',
+		'2人',
+		'3人',
+		'4人',
+		'5人',
+		'6人以上',
+	];
+	@override List<String> get transportOptions => [
+		'電車',
+		'徒歩',
+		'車',
+		'バス',
+	];
+	@override List<String> get categoryOptions => [
+		'子連れ向け',
+		'大人向け',
+		'エンタメ',
+		'アクティビティ',
+		'歴史',
+	];
+	@override List<String> get defaultTopics => [
+		'グルメ',
+		'ショッピング',
+		'アクティビティ',
+		'映画',
+	];
+	@override String get submitButton => 'プランをAIに伝える';
+	@override late final _TranslationsCreatePlanPageSnackBarJa snackBar = _TranslationsCreatePlanPageSnackBarJa._(_root);
 }
 
 // Path: editProfilePage
 class _TranslationsEditProfilePageJa implements TranslationsEditProfilePageEn {
-  _TranslationsEditProfilePageJa._(this._root);
+	_TranslationsEditProfilePageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '編集';
-  @override
-  late final _TranslationsEditProfilePageTextFieldsJa textFields =
-      _TranslationsEditProfilePageTextFieldsJa._(_root);
-  @override
-  late final _TranslationsEditProfilePageButtonsJa buttons =
-      _TranslationsEditProfilePageButtonsJa._(_root);
-  @override
-  late final _TranslationsEditProfilePageSnackBarJa snackBar =
-      _TranslationsEditProfilePageSnackBarJa._(_root);
+	// Translations
+	@override String get title => '編集';
+	@override late final _TranslationsEditProfilePageTextFieldsJa textFields = _TranslationsEditProfilePageTextFieldsJa._(_root);
+	@override late final _TranslationsEditProfilePageButtonsJa buttons = _TranslationsEditProfilePageButtonsJa._(_root);
+	@override late final _TranslationsEditProfilePageSnackBarJa snackBar = _TranslationsEditProfilePageSnackBarJa._(_root);
 }
 
 // Path: confirmDialog
 class _TranslationsConfirmDialogJa implements TranslationsConfirmDialogEn {
-  _TranslationsConfirmDialogJa._(this._root);
+	_TranslationsConfirmDialogJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsConfirmDialogAnswersJa answers =
-      _TranslationsConfirmDialogAnswersJa._(_root);
-  @override
-  late final _TranslationsConfirmDialogPopPageJa popPage =
-      _TranslationsConfirmDialogPopPageJa._(_root);
-  @override
-  late final _TranslationsConfirmDialogCompleteCreatePlanJa completeCreatePlan =
-      _TranslationsConfirmDialogCompleteCreatePlanJa._(_root);
+	// Translations
+	@override late final _TranslationsConfirmDialogAnswersJa answers = _TranslationsConfirmDialogAnswersJa._(_root);
+	@override late final _TranslationsConfirmDialogPopPageJa popPage = _TranslationsConfirmDialogPopPageJa._(_root);
+	@override late final _TranslationsConfirmDialogCompleteCreatePlanJa completeCreatePlan = _TranslationsConfirmDialogCompleteCreatePlanJa._(_root);
 }
 
 // Path: prompt
 class _TranslationsPromptJa implements TranslationsPromptEn {
-  _TranslationsPromptJa._(this._root);
+	_TranslationsPromptJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get planProposalMessage => 'こんなプランを考えてみました！いかがですか？';
+	// Translations
+	@override String get planProposalMessage => 'こんなプランを考えてみました！いかがですか？';
 }
 
 // Path: billDetailsPage
 class _TranslationsBillDetailsPageJa implements TranslationsBillDetailsPageEn {
-  _TranslationsBillDetailsPageJa._(this._root);
+	_TranslationsBillDetailsPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'プレミアムプラン';
-  @override
-  String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan =
-      _TranslationsBillDetailsPagePricingPlanJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPageFeaturesJa features =
-      _TranslationsBillDetailsPageFeaturesJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions =
-      _TranslationsBillDetailsPagePricingOptionsJa._(_root);
-  @override
-  String get upgradeButton => 'プレミアムにアップグレード';
+	// Translations
+	@override String get title => 'プレミアムプラン';
+	@override String get description => 'プレミアムプランに加入することで、より快適に渋谷観光をお楽しみいただけます。';
+	@override late final _TranslationsBillDetailsPagePricingPlanJa pricingPlan = _TranslationsBillDetailsPagePricingPlanJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesJa features = _TranslationsBillDetailsPageFeaturesJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsJa pricingOptions = _TranslationsBillDetailsPagePricingOptionsJa._(_root);
+	@override String get upgradeButton => 'プレミアムにアップグレード';
 }
 
 // Path: planDetailsPage
 class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
-  _TranslationsPlanDetailsPageJa._(this._root);
+	_TranslationsPlanDetailsPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsPlanDetailsPageDateTimeJa dateTime =
-      _TranslationsPlanDetailsPageDateTimeJa._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageItemJa item =
-      _TranslationsPlanDetailsPageItemJa._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageSnackBarJa snackBar =
-      _TranslationsPlanDetailsPageSnackBarJa._(_root);
+	// Translations
+	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
+	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
+	@override late final _TranslationsPlanDetailsPageSnackBarJa snackBar = _TranslationsPlanDetailsPageSnackBarJa._(_root);
 }
 
 // Path: errorPage
 class _TranslationsErrorPageJa implements TranslationsErrorPageEn {
-  _TranslationsErrorPageJa._(this._root);
+	_TranslationsErrorPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'エラーが発生しました...';
-  @override
-  String get message => '通信環境を確認し、もう一度お試しください';
-  @override
-  String get retryButton => 'もう一度読み込む';
+	// Translations
+	@override String get title => 'エラーが発生しました...';
+	@override String get message => '通信環境を確認し、もう一度お試しください';
+	@override String get retryButton => 'もう一度読み込む';
 }
 
 // Path: mapPage
 class _TranslationsMapPageJa implements TranslationsMapPageEn {
-  _TranslationsMapPageJa._(this._root);
+	_TranslationsMapPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'マップ';
+	// Translations
+	@override String get title => 'マップ';
 }
 
 // Path: navigationBar.items
-class _TranslationsNavigationBarItemsJa
-    implements TranslationsNavigationBarItemsEn {
-  _TranslationsNavigationBarItemsJa._(this._root);
+class _TranslationsNavigationBarItemsJa implements TranslationsNavigationBarItemsEn {
+	_TranslationsNavigationBarItemsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get home => 'ホーム';
-  @override
-  String get myPlan => 'マイプラン';
-  @override
-  String get myPage => 'マイページ';
+	// Translations
+	@override String get home => 'ホーム';
+	@override String get myPlan => 'マイプラン';
+	@override String get myPage => 'マイページ';
 }
 
 // Path: homePage.popularPlans
-class _TranslationsHomePagePopularPlansJa
-    implements TranslationsHomePagePopularPlansEn {
-  _TranslationsHomePagePopularPlansJa._(this._root);
+class _TranslationsHomePagePopularPlansJa implements TranslationsHomePagePopularPlansEn {
+	_TranslationsHomePagePopularPlansJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '人気のプラン';
+	// Translations
+	@override String get title => '人気のプラン';
 }
 
 // Path: homePage.popularTopics
-class _TranslationsHomePagePopularTopicsJa
-    implements TranslationsHomePagePopularTopicsEn {
-  _TranslationsHomePagePopularTopicsJa._(this._root);
+class _TranslationsHomePagePopularTopicsJa implements TranslationsHomePagePopularTopicsEn {
+	_TranslationsHomePagePopularTopicsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '人気のトピック';
-  @override
-  String numberOfTopics({required Object number}) => '${number}件~';
+	// Translations
+	@override String get title => '人気のトピック';
+	@override String numberOfTopics({required Object number}) => '${number}件~';
 }
 
 // Path: homePage.recentPlans
-class _TranslationsHomePageRecentPlansJa
-    implements TranslationsHomePageRecentPlansEn {
-  _TranslationsHomePageRecentPlansJa._(this._root);
+class _TranslationsHomePageRecentPlansJa implements TranslationsHomePageRecentPlansEn {
+	_TranslationsHomePageRecentPlansJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '最近作成したプラン';
+	// Translations
+	@override String get title => '最近作成したプラン';
 }
 
 // Path: accountPage.items
-class _TranslationsAccountPageItemsJa
-    implements TranslationsAccountPageItemsEn {
-  _TranslationsAccountPageItemsJa._(this._root);
+class _TranslationsAccountPageItemsJa implements TranslationsAccountPageItemsEn {
+	_TranslationsAccountPageItemsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signOut => 'ログアウト';
-  @override
-  String get linkedWithGoogle => 'Googleで連携';
-  @override
-  String get linkedWithApple => 'Appleで連携';
-  @override
-  String get alreadyLinkedGoogle => 'Google連携済み';
-  @override
-  String get alreadyLinkedApple => 'Appleで連携済み';
+	// Translations
+	@override String get signOut => 'ログアウト';
+	@override String get linkedWithGoogle => 'Googleで連携';
+	@override String get linkedWithApple => 'Appleで連携';
+	@override String get alreadyLinkedGoogle => 'Google連携済み';
+	@override String get alreadyLinkedApple => 'Appleで連携済み';
 }
 
 // Path: accountPage.snackBar
-class _TranslationsAccountPageSnackBarJa
-    implements TranslationsAccountPageSnackBarEn {
-  _TranslationsAccountPageSnackBarJa._(this._root);
+class _TranslationsAccountPageSnackBarJa implements TranslationsAccountPageSnackBarEn {
+	_TranslationsAccountPageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signOut => 'ログアウトしました。';
-  @override
-  String get signOutFailure => 'ログアウト時にエラーが発生しました。';
-  @override
-  String get successfulLinkage => 'アカウント連携に成功しました。';
-  @override
-  String get linkageFailure => 'アカウント連携に失敗しました。';
-  @override
-  String get providerAlreadyLinked => 'このアカウントはすでに連携済みです。';
-  @override
-  String get accountDeactivation => 'アカウントの連携を解除しました。';
-  @override
-  String get invalidCredential => '再度ログインをやり直してください。';
-  @override
-  String get linkageCancelled => 'アカウントの連携をキャンセルしました。';
-  @override
-  String get unlinkageFailure => 'アカウントの連携解除に失敗しました。';
-  @override
-  String get operationNotAllowed => 'プロパイダーが無効です。開発者にお問い合わせください。';
-  @override
-  String get unknownError => '不明なエラーが発生しました。';
+	// Translations
+	@override String get signOut => 'ログアウトしました。';
+	@override String get signOutFailure => 'ログアウト時にエラーが発生しました。';
+	@override String get successfulLinkage => 'アカウント連携に成功しました。';
+	@override String get linkageFailure => 'アカウント連携に失敗しました。';
+	@override String get providerAlreadyLinked => 'このアカウントはすでに連携済みです。';
+	@override String get accountDeactivation => 'アカウントの連携を解除しました。';
+	@override String get invalidCredential => '再度ログインをやり直してください。';
+	@override String get linkageCancelled => 'アカウントの連携をキャンセルしました。';
+	@override String get unlinkageFailure => 'アカウントの連携解除に失敗しました。';
+	@override String get operationNotAllowed => 'プロパイダーが無効です。開発者にお問い合わせください。';
+	@override String get unknownError => '不明なエラーが発生しました。';
 }
 
 // Path: accountPage.diaLog
-class _TranslationsAccountPageDiaLogJa
-    implements TranslationsAccountPageDiaLogEn {
-  _TranslationsAccountPageDiaLogJa._(this._root);
+class _TranslationsAccountPageDiaLogJa implements TranslationsAccountPageDiaLogEn {
+	_TranslationsAccountPageDiaLogJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get yes => 'はい';
-  @override
-  String get no => 'いいえ';
-  @override
-  String get title => 'アカウント連携解除の確認';
-  @override
-  String get googleText => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
-  @override
-  String get appleText => '現在のアカウントとAppleアカウントの連携を解除しますか？';
+	// Translations
+	@override String get yes => 'はい';
+	@override String get no => 'いいえ';
+	@override String get title => 'アカウント連携解除の確認';
+	@override String get googleText => '現在のアカウントとGoogleアカウントの連携を解除しますか？';
+	@override String get appleText => '現在のアカウントとAppleアカウントの連携を解除しますか？';
 }
 
 // Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageJa
-    implements TranslationsAuthenticationSignInPageEn {
-  _TranslationsAuthenticationSignInPageJa._(this._root);
+class _TranslationsAuthenticationSignInPageJa implements TranslationsAuthenticationSignInPageEn {
+	_TranslationsAuthenticationSignInPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'ログイン';
-  @override
-  String get optionText => ' または ';
-  @override
-  late final _TranslationsAuthenticationSignInPageTextFieldsJa textFields =
-      _TranslationsAuthenticationSignInPageTextFieldsJa._(_root);
-  @override
-  late final _TranslationsAuthenticationSignInPageButtonsJa buttons =
-      _TranslationsAuthenticationSignInPageButtonsJa._(_root);
+	// Translations
+	@override String get title => 'ログイン';
+	@override String get optionText => ' または ';
+	@override late final _TranslationsAuthenticationSignInPageTextFieldsJa textFields = _TranslationsAuthenticationSignInPageTextFieldsJa._(_root);
+	@override late final _TranslationsAuthenticationSignInPageButtonsJa buttons = _TranslationsAuthenticationSignInPageButtonsJa._(_root);
 }
 
 // Path: authentication.resetPasswordPage
-class _TranslationsAuthenticationResetPasswordPageJa
-    implements TranslationsAuthenticationResetPasswordPageEn {
-  _TranslationsAuthenticationResetPasswordPageJa._(this._root);
+class _TranslationsAuthenticationResetPasswordPageJa implements TranslationsAuthenticationResetPasswordPageEn {
+	_TranslationsAuthenticationResetPasswordPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'パスワードのリセット';
-  @override
-  String get description => '入力されたメールアドレスにパスワードリセットのメールを送信します';
-  @override
-  late final _TranslationsAuthenticationResetPasswordPageTextFieldsJa
-      textFields =
-      _TranslationsAuthenticationResetPasswordPageTextFieldsJa._(_root);
-  @override
-  late final _TranslationsAuthenticationResetPasswordPageButtonsJa buttons =
-      _TranslationsAuthenticationResetPasswordPageButtonsJa._(_root);
+	// Translations
+	@override String get title => 'パスワードのリセット';
+	@override String get description => '入力されたメールアドレスにパスワードリセットのメールを送信します';
+	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsJa textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsJa._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageButtonsJa buttons = _TranslationsAuthenticationResetPasswordPageButtonsJa._(_root);
 }
 
 // Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageJa
-    implements TranslationsAuthenticationSignUpPageEn {
-  _TranslationsAuthenticationSignUpPageJa._(this._root);
+class _TranslationsAuthenticationSignUpPageJa implements TranslationsAuthenticationSignUpPageEn {
+	_TranslationsAuthenticationSignUpPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationSignUpPageTitleJa title =
-      _TranslationsAuthenticationSignUpPageTitleJa._(_root);
-  @override
-  late final _TranslationsAuthenticationSignUpPageTextFieldsJa textFields =
-      _TranslationsAuthenticationSignUpPageTextFieldsJa._(_root);
-  @override
-  late final _TranslationsAuthenticationSignUpPageButtonJa button =
-      _TranslationsAuthenticationSignUpPageButtonJa._(_root);
+	// Translations
+	@override late final _TranslationsAuthenticationSignUpPageTitleJa title = _TranslationsAuthenticationSignUpPageTitleJa._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageTextFieldsJa textFields = _TranslationsAuthenticationSignUpPageTextFieldsJa._(_root);
+	@override late final _TranslationsAuthenticationSignUpPageButtonJa button = _TranslationsAuthenticationSignUpPageButtonJa._(_root);
 }
 
 // Path: authentication.emailVerificationPage
-class _TranslationsAuthenticationEmailVerificationPageJa
-    implements TranslationsAuthenticationEmailVerificationPageEn {
-  _TranslationsAuthenticationEmailVerificationPageJa._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageJa implements TranslationsAuthenticationEmailVerificationPageEn {
+	_TranslationsAuthenticationEmailVerificationPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'メールアドレスの確認';
-  @override
-  String descriptionForDestination({required Object email}) =>
-      '入力された${email}に確認メールを送信します';
-  @override
-  String get descriptionForCoolDown => '確認メールの再送信は、60秒ごとに1回可能です。';
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageButtonsJa buttons =
-      _TranslationsAuthenticationEmailVerificationPageButtonsJa._(_root);
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageSnackBarJa
-      snackBar =
-      _TranslationsAuthenticationEmailVerificationPageSnackBarJa._(_root);
+	// Translations
+	@override String get title => 'メールアドレスの確認';
+	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信します';
+	@override String get descriptionForCoolDown => '確認メールの再送信は、60秒ごとに1回可能です。';
+	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsJa buttons = _TranslationsAuthenticationEmailVerificationPageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarJa snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarJa._(_root);
 }
 
 // Path: authentication.registerProfilePage
-class _TranslationsAuthenticationRegisterProfilePageJa
-    implements TranslationsAuthenticationRegisterProfilePageEn {
-  _TranslationsAuthenticationRegisterProfilePageJa._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageJa implements TranslationsAuthenticationRegisterProfilePageEn {
+	_TranslationsAuthenticationRegisterProfilePageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'プロフィールの登録';
-  @override
-  String get textFields => '名前';
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageButtonsJa buttons =
-      _TranslationsAuthenticationRegisterProfilePageButtonsJa._(_root);
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageSnackBarJa snackBar =
-      _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(_root);
+	// Translations
+	@override String get title => 'プロフィールの登録';
+	@override String get textFields => '名前';
+	@override late final _TranslationsAuthenticationRegisterProfilePageButtonsJa buttons = _TranslationsAuthenticationRegisterProfilePageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarJa snackBar = _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(_root);
 }
 
 // Path: authentication.completeSendEmailPage
-class _TranslationsAuthenticationCompleteSendEmailPageJa
-    implements TranslationsAuthenticationCompleteSendEmailPageEn {
-  _TranslationsAuthenticationCompleteSendEmailPageJa._(this._root);
+class _TranslationsAuthenticationCompleteSendEmailPageJa implements TranslationsAuthenticationCompleteSendEmailPageEn {
+	_TranslationsAuthenticationCompleteSendEmailPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '送信完了';
-  @override
-  String description({required Object email}) =>
-      'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
-  @override
-  String get successResendEmail => '確認メールを再送信しました';
-  @override
-  late final _TranslationsAuthenticationCompleteSendEmailPageButtonsJa buttons =
-      _TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(_root);
+	// Translations
+	@override String get title => '送信完了';
+	@override String description({required Object email}) => 'パスワードリセット用のメールが${email}に送信されました \n リセット後にログイン画面からログインしてください';
+	@override String get successResendEmail => '確認メールを再送信しました';
+	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsJa buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(_root);
 }
 
 // Path: authentication.firebaseAuth
-class _TranslationsAuthenticationFirebaseAuthJa
-    implements TranslationsAuthenticationFirebaseAuthEn {
-  _TranslationsAuthenticationFirebaseAuthJa._(this._root);
+class _TranslationsAuthenticationFirebaseAuthJa implements TranslationsAuthenticationFirebaseAuthEn {
+	_TranslationsAuthenticationFirebaseAuthJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationFirebaseAuthErrorJa error =
-      _TranslationsAuthenticationFirebaseAuthErrorJa._(_root);
+	// Translations
+	@override late final _TranslationsAuthenticationFirebaseAuthErrorJa error = _TranslationsAuthenticationFirebaseAuthErrorJa._(_root);
 }
 
 // Path: myPage.accountStatus
-class _TranslationsMyPageAccountStatusJa
-    implements TranslationsMyPageAccountStatusEn {
-  _TranslationsMyPageAccountStatusJa._(this._root);
+class _TranslationsMyPageAccountStatusJa implements TranslationsMyPageAccountStatusEn {
+	_TranslationsMyPageAccountStatusJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsMyPageAccountStatusDateTimeJa dateTime =
-      _TranslationsMyPageAccountStatusDateTimeJa._(_root);
-  @override
-  String get premium => 'プレミアム会員';
-  @override
-  String get standard => 'スタンダード会員';
+	// Translations
+	@override late final _TranslationsMyPageAccountStatusDateTimeJa dateTime = _TranslationsMyPageAccountStatusDateTimeJa._(_root);
+	@override String get premium => 'プレミアム会員';
+	@override String get standard => 'スタンダード会員';
 }
 
 // Path: changeLanguagePage.items
-class _TranslationsChangeLanguagePageItemsJa
-    implements TranslationsChangeLanguagePageItemsEn {
-  _TranslationsChangeLanguagePageItemsJa._(this._root);
+class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLanguagePageItemsEn {
+	_TranslationsChangeLanguagePageItemsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get japanese => '日本語';
-  @override
-  String get english => '英語';
-  @override
-  String get simplifiedChinese => '中国語（簡体字）';
-  @override
-  String get traditionalChinese => '中国語（繁体字）';
-  @override
-  String get korean => '韓国語';
+	// Translations
+	@override String get japanese => '日本語';
+	@override String get english => '英語';
+	@override String get simplifiedChinese => '中国語（簡体字）';
+	@override String get traditionalChinese => '中国語（繁体字）';
+	@override String get korean => '韓国語';
 }
 
 // Path: changeThemePage.items
-class _TranslationsChangeThemePageItemsJa
-    implements TranslationsChangeThemePageItemsEn {
-  _TranslationsChangeThemePageItemsJa._(this._root);
+class _TranslationsChangeThemePageItemsJa implements TranslationsChangeThemePageItemsEn {
+	_TranslationsChangeThemePageItemsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get system => 'システム';
-  @override
-  String get light => 'ライト';
-  @override
-  String get dark => 'ダーク';
+	// Translations
+	@override String get system => 'システム';
+	@override String get light => 'ライト';
+	@override String get dark => 'ダーク';
 }
 
 // Path: myPlanPage.tabs
 class _TranslationsMyPlanPageTabsJa implements TranslationsMyPlanPageTabsEn {
-  _TranslationsMyPlanPageTabsJa._(this._root);
+	_TranslationsMyPlanPageTabsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get createdPlans => '作成したプラン';
-  @override
-  String get bookmark => 'ブックマーク';
+	// Translations
+	@override String get createdPlans => '作成したプラン';
+	@override String get bookmark => 'ブックマーク';
 }
 
 // Path: myPlanPage.bookmarkItems
-class _TranslationsMyPlanPageBookmarkItemsJa
-    implements TranslationsMyPlanPageBookmarkItemsEn {
-  _TranslationsMyPlanPageBookmarkItemsJa._(this._root);
+class _TranslationsMyPlanPageBookmarkItemsJa implements TranslationsMyPlanPageBookmarkItemsEn {
+	_TranslationsMyPlanPageBookmarkItemsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get nondata => 'ブックマークしているプランはありません。';
-  @override
-  String get reloading => '再読み込み';
+	// Translations
+	@override String get nondata => 'ブックマークしているプランはありません。';
+	@override String get reloading => '再読み込み';
 }
 
 // Path: myPlanPage.createdPlansItems
-class _TranslationsMyPlanPageCreatedPlansItemsJa
-    implements TranslationsMyPlanPageCreatedPlansItemsEn {
-  _TranslationsMyPlanPageCreatedPlansItemsJa._(this._root);
+class _TranslationsMyPlanPageCreatedPlansItemsJa implements TranslationsMyPlanPageCreatedPlansItemsEn {
+	_TranslationsMyPlanPageCreatedPlansItemsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get nondata => 'プランを作成してみよう!';
-  @override
-  String get createaplan => 'プランを作成する';
+	// Translations
+	@override String get nondata => 'プランを作成してみよう!';
+	@override String get createaplan => 'プランを作成する';
 }
 
 // Path: myPlanPage.error
 class _TranslationsMyPlanPageErrorJa implements TranslationsMyPlanPageErrorEn {
-  _TranslationsMyPlanPageErrorJa._(this._root);
+	_TranslationsMyPlanPageErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get displayError => 'プラン表示時に問題が発生しました。';
-  @override
-  String get failedGetId => 'プランIDの取得に失敗しました。';
-  @override
-  String get failedGetPlanData => 'プランデータ取得時に問題が発生しました。';
-  @override
-  String get failedUnBookmark => 'ブックマーク解除時に問題が発生しました。';
+	// Translations
+	@override String get displayError => 'プラン表示時に問題が発生しました。';
+	@override String get failedGetId => 'プランIDの取得に失敗しました。';
+	@override String get failedGetPlanData => 'プランデータ取得時に問題が発生しました。';
+	@override String get failedUnBookmark => 'ブックマーク解除時に問題が発生しました。';
 }
 
 // Path: buddyChatPage.textFields
-class _TranslationsBuddyChatPageTextFieldsJa
-    implements TranslationsBuddyChatPageTextFieldsEn {
-  _TranslationsBuddyChatPageTextFieldsJa._(this._root);
+class _TranslationsBuddyChatPageTextFieldsJa implements TranslationsBuddyChatPageTextFieldsEn {
+	_TranslationsBuddyChatPageTextFieldsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get message => 'メッセージを入力';
+	// Translations
+	@override String get message => 'メッセージを入力';
 }
 
 // Path: buddyChatPage.buttons
-class _TranslationsBuddyChatPageButtonsJa
-    implements TranslationsBuddyChatPageButtonsEn {
-  _TranslationsBuddyChatPageButtonsJa._(this._root);
+class _TranslationsBuddyChatPageButtonsJa implements TranslationsBuddyChatPageButtonsEn {
+	_TranslationsBuddyChatPageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get send => '完了';
+	// Translations
+	@override String get send => '完了';
 }
 
 // Path: buddyChatPage.placeCard
-class _TranslationsBuddyChatPagePlaceCardJa
-    implements TranslationsBuddyChatPagePlaceCardEn {
-  _TranslationsBuddyChatPagePlaceCardJa._(this._root);
+class _TranslationsBuddyChatPagePlaceCardJa implements TranslationsBuddyChatPagePlaceCardEn {
+	_TranslationsBuddyChatPagePlaceCardJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get openingHours => '営業時間';
-  @override
-  String get averageAmount => '平均予算';
-  @override
-  String get website => 'Webサイト';
+	// Translations
+	@override String get openingHours => '営業時間';
+	@override String get averageAmount => '平均予算';
+	@override String get website => 'Webサイト';
 }
 
 // Path: buddyChatPage.snackBar
-class _TranslationsBuddyChatPageSnackBarJa
-    implements TranslationsBuddyChatPageSnackBarEn {
-  _TranslationsBuddyChatPageSnackBarJa._(this._root);
+class _TranslationsBuddyChatPageSnackBarJa implements TranslationsBuddyChatPageSnackBarEn {
+	_TranslationsBuddyChatPageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsBuddyChatPageSnackBarErrorJa error =
-      _TranslationsBuddyChatPageSnackBarErrorJa._(_root);
+	// Translations
+	@override late final _TranslationsBuddyChatPageSnackBarErrorJa error = _TranslationsBuddyChatPageSnackBarErrorJa._(_root);
 }
 
 // Path: createPlanPage.label
-class _TranslationsCreatePlanPageLabelJa
-    implements TranslationsCreatePlanPageLabelEn {
-  _TranslationsCreatePlanPageLabelJa._(this._root);
+class _TranslationsCreatePlanPageLabelJa implements TranslationsCreatePlanPageLabelEn {
+	_TranslationsCreatePlanPageLabelJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get location => '目的地';
-  @override
-  String get scheduleStart => '開始日';
-  @override
-  String get scheduleEnd => '終了日';
-  @override
-  String get numberOfPeople => '人数';
-  @override
-  String get transport => '交通手段';
-  @override
-  String get category => 'カテゴリ';
-  @override
-  String get topics => '旅のトピック';
+	// Translations
+	@override String get location => '目的地';
+	@override String get scheduleStart => '開始日';
+	@override String get scheduleEnd => '終了日';
+	@override String get numberOfPeople => '人数';
+	@override String get transport => '交通手段';
+	@override String get category => 'カテゴリ';
+	@override String get topics => '旅のトピック';
 }
 
 // Path: createPlanPage.hintText
-class _TranslationsCreatePlanPageHintTextJa
-    implements TranslationsCreatePlanPageHintTextEn {
-  _TranslationsCreatePlanPageHintTextJa._(this._root);
+class _TranslationsCreatePlanPageHintTextJa implements TranslationsCreatePlanPageHintTextEn {
+	_TranslationsCreatePlanPageHintTextJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get location => '渋谷';
+	// Translations
+	@override String get location => '渋谷';
 }
 
 // Path: createPlanPage.modal
-class _TranslationsCreatePlanPageModalJa
-    implements TranslationsCreatePlanPageModalEn {
-  _TranslationsCreatePlanPageModalJa._(this._root);
+class _TranslationsCreatePlanPageModalJa implements TranslationsCreatePlanPageModalEn {
+	_TranslationsCreatePlanPageModalJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '日付を選択';
+	// Translations
+	@override String get title => '日付を選択';
 }
 
 // Path: createPlanPage.snackBar
-class _TranslationsCreatePlanPageSnackBarJa
-    implements TranslationsCreatePlanPageSnackBarEn {
-  _TranslationsCreatePlanPageSnackBarJa._(this._root);
+class _TranslationsCreatePlanPageSnackBarJa implements TranslationsCreatePlanPageSnackBarEn {
+	_TranslationsCreatePlanPageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsCreatePlanPageSnackBarErrorJa error =
-      _TranslationsCreatePlanPageSnackBarErrorJa._(_root);
+	// Translations
+	@override late final _TranslationsCreatePlanPageSnackBarErrorJa error = _TranslationsCreatePlanPageSnackBarErrorJa._(_root);
 }
 
 // Path: editProfilePage.textFields
-class _TranslationsEditProfilePageTextFieldsJa
-    implements TranslationsEditProfilePageTextFieldsEn {
-  _TranslationsEditProfilePageTextFieldsJa._(this._root);
+class _TranslationsEditProfilePageTextFieldsJa implements TranslationsEditProfilePageTextFieldsEn {
+	_TranslationsEditProfilePageTextFieldsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get name => '名前';
+	// Translations
+	@override String get name => '名前';
 }
 
 // Path: editProfilePage.buttons
-class _TranslationsEditProfilePageButtonsJa
-    implements TranslationsEditProfilePageButtonsEn {
-  _TranslationsEditProfilePageButtonsJa._(this._root);
+class _TranslationsEditProfilePageButtonsJa implements TranslationsEditProfilePageButtonsEn {
+	_TranslationsEditProfilePageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submit => '保存';
+	// Translations
+	@override String get submit => '保存';
 }
 
 // Path: editProfilePage.snackBar
-class _TranslationsEditProfilePageSnackBarJa
-    implements TranslationsEditProfilePageSnackBarEn {
-  _TranslationsEditProfilePageSnackBarJa._(this._root);
+class _TranslationsEditProfilePageSnackBarJa implements TranslationsEditProfilePageSnackBarEn {
+	_TranslationsEditProfilePageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get success => '更新しました';
-  @override
-  late final _TranslationsEditProfilePageSnackBarErrorJa error =
-      _TranslationsEditProfilePageSnackBarErrorJa._(_root);
+	// Translations
+	@override String get success => '更新しました';
+	@override late final _TranslationsEditProfilePageSnackBarErrorJa error = _TranslationsEditProfilePageSnackBarErrorJa._(_root);
 }
 
 // Path: confirmDialog.answers
-class _TranslationsConfirmDialogAnswersJa
-    implements TranslationsConfirmDialogAnswersEn {
-  _TranslationsConfirmDialogAnswersJa._(this._root);
+class _TranslationsConfirmDialogAnswersJa implements TranslationsConfirmDialogAnswersEn {
+	_TranslationsConfirmDialogAnswersJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get yes => 'はい';
-  @override
-  String get no => 'いいえ';
+	// Translations
+	@override String get yes => 'はい';
+	@override String get no => 'いいえ';
 }
 
 // Path: confirmDialog.popPage
-class _TranslationsConfirmDialogPopPageJa
-    implements TranslationsConfirmDialogPopPageEn {
-  _TranslationsConfirmDialogPopPageJa._(this._root);
+class _TranslationsConfirmDialogPopPageJa implements TranslationsConfirmDialogPopPageEn {
+	_TranslationsConfirmDialogPopPageJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '前の画面に戻りますか？';
-  @override
-  String get description => '現在の内容は保存されません';
+	// Translations
+	@override String get title => '前の画面に戻りますか？';
+	@override String get description => '現在の内容は保存されません';
 }
 
 // Path: confirmDialog.completeCreatePlan
-class _TranslationsConfirmDialogCompleteCreatePlanJa
-    implements TranslationsConfirmDialogCompleteCreatePlanEn {
-  _TranslationsConfirmDialogCompleteCreatePlanJa._(this._root);
+class _TranslationsConfirmDialogCompleteCreatePlanJa implements TranslationsConfirmDialogCompleteCreatePlanEn {
+	_TranslationsConfirmDialogCompleteCreatePlanJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'プランを確定しますか？';
-  @override
-  String get description => '一番最後のメッセージに含まれるプランが保存されます';
+	// Translations
+	@override String get title => 'プランを確定しますか？';
+	@override String get description => '一番最後のメッセージに含まれるプランが保存されます';
 }
 
 // Path: billDetailsPage.pricingPlan
-class _TranslationsBillDetailsPagePricingPlanJa
-    implements TranslationsBillDetailsPagePricingPlanEn {
-  _TranslationsBillDetailsPagePricingPlanJa._(this._root);
+class _TranslationsBillDetailsPagePricingPlanJa implements TranslationsBillDetailsPagePricingPlanEn {
+	_TranslationsBillDetailsPagePricingPlanJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '料金プラン';
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanColumnsJa columns =
-      _TranslationsBillDetailsPagePricingPlanColumnsJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanDetailsJa details =
-      _TranslationsBillDetailsPagePricingPlanDetailsJa._(_root);
+	// Translations
+	@override String get title => '料金プラン';
+	@override late final _TranslationsBillDetailsPagePricingPlanColumnsJa columns = _TranslationsBillDetailsPagePricingPlanColumnsJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsJa details = _TranslationsBillDetailsPagePricingPlanDetailsJa._(_root);
 }
 
 // Path: billDetailsPage.features
-class _TranslationsBillDetailsPageFeaturesJa
-    implements TranslationsBillDetailsPageFeaturesEn {
-  _TranslationsBillDetailsPageFeaturesJa._(this._root);
+class _TranslationsBillDetailsPageFeaturesJa implements TranslationsBillDetailsPageFeaturesEn {
+	_TranslationsBillDetailsPageFeaturesJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'グレードごとの機能';
-  @override
-  late final _TranslationsBillDetailsPageFeaturesRowsJa rows =
-      _TranslationsBillDetailsPageFeaturesRowsJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPageFeaturesColumnsJa columns =
-      _TranslationsBillDetailsPageFeaturesColumnsJa._(_root);
+	// Translations
+	@override String get title => 'グレードごとの機能';
+	@override late final _TranslationsBillDetailsPageFeaturesRowsJa rows = _TranslationsBillDetailsPageFeaturesRowsJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsJa columns = _TranslationsBillDetailsPageFeaturesColumnsJa._(_root);
 }
 
 // Path: billDetailsPage.pricingOptions
-class _TranslationsBillDetailsPagePricingOptionsJa
-    implements TranslationsBillDetailsPagePricingOptionsEn {
-  _TranslationsBillDetailsPagePricingOptionsJa._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDetailsPagePricingOptionsEn {
+	_TranslationsBillDetailsPagePricingOptionsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsOneDayJa oneDay =
-      _TranslationsBillDetailsPagePricingOptionsOneDayJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsThreeDaysJa threeDays =
-      _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays =
-      _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays =
-      _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime =
-      _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
+	// Translations
+	@override late final _TranslationsBillDetailsPagePricingOptionsOneDayJa oneDay = _TranslationsBillDetailsPagePricingOptionsOneDayJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysJa threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
 }
 
 // Path: planDetailsPage.dateTime
-class _TranslationsPlanDetailsPageDateTimeJa
-    implements TranslationsPlanDetailsPageDateTimeEn {
-  _TranslationsPlanDetailsPageDateTimeJa._(this._root);
+class _TranslationsPlanDetailsPageDateTimeJa implements TranslationsPlanDetailsPageDateTimeEn {
+	_TranslationsPlanDetailsPageDateTimeJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String createOn({required Object date}) => '${date}に作られたプラン';
-  @override
-  String get dateFormat => 'yyyy年MM月dd日';
+	// Translations
+	@override String createOn({required Object date}) => '${date}に作られたプラン';
+	@override String get dateFormat => 'yyyy年MM月dd日';
 }
 
 // Path: planDetailsPage.item
-class _TranslationsPlanDetailsPageItemJa
-    implements TranslationsPlanDetailsPageItemEn {
-  _TranslationsPlanDetailsPageItemJa._(this._root);
+class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageItemEn {
+	_TranslationsPlanDetailsPageItemJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get viewOnMap => '地図で見る';
+	// Translations
+	@override String get viewOnMap => '地図で見る';
 }
 
 // Path: planDetailsPage.snackBar
-class _TranslationsPlanDetailsPageSnackBarJa
-    implements TranslationsPlanDetailsPageSnackBarEn {
-  _TranslationsPlanDetailsPageSnackBarJa._(this._root);
+class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsPageSnackBarEn {
+	_TranslationsPlanDetailsPageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsPlanDetailsPageSnackBarErrorJa error =
-      _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
+	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
 }
 
 // Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsJa
-    implements TranslationsAuthenticationSignInPageTextFieldsEn {
-  _TranslationsAuthenticationSignInPageTextFieldsJa._(this._root);
+class _TranslationsAuthenticationSignInPageTextFieldsJa implements TranslationsAuthenticationSignInPageTextFieldsEn {
+	_TranslationsAuthenticationSignInPageTextFieldsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get email => 'メールアドレス';
-  @override
-  String get password => 'パスワード';
+	// Translations
+	@override String get email => 'メールアドレス';
+	@override String get password => 'パスワード';
 }
 
 // Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsJa
-    implements TranslationsAuthenticationSignInPageButtonsEn {
-  _TranslationsAuthenticationSignInPageButtonsJa._(this._root);
+class _TranslationsAuthenticationSignInPageButtonsJa implements TranslationsAuthenticationSignInPageButtonsEn {
+	_TranslationsAuthenticationSignInPageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get signIn => 'ログイン';
-  @override
-  String get signUp => '新規登録';
-  @override
-  String get resetPassword => 'パスワードを忘れた方はこちら';
-  @override
-  String get appleSignIn => 'Appleでログイン';
-  @override
-  String get googleSignIn => 'Googleでログイン';
-  @override
-  String get signInAfter => '後で登録';
+	// Translations
+	@override String get signIn => 'ログイン';
+	@override String get signUp => '新規登録';
+	@override String get resetPassword => 'パスワードを忘れた方はこちら';
+	@override String get appleSignIn => 'Appleでログイン';
+	@override String get googleSignIn => 'Googleでログイン';
+	@override String get signInAfter => '後で登録';
 }
 
 // Path: authentication.resetPasswordPage.textFields
-class _TranslationsAuthenticationResetPasswordPageTextFieldsJa
-    implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
-  _TranslationsAuthenticationResetPasswordPageTextFieldsJa._(this._root);
+class _TranslationsAuthenticationResetPasswordPageTextFieldsJa implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
+	_TranslationsAuthenticationResetPasswordPageTextFieldsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get email => 'メールアドレス';
+	// Translations
+	@override String get email => 'メールアドレス';
 }
 
 // Path: authentication.resetPasswordPage.buttons
-class _TranslationsAuthenticationResetPasswordPageButtonsJa
-    implements TranslationsAuthenticationResetPasswordPageButtonsEn {
-  _TranslationsAuthenticationResetPasswordPageButtonsJa._(this._root);
+class _TranslationsAuthenticationResetPasswordPageButtonsJa implements TranslationsAuthenticationResetPasswordPageButtonsEn {
+	_TranslationsAuthenticationResetPasswordPageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submit => '送信';
+	// Translations
+	@override String get submit => '送信';
 }
 
 // Path: authentication.signUpPage.title
-class _TranslationsAuthenticationSignUpPageTitleJa
-    implements TranslationsAuthenticationSignUpPageTitleEn {
-  _TranslationsAuthenticationSignUpPageTitleJa._(this._root);
+class _TranslationsAuthenticationSignUpPageTitleJa implements TranslationsAuthenticationSignUpPageTitleEn {
+	_TranslationsAuthenticationSignUpPageTitleJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get defaultText => '新規登録';
-  @override
-  String get modifyEmail => 'メールアドレスの変更';
+	// Translations
+	@override String get defaultText => '新規登録';
+	@override String get modifyEmail => 'メールアドレスの変更';
 }
 
 // Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsJa
-    implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-  _TranslationsAuthenticationSignUpPageTextFieldsJa._(this._root);
+class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsAuthenticationSignUpPageTextFieldsEn {
+	_TranslationsAuthenticationSignUpPageTextFieldsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get email => 'メールアドレス';
-  @override
-  String get password => 'パスワード';
+	// Translations
+	@override String get email => 'メールアドレス';
+	@override String get password => 'パスワード';
 }
 
 // Path: authentication.signUpPage.button
-class _TranslationsAuthenticationSignUpPageButtonJa
-    implements TranslationsAuthenticationSignUpPageButtonEn {
-  _TranslationsAuthenticationSignUpPageButtonJa._(this._root);
+class _TranslationsAuthenticationSignUpPageButtonJa implements TranslationsAuthenticationSignUpPageButtonEn {
+	_TranslationsAuthenticationSignUpPageButtonJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get defaultText => '新規登録';
-  @override
-  String get modifyEmail => '変更';
+	// Translations
+	@override String get defaultText => '新規登録';
+	@override String get modifyEmail => '変更';
 }
 
 // Path: authentication.emailVerificationPage.buttons
-class _TranslationsAuthenticationEmailVerificationPageButtonsJa
-    implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
-  _TranslationsAuthenticationEmailVerificationPageButtonsJa._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageButtonsJa implements TranslationsAuthenticationEmailVerificationPageButtonsEn {
+	_TranslationsAuthenticationEmailVerificationPageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get sendEmail => '確認メールを送信';
-  @override
-  String get resendEmail => '確認メールを再送信';
-  @override
-  String get toNext => '次へ';
-  @override
-  String get retypeEmail => 'メールアドレスの修正';
+	// Translations
+	@override String get sendEmail => '確認メールを送信';
+	@override String get resendEmail => '確認メールを再送信';
+	@override String get toNext => '次へ';
+	@override String get retypeEmail => 'メールアドレスの修正';
 }
 
 // Path: authentication.emailVerificationPage.snackBar
-class _TranslationsAuthenticationEmailVerificationPageSnackBarJa
-    implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
-  _TranslationsAuthenticationEmailVerificationPageSnackBarJa._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageSnackBarJa implements TranslationsAuthenticationEmailVerificationPageSnackBarEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get success => '送信が完了しました';
-  @override
-  String get emailVerification => 'メールアドレスの認証が完了していません';
-  @override
-  late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa
-      error =
-      _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(_root);
+	// Translations
+	@override String get success => '送信が完了しました';
+	@override String get emailVerification => 'メールアドレスの認証が完了していません';
+	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa error = _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(_root);
 }
 
 // Path: authentication.registerProfilePage.buttons
-class _TranslationsAuthenticationRegisterProfilePageButtonsJa
-    implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
-  _TranslationsAuthenticationRegisterProfilePageButtonsJa._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageButtonsJa implements TranslationsAuthenticationRegisterProfilePageButtonsEn {
+	_TranslationsAuthenticationRegisterProfilePageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submit => '完了';
-  @override
-  String get skip => 'スキップ';
+	// Translations
+	@override String get submit => '完了';
+	@override String get skip => 'スキップ';
 }
 
 // Path: authentication.registerProfilePage.snackBar
-class _TranslationsAuthenticationRegisterProfilePageSnackBarJa
-    implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
-  _TranslationsAuthenticationRegisterProfilePageSnackBarJa._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageSnackBarJa implements TranslationsAuthenticationRegisterProfilePageSnackBarEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa
-      error =
-      _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(_root);
+	// Translations
+	@override late final _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa error = _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(_root);
 }
 
 // Path: authentication.completeSendEmailPage.buttons
-class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa
-    implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
-  _TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(this._root);
+class _TranslationsAuthenticationCompleteSendEmailPageButtonsJa implements TranslationsAuthenticationCompleteSendEmailPageButtonsEn {
+	_TranslationsAuthenticationCompleteSendEmailPageButtonsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get toSignIn => 'ログイン画面へ';
-  @override
-  String get resendEmail => '確認メールを再送信';
-  @override
-  String get changeEmail => 'メールアドレスの変更';
+	// Translations
+	@override String get toSignIn => 'ログイン画面へ';
+	@override String get resendEmail => '確認メールを再送信';
+	@override String get changeEmail => 'メールアドレスの変更';
 }
 
 // Path: authentication.firebaseAuth.error
-class _TranslationsAuthenticationFirebaseAuthErrorJa
-    implements TranslationsAuthenticationFirebaseAuthErrorEn {
-  _TranslationsAuthenticationFirebaseAuthErrorJa._(this._root);
+class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuthenticationFirebaseAuthErrorEn {
+	_TranslationsAuthenticationFirebaseAuthErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get networkRequestFailed => '通信環境がいい所で再度やり直してください';
-  @override
-  String get weakPassword => 'パスワードが短すぎます。6文字以上を入力してください';
-  @override
-  String get invalidEmail => 'メールアドレスの形式が正しくありません';
-  @override
-  String get userNotFound => 'アカウントが見つかりません';
-  @override
-  String get wrongPassword => 'パスワードが正しくありません';
-  @override
-  String get emailAlreadyInUse =>
-      'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
-  @override
-  String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
+	// Translations
+	@override String get networkRequestFailed => '通信環境がいい所で再度やり直してください';
+	@override String get weakPassword => 'パスワードが短すぎます。6文字以上を入力してください';
+	@override String get invalidEmail => 'メールアドレスの形式が正しくありません';
+	@override String get userNotFound => 'アカウントが見つかりません';
+	@override String get wrongPassword => 'パスワードが正しくありません';
+	@override String get emailAlreadyInUse => 'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
+	@override String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 }
 
 // Path: myPage.accountStatus.dateTime
-class _TranslationsMyPageAccountStatusDateTimeJa
-    implements TranslationsMyPageAccountStatusDateTimeEn {
-  _TranslationsMyPageAccountStatusDateTimeJa._(this._root);
+class _TranslationsMyPageAccountStatusDateTimeJa implements TranslationsMyPageAccountStatusDateTimeEn {
+	_TranslationsMyPageAccountStatusDateTimeJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String registeredOn({required Object date}) => '${date}に登録';
-  @override
-  String get registeredOnFormat => 'yyyy年MM月dd日';
-  @override
-  String validUntil({required Object date}) => '${date}まで';
-  @override
-  String get validUntilFormat => 'yyyy年MM月dd日 HH時mm分';
+	// Translations
+	@override String registeredOn({required Object date}) => '${date}に登録';
+	@override String get registeredOnFormat => 'yyyy年MM月dd日';
+	@override String validUntil({required Object date}) => '${date}まで';
+	@override String get validUntilFormat => 'yyyy年MM月dd日 HH時mm分';
 }
 
 // Path: buddyChatPage.snackBar.error
-class _TranslationsBuddyChatPageSnackBarErrorJa
-    implements TranslationsBuddyChatPageSnackBarErrorEn {
-  _TranslationsBuddyChatPageSnackBarErrorJa._(this._root);
+class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChatPageSnackBarErrorEn {
+	_TranslationsBuddyChatPageSnackBarErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get failedRecieveMessage => '返信の受信に失敗しました。時間をおいて再度お試しください';
-  @override
-  String get failedCompleteCreatePlan => 'プランの作成に失敗しました。時間をおいて再度お試しください';
+	// Translations
+	@override String get failedRecieveMessage => '返信の受信に失敗しました。時間をおいて再度お試しください';
+	@override String get failedCompleteCreatePlan => 'プランの作成に失敗しました。時間をおいて再度お試しください';
 }
 
 // Path: createPlanPage.snackBar.error
-class _TranslationsCreatePlanPageSnackBarErrorJa
-    implements TranslationsCreatePlanPageSnackBarErrorEn {
-  _TranslationsCreatePlanPageSnackBarErrorJa._(this._root);
+class _TranslationsCreatePlanPageSnackBarErrorJa implements TranslationsCreatePlanPageSnackBarErrorEn {
+	_TranslationsCreatePlanPageSnackBarErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
 	@override String get foundUnSelectedField => '選択されていない項目があります 全ての項目を選択してください';
@@ -1431,261 +1011,194 @@ class _TranslationsCreatePlanPageSnackBarErrorJa
 }
 
 // Path: editProfilePage.snackBar.error
-class _TranslationsEditProfilePageSnackBarErrorJa
-    implements TranslationsEditProfilePageSnackBarErrorEn {
-  _TranslationsEditProfilePageSnackBarErrorJa._(this._root);
+class _TranslationsEditProfilePageSnackBarErrorJa implements TranslationsEditProfilePageSnackBarErrorEn {
+	_TranslationsEditProfilePageSnackBarErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get noChange => '変更がありません';
-  @override
-  String get failedToUpdate => '更新に失敗しました しばらくしてから再度お試しください';
-  @override
-  String get failedToPickImage => '画像の選択に失敗しました しばらくしてから再度お試しください';
+	// Translations
+	@override String get noChange => '変更がありません';
+	@override String get failedToUpdate => '更新に失敗しました しばらくしてから再度お試しください';
+	@override String get failedToPickImage => '画像の選択に失敗しました しばらくしてから再度お試しください';
 }
 
 // Path: billDetailsPage.pricingPlan.columns
-class _TranslationsBillDetailsPagePricingPlanColumnsJa
-    implements TranslationsBillDetailsPagePricingPlanColumnsEn {
-  _TranslationsBillDetailsPagePricingPlanColumnsJa._(this._root);
+class _TranslationsBillDetailsPagePricingPlanColumnsJa implements TranslationsBillDetailsPagePricingPlanColumnsEn {
+	_TranslationsBillDetailsPagePricingPlanColumnsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get standard => 'スタンダード';
-  @override
-  String get premium => 'プレミアム';
+	// Translations
+	@override String get standard => 'スタンダード';
+	@override String get premium => 'プレミアム';
 }
 
 // Path: billDetailsPage.pricingPlan.details
-class _TranslationsBillDetailsPagePricingPlanDetailsJa
-    implements TranslationsBillDetailsPagePricingPlanDetailsEn {
-  _TranslationsBillDetailsPagePricingPlanDetailsJa._(this._root);
+class _TranslationsBillDetailsPagePricingPlanDetailsJa implements TranslationsBillDetailsPagePricingPlanDetailsEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get free => '無料 🎉';
-  @override
-  late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa
-      premiumPrice =
-      _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(_root);
+	// Translations
+	@override String get free => '無料 🎉';
+	@override late final _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa premiumPrice = _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(_root);
 }
 
 // Path: billDetailsPage.features.rows
-class _TranslationsBillDetailsPageFeaturesRowsJa
-    implements TranslationsBillDetailsPageFeaturesRowsEn {
-  _TranslationsBillDetailsPageFeaturesRowsJa._(this._root);
+class _TranslationsBillDetailsPageFeaturesRowsJa implements TranslationsBillDetailsPageFeaturesRowsEn {
+	_TranslationsBillDetailsPageFeaturesRowsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get planCreationLimit => 'プランの作成可能回数';
-  @override
-  String get chatLimit => 'プラン作成中のチャット可能回数';
-  @override
-  String get timelineAccess => '全プラン一覧のタイムライン閲覧';
-  @override
-  String get adFree => '広告の非表示';
-  @override
-  String get exclusiveFeatures => 'プランの認証機能';
+	// Translations
+	@override String get planCreationLimit => 'プランの作成可能回数';
+	@override String get chatLimit => 'プラン作成中のチャット可能回数';
+	@override String get timelineAccess => '全プラン一覧のタイムライン閲覧';
+	@override String get adFree => '広告の非表示';
+	@override String get exclusiveFeatures => 'プランの認証機能';
 }
 
 // Path: billDetailsPage.features.columns
-class _TranslationsBillDetailsPageFeaturesColumnsJa
-    implements TranslationsBillDetailsPageFeaturesColumnsEn {
-  _TranslationsBillDetailsPageFeaturesColumnsJa._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsJa implements TranslationsBillDetailsPageFeaturesColumnsEn {
+	_TranslationsBillDetailsPageFeaturesColumnsJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsBillDetailsPageFeaturesColumnsStandardJa standard =
-      _TranslationsBillDetailsPageFeaturesColumnsStandardJa._(_root);
-  @override
-  late final _TranslationsBillDetailsPageFeaturesColumnsPremiumJa premium =
-      _TranslationsBillDetailsPageFeaturesColumnsPremiumJa._(_root);
+	// Translations
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsStandardJa standard = _TranslationsBillDetailsPageFeaturesColumnsStandardJa._(_root);
+	@override late final _TranslationsBillDetailsPageFeaturesColumnsPremiumJa premium = _TranslationsBillDetailsPageFeaturesColumnsPremiumJa._(_root);
 }
 
 // Path: billDetailsPage.pricingOptions.oneDay
-class _TranslationsBillDetailsPagePricingOptionsOneDayJa
-    implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
-  _TranslationsBillDetailsPagePricingOptionsOneDayJa._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsOneDayJa implements TranslationsBillDetailsPagePricingOptionsOneDayEn {
+	_TranslationsBillDetailsPagePricingOptionsOneDayJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '1日';
-  @override
-  String get discount => '';
-  @override
-  String get price => '300円';
+	// Translations
+	@override String get duration => '1日';
+	@override String get discount => '';
+	@override String get price => '300円';
 }
 
 // Path: billDetailsPage.pricingOptions.threeDays
-class _TranslationsBillDetailsPagePricingOptionsThreeDaysJa
-    implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
-  _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsThreeDaysJa implements TranslationsBillDetailsPagePricingOptionsThreeDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '3日';
-  @override
-  String get discount => '-5%';
-  @override
-  String get price => '890円';
+	// Translations
+	@override String get duration => '3日';
+	@override String get discount => '-5%';
+	@override String get price => '890円';
 }
 
 // Path: billDetailsPage.pricingOptions.fiveDays
-class _TranslationsBillDetailsPagePricingOptionsFiveDaysJa
-    implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
-  _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsFiveDaysJa implements TranslationsBillDetailsPagePricingOptionsFiveDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '5日';
-  @override
-  String get discount => '-7.5%';
-  @override
-  String get price => '1,387円';
+	// Translations
+	@override String get duration => '5日';
+	@override String get discount => '-7.5%';
+	@override String get price => '1,387円';
 }
 
 // Path: billDetailsPage.pricingOptions.sevenDays
-class _TranslationsBillDetailsPagePricingOptionsSevenDaysJa
-    implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
-  _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsSevenDaysJa implements TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
+	_TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '7日';
-  @override
-  String get discount => '-10%';
-  @override
-  String get price => '2,070円';
+	// Translations
+	@override String get duration => '7日';
+	@override String get discount => '-10%';
+	@override String get price => '2,070円';
 }
 
 // Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeJa
-    implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-  _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(this._root);
+class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
+	_TranslationsBillDetailsPagePricingOptionsLifetimeJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get duration => '永年分';
-  @override
-  String get discount => '';
-  @override
-  String get price => '25,800円';
+	// Translations
+	@override String get duration => '永年分';
+	@override String get discount => '';
+	@override String get price => '25,800円';
 }
 
 // Path: planDetailsPage.snackBar.error
-class _TranslationsPlanDetailsPageSnackBarErrorJa
-    implements TranslationsPlanDetailsPageSnackBarErrorEn {
-  _TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
+class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDetailsPageSnackBarErrorEn {
+	_TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get failedToUpdateBookmark => 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
+	// Translations
+	@override String get failedToUpdateBookmark => 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
-class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa
-    implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
-  _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
+class _TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa implements TranslationsAuthenticationEmailVerificationPageSnackBarErrorEn {
+	_TranslationsAuthenticationEmailVerificationPageSnackBarErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
+	// Translations
+	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
 }
 
 // Path: authentication.registerProfilePage.snackBar.error
-class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa
-    implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
-  _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(this._root);
+class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa implements TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
+	_TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get submitIfAllEmpty => '入力してください';
-  @override
-  String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
+	// Translations
+	@override String get submitIfAllEmpty => '入力してください';
+	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
 }
 
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
-class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa
-    implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
-  _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(this._root);
+class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
+	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get days => '日数分購入';
-  @override
-  String get daily => '・1日 300円';
-  @override
-  String get threeDays => '・3日 855円';
-  @override
-  String get fiveDays => '・5日 1,480円';
-  @override
-  String get sevenDays => '・7日 2,070円';
-  @override
-  String get or => 'または';
-  @override
-  String get lifetime => '永年分';
-  @override
-  String get lifetimePrice => '25,800円';
+	// Translations
+	@override String get days => '日数分購入';
+	@override String get daily => '・1日 300円';
+	@override String get threeDays => '・3日 855円';
+	@override String get fiveDays => '・5日 1,480円';
+	@override String get sevenDays => '・7日 2,070円';
+	@override String get or => 'または';
+	@override String get lifetime => '永年分';
+	@override String get lifetimePrice => '25,800円';
 }
 
 // Path: billDetailsPage.features.columns.standard
-class _TranslationsBillDetailsPageFeaturesColumnsStandardJa
-    implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
-  _TranslationsBillDetailsPageFeaturesColumnsStandardJa._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsStandardJa implements TranslationsBillDetailsPageFeaturesColumnsStandardEn {
+	_TranslationsBillDetailsPageFeaturesColumnsStandardJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get label => 'スタンダード';
-  @override
-  String get planCreationLimit => '2回';
-  @override
-  String get chatLimit => '3回';
+	// Translations
+	@override String get label => 'スタンダード';
+	@override String get planCreationLimit => '2回';
+	@override String get chatLimit => '3回';
 }
 
 // Path: billDetailsPage.features.columns.premium
-class _TranslationsBillDetailsPageFeaturesColumnsPremiumJa
-    implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
-  _TranslationsBillDetailsPageFeaturesColumnsPremiumJa._(this._root);
+class _TranslationsBillDetailsPageFeaturesColumnsPremiumJa implements TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
+	_TranslationsBillDetailsPageFeaturesColumnsPremiumJa._(this._root);
 
-  final TranslationsJa _root; // ignore: unused_field
+	final TranslationsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get label => 'プレミアム';
-  @override
-  String get planCreationLimit => '無制限';
-  @override
-  String get chatLimit => '無制限';
+	// Translations
+	@override String get label => 'プレミアム';
+	@override String get planCreationLimit => '無制限';
+	@override String get chatLimit => '無制限';
 }
 
 /// Flat map(s) containing all translations.
@@ -1924,7 +1437,7 @@ extension on TranslationsJa {
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';
-			case 'locales.kr': return '韓国語';
+			case 'locales.ko': return '韓国語';
 			case 'errorPage.title': return 'エラーが発生しました...';
 			case 'errorPage.message': return '通信環境を確認し、もう一度お試しください';
 			case 'errorPage.retryButton': return 'もう一度読み込む';
@@ -1933,3 +1446,4 @@ extension on TranslationsJa {
 		}
 	}
 }
+
