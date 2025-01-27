@@ -12,7 +12,20 @@
           "package_name": "com.shibuya.buddy"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "416095109609-3hgelvgrgoiocjpbsi3rldeo6oudm00f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shibuya.buddy",
+            "certificate_hash": "a26ce74633afd3c238b6e2a59154c98f2c0b5a44"
+          }
+        },
+        {
+          "client_id": "416095109609-ci1aeb721948vmv0ded1a7oh5t09hd0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyClxiF_gJm7dn21LzaipX2DsBpkKy07sYE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416095109609-ci1aeb721948vmv0ded1a7oh5t09hd0p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "416095109609-ga88jr15pqe3fmrdc5nh6uc35ig4fai2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.shibuya.buddy"
+              }
+            }
+          ]
         }
       }
     }
