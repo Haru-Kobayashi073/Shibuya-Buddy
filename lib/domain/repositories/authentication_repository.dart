@@ -9,8 +9,9 @@ abstract interface class AuthenticationRepository {
     String password,
   );
   Future<void> sendEmailVerification();
-  Future<AuthCredential> signInWithGoogle();
+  Future<void> signInWithGoogle();
   Future<void> signInWithApple();
+  Future<void> linkOrSignInWithCredential({required AuthCredential credential});
   Future<void> sendPasswordResetEmail(String email);
   Future<bool> isEmailVerified();
   Future<void> sendSmsCode({

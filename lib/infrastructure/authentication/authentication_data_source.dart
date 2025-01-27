@@ -28,14 +28,16 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
   }
 
   @override
-  Future<AuthCredential> signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     final googleUser = await GoogleSignIn().signIn();
     final googleAuth = await googleUser?.authentication;
 
-    return GoogleAuthProvider.credential(
+    final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
+
+    await linkOrSignInWithCredential(credential: credential);
   }
 
   @override
@@ -50,10 +52,22 @@ class AuthenticationDataSource extends _$AuthenticationDataSource
         ],
       );
 
-      OAuthProvider('apple.com').credential(
+      final oauthCredential = OAuthProvider('apple.com').credential(
         idToken: credential.identityToken,
         accessToken: credential.authorizationCode,
       );
+      await linkOrSignInWithCredential(credential: oauthCredential);
+    }
+  }
+
+  @override
+  Future<void> linkOrSignInWithCredential({
+    required AuthCredential credential,
+  }) async {
+    if (firebaseAuth.currentUser != null) {
+      await firebaseAuth.currentUser?.linkWithCredential(credential);
+    } else {
+      await firebaseAuth.signInWithCredential(credential);
     }
   }
 

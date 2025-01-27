@@ -200,7 +200,15 @@ class SignInPage extends HookConsumerWidget {
                     label: i18nSignInPage.buttons.appleSignIn,
                     color: AppColor.blue50Background,
                     icon: SvgPicture.asset(Assets.icons.appleIcon),
-                    onPressed: () {},
+                    onPressed: () async => notifier.signInWithApple(
+                      needEmailVerify: (email) async =>
+                          EmailVerificationPageRouteData(email: email)
+                              .go(context),
+                      needPhoneVerify: () async =>
+                          const PhoneNumberInputPageRouteData().go(context),
+                      onSuccess: () async =>
+                          const HomeScreenRouteData().go(context),
+                    ),
                   ),
                 ),
                 const SliverGap(16),
@@ -209,7 +217,15 @@ class SignInPage extends HookConsumerWidget {
                     label: i18nSignInPage.buttons.googleSignIn,
                     color: AppColor.blue50Background,
                     icon: SvgPicture.asset(Assets.icons.googleIcon),
-                    onPressed: () async => notifier.signInWithGoogle(),
+                    onPressed: () async => notifier.signInWithGoogle(
+                      needEmailVerify: (email) async =>
+                          EmailVerificationPageRouteData(email: email)
+                              .go(context),
+                      needPhoneVerify: () async =>
+                          const PhoneNumberInputPageRouteData().go(context),
+                      onSuccess: () async =>
+                          const HomeScreenRouteData().go(context),
+                    ),
                   ),
                 ),
               ],

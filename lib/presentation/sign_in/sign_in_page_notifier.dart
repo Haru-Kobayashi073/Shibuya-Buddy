@@ -50,18 +50,40 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     }
   }
 
-  Future<void> signInWithGoogle() async {
+  Future<void> signInWithGoogle({
+    required void Function(String email) needEmailVerify,
+    required void Function() needPhoneVerify,
+    required void Function() onSuccess,
+  }) async {
     try {
       await authenticationDataSource.signInWithGoogle();
+      if (firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
+      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+        needPhoneVerify();
+      } else {
+        onSuccess();
+      }
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     }
   }
 
-  Future<void> signInWithApple() async {
+  Future<void> signInWithApple({
+    required void Function(String email) needEmailVerify,
+    required void Function() needPhoneVerify,
+    required void Function() onSuccess,
+  }) async {
     try {
       await authenticationDataSource.signInWithApple();
+      if (firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
+      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+        needPhoneVerify();
+      } else {
+        onSuccess();
+      }
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
