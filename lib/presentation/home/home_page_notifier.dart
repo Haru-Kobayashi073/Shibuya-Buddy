@@ -22,8 +22,11 @@ class HomePageNotifier extends _$HomePageNotifier {
 
   @override
   Future<HomePageState> build() async {
+    const flavor = String.fromEnvironment('flavor');
     await ref.read(currentUserProvider.notifier).fetchUser();
-    await ref.read(inAppPurchaseServiceProvider.notifier).build();
+    if (flavor == 'prod') {
+      await ref.read(inAppPurchaseServiceProvider.notifier).build();
+    }
     final popularPlans = await getPopularPlans();
     final popularTopics = await getPopularTopics();
     final recentPlans = await getRecentPlans();
