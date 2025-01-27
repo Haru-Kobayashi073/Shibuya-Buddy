@@ -3,9 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../i18n/strings.g.dart';
+import '../../i18n/strings.g.dart'
 import '../../utils/extensions/context.dart';
-import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
@@ -63,7 +62,7 @@ class SmsVerificationPage extends HookConsumerWidget {
             ),
             const Gap(16),
             Text(
-              '${i18nSmsVerificationPage.sendSms}$phoneNumber',
+              '${i18nSmsVerificationPage.sendSms} $phoneNumber',
               style: AppTextStyle.textStyle.copyWith(fontSize: 16),
             ),
             Text(
@@ -86,13 +85,7 @@ class SmsVerificationPage extends HookConsumerWidget {
               )
             else
               InkWell(
-                onTap: () async {
-                  if (state.buttonState !=
-                      SmsVerificationButtonState.coolDown) {
-                    await notifier.sendSmsCode(phoneNumber);
-                    notifier.startCoolDownTimer();
-                  }
-                },
+                onTap: () => notifier.sendSmsCode(context, phoneNumber),
                 child: Text(
                   i18nSmsVerificationPage.resend.title,
                   style: AppTextStyle.textStyle.copyWith(
@@ -117,15 +110,9 @@ class SmsVerificationPage extends HookConsumerWidget {
               label: i18nSmsVerificationPage.verify,
               color: AppColor.yellow600Primary,
               onPressed: () async {
-                if (state.verificationId.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('認証IDが存在しません。')),
-                  );
-                  return;
-                }
                 await notifier.verifySmsCode(
+                  context,
                   smsCodeController.text.trim(),
-                  () => const RegisterProfilePageRouteData().go(context),
                 );
               },
             ),
