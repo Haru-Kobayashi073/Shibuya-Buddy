@@ -144,24 +144,14 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       return;
     }
 
-    if (state.requireValue.startDate != null &&
-        state.requireValue.endDate != null) {
-      try {
-        final startDate = _parseDate(state.requireValue.startDate!);
-        final endDate = _parseDate(state.requireValue.endDate!);
+    final startDate = _parseDate(state.requireValue.startDate!);
+    final endDate = _parseDate(state.requireValue.endDate!);
 
-        if (startDate.isAfter(endDate)) {
-          scaffoldMessenger.showExceptionSnackBar(
-            t.createPlanPage.snackBar.error.invalidDateRange,
-          );
-          return;
-        }
-      } on Exception {
-        scaffoldMessenger.showExceptionSnackBar(
-          t.createPlanPage.snackBar.error.invalidDateRange,
-        );
-        return;
-      }
+    if (startDate.isAfter(endDate)) {
+      scaffoldMessenger.showExceptionSnackBar(
+        t.createPlanPage.snackBar.error.invalidDateRange,
+      );
+      return;
     }
 
     final planPrompt = PlanPrompt(
@@ -180,7 +170,16 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
   }
 
   DateTime _parseDate(String dateString) {
-    final formatter = DateFormat('M/d(E) hh:mm a');
+    final currentLocale = LocaleSettings.currentLocale.languageCode;
+    final pattern = {
+          'ja': 'M/d(E) hh:mm a',
+          'en': 'MMM d, E hh:mm a',
+          'zh-Hant': 'M月d日 EEEE hh:mm a',
+          'zh-Hans': 'M月d日 EEEE hh:mm a',
+        }[currentLocale] ??
+        'MMM d, EEEE HH:mm';
+
+    final formatter = DateFormat(pattern, currentLocale);
     return formatter.parse(dateString);
   }
 }
