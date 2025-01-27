@@ -32,88 +32,86 @@ class EmailVerificationPage extends ConsumerWidget {
         forceMaterialTransparency: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Gap(context.deviceHeight * 0.05),
-              Text(
-                i18nEmailVerificationPage.title,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Gap(context.deviceHeight * 0.05),
+            Text(
+              i18nEmailVerificationPage.title,
+              style: AppTextStyle.textStyle.copyWith(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const Gap(16),
+            Flexible(
+              child: Text(
+                i18nEmailVerificationPage.descriptionForDestination(
+                  email: email,
+                ),
                 style: AppTextStyle.textStyle.copyWith(
-                  fontSize: 20,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Flexible(
+              child: Text(
+                i18nEmailVerificationPage.descriptionForCoolDown,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Gap(16),
-              Flexible(
-                child: Text(
-                  i18nEmailVerificationPage.descriptionForDestination(
-                    email: email,
-                  ),
-                  style: AppTextStyle.textStyle.copyWith(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              Flexible(
-                child: Text(
-                  i18nEmailVerificationPage.descriptionForCoolDown,
-                  style: AppTextStyle.textStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Gap(64),
-              Align(
-                child: state.isEmailVerified
-                    ? Icon(
-                        Icons.check_circle_outline_rounded,
-                        color: AppColor.blue600Primary,
-                        size: context.deviceWidth * 0.4,
-                      )
-                    : LoadingAnimationWidget.inkDrop(
-                        color: AppColor.blue600Primary,
-                        size: context.deviceWidth * 0.2,
-                      ),
-              ),
-              const Gap(64),
+            ),
+            const Gap(64),
+            Align(
+              child: state.isEmailVerified
+                  ? Icon(
+                      Icons.check_circle_outline_rounded,
+                      color: AppColor.blue600Primary,
+                      size: context.deviceWidth * 0.4,
+                    )
+                  : LoadingAnimationWidget.inkDrop(
+                      color: AppColor.blue600Primary,
+                      size: context.deviceWidth * 0.2,
+                    ),
+            ),
+            const Gap(64),
+            WideButton(
+              label: switch (state.emailVerificationButtonState) {
+                EmailVerificationButtonState.initialize =>
+                  i18nEmailVerificationPage.buttons.sendEmail,
+                EmailVerificationButtonState.coolDown =>
+                  '${state.resendEmailVerificationCountdown}s',
+                EmailVerificationButtonState.resend =>
+                  i18nEmailVerificationPage.buttons.resendEmail,
+                EmailVerificationButtonState.verified =>
+                  i18nEmailVerificationPage.buttons.toNext,
+              },
+              color: state.emailVerificationButtonState ==
+                      EmailVerificationButtonState.coolDown
+                  ? AppColor.grey600
+                  : AppColor.yellow600Primary,
+              onPressed: () async {
+                if (state.isEmailVerified) {
+                  const PhoneNumberInputPageRouteData().go(context);
+                } else {
+                  await notifier.sendEmailVerification();
+                }
+              },
+            ),
+            const Gap(16),
+            if (!state.isEmailVerified)
               WideButton(
-                label: switch (state.emailVerificationButtonState) {
-                  EmailVerificationButtonState.initialize =>
-                    i18nEmailVerificationPage.buttons.sendEmail,
-                  EmailVerificationButtonState.coolDown =>
-                    '${state.resendEmailVerificationCountdown}s',
-                  EmailVerificationButtonState.resend =>
-                    i18nEmailVerificationPage.buttons.resendEmail,
-                  EmailVerificationButtonState.verified =>
-                    i18nEmailVerificationPage.buttons.toNext,
-                },
-                color: state.emailVerificationButtonState ==
-                        EmailVerificationButtonState.coolDown
-                    ? AppColor.grey600
-                    : AppColor.yellow600Primary,
-                onPressed: () async {
-                  if (state.isEmailVerified) {
-                    const PhoneNumberInputPageRouteData().go(context);
-                  } else {
-                    await notifier.sendEmailVerification();
-                  }
-                },
+                label: i18nEmailVerificationPage.buttons.retypeEmail,
+                color: AppColor.blue50Background,
+                onPressed: () async =>
+                    const SignUpPageRouteData(fromEmailVerify: true)
+                        .push<void>(context),
               ),
-              const Gap(16),
-              if (!state.isEmailVerified)
-                WideButton(
-                  label: i18nEmailVerificationPage.buttons.retypeEmail,
-                  color: AppColor.blue50Background,
-                  onPressed: () async =>
-                      const SignUpPageRouteData(fromEmailVerify: true)
-                          .push<void>(context),
-                ),
-            ],
-          ),
+          ],
         ),
       ),
     );
