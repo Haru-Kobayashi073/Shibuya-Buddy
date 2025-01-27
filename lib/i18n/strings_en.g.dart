@@ -1034,6 +1034,7 @@ class TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
 	String get success => 'SMS code has been sent';
 	String get error => 'Failed to send SMS code. Please check your phone number and try again.';
 	String get unexpectedError => 'An unexpected error occurred:';
+	String get phoneNumberVerificaiton => 'Phone number verification is not completed.';
 }
 
 // Path: authentication.smsVerificationPage.resend
@@ -1379,6 +1380,7 @@ extension on Translations {
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS code has been sent';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'Failed to send SMS code. Please check your phone number and try again.';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return 'Phone number verification is not completed.';
 			case 'authentication.smsVerificationPage.title': return 'SMS Verification';
 			case 'authentication.smsVerificationPage.sendSms': return 'SMS code has been sent to the following phone number:';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return 'Please enter the code to complete phone number verification.';

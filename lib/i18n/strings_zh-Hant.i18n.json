@@ -155,7 +155,8 @@
                 "empty": "請輸入您的電話號碼",
                 "success": "SMS 驗證碼已發送",
                 "error": "SMS 驗證碼發送失敗。請確認電話號碼後再試一次。",
-                "unexpectedError": "發生未預期的錯誤："
+                "unexpectedError": "發生未預期的錯誤：",
+                "phoneNumberVerificaiton": "電話號碼驗證尚未完成"
             }
         },
         "smsVerificationPage": {

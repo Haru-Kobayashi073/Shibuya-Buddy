@@ -1014,6 +1014,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa impleme
 	@override String get success => 'SMSコードを送信しました';
 	@override String get error => 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 	@override String get unexpectedError => '予期しないエラーが発生しました:';
+	@override String get phoneNumberVerificaiton => '電話番号認証が完了していません';
 }
 
 // Path: authentication.smsVerificationPage.resend
@@ -1368,6 +1369,7 @@ extension on TranslationsJa {
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMSコードを送信しました';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return '電話番号認証が完了していません';
 			case 'authentication.smsVerificationPage.title': return 'SMS認証';
 			case 'authentication.smsVerificationPage.sendSms': return '以下の電話番号にSMSコードを送信しました：';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return 'コードを入力して、電話番号の認証を完了してください。';

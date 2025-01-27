@@ -1030,6 +1030,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans imp
 	@override String get success => 'SMS 验证码已发送';
 	@override String get error => 'SMS 验证码发送失败。请确认电话号码后重试。';
 	@override String get unexpectedError => '发生了意外错误：';
+	@override String get phoneNumberVerificaiton => '电话号码验证尚未完成';
 }
 
 // Path: authentication.smsVerificationPage.resend
@@ -1375,6 +1376,7 @@ extension on TranslationsZhHans {
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 验证码已发送';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 验证码发送失败。请确认电话号码后重试。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return '电话号码验证尚未完成';
 			case 'authentication.smsVerificationPage.title': return 'SMS 验证';
 			case 'authentication.smsVerificationPage.sendSms': return 'SMS 验证码已发送至以下电话号码：';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return '请输入验证码以完成电话号码验证。';

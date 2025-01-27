@@ -155,7 +155,9 @@
                 "empty": "Please enter your phone number",
                 "success": "SMS code has been sent",
                 "error": "Failed to send SMS code. Please check your phone number and try again.",
-                "unexpectedError": "An unexpected error occurred:"
+                "unexpectedError": "An unexpected error occurred:",
+                "phoneNumberVerificaiton": "Phone number verification is not completed."
+
             }
         },
         "smsVerificationPage": {

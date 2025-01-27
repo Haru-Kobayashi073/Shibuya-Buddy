@@ -1030,6 +1030,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant imp
 	@override String get success => 'SMS 驗證碼已發送';
 	@override String get error => 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
 	@override String get unexpectedError => '發生未預期的錯誤：';
+	@override String get phoneNumberVerificaiton => '電話號碼驗證尚未完成';
 }
 
 // Path: authentication.smsVerificationPage.resend
@@ -1375,6 +1376,7 @@ extension on TranslationsZhHant {
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 驗證碼已發送';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '發生未預期的錯誤：';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return '電話號碼驗證尚未完成';
 			case 'authentication.smsVerificationPage.title': return 'SMS 驗證';
 			case 'authentication.smsVerificationPage.sendSms': return 'SMS 驗證碼已發送至以下電話號碼：';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return '請輸入驗證碼以完成電話號碼驗證。';

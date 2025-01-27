@@ -144,7 +144,8 @@
                 "empty": "電話番号を入力してください",
                 "success": "SMSコードを送信しました",
                 "error": "SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。",
-                "unexpectedError": "予期しないエラーが発生しました:"
+                "unexpectedError": "予期しないエラーが発生しました:",
+                "phoneNumberVerificaiton": "電話番号認証が完了していません"
             }
         },
         "smsVerificationPage": {
