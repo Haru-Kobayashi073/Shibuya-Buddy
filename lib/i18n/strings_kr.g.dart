@@ -520,6 +520,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageKr implements TranslationsA
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr._(_root);
 	@override String get phoneNumber => '전화번호';
 	@override String get sendSmsCode => 'SMS 코드 보내기';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr._(_root);
 }
 
 // Path: authentication.smsVerificationPage
@@ -536,6 +537,7 @@ class _TranslationsAuthenticationSmsVerificationPageKr implements TranslationsAu
 	@override String get smsCode => 'SMS 코드';
 	@override String get verify => '인증';
 	@override String get fixPhoneNumber => '전화번호 수정';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -1002,6 +1004,19 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKr implements Tr
 	@override String get input => '전화번호를 입력해주세요';
 }
 
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '전화번호를 입력해주세요';
+	@override String get success => 'SMS 코드가 전송되었습니다';
+	@override String get error => 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
+	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
+}
+
 // Path: authentication.smsVerificationPage.resend
 class _TranslationsAuthenticationSmsVerificationPageResendKr implements TranslationsAuthenticationSmsVerificationPageResendEn {
 	_TranslationsAuthenticationSmsVerificationPageResendKr._(this._root);
@@ -1012,6 +1027,19 @@ class _TranslationsAuthenticationSmsVerificationPageResendKr implements Translat
 	@override String get title => '재전송';
 	@override String get untilRetransmissionPossible => '재전송 가능 시간까지';
 	@override String get second => '초';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKr._(this._root);
+
+	final TranslationsKr _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => 'SMS 코드를 입력해주세요';
+	@override String get success => '인증에 성공했습니다';
+	@override String get error => '인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.';
+	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -1337,6 +1365,10 @@ extension on TranslationsKr {
 			case 'authentication.phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '전화번호';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 코드가 전송되었습니다';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';
 			case 'authentication.smsVerificationPage.title': return 'SMS 인증';
 			case 'authentication.smsVerificationPage.sendSms': return '다음 전화번호로 SMS 코드를 보냈습니다:';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return '코드를 입력하여 전화번호 인증을 완료하세요.';
@@ -1346,6 +1378,10 @@ extension on TranslationsKr {
 			case 'authentication.smsVerificationPage.smsCode': return 'SMS 코드';
 			case 'authentication.smsVerificationPage.verify': return '인증';
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '전화번호 수정';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'SMS 코드를 입력해주세요';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '인증에 성공했습니다';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '통신 환경이 좋은 곳에서 다시 시도해주세요.';
 			case 'authentication.firebaseAuth.error.weakPassword': return '비밀번호가 너무 짧습니다. 6자 이상 입력해주세요.';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '이메일 주소 형식이 올바르지 않습니다.';

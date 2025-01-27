@@ -529,6 +529,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageZhHant implements Translati
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant._(_root);
 	@override String get phoneNumber => '電話號碼';
 	@override String get sendSmsCode => '發送 SMS 驗證碼';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant._(_root);
 }
 
 // Path: authentication.smsVerificationPage
@@ -545,6 +546,7 @@ class _TranslationsAuthenticationSmsVerificationPageZhHant implements Translatio
 	@override String get smsCode => 'SMS 驗證碼';
 	@override String get verify => '驗證';
 	@override String get fixPhoneNumber => '修改電話號碼';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHant scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHant._(_root);
 }
 
 // Path: myPage.accountStatus
@@ -1017,6 +1019,19 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant implement
 	@override String get input => '請輸入您的電話號碼';
 }
 
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '請輸入您的電話號碼';
+	@override String get success => 'SMS 驗證碼已發送';
+	@override String get error => 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
+	@override String get unexpectedError => '發生未預期的錯誤：';
+}
+
 // Path: authentication.smsVerificationPage.resend
 class _TranslationsAuthenticationSmsVerificationPageResendZhHant implements TranslationsAuthenticationSmsVerificationPageResendEn {
 	_TranslationsAuthenticationSmsVerificationPageResendZhHant._(this._root);
@@ -1027,6 +1042,19 @@ class _TranslationsAuthenticationSmsVerificationPageResendZhHant implements Tran
 	@override String get title => '重新發送';
 	@override String get untilRetransmissionPossible => '重新發送時間倒數';
 	@override String get second => '秒';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHant implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '請輸入 SMS 驗證碼';
+	@override String get success => '驗證成功';
+	@override String get error => '驗證失敗。請確認 SMS 驗證碼後再試一次。';
+	@override String get unexpectedError => '發生未預期的錯誤：';
 }
 
 // Path: myPage.accountStatus.dateTime
@@ -1343,6 +1371,10 @@ extension on TranslationsZhHant {
 			case 'authentication.phoneNumberInputPage.discription.input': return '請輸入您的電話號碼';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話號碼';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '發送 SMS 驗證碼';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '請輸入您的電話號碼';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 驗證碼已發送';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '發生未預期的錯誤：';
 			case 'authentication.smsVerificationPage.title': return 'SMS 驗證';
 			case 'authentication.smsVerificationPage.sendSms': return 'SMS 驗證碼已發送至以下電話號碼：';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return '請輸入驗證碼以完成電話號碼驗證。';
@@ -1352,6 +1384,10 @@ extension on TranslationsZhHant {
 			case 'authentication.smsVerificationPage.smsCode': return 'SMS 驗證碼';
 			case 'authentication.smsVerificationPage.verify': return '驗證';
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '修改電話號碼';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return '請輸入 SMS 驗證碼';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '驗證成功';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '驗證失敗。請確認 SMS 驗證碼後再試一次。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '發生未預期的錯誤：';
 			case 'validation.emailRequired': return '請輸入電子郵件地址';
 			case 'validation.emailInvalid': return '電子郵件地址格式不正確';
 			case 'validation.passwordRequired': return '請輸入密碼';

@@ -529,6 +529,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageZhHans implements Translati
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans._(_root);
 	@override String get phoneNumber => '电话号码';
 	@override String get sendSmsCode => '发送 SMS 验证码';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans._(_root);
 }
 
 // Path: authentication.smsVerificationPage
@@ -545,6 +546,7 @@ class _TranslationsAuthenticationSmsVerificationPageZhHans implements Translatio
 	@override String get smsCode => 'SMS 验证码';
 	@override String get verify => '验证';
 	@override String get fixPhoneNumber => '修改电话号码';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans._(_root);
 }
 
 // Path: myPage.accountStatus
@@ -1017,6 +1019,19 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans implement
 	@override String get input => '请输入您的电话号码';
 }
 
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '请输入您的电话号码';
+	@override String get success => 'SMS 验证码已发送';
+	@override String get error => 'SMS 验证码发送失败。请确认电话号码后重试。';
+	@override String get unexpectedError => '发生了意外错误：';
+}
+
 // Path: authentication.smsVerificationPage.resend
 class _TranslationsAuthenticationSmsVerificationPageResendZhHans implements TranslationsAuthenticationSmsVerificationPageResendEn {
 	_TranslationsAuthenticationSmsVerificationPageResendZhHans._(this._root);
@@ -1027,6 +1042,19 @@ class _TranslationsAuthenticationSmsVerificationPageResendZhHans implements Tran
 	@override String get title => '重新发送';
 	@override String get untilRetransmissionPossible => '重新发送倒计时';
 	@override String get second => '秒';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '请输入 SMS 验证码';
+	@override String get success => '验证成功';
+	@override String get error => '验证失败。请确认 SMS 验证码后重试。';
+	@override String get unexpectedError => '发生了意外错误：';
 }
 
 // Path: myPage.accountStatus.dateTime
@@ -1343,6 +1371,10 @@ extension on TranslationsZhHans {
 			case 'authentication.phoneNumberInputPage.discription.input': return '请输入您的电话号码';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '电话号码';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '发送 SMS 验证码';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '请输入您的电话号码';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 验证码已发送';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 验证码发送失败。请确认电话号码后重试。';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';
 			case 'authentication.smsVerificationPage.title': return 'SMS 验证';
 			case 'authentication.smsVerificationPage.sendSms': return 'SMS 验证码已发送至以下电话号码：';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return '请输入验证码以完成电话号码验证。';
@@ -1352,6 +1384,10 @@ extension on TranslationsZhHans {
 			case 'authentication.smsVerificationPage.smsCode': return 'SMS 验证码';
 			case 'authentication.smsVerificationPage.verify': return '验证';
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '修改电话号码';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return '请输入 SMS 验证码';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '验证成功';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '验证失败。请确认 SMS 验证码后重试。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';
 			case 'validation.emailRequired': return '请输入电子邮件地址';
 			case 'validation.emailInvalid': return '电子邮件地址格式不正确';
 			case 'validation.passwordRequired': return '请输入密码';

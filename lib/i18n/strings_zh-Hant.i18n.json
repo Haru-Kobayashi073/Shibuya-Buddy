@@ -150,7 +150,13 @@
                 "input": "請輸入您的電話號碼"
             },
             "phoneNumber": "電話號碼",
-            "sendSmsCode": "發送 SMS 驗證碼"
+            "sendSmsCode": "發送 SMS 驗證碼",
+            "scaffoldMessenger": {
+                "empty": "請輸入您的電話號碼",
+                "success": "SMS 驗證碼已發送",
+                "error": "SMS 驗證碼發送失敗。請確認電話號碼後再試一次。",
+                "unexpectedError": "發生未預期的錯誤："
+            }
         },
         "smsVerificationPage": {
             "title": "SMS 驗證",
@@ -163,7 +169,13 @@
             },
             "smsCode": "SMS 驗證碼",
             "verify": "驗證",
-            "fixPhoneNumber": "修改電話號碼"
+            "fixPhoneNumber": "修改電話號碼",
+            "scaffoldMessenger": {
+                "empty": "請輸入 SMS 驗證碼",
+                "success": "驗證成功",
+                "error": "驗證失敗。請確認 SMS 驗證碼後再試一次。",
+                "unexpectedError": "發生未預期的錯誤："
+            }
         }
     },
     "validation": {

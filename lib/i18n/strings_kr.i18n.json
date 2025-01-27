@@ -139,7 +139,13 @@
                 "input": "전화번호를 입력해주세요"
             },
             "phoneNumber": "전화번호",
-            "sendSmsCode": "SMS 코드 보내기"
+            "sendSmsCode": "SMS 코드 보내기",
+            "scaffoldMessenger": {
+                "empty": "전화번호를 입력해주세요",
+                "success": "SMS 코드가 전송되었습니다",
+                "error": "SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.",
+                "unexpectedError": "예기치 못한 오류가 발생했습니다:"
+            }
         },
         "smsVerificationPage": {
             "title": "SMS 인증",
@@ -152,7 +158,13 @@
             },
             "smsCode": "SMS 코드",
             "verify": "인증",
-            "fixPhoneNumber": "전화번호 수정"
+            "fixPhoneNumber": "전화번호 수정",
+            "scaffoldMessenger": {
+                "empty": "SMS 코드를 입력해주세요",
+                "success": "인증에 성공했습니다",
+                "error": "인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.",
+                "unexpectedError": "예기치 못한 오류가 발생했습니다:"
+            }
         },
         "firebaseAuth": {
             "error": {

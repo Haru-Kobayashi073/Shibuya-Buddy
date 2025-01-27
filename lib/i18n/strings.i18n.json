@@ -150,7 +150,13 @@
                 "input": "please enter your phone number"
             },
             "phoneNumber": "Phone Number",
-            "sendSmsCode": "Send SMS Code"
+            "sendSmsCode": "Send SMS Code",
+            "scaffoldMessenger": {
+                "empty": "Please enter your phone number",
+                "success": "SMS code has been sent",
+                "error": "Failed to send SMS code. Please check your phone number and try again.",
+                "unexpectedError": "An unexpected error occurred:"
+            }
         },
         "smsVerificationPage": {
             "title": "SMS Verification",
@@ -163,7 +169,13 @@
             },
             "smsCode": "SMS Code",
             "verify": "Verify",
-            "fixPhoneNumber": "Edit Phone Number"
+            "fixPhoneNumber": "Edit Phone Number",
+            "scaffoldMessenger": {
+                "empty": "Please enter the SMS code",
+                "success": "Verification successful",
+                "error": "Verification failed. Please check the SMS code and try again.",
+                "unexpectedError": "An unexpected error occurred:"
+            }
         }
     },
     "validation": {

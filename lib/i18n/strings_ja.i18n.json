@@ -139,7 +139,13 @@
                 "input": "で電話番号を入力してください"
             },
             "phoneNumber": "電話番号",
-            "sendSmsCode": "SMSコードを送信"
+            "sendSmsCode": "SMSコードを送信",
+            "scaffoldMessenger": {
+                "empty": "電話番号を入力してください",
+                "success": "SMSコードを送信しました",
+                "error": "SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。",
+                "unexpectedError": "予期しないエラーが発生しました:"
+            }
         },
         "smsVerificationPage": {
             "title": "SMS認証",
@@ -152,7 +158,13 @@
             },
             "smsCode": "SMSコード",
             "verify": "認証する",
-            "fixPhoneNumber": "電話番号を修正する"
+            "fixPhoneNumber": "電話番号を修正する",
+            "scaffoldMessenger": {
+                "empty": "SMSコードを入力してください",
+                "success": "認証に成功しました",
+                "error": "認証に失敗しました。SMSコードをご確認の上、再度お試しください。",
+                "unexpectedError": "予期しないエラーが発生しました:"
+            }
         },
         "firebaseAuth": {
             "error": {

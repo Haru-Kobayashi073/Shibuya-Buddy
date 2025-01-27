@@ -519,6 +519,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageJa implements TranslationsA
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa._(_root);
 	@override String get phoneNumber => '電話番号';
 	@override String get sendSmsCode => 'SMSコードを送信';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa._(_root);
 }
 
 // Path: authentication.smsVerificationPage
@@ -535,6 +536,7 @@ class _TranslationsAuthenticationSmsVerificationPageJa implements TranslationsAu
 	@override String get smsCode => 'SMSコード';
 	@override String get verify => '認証する';
 	@override String get fixPhoneNumber => '電話番号を修正する';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerJa scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerJa._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -1001,6 +1003,19 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa implements Tr
 	@override String get input => 'で電話番号を入力してください';
 }
 
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '電話番号を入力してください';
+	@override String get success => 'SMSコードを送信しました';
+	@override String get error => 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
+	@override String get unexpectedError => '予期しないエラーが発生しました:';
+}
+
 // Path: authentication.smsVerificationPage.resend
 class _TranslationsAuthenticationSmsVerificationPageResendJa implements TranslationsAuthenticationSmsVerificationPageResendEn {
 	_TranslationsAuthenticationSmsVerificationPageResendJa._(this._root);
@@ -1011,6 +1026,19 @@ class _TranslationsAuthenticationSmsVerificationPageResendJa implements Translat
 	@override String get title => '再送信する';
 	@override String get untilRetransmissionPossible => '再送信可能まで';
 	@override String get second => '秒';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerJa implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => 'SMSコードを入力してください';
+	@override String get success => '認証に成功しました';
+	@override String get error => '認証に失敗しました。SMSコードをご確認の上、再度お試しください。';
+	@override String get unexpectedError => '予期しないエラーが発生しました:';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -1336,6 +1364,10 @@ extension on TranslationsJa {
 			case 'authentication.phoneNumberInputPage.discription.input': return 'で電話番号を入力してください';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話番号';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMSコードを送信';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMSコードを送信しました';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';
 			case 'authentication.smsVerificationPage.title': return 'SMS認証';
 			case 'authentication.smsVerificationPage.sendSms': return '以下の電話番号にSMSコードを送信しました：';
 			case 'authentication.smsVerificationPage.pleaseInputCode': return 'コードを入力して、電話番号の認証を完了してください。';
@@ -1345,6 +1377,10 @@ extension on TranslationsJa {
 			case 'authentication.smsVerificationPage.smsCode': return 'SMSコード';
 			case 'authentication.smsVerificationPage.verify': return '認証する';
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '電話番号を修正する';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'SMSコードを入力してください';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '認証に成功しました';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '認証に失敗しました。SMSコードをご確認の上、再度お試しください。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '通信環境がいい所で再度やり直してください';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'パスワードが短すぎます。6文字以上を入力してください';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'メールアドレスの形式が正しくありません';
