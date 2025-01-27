@@ -1007,6 +1007,7 @@ class _TranslationsCreatePlanPageSnackBarErrorKr implements TranslationsCreatePl
 
 	// Translations
 	@override String get foundUnSelectedField => '선택되지 않은 항목이 있습니다. 모든 항목을 선택해주세요.';
+	@override String get invalidDateRange => '시작일은 종료일보다 이전으로 설정해야 합니다.';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1372,6 +1373,7 @@ extension on TranslationsKr {
 			case 'createPlanPage.defaultTopics.3': return '영화';
 			case 'createPlanPage.submitButton': return '플랜을 AI에 전달하기';
 			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '선택되지 않은 항목이 있습니다. 모든 항목을 선택해주세요.';
+			case 'createPlanPage.snackBar.error.invalidDateRange': return '시작일은 종료일보다 이전으로 설정해야 합니다.';
 			case 'editProfilePage.title': return '편집';
 			case 'editProfilePage.textFields.name': return '이름';
 			case 'editProfilePage.buttons.submit': return '저장';

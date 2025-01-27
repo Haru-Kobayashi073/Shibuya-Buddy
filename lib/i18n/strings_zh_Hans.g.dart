@@ -1007,6 +1007,7 @@ class _TranslationsCreatePlanPageSnackBarErrorZhHans implements TranslationsCrea
 
 	// Translations
 	@override String get foundUnSelectedField => '存在未选择的项目，请选择所有项目';
+	@override String get invalidDateRange => '开始日期必须在结束日期之前设置。';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1372,6 +1373,7 @@ extension on TranslationsZhHans {
 			case 'createPlanPage.defaultTopics.3': return '电影';
 			case 'createPlanPage.submitButton': return '提交计划给AI';
 			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
+			case 'createPlanPage.snackBar.error.invalidDateRange': return '开始日期必须在结束日期之前设置。';
 			case 'editProfilePage.title': return '编辑个人资料';
 			case 'editProfilePage.textFields.name': return '姓名';
 			case 'editProfilePage.buttons.submit': return '保存';

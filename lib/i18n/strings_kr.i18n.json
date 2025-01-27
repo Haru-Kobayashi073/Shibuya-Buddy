@@ -288,7 +288,8 @@
         "submitButton": "플랜을 AI에 전달하기",
         "snackBar": {
             "error": {
-                "foundUnSelectedField": "선택되지 않은 항목이 있습니다. 모든 항목을 선택해주세요."
+                "foundUnSelectedField": "선택되지 않은 항목이 있습니다. 모든 항목을 선택해주세요.",
+                "invalidDateRange": "시작일은 종료일보다 이전으로 설정해야 합니다."
             }
         }
     },

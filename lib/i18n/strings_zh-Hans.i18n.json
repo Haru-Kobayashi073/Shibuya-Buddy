@@ -288,7 +288,8 @@
         "submitButton": "提交计划给AI",
         "snackBar": {
             "error": {
-                "foundUnSelectedField": "存在未选择的项目，请选择所有项目"
+                "foundUnSelectedField": "存在未选择的项目，请选择所有项目",
+                "invalidDateRange": "开始日期必须在结束日期之前设置。"
             }
         }
     },

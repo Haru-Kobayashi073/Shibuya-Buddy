@@ -1011,6 +1011,7 @@ class TranslationsCreatePlanPageSnackBarErrorEn {
 
 	// Translations
 	String get foundUnSelectedField => 'There are unselected items. Please select all items.';
+	String get invalidDateRange => 'The start date must be set before the end date.';
 }
 
 // Path: editProfilePage.snackBar.error
@@ -1376,6 +1377,7 @@ extension on Translations {
 			case 'createPlanPage.defaultTopics.3': return 'Movies';
 			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
 			case 'createPlanPage.snackBar.error.foundUnSelectedField': return 'There are unselected items. Please select all items.';
+			case 'createPlanPage.snackBar.error.invalidDateRange': return 'The start date must be set before the end date.';
 			case 'editProfilePage.title': return 'Edit Profile';
 			case 'editProfilePage.textFields.name': return 'Name';
 			case 'editProfilePage.buttons.submit': return 'Save';
