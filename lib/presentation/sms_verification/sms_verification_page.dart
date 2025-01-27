@@ -77,6 +77,7 @@ class SmsVerificationPage extends HookConsumerWidget {
               const Gap(8),
               if (state.buttonState == SmsVerificationButtonState.coolDown)
                 Text(
+                  // ignore: lines_longer_than_80_chars long line
                   '${i18nSmsVerificationPage.resend.untilRetransmissionPossible} '
                   '${state.resendCooldown} '
                   '${i18nSmsVerificationPage.resend.second}',
