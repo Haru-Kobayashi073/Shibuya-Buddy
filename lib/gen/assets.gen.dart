@@ -32,6 +32,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/anime.png
   AssetGenImage get anime => const AssetGenImage('assets/images/anime.png');
 
+  /// File path: assets/images/app_icon.png
+  AssetGenImage get appIcon =>
+      const AssetGenImage('assets/images/app_icon.png');
+
   /// File path: assets/images/billing_header.png
   AssetGenImage get billingHeader =>
       const AssetGenImage('assets/images/billing_header.png');
@@ -57,6 +61,7 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
         activity,
         anime,
+        appIcon,
         billingHeader,
         error,
         gourmet,
