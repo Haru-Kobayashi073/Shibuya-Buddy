@@ -97,7 +97,6 @@ class EmailVerificationPage extends ConsumerWidget {
               onPressed: () async {
                 if (state.isEmailVerified) {
                   const PhoneNumberInputPageRouteData().go(context);
-                  // context.go(const RegisterProfilePageRouteData().location);
                 } else {
                   await notifier.sendEmailVerification();
                 }
