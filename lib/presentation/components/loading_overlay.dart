@@ -23,7 +23,7 @@ class LoadingOverlay extends ConsumerWidget {
       child: ColoredBox(
         color: backgroundColor,
         child: const SizedBox.expand(
-          child: Loading(),
+          child: Loading(backgroundColor: Colors.transparent),
         ),
       ),
     );
@@ -31,12 +31,13 @@ class LoadingOverlay extends ConsumerWidget {
 }
 
 class Loading extends StatelessWidget {
-  const Loading({super.key});
+  const Loading({super.key, this.backgroundColor = Colors.white});
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: backgroundColor,
       body: Center(
         child: Lottie.asset(
           Assets.lottie.animation1736996724199,
