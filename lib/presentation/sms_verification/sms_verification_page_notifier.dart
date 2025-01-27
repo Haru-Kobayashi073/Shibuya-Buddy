@@ -7,6 +7,7 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
+import '../components/loading_overlay.dart';
 import 'sms_verification_state.dart';
 
 part 'sms_verification_page_notifier.g.dart';
@@ -37,7 +38,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
       );
       return;
     }
-
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.linkPhoneNumber(
         state.verificationId,
@@ -54,6 +55,8 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
       scaffoldMessenger.showExceptionSnackBar(
         i18nSmsVerificationScaffoldMessenger.error,
       );
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 

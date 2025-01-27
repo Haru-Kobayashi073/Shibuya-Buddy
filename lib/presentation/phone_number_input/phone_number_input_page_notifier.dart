@@ -7,6 +7,7 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
+import '../components/loading_overlay.dart';
 
 part 'phone_number_input_page_notifier.g.dart';
 
@@ -30,7 +31,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
       );
       return;
     }
-
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.sendSmsCode(
         phoneNumber: phoneNumber,
@@ -58,6 +59,8 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
       scaffoldMessenger.showExceptionSnackBar(
         '${i18nPhoneNumberInputPage.scaffoldMessenger.unexpectedError} $error',
       );
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 }
