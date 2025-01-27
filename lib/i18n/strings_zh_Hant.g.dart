@@ -38,70 +38,32 @@ class TranslationsZhHant implements Translations {
 
   late final TranslationsZhHant _root = this; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarZhHant navigationBar =
-      _TranslationsNavigationBarZhHant._(_root);
-  @override
-  late final _TranslationsHomePageZhHant homePage =
-      _TranslationsHomePageZhHant._(_root);
-  @override
-  late final _TranslationsAccountPageZhHant accountPage =
-      _TranslationsAccountPageZhHant._(_root);
-  @override
-  late final _TranslationsAuthenticationZhHant authentication =
-      _TranslationsAuthenticationZhHant._(_root);
-  @override
-  late final _TranslationsValidationZhHant validation =
-      _TranslationsValidationZhHant._(_root);
-  @override
-  late final _TranslationsMyPageZhHant myPage =
-      _TranslationsMyPageZhHant._(_root);
-  @override
-  late final _TranslationsChangeLanguagePageZhHant changeLanguagePage =
-      _TranslationsChangeLanguagePageZhHant._(_root);
-  @override
-  late final _TranslationsChangeThemePageZhHant changeThemePage =
-      _TranslationsChangeThemePageZhHant._(_root);
-  @override
-  late final _TranslationsMyPlanPageZhHant myPlanPage =
-      _TranslationsMyPlanPageZhHant._(_root);
-  @override
-  late final _TranslationsBuddyChatPageZhHant buddyChatPage =
-      _TranslationsBuddyChatPageZhHant._(_root);
-  @override
-  late final _TranslationsPopularTopicsZhHant popularTopics =
-      _TranslationsPopularTopicsZhHant._(_root);
-  @override
-  late final _TranslationsCreatePlanPageZhHant createPlanPage =
-      _TranslationsCreatePlanPageZhHant._(_root);
-  @override
-  late final _TranslationsEditProfilePageZhHant editProfilePage =
-      _TranslationsEditProfilePageZhHant._(_root);
-  @override
-  late final _TranslationsConfirmDialogZhHant confirmDialog =
-      _TranslationsConfirmDialogZhHant._(_root);
-  @override
-  late final _TranslationsPromptZhHant prompt =
-      _TranslationsPromptZhHant._(_root);
-  @override
-  late final _TranslationsBillDetailsPageZhHant billDetailsPage =
-      _TranslationsBillDetailsPageZhHant._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageZhHant planDetailsPage =
-      _TranslationsPlanDetailsPageZhHant._(_root);
-  @override
-  Map<String, String> get locales => {
-        'en': '英語',
-        'ja': '日語',
-        'zh': '中文',
-      };
-  @override
-  late final _TranslationsErrorPageZhHant errorPage =
-      _TranslationsErrorPageZhHant._(_root);
-  @override
-  late final _TranslationsMapPageZhHant mapPage =
-      _TranslationsMapPageZhHant._(_root);
+	// Translations
+	@override late final _TranslationsNavigationBarZhHant navigationBar = _TranslationsNavigationBarZhHant._(_root);
+	@override late final _TranslationsHomePageZhHant homePage = _TranslationsHomePageZhHant._(_root);
+	@override late final _TranslationsAccountPageZhHant accountPage = _TranslationsAccountPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationZhHant authentication = _TranslationsAuthenticationZhHant._(_root);
+	@override late final _TranslationsValidationZhHant validation = _TranslationsValidationZhHant._(_root);
+	@override late final _TranslationsMyPageZhHant myPage = _TranslationsMyPageZhHant._(_root);
+	@override late final _TranslationsChangeLanguagePageZhHant changeLanguagePage = _TranslationsChangeLanguagePageZhHant._(_root);
+	@override late final _TranslationsChangeThemePageZhHant changeThemePage = _TranslationsChangeThemePageZhHant._(_root);
+	@override late final _TranslationsMyPlanPageZhHant myPlanPage = _TranslationsMyPlanPageZhHant._(_root);
+	@override late final _TranslationsBuddyChatPageZhHant buddyChatPage = _TranslationsBuddyChatPageZhHant._(_root);
+	@override late final _TranslationsPopularTopicsZhHant popularTopics = _TranslationsPopularTopicsZhHant._(_root);
+	@override late final _TranslationsCreatePlanPageZhHant createPlanPage = _TranslationsCreatePlanPageZhHant._(_root);
+	@override late final _TranslationsEditProfilePageZhHant editProfilePage = _TranslationsEditProfilePageZhHant._(_root);
+	@override late final _TranslationsConfirmDialogZhHant confirmDialog = _TranslationsConfirmDialogZhHant._(_root);
+	@override late final _TranslationsPromptZhHant prompt = _TranslationsPromptZhHant._(_root);
+	@override late final _TranslationsBillDetailsPageZhHant billDetailsPage = _TranslationsBillDetailsPageZhHant._(_root);
+	@override late final _TranslationsPlanDetailsPageZhHant planDetailsPage = _TranslationsPlanDetailsPageZhHant._(_root);
+	@override Map<String, String> get locales => {
+		'en': '英語',
+		'ja': '日語',
+		'zh': '中文',
+		'kr': '韓語',
+	};
+	@override late final _TranslationsErrorPageZhHant errorPage = _TranslationsErrorPageZhHant._(_root);
+	@override late final _TranslationsMapPageZhHant mapPage = _TranslationsMapPageZhHant._(_root);
 }
 
 // Path: navigationBar
@@ -811,15 +773,12 @@ class _TranslationsChangeLanguagePageItemsZhHant
 
   final TranslationsZhHant _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get japanese => '日语';
-  @override
-  String get english => '英语';
-  @override
-  String get simplifiedChinese => '中文(简体字)';
-  @override
-  String get traditionalChinese => '中文(繁体字)';
+	// Translations
+	@override String get japanese => '日语';
+	@override String get english => '英语';
+	@override String get simplifiedChinese => '中文(简体字)';
+	@override String get traditionalChinese => '中文(繁体字)';
+	@override String get korean => '韓語';
 }
 
 // Path: changeThemePage.items
@@ -1712,477 +1671,244 @@ class _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHant
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHant {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'navigationBar.items.home':
-        return '首頁';
-      case 'navigationBar.items.myPlan':
-        return '我的計劃';
-      case 'navigationBar.items.myPage':
-        return '我的頁面';
-      case 'homePage.popularPlans.title':
-        return '熱門計畫';
-      case 'homePage.popularTopics.title':
-        return '熱門話題';
-      case 'homePage.popularTopics.numberOfTopics':
-        return ({required Object number}) => '${number}件~';
-      case 'homePage.recentPlans.title':
-        return '最近創建的計畫';
-      case 'accountPage.title':
-        return '帳戶';
-      case 'accountPage.items.signOut':
-        return '登出';
-      case 'accountPage.items.linkedWithGoogle':
-        return '與Google連結';
-      case 'accountPage.items.linkedWithApple':
-        return '與Apple連結';
-      case 'accountPage.items.alreadyLinkedGoogle':
-        return '已與Google連結';
-      case 'accountPage.items.alreadyLinkedApple':
-        return '已與Apple連結';
-      case 'accountPage.snackBar.signOut':
-        return '已成功登出。';
-      case 'accountPage.snackBar.signOutFailure':
-        return '登出時發生錯誤。';
-      case 'accountPage.snackBar.successfulLinkage':
-        return '帳戶連結成功。';
-      case 'accountPage.snackBar.linkageFailure':
-        return '帳戶連結失敗。';
-      case 'accountPage.snackBar.providerAlreadyLinked':
-        return '此帳戶已經連結。';
-      case 'accountPage.snackBar.accountDeactivation':
-        return '已解除帳戶連結。';
-      case 'accountPage.snackBar.invalidCredential':
-        return '請重新登入。';
-      case 'accountPage.snackBar.linkageCancelled':
-        return '帳戶連結已取消。';
-      case 'accountPage.snackBar.unlinkageFailure':
-        return '解除帳戶連結失敗。';
-      case 'accountPage.snackBar.operationNotAllowed':
-        return '提供者無效。請聯絡開發者。';
-      case 'accountPage.snackBar.unknownError':
-        return '發生未知錯誤。';
-      case 'accountPage.diaLog.yes':
-        return '是';
-      case 'accountPage.diaLog.no':
-        return '否';
-      case 'accountPage.diaLog.title':
-        return '確認解除帳戶連結';
-      case 'accountPage.diaLog.googleText':
-        return '是否要解除目前帳戶與Google帳戶的連結？';
-      case 'accountPage.diaLog.appleText':
-        return '是否要解除目前帳戶與Apple帳戶的連結？';
-      case 'authentication.signInPage.title':
-        return '登入';
-      case 'authentication.signInPage.optionText':
-        return ' 或 ';
-      case 'authentication.signInPage.textFields.email':
-        return '電子郵件地址';
-      case 'authentication.signInPage.textFields.password':
-        return '密碼';
-      case 'authentication.signInPage.buttons.signIn':
-        return '登入';
-      case 'authentication.signInPage.buttons.signUp':
-        return '註冊';
-      case 'authentication.signInPage.buttons.resetPassword':
-        return '忘記密碼？';
-      case 'authentication.signInPage.buttons.appleSignIn':
-        return '使用Apple登入';
-      case 'authentication.signInPage.buttons.googleSignIn':
-        return '使用Google登入';
-      case 'authentication.signInPage.buttons.signInAfter':
-        return '稍後註冊';
-      case 'authentication.firebaseAuth.error.networkRequestFailed':
-        return '請在良好的網絡環境中重試';
-      case 'authentication.firebaseAuth.error.weakPassword':
-        return '密碼太短。請輸入6個字符或更多';
-      case 'authentication.firebaseAuth.error.invalidEmail':
-        return '電子郵件地址格式不正確';
-      case 'authentication.firebaseAuth.error.userNotFound':
-        return '找不到帳戶';
-      case 'authentication.firebaseAuth.error.wrongPassword':
-        return '密碼錯誤';
-      case 'authentication.firebaseAuth.error.emailAlreadyInUse':
-        return '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
-      case 'authentication.firebaseAuth.error.unexpected':
-        return '發生錯誤。請在良好的網絡環境中重試';
-      case 'authentication.resetPasswordPage.title':
-        return '重設密碼';
-      case 'authentication.resetPasswordPage.description':
-        return '將發送密碼重設郵件到輸入的電子郵件地址';
-      case 'authentication.resetPasswordPage.textFields.email':
-        return '電子郵件地址';
-      case 'authentication.resetPasswordPage.buttons.submit':
-        return '發送';
-      case 'authentication.signUpPage.title.defaultText':
-        return '新用戶註冊';
-      case 'authentication.signUpPage.title.modifyEmail':
-        return '更改電子郵件地址';
-      case 'authentication.signUpPage.textFields.email':
-        return '電子郵件地址';
-      case 'authentication.signUpPage.textFields.password':
-        return '密碼';
-      case 'authentication.signUpPage.button.defaultText':
-        return '註冊';
-      case 'authentication.signUpPage.button.modifyEmail':
-        return '更改';
-      case 'authentication.emailVerificationPage.title':
-        return '電子郵件地址驗證';
-      case 'authentication.emailVerificationPage.descriptionForDestination':
-        return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
-      case 'authentication.emailVerificationPage.descriptionForCoolDown':
-        return '確認郵件每60秒只能重新發送一次。';
-      case 'authentication.emailVerificationPage.buttons.sendEmail':
-        return '發送確認郵件';
-      case 'authentication.emailVerificationPage.buttons.resendEmail':
-        return '重新發送確認郵件';
-      case 'authentication.emailVerificationPage.buttons.toNext':
-        return '下一步';
-      case 'authentication.emailVerificationPage.buttons.retypeEmail':
-        return '修改電子郵件地址';
-      case 'authentication.emailVerificationPage.snackBar.success':
-        return '發送成功';
-      case 'authentication.emailVerificationPage.snackBar.emailVerification':
-        return '電子郵件地址尚未驗證。';
-      case 'authentication.emailVerificationPage.snackBar.error.unexpected':
-        return '發生錯誤，請稍後再試。';
-      case 'authentication.registerProfilePage.title':
-        return '註冊個人資訊';
-      case 'authentication.registerProfilePage.textFields':
-        return '姓名';
-      case 'authentication.registerProfilePage.buttons.submit':
-        return '完成';
-      case 'authentication.registerProfilePage.buttons.skip':
-        return '跳過';
-      case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty':
-        return '請輸入信息';
-      case 'authentication.registerProfilePage.snackBar.error.unexpected':
-        return '發生錯誤，請稍後再試。';
-      case 'authentication.completeSendEmailPage.title':
-        return '發送完成';
-      case 'authentication.completeSendEmailPage.description':
-        return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
-      case 'authentication.completeSendEmailPage.successResendEmail':
-        return '確認郵件已重新發送';
-      case 'authentication.completeSendEmailPage.buttons.toSignIn':
-        return '前往登入畫面';
-      case 'authentication.completeSendEmailPage.buttons.resendEmail':
-        return '重新發送確認郵件';
-      case 'authentication.completeSendEmailPage.buttons.changeEmail':
-        return '更改電子郵件地址';
-      case 'validation.emailRequired':
-        return '請輸入電子郵件地址';
-      case 'validation.emailInvalid':
-        return '電子郵件地址格式不正確';
-      case 'validation.passwordRequired':
-        return '請輸入密碼';
-      case 'validation.passwordShort':
-        return '密碼必須至少8個字符';
-      case 'validation.passwordWeak':
-        return '密碼應包含字母和數字的組合';
-      case 'validation.passwordMatch':
-        return '密碼不匹配';
-      case 'validation.informationRequired':
-        return '請輸入信息';
-      case 'validation.urlInvalid':
-        return 'URL格式不正確';
-      case 'validation.usernameRequired':
-        return '請輸入您的使用者名稱';
-      case 'validation.usernameMaxLength':
-        return '使用者名稱必須為8個字符或更少';
-      case 'myPage.unregisteredUserName':
-        return '未註冊';
-      case 'myPage.editProfile':
-        return '編輯個人資料';
-      case 'myPage.premiumPlan':
-        return '進階方案';
-      case 'myPage.details':
-        return '詳細';
-      case 'myPage.settings':
-        return '設定';
-      case 'myPage.account':
-        return '帳戶';
-      case 'myPage.language':
-        return '語言';
-      case 'myPage.theme':
-        return '主題';
-      case 'myPage.termsOfUsePrivacyPolicy':
-        return '使用條款和隱私政策';
-      case 'myPage.aboutThisApp':
-        return '關於本應用';
-      case 'myPage.aboutTheDeveloper':
-        return '關於開發者';
-      case 'myPage.accountStatus.dateTime.registeredOn':
-        return ({required Object date}) => '${date}註冊於';
-      case 'myPage.accountStatus.dateTime.registeredOnFormat':
-        return 'yyyy年MM月dd日';
-      case 'myPage.accountStatus.dateTime.validUntil':
-        return ({required Object date}) => '有效期至${date}';
-      case 'myPage.accountStatus.dateTime.validUntilFormat':
-        return 'yyyy年MM月dd日 HH:mm';
-      case 'myPage.accountStatus.premium':
-        return '進階會員';
-      case 'myPage.accountStatus.standard':
-        return '標準會員';
-      case 'changeLanguagePage.title':
-        return '語言';
-      case 'changeLanguagePage.items.japanese':
-        return '日语';
-      case 'changeLanguagePage.items.english':
-        return '英语';
-      case 'changeLanguagePage.items.simplifiedChinese':
-        return '中文(简体字)';
-      case 'changeLanguagePage.items.traditionalChinese':
-        return '中文(繁体字)';
-      case 'changeThemePage.title':
-        return '主题';
-      case 'changeThemePage.items.system':
-        return '系统';
-      case 'changeThemePage.items.light':
-        return '光';
-      case 'changeThemePage.items.dark':
-        return '黑暗';
-      case 'myPlanPage.title':
-        return '我的方案';
-      case 'myPlanPage.tabs.createdPlans':
-        return '已建立方案';
-      case 'myPlanPage.tabs.bookmark':
-        return '書籤';
-      case 'myPlanPage.bookmarkItems.nondata':
-        return '暫無收藏方案。';
-      case 'myPlanPage.bookmarkItems.reloading':
-        return '重新載入';
-      case 'myPlanPage.createdPlansItems.nondata':
-        return '開始建立方案吧！';
-      case 'myPlanPage.createdPlansItems.createaplan':
-        return '建立方案';
-      case 'myPlanPage.error.displayError':
-        return '顯示方案時發生錯誤。';
-      case 'myPlanPage.error.failedGetId':
-        return '取得方案ID失敗。';
-      case 'myPlanPage.error.failedGetPlanData':
-        return '取得方案資料時發生錯誤。';
-      case 'myPlanPage.error.failedUnBookmark':
-        return '取消收藏時發生錯誤。';
-      case 'buddyChatPage.title':
-        return 'Buddy的建議';
-      case 'buddyChatPage.possibleChatCount':
-        return ({required Object possibleChatCount}) =>
-            '訊息還可以發送${possibleChatCount}次';
-      case 'buddyChatPage.textFields.message':
-        return '輸入訊息';
-      case 'buddyChatPage.buttons.send':
-        return '完成';
-      case 'buddyChatPage.placeCard.openingHours':
-        return '營業時間';
-      case 'buddyChatPage.placeCard.averageAmount':
-        return '平均預算';
-      case 'buddyChatPage.placeCard.website':
-        return '網站';
-      case 'buddyChatPage.snackBar.error.failedRecieveMessage':
-        return '無法接收回覆，請稍後再試';
-      case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan':
-        return '無法完成建立計劃，請稍後再試';
-      case 'popularTopics.sectionName':
-        return '熱門話題';
-      case 'createPlanPage.title':
-        return '建立計劃';
-      case 'createPlanPage.label.location':
-        return '目的地';
-      case 'createPlanPage.label.scheduleStart':
-        return '開始日期';
-      case 'createPlanPage.label.scheduleEnd':
-        return '結束日期';
-      case 'createPlanPage.label.numberOfPeople':
-        return '人數';
-      case 'createPlanPage.label.transport':
-        return '交通方式';
-      case 'createPlanPage.label.category':
-        return '類別';
-      case 'createPlanPage.label.topics':
-        return '旅行主題';
-      case 'createPlanPage.hintText.location':
-        return '澀谷';
-      case 'createPlanPage.modal.title':
-        return '選擇日期';
-      case 'createPlanPage.numberOfPeopleOptions.0':
-        return '1人';
-      case 'createPlanPage.numberOfPeopleOptions.1':
-        return '2人';
-      case 'createPlanPage.numberOfPeopleOptions.2':
-        return '3人';
-      case 'createPlanPage.numberOfPeopleOptions.3':
-        return '4人';
-      case 'createPlanPage.numberOfPeopleOptions.4':
-        return '5人';
-      case 'createPlanPage.numberOfPeopleOptions.5':
-        return '6人以上';
-      case 'createPlanPage.transportOptions.0':
-        return '火車';
-      case 'createPlanPage.transportOptions.1':
-        return '步行';
-      case 'createPlanPage.transportOptions.2':
-        return '汽車';
-      case 'createPlanPage.transportOptions.3':
-        return '巴士';
-      case 'createPlanPage.categoryOptions.0':
-        return '親子';
-      case 'createPlanPage.categoryOptions.1':
-        return '成人';
-      case 'createPlanPage.categoryOptions.2':
-        return '娛樂';
-      case 'createPlanPage.categoryOptions.3':
-        return '活動';
-      case 'createPlanPage.categoryOptions.4':
-        return '歷史';
-      case 'createPlanPage.defaultTopics.0':
-        return '美食';
-      case 'createPlanPage.defaultTopics.1':
-        return '購物';
-      case 'createPlanPage.defaultTopics.2':
-        return '活動';
-      case 'createPlanPage.defaultTopics.3':
-        return '電影';
-      case 'createPlanPage.submitButton':
-        return '提交計劃給AI';
-      case 'createPlanPage.snackBar.error.foundUnSelectedField':
-        return '存在未選擇的項目，請選擇所有項目';
-      case 'editProfilePage.title':
-        return '編輯個人資料';
-      case 'editProfilePage.textFields.name':
-        return '姓名';
-      case 'editProfilePage.buttons.submit':
-        return '儲存';
-      case 'editProfilePage.snackBar.success':
-        return '更新成功';
-      case 'editProfilePage.snackBar.error.noChange':
-        return '沒有變更';
-      case 'editProfilePage.snackBar.error.failedToUpdate':
-        return '更新失敗，請稍後再試';
-      case 'editProfilePage.snackBar.error.failedToPickImage':
-        return '選擇圖片失敗，請稍後再試';
-      case 'confirmDialog.answers.yes':
-        return '是';
-      case 'confirmDialog.answers.no':
-        return '否';
-      case 'confirmDialog.popPage.title':
-        return '要返回上一頁嗎？';
-      case 'confirmDialog.popPage.description':
-        return '當前內容不會被保存';
-      case 'confirmDialog.completeCreatePlan.title':
-        return '確定要保存計劃嗎？';
-      case 'confirmDialog.completeCreatePlan.description':
-        return '最後一條訊息中的計劃將被保存';
-      case 'prompt.planProposalMessage':
-        return '我考慮了這個計劃！您覺得怎麼樣？';
-      case 'billDetailsPage.title':
-        return '高級方案';
-      case 'billDetailsPage.description':
-        return '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
-      case 'billDetailsPage.pricingPlan.title':
-        return '價格方案';
-      case 'billDetailsPage.pricingPlan.columns.standard':
-        return '標準';
-      case 'billDetailsPage.pricingPlan.columns.premium':
-        return '高級';
-      case 'billDetailsPage.pricingPlan.details.free':
-        return '免費 🎉';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.days':
-        return '按天數購買';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.daily':
-        return '・1日 300日圓';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays':
-        return '・3日 855日圓';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays':
-        return '・5日 1,480日圓';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays':
-        return '・7日 2,070日圓';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.or':
-        return '或者';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime':
-        return '終身';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice':
-        return '25,800日圓';
-      case 'billDetailsPage.features.title':
-        return '等級功能';
-      case 'billDetailsPage.features.rows.planCreationLimit':
-        return '可創建的方案次數';
-      case 'billDetailsPage.features.rows.chatLimit':
-        return '方案創建期間可用聊天次數';
-      case 'billDetailsPage.features.rows.timelineAccess':
-        return '訪問所有方案時間表';
-      case 'billDetailsPage.features.rows.adFree':
-        return '無廣告';
-      case 'billDetailsPage.features.rows.exclusiveFeatures':
-        return '方案認證功能';
-      case 'billDetailsPage.features.columns.standard.label':
-        return '標準';
-      case 'billDetailsPage.features.columns.standard.planCreationLimit':
-        return '2次';
-      case 'billDetailsPage.features.columns.standard.chatLimit':
-        return '3次';
-      case 'billDetailsPage.features.columns.premium.label':
-        return '高級';
-      case 'billDetailsPage.features.columns.premium.planCreationLimit':
-        return '無限制';
-      case 'billDetailsPage.features.columns.premium.chatLimit':
-        return '無限制';
-      case 'billDetailsPage.pricingOptions.oneDay.duration':
-        return '1日';
-      case 'billDetailsPage.pricingOptions.oneDay.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.oneDay.price':
-        return '300日圓';
-      case 'billDetailsPage.pricingOptions.threeDays.duration':
-        return '3日';
-      case 'billDetailsPage.pricingOptions.threeDays.discount':
-        return '-5%';
-      case 'billDetailsPage.pricingOptions.threeDays.price':
-        return '890日圓';
-      case 'billDetailsPage.pricingOptions.fiveDays.duration':
-        return '5日';
-      case 'billDetailsPage.pricingOptions.fiveDays.discount':
-        return '-7.5%';
-      case 'billDetailsPage.pricingOptions.fiveDays.price':
-        return '1,387日圓';
-      case 'billDetailsPage.pricingOptions.sevenDays.duration':
-        return '7日';
-      case 'billDetailsPage.pricingOptions.sevenDays.discount':
-        return '-10%';
-      case 'billDetailsPage.pricingOptions.sevenDays.price':
-        return '2,070日圓';
-      case 'billDetailsPage.pricingOptions.lifetime.duration':
-        return '終身';
-      case 'billDetailsPage.pricingOptions.lifetime.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.lifetime.price':
-        return '25,800日圓';
-      case 'billDetailsPage.upgradeButton':
-        return '升級到高級方案';
-      case 'planDetailsPage.dateTime.createOn':
-        return ({required Object date}) => '${date}建立的方案';
-      case 'planDetailsPage.dateTime.dateFormat':
-        return 'yyyy年MM月dd日';
-      case 'planDetailsPage.item.viewOnMap':
-        return '在地圖上查看';
-      case 'planDetailsPage.snackBar.error.failedToUpdateBookmark':
-        return '更新書籤失敗，請稍後再試';
-      case 'locales.en':
-        return '英語';
-      case 'locales.ja':
-        return '日語';
-      case 'locales.zh':
-        return '中文';
-      case 'errorPage.title':
-        return '發生錯誤...';
-      case 'errorPage.message':
-        return '請檢查您的網絡連接並重試。';
-      case 'errorPage.retryButton':
-        return '重試';
-      case 'mapPage.title':
-        return '地圖';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'navigationBar.items.home': return '首頁';
+			case 'navigationBar.items.myPlan': return '我的計劃';
+			case 'navigationBar.items.myPage': return '我的頁面';
+			case 'homePage.popularPlans.title': return '熱門計畫';
+			case 'homePage.popularTopics.title': return '熱門話題';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近創建的計畫';
+			case 'accountPage.title': return '帳戶';
+			case 'accountPage.items.signOut': return '登出';
+			case 'accountPage.items.linkedWithGoogle': return '與Google連結';
+			case 'accountPage.items.linkedWithApple': return '與Apple連結';
+			case 'accountPage.items.alreadyLinkedGoogle': return '已與Google連結';
+			case 'accountPage.items.alreadyLinkedApple': return '已與Apple連結';
+			case 'accountPage.snackBar.signOut': return '已成功登出。';
+			case 'accountPage.snackBar.signOutFailure': return '登出時發生錯誤。';
+			case 'accountPage.snackBar.successfulLinkage': return '帳戶連結成功。';
+			case 'accountPage.snackBar.linkageFailure': return '帳戶連結失敗。';
+			case 'accountPage.snackBar.providerAlreadyLinked': return '此帳戶已經連結。';
+			case 'accountPage.snackBar.accountDeactivation': return '已解除帳戶連結。';
+			case 'accountPage.snackBar.invalidCredential': return '請重新登入。';
+			case 'accountPage.snackBar.linkageCancelled': return '帳戶連結已取消。';
+			case 'accountPage.snackBar.unlinkageFailure': return '解除帳戶連結失敗。';
+			case 'accountPage.snackBar.operationNotAllowed': return '提供者無效。請聯絡開發者。';
+			case 'accountPage.snackBar.unknownError': return '發生未知錯誤。';
+			case 'accountPage.diaLog.yes': return '是';
+			case 'accountPage.diaLog.no': return '否';
+			case 'accountPage.diaLog.title': return '確認解除帳戶連結';
+			case 'accountPage.diaLog.googleText': return '是否要解除目前帳戶與Google帳戶的連結？';
+			case 'accountPage.diaLog.appleText': return '是否要解除目前帳戶與Apple帳戶的連結？';
+			case 'authentication.signInPage.title': return '登入';
+			case 'authentication.signInPage.optionText': return ' 或 ';
+			case 'authentication.signInPage.textFields.email': return '電子郵件地址';
+			case 'authentication.signInPage.textFields.password': return '密碼';
+			case 'authentication.signInPage.buttons.signIn': return '登入';
+			case 'authentication.signInPage.buttons.signUp': return '註冊';
+			case 'authentication.signInPage.buttons.resetPassword': return '忘記密碼？';
+			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登入';
+			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登入';
+			case 'authentication.signInPage.buttons.signInAfter': return '稍後註冊';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請在良好的網絡環境中重試';
+			case 'authentication.firebaseAuth.error.weakPassword': return '密碼太短。請輸入6個字符或更多';
+			case 'authentication.firebaseAuth.error.invalidEmail': return '電子郵件地址格式不正確';
+			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帳戶';
+			case 'authentication.firebaseAuth.error.wrongPassword': return '密碼錯誤';
+			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
+			case 'authentication.firebaseAuth.error.unexpected': return '發生錯誤。請在良好的網絡環境中重試';
+			case 'authentication.resetPasswordPage.title': return '重設密碼';
+			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';
+			case 'authentication.resetPasswordPage.textFields.email': return '電子郵件地址';
+			case 'authentication.resetPasswordPage.buttons.submit': return '發送';
+			case 'authentication.signUpPage.title.defaultText': return '新用戶註冊';
+			case 'authentication.signUpPage.title.modifyEmail': return '更改電子郵件地址';
+			case 'authentication.signUpPage.textFields.email': return '電子郵件地址';
+			case 'authentication.signUpPage.textFields.password': return '密碼';
+			case 'authentication.signUpPage.button.defaultText': return '註冊';
+			case 'authentication.signUpPage.button.modifyEmail': return '更改';
+			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '發送確認郵件';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改電子郵件地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '發送成功';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return '電子郵件地址尚未驗證。';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
+			case 'authentication.registerProfilePage.title': return '註冊個人資訊';
+			case 'authentication.registerProfilePage.textFields': return '姓名';
+			case 'authentication.registerProfilePage.buttons.submit': return '完成';
+			case 'authentication.registerProfilePage.buttons.skip': return '跳過';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '請輸入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '發生錯誤，請稍後再試。';
+			case 'authentication.completeSendEmailPage.title': return '發送完成';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密碼重設郵件已發送到${email} \n 重設後請從登入畫面登入';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '確認郵件已重新發送';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登入畫面';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新發送確認郵件';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改電子郵件地址';
+			case 'validation.emailRequired': return '請輸入電子郵件地址';
+			case 'validation.emailInvalid': return '電子郵件地址格式不正確';
+			case 'validation.passwordRequired': return '請輸入密碼';
+			case 'validation.passwordShort': return '密碼必須至少8個字符';
+			case 'validation.passwordWeak': return '密碼應包含字母和數字的組合';
+			case 'validation.passwordMatch': return '密碼不匹配';
+			case 'validation.informationRequired': return '請輸入信息';
+			case 'validation.urlInvalid': return 'URL格式不正確';
+			case 'validation.usernameRequired': return '請輸入您的使用者名稱';
+			case 'validation.usernameMaxLength': return '使用者名稱必須為8個字符或更少';
+			case 'myPage.unregisteredUserName': return '未註冊';
+			case 'myPage.editProfile': return '編輯個人資料';
+			case 'myPage.premiumPlan': return '進階方案';
+			case 'myPage.details': return '詳細';
+			case 'myPage.settings': return '設定';
+			case 'myPage.account': return '帳戶';
+			case 'myPage.language': return '語言';
+			case 'myPage.theme': return '主題';
+			case 'myPage.termsOfUsePrivacyPolicy': return '使用條款和隱私政策';
+			case 'myPage.aboutThisApp': return '關於本應用';
+			case 'myPage.aboutTheDeveloper': return '關於開發者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}註冊於';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
+			case 'myPage.accountStatus.premium': return '進階會員';
+			case 'myPage.accountStatus.standard': return '標準會員';
+			case 'changeLanguagePage.title': return '語言';
+			case 'changeLanguagePage.items.japanese': return '日语';
+			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文(简体字)';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '韓語';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '黑暗';
+			case 'myPlanPage.title': return '我的方案';
+			case 'myPlanPage.tabs.createdPlans': return '已建立方案';
+			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'myPlanPage.bookmarkItems.nondata': return '暫無收藏方案。';
+			case 'myPlanPage.bookmarkItems.reloading': return '重新載入';
+			case 'myPlanPage.createdPlansItems.nondata': return '開始建立方案吧！';
+			case 'myPlanPage.createdPlansItems.createaplan': return '建立方案';
+			case 'myPlanPage.error.displayError': return '顯示方案時發生錯誤。';
+			case 'myPlanPage.error.failedGetId': return '取得方案ID失敗。';
+			case 'myPlanPage.error.failedGetPlanData': return '取得方案資料時發生錯誤。';
+			case 'myPlanPage.error.failedUnBookmark': return '取消收藏時發生錯誤。';
+			case 'buddyChatPage.title': return 'Buddy的建議';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '訊息還可以發送${possibleChatCount}次';
+			case 'buddyChatPage.textFields.message': return '輸入訊息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '營業時間';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均預算';
+			case 'buddyChatPage.placeCard.website': return '網站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '無法接收回覆，請稍後再試';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '無法完成建立計劃，請稍後再試';
+			case 'popularTopics.sectionName': return '熱門話題';
+			case 'createPlanPage.title': return '建立計劃';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '開始日期';
+			case 'createPlanPage.label.scheduleEnd': return '結束日期';
+			case 'createPlanPage.label.numberOfPeople': return '人數';
+			case 'createPlanPage.label.transport': return '交通方式';
+			case 'createPlanPage.label.category': return '類別';
+			case 'createPlanPage.label.topics': return '旅行主題';
+			case 'createPlanPage.hintText.location': return '澀谷';
+			case 'createPlanPage.modal.title': return '選擇日期';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '火車';
+			case 'createPlanPage.transportOptions.1': return '步行';
+			case 'createPlanPage.transportOptions.2': return '汽車';
+			case 'createPlanPage.transportOptions.3': return '巴士';
+			case 'createPlanPage.categoryOptions.0': return '親子';
+			case 'createPlanPage.categoryOptions.1': return '成人';
+			case 'createPlanPage.categoryOptions.2': return '娛樂';
+			case 'createPlanPage.categoryOptions.3': return '活動';
+			case 'createPlanPage.categoryOptions.4': return '歷史';
+			case 'createPlanPage.defaultTopics.0': return '美食';
+			case 'createPlanPage.defaultTopics.1': return '購物';
+			case 'createPlanPage.defaultTopics.2': return '活動';
+			case 'createPlanPage.defaultTopics.3': return '電影';
+			case 'createPlanPage.submitButton': return '提交計劃給AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未選擇的項目，請選擇所有項目';
+			case 'editProfilePage.title': return '編輯個人資料';
+			case 'editProfilePage.textFields.name': return '姓名';
+			case 'editProfilePage.buttons.submit': return '儲存';
+			case 'editProfilePage.snackBar.success': return '更新成功';
+			case 'editProfilePage.snackBar.error.noChange': return '沒有變更';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失敗，請稍後再試';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '選擇圖片失敗，請稍後再試';
+			case 'confirmDialog.answers.yes': return '是';
+			case 'confirmDialog.answers.no': return '否';
+			case 'confirmDialog.popPage.title': return '要返回上一頁嗎？';
+			case 'confirmDialog.popPage.description': return '當前內容不會被保存';
+			case 'confirmDialog.completeCreatePlan.title': return '確定要保存計劃嗎？';
+			case 'confirmDialog.completeCreatePlan.description': return '最後一條訊息中的計劃將被保存';
+			case 'prompt.planProposalMessage': return '我考慮了這個計劃！您覺得怎麼樣？';
+			case 'billDetailsPage.title': return '高級方案';
+			case 'billDetailsPage.description': return '訂閱高級方案後，您可以更舒適地享受澀谷觀光。';
+			case 'billDetailsPage.pricingPlan.title': return '價格方案';
+			case 'billDetailsPage.pricingPlan.columns.standard': return '標準';
+			case 'billDetailsPage.pricingPlan.columns.premium': return '高級';
+			case 'billDetailsPage.pricingPlan.details.free': return '免費 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天數購買';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日圓';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '終身';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日圓';
+			case 'billDetailsPage.features.title': return '等級功能';
+			case 'billDetailsPage.features.rows.planCreationLimit': return '可創建的方案次數';
+			case 'billDetailsPage.features.rows.chatLimit': return '方案創建期間可用聊天次數';
+			case 'billDetailsPage.features.rows.timelineAccess': return '訪問所有方案時間表';
+			case 'billDetailsPage.features.rows.adFree': return '無廣告';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return '方案認證功能';
+			case 'billDetailsPage.features.columns.standard.label': return '標準';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2次';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3次';
+			case 'billDetailsPage.features.columns.premium.label': return '高級';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '無限制';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return '無限制';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300日圓';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890日圓';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5日';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387日圓';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日圓';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return '終身';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日圓';
+			case 'billDetailsPage.upgradeButton': return '升級到高級方案';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
+			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
+			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後再試';
+			case 'locales.en': return '英語';
+			case 'locales.ja': return '日語';
+			case 'locales.zh': return '中文';
+			case 'locales.kr': return '韓語';
+			case 'errorPage.title': return '發生錯誤...';
+			case 'errorPage.message': return '請檢查您的網絡連接並重試。';
+			case 'errorPage.retryButton': return '重試';
+			case 'mapPage.title': return '地圖';
+			default: return null;
+		}
+	}
 }

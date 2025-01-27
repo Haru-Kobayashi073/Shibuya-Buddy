@@ -38,70 +38,32 @@ class TranslationsZhHans implements Translations {
 
   late final TranslationsZhHans _root = this; // ignore: unused_field
 
-  // Translations
-  @override
-  late final _TranslationsNavigationBarZhHans navigationBar =
-      _TranslationsNavigationBarZhHans._(_root);
-  @override
-  late final _TranslationsHomePageZhHans homePage =
-      _TranslationsHomePageZhHans._(_root);
-  @override
-  late final _TranslationsAccountPageZhHans accountPage =
-      _TranslationsAccountPageZhHans._(_root);
-  @override
-  late final _TranslationsAuthenticationZhHans authentication =
-      _TranslationsAuthenticationZhHans._(_root);
-  @override
-  late final _TranslationsValidationZhHans validation =
-      _TranslationsValidationZhHans._(_root);
-  @override
-  late final _TranslationsMyPageZhHans myPage =
-      _TranslationsMyPageZhHans._(_root);
-  @override
-  late final _TranslationsChangeLanguagePageZhHans changeLanguagePage =
-      _TranslationsChangeLanguagePageZhHans._(_root);
-  @override
-  late final _TranslationsChangeThemePageZhHans changeThemePage =
-      _TranslationsChangeThemePageZhHans._(_root);
-  @override
-  late final _TranslationsMyPlanPageZhHans myPlanPage =
-      _TranslationsMyPlanPageZhHans._(_root);
-  @override
-  late final _TranslationsBuddyChatPageZhHans buddyChatPage =
-      _TranslationsBuddyChatPageZhHans._(_root);
-  @override
-  late final _TranslationsPopularTopicsZhHans popularTopics =
-      _TranslationsPopularTopicsZhHans._(_root);
-  @override
-  late final _TranslationsCreatePlanPageZhHans createPlanPage =
-      _TranslationsCreatePlanPageZhHans._(_root);
-  @override
-  late final _TranslationsEditProfilePageZhHans editProfilePage =
-      _TranslationsEditProfilePageZhHans._(_root);
-  @override
-  late final _TranslationsConfirmDialogZhHans confirmDialog =
-      _TranslationsConfirmDialogZhHans._(_root);
-  @override
-  late final _TranslationsPromptZhHans prompt =
-      _TranslationsPromptZhHans._(_root);
-  @override
-  late final _TranslationsBillDetailsPageZhHans billDetailsPage =
-      _TranslationsBillDetailsPageZhHans._(_root);
-  @override
-  late final _TranslationsPlanDetailsPageZhHans planDetailsPage =
-      _TranslationsPlanDetailsPageZhHans._(_root);
-  @override
-  Map<String, String> get locales => {
-        'en': '英语',
-        'ja': '日语',
-        'zh': '中文',
-      };
-  @override
-  late final _TranslationsErrorPageZhHans errorPage =
-      _TranslationsErrorPageZhHans._(_root);
-  @override
-  late final _TranslationsMapPageZhHans mapPage =
-      _TranslationsMapPageZhHans._(_root);
+	// Translations
+	@override late final _TranslationsNavigationBarZhHans navigationBar = _TranslationsNavigationBarZhHans._(_root);
+	@override late final _TranslationsHomePageZhHans homePage = _TranslationsHomePageZhHans._(_root);
+	@override late final _TranslationsAccountPageZhHans accountPage = _TranslationsAccountPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationZhHans authentication = _TranslationsAuthenticationZhHans._(_root);
+	@override late final _TranslationsValidationZhHans validation = _TranslationsValidationZhHans._(_root);
+	@override late final _TranslationsMyPageZhHans myPage = _TranslationsMyPageZhHans._(_root);
+	@override late final _TranslationsChangeLanguagePageZhHans changeLanguagePage = _TranslationsChangeLanguagePageZhHans._(_root);
+	@override late final _TranslationsChangeThemePageZhHans changeThemePage = _TranslationsChangeThemePageZhHans._(_root);
+	@override late final _TranslationsMyPlanPageZhHans myPlanPage = _TranslationsMyPlanPageZhHans._(_root);
+	@override late final _TranslationsBuddyChatPageZhHans buddyChatPage = _TranslationsBuddyChatPageZhHans._(_root);
+	@override late final _TranslationsPopularTopicsZhHans popularTopics = _TranslationsPopularTopicsZhHans._(_root);
+	@override late final _TranslationsCreatePlanPageZhHans createPlanPage = _TranslationsCreatePlanPageZhHans._(_root);
+	@override late final _TranslationsEditProfilePageZhHans editProfilePage = _TranslationsEditProfilePageZhHans._(_root);
+	@override late final _TranslationsConfirmDialogZhHans confirmDialog = _TranslationsConfirmDialogZhHans._(_root);
+	@override late final _TranslationsPromptZhHans prompt = _TranslationsPromptZhHans._(_root);
+	@override late final _TranslationsBillDetailsPageZhHans billDetailsPage = _TranslationsBillDetailsPageZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageZhHans planDetailsPage = _TranslationsPlanDetailsPageZhHans._(_root);
+	@override Map<String, String> get locales => {
+		'en': '英语',
+		'ja': '日语',
+		'zh': '中文',
+		'kr': '韩语',
+	};
+	@override late final _TranslationsErrorPageZhHans errorPage = _TranslationsErrorPageZhHans._(_root);
+	@override late final _TranslationsMapPageZhHans mapPage = _TranslationsMapPageZhHans._(_root);
 }
 
 // Path: navigationBar
@@ -811,15 +773,12 @@ class _TranslationsChangeLanguagePageItemsZhHans
 
   final TranslationsZhHans _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get japanese => '日本人';
-  @override
-  String get english => '英语';
-  @override
-  String get simplifiedChinese => '中文（简体）';
-  @override
-  String get traditionalChinese => '中文（繁体）';
+	// Translations
+	@override String get japanese => '日本人';
+	@override String get english => '英语';
+	@override String get simplifiedChinese => '中文（简体）';
+	@override String get traditionalChinese => '中文（繁体）';
+	@override String get korean => '韩语';
 }
 
 // Path: changeThemePage.items
@@ -1712,477 +1671,244 @@ class _TranslationsBillDetailsPageFeaturesColumnsPremiumZhHans
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsZhHans {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'navigationBar.items.home':
-        return '首页';
-      case 'navigationBar.items.myPlan':
-        return '我的计划';
-      case 'navigationBar.items.myPage':
-        return '我的页面';
-      case 'homePage.popularPlans.title':
-        return '热门计划';
-      case 'homePage.popularTopics.title':
-        return '热门话题';
-      case 'homePage.popularTopics.numberOfTopics':
-        return ({required Object number}) => '${number}件~';
-      case 'homePage.recentPlans.title':
-        return '最近创建的计划';
-      case 'accountPage.title':
-        return '账户';
-      case 'accountPage.items.signOut':
-        return '退出登录';
-      case 'accountPage.items.linkedWithGoogle':
-        return '与Google连接';
-      case 'accountPage.items.linkedWithApple':
-        return '与Apple连接';
-      case 'accountPage.items.alreadyLinkedGoogle':
-        return '已与Google连接';
-      case 'accountPage.items.alreadyLinkedApple':
-        return '已与Apple连接';
-      case 'accountPage.snackBar.signOut':
-        return '已成功退出登录。';
-      case 'accountPage.snackBar.signOutFailure':
-        return '退出登录时发生错误。';
-      case 'accountPage.snackBar.successfulLinkage':
-        return '账户关联成功。';
-      case 'accountPage.snackBar.linkageFailure':
-        return '账户关联失败。';
-      case 'accountPage.snackBar.providerAlreadyLinked':
-        return '此账户已经关联。';
-      case 'accountPage.snackBar.accountDeactivation':
-        return '已解除账户关联。';
-      case 'accountPage.snackBar.invalidCredential':
-        return '请重新登录。';
-      case 'accountPage.snackBar.linkageCancelled':
-        return '账户关联已取消。';
-      case 'accountPage.snackBar.unlinkageFailure':
-        return '解除账户关联失败。';
-      case 'accountPage.snackBar.operationNotAllowed':
-        return '提供者无效。请联系开发者。';
-      case 'accountPage.snackBar.unknownError':
-        return '发生未知错误。';
-      case 'accountPage.diaLog.yes':
-        return '是';
-      case 'accountPage.diaLog.no':
-        return '否';
-      case 'accountPage.diaLog.title':
-        return '确认解除账户连接';
-      case 'accountPage.diaLog.googleText':
-        return '是否要解除当前账户与Google账户的连接？';
-      case 'accountPage.diaLog.appleText':
-        return '是否要解除当前账户与Apple账户的连接？';
-      case 'authentication.signInPage.title':
-        return '登录';
-      case 'authentication.signInPage.optionText':
-        return ' 或 ';
-      case 'authentication.signInPage.textFields.email':
-        return '电子邮件地址';
-      case 'authentication.signInPage.textFields.password':
-        return '密码';
-      case 'authentication.signInPage.buttons.signIn':
-        return '登录';
-      case 'authentication.signInPage.buttons.signUp':
-        return '注册';
-      case 'authentication.signInPage.buttons.resetPassword':
-        return '忘记密码？';
-      case 'authentication.signInPage.buttons.appleSignIn':
-        return '使用Apple登录';
-      case 'authentication.signInPage.buttons.googleSignIn':
-        return '使用Google登录';
-      case 'authentication.signInPage.buttons.signInAfter':
-        return '稍后注册';
-      case 'authentication.firebaseAuth.error.networkRequestFailed':
-        return '请在良好的网络环境中重试';
-      case 'authentication.firebaseAuth.error.weakPassword':
-        return '密码太短。请输入6个字符或更多';
-      case 'authentication.firebaseAuth.error.invalidEmail':
-        return '电子邮件地址格式不正确';
-      case 'authentication.firebaseAuth.error.userNotFound':
-        return '找不到帐户';
-      case 'authentication.firebaseAuth.error.wrongPassword':
-        return '密码错误';
-      case 'authentication.firebaseAuth.error.emailAlreadyInUse':
-        return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
-      case 'authentication.firebaseAuth.error.unexpected':
-        return '发生错误。请在良好的网络环境中重试';
-      case 'authentication.resetPasswordPage.title':
-        return '重置密码';
-      case 'authentication.resetPasswordPage.description':
-        return '将向输入的电子邮件地址发送密码重置邮件';
-      case 'authentication.resetPasswordPage.textFields.email':
-        return '电子邮件地址';
-      case 'authentication.resetPasswordPage.buttons.submit':
-        return '发送';
-      case 'authentication.signUpPage.title.defaultText':
-        return '新用户注册';
-      case 'authentication.signUpPage.title.modifyEmail':
-        return '更改邮箱地址';
-      case 'authentication.signUpPage.textFields.email':
-        return '邮箱地址';
-      case 'authentication.signUpPage.textFields.password':
-        return '密码';
-      case 'authentication.signUpPage.button.defaultText':
-        return '注册';
-      case 'authentication.signUpPage.button.modifyEmail':
-        return '更改';
-      case 'authentication.emailVerificationPage.title':
-        return '邮箱地址验证';
-      case 'authentication.emailVerificationPage.descriptionForDestination':
-        return ({required Object email}) => '将向输入的${email}发送确认邮件。';
-      case 'authentication.emailVerificationPage.descriptionForCoolDown':
-        return '确认邮件每60秒只能重新发送一次。';
-      case 'authentication.emailVerificationPage.buttons.sendEmail':
-        return '发送确认邮件';
-      case 'authentication.emailVerificationPage.buttons.resendEmail':
-        return '重新发送确认邮件';
-      case 'authentication.emailVerificationPage.buttons.toNext':
-        return '下一步';
-      case 'authentication.emailVerificationPage.buttons.retypeEmail':
-        return '修改邮箱地址';
-      case 'authentication.emailVerificationPage.snackBar.success':
-        return '发送成功';
-      case 'authentication.emailVerificationPage.snackBar.emailVerification':
-        return '邮箱地址尚未验证。';
-      case 'authentication.emailVerificationPage.snackBar.error.unexpected':
-        return '发生错误，请稍后再试。';
-      case 'authentication.registerProfilePage.title':
-        return '注册个人信息';
-      case 'authentication.registerProfilePage.textFields':
-        return '姓名';
-      case 'authentication.registerProfilePage.buttons.submit':
-        return '完成';
-      case 'authentication.registerProfilePage.buttons.skip':
-        return '跳过';
-      case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty':
-        return '请输入信息';
-      case 'authentication.registerProfilePage.snackBar.error.unexpected':
-        return '发生错误，请稍后再试。';
-      case 'authentication.completeSendEmailPage.title':
-        return '发送完成';
-      case 'authentication.completeSendEmailPage.description':
-        return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
-      case 'authentication.completeSendEmailPage.successResendEmail':
-        return '确认邮件已重新发送';
-      case 'authentication.completeSendEmailPage.buttons.toSignIn':
-        return '前往登录页面';
-      case 'authentication.completeSendEmailPage.buttons.resendEmail':
-        return '重新发送确认邮件';
-      case 'authentication.completeSendEmailPage.buttons.changeEmail':
-        return '更改电子邮件地址';
-      case 'validation.emailRequired':
-        return '请输入电子邮件地址';
-      case 'validation.emailInvalid':
-        return '电子邮件地址格式不正确';
-      case 'validation.passwordRequired':
-        return '请输入密码';
-      case 'validation.passwordShort':
-        return '密码至少需要8个字符';
-      case 'validation.passwordWeak':
-        return '密码应包含字母和数字的组合';
-      case 'validation.passwordMatch':
-        return '密码不匹配';
-      case 'validation.informationRequired':
-        return '请输入信息';
-      case 'validation.urlInvalid':
-        return 'URL格式不正确';
-      case 'validation.usernameRequired':
-        return '请输入您的用户名';
-      case 'validation.usernameMaxLength':
-        return '用户名必须为8个字符或更少';
-      case 'myPage.unregisteredUserName':
-        return '未注册';
-      case 'myPage.editProfile':
-        return '编辑个人资料';
-      case 'myPage.premiumPlan':
-        return '高级计划';
-      case 'myPage.details':
-        return '详细';
-      case 'myPage.settings':
-        return '设置';
-      case 'myPage.account':
-        return '账户';
-      case 'myPage.language':
-        return '语言';
-      case 'myPage.theme':
-        return '主题';
-      case 'myPage.termsOfUsePrivacyPolicy':
-        return '使用条款和隐私政策';
-      case 'myPage.aboutThisApp':
-        return '关于本应用';
-      case 'myPage.aboutTheDeveloper':
-        return '关于开发者';
-      case 'myPage.accountStatus.dateTime.registeredOn':
-        return ({required Object date}) => '${date}注册于';
-      case 'myPage.accountStatus.dateTime.registeredOnFormat':
-        return 'yyyy年MM月dd日';
-      case 'myPage.accountStatus.dateTime.validUntil':
-        return ({required Object date}) => '有效期至${date}';
-      case 'myPage.accountStatus.dateTime.validUntilFormat':
-        return 'yyyy年MM月dd日 HH:mm';
-      case 'myPage.accountStatus.premium':
-        return '高级会员';
-      case 'myPage.accountStatus.standard':
-        return '标准会员';
-      case 'changeLanguagePage.title':
-        return '语言';
-      case 'changeLanguagePage.items.japanese':
-        return '日本人';
-      case 'changeLanguagePage.items.english':
-        return '英语';
-      case 'changeLanguagePage.items.simplifiedChinese':
-        return '中文（简体）';
-      case 'changeLanguagePage.items.traditionalChinese':
-        return '中文（繁体）';
-      case 'changeThemePage.title':
-        return '主题';
-      case 'changeThemePage.items.system':
-        return '系统';
-      case 'changeThemePage.items.light':
-        return '光';
-      case 'changeThemePage.items.dark':
-        return '暗处';
-      case 'myPlanPage.title':
-        return '我的计划';
-      case 'myPlanPage.tabs.createdPlans':
-        return '已创建计划';
-      case 'myPlanPage.tabs.bookmark':
-        return '书签';
-      case 'myPlanPage.bookmarkItems.nondata':
-        return '暂无收藏计划。';
-      case 'myPlanPage.bookmarkItems.reloading':
-        return '重新加载';
-      case 'myPlanPage.createdPlansItems.nondata':
-        return '开始创建计划吧！';
-      case 'myPlanPage.createdPlansItems.createaplan':
-        return '创建计划';
-      case 'myPlanPage.error.displayError':
-        return '显示计划时出现错误。';
-      case 'myPlanPage.error.failedGetId':
-        return '获取计划ID失败。';
-      case 'myPlanPage.error.failedGetPlanData':
-        return '获取计划数据时出现错误。';
-      case 'myPlanPage.error.failedUnBookmark':
-        return '取消收藏时出现错误。';
-      case 'buddyChatPage.title':
-        return 'Buddy的建议';
-      case 'buddyChatPage.possibleChatCount':
-        return ({required Object possibleChatCount}) =>
-            '消息还可以发送${possibleChatCount}次';
-      case 'buddyChatPage.textFields.message':
-        return '输入消息';
-      case 'buddyChatPage.buttons.send':
-        return '完成';
-      case 'buddyChatPage.placeCard.openingHours':
-        return '营业时间';
-      case 'buddyChatPage.placeCard.averageAmount':
-        return '平均预算';
-      case 'buddyChatPage.placeCard.website':
-        return '网站';
-      case 'buddyChatPage.snackBar.error.failedRecieveMessage':
-        return '未能接收回复，请稍后再试';
-      case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan':
-        return '未能完成创建计划，请稍后再试';
-      case 'popularTopics.sectionName':
-        return '热门话题';
-      case 'createPlanPage.title':
-        return '创建计划';
-      case 'createPlanPage.label.location':
-        return '目的地';
-      case 'createPlanPage.label.scheduleStart':
-        return '开始日期';
-      case 'createPlanPage.label.scheduleEnd':
-        return '结束日期';
-      case 'createPlanPage.label.numberOfPeople':
-        return '人数';
-      case 'createPlanPage.label.transport':
-        return '交通方式';
-      case 'createPlanPage.label.category':
-        return '类别';
-      case 'createPlanPage.label.topics':
-        return '旅行主题';
-      case 'createPlanPage.hintText.location':
-        return '涩谷';
-      case 'createPlanPage.modal.title':
-        return '选择日期';
-      case 'createPlanPage.numberOfPeopleOptions.0':
-        return '1人';
-      case 'createPlanPage.numberOfPeopleOptions.1':
-        return '2人';
-      case 'createPlanPage.numberOfPeopleOptions.2':
-        return '3人';
-      case 'createPlanPage.numberOfPeopleOptions.3':
-        return '4人';
-      case 'createPlanPage.numberOfPeopleOptions.4':
-        return '5人';
-      case 'createPlanPage.numberOfPeopleOptions.5':
-        return '6人以上';
-      case 'createPlanPage.transportOptions.0':
-        return '火车';
-      case 'createPlanPage.transportOptions.1':
-        return '步行';
-      case 'createPlanPage.transportOptions.2':
-        return '汽车';
-      case 'createPlanPage.transportOptions.3':
-        return '巴士';
-      case 'createPlanPage.categoryOptions.0':
-        return '亲子';
-      case 'createPlanPage.categoryOptions.1':
-        return '成人';
-      case 'createPlanPage.categoryOptions.2':
-        return '娱乐';
-      case 'createPlanPage.categoryOptions.3':
-        return '活动';
-      case 'createPlanPage.categoryOptions.4':
-        return '历史';
-      case 'createPlanPage.defaultTopics.0':
-        return '美食';
-      case 'createPlanPage.defaultTopics.1':
-        return '购物';
-      case 'createPlanPage.defaultTopics.2':
-        return '活动';
-      case 'createPlanPage.defaultTopics.3':
-        return '电影';
-      case 'createPlanPage.submitButton':
-        return '提交计划给AI';
-      case 'createPlanPage.snackBar.error.foundUnSelectedField':
-        return '存在未选择的项目，请选择所有项目';
-      case 'editProfilePage.title':
-        return '编辑个人资料';
-      case 'editProfilePage.textFields.name':
-        return '姓名';
-      case 'editProfilePage.buttons.submit':
-        return '保存';
-      case 'editProfilePage.snackBar.success':
-        return '更新成功';
-      case 'editProfilePage.snackBar.error.noChange':
-        return '没有更改';
-      case 'editProfilePage.snackBar.error.failedToUpdate':
-        return '更新失败，请稍后再试';
-      case 'editProfilePage.snackBar.error.failedToPickImage':
-        return '选择图片失败，请稍后再试';
-      case 'confirmDialog.answers.yes':
-        return '是';
-      case 'confirmDialog.answers.no':
-        return '否';
-      case 'confirmDialog.popPage.title':
-        return '要返回上一页吗？';
-      case 'confirmDialog.popPage.description':
-        return '当前内容不会被保存';
-      case 'confirmDialog.completeCreatePlan.title':
-        return '确定要保存计划吗？';
-      case 'confirmDialog.completeCreatePlan.description':
-        return '最后一条消息中的计划将被保存';
-      case 'prompt.planProposalMessage':
-        return '我考虑了这个计划！您觉得怎么样？';
-      case 'billDetailsPage.title':
-        return '高级计划';
-      case 'billDetailsPage.description':
-        return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
-      case 'billDetailsPage.pricingPlan.title':
-        return '价格计划';
-      case 'billDetailsPage.pricingPlan.columns.standard':
-        return '标准';
-      case 'billDetailsPage.pricingPlan.columns.premium':
-        return '高级';
-      case 'billDetailsPage.pricingPlan.details.free':
-        return '免费 🎉';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.days':
-        return '按天数购买';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.daily':
-        return '・1日 300日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays':
-        return '・3日 855日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays':
-        return '・5日 1,480日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays':
-        return '・7日 2,070日元';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.or':
-        return '或者';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime':
-        return '终身';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice':
-        return '25,800日元';
-      case 'billDetailsPage.features.title':
-        return '等级功能';
-      case 'billDetailsPage.features.rows.planCreationLimit':
-        return '可创建的计划次数';
-      case 'billDetailsPage.features.rows.chatLimit':
-        return '计划创建期间可用聊天次数';
-      case 'billDetailsPage.features.rows.timelineAccess':
-        return '访问所有计划时间线';
-      case 'billDetailsPage.features.rows.adFree':
-        return '无广告';
-      case 'billDetailsPage.features.rows.exclusiveFeatures':
-        return '计划认证功能';
-      case 'billDetailsPage.features.columns.standard.label':
-        return '标准';
-      case 'billDetailsPage.features.columns.standard.planCreationLimit':
-        return '2次';
-      case 'billDetailsPage.features.columns.standard.chatLimit':
-        return '3次';
-      case 'billDetailsPage.features.columns.premium.label':
-        return '高级';
-      case 'billDetailsPage.features.columns.premium.planCreationLimit':
-        return '无限制';
-      case 'billDetailsPage.features.columns.premium.chatLimit':
-        return '无限制';
-      case 'billDetailsPage.pricingOptions.oneDay.duration':
-        return '1日';
-      case 'billDetailsPage.pricingOptions.oneDay.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.oneDay.price':
-        return '300日元';
-      case 'billDetailsPage.pricingOptions.threeDays.duration':
-        return '3日';
-      case 'billDetailsPage.pricingOptions.threeDays.discount':
-        return '-5%';
-      case 'billDetailsPage.pricingOptions.threeDays.price':
-        return '890日元';
-      case 'billDetailsPage.pricingOptions.fiveDays.duration':
-        return '5日';
-      case 'billDetailsPage.pricingOptions.fiveDays.discount':
-        return '-7.5%';
-      case 'billDetailsPage.pricingOptions.fiveDays.price':
-        return '1,387日元';
-      case 'billDetailsPage.pricingOptions.sevenDays.duration':
-        return '7日';
-      case 'billDetailsPage.pricingOptions.sevenDays.discount':
-        return '-10%';
-      case 'billDetailsPage.pricingOptions.sevenDays.price':
-        return '2,070日元';
-      case 'billDetailsPage.pricingOptions.lifetime.duration':
-        return '终身';
-      case 'billDetailsPage.pricingOptions.lifetime.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.lifetime.price':
-        return '25,800日元';
-      case 'billDetailsPage.upgradeButton':
-        return '升级到高级计划';
-      case 'planDetailsPage.dateTime.createOn':
-        return ({required Object date}) => '${date}创建的计划';
-      case 'planDetailsPage.dateTime.dateFormat':
-        return 'yyyy年MM月dd日';
-      case 'planDetailsPage.item.viewOnMap':
-        return '在地图上查看';
-      case 'planDetailsPage.snackBar.error.failedToUpdateBookmark':
-        return '更新书签失败，请稍后再试';
-      case 'locales.en':
-        return '英语';
-      case 'locales.ja':
-        return '日语';
-      case 'locales.zh':
-        return '中文';
-      case 'errorPage.title':
-        return '发生错误...';
-      case 'errorPage.message':
-        return '请检查您的网络连接并重试。';
-      case 'errorPage.retryButton':
-        return '重试';
-      case 'mapPage.title':
-        return '地图';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'navigationBar.items.home': return '首页';
+			case 'navigationBar.items.myPlan': return '我的计划';
+			case 'navigationBar.items.myPage': return '我的页面';
+			case 'homePage.popularPlans.title': return '热门计划';
+			case 'homePage.popularTopics.title': return '热门话题';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
+			case 'homePage.recentPlans.title': return '最近创建的计划';
+			case 'accountPage.title': return '账户';
+			case 'accountPage.items.signOut': return '退出登录';
+			case 'accountPage.items.linkedWithGoogle': return '与Google连接';
+			case 'accountPage.items.linkedWithApple': return '与Apple连接';
+			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
+			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
+			case 'accountPage.snackBar.signOut': return '已成功退出登录。';
+			case 'accountPage.snackBar.signOutFailure': return '退出登录时发生错误。';
+			case 'accountPage.snackBar.successfulLinkage': return '账户关联成功。';
+			case 'accountPage.snackBar.linkageFailure': return '账户关联失败。';
+			case 'accountPage.snackBar.providerAlreadyLinked': return '此账户已经关联。';
+			case 'accountPage.snackBar.accountDeactivation': return '已解除账户关联。';
+			case 'accountPage.snackBar.invalidCredential': return '请重新登录。';
+			case 'accountPage.snackBar.linkageCancelled': return '账户关联已取消。';
+			case 'accountPage.snackBar.unlinkageFailure': return '解除账户关联失败。';
+			case 'accountPage.snackBar.operationNotAllowed': return '提供者无效。请联系开发者。';
+			case 'accountPage.snackBar.unknownError': return '发生未知错误。';
+			case 'accountPage.diaLog.yes': return '是';
+			case 'accountPage.diaLog.no': return '否';
+			case 'accountPage.diaLog.title': return '确认解除账户连接';
+			case 'accountPage.diaLog.googleText': return '是否要解除当前账户与Google账户的连接？';
+			case 'accountPage.diaLog.appleText': return '是否要解除当前账户与Apple账户的连接？';
+			case 'authentication.signInPage.title': return '登录';
+			case 'authentication.signInPage.optionText': return ' 或 ';
+			case 'authentication.signInPage.textFields.email': return '电子邮件地址';
+			case 'authentication.signInPage.textFields.password': return '密码';
+			case 'authentication.signInPage.buttons.signIn': return '登录';
+			case 'authentication.signInPage.buttons.signUp': return '注册';
+			case 'authentication.signInPage.buttons.resetPassword': return '忘记密码？';
+			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登录';
+			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登录';
+			case 'authentication.signInPage.buttons.signInAfter': return '稍后注册';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请在良好的网络环境中重试';
+			case 'authentication.firebaseAuth.error.weakPassword': return '密码太短。请输入6个字符或更多';
+			case 'authentication.firebaseAuth.error.invalidEmail': return '电子邮件地址格式不正确';
+			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帐户';
+			case 'authentication.firebaseAuth.error.wrongPassword': return '密码错误';
+			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建';
+			case 'authentication.firebaseAuth.error.unexpected': return '发生错误。请在良好的网络环境中重试';
+			case 'authentication.resetPasswordPage.title': return '重置密码';
+			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
+			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
+			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
+			case 'authentication.signUpPage.title.defaultText': return '新用户注册';
+			case 'authentication.signUpPage.title.modifyEmail': return '更改邮箱地址';
+			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
+			case 'authentication.signUpPage.textFields.password': return '密码';
+			case 'authentication.signUpPage.button.defaultText': return '注册';
+			case 'authentication.signUpPage.button.modifyEmail': return '更改';
+			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '将向输入的${email}发送确认邮件。';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return '发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.emailVerificationPage.buttons.toNext': return '下一步';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return '修改邮箱地址';
+			case 'authentication.emailVerificationPage.snackBar.success': return '发送成功';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return '邮箱地址尚未验证。';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
+			case 'authentication.registerProfilePage.title': return '注册个人信息';
+			case 'authentication.registerProfilePage.textFields': return '姓名';
+			case 'authentication.registerProfilePage.buttons.submit': return '完成';
+			case 'authentication.registerProfilePage.buttons.skip': return '跳过';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return '请输入信息';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return '发生错误，请稍后再试。';
+			case 'authentication.completeSendEmailPage.title': return '发送完成';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
+			case 'authentication.completeSendEmailPage.successResendEmail': return '确认邮件已重新发送';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登录页面';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新发送确认邮件';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改电子邮件地址';
+			case 'validation.emailRequired': return '请输入电子邮件地址';
+			case 'validation.emailInvalid': return '电子邮件地址格式不正确';
+			case 'validation.passwordRequired': return '请输入密码';
+			case 'validation.passwordShort': return '密码至少需要8个字符';
+			case 'validation.passwordWeak': return '密码应包含字母和数字的组合';
+			case 'validation.passwordMatch': return '密码不匹配';
+			case 'validation.informationRequired': return '请输入信息';
+			case 'validation.urlInvalid': return 'URL格式不正确';
+			case 'validation.usernameRequired': return '请输入您的用户名';
+			case 'validation.usernameMaxLength': return '用户名必须为8个字符或更少';
+			case 'myPage.unregisteredUserName': return '未注册';
+			case 'myPage.editProfile': return '编辑个人资料';
+			case 'myPage.premiumPlan': return '高级计划';
+			case 'myPage.details': return '详细';
+			case 'myPage.settings': return '设置';
+			case 'myPage.account': return '账户';
+			case 'myPage.language': return '语言';
+			case 'myPage.theme': return '主题';
+			case 'myPage.termsOfUsePrivacyPolicy': return '使用条款和隐私政策';
+			case 'myPage.aboutThisApp': return '关于本应用';
+			case 'myPage.aboutTheDeveloper': return '关于开发者';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => '${date}注册于';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'yyyy年MM月dd日';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => '有效期至${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'yyyy年MM月dd日 HH:mm';
+			case 'myPage.accountStatus.premium': return '高级会员';
+			case 'myPage.accountStatus.standard': return '标准会员';
+			case 'changeLanguagePage.title': return '语言';
+			case 'changeLanguagePage.items.japanese': return '日本人';
+			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
+			case 'changeLanguagePage.items.korean': return '韩语';
+			case 'changeThemePage.title': return '主题';
+			case 'changeThemePage.items.system': return '系统';
+			case 'changeThemePage.items.light': return '光';
+			case 'changeThemePage.items.dark': return '暗处';
+			case 'myPlanPage.title': return '我的计划';
+			case 'myPlanPage.tabs.createdPlans': return '已创建计划';
+			case 'myPlanPage.tabs.bookmark': return '书签';
+			case 'myPlanPage.bookmarkItems.nondata': return '暂无收藏计划。';
+			case 'myPlanPage.bookmarkItems.reloading': return '重新加载';
+			case 'myPlanPage.createdPlansItems.nondata': return '开始创建计划吧！';
+			case 'myPlanPage.createdPlansItems.createaplan': return '创建计划';
+			case 'myPlanPage.error.displayError': return '显示计划时出现错误。';
+			case 'myPlanPage.error.failedGetId': return '获取计划ID失败。';
+			case 'myPlanPage.error.failedGetPlanData': return '获取计划数据时出现错误。';
+			case 'myPlanPage.error.failedUnBookmark': return '取消收藏时出现错误。';
+			case 'buddyChatPage.title': return 'Buddy的建议';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => '消息还可以发送${possibleChatCount}次';
+			case 'buddyChatPage.textFields.message': return '输入消息';
+			case 'buddyChatPage.buttons.send': return '完成';
+			case 'buddyChatPage.placeCard.openingHours': return '营业时间';
+			case 'buddyChatPage.placeCard.averageAmount': return '平均预算';
+			case 'buddyChatPage.placeCard.website': return '网站';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return '未能接收回复，请稍后再试';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return '未能完成创建计划，请稍后再试';
+			case 'popularTopics.sectionName': return '热门话题';
+			case 'createPlanPage.title': return '创建计划';
+			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleStart': return '开始日期';
+			case 'createPlanPage.label.scheduleEnd': return '结束日期';
+			case 'createPlanPage.label.numberOfPeople': return '人数';
+			case 'createPlanPage.label.transport': return '交通方式';
+			case 'createPlanPage.label.category': return '类别';
+			case 'createPlanPage.label.topics': return '旅行主题';
+			case 'createPlanPage.hintText.location': return '涩谷';
+			case 'createPlanPage.modal.title': return '选择日期';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.transportOptions.0': return '火车';
+			case 'createPlanPage.transportOptions.1': return '步行';
+			case 'createPlanPage.transportOptions.2': return '汽车';
+			case 'createPlanPage.transportOptions.3': return '巴士';
+			case 'createPlanPage.categoryOptions.0': return '亲子';
+			case 'createPlanPage.categoryOptions.1': return '成人';
+			case 'createPlanPage.categoryOptions.2': return '娱乐';
+			case 'createPlanPage.categoryOptions.3': return '活动';
+			case 'createPlanPage.categoryOptions.4': return '历史';
+			case 'createPlanPage.defaultTopics.0': return '美食';
+			case 'createPlanPage.defaultTopics.1': return '购物';
+			case 'createPlanPage.defaultTopics.2': return '活动';
+			case 'createPlanPage.defaultTopics.3': return '电影';
+			case 'createPlanPage.submitButton': return '提交计划给AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return '存在未选择的项目，请选择所有项目';
+			case 'editProfilePage.title': return '编辑个人资料';
+			case 'editProfilePage.textFields.name': return '姓名';
+			case 'editProfilePage.buttons.submit': return '保存';
+			case 'editProfilePage.snackBar.success': return '更新成功';
+			case 'editProfilePage.snackBar.error.noChange': return '没有更改';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return '更新失败，请稍后再试';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return '选择图片失败，请稍后再试';
+			case 'confirmDialog.answers.yes': return '是';
+			case 'confirmDialog.answers.no': return '否';
+			case 'confirmDialog.popPage.title': return '要返回上一页吗？';
+			case 'confirmDialog.popPage.description': return '当前内容不会被保存';
+			case 'confirmDialog.completeCreatePlan.title': return '确定要保存计划吗？';
+			case 'confirmDialog.completeCreatePlan.description': return '最后一条消息中的计划将被保存';
+			case 'prompt.planProposalMessage': return '我考虑了这个计划！您觉得怎么样？';
+			case 'billDetailsPage.title': return '高级计划';
+			case 'billDetailsPage.description': return '订阅高级计划后，您可以更舒适地享受涩谷观光。';
+			case 'billDetailsPage.pricingPlan.title': return '价格计划';
+			case 'billDetailsPage.pricingPlan.columns.standard': return '标准';
+			case 'billDetailsPage.pricingPlan.columns.premium': return '高级';
+			case 'billDetailsPage.pricingPlan.details.free': return '免费 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '按天数购买';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1日 300日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3日 855日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5日 1,480日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7日 2,070日元';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '终身';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800日元';
+			case 'billDetailsPage.features.title': return '等级功能';
+			case 'billDetailsPage.features.rows.planCreationLimit': return '可创建的计划次数';
+			case 'billDetailsPage.features.rows.chatLimit': return '计划创建期间可用聊天次数';
+			case 'billDetailsPage.features.rows.timelineAccess': return '访问所有计划时间线';
+			case 'billDetailsPage.features.rows.adFree': return '无广告';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return '计划认证功能';
+			case 'billDetailsPage.features.columns.standard.label': return '标准';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2次';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3次';
+			case 'billDetailsPage.features.columns.premium.label': return '高级';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return '无限制';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return '无限制';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300日元';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890日元';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5日';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387日元';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日元';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return '终身';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日元';
+			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
+			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
+			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新书签失败，请稍后再试';
+			case 'locales.en': return '英语';
+			case 'locales.ja': return '日语';
+			case 'locales.zh': return '中文';
+			case 'locales.kr': return '韩语';
+			case 'errorPage.title': return '发生错误...';
+			case 'errorPage.message': return '请检查您的网络连接并重试。';
+			case 'errorPage.retryButton': return '重试';
+			case 'mapPage.title': return '地图';
+			default: return null;
+		}
+	}
 }

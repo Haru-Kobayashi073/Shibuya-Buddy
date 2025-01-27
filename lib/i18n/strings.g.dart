@@ -3,10 +3,10 @@
 /// Source: lib/i18n
 /// To regenerate, run: `dart run slang`
 ///
-/// Locales: 4
-/// Strings: 932 (233 per locale)
+/// Locales: 5
+/// Strings: 1175 (235 per locale)
 ///
-/// Built on 2025-01-21 at 13:47 UTC
+/// Built on 2025-01-25 at 03:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -18,6 +18,7 @@ import 'package:slang_flutter/slang_flutter.dart';
 export 'package:slang_flutter/slang_flutter.dart';
 
 import 'strings_ja.g.dart' deferred as l_ja;
+import 'strings_kr.g.dart' deferred as l_kr;
 import 'strings_zh_Hans.g.dart' deferred as l_zh_Hans;
 import 'strings_zh_Hant.g.dart' deferred as l_zh_Hant;
 part 'strings_en.g.dart';
@@ -29,10 +30,11 @@ part 'strings_en.g.dart';
 /// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
-  en(languageCode: 'en'),
-  ja(languageCode: 'ja'),
-  zhHans(languageCode: 'zh', scriptCode: 'Hans'),
-  zhHant(languageCode: 'zh', scriptCode: 'Hant');
+	en(languageCode: 'en'),
+	ja(languageCode: 'ja'),
+	kr(languageCode: 'kr'),
+	zhHans(languageCode: 'zh', scriptCode: 'Hans'),
+	zhHant(languageCode: 'zh', scriptCode: 'Hant');
 
   const AppLocale({
     required this.languageCode,
@@ -47,76 +49,89 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
   @override
   final String? countryCode;
 
-  @override
-  Future<Translations> build({
-    Map<String, Node>? overrides,
-    PluralResolver? cardinalResolver,
-    PluralResolver? ordinalResolver,
-  }) async {
-    switch (this) {
-      case AppLocale.en:
-        return TranslationsEn(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-      case AppLocale.ja:
-        await l_ja.loadLibrary();
-        return l_ja.TranslationsJa(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-      case AppLocale.zhHans:
-        await l_zh_Hans.loadLibrary();
-        return l_zh_Hans.TranslationsZhHans(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-      case AppLocale.zhHant:
-        await l_zh_Hant.loadLibrary();
-        return l_zh_Hant.TranslationsZhHant(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-    }
-  }
+	@override
+	Future<Translations> build({
+		Map<String, Node>? overrides,
+		PluralResolver? cardinalResolver,
+		PluralResolver? ordinalResolver,
+	}) async {
+		switch (this) {
+			case AppLocale.en:
+				return TranslationsEn(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.ja:
+				await l_ja.loadLibrary();
+				return l_ja.TranslationsJa(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.kr:
+				await l_kr.loadLibrary();
+				return l_kr.TranslationsKr(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zhHans:
+				await l_zh_Hans.loadLibrary();
+				return l_zh_Hans.TranslationsZhHans(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zhHant:
+				await l_zh_Hant.loadLibrary();
+				return l_zh_Hant.TranslationsZhHant(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+		}
+	}
 
-  @override
-  Translations buildSync({
-    Map<String, Node>? overrides,
-    PluralResolver? cardinalResolver,
-    PluralResolver? ordinalResolver,
-  }) {
-    switch (this) {
-      case AppLocale.en:
-        return TranslationsEn(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-      case AppLocale.ja:
-        return l_ja.TranslationsJa(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-      case AppLocale.zhHans:
-        return l_zh_Hans.TranslationsZhHans(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-      case AppLocale.zhHant:
-        return l_zh_Hant.TranslationsZhHant(
-          overrides: overrides,
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        );
-    }
-  }
+	@override
+	Translations buildSync({
+		Map<String, Node>? overrides,
+		PluralResolver? cardinalResolver,
+		PluralResolver? ordinalResolver,
+	}) {
+		switch (this) {
+			case AppLocale.en:
+				return TranslationsEn(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.ja:
+				return l_ja.TranslationsJa(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.kr:
+				return l_kr.TranslationsKr(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zhHans:
+				return l_zh_Hans.TranslationsZhHans(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zhHant:
+				return l_zh_Hant.TranslationsZhHant(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+		}
+	}
 
   /// Gets current instance managed by [LocaleSettings].
   Translations get translations =>

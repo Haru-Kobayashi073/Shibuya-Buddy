@@ -43,46 +43,32 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
   late final Translations _root = this; // ignore: unused_field
 
-  // Translations
-  late final TranslationsNavigationBarEn navigationBar =
-      TranslationsNavigationBarEn._(_root);
-  late final TranslationsHomePageEn homePage = TranslationsHomePageEn._(_root);
-  late final TranslationsAccountPageEn accountPage =
-      TranslationsAccountPageEn._(_root);
-  late final TranslationsAuthenticationEn authentication =
-      TranslationsAuthenticationEn._(_root);
-  late final TranslationsValidationEn validation =
-      TranslationsValidationEn._(_root);
-  late final TranslationsMyPageEn myPage = TranslationsMyPageEn._(_root);
-  late final TranslationsChangeLanguagePageEn changeLanguagePage =
-      TranslationsChangeLanguagePageEn._(_root);
-  late final TranslationsChangeThemePageEn changeThemePage =
-      TranslationsChangeThemePageEn._(_root);
-  late final TranslationsMyPlanPageEn myPlanPage =
-      TranslationsMyPlanPageEn._(_root);
-  late final TranslationsBuddyChatPageEn buddyChatPage =
-      TranslationsBuddyChatPageEn._(_root);
-  late final TranslationsPopularTopicsEn popularTopics =
-      TranslationsPopularTopicsEn._(_root);
-  late final TranslationsCreatePlanPageEn createPlanPage =
-      TranslationsCreatePlanPageEn._(_root);
-  late final TranslationsEditProfilePageEn editProfilePage =
-      TranslationsEditProfilePageEn._(_root);
-  late final TranslationsConfirmDialogEn confirmDialog =
-      TranslationsConfirmDialogEn._(_root);
-  late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
-  late final TranslationsBillDetailsPageEn billDetailsPage =
-      TranslationsBillDetailsPageEn._(_root);
-  late final TranslationsPlanDetailsPageEn planDetailsPage =
-      TranslationsPlanDetailsPageEn._(_root);
-  Map<String, String> get locales => {
-        'en': 'English',
-        'ja': 'Japanese',
-        'zh': 'Chinese',
-      };
-  late final TranslationsErrorPageEn errorPage =
-      TranslationsErrorPageEn._(_root);
-  late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
+	// Translations
+	late final TranslationsNavigationBarEn navigationBar = TranslationsNavigationBarEn._(_root);
+	late final TranslationsHomePageEn homePage = TranslationsHomePageEn._(_root);
+	late final TranslationsAccountPageEn accountPage = TranslationsAccountPageEn._(_root);
+	late final TranslationsAuthenticationEn authentication = TranslationsAuthenticationEn._(_root);
+	late final TranslationsValidationEn validation = TranslationsValidationEn._(_root);
+	late final TranslationsMyPageEn myPage = TranslationsMyPageEn._(_root);
+	late final TranslationsChangeLanguagePageEn changeLanguagePage = TranslationsChangeLanguagePageEn._(_root);
+	late final TranslationsChangeThemePageEn changeThemePage = TranslationsChangeThemePageEn._(_root);
+	late final TranslationsMyPlanPageEn myPlanPage = TranslationsMyPlanPageEn._(_root);
+	late final TranslationsBuddyChatPageEn buddyChatPage = TranslationsBuddyChatPageEn._(_root);
+	late final TranslationsPopularTopicsEn popularTopics = TranslationsPopularTopicsEn._(_root);
+	late final TranslationsCreatePlanPageEn createPlanPage = TranslationsCreatePlanPageEn._(_root);
+	late final TranslationsEditProfilePageEn editProfilePage = TranslationsEditProfilePageEn._(_root);
+	late final TranslationsConfirmDialogEn confirmDialog = TranslationsConfirmDialogEn._(_root);
+	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
+	late final TranslationsBillDetailsPageEn billDetailsPage = TranslationsBillDetailsPageEn._(_root);
+	late final TranslationsPlanDetailsPageEn planDetailsPage = TranslationsPlanDetailsPageEn._(_root);
+	Map<String, String> get locales => {
+		'en': 'English',
+		'ja': 'Japanese',
+		'zh': 'Chinese',
+		'kr': 'Korean',
+	};
+	late final TranslationsErrorPageEn errorPage = TranslationsErrorPageEn._(_root);
+	late final TranslationsMapPageEn mapPage = TranslationsMapPageEn._(_root);
 }
 
 // Path: navigationBar
@@ -350,9 +336,8 @@ class TranslationsPromptEn {
 
   final Translations _root; // ignore: unused_field
 
-  // Translations
-  String get planProposalMessage =>
-      'I’ve come up with this plan! What do you think?';
+	// Translations
+	String get planProposalMessage => 'I\'ve come up with this plan! What do you think?';
 }
 
 // Path: billDetailsPage
@@ -631,11 +616,12 @@ class TranslationsChangeLanguagePageItemsEn {
 
   final Translations _root; // ignore: unused_field
 
-  // Translations
-  String get japanese => 'Japanese';
-  String get english => 'English';
-  String get simplifiedChinese => 'Chinese (Simplified)';
-  String get traditionalChinese => 'Chinese (Traditional)';
+	// Translations
+	String get japanese => 'Japanese';
+	String get english => 'English';
+	String get simplifiedChinese => 'Chinese (Simplified)';
+	String get traditionalChinese => 'Chinese (Traditional)';
+	String get korean => 'Korean';
 }
 
 // Path: changeThemePage.items
@@ -1329,479 +1315,244 @@ class TranslationsBillDetailsPageFeaturesColumnsPremiumEn {
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'navigationBar.items.home':
-        return 'Home';
-      case 'navigationBar.items.myPlan':
-        return 'My Plan';
-      case 'navigationBar.items.myPage':
-        return 'My Page';
-      case 'homePage.popularPlans.title':
-        return 'Popular Plans';
-      case 'homePage.popularTopics.title':
-        return 'Popular Topics';
-      case 'homePage.popularTopics.numberOfTopics':
-        return ({required Object number}) => '${number} items~';
-      case 'homePage.recentPlans.title':
-        return 'Recently Created Plans';
-      case 'accountPage.title':
-        return 'Account';
-      case 'accountPage.items.signOut':
-        return 'Sign Out';
-      case 'accountPage.items.linkedWithGoogle':
-        return 'Linked with Google';
-      case 'accountPage.items.linkedWithApple':
-        return 'Linked with Apple';
-      case 'accountPage.items.alreadyLinkedGoogle':
-        return 'Already Linked with Google';
-      case 'accountPage.items.alreadyLinkedApple':
-        return 'Already Linked with Apple';
-      case 'accountPage.snackBar.signOut':
-        return 'You have been logged out.';
-      case 'accountPage.snackBar.signOutFailure':
-        return 'An error occurred while signing out.';
-      case 'accountPage.snackBar.successfulLinkage':
-        return 'Account linked successfully.';
-      case 'accountPage.snackBar.linkageFailure':
-        return 'Failed to link account.';
-      case 'accountPage.snackBar.providerAlreadyLinked':
-        return 'This account is already linked.';
-      case 'accountPage.snackBar.accountDeactivation':
-        return 'Account linkage has been removed.';
-      case 'accountPage.snackBar.invalidCredential':
-        return 'Please try logging in again.';
-      case 'accountPage.snackBar.linkageCancelled':
-        return 'Account linking was cancelled.';
-      case 'accountPage.snackBar.unlinkageFailure':
-        return 'Failed to remove account linkage.';
-      case 'accountPage.snackBar.operationNotAllowed':
-        return 'Provider is invalid. Please contact the developer.';
-      case 'accountPage.snackBar.unknownError':
-        return 'An unknown error occurred.';
-      case 'accountPage.diaLog.yes':
-        return 'Yes';
-      case 'accountPage.diaLog.no':
-        return 'No';
-      case 'accountPage.diaLog.title':
-        return 'Confirm Account Unlinking';
-      case 'accountPage.diaLog.googleText':
-        return 'Do you want to unlink the current account from your Google account?';
-      case 'accountPage.diaLog.appleText':
-        return 'Do you want to unlink the current account from your Apple account?';
-      case 'authentication.signInPage.title':
-        return 'Sign In';
-      case 'authentication.signInPage.optionText':
-        return ' or ';
-      case 'authentication.signInPage.textFields.email':
-        return 'Email Address';
-      case 'authentication.signInPage.textFields.password':
-        return 'Password';
-      case 'authentication.signInPage.buttons.signIn':
-        return 'Sign In';
-      case 'authentication.signInPage.buttons.signUp':
-        return 'Sign Up';
-      case 'authentication.signInPage.buttons.resetPassword':
-        return 'Forgot Password?';
-      case 'authentication.signInPage.buttons.appleSignIn':
-        return 'Sign in with Apple';
-      case 'authentication.signInPage.buttons.googleSignIn':
-        return 'Sign in with Google';
-      case 'authentication.signInPage.buttons.signInAfter':
-        return 'Register Later';
-      case 'authentication.firebaseAuth.error.networkRequestFailed':
-        return 'Please try again in a good network environment';
-      case 'authentication.firebaseAuth.error.weakPassword':
-        return 'Password is too short. Please enter 6 characters or more';
-      case 'authentication.firebaseAuth.error.invalidEmail':
-        return 'Email address is not in the correct format';
-      case 'authentication.firebaseAuth.error.userNotFound':
-        return 'Account not found';
-      case 'authentication.firebaseAuth.error.wrongPassword':
-        return 'Password is incorrect';
-      case 'authentication.firebaseAuth.error.emailAlreadyInUse':
-        return 'Email address is already in use. Please log in or create with another email address';
-      case 'authentication.firebaseAuth.error.unexpected':
-        return 'An error occurred. Please try again in a good network environment';
-      case 'authentication.resetPasswordPage.title':
-        return 'Reset Password';
-      case 'authentication.resetPasswordPage.description':
-        return 'A password reset email will be sent to the entered email address';
-      case 'authentication.resetPasswordPage.textFields.email':
-        return 'Email Address';
-      case 'authentication.resetPasswordPage.buttons.submit':
-        return 'Submit';
-      case 'authentication.signUpPage.title.defaultText':
-        return 'Sign Up';
-      case 'authentication.signUpPage.title.modifyEmail':
-        return 'Change Email Address';
-      case 'authentication.signUpPage.textFields.email':
-        return 'Email Address';
-      case 'authentication.signUpPage.textFields.password':
-        return 'Password';
-      case 'authentication.signUpPage.button.defaultText':
-        return 'Sign Up';
-      case 'authentication.signUpPage.button.modifyEmail':
-        return 'Change Email Address';
-      case 'authentication.emailVerificationPage.title':
-        return 'Email Address Verification';
-      case 'authentication.emailVerificationPage.descriptionForDestination':
-        return ({required Object email}) =>
-            'A verification email will be sent to the entered ${email}.';
-      case 'authentication.emailVerificationPage.descriptionForCoolDown':
-        return 'You can resend the verification email once every 60 seconds.';
-      case 'authentication.emailVerificationPage.buttons.sendEmail':
-        return 'Send Verification Email';
-      case 'authentication.emailVerificationPage.buttons.resendEmail':
-        return 'Resend Verification Email';
-      case 'authentication.emailVerificationPage.buttons.toNext':
-        return 'Next';
-      case 'authentication.emailVerificationPage.buttons.retypeEmail':
-        return 'Edit Email Address';
-      case 'authentication.emailVerificationPage.snackBar.success':
-        return 'Email sent successfully';
-      case 'authentication.emailVerificationPage.snackBar.emailVerification':
-        return 'Email address is not verified.';
-      case 'authentication.emailVerificationPage.snackBar.error.unexpected':
-        return 'An error occurred. Please try again later.';
-      case 'authentication.registerProfilePage.title':
-        return 'Profile Registration';
-      case 'authentication.registerProfilePage.textFields':
-        return 'Name';
-      case 'authentication.registerProfilePage.buttons.submit':
-        return 'Complete';
-      case 'authentication.registerProfilePage.buttons.skip':
-        return 'Skip';
-      case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty':
-        return 'Please enter the information';
-      case 'authentication.registerProfilePage.snackBar.error.unexpected':
-        return 'An error occurred. Please try again later.';
-      case 'authentication.completeSendEmailPage.title':
-        return 'Send Complete';
-      case 'authentication.completeSendEmailPage.description':
-        return ({required Object email}) =>
-            'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
-      case 'authentication.completeSendEmailPage.successResendEmail':
-        return 'Confirmation email has been resent';
-      case 'authentication.completeSendEmailPage.buttons.toSignIn':
-        return 'To Login Screen';
-      case 'authentication.completeSendEmailPage.buttons.resendEmail':
-        return 'Resend Confirmation Email';
-      case 'authentication.completeSendEmailPage.buttons.changeEmail':
-        return 'Change Email Address';
-      case 'validation.emailRequired':
-        return 'Please enter your email address';
-      case 'validation.emailInvalid':
-        return 'The email address format is incorrect';
-      case 'validation.passwordRequired':
-        return 'Please enter your password';
-      case 'validation.passwordShort':
-        return 'The password must be at least 8 characters long';
-      case 'validation.passwordWeak':
-        return 'Please combine alphanumeric characters for the password';
-      case 'validation.passwordMatch':
-        return 'Passwords do not match';
-      case 'validation.informationRequired':
-        return 'Please enter the information';
-      case 'validation.urlInvalid':
-        return 'The URL format is incorrect';
-      case 'validation.usernameRequired':
-        return 'Please enter your username';
-      case 'validation.usernameMaxLength':
-        return 'The username must be 16 characters or fewer';
-      case 'myPage.unregisteredUserName':
-        return 'Unregistered';
-      case 'myPage.editProfile':
-        return 'Edit Profile';
-      case 'myPage.premiumPlan':
-        return 'Premium Plan';
-      case 'myPage.details':
-        return 'Details';
-      case 'myPage.settings':
-        return 'Settings';
-      case 'myPage.account':
-        return 'Account';
-      case 'myPage.language':
-        return 'Language';
-      case 'myPage.theme':
-        return 'Theme';
-      case 'myPage.termsOfUsePrivacyPolicy':
-        return 'Terms of Use & Privacy Policy';
-      case 'myPage.aboutThisApp':
-        return 'About This App';
-      case 'myPage.aboutTheDeveloper':
-        return 'About the Developer';
-      case 'myPage.accountStatus.dateTime.registeredOn':
-        return ({required Object date}) => 'Registered on ${date}';
-      case 'myPage.accountStatus.dateTime.registeredOnFormat':
-        return 'MM/dd/yyyy';
-      case 'myPage.accountStatus.dateTime.validUntil':
-        return ({required Object date}) => 'Valid until${date}';
-      case 'myPage.accountStatus.dateTime.validUntilFormat':
-        return 'MM/dd/yyyy hh:mm';
-      case 'myPage.accountStatus.premium':
-        return 'Premium Member';
-      case 'myPage.accountStatus.standard':
-        return 'Standard Member';
-      case 'changeLanguagePage.title':
-        return 'Language';
-      case 'changeLanguagePage.items.japanese':
-        return 'Japanese';
-      case 'changeLanguagePage.items.english':
-        return 'English';
-      case 'changeLanguagePage.items.simplifiedChinese':
-        return 'Chinese (Simplified)';
-      case 'changeLanguagePage.items.traditionalChinese':
-        return 'Chinese (Traditional)';
-      case 'changeThemePage.title':
-        return 'Theme';
-      case 'changeThemePage.items.system':
-        return 'System';
-      case 'changeThemePage.items.light':
-        return 'Light';
-      case 'changeThemePage.items.dark':
-        return 'Dark';
-      case 'myPlanPage.title':
-        return 'My Plans';
-      case 'myPlanPage.tabs.createdPlans':
-        return 'Created Plans';
-      case 'myPlanPage.tabs.bookmark':
-        return 'Bookmarks';
-      case 'myPlanPage.bookmarkItems.nondata':
-        return 'No bookmarked plans yet.';
-      case 'myPlanPage.bookmarkItems.reloading':
-        return 'Reload';
-      case 'myPlanPage.createdPlansItems.nondata':
-        return 'Let\'s create a plan!';
-      case 'myPlanPage.createdPlansItems.createaplan':
-        return 'Create a Plan';
-      case 'myPlanPage.error.displayError':
-        return 'An error occurred while displaying the plan.';
-      case 'myPlanPage.error.failedGetId':
-        return 'Failed to retrieve plan ID.';
-      case 'myPlanPage.error.failedGetPlanData':
-        return 'An error occurred while retrieving plan data.';
-      case 'myPlanPage.error.failedUnBookmark':
-        return 'Failed to remove bookmark.';
-      case 'buddyChatPage.title':
-        return 'Buddy\'s Suggestions';
-      case 'buddyChatPage.possibleChatCount':
-        return ({required Object possibleChatCount}) =>
-            'You can send ${possibleChatCount} more messages';
-      case 'buddyChatPage.textFields.message':
-        return 'Enter message';
-      case 'buddyChatPage.buttons.send':
-        return 'Done';
-      case 'buddyChatPage.placeCard.openingHours':
-        return 'Opening Hours';
-      case 'buddyChatPage.placeCard.averageAmount':
-        return 'Average Budget';
-      case 'buddyChatPage.placeCard.website':
-        return 'Website';
-      case 'buddyChatPage.snackBar.error.failedRecieveMessage':
-        return 'Failed to receive the reply. Please try again later.';
-      case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan':
-        return 'Failed to complete plan creation. Please try again later.';
-      case 'popularTopics.sectionName':
-        return 'Popular Topics';
-      case 'createPlanPage.title':
-        return 'Create Plan';
-      case 'createPlanPage.label.location':
-        return 'Destination';
-      case 'createPlanPage.label.scheduleStart':
-        return 'Start Date';
-      case 'createPlanPage.label.scheduleEnd':
-        return 'End Date';
-      case 'createPlanPage.label.numberOfPeople':
-        return 'Number of People';
-      case 'createPlanPage.label.transport':
-        return 'Transportation';
-      case 'createPlanPage.label.category':
-        return 'Category';
-      case 'createPlanPage.label.topics':
-        return 'Travel Topics';
-      case 'createPlanPage.hintText.location':
-        return 'Shibuya';
-      case 'createPlanPage.modal.title':
-        return 'Select a date';
-      case 'createPlanPage.numberOfPeopleOptions.0':
-        return '1 person';
-      case 'createPlanPage.numberOfPeopleOptions.1':
-        return '2 people';
-      case 'createPlanPage.numberOfPeopleOptions.2':
-        return '3 people';
-      case 'createPlanPage.numberOfPeopleOptions.3':
-        return '4 people';
-      case 'createPlanPage.numberOfPeopleOptions.4':
-        return '5 people';
-      case 'createPlanPage.numberOfPeopleOptions.5':
-        return '6 or more';
-      case 'createPlanPage.transportOptions.0':
-        return 'Train';
-      case 'createPlanPage.transportOptions.1':
-        return 'Walking';
-      case 'createPlanPage.transportOptions.2':
-        return 'Car';
-      case 'createPlanPage.transportOptions.3':
-        return 'Bus';
-      case 'createPlanPage.categoryOptions.0':
-        return 'Family-friendly';
-      case 'createPlanPage.categoryOptions.1':
-        return 'Adult';
-      case 'createPlanPage.categoryOptions.2':
-        return 'Entertainment';
-      case 'createPlanPage.categoryOptions.3':
-        return 'Activity';
-      case 'createPlanPage.categoryOptions.4':
-        return 'History';
-      case 'createPlanPage.defaultTopics.0':
-        return 'Gourmet';
-      case 'createPlanPage.defaultTopics.1':
-        return 'Shopping';
-      case 'createPlanPage.defaultTopics.2':
-        return 'Activities';
-      case 'createPlanPage.defaultTopics.3':
-        return 'Movies';
-      case 'createPlanPage.submitButton':
-        return 'Submit Plan to AI';
-      case 'createPlanPage.snackBar.error.foundUnSelectedField':
-        return 'There are unselected items. Please select all items.';
-      case 'editProfilePage.title':
-        return 'Edit Profile';
-      case 'editProfilePage.textFields.name':
-        return 'Name';
-      case 'editProfilePage.buttons.submit':
-        return 'Save';
-      case 'editProfilePage.snackBar.success':
-        return 'Updated successfully';
-      case 'editProfilePage.snackBar.error.noChange':
-        return 'No changes detected';
-      case 'editProfilePage.snackBar.error.failedToUpdate':
-        return 'Failed to update. Please try again later.';
-      case 'editProfilePage.snackBar.error.failedToPickImage':
-        return 'Failed to select image. Please try again later.';
-      case 'confirmDialog.answers.yes':
-        return 'Yes';
-      case 'confirmDialog.answers.no':
-        return 'No';
-      case 'confirmDialog.popPage.title':
-        return 'Return to the previous page?';
-      case 'confirmDialog.popPage.description':
-        return 'Current content will not be saved.';
-      case 'confirmDialog.completeCreatePlan.title':
-        return 'Confirm the plan?';
-      case 'confirmDialog.completeCreatePlan.description':
-        return 'The plan in the last message will be saved.';
-      case 'prompt.planProposalMessage':
-        return 'I’ve come up with this plan! What do you think?';
-      case 'billDetailsPage.title':
-        return 'Premium Plan';
-      case 'billDetailsPage.description':
-        return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
-      case 'billDetailsPage.pricingPlan.title':
-        return 'Pricing Plan';
-      case 'billDetailsPage.pricingPlan.columns.standard':
-        return 'Standard';
-      case 'billDetailsPage.pricingPlan.columns.premium':
-        return 'Premium';
-      case 'billDetailsPage.pricingPlan.details.free':
-        return 'Free 🎉';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.days':
-        return 'Purchase by duration';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.daily':
-        return '・1 day 300 yen';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays':
-        return '・3 days 855 yen';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays':
-        return '・5 days 1,480 yen';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays':
-        return '・7 days 2,070 yen';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.or':
-        return 'or';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime':
-        return 'Lifetime';
-      case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice':
-        return '25,800 yen';
-      case 'billDetailsPage.features.title':
-        return 'Features by Grade';
-      case 'billDetailsPage.features.rows.planCreationLimit':
-        return 'Number of plans that can be created';
-      case 'billDetailsPage.features.rows.chatLimit':
-        return 'Number of chats available during plan creation';
-      case 'billDetailsPage.features.rows.timelineAccess':
-        return 'Access to all plan timelines';
-      case 'billDetailsPage.features.rows.adFree':
-        return 'Ad-free';
-      case 'billDetailsPage.features.rows.exclusiveFeatures':
-        return 'Plan authentication features';
-      case 'billDetailsPage.features.columns.standard.label':
-        return 'Standard';
-      case 'billDetailsPage.features.columns.standard.planCreationLimit':
-        return '2 times';
-      case 'billDetailsPage.features.columns.standard.chatLimit':
-        return '3 times';
-      case 'billDetailsPage.features.columns.premium.label':
-        return 'Premium';
-      case 'billDetailsPage.features.columns.premium.planCreationLimit':
-        return 'Unlimited';
-      case 'billDetailsPage.features.columns.premium.chatLimit':
-        return 'Unlimited';
-      case 'billDetailsPage.pricingOptions.oneDay.duration':
-        return '1 day';
-      case 'billDetailsPage.pricingOptions.oneDay.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.oneDay.price':
-        return '300 yen';
-      case 'billDetailsPage.pricingOptions.threeDays.duration':
-        return '3 days';
-      case 'billDetailsPage.pricingOptions.threeDays.discount':
-        return '-5%';
-      case 'billDetailsPage.pricingOptions.threeDays.price':
-        return '890 yen';
-      case 'billDetailsPage.pricingOptions.fiveDays.duration':
-        return '5 days';
-      case 'billDetailsPage.pricingOptions.fiveDays.discount':
-        return '-7.5%';
-      case 'billDetailsPage.pricingOptions.fiveDays.price':
-        return '1,387 yen';
-      case 'billDetailsPage.pricingOptions.sevenDays.duration':
-        return '7 days';
-      case 'billDetailsPage.pricingOptions.sevenDays.discount':
-        return '-10%';
-      case 'billDetailsPage.pricingOptions.sevenDays.price':
-        return '2,070 yen';
-      case 'billDetailsPage.pricingOptions.lifetime.duration':
-        return 'Lifetime';
-      case 'billDetailsPage.pricingOptions.lifetime.discount':
-        return '';
-      case 'billDetailsPage.pricingOptions.lifetime.price':
-        return '25,800 yen';
-      case 'billDetailsPage.upgradeButton':
-        return 'Upgrade to Premium';
-      case 'planDetailsPage.dateTime.createOn':
-        return ({required Object date}) => 'Plan created on${date}';
-      case 'planDetailsPage.dateTime.dateFormat':
-        return 'MM/dd/yyyy';
-      case 'planDetailsPage.item.viewOnMap':
-        return 'View on Map';
-      case 'planDetailsPage.snackBar.error.failedToUpdateBookmark':
-        return 'Failed to update the bookmark. Please try again later.';
-      case 'locales.en':
-        return 'English';
-      case 'locales.ja':
-        return 'Japanese';
-      case 'locales.zh':
-        return 'Chinese';
-      case 'errorPage.title':
-        return 'An error occurred...';
-      case 'errorPage.message':
-        return 'Please check your network connection and try again.';
-      case 'errorPage.retryButton':
-        return 'Retry';
-      case 'mapPage.title':
-        return 'Map';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'navigationBar.items.home': return 'Home';
+			case 'navigationBar.items.myPlan': return 'My Plan';
+			case 'navigationBar.items.myPage': return 'My Page';
+			case 'homePage.popularPlans.title': return 'Popular Plans';
+			case 'homePage.popularTopics.title': return 'Popular Topics';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number} items~';
+			case 'homePage.recentPlans.title': return 'Recently Created Plans';
+			case 'accountPage.title': return 'Account';
+			case 'accountPage.items.signOut': return 'Sign Out';
+			case 'accountPage.items.linkedWithGoogle': return 'Linked with Google';
+			case 'accountPage.items.linkedWithApple': return 'Linked with Apple';
+			case 'accountPage.items.alreadyLinkedGoogle': return 'Already Linked with Google';
+			case 'accountPage.items.alreadyLinkedApple': return 'Already Linked with Apple';
+			case 'accountPage.snackBar.signOut': return 'You have been logged out.';
+			case 'accountPage.snackBar.signOutFailure': return 'An error occurred while signing out.';
+			case 'accountPage.snackBar.successfulLinkage': return 'Account linked successfully.';
+			case 'accountPage.snackBar.linkageFailure': return 'Failed to link account.';
+			case 'accountPage.snackBar.providerAlreadyLinked': return 'This account is already linked.';
+			case 'accountPage.snackBar.accountDeactivation': return 'Account linkage has been removed.';
+			case 'accountPage.snackBar.invalidCredential': return 'Please try logging in again.';
+			case 'accountPage.snackBar.linkageCancelled': return 'Account linking was cancelled.';
+			case 'accountPage.snackBar.unlinkageFailure': return 'Failed to remove account linkage.';
+			case 'accountPage.snackBar.operationNotAllowed': return 'Provider is invalid. Please contact the developer.';
+			case 'accountPage.snackBar.unknownError': return 'An unknown error occurred.';
+			case 'accountPage.diaLog.yes': return 'Yes';
+			case 'accountPage.diaLog.no': return 'No';
+			case 'accountPage.diaLog.title': return 'Confirm Account Unlinking';
+			case 'accountPage.diaLog.googleText': return 'Do you want to unlink the current account from your Google account?';
+			case 'accountPage.diaLog.appleText': return 'Do you want to unlink the current account from your Apple account?';
+			case 'authentication.signInPage.title': return 'Sign In';
+			case 'authentication.signInPage.optionText': return ' or ';
+			case 'authentication.signInPage.textFields.email': return 'Email Address';
+			case 'authentication.signInPage.textFields.password': return 'Password';
+			case 'authentication.signInPage.buttons.signIn': return 'Sign In';
+			case 'authentication.signInPage.buttons.signUp': return 'Sign Up';
+			case 'authentication.signInPage.buttons.resetPassword': return 'Forgot Password?';
+			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
+			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
+			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
+			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
+			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
+			case 'authentication.firebaseAuth.error.userNotFound': return 'Account not found';
+			case 'authentication.firebaseAuth.error.wrongPassword': return 'Password is incorrect';
+			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'Email address is already in use. Please log in or create with another email address';
+			case 'authentication.firebaseAuth.error.unexpected': return 'An error occurred. Please try again in a good network environment';
+			case 'authentication.resetPasswordPage.title': return 'Reset Password';
+			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
+			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
+			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
+			case 'authentication.signUpPage.title.defaultText': return 'Sign Up';
+			case 'authentication.signUpPage.title.modifyEmail': return 'Change Email Address';
+			case 'authentication.signUpPage.textFields.email': return 'Email Address';
+			case 'authentication.signUpPage.textFields.password': return 'Password';
+			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
+			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
+			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';
+			case 'authentication.emailVerificationPage.buttons.sendEmail': return 'Send Verification Email';
+			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Verification Email';
+			case 'authentication.emailVerificationPage.buttons.toNext': return 'Next';
+			case 'authentication.emailVerificationPage.buttons.retypeEmail': return 'Edit Email Address';
+			case 'authentication.emailVerificationPage.snackBar.success': return 'Email sent successfully';
+			case 'authentication.emailVerificationPage.snackBar.emailVerification': return 'Email address is not verified.';
+			case 'authentication.emailVerificationPage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
+			case 'authentication.registerProfilePage.title': return 'Profile Registration';
+			case 'authentication.registerProfilePage.textFields': return 'Name';
+			case 'authentication.registerProfilePage.buttons.submit': return 'Complete';
+			case 'authentication.registerProfilePage.buttons.skip': return 'Skip';
+			case 'authentication.registerProfilePage.snackBar.error.submitIfAllEmpty': return 'Please enter the information';
+			case 'authentication.registerProfilePage.snackBar.error.unexpected': return 'An error occurred. Please try again later.';
+			case 'authentication.completeSendEmailPage.title': return 'Send Complete';
+			case 'authentication.completeSendEmailPage.description': return ({required Object email}) => 'A password reset email has been sent to ${email} \n Please log in from the login screen after resetting';
+			case 'authentication.completeSendEmailPage.successResendEmail': return 'Confirmation email has been resent';
+			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'To Login Screen';
+			case 'authentication.completeSendEmailPage.buttons.resendEmail': return 'Resend Confirmation Email';
+			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'Change Email Address';
+			case 'validation.emailRequired': return 'Please enter your email address';
+			case 'validation.emailInvalid': return 'The email address format is incorrect';
+			case 'validation.passwordRequired': return 'Please enter your password';
+			case 'validation.passwordShort': return 'The password must be at least 8 characters long';
+			case 'validation.passwordWeak': return 'Please combine alphanumeric characters for the password';
+			case 'validation.passwordMatch': return 'Passwords do not match';
+			case 'validation.informationRequired': return 'Please enter the information';
+			case 'validation.urlInvalid': return 'The URL format is incorrect';
+			case 'validation.usernameRequired': return 'Please enter your username';
+			case 'validation.usernameMaxLength': return 'The username must be 16 characters or fewer';
+			case 'myPage.unregisteredUserName': return 'Unregistered';
+			case 'myPage.editProfile': return 'Edit Profile';
+			case 'myPage.premiumPlan': return 'Premium Plan';
+			case 'myPage.details': return 'Details';
+			case 'myPage.settings': return 'Settings';
+			case 'myPage.account': return 'Account';
+			case 'myPage.language': return 'Language';
+			case 'myPage.theme': return 'Theme';
+			case 'myPage.termsOfUsePrivacyPolicy': return 'Terms of Use & Privacy Policy';
+			case 'myPage.aboutThisApp': return 'About This App';
+			case 'myPage.aboutTheDeveloper': return 'About the Developer';
+			case 'myPage.accountStatus.dateTime.registeredOn': return ({required Object date}) => 'Registered on ${date}';
+			case 'myPage.accountStatus.dateTime.registeredOnFormat': return 'MM/dd/yyyy';
+			case 'myPage.accountStatus.dateTime.validUntil': return ({required Object date}) => 'Valid until${date}';
+			case 'myPage.accountStatus.dateTime.validUntilFormat': return 'MM/dd/yyyy hh:mm';
+			case 'myPage.accountStatus.premium': return 'Premium Member';
+			case 'myPage.accountStatus.standard': return 'Standard Member';
+			case 'changeLanguagePage.title': return 'Language';
+			case 'changeLanguagePage.items.japanese': return 'Japanese';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
+			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
+			case 'changeLanguagePage.items.korean': return 'Korean';
+			case 'changeThemePage.title': return 'Theme';
+			case 'changeThemePage.items.system': return 'System';
+			case 'changeThemePage.items.light': return 'Light';
+			case 'changeThemePage.items.dark': return 'Dark';
+			case 'myPlanPage.title': return 'My Plans';
+			case 'myPlanPage.tabs.createdPlans': return 'Created Plans';
+			case 'myPlanPage.tabs.bookmark': return 'Bookmarks';
+			case 'myPlanPage.bookmarkItems.nondata': return 'No bookmarked plans yet.';
+			case 'myPlanPage.bookmarkItems.reloading': return 'Reload';
+			case 'myPlanPage.createdPlansItems.nondata': return 'Let\'s create a plan!';
+			case 'myPlanPage.createdPlansItems.createaplan': return 'Create a Plan';
+			case 'myPlanPage.error.displayError': return 'An error occurred while displaying the plan.';
+			case 'myPlanPage.error.failedGetId': return 'Failed to retrieve plan ID.';
+			case 'myPlanPage.error.failedGetPlanData': return 'An error occurred while retrieving plan data.';
+			case 'myPlanPage.error.failedUnBookmark': return 'Failed to remove bookmark.';
+			case 'buddyChatPage.title': return 'Buddy\'s Suggestions';
+			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => 'You can send ${possibleChatCount} more messages';
+			case 'buddyChatPage.textFields.message': return 'Enter message';
+			case 'buddyChatPage.buttons.send': return 'Done';
+			case 'buddyChatPage.placeCard.openingHours': return 'Opening Hours';
+			case 'buddyChatPage.placeCard.averageAmount': return 'Average Budget';
+			case 'buddyChatPage.placeCard.website': return 'Website';
+			case 'buddyChatPage.snackBar.error.failedRecieveMessage': return 'Failed to receive the reply. Please try again later.';
+			case 'buddyChatPage.snackBar.error.failedCompleteCreatePlan': return 'Failed to complete plan creation. Please try again later.';
+			case 'popularTopics.sectionName': return 'Popular Topics';
+			case 'createPlanPage.title': return 'Create Plan';
+			case 'createPlanPage.label.location': return 'Destination';
+			case 'createPlanPage.label.scheduleStart': return 'Start Date';
+			case 'createPlanPage.label.scheduleEnd': return 'End Date';
+			case 'createPlanPage.label.numberOfPeople': return 'Number of People';
+			case 'createPlanPage.label.transport': return 'Transportation';
+			case 'createPlanPage.label.category': return 'Category';
+			case 'createPlanPage.label.topics': return 'Travel Topics';
+			case 'createPlanPage.hintText.location': return 'Shibuya';
+			case 'createPlanPage.modal.title': return 'Select a date';
+			case 'createPlanPage.numberOfPeopleOptions.0': return '1 person';
+			case 'createPlanPage.numberOfPeopleOptions.1': return '2 people';
+			case 'createPlanPage.numberOfPeopleOptions.2': return '3 people';
+			case 'createPlanPage.numberOfPeopleOptions.3': return '4 people';
+			case 'createPlanPage.numberOfPeopleOptions.4': return '5 people';
+			case 'createPlanPage.numberOfPeopleOptions.5': return '6 or more';
+			case 'createPlanPage.transportOptions.0': return 'Train';
+			case 'createPlanPage.transportOptions.1': return 'Walking';
+			case 'createPlanPage.transportOptions.2': return 'Car';
+			case 'createPlanPage.transportOptions.3': return 'Bus';
+			case 'createPlanPage.categoryOptions.0': return 'Family-friendly';
+			case 'createPlanPage.categoryOptions.1': return 'Adult';
+			case 'createPlanPage.categoryOptions.2': return 'Entertainment';
+			case 'createPlanPage.categoryOptions.3': return 'Activity';
+			case 'createPlanPage.categoryOptions.4': return 'History';
+			case 'createPlanPage.defaultTopics.0': return 'Gourmet';
+			case 'createPlanPage.defaultTopics.1': return 'Shopping';
+			case 'createPlanPage.defaultTopics.2': return 'Activities';
+			case 'createPlanPage.defaultTopics.3': return 'Movies';
+			case 'createPlanPage.submitButton': return 'Submit Plan to AI';
+			case 'createPlanPage.snackBar.error.foundUnSelectedField': return 'There are unselected items. Please select all items.';
+			case 'editProfilePage.title': return 'Edit Profile';
+			case 'editProfilePage.textFields.name': return 'Name';
+			case 'editProfilePage.buttons.submit': return 'Save';
+			case 'editProfilePage.snackBar.success': return 'Updated successfully';
+			case 'editProfilePage.snackBar.error.noChange': return 'No changes detected';
+			case 'editProfilePage.snackBar.error.failedToUpdate': return 'Failed to update. Please try again later.';
+			case 'editProfilePage.snackBar.error.failedToPickImage': return 'Failed to select image. Please try again later.';
+			case 'confirmDialog.answers.yes': return 'Yes';
+			case 'confirmDialog.answers.no': return 'No';
+			case 'confirmDialog.popPage.title': return 'Return to the previous page?';
+			case 'confirmDialog.popPage.description': return 'Current content will not be saved.';
+			case 'confirmDialog.completeCreatePlan.title': return 'Confirm the plan?';
+			case 'confirmDialog.completeCreatePlan.description': return 'The plan in the last message will be saved.';
+			case 'prompt.planProposalMessage': return 'I\'ve come up with this plan! What do you think?';
+			case 'billDetailsPage.title': return 'Premium Plan';
+			case 'billDetailsPage.description': return 'By subscribing to the Premium Plan, you can enjoy a more comfortable sightseeing experience in Shibuya.';
+			case 'billDetailsPage.pricingPlan.title': return 'Pricing Plan';
+			case 'billDetailsPage.pricingPlan.columns.standard': return 'Standard';
+			case 'billDetailsPage.pricingPlan.columns.premium': return 'Premium';
+			case 'billDetailsPage.pricingPlan.details.free': return 'Free 🎉';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return 'Purchase by duration';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return '・1 day 300 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return '・3 days 855 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return '・5 days 1,480 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return '・7 days 2,070 yen';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'or';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return 'Lifetime';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return '25,800 yen';
+			case 'billDetailsPage.features.title': return 'Features by Grade';
+			case 'billDetailsPage.features.rows.planCreationLimit': return 'Number of plans that can be created';
+			case 'billDetailsPage.features.rows.chatLimit': return 'Number of chats available during plan creation';
+			case 'billDetailsPage.features.rows.timelineAccess': return 'Access to all plan timelines';
+			case 'billDetailsPage.features.rows.adFree': return 'Ad-free';
+			case 'billDetailsPage.features.rows.exclusiveFeatures': return 'Plan authentication features';
+			case 'billDetailsPage.features.columns.standard.label': return 'Standard';
+			case 'billDetailsPage.features.columns.standard.planCreationLimit': return '2 times';
+			case 'billDetailsPage.features.columns.standard.chatLimit': return '3 times';
+			case 'billDetailsPage.features.columns.premium.label': return 'Premium';
+			case 'billDetailsPage.features.columns.premium.planCreationLimit': return 'Unlimited';
+			case 'billDetailsPage.features.columns.premium.chatLimit': return 'Unlimited';
+			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1 day';
+			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300 yen';
+			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3 days';
+			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
+			case 'billDetailsPage.pricingOptions.threeDays.price': return '890 yen';
+			case 'billDetailsPage.pricingOptions.fiveDays.duration': return '5 days';
+			case 'billDetailsPage.pricingOptions.fiveDays.discount': return '-7.5%';
+			case 'billDetailsPage.pricingOptions.fiveDays.price': return '1,387 yen';
+			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7 days';
+			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
+			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070 yen';
+			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
+			case 'billDetailsPage.pricingOptions.lifetime.discount': return '';
+			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
+			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
+			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
+			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
+			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
+			case 'locales.en': return 'English';
+			case 'locales.ja': return 'Japanese';
+			case 'locales.zh': return 'Chinese';
+			case 'locales.kr': return 'Korean';
+			case 'errorPage.title': return 'An error occurred...';
+			case 'errorPage.message': return 'Please check your network connection and try again.';
+			case 'errorPage.retryButton': return 'Retry';
+			case 'mapPage.title': return 'Map';
+			default: return null;
+		}
+	}
 }

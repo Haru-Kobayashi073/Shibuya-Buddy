@@ -88,6 +88,7 @@ class SignInPage extends HookConsumerWidget {
                           i18nLanguage.japanese,
                           i18nLanguage.simplifiedChinese,
                           i18nLanguage.traditionalChinese,
+                          i18nLanguage.korean,
                         ].map((String value) {
                           return DropdownMenuEntry<String>(
                             value: value,

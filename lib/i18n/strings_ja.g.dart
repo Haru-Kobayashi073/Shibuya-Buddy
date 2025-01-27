@@ -93,6 +93,7 @@ class TranslationsJa implements Translations {
         'en': '英語',
         'ja': '日本語',
         'zh': '中国語',
+        'kr': '韓国語',
       };
   @override
   late final _TranslationsErrorPageJa errorPage =
@@ -805,6 +806,8 @@ class _TranslationsChangeLanguagePageItemsJa
   String get simplifiedChinese => '中国語（簡体字）';
   @override
   String get traditionalChinese => '中国語（繁体字）';
+  @override
+  String get korean => '韓国語';
 }
 
 // Path: changeThemePage.items
@@ -1911,6 +1914,8 @@ extension on TranslationsJa {
         return '中国語（簡体字）';
       case 'changeLanguagePage.items.traditionalChinese':
         return '中国語（繁体字）';
+      case 'changeLanguagePage.items.korean':
+        return '韓国語';
       case 'changeThemePage.title':
         return 'テーマ';
       case 'changeThemePage.items.system':
@@ -2150,6 +2155,8 @@ extension on TranslationsJa {
         return '日本語';
       case 'locales.zh':
         return '中国語';
+      case 'locales.kr':
+        return '韓国語';
       case 'errorPage.title':
         return 'エラーが発生しました...';
       case 'errorPage.message':
