@@ -100,4 +100,17 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.signOutFailure);
     }
   }
+
+  Future<void> deleteAccount({
+    required Future<void> Function() onSuccess,
+  }) async {
+    try {
+      await authenticationDataSource.deleteAccount();
+      scaffoldMessenger.showSuccessSnackBar(snackBari18n.deleteAccount);
+      await onSuccess();
+    } on FirebaseAuthException {
+      scaffoldMessenger
+          .showExceptionSnackBar(snackBari18n.deleteAccountFailure);
+    }
+  }
 }
