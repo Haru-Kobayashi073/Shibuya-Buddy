@@ -143,6 +143,17 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       );
       return;
     }
+
+    final startDate = _parseDate(state.requireValue.startDate!);
+    final endDate = _parseDate(state.requireValue.endDate!);
+
+    if (startDate.isAfter(endDate)) {
+      scaffoldMessenger.showExceptionSnackBar(
+        t.createPlanPage.snackBar.error.invalidDateRange,
+      );
+      return;
+    }
+
     final planPrompt = PlanPrompt(
       id: const Uuid().v4(),
       schedules: (
@@ -156,5 +167,19 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       createdAt: DateTime.now(),
     );
     await onNavigate(planPrompt);
+  }
+
+  DateTime _parseDate(String dateString) {
+    final currentLocale = LocaleSettings.currentLocale.languageCode;
+    final pattern = {
+          'ja': 'M/d(E) hh:mm a',
+          'en': 'MMM d, E hh:mm a',
+          'zh-Hant': 'M月d日 EEEE hh:mm a',
+          'zh-Hans': 'M月d日 EEEE hh:mm a',
+        }[currentLocale] ??
+        'MMM d, EEEE HH:mm';
+
+    final formatter = DateFormat(pattern, currentLocale);
+    return formatter.parse(dateString);
   }
 }
