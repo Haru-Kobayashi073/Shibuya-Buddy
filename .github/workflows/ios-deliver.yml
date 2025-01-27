@@ -28,12 +28,26 @@ jobs:
       - run: chmod 755 ios/scripts/extract_dart_defines.sh
 
       - name: create prod.env file
+        env:
+          geminiAPIKey: ${{ secrets.GEMINI_API_KEY }}
+          placeDetailAPIKey: ${{ secrets.PLACE_DETAIL_API_KEY }}
+          revenueCatAppleAPIKey: ${{ secrets.REVENUE_CAT_APPLE_API_KEY }}
+          revenueCatGoogleAPIKey: ${{ secrets.REVENUE_CAT_GOOGLE_API_KEY }}
+          GoogleMapAPIKey: ${{ secrets.GOOGLE_MAP_API_KEY }}
+          reversedClientId: ${{ secrets.REVERSED_CLIENT_ID }}
+
         run: |
           mkdir -p ./dart_defines 
           touch ./dart_defines/prod.env
           echo "flavor=prod" > ./dart_defines/prod.env
           echo "appName=Shibuya Buddy" >> ./dart_defines/prod.env
           echo "appId=com.shibuya.buddy" >> ./dart_defines/prod.env
+          echo "geminiAPIKey=$geminiAPIKey" >> ./dart_defines/prod.env
+          echo "placeDetailAPIKey=$placeDetailAPIKey" >> ./dart_defines/prod.env
+          echo "revenueCatAppleAPIKey=$revenueCatAppleAPIKey" >> ./dart_defines/prod.env
+          echo "revenueCatGoogleAPIKey=$revenueCatGoogleAPIKey" >> ./dart_defines/prod.env
+          echo "GoogleMapAPIKey=$GoogleMapAPIKey" >> ./dart_defines/prod.env
+          echo "reversedClientId=$reversedClientId" >> ./dart_defines/prod.env
           cat ./dart_defines/prod.env
 
       - name: Import Prod Provisioning Profile
@@ -47,7 +61,7 @@ jobs:
         with:
           p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
           p12-password: ${{ secrets.CERTIFICATE_PASSWORD }}
-      
+
       - name: Create Prod ipa file
         # GITHUB_RUN_NUMBER をビルドナンバーに指定することで被りがないようにしている。
         run: flutter build ipa --export-options-plist=ios/ExportOptions.plist --dart-define-from-file=dart_defines/prod.env --release
