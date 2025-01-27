@@ -31,7 +31,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   scaffold_messenger.ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
-      ref.watch(currentUserProvider).billingGrade == BillingGrade.standard;
+      ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
@@ -79,9 +79,13 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(
           messages: [...state.requireValue.messages, buddyMessage],
-          possibleChatCount: isStandardGradeUser
-              ? state.requireValue.possibleChatCount! - 1
-              : null,
+          possibleChatCount: state.requireValue.messages.length == 3
+              ? isStandardGradeUser
+                  ? BillingGradeOptions.possibleChatCount - 1
+                  : null
+              : isStandardGradeUser
+                  ? state.requireValue.possibleChatCount! - 1
+                  : null,
         ),
       );
     } on Exception catch (_) {
@@ -178,8 +182,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
     return BuddyChatPageState(
       messages: messages,
-      possibleChatCount:
-          isStandardGradeUser ? BillingGradeOptions.possibleChatCount : null,
+      possibleChatCount: null,
       scrollController: scrollController,
     );
   }
@@ -220,6 +223,14 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
           );
         },
       ).toList(),
+    );
+  }
+
+  void changeStandardConfigToPremium() {
+    state = AsyncValue.data(
+      state.requireValue.copyWith(
+        possibleChatCount: null,
+      ),
     );
   }
 }

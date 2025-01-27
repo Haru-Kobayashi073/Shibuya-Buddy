@@ -49,7 +49,14 @@ class BuddyChatPage extends HookConsumerWidget {
           onSuccess: textController.clear,
           needUpgradeToPremium: () async => const BillDetailsDialogRouteData(
             BillingLimitedFeatures.chatToBuddy,
-          ).push(context),
+          ).push<bool>(context).then((updatedPremium) {
+            if (updatedPremium == null) {
+              return;
+            }
+            if (updatedPremium) {
+              notifier.changeStandardConfigToPremium();
+            }
+          }),
         );
       }
     }
@@ -144,9 +151,11 @@ class BuddyChatPage extends HookConsumerWidget {
             ),
           );
         },
-        error: (e, s) => ErrorPage(
-          onRetry: () => ref.invalidate(buddyChatPageNotifierProvider),
-        ),
+        error: (e, s) {
+          return ErrorPage(
+            onRetry: () => ref.invalidate(buddyChatPageNotifierProvider),
+          );
+        },
         loading: () => const Loading(),
       ),
     );

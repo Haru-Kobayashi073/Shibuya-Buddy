@@ -52,10 +52,10 @@ class BottomModal extends HookConsumerWidget {
                 ref.read(billDetailPageNotifierProvider.notifier).purchaseItem(
               onSuccess: () {
                 return switch (feature) {
-                  BillingLimitedFeatures.chatToBuddy => context.pop(),
+                  BillingLimitedFeatures.chatToBuddy => context.pop(true),
                   BillingLimitedFeatures.createPlan =>
                     const CreatePlanPageRouteData().pushReplacement(context),
-                  BillingLimitedFeatures.none => context.pop(),
+                  BillingLimitedFeatures.none => context.pop(true),
                 };
               },
             ),
