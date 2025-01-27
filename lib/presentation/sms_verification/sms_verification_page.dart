@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
@@ -85,7 +86,7 @@ class SmsVerificationPage extends HookConsumerWidget {
               )
             else
               InkWell(
-                onTap: () => notifier.sendSmsCode(context, phoneNumber),
+                onTap: () async => notifier.sendSmsCode(context, phoneNumber),
                 child: Text(
                   i18nSmsVerificationPage.resend.title,
                   style: AppTextStyle.textStyle.copyWith(
@@ -111,16 +112,18 @@ class SmsVerificationPage extends HookConsumerWidget {
               color: AppColor.yellow600Primary,
               onPressed: () async {
                 await notifier.verifySmsCode(
-                  context,
                   smsCodeController.text.trim(),
+                  () {
+                    const RegisterProfilePageRouteData().go(context);
+                  },
+                );
+                const Gap(16);
+                WideButton(
+                  label: i18nSmsVerificationPage.fixPhoneNumber,
+                  color: AppColor.blue50Background,
+                  onPressed: () => Navigator.of(context).pop(),
                 );
               },
-            ),
-            const Gap(16),
-            WideButton(
-              label: i18nSmsVerificationPage.fixPhoneNumber,
-              color: AppColor.blue50Background,
-              onPressed: Navigator.of(context).pop,
             ),
           ],
         ),

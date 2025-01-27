@@ -6,7 +6,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
-import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
 import 'sms_verification_state.dart';
 
@@ -27,14 +26,15 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
     state = state.copyWith(verificationId: verificationId);
   }
 
-  Future<void> verifySmsCode(BuildContext context, String smsCode) async {
-    final i18n = Translations.of(context);
-    final i18nSmsVerificationScaffoldMessenger =
-        i18n.authentication.smsVerificationPage.scaffoldMessenger;
+  Future<void> verifySmsCode(
+    String smsCode,
+    VoidCallback onSuccess,
+  ) async {
+    final i18n = t.authentication.smsVerificationPage.scaffoldMessenger;
 
     if (smsCode.isEmpty) {
       scaffoldMessenger.showExceptionSnackBar(
-        i18nSmsVerificationScaffoldMessenger.empty,
+        i18n.empty,
       );
       return;
     }
@@ -46,14 +46,12 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
       );
       state = state.copyWith(isSmsVerified: true);
       scaffoldMessenger.showSuccessSnackBar(
-        i18nSmsVerificationScaffoldMessenger.success,
+        i18n.success,
       );
-
-      // 遷移処理をNotifier内で管理
-      const RegisterProfilePageRouteData().go(context);
+      onSuccess();
     } catch (error) {
       scaffoldMessenger.showExceptionSnackBar(
-        i18nSmsVerificationScaffoldMessenger.error,
+        i18n.error,
       );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
