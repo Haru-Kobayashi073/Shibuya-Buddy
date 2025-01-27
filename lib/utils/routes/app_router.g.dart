@@ -21,6 +21,8 @@ List<RouteBase> get $appRoutes => [
       $planDetailPageRouteData,
       $plansRelatedInTopicRouteData,
       $mapPageRouteData,
+      $phoneNumberInputPageRouteData,
+      $sMSVerificationPageRouteData,
     ];
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
@@ -766,6 +768,61 @@ extension $MapPageRouteDataExtension on MapPageRouteData {
 
   void replace(BuildContext context) =>
       context.replace(location, extra: $extra);
+}
+
+RouteBase get $phoneNumberInputPageRouteData => GoRouteData.$route(
+      path: '/phoneNumberInput',
+      factory: $PhoneNumberInputPageRouteDataExtension._fromState,
+    );
+
+extension $PhoneNumberInputPageRouteDataExtension
+    on PhoneNumberInputPageRouteData {
+  static PhoneNumberInputPageRouteData _fromState(GoRouterState state) =>
+      const PhoneNumberInputPageRouteData();
+
+  String get location => GoRouteData.$location(
+        '/phoneNumberInput',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $sMSVerificationPageRouteData => GoRouteData.$route(
+      path: '/smsVerification',
+      factory: $SMSVerificationPageRouteDataExtension._fromState,
+    );
+
+extension $SMSVerificationPageRouteDataExtension
+    on SMSVerificationPageRouteData {
+  static SMSVerificationPageRouteData _fromState(GoRouterState state) =>
+      SMSVerificationPageRouteData(
+        phoneNumber: state.uri.queryParameters['phone-number']!,
+        verificationId: state.uri.queryParameters['verification-id']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/smsVerification',
+        queryParams: {
+          'phone-number': phoneNumber,
+          'verification-id': verificationId,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 // **************************************************************************

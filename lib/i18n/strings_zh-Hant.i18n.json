@@ -25,7 +25,8 @@
             "linkedWithGoogle": "與Google連結",
             "linkedWithApple": "與Apple連結",
             "alreadyLinkedGoogle": "已與Google連結",
-            "alreadyLinkedApple": "已與Apple連結"
+            "alreadyLinkedApple": "已與Apple連結",
+            "deleteAccount": "刪除帳戶"
         },
         "snackBar": {
             "signOut": "已成功登出。",
@@ -38,14 +39,20 @@
             "linkageCancelled": "帳戶連結已取消。",
             "unlinkageFailure": "解除帳戶連結失敗。",
             "operationNotAllowed": "提供者無效。請聯絡開發者。",
-            "unknownError": "發生未知錯誤。"
+            "unknownError": "發生未知錯誤。",
+            "deleteAccount": "帳戶已刪除。",
+            "deleteAccountFailure": "刪除帳戶失敗。"
         },
         "diaLog": {
             "yes": "是",
             "no": "否",
             "title": "確認解除帳戶連結",
             "googleText": "是否要解除目前帳戶與Google帳戶的連結？",
-            "appleText": "是否要解除目前帳戶與Apple帳戶的連結？"
+            "appleText": "是否要解除目前帳戶與Apple帳戶的連結？",
+            "signOut": "您要退出登入嗎？",
+            "signOutText": "使用應用功能需要重新登入。",
+            "deleteAccount": "您要刪除帳戶嗎？",
+            "deleteAccountText": "刪除帳戶後，所有數據將被刪除。"
         }
     },
     "authentication": {
@@ -140,6 +147,42 @@
                 "toSignIn": "前往登入畫面",
                 "resendEmail": "重新發送確認郵件",
                 "changeEmail": "更改電子郵件地址"
+            }
+        },
+        "phoneNumberInputPage": {
+            "title": "輸入電話號碼",
+            "discription": {
+                "receive": "以接收 SMS 驗證碼",
+                "internationalFormat": "使用國際電話號碼格式",
+                "input": "請輸入您的電話號碼"
+            },
+            "phoneNumber": "電話號碼",
+            "sendSmsCode": "發送 SMS 驗證碼",
+            "scaffoldMessenger": {
+                "empty": "請輸入您的電話號碼",
+                "success": "SMS 驗證碼已發送",
+                "error": "SMS 驗證碼發送失敗。請確認電話號碼後再試一次。",
+                "unexpectedError": "發生未預期的錯誤：",
+                "phoneNumberVerificaiton": "電話號碼驗證尚未完成"
+            }
+        },
+        "smsVerificationPage": {
+            "title": "SMS 驗證",
+            "sendSms": "SMS 驗證碼已發送至以下電話號碼：",
+            "pleaseInputCode": "請輸入驗證碼以完成電話號碼驗證。",
+            "resend": {
+                "title": "重新發送",
+                "untilRetransmissionPossible": "重新發送時間倒數",
+                "second": "秒"
+            },
+            "smsCode": "SMS 驗證碼",
+            "verify": "驗證",
+            "fixPhoneNumber": "修改電話號碼",
+            "scaffoldMessenger": {
+                "empty": "請輸入 SMS 驗證碼",
+                "success": "驗證成功",
+                "error": "驗證失敗。請確認 SMS 驗證碼後再試一次。",
+                "unexpectedError": "發生未預期的錯誤："
             }
         }
     },

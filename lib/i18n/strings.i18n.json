@@ -25,7 +25,8 @@
             "linkedWithGoogle": "Linked with Google",
             "linkedWithApple": "Linked with Apple",
             "alreadyLinkedGoogle": "Already Linked with Google",
-            "alreadyLinkedApple": "Already Linked with Apple"
+            "alreadyLinkedApple": "Already Linked with Apple",
+            "deleteAccount": "Delete Account"
         },
         "snackBar": {
             "signOut": "You have been logged out.",
@@ -38,14 +39,20 @@
             "linkageCancelled": "Account linking was cancelled.",
             "unlinkageFailure": "Failed to remove account linkage.",
             "operationNotAllowed": "Provider is invalid. Please contact the developer.",
-            "unknownError": "An unknown error occurred."
+            "unknownError": "An unknown error occurred.",
+            "deleteAccount": "Your account has been deleted.",
+            "deleteAccountFailure": "Failed to delete your account."
         },
         "diaLog": {
             "yes": "Yes",
             "no": "No",
             "title": "Confirm Account Unlinking",
             "googleText": "Do you want to unlink the current account from your Google account?",
-            "appleText": "Do you want to unlink the current account from your Apple account?"
+            "appleText": "Do you want to unlink the current account from your Apple account?",
+            "signOut": "Do you want to sign out?",
+            "signOutText": "Re-login is required to use the app's features.",
+            "deleteAccount": "Do you want to delete your account?",
+            "deleteAccountText": "Deleting your account will remove all data."
         }
     },
     "authentication": {
@@ -141,6 +148,43 @@
                 "resendEmail": "Resend Confirmation Email",
                 "changeEmail": "Change Email Address"
             }
+        },
+        "phoneNumberInputPage": {
+            "title": "Enter Phone Number",
+            "discription": {
+                "receive": "To receive the SMS code",
+                "internationalFormat": "in international phone number format",
+                "input": "please enter your phone number"
+            },
+            "phoneNumber": "Phone Number",
+            "sendSmsCode": "Send SMS Code",
+            "scaffoldMessenger": {
+                "empty": "Please enter your phone number",
+                "success": "SMS code has been sent",
+                "error": "Failed to send SMS code. Please check your phone number and try again.",
+                "unexpectedError": "An unexpected error occurred:",
+                "phoneNumberVerificaiton": "Phone number verification is not completed."
+
+            }
+        },
+        "smsVerificationPage": {
+            "title": "SMS Verification",
+            "sendSms": "SMS code has been sent to the following phone number:",
+            "pleaseInputCode": "Please enter the code to complete phone number verification.",
+            "resend": {
+                "title": "Resend",
+                "untilRetransmissionPossible": "Until retransmission possible",
+                "second": "seconds"
+            },
+            "smsCode": "SMS Code",
+            "verify": "Verify",
+            "fixPhoneNumber": "Edit Phone Number",
+            "scaffoldMessenger": {
+                "empty": "Please enter the SMS code",
+                "success": "Verification successful",
+                "error": "Verification failed. Please check the SMS code and try again.",
+                "unexpectedError": "An unexpected error occurred:"
+            }
         }
     },
     "validation": {
@@ -185,7 +229,7 @@
             "english": "English",
             "simplifiedChinese": "Chinese (Simplified)",
             "traditionalChinese": "Chinese (Traditional)",
-            "korean": "Korean"
+            "korean": "korean"
         }
     },
     "changeThemePage": {
@@ -325,7 +369,7 @@
         }
     },
     "prompt": {
-        "planProposalMessage": "I've come up with this plan! What do you think?"
+        "planProposalMessage": "I’ve come up with this plan! What do you think?"
     },
     "billDetailsPage": {
         "title": {

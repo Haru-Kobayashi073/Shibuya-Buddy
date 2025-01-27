@@ -13,6 +13,13 @@ abstract interface class AuthenticationRepository {
   Future<void> signInWithApple();
   Future<void> sendPasswordResetEmail(String email);
   Future<bool> isEmailVerified();
+  Future<void> sendSmsCode({
+    required String phoneNumber,
+    required void Function(String verificationId) onCodeSent,
+    required void Function(FirebaseAuthException error) onError,
+  });
+  Future<void> linkPhoneNumber(String verificationId, String smsCode);
+  Future<bool> isSmsVerified();
   Future<void> unlink(SocialAuthDomain domain);
   Future<void> linkWithCredential(AuthCredential credential);
   Future<void> signOut();

@@ -108,6 +108,8 @@ class _TranslationsAuthenticationKo implements TranslationsAuthenticationEn {
 	@override late final _TranslationsAuthenticationEmailVerificationPageKo emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageKo._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageKo registerProfilePage = _TranslationsAuthenticationRegisterProfilePageKo._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageKo completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageKo._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageKo phoneNumberInputPage = _TranslationsAuthenticationPhoneNumberInputPageKo._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageKo smsVerificationPage = _TranslationsAuthenticationSmsVerificationPageKo._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthKo firebaseAuth = _TranslationsAuthenticationFirebaseAuthKo._(_root);
 }
 
@@ -395,6 +397,7 @@ class _TranslationsAccountPageItemsKo implements TranslationsAccountPageItemsEn 
 	@override String get linkedWithApple => 'Apple 연동';
 	@override String get alreadyLinkedGoogle => 'Google 연동 완료';
 	@override String get alreadyLinkedApple => 'Apple 연동 완료';
+	@override String get deleteAccount => '계정 삭제';
 }
 
 // Path: accountPage.snackBar
@@ -415,6 +418,8 @@ class _TranslationsAccountPageSnackBarKo implements TranslationsAccountPageSnack
 	@override String get unlinkageFailure => '계정 연동 해제에 실패했습니다.';
 	@override String get operationNotAllowed => '제공자가 비활성화되었습니다. 개발자에게 문의하세요.';
 	@override String get unknownError => '알 수 없는 오류가 발생했습니다.';
+	@override String get deleteAccount => '계정이 삭제되었습니다.';
+	@override String get deleteAccountFailure => '계정 삭제에 실패했습니다.';
 }
 
 // Path: accountPage.diaLog
@@ -429,6 +434,10 @@ class _TranslationsAccountPageDiaLogKo implements TranslationsAccountPageDiaLogE
 	@override String get title => '계정 연동 해제 확인';
 	@override String get googleText => '현재 계정과 Google 계정의 연동을 해제하시겠습니까?';
 	@override String get appleText => '현재 계정과 Apple 계정의 연동을 해제하시겠습니까?';
+	@override String get signOut => '로그아웃하시겠습니까?';
+	@override String get signOutText => '앱 기능을 이용하려면 다시 로그인해야 합니다.';
+	@override String get deleteAccount => '계정을 삭제하시겠습니까?';
+	@override String get deleteAccountText => '계정을 삭제하면 모든 데이터가 삭제됩니다.';
 }
 
 // Path: authentication.signInPage
@@ -507,6 +516,37 @@ class _TranslationsAuthenticationCompleteSendEmailPageKo implements Translations
 	@override String description({required Object email}) => '비밀번호 재설정 이메일이 ${email}로 발송되었습니다. \n 재설정 후 로그인 화면에서 로그인하세요.';
 	@override String get successResendEmail => '확인 이메일을 재발송했습니다.';
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsKo buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsKo._(_root);
+}
+
+// Path: authentication.phoneNumberInputPage
+class _TranslationsAuthenticationPhoneNumberInputPageKo implements TranslationsAuthenticationPhoneNumberInputPageEn {
+	_TranslationsAuthenticationPhoneNumberInputPageKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '전화번호 입력';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo._(_root);
+	@override String get phoneNumber => '전화번호';
+	@override String get sendSmsCode => 'SMS 코드 보내기';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo._(_root);
+}
+
+// Path: authentication.smsVerificationPage
+class _TranslationsAuthenticationSmsVerificationPageKo implements TranslationsAuthenticationSmsVerificationPageEn {
+	_TranslationsAuthenticationSmsVerificationPageKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS 인증';
+	@override String get sendSms => '다음 전화번호로 SMS 코드를 보냈습니다:';
+	@override String get pleaseInputCode => '코드를 입력하여 전화번호 인증을 완료하세요.';
+	@override late final _TranslationsAuthenticationSmsVerificationPageResendKo resend = _TranslationsAuthenticationSmsVerificationPageResendKo._(_root);
+	@override String get smsCode => 'SMS 코드';
+	@override String get verify => '인증';
+	@override String get fixPhoneNumber => '전화번호 수정';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -995,6 +1035,57 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsKo implements Trans
 	@override String get changeEmail => '이메일 주소 변경';
 }
 
+// Path: authentication.phoneNumberInputPage.discription
+class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo implements TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	_TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => 'SMS 코드를 받으려면';
+	@override String get internationalFormat => '국제 전화번호 형식으로';
+	@override String get input => '전화번호를 입력해주세요';
+}
+
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '전화번호를 입력해주세요';
+	@override String get success => 'SMS 코드가 전송되었습니다';
+	@override String get error => 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
+	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
+	@override String get phoneNumberVerificaiton => '전화번호 인증이 완료되지 않았습니다.';
+}
+
+// Path: authentication.smsVerificationPage.resend
+class _TranslationsAuthenticationSmsVerificationPageResendKo implements TranslationsAuthenticationSmsVerificationPageResendEn {
+	_TranslationsAuthenticationSmsVerificationPageResendKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '재전송';
+	@override String get untilRetransmissionPossible => '재전송 가능 시간까지';
+	@override String get second => '초';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => 'SMS 코드를 입력해주세요';
+	@override String get success => '인증에 성공했습니다';
+	@override String get error => '인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.';
+	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
+}
+
 // Path: authentication.firebaseAuth.error
 class _TranslationsAuthenticationFirebaseAuthErrorKo implements TranslationsAuthenticationFirebaseAuthErrorEn {
 	_TranslationsAuthenticationFirebaseAuthErrorKo._(this._root);
@@ -1267,6 +1358,7 @@ extension on TranslationsKo {
 			case 'accountPage.items.linkedWithApple': return 'Apple 연동';
 			case 'accountPage.items.alreadyLinkedGoogle': return 'Google 연동 완료';
 			case 'accountPage.items.alreadyLinkedApple': return 'Apple 연동 완료';
+			case 'accountPage.items.deleteAccount': return '계정 삭제';
 			case 'accountPage.snackBar.signOut': return '로그아웃되었습니다.';
 			case 'accountPage.snackBar.signOutFailure': return '로그아웃 중 오류가 발생했습니다.';
 			case 'accountPage.snackBar.successfulLinkage': return '계정 연동에 성공했습니다.';
@@ -1278,11 +1370,17 @@ extension on TranslationsKo {
 			case 'accountPage.snackBar.unlinkageFailure': return '계정 연동 해제에 실패했습니다.';
 			case 'accountPage.snackBar.operationNotAllowed': return '제공자가 비활성화되었습니다. 개발자에게 문의하세요.';
 			case 'accountPage.snackBar.unknownError': return '알 수 없는 오류가 발생했습니다.';
+			case 'accountPage.snackBar.deleteAccount': return '계정이 삭제되었습니다.';
+			case 'accountPage.snackBar.deleteAccountFailure': return '계정 삭제에 실패했습니다.';
 			case 'accountPage.diaLog.yes': return '예';
 			case 'accountPage.diaLog.no': return '아니요';
 			case 'accountPage.diaLog.title': return '계정 연동 해제 확인';
 			case 'accountPage.diaLog.googleText': return '현재 계정과 Google 계정의 연동을 해제하시겠습니까?';
 			case 'accountPage.diaLog.appleText': return '현재 계정과 Apple 계정의 연동을 해제하시겠습니까?';
+			case 'accountPage.diaLog.signOut': return '로그아웃하시겠습니까?';
+			case 'accountPage.diaLog.signOutText': return '앱 기능을 이용하려면 다시 로그인해야 합니다.';
+			case 'accountPage.diaLog.deleteAccount': return '계정을 삭제하시겠습니까?';
+			case 'accountPage.diaLog.deleteAccountText': return '계정을 삭제하면 모든 데이터가 삭제됩니다.';
 			case 'authentication.signInPage.title': return '로그인';
 			case 'authentication.signInPage.optionText': return ' 또는 ';
 			case 'authentication.signInPage.textFields.email': return '이메일 주소';
@@ -1325,6 +1423,30 @@ extension on TranslationsKo {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '로그인 화면으로';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '확인 이메일 재발송';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '이메일 주소 변경';
+			case 'authentication.phoneNumberInputPage.title': return '전화번호 입력';
+			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
+			case 'authentication.phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.phoneNumber': return '전화번호';
+			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 코드가 전송되었습니다';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return '전화번호 인증이 완료되지 않았습니다.';
+			case 'authentication.smsVerificationPage.title': return 'SMS 인증';
+			case 'authentication.smsVerificationPage.sendSms': return '다음 전화번호로 SMS 코드를 보냈습니다:';
+			case 'authentication.smsVerificationPage.pleaseInputCode': return '코드를 입력하여 전화번호 인증을 완료하세요.';
+			case 'authentication.smsVerificationPage.resend.title': return '재전송';
+			case 'authentication.smsVerificationPage.resend.untilRetransmissionPossible': return '재전송 가능 시간까지';
+			case 'authentication.smsVerificationPage.resend.second': return '초';
+			case 'authentication.smsVerificationPage.smsCode': return 'SMS 코드';
+			case 'authentication.smsVerificationPage.verify': return '인증';
+			case 'authentication.smsVerificationPage.fixPhoneNumber': return '전화번호 수정';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'SMS 코드를 입력해주세요';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '인증에 성공했습니다';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '통신 환경이 좋은 곳에서 다시 시도해주세요.';
 			case 'authentication.firebaseAuth.error.weakPassword': return '비밀번호가 너무 짧습니다. 6자 이상 입력해주세요.';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '이메일 주소 형식이 올바르지 않습니다.';

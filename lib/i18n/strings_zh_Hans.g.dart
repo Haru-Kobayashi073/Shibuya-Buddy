@@ -109,6 +109,8 @@ class _TranslationsAuthenticationZhHans implements TranslationsAuthenticationEn 
 	@override late final _TranslationsAuthenticationEmailVerificationPageZhHans emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageZhHans._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageZhHans registerProfilePage = _TranslationsAuthenticationRegisterProfilePageZhHans._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHans completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageZhHans phoneNumberInputPage = _TranslationsAuthenticationPhoneNumberInputPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationSmsVerificationPageZhHans smsVerificationPage = _TranslationsAuthenticationSmsVerificationPageZhHans._(_root);
 }
 
 // Path: validation
@@ -395,6 +397,7 @@ class _TranslationsAccountPageItemsZhHans implements TranslationsAccountPageItem
 	@override String get linkedWithApple => '与Apple连接';
 	@override String get alreadyLinkedGoogle => '已与Google连接';
 	@override String get alreadyLinkedApple => '已与Apple连接';
+	@override String get deleteAccount => '删除账户';
 }
 
 // Path: accountPage.snackBar
@@ -415,6 +418,8 @@ class _TranslationsAccountPageSnackBarZhHans implements TranslationsAccountPageS
 	@override String get unlinkageFailure => '解除账户关联失败。';
 	@override String get operationNotAllowed => '提供者无效。请联系开发者。';
 	@override String get unknownError => '发生未知错误。';
+	@override String get deleteAccount => '账户已删除。';
+	@override String get deleteAccountFailure => '删除账户失败。';
 }
 
 // Path: accountPage.diaLog
@@ -429,6 +434,10 @@ class _TranslationsAccountPageDiaLogZhHans implements TranslationsAccountPageDia
 	@override String get title => '确认解除账户连接';
 	@override String get googleText => '是否要解除当前账户与Google账户的连接？';
 	@override String get appleText => '是否要解除当前账户与Apple账户的连接？';
+	@override String get signOut => '您要退出登录吗？';
+	@override String get signOutText => '使用应用功能需要重新登录。';
+	@override String get deleteAccount => '您要删除账户吗？';
+	@override String get deleteAccountText => '删除账户后，所有数据将被删除。';
 }
 
 // Path: authentication.signInPage
@@ -517,6 +526,37 @@ class _TranslationsAuthenticationCompleteSendEmailPageZhHans implements Translat
 	@override String description({required Object email}) => '密码重置邮件已发送到${email} \n 重置后请从登录页面登录';
 	@override String get successResendEmail => '确认邮件已重新发送';
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans buttons = _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans._(_root);
+}
+
+// Path: authentication.phoneNumberInputPage
+class _TranslationsAuthenticationPhoneNumberInputPageZhHans implements TranslationsAuthenticationPhoneNumberInputPageEn {
+	_TranslationsAuthenticationPhoneNumberInputPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '输入电话号码';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans._(_root);
+	@override String get phoneNumber => '电话号码';
+	@override String get sendSmsCode => '发送 SMS 验证码';
+	@override late final _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans scaffoldMessenger = _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans._(_root);
+}
+
+// Path: authentication.smsVerificationPage
+class _TranslationsAuthenticationSmsVerificationPageZhHans implements TranslationsAuthenticationSmsVerificationPageEn {
+	_TranslationsAuthenticationSmsVerificationPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'SMS 验证';
+	@override String get sendSms => 'SMS 验证码已发送至以下电话号码：';
+	@override String get pleaseInputCode => '请输入验证码以完成电话号码验证。';
+	@override late final _TranslationsAuthenticationSmsVerificationPageResendZhHans resend = _TranslationsAuthenticationSmsVerificationPageResendZhHans._(_root);
+	@override String get smsCode => 'SMS 验证码';
+	@override String get verify => '验证';
+	@override String get fixPhoneNumber => '修改电话号码';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans scaffoldMessenger = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans._(_root);
 }
 
 // Path: myPage.accountStatus
@@ -1011,6 +1051,57 @@ class _TranslationsAuthenticationCompleteSendEmailPageButtonsZhHans implements T
 	@override String get changeEmail => '更改电子邮件地址';
 }
 
+// Path: authentication.phoneNumberInputPage.discription
+class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans implements TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
+	_TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get receive => '以接收 SMS 验证码';
+	@override String get internationalFormat => '使用国际电话号码格式';
+	@override String get input => '请输入您的电话号码';
+}
+
+// Path: authentication.phoneNumberInputPage.scaffoldMessenger
+class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans implements TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
+	_TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '请输入您的电话号码';
+	@override String get success => 'SMS 验证码已发送';
+	@override String get error => 'SMS 验证码发送失败。请确认电话号码后重试。';
+	@override String get unexpectedError => '发生了意外错误：';
+	@override String get phoneNumberVerificaiton => '电话号码验证尚未完成';
+}
+
+// Path: authentication.smsVerificationPage.resend
+class _TranslationsAuthenticationSmsVerificationPageResendZhHans implements TranslationsAuthenticationSmsVerificationPageResendEn {
+	_TranslationsAuthenticationSmsVerificationPageResendZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重新发送';
+	@override String get untilRetransmissionPossible => '重新发送倒计时';
+	@override String get second => '秒';
+}
+
+// Path: authentication.smsVerificationPage.scaffoldMessenger
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => '请输入 SMS 验证码';
+	@override String get success => '验证成功';
+	@override String get error => '验证失败。请确认 SMS 验证码后重试。';
+	@override String get unexpectedError => '发生了意外错误：';
+}
+
 // Path: myPage.accountStatus.dateTime
 class _TranslationsMyPageAccountStatusDateTimeZhHans implements TranslationsMyPageAccountStatusDateTimeEn {
 	_TranslationsMyPageAccountStatusDateTimeZhHans._(this._root);
@@ -1267,6 +1358,7 @@ extension on TranslationsZhHans {
 			case 'accountPage.items.linkedWithApple': return '与Apple连接';
 			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
 			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
+			case 'accountPage.items.deleteAccount': return '删除账户';
 			case 'accountPage.snackBar.signOut': return '已成功退出登录。';
 			case 'accountPage.snackBar.signOutFailure': return '退出登录时发生错误。';
 			case 'accountPage.snackBar.successfulLinkage': return '账户关联成功。';
@@ -1278,11 +1370,17 @@ extension on TranslationsZhHans {
 			case 'accountPage.snackBar.unlinkageFailure': return '解除账户关联失败。';
 			case 'accountPage.snackBar.operationNotAllowed': return '提供者无效。请联系开发者。';
 			case 'accountPage.snackBar.unknownError': return '发生未知错误。';
+			case 'accountPage.snackBar.deleteAccount': return '账户已删除。';
+			case 'accountPage.snackBar.deleteAccountFailure': return '删除账户失败。';
 			case 'accountPage.diaLog.yes': return '是';
 			case 'accountPage.diaLog.no': return '否';
 			case 'accountPage.diaLog.title': return '确认解除账户连接';
 			case 'accountPage.diaLog.googleText': return '是否要解除当前账户与Google账户的连接？';
 			case 'accountPage.diaLog.appleText': return '是否要解除当前账户与Apple账户的连接？';
+			case 'accountPage.diaLog.signOut': return '您要退出登录吗？';
+			case 'accountPage.diaLog.signOutText': return '使用应用功能需要重新登录。';
+			case 'accountPage.diaLog.deleteAccount': return '您要删除账户吗？';
+			case 'accountPage.diaLog.deleteAccountText': return '删除账户后，所有数据将被删除。';
 			case 'authentication.signInPage.title': return '登录';
 			case 'authentication.signInPage.optionText': return ' 或 ';
 			case 'authentication.signInPage.textFields.email': return '电子邮件地址';
@@ -1332,6 +1430,30 @@ extension on TranslationsZhHans {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return '前往登录页面';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '重新发送确认邮件';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改电子邮件地址';
+			case 'authentication.phoneNumberInputPage.title': return '输入电话号码';
+			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 验证码';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '使用国际电话号码格式';
+			case 'authentication.phoneNumberInputPage.discription.input': return '请输入您的电话号码';
+			case 'authentication.phoneNumberInputPage.phoneNumber': return '电话号码';
+			case 'authentication.phoneNumberInputPage.sendSmsCode': return '发送 SMS 验证码';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '请输入您的电话号码';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 验证码已发送';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 验证码发送失败。请确认电话号码后重试。';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.phoneNumberVerificaiton': return '电话号码验证尚未完成';
+			case 'authentication.smsVerificationPage.title': return 'SMS 验证';
+			case 'authentication.smsVerificationPage.sendSms': return 'SMS 验证码已发送至以下电话号码：';
+			case 'authentication.smsVerificationPage.pleaseInputCode': return '请输入验证码以完成电话号码验证。';
+			case 'authentication.smsVerificationPage.resend.title': return '重新发送';
+			case 'authentication.smsVerificationPage.resend.untilRetransmissionPossible': return '重新发送倒计时';
+			case 'authentication.smsVerificationPage.resend.second': return '秒';
+			case 'authentication.smsVerificationPage.smsCode': return 'SMS 验证码';
+			case 'authentication.smsVerificationPage.verify': return '验证';
+			case 'authentication.smsVerificationPage.fixPhoneNumber': return '修改电话号码';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return '请输入 SMS 验证码';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '验证成功';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '验证失败。请确认 SMS 验证码后重试。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';
 			case 'validation.emailRequired': return '请输入电子邮件地址';
 			case 'validation.emailInvalid': return '电子邮件地址格式不正确';
 			case 'validation.passwordRequired': return '请输入密码';

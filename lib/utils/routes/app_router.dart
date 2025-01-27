@@ -28,6 +28,7 @@ import '../../presentation/map/map_page.dart';
 import '../../presentation/my_plan/my_plan_page.dart';
 import '../../presentation/mypage/edit_profile/edit_profile_page.dart';
 import '../../presentation/mypage/my_page.dart';
+import '../../presentation/phone_number_input/phone_number_input_page.dart';
 import '../../presentation/plan_detail/plan_detail_page.dart';
 import '../../presentation/plans_related_in_topic/plans_related_in_topic_page.dart';
 import '../../presentation/popular_plans/popular_plans_page.dart';
@@ -36,6 +37,7 @@ import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
 import '../../presentation/sign_up/sign_up_page.dart';
+import '../../presentation/sms_verification/sms_verification_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
 import '../billing_grade_options.dart';
@@ -482,5 +484,38 @@ class MapPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MapPage(places: $extra);
+  }
+}
+
+@TypedGoRoute<PhoneNumberInputPageRouteData>(
+  path: Routes.phoneNumberInput,
+)
+class PhoneNumberInputPageRouteData extends GoRouteData {
+  const PhoneNumberInputPageRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PhoneNumberInputPage();
+  }
+}
+
+@TypedGoRoute<SMSVerificationPageRouteData>(
+  path: Routes.smsVerification,
+)
+class SMSVerificationPageRouteData extends GoRouteData {
+  const SMSVerificationPageRouteData({
+    required this.phoneNumber,
+    required this.verificationId,
+  });
+
+  final String phoneNumber;
+  final String verificationId;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SmsVerificationPage(
+      phoneNumber: phoneNumber,
+      verificationId: verificationId,
+    );
   }
 }

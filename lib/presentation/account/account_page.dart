@@ -104,13 +104,48 @@ class AccountPage extends ConsumerWidget {
             const SizedBox(height: 16),
             TextButton(
               onPressed: () async {
-                await notifier.signOut(
-                  onSuccess: () async =>
-                      const SignInPageRouteData().go(context),
+                await showDialog<void>(
+                  context: context,
+                  builder: (_) => ConfirmDialog(
+                    onConfirm: () async {
+                      await notifier.signOut(
+                        onSuccess: () async =>
+                            const SignInPageRouteData().go(context),
+                      );
+                    },
+                    titleText: diaLogi18n.signOut,
+                    bodyText: diaLogi18n.signOutText,
+                  ),
                 );
               },
               child: Text(
                 itemi18n.signOut,
+                style: AppTextStyle.textStyle.copyWith(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextButton(
+              onPressed: () async {
+                await showDialog<void>(
+                  context: context,
+                  builder: (_) => ConfirmDialog(
+                    onConfirm: () async {
+                      await notifier.deleteAccount(
+                        onSuccess: () async =>
+                            const SignInPageRouteData().go(context),
+                      );
+                    },
+                    titleText: diaLogi18n.deleteAccount,
+                    bodyText: diaLogi18n.deleteAccountText,
+                  ),
+                );
+              },
+              child: Text(
+                itemi18n.deleteAccount,
                 style: AppTextStyle.textStyle.copyWith(
                   color: Colors.red,
                   fontSize: 14,

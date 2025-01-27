@@ -23,20 +23,22 @@ class CreatedPlanTabView extends ConsumerWidget {
     return plans.isNotEmpty
         ? RefreshIndicator(
             onRefresh: () async => ref.invalidate(myPlanPageNotifierProvider),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: plans
-                    .map(
-                      (plan) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: RecentPlan(
-                          plan: plan,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: plans
+                      .map(
+                        (plan) => Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: RecentPlan(
+                            plan: plan,
+                          ),
                         ),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+                ),
               ),
             ),
           )

@@ -66,11 +66,6 @@ class MyPage extends ConsumerWidget {
                               .push<void>(context),
                         ),
                         ListTileWithIcon(
-                          title: myPageItemi18n.theme,
-                          onTap: () async => const ChangeThemePageRouteData()
-                              .push<void>(context),
-                        ),
-                        ListTileWithIcon(
                           title: myPageItemi18n.termsOfUsePrivacyPolicy,
                           onTap: () async {
                             await ref
@@ -104,11 +99,6 @@ class MyPage extends ConsumerWidget {
                               );
                             }
                           },
-                        ),
-                        ListTileWithIcon(
-                          title: myPageItemi18n.aboutTheDeveloper,
-                          onTap: () async =>
-                              const AboutDevPageRouteData().push<void>(context),
                         ),
                       ],
                     ),
