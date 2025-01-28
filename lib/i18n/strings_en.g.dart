@@ -846,7 +846,7 @@ class TranslationsBillDetailsPagePricingOptionsEn {
 	late final TranslationsBillDetailsPagePricingOptionsThreeDaysEn threeDays = TranslationsBillDetailsPagePricingOptionsThreeDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsFiveDaysEn fiveDays = TranslationsBillDetailsPagePricingOptionsFiveDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsSevenDaysEn sevenDays = TranslationsBillDetailsPagePricingOptionsSevenDaysEn._(_root);
-	late final TranslationsBillDetailsPagePricingOptionsLifetimeEn lifetime = TranslationsBillDetailsPagePricingOptionsLifetimeEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsUnlimitedEn unlimited = TranslationsBillDetailsPagePricingOptionsUnlimitedEn._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -1248,14 +1248,14 @@ class TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
 	String get price => '2,070 yen';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	TranslationsBillDetailsPagePricingOptionsLifetimeEn._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	TranslationsBillDetailsPagePricingOptionsUnlimitedEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get duration => 'Lifetime';
+	String get duration => 'Unlimited';
 	String get discount => '-20%';
 	String get price => '25,800 yen';
 }
@@ -1316,8 +1316,8 @@ class TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	String fiveDays({required Object price}) => '・5 days ${price}';
 	String sevenDays({required Object price}) => '・7 days ${price}';
 	String get or => 'or';
-	String get lifetime => 'Lifetime';
-	String lifetimePrice({required Object price}) => '${price}';
+	String get unlimited => 'Unlimited';
+	String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1576,8 +1576,8 @@ extension on Translations {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5 days ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7 days ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'or';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return 'Lifetime';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return 'Unlimited';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'Features by Grade';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'Number of plans that can be created';
 			case 'billDetailsPage.features.rows.chatLimit': return 'Number of chats available during plan creation';
@@ -1602,9 +1602,9 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7 days';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070 yen';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800 yen';
 			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
 			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
 			case 'billDetailsPage.restorePurchaseSection.button': return 'Restore Purchase';

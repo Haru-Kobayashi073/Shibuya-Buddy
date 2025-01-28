@@ -392,8 +392,8 @@
                     "fiveDays": "・5天 ${price}",
                     "sevenDays": "・7天 ${price}",
                     "or": "或者",
-                    "lifetime": "永久版",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "無限制",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -440,8 +440,8 @@
                 "discount": "-10%",
                 "price": "2,070日圓"
             },
-            "lifetime": {
-                "duration": "終身",
+            "unlimited": {
+                "duration": "無限制",
                 "discount": "-20%",
                 "price": "25,800日圓"
             }

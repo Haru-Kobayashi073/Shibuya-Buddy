@@ -842,7 +842,7 @@ class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysJa threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsUnlimitedJa unlimited = _TranslationsBillDetailsPagePricingOptionsUnlimitedJa._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -1244,14 +1244,14 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysJa implements Translati
 	@override String get price => '2,070円';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeJa._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class _TranslationsBillDetailsPagePricingOptionsUnlimitedJa implements TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	_TranslationsBillDetailsPagePricingOptionsUnlimitedJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '永年分';
+	@override String get duration => '無制限';
 	@override String get discount => '-20%';
 	@override String get price => '25,800円';
 }
@@ -1312,8 +1312,8 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements Tr
 	@override String fiveDays({required Object price}) => '・5日 ${price}';
 	@override String sevenDays({required Object price}) => '・7日 ${price}';
 	@override String get or => 'または';
-	@override String get lifetime => '永年分';
-	@override String lifetimePrice({required Object price}) => '${price}';
+	@override String get unlimited => '無制限';
+	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1572,8 +1572,8 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'または';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永年分';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return '無制限';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'グレードごとの機能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'プランの作成可能回数';
 			case 'billDetailsPage.features.rows.chatLimit': return 'プラン作成中のチャット可能回数';
@@ -1598,9 +1598,9 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070円';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return '永年分';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return '無制限';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800円';
 			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';
 			case 'billDetailsPage.restorePurchaseSection.description': return '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '購入を復元';

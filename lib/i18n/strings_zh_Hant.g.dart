@@ -842,7 +842,7 @@ class _TranslationsBillDetailsPagePricingOptionsZhHant implements TranslationsBi
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant unlimited = _TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -1244,14 +1244,14 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant implements Trans
 	@override String get price => '2,070日圓';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class _TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant implements TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	_TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '終身';
+	@override String get duration => '無限制';
 	@override String get discount => '-20%';
 	@override String get price => '25,800日圓';
 }
@@ -1312,8 +1312,8 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant implement
 	@override String fiveDays({required Object price}) => '・5天 ${price}';
 	@override String sevenDays({required Object price}) => '・7天 ${price}';
 	@override String get or => '或者';
-	@override String get lifetime => '永久版';
-	@override String lifetimePrice({required Object price}) => '${price}';
+	@override String get unlimited => '無限制';
+	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1572,8 +1572,8 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永久版';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return '無限制';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '等級功能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '可創建的方案次數';
 			case 'billDetailsPage.features.rows.chatLimit': return '方案創建期間可用聊天次數';
@@ -1598,9 +1598,9 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日圓';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return '終身';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日圓';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return '無限制';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800日圓';
 			case 'billDetailsPage.restorePurchaseSection.title': return '恢復購買';
 			case 'billDetailsPage.restorePurchaseSection.description': return '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '恢復購買';
