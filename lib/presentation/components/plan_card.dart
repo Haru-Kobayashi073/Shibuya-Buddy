@@ -10,8 +10,13 @@ import 'presistent_cached_network_image.dart';
 import 'ranking_label.dart';
 
 class PlanCard extends StatelessWidget {
-  const PlanCard({super.key, required this.plan});
+  const PlanCard({
+    super.key,
+    required this.plan,
+    this.enableRanking = true,
+  });
   final Plan plan;
+  final bool enableRanking;
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +89,7 @@ class PlanCard extends StatelessWidget {
                 ),
               ],
             ),
-            RankingLabel(ranking: plan.ranking),
+            if (enableRanking) RankingLabel(ranking: plan.ranking),
           ],
         ),
       ),
