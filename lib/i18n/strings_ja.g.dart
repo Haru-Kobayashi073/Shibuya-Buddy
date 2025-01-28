@@ -1251,7 +1251,7 @@ class _TranslationsBillDetailsPagePricingOptionsUnlimitedJa implements Translati
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '無制限';
+	@override String get duration => 'Unlimited';
 	@override String get discount => '-20%';
 	@override String get price => '25,800円';
 }
@@ -1312,7 +1312,7 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements Tr
 	@override String fiveDays({required Object price}) => '・5日 ${price}';
 	@override String sevenDays({required Object price}) => '・7日 ${price}';
 	@override String get or => 'または';
-	@override String get unlimited => '無制限';
+	@override String get unlimited => 'Unlimited';
 	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
@@ -1572,7 +1572,7 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'または';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return '無制限';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return 'Unlimited';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'グレードごとの機能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'プランの作成可能回数';
@@ -1598,7 +1598,7 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070円';
-			case 'billDetailsPage.pricingOptions.unlimited.duration': return '無制限';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800円';
 			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';

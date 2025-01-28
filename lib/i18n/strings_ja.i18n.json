@@ -392,7 +392,7 @@
                     "fiveDays": "・5日 ${price}",
                     "sevenDays": "・7日 ${price}",
                     "or": "または",
-                    "unlimited": "無制限",
+                    "unlimited": "Unlimited",
                     "unlimitedPrice": "${price}"
                 }
             }
@@ -441,7 +441,7 @@
                 "price": "2,070円"
             },
             "unlimited": {
-                "duration": "無制限",
+                "duration": "Unlimited",
                 "discount": "-20%",
                 "price": "25,800円"
             }
