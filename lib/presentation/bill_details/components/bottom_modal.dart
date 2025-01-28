@@ -119,10 +119,10 @@ class BottomModal extends HookConsumerWidget {
           ),
           PurchaseItemCard(
             pricingOption: PricingOption(
-              duration: pricingOptions.lifetime.duration,
+              duration: pricingOptions.unlimited.duration,
               price: purchaseItemPrices[
                   PurchaseItemConfig.unlimitedPremium.packageId]!,
-              discount: pricingOptions.lifetime.discount,
+              discount: pricingOptions.unlimited.discount,
             ),
             groupValue: selectedPlan,
             onChanged: onItemTapped,

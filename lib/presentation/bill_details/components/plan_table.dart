@@ -176,13 +176,13 @@ class PlanTable extends ConsumerWidget {
                         children: [
                           Text(
                             t.billDetailsPage.pricingPlan.details.premiumPrice
-                                .lifetime,
+                                .unlimited,
                             style: planTextStyle,
                           ),
                           const Gap(12),
                           Text(
                             t.billDetailsPage.pricingPlan.details.premiumPrice
-                                .lifetimePrice(
+                                .unlimitedPrice(
                               price: purchaseItemPrices[PurchaseItemConfig
                                   .unlimitedPremium.packageId]!,
                             ),

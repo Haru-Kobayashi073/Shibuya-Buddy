@@ -93,7 +93,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
         t.billDetailsPage.pricingOptions.sevenDays.duration) {
       return PurchaseItemConfig.sevenDays.packageId;
     } else if (selectedItemString ==
-        t.billDetailsPage.pricingOptions.lifetime.duration) {
+        t.billDetailsPage.pricingOptions.unlimited.duration) {
       return PurchaseItemConfig.unlimitedPremium.packageId;
     } else {
       return '';
