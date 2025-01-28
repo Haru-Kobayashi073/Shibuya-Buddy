@@ -89,7 +89,7 @@ class _TranslationsAccountPageKo implements TranslationsAccountPageEn {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '계정';
+	@override String get title => '계정 관리';
 	@override late final _TranslationsAccountPageItemsKo items = _TranslationsAccountPageItemsKo._(_root);
 	@override late final _TranslationsAccountPageSnackBarKo snackBar = _TranslationsAccountPageSnackBarKo._(_root);
 	@override late final _TranslationsAccountPageDiaLogKo diaLog = _TranslationsAccountPageDiaLogKo._(_root);
@@ -299,7 +299,7 @@ class _TranslationsBillDetailsPageKo implements TranslationsBillDetailsPageEn {
 
 	// Translations
 	@override late final _TranslationsBillDetailsPageTitleKo title = _TranslationsBillDetailsPageTitleKo._(_root);
-	@override String get description => '프리미엄 플랜에 가입하시면 더욱 편리하게 시부야 관광을 즐기실 수 있습니다.';
+	@override String get description => '프리미엄 플랜으로 더욱 편리한 시부야 여행을 계획해 보세요.';
 	@override late final _TranslationsBillDetailsPagePricingPlanKo pricingPlan = _TranslationsBillDetailsPagePricingPlanKo._(_root);
 	@override late final _TranslationsBillDetailsPageFeaturesKo features = _TranslationsBillDetailsPageFeaturesKo._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsKo pricingOptions = _TranslationsBillDetailsPagePricingOptionsKo._(_root);
@@ -351,7 +351,7 @@ class _TranslationsNavigationBarItemsKo implements TranslationsNavigationBarItem
 	// Translations
 	@override String get home => '홈';
 	@override String get myPlan => '내 플랜';
-	@override String get myPage => '내 페이지';
+	@override String get myPage => '마이페이지';
 }
 
 // Path: homePage.popularPlans
@@ -372,7 +372,7 @@ class _TranslationsHomePagePopularTopicsKo implements TranslationsHomePagePopula
 
 	// Translations
 	@override String get title => '인기 주제';
-	@override String numberOfTopics({required Object number}) => '${number}개~';
+	@override String numberOfTopics({required Object number}) => '${number}개';
 }
 
 // Path: homePage.recentPlans
@@ -393,8 +393,8 @@ class _TranslationsAccountPageItemsKo implements TranslationsAccountPageItemsEn 
 
 	// Translations
 	@override String get signOut => '로그아웃';
-	@override String get linkedWithGoogle => 'Google 연동';
-	@override String get linkedWithApple => 'Apple 연동';
+	@override String get linkedWithGoogle => 'Google 계정 연동';
+	@override String get linkedWithApple => 'Apple 계정 연동';
 	@override String get alreadyLinkedGoogle => 'Google 연동 완료';
 	@override String get alreadyLinkedApple => 'Apple 연동 완료';
 	@override String get deleteAccount => '계정 삭제';
@@ -408,18 +408,18 @@ class _TranslationsAccountPageSnackBarKo implements TranslationsAccountPageSnack
 
 	// Translations
 	@override String get signOut => '로그아웃되었습니다.';
-	@override String get signOutFailure => '로그아웃 중 오류가 발생했습니다.';
-	@override String get successfulLinkage => '계정 연동에 성공했습니다.';
+	@override String get signOutFailure => '로그아웃 처리 중 오류가 발생했습니다.';
+	@override String get successfulLinkage => '계정 연동이 완료되었습니다.';
 	@override String get linkageFailure => '계정 연동에 실패했습니다.';
 	@override String get providerAlreadyLinked => '이미 연동된 계정입니다.';
 	@override String get accountDeactivation => '계정 연동이 해제되었습니다.';
-	@override String get invalidCredential => '다시 로그인 해주세요.';
+	@override String get invalidCredential => '다시 로그인해 주세요.';
 	@override String get linkageCancelled => '계정 연동이 취소되었습니다.';
-	@override String get unlinkageFailure => '계정 연동 해제에 실패했습니다.';
-	@override String get operationNotAllowed => '제공자가 비활성화되었습니다. 개발자에게 문의하세요.';
+	@override String get unlinkageFailure => '계정 연동 해제를 실패했습니다.';
+	@override String get operationNotAllowed => '해당 서비스가 비활성화되었습니다. 개발자에게 문의해 주세요.';
 	@override String get unknownError => '알 수 없는 오류가 발생했습니다.';
 	@override String get deleteAccount => '계정이 삭제되었습니다.';
-	@override String get deleteAccountFailure => '계정 삭제에 실패했습니다.';
+	@override String get deleteAccountFailure => '계정 삭제를 실패했습니다.';
 }
 
 // Path: accountPage.diaLog
@@ -430,14 +430,14 @@ class _TranslationsAccountPageDiaLogKo implements TranslationsAccountPageDiaLogE
 
 	// Translations
 	@override String get yes => '예';
-	@override String get no => '아니요';
+	@override String get no => '아니오';
 	@override String get title => '계정 연동 해제 확인';
-	@override String get googleText => '현재 계정과 Google 계정의 연동을 해제하시겠습니까?';
-	@override String get appleText => '현재 계정과 Apple 계정의 연동을 해제하시겠습니까?';
-	@override String get signOut => '로그아웃하시겠습니까?';
-	@override String get signOutText => '앱 기능을 이용하려면 다시 로그인해야 합니다.';
-	@override String get deleteAccount => '계정을 삭제하시겠습니까?';
-	@override String get deleteAccountText => '계정을 삭제하면 모든 데이터가 삭제됩니다.';
+	@override String get googleText => 'Google 계정 연동을 해제하시겠습니까?';
+	@override String get appleText => 'Apple 계정 연동을 해제하시겠습니까?';
+	@override String get signOut => '로그아웃 하시겠습니까?';
+	@override String get signOutText => '다시 로그인해야 서비스를 이용하실 수 있습니다.';
+	@override String get deleteAccount => '정말 계정을 삭제하시겠습니까?';
+	@override String get deleteAccountText => '삭제 시 모든 데이터가 영구적으로 삭제됩니다.';
 }
 
 // Path: authentication.signInPage
@@ -804,7 +804,7 @@ class _TranslationsBillDetailsPageTitleKo implements TranslationsBillDetailsPage
 	// Translations
 	@override String get defaultTitle => '프리미엄 플랜';
 	@override String get createPlan => '무제한 플랜 생성을 활성화하시겠습니까?';
-	@override String get chat => '무제한 채팅을 즐기고 싶으신가요?';
+	@override String get chat => '무제한 채팅을 사용해 보시겠습니까?';
 }
 
 // Path: billDetailsPage.pricingPlan
@@ -814,7 +814,7 @@ class _TranslationsBillDetailsPagePricingPlanKo implements TranslationsBillDetai
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '요금 플랜';
+	@override String get title => '요금제';
 	@override late final _TranslationsBillDetailsPagePricingPlanColumnsKo columns = _TranslationsBillDetailsPagePricingPlanColumnsKo._(_root);
 	@override late final _TranslationsBillDetailsPagePricingPlanDetailsKo details = _TranslationsBillDetailsPagePricingPlanDetailsKo._(_root);
 }
@@ -918,10 +918,10 @@ class _TranslationsAuthenticationSignInPageButtonsKo implements TranslationsAuth
 	// Translations
 	@override String get signIn => '로그인';
 	@override String get signUp => '회원가입';
-	@override String get resetPassword => '비밀번호를 잊으셨나요?';
+	@override String get resetPassword => '비밀번호 찾기';
 	@override String get appleSignIn => 'Apple로 로그인';
 	@override String get googleSignIn => 'Google로 로그인';
-	@override String get signInAfter => '나중에 등록';
+	@override String get signInAfter => '나중에 하기';
 }
 
 // Path: authentication.resetPasswordPage.textFields
@@ -1306,7 +1306,7 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo implements Tr
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get days => '일수별 구매';
+	@override String get days => '일별 구매';
 	@override String daily({required Object price}) => '・1일 ${price}';
 	@override String threeDays({required Object price}) => '・3일 ${price}';
 	@override String fiveDays({required Object price}) => '・5일 ${price}';
@@ -1347,50 +1347,50 @@ extension on TranslationsKo {
 		switch (path) {
 			case 'navigationBar.items.home': return '홈';
 			case 'navigationBar.items.myPlan': return '내 플랜';
-			case 'navigationBar.items.myPage': return '내 페이지';
+			case 'navigationBar.items.myPage': return '마이페이지';
 			case 'homePage.popularPlans.title': return '인기 플랜';
 			case 'homePage.popularTopics.title': return '인기 주제';
-			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}개~';
+			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}개';
 			case 'homePage.recentPlans.title': return '최근 생성된 플랜';
-			case 'accountPage.title': return '계정';
+			case 'accountPage.title': return '계정 관리';
 			case 'accountPage.items.signOut': return '로그아웃';
-			case 'accountPage.items.linkedWithGoogle': return 'Google 연동';
-			case 'accountPage.items.linkedWithApple': return 'Apple 연동';
+			case 'accountPage.items.linkedWithGoogle': return 'Google 계정 연동';
+			case 'accountPage.items.linkedWithApple': return 'Apple 계정 연동';
 			case 'accountPage.items.alreadyLinkedGoogle': return 'Google 연동 완료';
 			case 'accountPage.items.alreadyLinkedApple': return 'Apple 연동 완료';
 			case 'accountPage.items.deleteAccount': return '계정 삭제';
 			case 'accountPage.snackBar.signOut': return '로그아웃되었습니다.';
-			case 'accountPage.snackBar.signOutFailure': return '로그아웃 중 오류가 발생했습니다.';
-			case 'accountPage.snackBar.successfulLinkage': return '계정 연동에 성공했습니다.';
+			case 'accountPage.snackBar.signOutFailure': return '로그아웃 처리 중 오류가 발생했습니다.';
+			case 'accountPage.snackBar.successfulLinkage': return '계정 연동이 완료되었습니다.';
 			case 'accountPage.snackBar.linkageFailure': return '계정 연동에 실패했습니다.';
 			case 'accountPage.snackBar.providerAlreadyLinked': return '이미 연동된 계정입니다.';
 			case 'accountPage.snackBar.accountDeactivation': return '계정 연동이 해제되었습니다.';
-			case 'accountPage.snackBar.invalidCredential': return '다시 로그인 해주세요.';
+			case 'accountPage.snackBar.invalidCredential': return '다시 로그인해 주세요.';
 			case 'accountPage.snackBar.linkageCancelled': return '계정 연동이 취소되었습니다.';
-			case 'accountPage.snackBar.unlinkageFailure': return '계정 연동 해제에 실패했습니다.';
-			case 'accountPage.snackBar.operationNotAllowed': return '제공자가 비활성화되었습니다. 개발자에게 문의하세요.';
+			case 'accountPage.snackBar.unlinkageFailure': return '계정 연동 해제를 실패했습니다.';
+			case 'accountPage.snackBar.operationNotAllowed': return '해당 서비스가 비활성화되었습니다. 개발자에게 문의해 주세요.';
 			case 'accountPage.snackBar.unknownError': return '알 수 없는 오류가 발생했습니다.';
 			case 'accountPage.snackBar.deleteAccount': return '계정이 삭제되었습니다.';
-			case 'accountPage.snackBar.deleteAccountFailure': return '계정 삭제에 실패했습니다.';
+			case 'accountPage.snackBar.deleteAccountFailure': return '계정 삭제를 실패했습니다.';
 			case 'accountPage.diaLog.yes': return '예';
-			case 'accountPage.diaLog.no': return '아니요';
+			case 'accountPage.diaLog.no': return '아니오';
 			case 'accountPage.diaLog.title': return '계정 연동 해제 확인';
-			case 'accountPage.diaLog.googleText': return '현재 계정과 Google 계정의 연동을 해제하시겠습니까?';
-			case 'accountPage.diaLog.appleText': return '현재 계정과 Apple 계정의 연동을 해제하시겠습니까?';
-			case 'accountPage.diaLog.signOut': return '로그아웃하시겠습니까?';
-			case 'accountPage.diaLog.signOutText': return '앱 기능을 이용하려면 다시 로그인해야 합니다.';
-			case 'accountPage.diaLog.deleteAccount': return '계정을 삭제하시겠습니까?';
-			case 'accountPage.diaLog.deleteAccountText': return '계정을 삭제하면 모든 데이터가 삭제됩니다.';
+			case 'accountPage.diaLog.googleText': return 'Google 계정 연동을 해제하시겠습니까?';
+			case 'accountPage.diaLog.appleText': return 'Apple 계정 연동을 해제하시겠습니까?';
+			case 'accountPage.diaLog.signOut': return '로그아웃 하시겠습니까?';
+			case 'accountPage.diaLog.signOutText': return '다시 로그인해야 서비스를 이용하실 수 있습니다.';
+			case 'accountPage.diaLog.deleteAccount': return '정말 계정을 삭제하시겠습니까?';
+			case 'accountPage.diaLog.deleteAccountText': return '삭제 시 모든 데이터가 영구적으로 삭제됩니다.';
 			case 'authentication.signInPage.title': return '로그인';
 			case 'authentication.signInPage.optionText': return ' 또는 ';
 			case 'authentication.signInPage.textFields.email': return '이메일 주소';
 			case 'authentication.signInPage.textFields.password': return '비밀번호';
 			case 'authentication.signInPage.buttons.signIn': return '로그인';
 			case 'authentication.signInPage.buttons.signUp': return '회원가입';
-			case 'authentication.signInPage.buttons.resetPassword': return '비밀번호를 잊으셨나요?';
+			case 'authentication.signInPage.buttons.resetPassword': return '비밀번호 찾기';
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Apple로 로그인';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Google로 로그인';
-			case 'authentication.signInPage.buttons.signInAfter': return '나중에 등록';
+			case 'authentication.signInPage.buttons.signInAfter': return '나중에 하기';
 			case 'authentication.resetPasswordPage.title': return '비밀번호 재설정';
 			case 'authentication.resetPasswordPage.description': return '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 			case 'authentication.resetPasswordPage.textFields.email': return '이메일 주소';
@@ -1560,13 +1560,13 @@ extension on TranslationsKo {
 			case 'prompt.planProposalMessage': return '이런 플랜은 어떠신가요?';
 			case 'billDetailsPage.title.defaultTitle': return '프리미엄 플랜';
 			case 'billDetailsPage.title.createPlan': return '무제한 플랜 생성을 활성화하시겠습니까?';
-			case 'billDetailsPage.title.chat': return '무제한 채팅을 즐기고 싶으신가요?';
-			case 'billDetailsPage.description': return '프리미엄 플랜에 가입하시면 더욱 편리하게 시부야 관광을 즐기실 수 있습니다.';
-			case 'billDetailsPage.pricingPlan.title': return '요금 플랜';
+			case 'billDetailsPage.title.chat': return '무제한 채팅을 사용해 보시겠습니까?';
+			case 'billDetailsPage.description': return '프리미엄 플랜으로 더욱 편리한 시부야 여행을 계획해 보세요.';
+			case 'billDetailsPage.pricingPlan.title': return '요금제';
 			case 'billDetailsPage.pricingPlan.columns.standard': return '스탠다드';
 			case 'billDetailsPage.pricingPlan.columns.premium': return '프리미엄';
 			case 'billDetailsPage.pricingPlan.details.free': return '무료 🎉';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '일수별 구매';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.days': return '일별 구매';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.daily': return ({required Object price}) => '・1일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.threeDays': return ({required Object price}) => '・3일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5일 ${price}';

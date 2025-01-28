@@ -7,7 +7,7 @@ part of 'sign_in_page_notifier.dart';
 // **************************************************************************
 
 String _$signInPageNotifierHash() =>
-    r'261e3fa4c3dd2e025ab77adf7d8c0b156a6c55a9';
+    r'a9ff917a520e6404d22fe7ed9375dff38b599c7a';
 
 /// See also [SignInPageNotifier].
 @ProviderFor(SignInPageNotifier)
