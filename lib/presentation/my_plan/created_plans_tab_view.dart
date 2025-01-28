@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
+import '../../utils/styles/app_color.dart';
 import '../home/components/recent_plan.dart';
 import 'components/empty_data.dart';
 import 'my_plan_page_notifier.dart';
@@ -22,24 +23,25 @@ class CreatedPlanTabView extends ConsumerWidget {
 
     return plans.isNotEmpty
         ? RefreshIndicator(
-            onRefresh: () async => ref.invalidate(myPlanPageNotifierProvider),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: plans
-                      .map(
-                        (plan) => Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: RecentPlan(
-                            plan: plan,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
+            backgroundColor: AppColor.white,
+            color: AppColor.yellow600Primary,
+            onRefresh: () async {
+              ref.invalidate(myPlanPageNotifierProvider);
+              await ref.read(myPlanPageNotifierProvider.future);
+            },
+            child: ListView.builder(
+              physics: const AlwaysScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(16),
+              itemCount: plans.length,
+              itemBuilder: (context, index) {
+                final plan = plans[index];
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: RecentPlan(
+                    plan: plan,
+                  ),
+                );
+              },
             ),
           )
         : EmptyDataView(
