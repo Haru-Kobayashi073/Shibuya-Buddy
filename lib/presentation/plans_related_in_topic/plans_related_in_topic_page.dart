@@ -38,7 +38,14 @@ class PlansRelatedInTopicPage extends ConsumerWidget {
               child: Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                children: plans.map((plan) => PlanCard(plan: plan)).toList(),
+                children: plans
+                    .map(
+                      (plan) => PlanCard(
+                        plan: plan,
+                        enableRanking: false,
+                      ),
+                    )
+                    .toList(),
               ),
             ),
           ),
