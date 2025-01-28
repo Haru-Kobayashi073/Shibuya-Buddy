@@ -89,8 +89,7 @@ class PlanCard extends StatelessWidget {
                 ),
               ],
             ),
-            if (enableRanking)
-              RankingLabel(ranking: plan.ranking),
+            if (enableRanking) RankingLabel(ranking: plan.ranking),
           ],
         ),
       ),
