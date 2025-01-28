@@ -11,5 +11,5 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
-
 app/google-services.json
+keystore.properties
