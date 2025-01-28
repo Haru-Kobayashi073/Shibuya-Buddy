@@ -351,7 +351,7 @@ class _TranslationsNavigationBarItemsZhHans implements TranslationsNavigationBar
 	// Translations
 	@override String get home => '首页';
 	@override String get myPlan => '我的计划';
-	@override String get myPage => '我的页面';
+	@override String get myPage => '个人中心';
 }
 
 // Path: homePage.popularPlans
@@ -393,8 +393,8 @@ class _TranslationsAccountPageItemsZhHans implements TranslationsAccountPageItem
 
 	// Translations
 	@override String get signOut => '退出登录';
-	@override String get linkedWithGoogle => '与Google连接';
-	@override String get linkedWithApple => '与Apple连接';
+	@override String get linkedWithGoogle => '关联Google账号';
+	@override String get linkedWithApple => '关联Apple账号';
 	@override String get alreadyLinkedGoogle => '已与Google连接';
 	@override String get alreadyLinkedApple => '已与Apple连接';
 	@override String get deleteAccount => '删除账户';
@@ -605,7 +605,7 @@ class _TranslationsMyPlanPageTabsZhHans implements TranslationsMyPlanPageTabsEn 
 
 	// Translations
 	@override String get createdPlans => '已创建计划';
-	@override String get bookmark => '书签';
+	@override String get bookmark => '收藏';
 }
 
 // Path: myPlanPage.bookmarkItems
@@ -931,7 +931,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorZhHans implements Translations
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get networkRequestFailed => '请在良好的网络环境中重试';
+	@override String get networkRequestFailed => '请检查网络连接后重试';
 	@override String get weakPassword => '密码太短。请输入6个字符或更多';
 	@override String get invalidEmail => '电子邮件地址格式不正确';
 	@override String get userNotFound => '找不到帐户';
@@ -947,7 +947,7 @@ class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans implements Tr
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get email => '电子邮件地址';
+	@override String get email => '邮箱';
 }
 
 // Path: authentication.resetPasswordPage.buttons
@@ -1059,7 +1059,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans implement
 
 	// Translations
 	@override String get receive => '以接收 SMS 验证码';
-	@override String get internationalFormat => '使用国际电话号码格式';
+	@override String get internationalFormat => '国际电话格式';
 	@override String get input => '请输入您的电话号码';
 }
 
@@ -1205,7 +1205,7 @@ class _TranslationsBillDetailsPagePricingOptionsOneDayZhHans implements Translat
 	// Translations
 	@override String get duration => '1日';
 	@override String get discount => '';
-	@override String get price => '300日元';
+	@override String get price => '300円';
 }
 
 // Path: billDetailsPage.pricingOptions.threeDays
@@ -1347,15 +1347,15 @@ extension on TranslationsZhHans {
 		switch (path) {
 			case 'navigationBar.items.home': return '首页';
 			case 'navigationBar.items.myPlan': return '我的计划';
-			case 'navigationBar.items.myPage': return '我的页面';
+			case 'navigationBar.items.myPage': return '个人中心';
 			case 'homePage.popularPlans.title': return '热门计划';
 			case 'homePage.popularTopics.title': return '热门话题';
 			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
 			case 'homePage.recentPlans.title': return '最近创建的计划';
 			case 'accountPage.title': return '账户';
 			case 'accountPage.items.signOut': return '退出登录';
-			case 'accountPage.items.linkedWithGoogle': return '与Google连接';
-			case 'accountPage.items.linkedWithApple': return '与Apple连接';
+			case 'accountPage.items.linkedWithGoogle': return '关联Google账号';
+			case 'accountPage.items.linkedWithApple': return '关联Apple账号';
 			case 'accountPage.items.alreadyLinkedGoogle': return '已与Google连接';
 			case 'accountPage.items.alreadyLinkedApple': return '已与Apple连接';
 			case 'accountPage.items.deleteAccount': return '删除账户';
@@ -1391,7 +1391,7 @@ extension on TranslationsZhHans {
 			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登录';
 			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登录';
 			case 'authentication.signInPage.buttons.signInAfter': return '稍后注册';
-			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请在良好的网络环境中重试';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请检查网络连接后重试';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密码太短。请输入6个字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '电子邮件地址格式不正确';
 			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帐户';
@@ -1400,7 +1400,7 @@ extension on TranslationsZhHans {
 			case 'authentication.firebaseAuth.error.unexpected': return '发生错误。请在良好的网络环境中重试';
 			case 'authentication.resetPasswordPage.title': return '重置密码';
 			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
-			case 'authentication.resetPasswordPage.textFields.email': return '电子邮件地址';
+			case 'authentication.resetPasswordPage.textFields.email': return '邮箱';
 			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
 			case 'authentication.signUpPage.title.defaultText': return '新用户注册';
 			case 'authentication.signUpPage.title.modifyEmail': return '更改邮箱地址';
@@ -1432,7 +1432,7 @@ extension on TranslationsZhHans {
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改电子邮件地址';
 			case 'authentication.phoneNumberInputPage.title': return '输入电话号码';
 			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 验证码';
-			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '使用国际电话号码格式';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国际电话格式';
 			case 'authentication.phoneNumberInputPage.discription.input': return '请输入您的电话号码';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '电话号码';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '发送 SMS 验证码';
@@ -1493,7 +1493,7 @@ extension on TranslationsZhHans {
 			case 'changeThemePage.items.dark': return '暗处';
 			case 'myPlanPage.title': return '我的计划';
 			case 'myPlanPage.tabs.createdPlans': return '已创建计划';
-			case 'myPlanPage.tabs.bookmark': return '书签';
+			case 'myPlanPage.tabs.bookmark': return '收藏';
 			case 'myPlanPage.bookmarkItems.nondata': return '暂无收藏计划。';
 			case 'myPlanPage.bookmarkItems.reloading': return '重新加载';
 			case 'myPlanPage.createdPlansItems.nondata': return '开始创建计划吧！';
@@ -1588,7 +1588,7 @@ extension on TranslationsZhHans {
 			case 'billDetailsPage.features.columns.premium.chatLimit': return '无限制';
 			case 'billDetailsPage.pricingOptions.oneDay.duration': return '1日';
 			case 'billDetailsPage.pricingOptions.oneDay.discount': return '';
-			case 'billDetailsPage.pricingOptions.oneDay.price': return '300日元';
+			case 'billDetailsPage.pricingOptions.oneDay.price': return '300円';
 			case 'billDetailsPage.pricingOptions.threeDays.duration': return '3日';
 			case 'billDetailsPage.pricingOptions.threeDays.discount': return '-5%';
 			case 'billDetailsPage.pricingOptions.threeDays.price': return '890日元';

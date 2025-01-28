@@ -3,7 +3,7 @@
         "items": {
             "home": "首頁",
             "myPlan": "我的計劃",
-            "myPage": "我的頁面"
+            "myPage": "個人中心"
         }
     },
     "homePage": {
@@ -22,8 +22,8 @@
         "title": "帳戶",
         "items": {
             "signOut": "登出",
-            "linkedWithGoogle": "與Google連結",
-            "linkedWithApple": "與Apple連結",
+            "linkedWithGoogle": "連結Google帳號",
+            "linkedWithApple": "連結Google帳號",
             "alreadyLinkedGoogle": "已與Google連結",
             "alreadyLinkedApple": "已與Apple連結",
             "deleteAccount": "刪除帳戶"
@@ -60,7 +60,7 @@
             "title": "登入",
             "optionText": " 或 ",
             "textFields": {
-                "email": "電子郵件地址",
+                "email": "電郵",
                 "password": "密碼"
             },
             "buttons": {
@@ -74,7 +74,7 @@
         },
         "firebaseAuth": {
             "error": {
-                "networkRequestFailed": "請在良好的網絡環境中重試",
+                "networkRequestFailed": "請檢查網路連線後重試",
                 "weakPassword": "密碼太短。請輸入6個字符或更多",
                 "invalidEmail": "電子郵件地址格式不正確",
                 "userNotFound": "找不到帳戶",
@@ -153,7 +153,7 @@
             "title": "輸入電話號碼",
             "discription": {
                 "receive": "以接收 SMS 驗證碼",
-                "internationalFormat": "使用國際電話號碼格式",
+                "internationalFormat": "國際電話格式",
                 "input": "請輸入您的電話號碼"
             },
             "phoneNumber": "電話號碼",
@@ -243,7 +243,7 @@
         "title": "我的方案",
         "tabs": {
             "createdPlans": "已建立方案",
-            "bookmark": "書籤"
+            "bookmark": "收藏"
         },
         "bookmarkItems": {
             "nondata": "暫無收藏方案。",

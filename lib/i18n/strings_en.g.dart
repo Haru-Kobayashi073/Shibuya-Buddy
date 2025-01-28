@@ -200,7 +200,7 @@ class TranslationsBuddyChatPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Buddy\'s Suggestions';
+	String get title => 'Buddy Suggestions';
 	String possibleChatCount({required Object possibleChatCount}) => 'You can send ${possibleChatCount} more messages';
 	late final TranslationsBuddyChatPageTextFieldsEn textFields = TranslationsBuddyChatPageTextFieldsEn._(_root);
 	late final TranslationsBuddyChatPageButtonsEn buttons = TranslationsBuddyChatPageButtonsEn._(_root);
@@ -244,7 +244,7 @@ class TranslationsCreatePlanPageEn {
 		'Bus',
 	];
 	List<String> get categoryOptions => [
-		'Family-friendly',
+		'Family-Friendly',
 		'Adult',
 		'Entertainment',
 		'Activity',
@@ -415,7 +415,7 @@ class TranslationsAccountPageSnackBarEn {
 	String get signOutFailure => 'An error occurred while signing out.';
 	String get successfulLinkage => 'Account linked successfully.';
 	String get linkageFailure => 'Failed to link account.';
-	String get providerAlreadyLinked => 'This account is already linked.';
+	String get providerAlreadyLinked => 'This account has already been linked.';
 	String get accountDeactivation => 'Account linkage has been removed.';
 	String get invalidCredential => 'Please try logging in again.';
 	String get linkageCancelled => 'Account linking was cancelled.';
@@ -1062,9 +1062,9 @@ class TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get receive => 'To receive the SMS code';
-	String get internationalFormat => 'in international phone number format';
-	String get input => 'please enter your phone number';
+	String get receive => 'Please enter your phone number';
+	String get internationalFormat => 'in international format';
+	String get input => 'to receive the SMS code';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1367,7 +1367,7 @@ extension on Translations {
 			case 'accountPage.snackBar.signOutFailure': return 'An error occurred while signing out.';
 			case 'accountPage.snackBar.successfulLinkage': return 'Account linked successfully.';
 			case 'accountPage.snackBar.linkageFailure': return 'Failed to link account.';
-			case 'accountPage.snackBar.providerAlreadyLinked': return 'This account is already linked.';
+			case 'accountPage.snackBar.providerAlreadyLinked': return 'This account has already been linked.';
 			case 'accountPage.snackBar.accountDeactivation': return 'Account linkage has been removed.';
 			case 'accountPage.snackBar.invalidCredential': return 'Please try logging in again.';
 			case 'accountPage.snackBar.linkageCancelled': return 'Account linking was cancelled.';
@@ -1435,9 +1435,9 @@ extension on Translations {
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return 'Resend Confirmation Email';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'Change Email Address';
 			case 'authentication.phoneNumberInputPage.title': return 'Enter Phone Number';
-			case 'authentication.phoneNumberInputPage.discription.receive': return 'To receive the SMS code';
-			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international phone number format';
-			case 'authentication.phoneNumberInputPage.discription.input': return 'please enter your phone number';
+			case 'authentication.phoneNumberInputPage.discription.receive': return 'Please enter your phone number';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international format';
+			case 'authentication.phoneNumberInputPage.discription.input': return 'to receive the SMS code';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return 'Please enter your phone number';
@@ -1506,7 +1506,7 @@ extension on Translations {
 			case 'myPlanPage.error.failedGetId': return 'Failed to retrieve plan ID.';
 			case 'myPlanPage.error.failedGetPlanData': return 'An error occurred while retrieving plan data.';
 			case 'myPlanPage.error.failedUnBookmark': return 'Failed to remove bookmark.';
-			case 'buddyChatPage.title': return 'Buddy\'s Suggestions';
+			case 'buddyChatPage.title': return 'Buddy Suggestions';
 			case 'buddyChatPage.possibleChatCount': return ({required Object possibleChatCount}) => 'You can send ${possibleChatCount} more messages';
 			case 'buddyChatPage.textFields.message': return 'Enter message';
 			case 'buddyChatPage.buttons.send': return 'Done';
@@ -1536,7 +1536,7 @@ extension on Translations {
 			case 'createPlanPage.transportOptions.1': return 'Walking';
 			case 'createPlanPage.transportOptions.2': return 'Car';
 			case 'createPlanPage.transportOptions.3': return 'Bus';
-			case 'createPlanPage.categoryOptions.0': return 'Family-friendly';
+			case 'createPlanPage.categoryOptions.0': return 'Family-Friendly';
 			case 'createPlanPage.categoryOptions.1': return 'Adult';
 			case 'createPlanPage.categoryOptions.2': return 'Entertainment';
 			case 'createPlanPage.categoryOptions.3': return 'Activity';

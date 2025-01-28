@@ -351,7 +351,7 @@ class _TranslationsNavigationBarItemsZhHant implements TranslationsNavigationBar
 	// Translations
 	@override String get home => '首頁';
 	@override String get myPlan => '我的計劃';
-	@override String get myPage => '我的頁面';
+	@override String get myPage => '個人中心';
 }
 
 // Path: homePage.popularPlans
@@ -393,8 +393,8 @@ class _TranslationsAccountPageItemsZhHant implements TranslationsAccountPageItem
 
 	// Translations
 	@override String get signOut => '登出';
-	@override String get linkedWithGoogle => '與Google連結';
-	@override String get linkedWithApple => '與Apple連結';
+	@override String get linkedWithGoogle => '連結Google帳號';
+	@override String get linkedWithApple => '連結Google帳號';
 	@override String get alreadyLinkedGoogle => '已與Google連結';
 	@override String get alreadyLinkedApple => '已與Apple連結';
 	@override String get deleteAccount => '刪除帳戶';
@@ -605,7 +605,7 @@ class _TranslationsMyPlanPageTabsZhHant implements TranslationsMyPlanPageTabsEn 
 
 	// Translations
 	@override String get createdPlans => '已建立方案';
-	@override String get bookmark => '書籤';
+	@override String get bookmark => '收藏';
 }
 
 // Path: myPlanPage.bookmarkItems
@@ -905,7 +905,7 @@ class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements Translati
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get email => '電子郵件地址';
+	@override String get email => '電郵';
 	@override String get password => '密碼';
 }
 
@@ -931,7 +931,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorZhHant implements Translations
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get networkRequestFailed => '請在良好的網絡環境中重試';
+	@override String get networkRequestFailed => '請檢查網路連線後重試';
 	@override String get weakPassword => '密碼太短。請輸入6個字符或更多';
 	@override String get invalidEmail => '電子郵件地址格式不正確';
 	@override String get userNotFound => '找不到帳戶';
@@ -1059,7 +1059,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant implement
 
 	// Translations
 	@override String get receive => '以接收 SMS 驗證碼';
-	@override String get internationalFormat => '使用國際電話號碼格式';
+	@override String get internationalFormat => '國際電話格式';
 	@override String get input => '請輸入您的電話號碼';
 }
 
@@ -1347,15 +1347,15 @@ extension on TranslationsZhHant {
 		switch (path) {
 			case 'navigationBar.items.home': return '首頁';
 			case 'navigationBar.items.myPlan': return '我的計劃';
-			case 'navigationBar.items.myPage': return '我的頁面';
+			case 'navigationBar.items.myPage': return '個人中心';
 			case 'homePage.popularPlans.title': return '熱門計畫';
 			case 'homePage.popularTopics.title': return '熱門話題';
 			case 'homePage.popularTopics.numberOfTopics': return ({required Object number}) => '${number}件~';
 			case 'homePage.recentPlans.title': return '最近創建的計畫';
 			case 'accountPage.title': return '帳戶';
 			case 'accountPage.items.signOut': return '登出';
-			case 'accountPage.items.linkedWithGoogle': return '與Google連結';
-			case 'accountPage.items.linkedWithApple': return '與Apple連結';
+			case 'accountPage.items.linkedWithGoogle': return '連結Google帳號';
+			case 'accountPage.items.linkedWithApple': return '連結Google帳號';
 			case 'accountPage.items.alreadyLinkedGoogle': return '已與Google連結';
 			case 'accountPage.items.alreadyLinkedApple': return '已與Apple連結';
 			case 'accountPage.items.deleteAccount': return '刪除帳戶';
@@ -1383,7 +1383,7 @@ extension on TranslationsZhHant {
 			case 'accountPage.diaLog.deleteAccountText': return '刪除帳戶後，所有數據將被刪除。';
 			case 'authentication.signInPage.title': return '登入';
 			case 'authentication.signInPage.optionText': return ' 或 ';
-			case 'authentication.signInPage.textFields.email': return '電子郵件地址';
+			case 'authentication.signInPage.textFields.email': return '電郵';
 			case 'authentication.signInPage.textFields.password': return '密碼';
 			case 'authentication.signInPage.buttons.signIn': return '登入';
 			case 'authentication.signInPage.buttons.signUp': return '註冊';
@@ -1391,7 +1391,7 @@ extension on TranslationsZhHant {
 			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登入';
 			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登入';
 			case 'authentication.signInPage.buttons.signInAfter': return '稍後註冊';
-			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請在良好的網絡環境中重試';
+			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請檢查網路連線後重試';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密碼太短。請輸入6個字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '電子郵件地址格式不正確';
 			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帳戶';
@@ -1432,7 +1432,7 @@ extension on TranslationsZhHant {
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return '更改電子郵件地址';
 			case 'authentication.phoneNumberInputPage.title': return '輸入電話號碼';
 			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 驗證碼';
-			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '使用國際電話號碼格式';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '國際電話格式';
 			case 'authentication.phoneNumberInputPage.discription.input': return '請輸入您的電話號碼';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話號碼';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '發送 SMS 驗證碼';
@@ -1493,7 +1493,7 @@ extension on TranslationsZhHant {
 			case 'changeThemePage.items.dark': return '黑暗';
 			case 'myPlanPage.title': return '我的方案';
 			case 'myPlanPage.tabs.createdPlans': return '已建立方案';
-			case 'myPlanPage.tabs.bookmark': return '書籤';
+			case 'myPlanPage.tabs.bookmark': return '收藏';
 			case 'myPlanPage.bookmarkItems.nondata': return '暫無收藏方案。';
 			case 'myPlanPage.bookmarkItems.reloading': return '重新載入';
 			case 'myPlanPage.createdPlansItems.nondata': return '開始建立方案吧！';
