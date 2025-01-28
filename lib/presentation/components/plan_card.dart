@@ -84,7 +84,10 @@ class PlanCard extends StatelessWidget {
                 ),
               ],
             ),
-            RankingLabel(ranking: plan.ranking),
+            if (plan.ranking != null)
+              RankingLabel(
+                rankingFuture: Future.value(plan.ranking),
+              ),
           ],
         ),
       ),

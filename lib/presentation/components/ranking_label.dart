@@ -22,41 +22,49 @@ Color rankingColor(int? ranking) {
 class RankingLabel extends StatelessWidget {
   const RankingLabel({
     super.key,
-    required this.ranking,
+    required this.rankingFuture,
   });
-  final int? ranking;
+
+  final Future<int?> rankingFuture;
 
   @override
   Widget build(BuildContext context) {
-    final devicesize = context.deviceWidth;
-    final size = devicesize * 0.1;
-    return Offstage(
-      offstage: ranking == null,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            bottomRight: Radius.circular(32),
-            topRight: Radius.circular(8),
-            topLeft: Radius.circular(12),
-            bottomLeft: Radius.circular(8),
+    return FutureBuilder<int?>(
+      future: rankingFuture, 
+      builder: (context, snapshot) {
+        final ranking = snapshot.data;
+        final devicesize = context.deviceWidth;
+        final size = devicesize * 0.1;
+
+        return Offstage(
+          offstage: ranking == null,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(32),
+                topRight: Radius.circular(8),
+                topLeft: Radius.circular(12),
+                bottomLeft: Radius.circular(8),
+              ),
+              color: rankingColor(ranking),
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: ranking! < 10 ? devicesize * 0.03 : devicesize * 0.01,
+              vertical: devicesize * 0.01,
+            ),
+            width: size,
+            height: size,
+            child: Text(
+              ranking.toString(),
+              style: AppTextStyle.textStyle.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: AppColor.white,
+              ),
+            ),
           ),
-          color: rankingColor(ranking),
-        ),
-        padding: EdgeInsets.symmetric(
-          horizontal: ranking! < 10 ? devicesize * 0.03 : devicesize * 0.01,
-          vertical: devicesize * 0.01,
-        ),
-        width: size,
-        height: size,
-        child: Text(
-          ranking.toString(),
-          style: AppTextStyle.textStyle.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-            color: AppColor.white,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

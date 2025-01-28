@@ -90,7 +90,10 @@ class TopicCard extends StatelessWidget {
                   ),
                 ],
               ),
-              if (enableRanking) RankingLabel(ranking: topic.ranking),
+              if (enableRanking)
+                RankingLabel(
+                  rankingFuture: Future.value(topic.ranking),
+                ),
             ],
           ),
         ),
