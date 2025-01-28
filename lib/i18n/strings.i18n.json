@@ -33,7 +33,7 @@
             "signOutFailure": "An error occurred while signing out.",
             "successfulLinkage": "Account linked successfully.",
             "linkageFailure": "Failed to link account.",
-            "providerAlreadyLinked": "This account is already linked.",
+            "providerAlreadyLinked": "This account has already been linked.",
             "accountDeactivation": "Account linkage has been removed.",
             "invalidCredential": "Please try logging in again.",
             "linkageCancelled": "Account linking was cancelled.",
@@ -152,9 +152,9 @@
         "phoneNumberInputPage": {
             "title": "Enter Phone Number",
             "discription": {
-                "receive": "To receive the SMS code",
-                "internationalFormat": "in international phone number format",
-                "input": "please enter your phone number"
+                "receive": "Please enter your phone number",
+                "internationalFormat": "in international format",
+                "input": "to receive the SMS code"
             },
             "phoneNumber": "Phone Number",
             "sendSmsCode": "Send SMS Code",
@@ -262,7 +262,7 @@
         }
     },
     "buddyChatPage": {
-        "title": "Buddy's Suggestions",
+        "title": "Buddy Suggestions",
         "possibleChatCount": "You can send ${possibleChatCount} more messages",
         "textFields": {
             "message": "Enter message"
@@ -317,7 +317,7 @@
             "Bus"
         ],
         "categoryOptions": [
-            "Family-friendly",
+            "Family-Friendly",
             "Adult",
             "Entertainment",
             "Activity",
