@@ -30,7 +30,7 @@ class RankingLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<int?>(
-      future: rankingFuture, 
+      future: rankingFuture,
       builder: (context, snapshot) {
         final ranking = snapshot.data;
         final devicesize = context.deviceWidth;
