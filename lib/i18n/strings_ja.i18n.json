@@ -392,8 +392,8 @@
                     "fiveDays": "・5日 ${price}",
                     "sevenDays": "・7日 ${price}",
                     "or": "または",
-                    "lifetime": "永年分",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "Unlimited",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -440,8 +440,8 @@
                 "discount": "-10%",
                 "price": "2,070円"
             },
-            "lifetime": {
-                "duration": "永年分",
+            "unlimited": {
+                "duration": "Unlimited",
                 "discount": "-20%",
                 "price": "25,800円"
             }

@@ -392,8 +392,8 @@
                     "fiveDays": "・5일 ${price}",
                     "sevenDays": "・7일 ${price}",
                     "or": "또는",
-                    "lifetime": "평생 이용권",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "무제한",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -440,8 +440,8 @@
                 "discount": "-10%",
                 "price": "2,070원"
             },
-            "lifetime": {
-                "duration": "평생",
+            "unlimited": {
+                "duration": "무제한",
                 "discount": "-20%",
                 "price": "25,800원"
             }

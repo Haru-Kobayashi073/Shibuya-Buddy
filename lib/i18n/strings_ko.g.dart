@@ -842,7 +842,7 @@ class _TranslationsBillDetailsPagePricingOptionsKo implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysKo threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysKo._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysKo fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysKo._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysKo sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysKo._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeKo lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsUnlimitedKo unlimited = _TranslationsBillDetailsPagePricingOptionsUnlimitedKo._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -1244,14 +1244,14 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysKo implements Translati
 	@override String get price => '2,070원';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeKo implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeKo._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class _TranslationsBillDetailsPagePricingOptionsUnlimitedKo implements TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	_TranslationsBillDetailsPagePricingOptionsUnlimitedKo._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '평생';
+	@override String get duration => '무제한';
 	@override String get discount => '-20%';
 	@override String get price => '25,800원';
 }
@@ -1312,8 +1312,8 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo implements Tr
 	@override String fiveDays({required Object price}) => '・5일 ${price}';
 	@override String sevenDays({required Object price}) => '・7일 ${price}';
 	@override String get or => '또는';
-	@override String get lifetime => '평생 이용권';
-	@override String lifetimePrice({required Object price}) => '${price}';
+	@override String get unlimited => '무제한';
+	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1572,8 +1572,8 @@ extension on TranslationsKo {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '또는';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '평생 이용권';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return '무제한';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '등급별 기능';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '플랜 생성 가능 횟수';
 			case 'billDetailsPage.features.rows.chatLimit': return '플랜 생성 중 채팅 가능 횟수';
@@ -1598,9 +1598,9 @@ extension on TranslationsKo {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7일';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070원';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return '평생';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800원';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return '무제한';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800원';
 			case 'billDetailsPage.restorePurchaseSection.title': return '구매 복원';
 			case 'billDetailsPage.restorePurchaseSection.description': return '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';
 			case 'billDetailsPage.restorePurchaseSection.button': return '구매 복원';

@@ -393,8 +393,8 @@
                     "fiveDays": "・5 days ${price}",
                     "sevenDays": "・7 days ${price}",
                     "or": "or",
-                    "lifetime": "Lifetime",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "Unlimited",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -441,8 +441,8 @@
                 "discount": "-10%",
                 "price": "2,070 yen"
             },
-            "lifetime": {
-                "duration": "Lifetime",
+            "unlimited": {
+                "duration": "Unlimited",
                 "discount": "-20%",
                 "price": "25,800 yen"
             }
