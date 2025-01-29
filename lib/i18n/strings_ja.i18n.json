@@ -246,7 +246,7 @@
             "bookmark": "ブックマーク"
         },
         "bookmarkItems": {
-            "nondata": "ブックマークしているプランはありません。",
+            "nondata": "ブックマークしている\nプランはありません",
             "reloading": "再読み込み"
         },
         "createdPlansItems": {

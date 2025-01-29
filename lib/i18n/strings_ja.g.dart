@@ -615,7 +615,7 @@ class _TranslationsMyPlanPageBookmarkItemsJa implements TranslationsMyPlanPageBo
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get nondata => 'ブックマークしているプランはありません。';
+	@override String get nondata => 'ブックマークしている\nプランはありません';
 	@override String get reloading => '再読み込み';
 }
 
@@ -1494,7 +1494,7 @@ extension on TranslationsJa {
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
-			case 'myPlanPage.bookmarkItems.nondata': return 'ブックマークしているプランはありません。';
+			case 'myPlanPage.bookmarkItems.nondata': return 'ブックマークしている\nプランはありません';
 			case 'myPlanPage.bookmarkItems.reloading': return '再読み込み';
 			case 'myPlanPage.createdPlansItems.nondata': return 'プランを作成してみよう!';
 			case 'myPlanPage.createdPlansItems.createaplan': return 'プランを作成する';
