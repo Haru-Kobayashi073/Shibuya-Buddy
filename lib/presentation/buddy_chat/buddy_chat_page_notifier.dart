@@ -220,20 +220,29 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     } on Exception catch (e) {
       debugPrint('Error in buddyChatPageNotifier by _getAllFilledMessage: $e');
     }
-    return chatMessage.copyWith(
-      plan: chatMessage.plan?.copyWith(
-        thumbnailUrl: photoUrls[0],
-        topics: planPrompt.topics,
-      ),
-      places: chatMessage.places?.asMap().entries.map(
-        (entry) {
-          final place = entry.value;
-          return place.copyWith(
-            thumbnailUrl: photoUrls[entry.key],
-          );
-        },
-      ).toList(),
-    );
+    if (forFirstBuild) {
+      return chatMessage.copyWith(
+        plan: chatMessage.plan?.copyWith(
+          thumbnailUrl: photoUrls[0],
+          topics: planPrompt.topics,
+        ),
+        places: chatMessage.places?.asMap().entries.map(
+          (entry) {
+            final place = entry.value;
+            return place.copyWith(
+              thumbnailUrl: photoUrls[entry.key],
+            );
+          },
+        ).toList(),
+      );
+    } else {
+      // 最初のメッセージ以外の場合
+      return _setChatmessageFields(
+        chatMessage,
+        photoUrls,
+        placeDetailStrings,
+      );
+    }
   }
 
   List<String>? getPlaceNamesWithoutAlreadySearched(ChatMessage chatMessage) {
@@ -247,6 +256,61 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         ?.where((place) => !alreadySearchedPlaceNames!.contains(place.name))
         .map((place) => place.name)
         .toList();
+  }
+
+  ChatMessage _setChatmessageFields(
+    ChatMessage chatMessage,
+    List<String> photoUrls,
+    List<String> placeDetailStrings,
+  ) {
+    final lastMessage = state.requireValue.messages.lastWhere(
+      (message) => message.plan != null && message.places != null,
+    );
+    // すでに表示されている場所の数 + 新しく検索した文字列の合計が、これから表示する場所の数と一致する場合
+    // 新しく検索した文字列を元に取得した写真のURLを、新しく検索した場所の写真のURLとして上書き追加
+    if (lastMessage.places!.length + placeDetailStrings.length ==
+        chatMessage.places!.length) {
+      return chatMessage.copyWith(
+        plan: chatMessage.plan?.copyWith(
+          thumbnailUrl: lastMessage.plan!.thumbnailUrl,
+        ),
+        places: [
+          ...lastMessage.places!,
+          ...chatMessage.places!
+              .where(
+            (place) =>
+                !lastMessage.places!.map((e) => e.name).contains(place.name),
+          )
+              .map(
+            (place) {
+              return place.copyWith(
+                thumbnailUrl: photoUrls[chatMessage.places!.indexOf(place) -
+                    lastMessage.places!.length],
+              );
+            },
+          ),
+        ],
+      );
+    } else {
+      // 一つ目の場所から全てが新しく検索されている場合
+      // 新しく検索した文字列を元に取得した写真のURLを、新しく検索した場所の写真のURLとして上書き追加
+
+      return chatMessage.copyWith(
+        plan: chatMessage.plan?.copyWith(
+          thumbnailUrl: photoUrls[0],
+        ),
+        places: [
+          ...chatMessage.places!.asMap().entries.map(
+            (entry) {
+              final place = entry.value;
+              return place.copyWith(
+                thumbnailUrl: photoUrls[entry.key],
+              );
+            },
+          ),
+        ],
+      );
+    }
   }
 
   void changeStandardConfigToPremium() {
