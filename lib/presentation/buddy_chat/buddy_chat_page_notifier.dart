@@ -74,7 +74,10 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     try {
       final res = await geminiDataSource.sendMessage(message: message);
 
-      final buddyMessage = await _getAllFilledMessage(res);
+      final buddyMessage = await _getAllFilledMessage(
+        res,
+        forFirstBuild: false,
+      );
 
       state = AsyncValue.data(
         state.requireValue.copyWith(
@@ -169,7 +172,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
 
-    final buddyMessage = await _getAllFilledMessage(res);
+    final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
 
     final message = ChatMessage(
       id: buddyMessage.id,
@@ -187,14 +190,21 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     );
   }
 
-  Future<ChatMessage> _getAllFilledMessage(ChatMessage chatMessage) async {
+  Future<ChatMessage> _getAllFilledMessage(
+    ChatMessage chatMessage, {
+    required bool forFirstBuild,
+  }) async {
     var placeIds = <String>[];
     var photoUrls = <String>[];
 
     /// 検索したい写真の名前をリスト化
     final placeDetailStrings = <String>[
-      chatMessage.plan?.title ?? '',
-      ...chatMessage.places?.map((place) => place.name) ?? [],
+      if (forFirstBuild) ...[
+        ...chatMessage.places?.map((place) => place.name) ?? [],
+      ] else ...[
+        /// すでに表示されている場所の名前をのぞいた、検索したい写真の名前をリスト化
+        ...getPlaceNamesWithoutAlreadySearched(chatMessage) ?? [],
+      ],
     ];
 
     try {
@@ -219,11 +229,24 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         (entry) {
           final place = entry.value;
           return place.copyWith(
-            thumbnailUrl: photoUrls[entry.key + 1],
+            thumbnailUrl: photoUrls[entry.key],
           );
         },
       ).toList(),
     );
+  }
+
+  List<String>? getPlaceNamesWithoutAlreadySearched(ChatMessage chatMessage) {
+    final alreadySearchedPlaceNames = state.requireValue.messages
+        .lastWhere((message) => message.places != null)
+        .places
+        ?.map((place) => place.name)
+        .toList();
+
+    return chatMessage.places
+        ?.where((place) => !alreadySearchedPlaceNames!.contains(place.name))
+        .map((place) => place.name)
+        .toList();
   }
 
   void changeStandardConfigToPremium() {
