@@ -486,7 +486,7 @@ class _TranslationsAuthenticationEmailVerificationPageKo implements Translations
 
 	// Translations
 	@override String get title => '이메일 주소 확인';
-	@override String descriptionForDestination({required Object email}) => '입력한 ${email}로 확인 이메일을 발송합니다.';
+	@override String descriptionForDestination({required Object email}) => '입력된 ${email}로 확인 이메일을 보냈습니다';
 	@override String get descriptionForCoolDown => '확인 이메일 재발송은 60초마다 1회 가능합니다.';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsKo buttons = _TranslationsAuthenticationEmailVerificationPageButtonsKo._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarKo snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarKo._(_root);
@@ -1402,7 +1402,7 @@ extension on TranslationsKo {
 			case 'authentication.signUpPage.button.defaultText': return '회원가입';
 			case 'authentication.signUpPage.button.modifyEmail': return '변경';
 			case 'authentication.emailVerificationPage.title': return '이메일 주소 확인';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '입력한 ${email}로 확인 이메일을 발송합니다.';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '입력된 ${email}로 확인 이메일을 보냈습니다';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '확인 이메일 재발송은 60초마다 1회 가능합니다.';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '확인 이메일 발송';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '확인 이메일 재발송';

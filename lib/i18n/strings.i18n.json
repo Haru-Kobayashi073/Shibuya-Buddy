@@ -109,7 +109,7 @@
         },
         "emailVerificationPage": {
             "title": "Email Address Verification",
-            "descriptionForDestination": "A verification email will be sent to the entered ${email}.",
+            "descriptionForDestination": "A verification email has been sent to the entered ${email}",
             "descriptionForCoolDown": "You can resend the verification email once every 60 seconds.",
             "buttons": {
                 "sendEmail": "Send Verification Email",
