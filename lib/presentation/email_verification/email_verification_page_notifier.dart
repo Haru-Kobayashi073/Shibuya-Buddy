@@ -20,11 +20,11 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
   @override
   EmailVerificationState build() {
     /// メール認証が完了しているかを一秒ごとに確認する。
-    final timer =
-        Timer.periodic(const Duration(seconds: 1), (Timer timer) async {
+    final checkVerifyTimer = Timer.periodic(const Duration(seconds: 1),
+        (Timer checkVerifyTimer) async {
       final emailVerified = await authenticationDataSource.isEmailVerified();
       if (emailVerified) {
-        timer.cancel();
+        checkVerifyTimer.cancel();
         state = state.copyWith(
           isEmailVerified: true,
           emailVerificationButtonState: EmailVerificationButtonState.verified,
@@ -35,7 +35,8 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
         }
       }
     });
-    ref.onDispose(timer.cancel);
+
+    ref.onDispose(checkVerifyTimer.cancel);
     return const EmailVerificationState();
   }
 
