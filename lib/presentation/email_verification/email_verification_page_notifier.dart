@@ -29,6 +29,10 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
           isEmailVerified: true,
           emailVerificationButtonState: EmailVerificationButtonState.verified,
         );
+      } else {
+        if (checkVerifyTimer.tick == 1) {
+          await sendEmailVerification();
+        }
       }
     });
     ref.onDispose(timer.cancel);
