@@ -20,9 +20,8 @@ class PhoneNumberInputPage extends HookConsumerWidget {
     final i18n = Translations.of(context);
     final i18nPhoneNumberInputPage = i18n.authentication.phoneNumberInputPage;
     final phoneNumberController = useTextEditingController();
+    final state = ref.watch(phoneNumberInputPageNotifierProvider);
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
-    final completePhoneNumber = useState<String>('');
-    final selectedCountryCode = useState<String>('US');
 
     return Scaffold(
       appBar: AppBar(
@@ -65,7 +64,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
               ),
               const Gap(8),
               // 日本+81が選択されていた場合のみ注釈を出す
-              if (selectedCountryCode.value == 'JP') ...[
+              if (state.countryCode == 'JP') ...[
                 Text(
                   '例：日本の電話番号「090-1234-5678」の場合、'
                   '国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
@@ -101,12 +100,12 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                     ),
                   ),
                 ),
-                initialCountryCode: 'US',
+                initialCountryCode: state.countryCode,
                 onChanged: (phone) {
-                  completePhoneNumber.value = phone.completeNumber;
+                  notifier.setCompletePhoneNumber(phone.completeNumber);
                 },
                 onCountryChanged: (country) {
-                  selectedCountryCode.value = country.code;
+                  notifier.changeCountryCode(country.code);
                 },
               ),
               const Gap(32),
@@ -115,10 +114,9 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                 color: AppColor.yellow600Primary,
                 onPressed: () async {
                   await notifier.sendSmsCode(
-                    completePhoneNumber.value,
                     (verificationId) async {
                       await SMSVerificationPageRouteData(
-                        phoneNumber: completePhoneNumber.value,
+                        phoneNumber: state.completePhoneNumber,
                         verificationId: verificationId,
                       ).push<void>(context);
                     },
