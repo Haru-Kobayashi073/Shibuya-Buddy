@@ -5,7 +5,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
-import '../../utils/routes/app_router.dart';
 import 'email_verification_state.dart';
 
 part 'email_verification_page_notifier.g.dart';
@@ -16,6 +15,8 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
       ref.read(authenticationDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  TranslationsAuthenticationEmailVerificationPageSnackBarEn get i18n =>
+      t.authentication.emailVerificationPage.snackBar;
 
   @override
   EmailVerificationState build() {
@@ -47,10 +48,7 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
             EmailVerificationButtonState.initialize) {
       return;
     }
-    final i18n = Translations.of(rootNavigatorKey.currentContext!)
-        .authentication
-        .emailVerificationPage
-        .snackBar;
+
     try {
       await authenticationDataSource.sendEmailVerification();
       state = state.copyWith(
