@@ -19,6 +19,7 @@ mixin _$PhoneNumberInputPageState {
   String get completePhoneNumber =>
       throw _privateConstructorUsedError; // 現在入力されている電話番号
   String get countryCode => throw _privateConstructorUsedError;
+  Country get country => throw _privateConstructorUsedError;
 
   /// Create a copy of PhoneNumberInputPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,7 @@ abstract class $PhoneNumberInputPageStateCopyWith<$Res> {
           $Res Function(PhoneNumberInputPageState) then) =
       _$PhoneNumberInputPageStateCopyWithImpl<$Res, PhoneNumberInputPageState>;
   @useResult
-  $Res call({String completePhoneNumber, String countryCode});
+  $Res call({String completePhoneNumber, String countryCode, Country country});
 }
 
 /// @nodoc
@@ -54,6 +55,7 @@ class _$PhoneNumberInputPageStateCopyWithImpl<$Res,
   $Res call({
     Object? completePhoneNumber = null,
     Object? countryCode = null,
+    Object? country = null,
   }) {
     return _then(_value.copyWith(
       completePhoneNumber: null == completePhoneNumber
@@ -64,6 +66,10 @@ class _$PhoneNumberInputPageStateCopyWithImpl<$Res,
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as Country,
     ) as $Val);
   }
 }
@@ -77,7 +83,7 @@ abstract class _$$PhoneNumberInputPageStateImplCopyWith<$Res>
       __$$PhoneNumberInputPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String completePhoneNumber, String countryCode});
+  $Res call({String completePhoneNumber, String countryCode, Country country});
 }
 
 /// @nodoc
@@ -97,6 +103,7 @@ class __$$PhoneNumberInputPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? completePhoneNumber = null,
     Object? countryCode = null,
+    Object? country = null,
   }) {
     return _then(_$PhoneNumberInputPageStateImpl(
       completePhoneNumber: null == completePhoneNumber
@@ -107,6 +114,10 @@ class __$$PhoneNumberInputPageStateImplCopyWithImpl<$Res>
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as Country,
     ));
   }
 }
@@ -115,7 +126,9 @@ class __$$PhoneNumberInputPageStateImplCopyWithImpl<$Res>
 
 class _$PhoneNumberInputPageStateImpl implements _PhoneNumberInputPageState {
   const _$PhoneNumberInputPageStateImpl(
-      {this.completePhoneNumber = '', this.countryCode = ''});
+      {this.completePhoneNumber = '',
+      this.countryCode = '',
+      required this.country});
 
   @override
   @JsonKey()
@@ -124,10 +137,12 @@ class _$PhoneNumberInputPageStateImpl implements _PhoneNumberInputPageState {
   @override
   @JsonKey()
   final String countryCode;
+  @override
+  final Country country;
 
   @override
   String toString() {
-    return 'PhoneNumberInputPageState(completePhoneNumber: $completePhoneNumber, countryCode: $countryCode)';
+    return 'PhoneNumberInputPageState(completePhoneNumber: $completePhoneNumber, countryCode: $countryCode, country: $country)';
   }
 
   @override
@@ -138,12 +153,13 @@ class _$PhoneNumberInputPageStateImpl implements _PhoneNumberInputPageState {
             (identical(other.completePhoneNumber, completePhoneNumber) ||
                 other.completePhoneNumber == completePhoneNumber) &&
             (identical(other.countryCode, countryCode) ||
-                other.countryCode == countryCode));
+                other.countryCode == countryCode) &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, completePhoneNumber, countryCode);
+      Object.hash(runtimeType, completePhoneNumber, countryCode, country);
 
   /// Create a copy of PhoneNumberInputPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -158,12 +174,15 @@ class _$PhoneNumberInputPageStateImpl implements _PhoneNumberInputPageState {
 abstract class _PhoneNumberInputPageState implements PhoneNumberInputPageState {
   const factory _PhoneNumberInputPageState(
       {final String completePhoneNumber,
-      final String countryCode}) = _$PhoneNumberInputPageStateImpl;
+      final String countryCode,
+      required final Country country}) = _$PhoneNumberInputPageStateImpl;
 
   @override
   String get completePhoneNumber; // 現在入力されている電話番号
   @override
   String get countryCode;
+  @override
+  Country get country;
 
   /// Create a copy of PhoneNumberInputPageState
   /// with the given fields replaced by the non-null parameter values.
