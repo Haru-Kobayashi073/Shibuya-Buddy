@@ -42,7 +42,9 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
 
   Future<void> sendEmailVerification() async {
     if (state.emailVerificationButtonState ==
-        EmailVerificationButtonState.coolDown) {
+            EmailVerificationButtonState.coolDown ||
+        state.emailVerificationButtonState ==
+            EmailVerificationButtonState.initialize) {
       return;
     }
     final i18n = Translations.of(rootNavigatorKey.currentContext!)
