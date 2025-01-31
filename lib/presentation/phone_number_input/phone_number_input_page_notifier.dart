@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:intl_phone_field/countries.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
@@ -30,6 +31,9 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
     };
     return PhoneNumberInputPageState(
       countryCode: countryCode,
+      country: countries.firstWhere(
+        (country) => country.code == countryCode,
+      ),
     );
   }
 
@@ -82,6 +86,12 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
   void setCompletePhoneNumber(String completePhoneNumber) {
     state = state.copyWith(
       completePhoneNumber: completePhoneNumber,
+    );
+  }
+
+  void changeCountry(Country country) {
+    state = state.copyWith(
+      country: country,
     );
   }
 }
