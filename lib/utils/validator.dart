@@ -89,7 +89,7 @@ class Validator {
     if (value == null || value.isEmpty || country == null) {
       return i18n.empty;
     }
-    if (country.code == '81') {
+    if (country.fullCountryCode == '81') {
       if (!RegExp(r'^\d{11}$').hasMatch(value)) {
         return i18n.invalidPhoneNumber;
       }
