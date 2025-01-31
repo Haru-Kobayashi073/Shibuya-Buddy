@@ -6,9 +6,11 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/hooks/use_form_state_key.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../../utils/validator.dart';
 import '../components/wide_button.dart';
 import 'phone_number_input_page_notifier.dart';
 
@@ -22,6 +24,7 @@ class PhoneNumberInputPage extends HookConsumerWidget {
     final phoneNumberController = useTextEditingController();
     final state = ref.watch(phoneNumberInputPageNotifierProvider);
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
+    final formKey = useFormStateKey();
 
     return Scaffold(
       appBar: AppBar(
@@ -68,57 +71,60 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                   ],
                 ),
               ),
-              const Gap(8),
-              // 日本+81が選択されていた場合のみ注釈を出す
-              if (state.countryCode == 'JP') ...[
-                Text(
-                  '例：日本の電話番号「090-1234-5678」の場合、'
-                  '国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
-                  style: AppTextStyle.textStyle.copyWith(
-                    fontSize: 16,
-                  ),
-                ),
-                const Gap(8),
-              ],
               const Gap(32),
-              IntlPhoneField(
-                controller: phoneNumberController,
-                cursorColor: AppColor.blue800Secondary,
-                decoration: InputDecoration(
-                  labelText: i18nPhoneNumberInputPage.phoneNumber,
-                  labelStyle: AppTextStyle.textStyle.copyWith(
-                    color: AppColor.blue900Tertiary,
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.blue800Secondary,
+              Form(
+                key: formKey,
+                child: IntlPhoneField(
+                  controller: phoneNumberController,
+                  cursorColor: AppColor.blue800Secondary,
+                  disableLengthCheck: true,
+                  validator: (phoneNumber) {
+                    return Validator.phoneNumber(
+                      phoneNumber!.number,
+                      state.country,
+                    );
+                  },
+                  decoration: InputDecoration(
+                    labelText: i18nPhoneNumberInputPage.phoneNumber,
+                    labelStyle: AppTextStyle.textStyle.copyWith(
+                      color: AppColor.blue900Tertiary,
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                      ),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                      ),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                        width: 2,
+                      ),
                     ),
                   ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.blue800Secondary,
-                    ),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.blue800Secondary,
-                      width: 2,
-                    ),
-                  ),
+                  initialCountryCode: state.countryCode,
+                  onChanged: (phone) {
+                    notifier.setCompletePhoneNumber(phone.completeNumber);
+                  },
+                  onCountryChanged: (country) {
+                    notifier
+                      ..changeCountry(country)
+                      ..changeCountryCode(country.code);
+                  },
                 ),
-                initialCountryCode: state.countryCode,
-                onChanged: (phone) {
-                  notifier.setCompletePhoneNumber(phone.completeNumber);
-                },
-                onCountryChanged: (country) {
-                  notifier.changeCountryCode(country.code);
-                },
               ),
               const Gap(32),
               WideButton(
                 label: i18nPhoneNumberInputPage.sendSmsCode,
                 color: AppColor.yellow600Primary,
                 onPressed: () async {
+                  if (!formKey.currentState!.validate()) {
+                    return;
+                  }
                   await notifier.sendSmsCode(
                     (verificationId) async {
                       await SMSVerificationPageRouteData(
