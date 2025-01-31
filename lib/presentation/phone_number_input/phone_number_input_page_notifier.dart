@@ -49,9 +49,16 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
       return;
     }
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
+    var phoneNumber = state.completePhoneNumber;
     try {
+      if (state.countryCode == 'JP') {
+        /// 日本の場合は、電話番号の先頭の0を削除する 例: 090-1234-5678 -> 90-1234-5678
+        phoneNumber = state.completePhoneNumber.substring(0, 3) +
+            state.completePhoneNumber.substring(4);
+      }
+
       await authenticationDataSource.sendSmsCode(
-        phoneNumber: state.completePhoneNumber,
+        phoneNumber: phoneNumber,
         onCodeSent: (verificationId) async {
           // SMSコードの送信に成功した場合
           scaffoldMessenger.showSuccessSnackBar(
