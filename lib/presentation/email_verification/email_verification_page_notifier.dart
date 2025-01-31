@@ -43,9 +43,7 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
 
   Future<void> sendEmailVerification() async {
     if (state.emailVerificationButtonState ==
-            EmailVerificationButtonState.coolDown ||
-        state.emailVerificationButtonState ==
-            EmailVerificationButtonState.initialize) {
+        EmailVerificationButtonState.coolDown) {
       return;
     }
 
