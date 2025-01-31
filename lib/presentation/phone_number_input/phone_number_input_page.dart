@@ -53,10 +53,16 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                     TextSpan(
                       text: i18nPhoneNumberInputPage.discription.receive,
                     ),
+                    const TextSpan(
+                      text: ' ',
+                    ),
                     TextSpan(
                       text: i18nPhoneNumberInputPage
                           .discription.internationalFormat,
                       style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const TextSpan(
+                      text: ' ',
                     ),
                     TextSpan(text: i18nPhoneNumberInputPage.discription.input),
                   ],
