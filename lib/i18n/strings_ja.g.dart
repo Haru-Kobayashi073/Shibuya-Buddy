@@ -1055,6 +1055,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa impleme
 
 	// Translations
 	@override String get empty => '電話番号を入力してください';
+	@override String get invalidPhoneNumber => '電話番号の形式が正しくありません';
 	@override String get success => 'SMSコードを送信しました';
 	@override String get error => 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 	@override String get unexpectedError => '予期しないエラーが発生しました:';
@@ -1430,6 +1431,7 @@ extension on TranslationsJa {
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話番号';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMSコードを送信';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '電話番号の形式が正しくありません';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMSコードを送信しました';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';

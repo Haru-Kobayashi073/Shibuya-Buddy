@@ -149,6 +149,7 @@
             "sendSmsCode": "SMSコードを送信",
             "scaffoldMessenger": {
                 "empty": "電話番号を入力してください",
+                "invalidPhoneNumber": "電話番号の形式が正しくありません",
                 "success": "SMSコードを送信しました",
                 "error": "SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。",
                 "unexpectedError": "予期しないエラーが発生しました:",

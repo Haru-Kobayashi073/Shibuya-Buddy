@@ -160,11 +160,11 @@
             "sendSmsCode": "发送 SMS 验证码",
             "scaffoldMessenger": {
                 "empty": "请输入您的电话号码",
+                "invalidPhoneNumber": "电话号码格式不正确",
                 "success": "SMS 验证码已发送",
                 "error": "SMS 验证码发送失败。请确认电话号码后重试。",
                 "unexpectedError": "发生了意外错误：",
                 "phoneNumberVerificaiton": "电话号码验证尚未完成"
-
             }
         },
         "smsVerificationPage": {

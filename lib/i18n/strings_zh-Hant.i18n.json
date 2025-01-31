@@ -160,6 +160,7 @@
             "sendSmsCode": "發送 SMS 驗證碼",
             "scaffoldMessenger": {
                 "empty": "請輸入您的電話號碼",
+                "invalidPhoneNumber": "電話號碼格式不正確",
                 "success": "SMS 驗證碼已發送",
                 "error": "SMS 驗證碼發送失敗。請確認電話號碼後再試一次。",
                 "unexpectedError": "發生未預期的錯誤：",

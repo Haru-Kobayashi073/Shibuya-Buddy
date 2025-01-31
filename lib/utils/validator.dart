@@ -85,12 +85,13 @@ class Validator {
   }
 
   static String? phoneNumber(String? value, Country? country) {
+    final i18n = t.authentication.phoneNumberInputPage.scaffoldMessenger;
     if (value == null || value.isEmpty || country == null) {
-      return '電話番号は必須です';
+      return i18n.empty;
     }
     if (country.code == '81') {
       if (!RegExp(r'^\d{11}$').hasMatch(value)) {
-        return '電話番号が正しくありません';
+        return i18n.invalidPhoneNumber;
       }
     } else {
       final minLength = country.minLength;
@@ -99,7 +100,7 @@ class Validator {
       if (!RegExp(r'^\d+$').hasMatch(value) ||
           value.length < minLength ||
           value.length > maxLength) {
-        return '電話番号が正しくありません';
+        return i18n.invalidPhoneNumber;
       }
     }
     return null;

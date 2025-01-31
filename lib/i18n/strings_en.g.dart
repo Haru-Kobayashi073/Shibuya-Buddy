@@ -1075,6 +1075,7 @@ class TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
 
 	// Translations
 	String get empty => 'Please enter your phone number';
+	String get invalidPhoneNumber => 'The phone number format is incorrect';
 	String get success => 'SMS code has been sent';
 	String get error => 'Failed to send SMS code. Please check your phone number and try again.';
 	String get unexpectedError => 'An unexpected error occurred:';
@@ -1441,6 +1442,7 @@ extension on Translations {
 			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return 'Please enter your phone number';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return 'The phone number format is incorrect';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS code has been sent';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'Failed to send SMS code. Please check your phone number and try again.';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';

@@ -160,11 +160,11 @@
             "sendSmsCode": "Send SMS Code",
             "scaffoldMessenger": {
                 "empty": "Please enter your phone number",
+                "invalidPhoneNumber": "The phone number format is incorrect",
                 "success": "SMS code has been sent",
                 "error": "Failed to send SMS code. Please check your phone number and try again.",
                 "unexpectedError": "An unexpected error occurred:",
                 "phoneNumberVerificaiton": "Phone number verification is not completed."
-
             }
         },
         "smsVerificationPage": {
