@@ -1065,6 +1065,7 @@ class TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
 	String get receive => 'Please enter your phone number';
 	String get internationalFormat => 'in international format';
 	String get input => 'to receive the SMS code';
+	String get purposeForPhoneNumber => 'Your phone number will only be used to send an SMS verification code and will not be used for any other purpose';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1439,6 +1440,7 @@ extension on Translations {
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'Please enter your phone number';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international format';
 			case 'authentication.phoneNumberInputPage.discription.input': return 'to receive the SMS code';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return 'Your phone number will only be used to send an SMS verification code and will not be used for any other purpose';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return 'Please enter your phone number';

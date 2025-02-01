@@ -1045,6 +1045,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo implements Tr
 	@override String get receive => 'SMS 코드를 받으려면';
 	@override String get internationalFormat => '국제 전화번호 형식으로';
 	@override String get input => '전화번호를 입력해주세요';
+	@override String get purposeForPhoneNumber => '전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1428,6 +1429,7 @@ extension on TranslationsKo {
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
 			case 'authentication.phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return '전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '전화번호';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '전화번호를 입력해주세요';

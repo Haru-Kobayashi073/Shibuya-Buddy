@@ -1043,8 +1043,9 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa implements Tr
 
 	// Translations
 	@override String get receive => 'SMSコードを受け取るために';
-	@override String get internationalFormat => '国際電話番号形式';
-	@override String get input => 'で電話番号を入力してください';
+	@override String get internationalFormat => '国際電話番号形式で';
+	@override String get input => '電話番号を入力してください';
+	@override String get purposeForPhoneNumber => 'SMSコードを送信すること以外で電話番号が利用されることはありません';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1426,8 +1427,9 @@ extension on TranslationsJa {
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'メールアドレスの変更';
 			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力';
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMSコードを受け取るために';
-			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式';
-			case 'authentication.phoneNumberInputPage.discription.input': return 'で電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式で';
+			case 'authentication.phoneNumberInputPage.discription.input': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return 'SMSコードを送信すること以外で電話番号が利用されることはありません';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話番号';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMSコードを送信';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '電話番号を入力してください';

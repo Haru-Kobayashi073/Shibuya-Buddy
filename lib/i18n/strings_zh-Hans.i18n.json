@@ -154,7 +154,8 @@
             "discription": {
                 "receive": "以接收 SMS 验证码",
                 "internationalFormat": "国际电话格式",
-                "input": "请输入您的电话号码"
+                "input": "请输入您的电话号码",
+                "purposeForPhoneNumber": "您的电话号码仅用于发送SMS验证码，不会被用于其他用途"
             },
             "phoneNumber": "电话号码",
             "sendSmsCode": "发送 SMS 验证码",

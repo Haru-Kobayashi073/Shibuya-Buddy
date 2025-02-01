@@ -154,7 +154,8 @@
             "discription": {
                 "receive": "Please enter your phone number",
                 "internationalFormat": "in international format",
-                "input": "to receive the SMS code"
+                "input": "to receive the SMS code",
+                "purposeForPhoneNumber": "Your phone number will only be used to send an SMS verification code and will not be used for any other purpose"
             },
             "phoneNumber": "Phone Number",
             "sendSmsCode": "Send SMS Code",

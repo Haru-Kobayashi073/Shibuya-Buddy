@@ -71,6 +71,14 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                   ],
                 ),
               ),
+              const Gap(4),
+              Text(
+                i18nPhoneNumberInputPage.discription.purposeForPhoneNumber,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  color: AppColor.red.withOpacity(0.7),
+                ),
+              ),
               const Gap(32),
               Form(
                 key: formKey,

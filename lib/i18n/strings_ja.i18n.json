@@ -142,8 +142,9 @@
             "title": "電話番号を入力",
             "discription": {
                 "receive": "SMSコードを受け取るために",
-                "internationalFormat" : "国際電話番号形式",
-                "input": "で電話番号を入力してください"
+                "internationalFormat" : "国際電話番号形式で",
+                "input": "電話番号を入力してください",
+                "purposeForPhoneNumber": "SMSコードを送信すること以外で電話番号が利用されることはありません"
             },
             "phoneNumber": "電話番号",
             "sendSmsCode": "SMSコードを送信",
