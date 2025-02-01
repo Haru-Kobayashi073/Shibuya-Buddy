@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
@@ -24,6 +25,9 @@ part 'buddy_chat_page_notifier.g.dart';
 class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   GeminiDataSource get geminiDataSource =>
       ref.read(geminiDataSourceProvider.notifier);
+
+  // GeminiMockDataSource get geminiDataSource =>
+  //     ref.read(geminiMockDataSourceProvider.notifier);
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
   PlaceDetailDataSource get placeDetailDataSource =>
@@ -163,11 +167,34 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
     final scrollController = ScrollController();
 
-    ref.onDispose(
-      scrollController.dispose,
-    );
+    ref.onDispose(scrollController.dispose);
 
-    final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+    ChatMessage? res;
+    const maxRetries = 3;
+    var retryCount = 0;
+
+    while (retryCount < maxRetries) {
+      try {
+        res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+
+        if (res.places != null && res.plan != null) {
+          break;
+        }
+      } on GenerativeAIException catch (e) {
+        debugPrint('${retryCount + 1} 回目失敗: $e');
+      }
+
+      retryCount++;
+
+      if (retryCount < maxRetries) {
+        debugPrint('再執行($retryCount/$maxRetries)');
+        await Future<void>.delayed(const Duration(seconds: 1));
+      }
+    }
+    if (res == null || res.places == null || res.plan == null) {
+      debugPrint('Failed to fetch response after $maxRetries attempts.');
+      throw Exception('Failed to fetch AI response.');
+    }
 
     final buddyMessage = await _getAllFilledMessage(res);
 
@@ -208,7 +235,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         placeIds: placeIds,
       );
     } on Exception catch (e) {
-      debugPrint('Error in buddyChatPageNotifier by _getAllFilledMessage: $e');
+      debugPrint('Error in by _getAllFilledMessage: $e');
     }
     return chatMessage.copyWith(
       plan: chatMessage.plan?.copyWith(
