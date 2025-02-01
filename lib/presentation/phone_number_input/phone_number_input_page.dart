@@ -56,17 +56,13 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                     TextSpan(
                       text: i18nPhoneNumberInputPage.discription.receive,
                     ),
-                    const TextSpan(
-                      text: ' ',
-                    ),
-                    TextSpan(
-                      text: i18nPhoneNumberInputPage
-                          .discription.internationalFormat,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const TextSpan(
-                      text: ' ',
-                    ),
+                    if (state.countryCode != 'JP')
+                      TextSpan(
+                        text:
+                            // ignore: lines_longer_than_80_chars for comment
+                            ' ${i18nPhoneNumberInputPage.discription.internationalFormat} ',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     TextSpan(text: i18nPhoneNumberInputPage.discription.input),
                   ],
                 ),
