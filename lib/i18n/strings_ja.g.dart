@@ -486,7 +486,7 @@ class _TranslationsAuthenticationEmailVerificationPageJa implements Translations
 
 	// Translations
 	@override String get title => 'メールアドレスの確認';
-	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信します';
+	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信しました';
 	@override String get descriptionForCoolDown => '確認メールの再送信は、60秒ごとに1回可能です。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsJa buttons = _TranslationsAuthenticationEmailVerificationPageButtonsJa._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarJa snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarJa._(_root);
@@ -1403,7 +1403,7 @@ extension on TranslationsJa {
 			case 'authentication.signUpPage.button.defaultText': return '新規登録';
 			case 'authentication.signUpPage.button.modifyEmail': return '変更';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信しました';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認メールの再送信は、60秒ごとに1回可能です。';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '確認メールを送信';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '確認メールを再送信';

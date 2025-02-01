@@ -496,7 +496,7 @@ class _TranslationsAuthenticationEmailVerificationPageZhHant implements Translat
 
 	// Translations
 	@override String get title => '電子郵件地址驗證';
-	@override String descriptionForDestination({required Object email}) => '將向輸入的${email}發送確認郵件。';
+	@override String descriptionForDestination({required Object email}) => '已向輸入的${email}發送了驗證郵件';
 	@override String get descriptionForCoolDown => '確認郵件每60秒只能重新發送一次。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHant buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(_root);
@@ -1410,7 +1410,7 @@ extension on TranslationsZhHant {
 			case 'authentication.signUpPage.button.defaultText': return '註冊';
 			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '已向輸入的${email}發送了驗證郵件';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '發送確認郵件';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';

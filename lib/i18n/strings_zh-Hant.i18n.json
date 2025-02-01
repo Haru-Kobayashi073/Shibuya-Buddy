@@ -109,7 +109,7 @@
         },
         "emailVerificationPage": {
             "title": "電子郵件地址驗證",
-            "descriptionForDestination": "將向輸入的${email}發送確認郵件。",
+            "descriptionForDestination": "已向輸入的${email}發送了驗證郵件",
             "descriptionForCoolDown": "確認郵件每60秒只能重新發送一次。",
             "buttons": {
                 "sendEmail": "發送確認郵件",

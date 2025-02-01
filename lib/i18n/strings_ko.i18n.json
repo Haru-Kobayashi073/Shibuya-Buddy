@@ -98,7 +98,7 @@
         },
         "emailVerificationPage": {
             "title": "이메일 주소 확인",
-            "descriptionForDestination": "입력한 ${email}로 확인 이메일을 발송합니다.",
+            "descriptionForDestination": "입력된 ${email}로 확인 이메일을 보냈습니다",
             "descriptionForCoolDown": "확인 이메일 재발송은 60초마다 1회 가능합니다.",
             "buttons": {
                 "sendEmail": "확인 이메일 발송",

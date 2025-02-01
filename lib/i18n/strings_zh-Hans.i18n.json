@@ -109,7 +109,7 @@
         },
         "emailVerificationPage": {
             "title": "邮箱地址验证",
-            "descriptionForDestination": "将向输入的${email}发送确认邮件。",
+            "descriptionForDestination": "已向输入的${email}发送了验证邮件",
             "descriptionForCoolDown": "确认邮件每60秒只能重新发送一次。",
             "buttons": {
                 "sendEmail": "发送确认邮件",

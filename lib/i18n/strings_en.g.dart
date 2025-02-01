@@ -500,7 +500,7 @@ class TranslationsAuthenticationEmailVerificationPageEn {
 
 	// Translations
 	String get title => 'Email Address Verification';
-	String descriptionForDestination({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+	String descriptionForDestination({required Object email}) => 'A verification email has been sent to the entered ${email}';
 	String get descriptionForCoolDown => 'You can resend the verification email once every 60 seconds.';
 	late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons = TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
 	late final TranslationsAuthenticationEmailVerificationPageSnackBarEn snackBar = TranslationsAuthenticationEmailVerificationPageSnackBarEn._(_root);
@@ -1414,7 +1414,7 @@ extension on Translations {
 			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
 			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email has been sent to the entered ${email}';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return 'Send Verification Email';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Verification Email';

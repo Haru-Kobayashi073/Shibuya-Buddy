@@ -98,7 +98,7 @@
         },
         "emailVerificationPage": {
             "title": "メールアドレスの確認",
-            "descriptionForDestination": "入力された${email}に確認メールを送信します",
+            "descriptionForDestination": "入力された${email}に確認メールを送信しました",
             "descriptionForCoolDown": "確認メールの再送信は、60秒ごとに1回可能です。",
             "buttons": {
                 "sendEmail": "確認メールを送信",
