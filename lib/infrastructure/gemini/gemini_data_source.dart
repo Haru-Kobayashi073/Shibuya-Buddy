@@ -187,8 +187,14 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
       TextPart(translatedPrompt),
     ]);
     final response = await state.sendMessage(convertModelToString);
+    if (response.text == null) {
+      throw GenerativeAIException('Failed to send message');
+    }
 
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
+    if (jsonMap.isEmpty) {
+      throw GenerativeAIException('Failed to send message');
+    }
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
     return ChatMessage(
       id: const Uuid().v4(),
