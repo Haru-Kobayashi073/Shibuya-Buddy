@@ -139,7 +139,7 @@
             }
         },
         "phoneNumberInputPage": {
-            "title": "電話番号を入力,",
+            "title": "電話番号を入力",
             "discription": {
                 "receive": "SMSコードを受け取るために",
                 "internationalFormat" : "国際電話番号形式",

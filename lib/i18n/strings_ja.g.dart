@@ -525,7 +525,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageJa implements TranslationsA
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '電話番号を入力,';
+	@override String get title => '電話番号を入力';
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa._(_root);
 	@override String get phoneNumber => '電話番号';
 	@override String get sendSmsCode => 'SMSコードを送信';
@@ -1424,7 +1424,7 @@ extension on TranslationsJa {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'ログイン画面へ';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '確認メールを再送信';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'メールアドレスの変更';
-			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力,';
+			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力';
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMSコードを受け取るために';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式';
 			case 'authentication.phoneNumberInputPage.discription.input': return 'で電話番号を入力してください';
