@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,6 +15,7 @@ import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
+import '../components/change_language_dialog.dart';
 import '../components/simple_text_field.dart';
 import '../components/wide_button.dart';
 import 'sign_in_page_notifier.dart';
@@ -27,10 +30,29 @@ class SignInPage extends HookConsumerWidget {
     final focusNode = useFocusNode();
     final hidePassword = useState(true);
     final formKey = useFormStateKey();
+    final hasAlreadyLaunchedFirstTime = ref.watch(signInPageNotifierProvider);
     final notifier = ref.read(signInPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
     final i18nSignInPage = i18n.authentication.signInPage;
     final i18nLanguage = i18n.changeLanguagePage.items;
+
+    useEffect(
+      () {
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) async {
+            if (!hasAlreadyLaunchedFirstTime) {
+              await showDialog<void>(
+                context: context,
+                builder: (_) => const ChangeLanguageDialog(),
+              );
+              await notifier.setFalseSharedPreferencesKey();
+            }
+          },
+        );
+        return null;
+      },
+      [],
+    );
 
     Future<void> signIn() async {
       if (formKey.currentState!.validate()) {

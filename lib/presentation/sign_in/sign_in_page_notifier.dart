@@ -18,10 +18,16 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  SharedPreferencesService get sharedPreferencesService =>
+      ref.read(sharedPreferencesServiceProvider.notifier);
 
   @override
-  void build() {
-    return;
+  bool build() {
+    final hasAlreadyLaunchedFirstTime = sharedPreferencesService.getBoolValue(
+      key: SharedPreferencesKey.hasAlreadyLaunchedFirstTime,
+    );
+
+    return hasAlreadyLaunchedFirstTime;
   }
 
   Future<void> signInWithEmailAndPassword({
