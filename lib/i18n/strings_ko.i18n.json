@@ -147,12 +147,14 @@
             "discription": {
                 "receive": "SMS 코드를 받으려면",
                 "internationalFormat": "국제 전화번호 형식으로",
-                "input": "전화번호를 입력해주세요"
+                "input": "전화번호를 입력해주세요",
+                "purposeForPhoneNumber": "전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다"
             },
             "phoneNumber": "전화번호",
             "sendSmsCode": "SMS 코드 보내기",
             "scaffoldMessenger": {
                 "empty": "전화번호를 입력해주세요",
+                "invalidPhoneNumber": "전화번호 형식이 올바르지 않습니다",
                 "success": "SMS 코드가 전송되었습니다",
                 "error": "SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.",
                 "unexpectedError": "예기치 못한 오류가 발생했습니다:",

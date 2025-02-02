@@ -526,7 +526,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageJa implements TranslationsA
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '電話番号を入力,';
+	@override String get title => '電話番号を入力';
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa._(_root);
 	@override String get phoneNumber => '電話番号';
 	@override String get sendSmsCode => 'SMSコードを送信';
@@ -1055,8 +1055,9 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa implements Tr
 
 	// Translations
 	@override String get receive => 'SMSコードを受け取るために';
-	@override String get internationalFormat => '国際電話番号形式';
-	@override String get input => 'で電話番号を入力してください';
+	@override String get internationalFormat => '国際電話番号形式で';
+	@override String get input => '電話番号を入力してください';
+	@override String get purposeForPhoneNumber => 'SMSコードを送信すること以外で電話番号が利用されることはありません';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1067,6 +1068,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa impleme
 
 	// Translations
 	@override String get empty => '電話番号を入力してください';
+	@override String get invalidPhoneNumber => '電話番号の形式が正しくありません';
 	@override String get success => 'SMSコードを送信しました';
 	@override String get error => 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 	@override String get unexpectedError => '予期しないエラーが発生しました:';
@@ -1437,13 +1439,15 @@ extension on TranslationsJa {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'ログイン画面へ';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '確認メールを再送信';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'メールアドレスの変更';
-			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力,';
+			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力';
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMSコードを受け取るために';
-			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式';
-			case 'authentication.phoneNumberInputPage.discription.input': return 'で電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式で';
+			case 'authentication.phoneNumberInputPage.discription.input': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return 'SMSコードを送信すること以外で電話番号が利用されることはありません';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話番号';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMSコードを送信';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '電話番号の形式が正しくありません';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMSコードを送信しました';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';

@@ -143,16 +143,18 @@
             }
         },
         "phoneNumberInputPage": {
-            "title": "電話番号を入力,",
+            "title": "電話番号を入力",
             "discription": {
                 "receive": "SMSコードを受け取るために",
-                "internationalFormat" : "国際電話番号形式",
-                "input": "で電話番号を入力してください"
+                "internationalFormat" : "国際電話番号形式で",
+                "input": "電話番号を入力してください",
+                "purposeForPhoneNumber": "SMSコードを送信すること以外で電話番号が利用されることはありません"
             },
             "phoneNumber": "電話番号",
             "sendSmsCode": "SMSコードを送信",
             "scaffoldMessenger": {
                 "empty": "電話番号を入力してください",
+                "invalidPhoneNumber": "電話番号の形式が正しくありません",
                 "success": "SMSコードを送信しました",
                 "error": "SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。",
                 "unexpectedError": "予期しないエラーが発生しました:",
