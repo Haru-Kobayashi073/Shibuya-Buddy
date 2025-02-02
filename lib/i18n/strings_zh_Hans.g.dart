@@ -1061,6 +1061,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHans implement
 	@override String get receive => '以接收 SMS 验证码';
 	@override String get internationalFormat => '国际电话格式';
 	@override String get input => '请输入您的电话号码';
+	@override String get purposeForPhoneNumber => '您的电话号码仅用于发送SMS验证码，不会被用于其他用途';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1071,6 +1072,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHans imp
 
 	// Translations
 	@override String get empty => '请输入您的电话号码';
+	@override String get invalidPhoneNumber => '电话号码格式不正确';
 	@override String get success => 'SMS 验证码已发送';
 	@override String get error => 'SMS 验证码发送失败。请确认电话号码后重试。';
 	@override String get unexpectedError => '发生了意外错误：';
@@ -1434,9 +1436,11 @@ extension on TranslationsZhHans {
 			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 验证码';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国际电话格式';
 			case 'authentication.phoneNumberInputPage.discription.input': return '请输入您的电话号码';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return '您的电话号码仅用于发送SMS验证码，不会被用于其他用途';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '电话号码';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '发送 SMS 验证码';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '请输入您的电话号码';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '电话号码格式不正确';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 验证码已发送';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 验证码发送失败。请确认电话号码后重试。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';

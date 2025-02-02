@@ -6,9 +6,11 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/hooks/use_form_state_key.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../../utils/validator.dart';
 import '../components/wide_button.dart';
 import 'phone_number_input_page_notifier.dart';
 
@@ -20,9 +22,9 @@ class PhoneNumberInputPage extends HookConsumerWidget {
     final i18n = Translations.of(context);
     final i18nPhoneNumberInputPage = i18n.authentication.phoneNumberInputPage;
     final phoneNumberController = useTextEditingController();
+    final state = ref.watch(phoneNumberInputPageNotifierProvider);
     final notifier = ref.watch(phoneNumberInputPageNotifierProvider.notifier);
-    final completePhoneNumber = useState<String>('');
-    final selectedCountryCode = useState<String>('US');
+    final formKey = useFormStateKey();
 
     return Scaffold(
       appBar: AppBar(
@@ -54,71 +56,83 @@ class PhoneNumberInputPage extends HookConsumerWidget {
                     TextSpan(
                       text: i18nPhoneNumberInputPage.discription.receive,
                     ),
-                    TextSpan(
-                      text: i18nPhoneNumberInputPage
-                          .discription.internationalFormat,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    if (state.countryCode != 'JP')
+                      TextSpan(
+                        text:
+                            // ignore: lines_longer_than_80_chars for comment
+                            ' ${i18nPhoneNumberInputPage.discription.internationalFormat} ',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     TextSpan(text: i18nPhoneNumberInputPage.discription.input),
                   ],
                 ),
               ),
-              const Gap(8),
-              // 日本+81が選択されていた場合のみ注釈を出す
-              if (selectedCountryCode.value == 'JP') ...[
-                Text(
-                  '例：日本の電話番号「090-1234-5678」の場合、'
-                  '国番号「+81」を付けて「+81 90-1234-5678」と入力してください。',
-                  style: AppTextStyle.textStyle.copyWith(
-                    fontSize: 16,
-                  ),
+              const Gap(4),
+              Text(
+                i18nPhoneNumberInputPage.discription.purposeForPhoneNumber,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 16,
+                  color: AppColor.red.withOpacity(0.7),
                 ),
-                const Gap(8),
-              ],
+              ),
               const Gap(32),
-              IntlPhoneField(
-                controller: phoneNumberController,
-                cursorColor: AppColor.blue800Secondary,
-                decoration: InputDecoration(
-                  labelText: i18nPhoneNumberInputPage.phoneNumber,
-                  labelStyle: AppTextStyle.textStyle.copyWith(
-                    color: AppColor.blue900Tertiary,
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.blue800Secondary,
+              Form(
+                key: formKey,
+                child: IntlPhoneField(
+                  controller: phoneNumberController,
+                  cursorColor: AppColor.blue800Secondary,
+                  disableLengthCheck: true,
+                  validator: (phoneNumber) {
+                    return Validator.phoneNumber(
+                      phoneNumber!.number,
+                      state.country,
+                    );
+                  },
+                  decoration: InputDecoration(
+                    labelText: i18nPhoneNumberInputPage.phoneNumber,
+                    labelStyle: AppTextStyle.textStyle.copyWith(
+                      color: AppColor.blue900Tertiary,
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                      ),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                      ),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                        width: 2,
+                      ),
                     ),
                   ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.blue800Secondary,
-                    ),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.blue800Secondary,
-                      width: 2,
-                    ),
-                  ),
+                  initialCountryCode: state.countryCode,
+                  onChanged: (phone) {
+                    notifier.setCompletePhoneNumber(phone.completeNumber);
+                  },
+                  onCountryChanged: (country) {
+                    notifier
+                      ..changeCountry(country)
+                      ..changeCountryCode(country.code);
+                  },
                 ),
-                initialCountryCode: 'US',
-                onChanged: (phone) {
-                  completePhoneNumber.value = phone.completeNumber;
-                },
-                onCountryChanged: (country) {
-                  selectedCountryCode.value = country.code;
-                },
               ),
               const Gap(32),
               WideButton(
                 label: i18nPhoneNumberInputPage.sendSmsCode,
                 color: AppColor.yellow600Primary,
                 onPressed: () async {
+                  if (!formKey.currentState!.validate()) {
+                    return;
+                  }
                   await notifier.sendSmsCode(
-                    completePhoneNumber.value,
                     (verificationId) async {
                       await SMSVerificationPageRouteData(
-                        phoneNumber: completePhoneNumber.value,
+                        phoneNumber: state.completePhoneNumber,
                         verificationId: verificationId,
                       ).push<void>(context);
                     },

@@ -1045,6 +1045,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo implements Tr
 	@override String get receive => 'SMS 코드를 받으려면';
 	@override String get internationalFormat => '국제 전화번호 형식으로';
 	@override String get input => '전화번호를 입력해주세요';
+	@override String get purposeForPhoneNumber => '전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1055,6 +1056,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo impleme
 
 	// Translations
 	@override String get empty => '전화번호를 입력해주세요';
+	@override String get invalidPhoneNumber => '전화번호 형식이 올바르지 않습니다';
 	@override String get success => 'SMS 코드가 전송되었습니다';
 	@override String get error => 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
 	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
@@ -1427,9 +1429,11 @@ extension on TranslationsKo {
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
 			case 'authentication.phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return '전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '전화번호';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '전화번호 형식이 올바르지 않습니다';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 코드가 전송되었습니다';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';

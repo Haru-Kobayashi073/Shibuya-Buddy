@@ -1,4 +1,5 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:intl_phone_field/countries.dart';
 
 import '../i18n/strings.g.dart';
 import 'routes/app_router.dart';
@@ -78,6 +79,28 @@ class Validator {
       });
       if (byteCount > maxBytes) {
         return _i18nValidation.usernameMaxLength;
+      }
+    }
+    return null;
+  }
+
+  static String? phoneNumber(String? value, Country? country) {
+    final i18n = t.authentication.phoneNumberInputPage.scaffoldMessenger;
+    if (value == null || value.isEmpty || country == null) {
+      return i18n.empty;
+    }
+    if (country.fullCountryCode == '81') {
+      if (!RegExp(r'^\d{11}$').hasMatch(value)) {
+        return i18n.invalidPhoneNumber;
+      }
+    } else {
+      final minLength = country.minLength;
+      final maxLength = country.maxLength;
+
+      if (!RegExp(r'^\d+$').hasMatch(value) ||
+          value.length < minLength ||
+          value.length > maxLength) {
+        return i18n.invalidPhoneNumber;
       }
     }
     return null;
