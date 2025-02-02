@@ -29,4 +29,16 @@ class SharedPreferencesService extends _$SharedPreferencesService {
   Future<void> removeValue({required String key}) async {
     await ref.read(sharedPreferencesProvider).remove(key);
   }
+
+  Future<bool> setBoolValue({
+    required String key,
+    required bool value,
+  }) async {
+    return ref.read(sharedPreferencesProvider).setBool(key, value);
+  }
+
+  bool getBoolValue({required String key}) {
+    final value = ref.read(sharedPreferencesProvider).getBool(key);
+    return value ?? false;
+  }
 }
