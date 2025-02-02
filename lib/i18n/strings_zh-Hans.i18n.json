@@ -70,6 +70,10 @@
                 "appleSignIn": "使用Apple登录",
                 "googleSignIn": "使用Google登录",
                 "signInAfter": "稍后注册"
+            },
+            "changeLanguageDialog": {
+                "title": "选择语言",
+                "button": "关闭"
             }
         },
         "firebaseAuth": {

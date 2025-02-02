@@ -451,6 +451,7 @@ class _TranslationsAuthenticationSignInPageZhHant implements TranslationsAuthent
 	@override String get optionText => ' 或 ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHant._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsZhHant buttons = _TranslationsAuthenticationSignInPageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -924,6 +925,17 @@ class _TranslationsAuthenticationSignInPageButtonsZhHant implements Translations
 	@override String get signInAfter => '稍後註冊';
 }
 
+// Path: authentication.signInPage.changeLanguageDialog
+class _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '選擇語言';
+	@override String get button => '關閉';
+}
+
 // Path: authentication.firebaseAuth.error
 class _TranslationsAuthenticationFirebaseAuthErrorZhHant implements TranslationsAuthenticationFirebaseAuthErrorEn {
 	_TranslationsAuthenticationFirebaseAuthErrorZhHant._(this._root);
@@ -1391,6 +1403,8 @@ extension on TranslationsZhHant {
 			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登入';
 			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登入';
 			case 'authentication.signInPage.buttons.signInAfter': return '稍後註冊';
+			case 'authentication.signInPage.changeLanguageDialog.title': return '選擇語言';
+			case 'authentication.signInPage.changeLanguageDialog.button': return '關閉';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請檢查網路連線後重試';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密碼太短。請輸入6個字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '電子郵件地址格式不正確';

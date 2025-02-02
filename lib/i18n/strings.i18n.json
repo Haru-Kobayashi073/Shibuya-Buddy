@@ -70,6 +70,10 @@
                 "appleSignIn": "Sign in with Apple",
                 "googleSignIn": "Sign in with Google",
                 "signInAfter": "Register Later"
+            },
+            "changeLanguageDialog": {
+                "title": "Select Language",
+                "button": "Close"
             }
         },
         "firebaseAuth": {
@@ -164,7 +168,6 @@
                 "error": "Failed to send SMS code. Please check your phone number and try again.",
                 "unexpectedError": "An unexpected error occurred:",
                 "phoneNumberVerificaiton": "Phone number verification is not completed."
-
             }
         },
         "smsVerificationPage": {
