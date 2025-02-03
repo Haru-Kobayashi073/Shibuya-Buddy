@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ Future<void> main() async {
       ? prod.DefaultFirebaseOptions.currentPlatform
       : dev.DefaultFirebaseOptions.currentPlatform;
   await Firebase.initializeApp(options: firebaseOptions);
-
+  await FirebaseAppCheck.instance.activate();
   if (flavor == 'prod') {
     // Pass all uncaught "fatal" errors from the framework to Crashlytics
     FlutterError.onError = (errorDetails) {
