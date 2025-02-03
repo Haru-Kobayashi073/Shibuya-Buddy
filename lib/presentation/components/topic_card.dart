@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import 'presistent_cached_network_image.dart';
 import 'ranking_label.dart';
 
-class TopicCard extends StatelessWidget {
+class TopicCard extends ConsumerWidget {
   const TopicCard({
     super.key,
     required this.topic,
@@ -20,16 +22,18 @@ class TopicCard extends StatelessWidget {
   final bool enableRanking;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
     const padding = 16 * 2 + 8; // 16: padding, 8: spacing
     final cardWidth = (context.deviceWidth - padding) / 2; // 横2列のため割る
+    final localeNotifier = ref.read(localeServiceProvider.notifier);
+    final topicName = localeNotifier.getTranslatedTopicName(topic);
 
     return SizedBox(
       width: cardWidth,
       child: GestureDetector(
         onTap: () async => PlansRelatedInTopicRouteData(
-          topicName: topic.name,
+          topicName: topicName,
           $extra: topic.relatedPlanIds,
         ).push(context),
         child: DecoratedBox(
@@ -66,7 +70,7 @@ class TopicCard extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            topic.name,
+                            topicName,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyle.textStyle.copyWith(
