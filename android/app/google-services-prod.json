@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "416095109609-hu7v2fh4vqpmgico83ppv3pmbss66qod.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shibuya.buddy",
+            "certificate_hash": "1221c46c6a3e1449b90194dc5a945061a2506a46"
+          }
+        },
+        {
           "client_id": "416095109609-ufqn7gj1e7mft5a3kbkv85t7j38egrfo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
