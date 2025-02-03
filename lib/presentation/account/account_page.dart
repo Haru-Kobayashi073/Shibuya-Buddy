@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
@@ -40,36 +42,37 @@ class AccountPage extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Opacity(
-              opacity: accountLinkage.appleLinkage ? 0.4 : 1,
-              child: WideButton.icon(
-                label: accountLinkage.appleLinkage
-                    ? itemi18n.alreadyLinkedApple
-                    : itemi18n.linkedWithApple,
-                color: AppColor.blue50Background,
-                icon: SvgPicture.asset(Assets.icons.appleIcon),
-                onPressed: () async {
-                  if (accountLinkage.appleLinkage) {
-                    await showDialog<void>(
-                      context: context,
-                      builder: (context) {
-                        return ConfirmDialog(
-                          onConfirm: () async {
-                            await notifier.unlinkSocialAccount(
-                              SocialAuthDomain.apple,
-                            );
-                          },
-                          titleText: diaLogi18n.title,
-                          bodyText: diaLogi18n.appleText,
-                        );
-                      },
-                    );
-                  } else {
-                    await notifier.linkedWithApple();
-                  }
-                },
+            if (!Platform.isAndroid)
+              Opacity(
+                opacity: accountLinkage.appleLinkage ? 0.4 : 1,
+                child: WideButton.icon(
+                  label: accountLinkage.appleLinkage
+                      ? itemi18n.alreadyLinkedApple
+                      : itemi18n.linkedWithApple,
+                  color: AppColor.blue50Background,
+                  icon: SvgPicture.asset(Assets.icons.appleIcon),
+                  onPressed: () async {
+                    if (accountLinkage.appleLinkage) {
+                      await showDialog<void>(
+                        context: context,
+                        builder: (context) {
+                          return ConfirmDialog(
+                            onConfirm: () async {
+                              await notifier.unlinkSocialAccount(
+                                SocialAuthDomain.apple,
+                              );
+                            },
+                            titleText: diaLogi18n.title,
+                            bodyText: diaLogi18n.appleText,
+                          );
+                        },
+                      );
+                    } else {
+                      await notifier.linkedWithApple();
+                    }
+                  },
+                ),
               ),
-            ),
             const SizedBox(height: 16),
             Opacity(
               opacity: accountLinkage.googleLinkage ? 0.4 : 1,

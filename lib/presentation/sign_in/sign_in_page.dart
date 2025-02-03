@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -220,22 +221,23 @@ class SignInPage extends HookConsumerWidget {
                   ),
                 ),
                 const SliverGap(16),
-                SliverToBoxAdapter(
-                  child: WideButton.icon(
-                    label: i18nSignInPage.buttons.appleSignIn,
-                    color: AppColor.blue50Background,
-                    icon: SvgPicture.asset(Assets.icons.appleIcon),
-                    onPressed: () async => notifier.signInWithApple(
-                      needEmailVerify: (email) async =>
-                          EmailVerificationPageRouteData(email: email)
-                              .go(context),
-                      needPhoneVerify: () async =>
-                          const PhoneNumberInputPageRouteData().go(context),
-                      onSuccess: () async =>
-                          const HomeScreenRouteData().go(context),
+                if (!Platform.isAndroid)
+                  SliverToBoxAdapter(
+                    child: WideButton.icon(
+                      label: i18nSignInPage.buttons.appleSignIn,
+                      color: AppColor.blue50Background,
+                      icon: SvgPicture.asset(Assets.icons.appleIcon),
+                      onPressed: () async => notifier.signInWithApple(
+                        needEmailVerify: (email) async =>
+                            EmailVerificationPageRouteData(email: email)
+                                .go(context),
+                        needPhoneVerify: () async =>
+                            const PhoneNumberInputPageRouteData().go(context),
+                        onSuccess: () async =>
+                            const HomeScreenRouteData().go(context),
+                      ),
                     ),
                   ),
-                ),
                 const SliverGap(16),
                 SliverToBoxAdapter(
                   child: WideButton.icon(
