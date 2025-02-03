@@ -1,5 +1,5 @@
 "NSPhotoLibraryUsageDescription" = "您是否允许从相册中选择个人资料图标？";
-
+"NSUserTrackingUsageDescription" = "为了优化广告等，我们将跟踪您的数据。";
 /*
   InfoPlist.strings
   Runner
