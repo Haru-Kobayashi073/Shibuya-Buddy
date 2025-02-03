@@ -12,6 +12,7 @@ const firestore = admin.firestore();
 functions.setGlobalOptions({
     region: "asia-northeast1",
     timeoutSeconds: 300,
+    enforceAppCheck: true,
 });
 
 const cloudTasksClient = new CloudTasksClient();
