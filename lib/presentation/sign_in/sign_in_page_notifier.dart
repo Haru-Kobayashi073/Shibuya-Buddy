@@ -112,7 +112,7 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   Future<void> setFalseSharedPreferencesKey() async {
     await sharedPreferencesService.setBoolValue(
       key: SharedPreferencesKey.hasAlreadyLaunchedFirstTime,
-      value: false,
+      value: true,
     );
   }
 }
