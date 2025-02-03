@@ -1,4 +1,6 @@
 "NSPhotoLibraryUsageDescription" = "您是否允許從相簿中選擇個人檔案圖示？";
+"NSUserTrackingUsageDescription" = "為了優化廣告等，我們將跟蹤您的數據。";
+
 /*
   InfoPlist.strings
   Runner

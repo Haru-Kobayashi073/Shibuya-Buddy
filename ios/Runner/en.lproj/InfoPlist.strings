@@ -1,4 +1,5 @@
 "NSPhotoLibraryUsageDescription" = "Would you like to grant permission to select a profile icon from the photo library?";
+"NSUserTrackingUsageDescription" = "We will track your data to optimize ads and other services.";
 
 /*
   InfoPlist.strings

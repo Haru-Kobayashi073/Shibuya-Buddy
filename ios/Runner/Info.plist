@@ -41,6 +41,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>プロフィールのアイコンの設定にフォトライブラリから選択します。許可をしますか？</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>広告などの最適化のため、あなたのデータをトラッキングします。</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
