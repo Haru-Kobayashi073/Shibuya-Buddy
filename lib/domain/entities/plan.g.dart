@@ -11,9 +11,10 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
       title: json['title'] as String,
       description: json['description'] as String,
       thumbnailUrl: json['thumbnail_url'] as String,
-      topics: (json['topics'] as List<dynamic>)
-          .map((e) => Topic.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      topics: (json['topics'] as List<dynamic>?)
+              ?.map((e) => Topic.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       authorId: json['author_id'] as String? ?? '',
       ranking: (json['ranking'] as num?)?.toInt(),
       isBookmarked: json['is_bookmarked'] as bool? ?? false,
