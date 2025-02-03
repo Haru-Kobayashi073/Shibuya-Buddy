@@ -38,9 +38,12 @@ class SignInPage extends HookConsumerWidget {
 
     useEffect(
       () {
-        WidgetsBinding.instance.addPostFrameCallback(
-          (_) async {
+        Future.microtask(
+          () async {
             if (!hasAlreadyLaunchedFirstTime) {
+              if (!context.mounted) {
+                return;
+              }
               await showDialog<void>(
                 context: context,
                 builder: (_) => const ChangeLanguageDialog(),
