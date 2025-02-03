@@ -451,6 +451,7 @@ class _TranslationsAuthenticationSignInPageJa implements TranslationsAuthenticat
 	@override String get optionText => ' または ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsJa textFields = _TranslationsAuthenticationSignInPageTextFieldsJa._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsJa buttons = _TranslationsAuthenticationSignInPageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogJa changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogJa._(_root);
 }
 
 // Path: authentication.resetPasswordPage
@@ -924,6 +925,17 @@ class _TranslationsAuthenticationSignInPageButtonsJa implements TranslationsAuth
 	@override String get signInAfter => '後で登録';
 }
 
+// Path: authentication.signInPage.changeLanguageDialog
+class _TranslationsAuthenticationSignInPageChangeLanguageDialogJa implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationSignInPageChangeLanguageDialogJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '言語を選択';
+	@override String get button => '閉じる';
+}
+
 // Path: authentication.resetPasswordPage.textFields
 class _TranslationsAuthenticationResetPasswordPageTextFieldsJa implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
 	_TranslationsAuthenticationResetPasswordPageTextFieldsJa._(this._root);
@@ -1393,6 +1405,8 @@ extension on TranslationsJa {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Appleでログイン';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Googleでログイン';
 			case 'authentication.signInPage.buttons.signInAfter': return '後で登録';
+			case 'authentication.signInPage.changeLanguageDialog.title': return '言語を選択';
+			case 'authentication.signInPage.changeLanguageDialog.button': return '閉じる';
 			case 'authentication.resetPasswordPage.title': return 'パスワードのリセット';
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';

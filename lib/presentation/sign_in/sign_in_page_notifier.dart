@@ -8,6 +8,8 @@ import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
+import '../../utils/providers/shared_preferences/shared_preferences_config.dart';
+import '../../utils/providers/shared_preferences/shared_preferences_service.dart';
 
 part 'sign_in_page_notifier.g.dart';
 
@@ -18,10 +20,16 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  SharedPreferencesService get sharedPreferencesService =>
+      ref.read(sharedPreferencesServiceProvider.notifier);
 
   @override
-  void build() {
-    return;
+  bool build() {
+    final hasAlreadyLaunchedFirstTime = sharedPreferencesService.getBoolValue(
+      key: SharedPreferencesKey.hasAlreadyLaunchedFirstTime,
+    );
+
+    return hasAlreadyLaunchedFirstTime;
   }
 
   Future<void> signInWithEmailAndPassword({
@@ -99,5 +107,12 @@ class SignInPageNotifier extends _$SignInPageNotifier {
           ref.read(localeServiceProvider.notifier).getLocaleFromString(text);
       await ref.read(localeServiceProvider.notifier).changeLocale(appLocale);
     }
+  }
+
+  Future<void> setFalseSharedPreferencesKey() async {
+    await sharedPreferencesService.setBoolValue(
+      key: SharedPreferencesKey.hasAlreadyLaunchedFirstTime,
+      value: true,
+    );
   }
 }

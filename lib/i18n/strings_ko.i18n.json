@@ -70,6 +70,10 @@
                 "appleSignIn": "Apple로 로그인",
                 "googleSignIn": "Google로 로그인",
                 "signInAfter": "나중에 하기"
+            },
+            "changeLanguageDialog": {
+                "title": "언어 선택",
+                "button": "닫기"
             }
         },
         "resetPasswordPage": {

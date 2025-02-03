@@ -1,5 +1,6 @@
 class SharedPreferencesKey {
   static const languageCode = 'languageCode';
+  static const hasAlreadyLaunchedFirstTime = 'hasAlreadyLaunchedFirstTime';
 }
 
 enum LanguageCode {

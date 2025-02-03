@@ -70,6 +70,10 @@
                 "appleSignIn": "Appleでログイン",
                 "googleSignIn": "Googleでログイン",
                 "signInAfter": "後で登録"
+            },
+            "changeLanguageDialog": {
+                "title": "言語を選択",
+                "button": "閉じる"
             }
         },
         "resetPasswordPage": {

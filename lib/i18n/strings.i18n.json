@@ -70,6 +70,10 @@
                 "appleSignIn": "Sign in with Apple",
                 "googleSignIn": "Sign in with Google",
                 "signInAfter": "Register Later"
+            },
+            "changeLanguageDialog": {
+                "title": "Select Language",
+                "button": "Close"
             }
         },
         "firebaseAuth": {

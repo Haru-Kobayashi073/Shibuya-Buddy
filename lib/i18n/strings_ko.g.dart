@@ -451,6 +451,7 @@ class _TranslationsAuthenticationSignInPageKo implements TranslationsAuthenticat
 	@override String get optionText => ' 또는 ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsKo textFields = _TranslationsAuthenticationSignInPageTextFieldsKo._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsKo buttons = _TranslationsAuthenticationSignInPageButtonsKo._(_root);
+	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogKo changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogKo._(_root);
 }
 
 // Path: authentication.resetPasswordPage
@@ -924,6 +925,17 @@ class _TranslationsAuthenticationSignInPageButtonsKo implements TranslationsAuth
 	@override String get signInAfter => '나중에 하기';
 }
 
+// Path: authentication.signInPage.changeLanguageDialog
+class _TranslationsAuthenticationSignInPageChangeLanguageDialogKo implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationSignInPageChangeLanguageDialogKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '언어 선택';
+	@override String get button => '닫기';
+}
+
 // Path: authentication.resetPasswordPage.textFields
 class _TranslationsAuthenticationResetPasswordPageTextFieldsKo implements TranslationsAuthenticationResetPasswordPageTextFieldsEn {
 	_TranslationsAuthenticationResetPasswordPageTextFieldsKo._(this._root);
@@ -1393,6 +1405,8 @@ extension on TranslationsKo {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Apple로 로그인';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Google로 로그인';
 			case 'authentication.signInPage.buttons.signInAfter': return '나중에 하기';
+			case 'authentication.signInPage.changeLanguageDialog.title': return '언어 선택';
+			case 'authentication.signInPage.changeLanguageDialog.button': return '닫기';
 			case 'authentication.resetPasswordPage.title': return '비밀번호 재설정';
 			case 'authentication.resetPasswordPage.description': return '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 			case 'authentication.resetPasswordPage.textFields.email': return '이메일 주소';

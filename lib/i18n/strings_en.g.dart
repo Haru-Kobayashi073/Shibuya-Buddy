@@ -455,6 +455,7 @@ class TranslationsAuthenticationSignInPageEn {
 	String get optionText => ' or ';
 	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
 	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
+	late final TranslationsAuthenticationSignInPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -928,6 +929,17 @@ class TranslationsAuthenticationSignInPageButtonsEn {
 	String get signInAfter => 'Register Later';
 }
 
+// Path: authentication.signInPage.changeLanguageDialog
+class TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select Language';
+	String get button => 'Close';
+}
+
 // Path: authentication.firebaseAuth.error
 class TranslationsAuthenticationFirebaseAuthErrorEn {
 	TranslationsAuthenticationFirebaseAuthErrorEn._(this._root);
@@ -1397,6 +1409,8 @@ extension on Translations {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
 			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.signInPage.changeLanguageDialog.title': return 'Select Language';
+			case 'authentication.signInPage.changeLanguageDialog.button': return 'Close';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
