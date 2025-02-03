@@ -36,6 +36,7 @@ dependencies:
   dio: ^5.7.0
   email_validator: ^3.0.0
   firebase_analytics: ^11.3.6
+  firebase_app_check: ^0.3.2+1
   firebase_auth: ^5.3.3
   firebase_core: ^3.8.0
   firebase_crashlytics: ^4.2.0

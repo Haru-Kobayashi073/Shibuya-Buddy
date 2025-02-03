@@ -8,6 +8,7 @@
             "name": "Dev",
             "request": "launch",
             "type": "dart",
+            "flutterMode": "debug",
             "args": [
                 "--dart-define-from-file=dart_defines/dev.env"
             ]
