@@ -32,7 +32,7 @@ class PlanHeader extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: CategoryTags(
-                tags: plan.topics.map((topic) => topic.name).toList(),
+                topics: plan.topics,
                 tagColor: AppColor.grey200,
                 spacing: 4,
               ),

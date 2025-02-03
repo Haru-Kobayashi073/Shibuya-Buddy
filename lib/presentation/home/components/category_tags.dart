@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../../domain/entities/topic.dart';
 import '../../../utils/styles/app_text_style.dart';
 
 class CategoryTags extends StatelessWidget {
   const CategoryTags({
     super.key,
-    required this.tags,
+    required this.topics,
     required this.tagColor,
     required this.spacing,
   });
 
-  final List<String> tags;
+  final List<Topic> topics;
   final Color tagColor;
   final int spacing;
 
@@ -30,6 +31,7 @@ class CategoryTags extends StatelessWidget {
   List<Widget> _buildTagWidgets(double maxWidth) {
     final tagWidgets = <Widget>[];
     var currentLineWidth = 0;
+    final tags = topics.map((topic) => topic.name).toList();
 
     for (final tag in tags) {
       final tagWidth = _calculateTagWidth(tag);
