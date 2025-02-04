@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
@@ -97,6 +98,17 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       return PurchaseItemConfig.unlimitedPremium.packageId;
     } else {
       return '';
+    }
+  }
+
+  Future<void> launchNotion() async {
+    final url = Uri.parse(
+      'https://pond-link-c69.notion.site/1904d7d3b38980f0a608e48ccd13dce4?pvs=4',
+    );
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      debugPrint('Could not launch $url');
     }
   }
 }
