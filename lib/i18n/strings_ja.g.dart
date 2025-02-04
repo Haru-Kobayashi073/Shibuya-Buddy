@@ -451,6 +451,7 @@ class _TranslationsAuthenticationSignInPageJa implements TranslationsAuthenticat
 	@override String get optionText => ' または ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsJa textFields = _TranslationsAuthenticationSignInPageTextFieldsJa._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsJa buttons = _TranslationsAuthenticationSignInPageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogJa changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogJa._(_root);
 }
 
 // Path: authentication.resetPasswordPage
@@ -486,7 +487,7 @@ class _TranslationsAuthenticationEmailVerificationPageJa implements Translations
 
 	// Translations
 	@override String get title => 'メールアドレスの確認';
-	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信します';
+	@override String descriptionForDestination({required Object email}) => '入力された${email}に確認メールを送信しました';
 	@override String get descriptionForCoolDown => '確認メールの再送信は、60秒ごとに1回可能です。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsJa buttons = _TranslationsAuthenticationEmailVerificationPageButtonsJa._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarJa snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarJa._(_root);
@@ -525,7 +526,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageJa implements TranslationsA
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '電話番号を入力,';
+	@override String get title => '電話番号を入力';
 	@override late final _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa discription = _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa._(_root);
 	@override String get phoneNumber => '電話番号';
 	@override String get sendSmsCode => 'SMSコードを送信';
@@ -615,7 +616,7 @@ class _TranslationsMyPlanPageBookmarkItemsJa implements TranslationsMyPlanPageBo
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get nondata => 'ブックマークしているプランはありません。';
+	@override String get nondata => 'ブックマークしている\nプランはありません';
 	@override String get reloading => '再読み込み';
 }
 
@@ -842,7 +843,7 @@ class _TranslationsBillDetailsPagePricingOptionsJa implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysJa threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysJa fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysJa._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysJa sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysJa._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeJa lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeJa._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsUnlimitedJa unlimited = _TranslationsBillDetailsPagePricingOptionsUnlimitedJa._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -922,6 +923,17 @@ class _TranslationsAuthenticationSignInPageButtonsJa implements TranslationsAuth
 	@override String get appleSignIn => 'Appleでログイン';
 	@override String get googleSignIn => 'Googleでログイン';
 	@override String get signInAfter => '後で登録';
+}
+
+// Path: authentication.signInPage.changeLanguageDialog
+class _TranslationsAuthenticationSignInPageChangeLanguageDialogJa implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationSignInPageChangeLanguageDialogJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '言語を選択';
+	@override String get button => '閉じる';
 }
 
 // Path: authentication.resetPasswordPage.textFields
@@ -1043,8 +1055,9 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionJa implements Tr
 
 	// Translations
 	@override String get receive => 'SMSコードを受け取るために';
-	@override String get internationalFormat => '国際電話番号形式';
-	@override String get input => 'で電話番号を入力してください';
+	@override String get internationalFormat => '国際電話番号形式で';
+	@override String get input => '電話番号を入力してください';
+	@override String get purposeForPhoneNumber => 'SMSコードを送信すること以外で電話番号が利用されることはありません';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1055,6 +1068,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerJa impleme
 
 	// Translations
 	@override String get empty => '電話番号を入力してください';
+	@override String get invalidPhoneNumber => '電話番号の形式が正しくありません';
 	@override String get success => 'SMSコードを送信しました';
 	@override String get error => 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 	@override String get unexpectedError => '予期しないエラーが発生しました:';
@@ -1244,14 +1258,14 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysJa implements Translati
 	@override String get price => '2,070円';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeJa implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeJa._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class _TranslationsBillDetailsPagePricingOptionsUnlimitedJa implements TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	_TranslationsBillDetailsPagePricingOptionsUnlimitedJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '永年分';
+	@override String get duration => 'Unlimited';
 	@override String get discount => '-20%';
 	@override String get price => '25,800円';
 }
@@ -1312,8 +1326,8 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements Tr
 	@override String fiveDays({required Object price}) => '・5日 ${price}';
 	@override String sevenDays({required Object price}) => '・7日 ${price}';
 	@override String get or => 'または';
-	@override String get lifetime => '永年分';
-	@override String lifetimePrice({required Object price}) => '${price}';
+	@override String get unlimited => 'Unlimited';
+	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1391,6 +1405,8 @@ extension on TranslationsJa {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Appleでログイン';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Googleでログイン';
 			case 'authentication.signInPage.buttons.signInAfter': return '後で登録';
+			case 'authentication.signInPage.changeLanguageDialog.title': return '言語を選択';
+			case 'authentication.signInPage.changeLanguageDialog.button': return '閉じる';
 			case 'authentication.resetPasswordPage.title': return 'パスワードのリセット';
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
@@ -1402,7 +1418,7 @@ extension on TranslationsJa {
 			case 'authentication.signUpPage.button.defaultText': return '新規登録';
 			case 'authentication.signUpPage.button.modifyEmail': return '変更';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信します';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信しました';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認メールの再送信は、60秒ごとに1回可能です。';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '確認メールを送信';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '確認メールを再送信';
@@ -1423,13 +1439,15 @@ extension on TranslationsJa {
 			case 'authentication.completeSendEmailPage.buttons.toSignIn': return 'ログイン画面へ';
 			case 'authentication.completeSendEmailPage.buttons.resendEmail': return '確認メールを再送信';
 			case 'authentication.completeSendEmailPage.buttons.changeEmail': return 'メールアドレスの変更';
-			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力,';
+			case 'authentication.phoneNumberInputPage.title': return '電話番号を入力';
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMSコードを受け取るために';
-			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式';
-			case 'authentication.phoneNumberInputPage.discription.input': return 'で電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '国際電話番号形式で';
+			case 'authentication.phoneNumberInputPage.discription.input': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return 'SMSコードを送信すること以外で電話番号が利用されることはありません';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話番号';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMSコードを送信';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '電話番号を入力してください';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '電話番号の形式が正しくありません';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMSコードを送信しました';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';
@@ -1494,7 +1512,7 @@ extension on TranslationsJa {
 			case 'myPlanPage.title': return 'マイプラン';
 			case 'myPlanPage.tabs.createdPlans': return '作成したプラン';
 			case 'myPlanPage.tabs.bookmark': return 'ブックマーク';
-			case 'myPlanPage.bookmarkItems.nondata': return 'ブックマークしているプランはありません。';
+			case 'myPlanPage.bookmarkItems.nondata': return 'ブックマークしている\nプランはありません';
 			case 'myPlanPage.bookmarkItems.reloading': return '再読み込み';
 			case 'myPlanPage.createdPlansItems.nondata': return 'プランを作成してみよう!';
 			case 'myPlanPage.createdPlansItems.createaplan': return 'プランを作成する';
@@ -1572,8 +1590,8 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7日 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'または';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永年分';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return 'Unlimited';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'グレードごとの機能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'プランの作成可能回数';
 			case 'billDetailsPage.features.rows.chatLimit': return 'プラン作成中のチャット可能回数';
@@ -1598,9 +1616,9 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070円';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return '永年分';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800円';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800円';
 			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';
 			case 'billDetailsPage.restorePurchaseSection.description': return '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '購入を復元';

@@ -451,6 +451,7 @@ class _TranslationsAuthenticationSignInPageZhHant implements TranslationsAuthent
 	@override String get optionText => ' 或 ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHant._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsZhHant buttons = _TranslationsAuthenticationSignInPageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -496,7 +497,7 @@ class _TranslationsAuthenticationEmailVerificationPageZhHant implements Translat
 
 	// Translations
 	@override String get title => '電子郵件地址驗證';
-	@override String descriptionForDestination({required Object email}) => '將向輸入的${email}發送確認郵件。';
+	@override String descriptionForDestination({required Object email}) => '已向輸入的${email}發送了驗證郵件';
 	@override String get descriptionForCoolDown => '確認郵件每60秒只能重新發送一次。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHant buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(_root);
@@ -842,7 +843,7 @@ class _TranslationsBillDetailsPagePricingOptionsZhHant implements TranslationsBi
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysZhHant._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant unlimited = _TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -922,6 +923,17 @@ class _TranslationsAuthenticationSignInPageButtonsZhHant implements Translations
 	@override String get appleSignIn => '使用Apple登入';
 	@override String get googleSignIn => '使用Google登入';
 	@override String get signInAfter => '稍後註冊';
+}
+
+// Path: authentication.signInPage.changeLanguageDialog
+class _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationSignInPageChangeLanguageDialogZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '選擇語言';
+	@override String get button => '關閉';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -1061,6 +1073,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant implement
 	@override String get receive => '以接收 SMS 驗證碼';
 	@override String get internationalFormat => '國際電話格式';
 	@override String get input => '請輸入您的電話號碼';
+	@override String get purposeForPhoneNumber => '您的電話號碼僅用於發送SMS驗證碼，不會被用於其他用途';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1071,6 +1084,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant imp
 
 	// Translations
 	@override String get empty => '請輸入您的電話號碼';
+	@override String get invalidPhoneNumber => '電話號碼格式不正確';
 	@override String get success => 'SMS 驗證碼已發送';
 	@override String get error => 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
 	@override String get unexpectedError => '發生未預期的錯誤：';
@@ -1244,14 +1258,14 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysZhHant implements Trans
 	@override String get price => '2,070日圓';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeZhHant implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeZhHant._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class _TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant implements TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	_TranslationsBillDetailsPagePricingOptionsUnlimitedZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '終身';
+	@override String get duration => '無限制';
 	@override String get discount => '-20%';
 	@override String get price => '25,800日圓';
 }
@@ -1312,8 +1326,8 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant implement
 	@override String fiveDays({required Object price}) => '・5天 ${price}';
 	@override String sevenDays({required Object price}) => '・7天 ${price}';
 	@override String get or => '或者';
-	@override String get lifetime => '永久版';
-	@override String lifetimePrice({required Object price}) => '${price}';
+	@override String get unlimited => '無限制';
+	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1391,6 +1405,8 @@ extension on TranslationsZhHant {
 			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登入';
 			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登入';
 			case 'authentication.signInPage.buttons.signInAfter': return '稍後註冊';
+			case 'authentication.signInPage.changeLanguageDialog.title': return '選擇語言';
+			case 'authentication.signInPage.changeLanguageDialog.button': return '關閉';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請檢查網路連線後重試';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密碼太短。請輸入6個字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '電子郵件地址格式不正確';
@@ -1409,7 +1425,7 @@ extension on TranslationsZhHant {
 			case 'authentication.signUpPage.button.defaultText': return '註冊';
 			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '已向輸入的${email}發送了驗證郵件';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '發送確認郵件';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
@@ -1434,9 +1450,11 @@ extension on TranslationsZhHant {
 			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 驗證碼';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '國際電話格式';
 			case 'authentication.phoneNumberInputPage.discription.input': return '請輸入您的電話號碼';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return '您的電話號碼僅用於發送SMS驗證碼，不會被用於其他用途';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話號碼';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '發送 SMS 驗證碼';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '請輸入您的電話號碼';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '電話號碼格式不正確';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 驗證碼已發送';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '發生未預期的錯誤：';
@@ -1572,8 +1590,8 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7天 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '或者';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '永久版';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return '無限制';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '等級功能';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '可創建的方案次數';
 			case 'billDetailsPage.features.rows.chatLimit': return '方案創建期間可用聊天次數';
@@ -1598,9 +1616,9 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7日';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070日圓';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return '終身';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800日圓';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return '無限制';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800日圓';
 			case 'billDetailsPage.restorePurchaseSection.title': return '恢復購買';
 			case 'billDetailsPage.restorePurchaseSection.description': return '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '恢復購買';

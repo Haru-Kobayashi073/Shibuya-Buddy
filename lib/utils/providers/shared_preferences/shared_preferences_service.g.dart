@@ -7,7 +7,7 @@ part of 'shared_preferences_service.dart';
 // **************************************************************************
 
 String _$sharedPreferencesServiceHash() =>
-    r'c32c5609806432bf40a46cb24c91772bfd903eb6';
+    r'8b83226537258ff74dda23d5d099c533cf43b54c';
 
 /// See also [SharedPreferencesService].
 @ProviderFor(SharedPreferencesService)

@@ -77,7 +77,7 @@ class PlanCard extends StatelessWidget {
                           child: Offstage(
                             offstage: plan.topics.isEmpty,
                             child: CategoryTags(
-                              tags: plan.topics.map((e) => e.name).toList(),
+                              topics: plan.topics,
                               tagColor: AppColor.white,
                               spacing: 4,
                             ),

@@ -70,6 +70,10 @@
                 "appleSignIn": "Apple로 로그인",
                 "googleSignIn": "Google로 로그인",
                 "signInAfter": "나중에 하기"
+            },
+            "changeLanguageDialog": {
+                "title": "언어 선택",
+                "button": "닫기"
             }
         },
         "resetPasswordPage": {
@@ -98,7 +102,7 @@
         },
         "emailVerificationPage": {
             "title": "이메일 주소 확인",
-            "descriptionForDestination": "입력한 ${email}로 확인 이메일을 발송합니다.",
+            "descriptionForDestination": "입력된 ${email}로 확인 이메일을 보냈습니다",
             "descriptionForCoolDown": "확인 이메일 재발송은 60초마다 1회 가능합니다.",
             "buttons": {
                 "sendEmail": "확인 이메일 발송",
@@ -143,12 +147,14 @@
             "discription": {
                 "receive": "SMS 코드를 받으려면",
                 "internationalFormat": "국제 전화번호 형식으로",
-                "input": "전화번호를 입력해주세요"
+                "input": "전화번호를 입력해주세요",
+                "purposeForPhoneNumber": "전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다"
             },
             "phoneNumber": "전화번호",
             "sendSmsCode": "SMS 코드 보내기",
             "scaffoldMessenger": {
                 "empty": "전화번호를 입력해주세요",
+                "invalidPhoneNumber": "전화번호 형식이 올바르지 않습니다",
                 "success": "SMS 코드가 전송되었습니다",
                 "error": "SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.",
                 "unexpectedError": "예기치 못한 오류가 발생했습니다:",
@@ -392,8 +398,8 @@
                     "fiveDays": "・5일 ${price}",
                     "sevenDays": "・7일 ${price}",
                     "or": "또는",
-                    "lifetime": "평생 이용권",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "무제한",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -440,8 +446,8 @@
                 "discount": "-10%",
                 "price": "2,070원"
             },
-            "lifetime": {
-                "duration": "평생",
+            "unlimited": {
+                "duration": "무제한",
                 "discount": "-20%",
                 "price": "25,800원"
             }

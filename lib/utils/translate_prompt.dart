@@ -32,7 +32,7 @@ class TranslatePrompt {
 
       カテゴリーは、${planPrompt.categories.join(',')}です。
 
-      旅のトピックは、${planPrompt.topics.join(',')}です。
+      旅のトピックは、${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.ja]).join(',')}です。
 
       出力は以下のフォーマットにしてください。
 
@@ -70,7 +70,7 @@ class TranslatePrompt {
 
       类别为${planPrompt.categories.join(',')}。
 
-      旅行主题为${planPrompt.topics.join(',')}。
+      旅行主题为${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.zhHans]).join(',')}。
 
       输出请使用以下格式。
 
@@ -108,7 +108,7 @@ class TranslatePrompt {
 
       類別為${planPrompt.categories.join(',')}。
 
-      旅行主題為${planPrompt.topics.join(',')}。
+      旅行主題為${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.zhHant]).join(',')}。
 
       輸出請使用以下格式。
 
@@ -146,7 +146,7 @@ class TranslatePrompt {
 
       Categories include ${planPrompt.categories.join(',')}.
 
-      Travel topics include ${planPrompt.topics.join(',')}.
+      Travel themes include ${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.en]).join(',')}.
 
       Please use the following format for output.
 
@@ -184,7 +184,7 @@ class TranslatePrompt {
 
       카테고리는 ${planPrompt.categories.join(',')}입니다.
 
-      여행 주제는 ${planPrompt.topics.join(',')}입니다.
+      여행 주제는 ${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.ko]).join(',')}입니다.
 
       출력은 다음 형식으로 해주세요.
 

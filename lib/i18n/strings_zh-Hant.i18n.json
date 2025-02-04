@@ -70,6 +70,10 @@
                 "appleSignIn": "使用Apple登入",
                 "googleSignIn": "使用Google登入",
                 "signInAfter": "稍後註冊"
+            },
+            "changeLanguageDialog": {
+                "title": "選擇語言",
+                "button": "關閉"
             }
         },
         "firebaseAuth": {
@@ -109,7 +113,7 @@
         },
         "emailVerificationPage": {
             "title": "電子郵件地址驗證",
-            "descriptionForDestination": "將向輸入的${email}發送確認郵件。",
+            "descriptionForDestination": "已向輸入的${email}發送了驗證郵件",
             "descriptionForCoolDown": "確認郵件每60秒只能重新發送一次。",
             "buttons": {
                 "sendEmail": "發送確認郵件",
@@ -154,12 +158,14 @@
             "discription": {
                 "receive": "以接收 SMS 驗證碼",
                 "internationalFormat": "國際電話格式",
-                "input": "請輸入您的電話號碼"
+                "input": "請輸入您的電話號碼",
+                "purposeForPhoneNumber": "您的電話號碼僅用於發送SMS驗證碼，不會被用於其他用途"
             },
             "phoneNumber": "電話號碼",
             "sendSmsCode": "發送 SMS 驗證碼",
             "scaffoldMessenger": {
                 "empty": "請輸入您的電話號碼",
+                "invalidPhoneNumber": "電話號碼格式不正確",
                 "success": "SMS 驗證碼已發送",
                 "error": "SMS 驗證碼發送失敗。請確認電話號碼後再試一次。",
                 "unexpectedError": "發生未預期的錯誤：",
@@ -392,8 +398,8 @@
                     "fiveDays": "・5天 ${price}",
                     "sevenDays": "・7天 ${price}",
                     "or": "或者",
-                    "lifetime": "永久版",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "無限制",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -440,8 +446,8 @@
                 "discount": "-10%",
                 "price": "2,070日圓"
             },
-            "lifetime": {
-                "duration": "終身",
+            "unlimited": {
+                "duration": "無限制",
                 "discount": "-20%",
                 "price": "25,800日圓"
             }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../domain/entities/topic.dart';
+import '../../../utils/providers/locale/locale_service.dart';
 import '../../../utils/styles/app_color.dart';
 
-class TopicChipField extends StatelessWidget {
+class TopicChipField extends ConsumerWidget {
   const TopicChipField({
     super.key,
     required this.topics,
@@ -16,7 +18,9 @@ class TopicChipField extends StatelessWidget {
   final void Function(Topic topic, {required bool isSelected}) onSelected;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final localeNotifier = ref.read(localeServiceProvider.notifier);
+
     return Align(
       alignment: Alignment.centerLeft,
       child: Column(
@@ -30,7 +34,9 @@ class TopicChipField extends StatelessWidget {
               return FilterChip(
                 side: BorderSide.none,
                 backgroundColor: AppColor.blue50Background,
-                label: Text(topic.name),
+                label: Text(
+                  localeNotifier.getTranslatedTopicName(topic),
+                ),
                 onSelected: (isSelected) {
                   onSelected(topic, isSelected: true);
                 },

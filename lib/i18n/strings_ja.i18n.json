@@ -70,6 +70,10 @@
                 "appleSignIn": "Appleでログイン",
                 "googleSignIn": "Googleでログイン",
                 "signInAfter": "後で登録"
+            },
+            "changeLanguageDialog": {
+                "title": "言語を選択",
+                "button": "閉じる"
             }
         },
         "resetPasswordPage": {
@@ -98,7 +102,7 @@
         },
         "emailVerificationPage": {
             "title": "メールアドレスの確認",
-            "descriptionForDestination": "入力された${email}に確認メールを送信します",
+            "descriptionForDestination": "入力された${email}に確認メールを送信しました",
             "descriptionForCoolDown": "確認メールの再送信は、60秒ごとに1回可能です。",
             "buttons": {
                 "sendEmail": "確認メールを送信",
@@ -139,16 +143,18 @@
             }
         },
         "phoneNumberInputPage": {
-            "title": "電話番号を入力,",
+            "title": "電話番号を入力",
             "discription": {
                 "receive": "SMSコードを受け取るために",
-                "internationalFormat" : "国際電話番号形式",
-                "input": "で電話番号を入力してください"
+                "internationalFormat" : "国際電話番号形式で",
+                "input": "電話番号を入力してください",
+                "purposeForPhoneNumber": "SMSコードを送信すること以外で電話番号が利用されることはありません"
             },
             "phoneNumber": "電話番号",
             "sendSmsCode": "SMSコードを送信",
             "scaffoldMessenger": {
                 "empty": "電話番号を入力してください",
+                "invalidPhoneNumber": "電話番号の形式が正しくありません",
                 "success": "SMSコードを送信しました",
                 "error": "SMSコードの送信に失敗しました。電話番号を確認してもう一度お試しください。",
                 "unexpectedError": "予期しないエラーが発生しました:",
@@ -246,7 +252,7 @@
             "bookmark": "ブックマーク"
         },
         "bookmarkItems": {
-            "nondata": "ブックマークしているプランはありません。",
+            "nondata": "ブックマークしている\nプランはありません",
             "reloading": "再読み込み"
         },
         "createdPlansItems": {
@@ -392,8 +398,8 @@
                     "fiveDays": "・5日 ${price}",
                     "sevenDays": "・7日 ${price}",
                     "or": "または",
-                    "lifetime": "永年分",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "Unlimited",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -440,8 +446,8 @@
                 "discount": "-10%",
                 "price": "2,070円"
             },
-            "lifetime": {
-                "duration": "永年分",
+            "unlimited": {
+                "duration": "Unlimited",
                 "discount": "-20%",
                 "price": "25,800円"
             }

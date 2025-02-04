@@ -451,6 +451,7 @@ class _TranslationsAuthenticationSignInPageKo implements TranslationsAuthenticat
 	@override String get optionText => ' 또는 ';
 	@override late final _TranslationsAuthenticationSignInPageTextFieldsKo textFields = _TranslationsAuthenticationSignInPageTextFieldsKo._(_root);
 	@override late final _TranslationsAuthenticationSignInPageButtonsKo buttons = _TranslationsAuthenticationSignInPageButtonsKo._(_root);
+	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogKo changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogKo._(_root);
 }
 
 // Path: authentication.resetPasswordPage
@@ -486,7 +487,7 @@ class _TranslationsAuthenticationEmailVerificationPageKo implements Translations
 
 	// Translations
 	@override String get title => '이메일 주소 확인';
-	@override String descriptionForDestination({required Object email}) => '입력한 ${email}로 확인 이메일을 발송합니다.';
+	@override String descriptionForDestination({required Object email}) => '입력된 ${email}로 확인 이메일을 보냈습니다';
 	@override String get descriptionForCoolDown => '확인 이메일 재발송은 60초마다 1회 가능합니다.';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsKo buttons = _TranslationsAuthenticationEmailVerificationPageButtonsKo._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarKo snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarKo._(_root);
@@ -842,7 +843,7 @@ class _TranslationsBillDetailsPagePricingOptionsKo implements TranslationsBillDe
 	@override late final _TranslationsBillDetailsPagePricingOptionsThreeDaysKo threeDays = _TranslationsBillDetailsPagePricingOptionsThreeDaysKo._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsFiveDaysKo fiveDays = _TranslationsBillDetailsPagePricingOptionsFiveDaysKo._(_root);
 	@override late final _TranslationsBillDetailsPagePricingOptionsSevenDaysKo sevenDays = _TranslationsBillDetailsPagePricingOptionsSevenDaysKo._(_root);
-	@override late final _TranslationsBillDetailsPagePricingOptionsLifetimeKo lifetime = _TranslationsBillDetailsPagePricingOptionsLifetimeKo._(_root);
+	@override late final _TranslationsBillDetailsPagePricingOptionsUnlimitedKo unlimited = _TranslationsBillDetailsPagePricingOptionsUnlimitedKo._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -922,6 +923,17 @@ class _TranslationsAuthenticationSignInPageButtonsKo implements TranslationsAuth
 	@override String get appleSignIn => 'Apple로 로그인';
 	@override String get googleSignIn => 'Google로 로그인';
 	@override String get signInAfter => '나중에 하기';
+}
+
+// Path: authentication.signInPage.changeLanguageDialog
+class _TranslationsAuthenticationSignInPageChangeLanguageDialogKo implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationSignInPageChangeLanguageDialogKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '언어 선택';
+	@override String get button => '닫기';
 }
 
 // Path: authentication.resetPasswordPage.textFields
@@ -1045,6 +1057,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionKo implements Tr
 	@override String get receive => 'SMS 코드를 받으려면';
 	@override String get internationalFormat => '국제 전화번호 형식으로';
 	@override String get input => '전화번호를 입력해주세요';
+	@override String get purposeForPhoneNumber => '전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1055,6 +1068,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerKo impleme
 
 	// Translations
 	@override String get empty => '전화번호를 입력해주세요';
+	@override String get invalidPhoneNumber => '전화번호 형식이 올바르지 않습니다';
 	@override String get success => 'SMS 코드가 전송되었습니다';
 	@override String get error => 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
 	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
@@ -1244,14 +1258,14 @@ class _TranslationsBillDetailsPagePricingOptionsSevenDaysKo implements Translati
 	@override String get price => '2,070원';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class _TranslationsBillDetailsPagePricingOptionsLifetimeKo implements TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	_TranslationsBillDetailsPagePricingOptionsLifetimeKo._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class _TranslationsBillDetailsPagePricingOptionsUnlimitedKo implements TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	_TranslationsBillDetailsPagePricingOptionsUnlimitedKo._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get duration => '평생';
+	@override String get duration => '무제한';
 	@override String get discount => '-20%';
 	@override String get price => '25,800원';
 }
@@ -1312,8 +1326,8 @@ class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo implements Tr
 	@override String fiveDays({required Object price}) => '・5일 ${price}';
 	@override String sevenDays({required Object price}) => '・7일 ${price}';
 	@override String get or => '또는';
-	@override String get lifetime => '평생 이용권';
-	@override String lifetimePrice({required Object price}) => '${price}';
+	@override String get unlimited => '무제한';
+	@override String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1391,6 +1405,8 @@ extension on TranslationsKo {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Apple로 로그인';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Google로 로그인';
 			case 'authentication.signInPage.buttons.signInAfter': return '나중에 하기';
+			case 'authentication.signInPage.changeLanguageDialog.title': return '언어 선택';
+			case 'authentication.signInPage.changeLanguageDialog.button': return '닫기';
 			case 'authentication.resetPasswordPage.title': return '비밀번호 재설정';
 			case 'authentication.resetPasswordPage.description': return '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 			case 'authentication.resetPasswordPage.textFields.email': return '이메일 주소';
@@ -1402,7 +1418,7 @@ extension on TranslationsKo {
 			case 'authentication.signUpPage.button.defaultText': return '회원가입';
 			case 'authentication.signUpPage.button.modifyEmail': return '변경';
 			case 'authentication.emailVerificationPage.title': return '이메일 주소 확인';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '입력한 ${email}로 확인 이메일을 발송합니다.';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '입력된 ${email}로 확인 이메일을 보냈습니다';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '확인 이메일 재발송은 60초마다 1회 가능합니다.';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '확인 이메일 발송';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '확인 이메일 재발송';
@@ -1427,9 +1443,11 @@ extension on TranslationsKo {
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'SMS 코드를 받으려면';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '국제 전화번호 형식으로';
 			case 'authentication.phoneNumberInputPage.discription.input': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return '전화번호는 SMS 인증 코드 발송 외 다른 용도로 사용되지 않습니다';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '전화번호';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'SMS 코드 보내기';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '전화번호를 입력해주세요';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '전화번호 형식이 올바르지 않습니다';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 코드가 전송되었습니다';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 코드 전송에 실패했습니다. 전화번호를 확인하고 다시 시도해주세요.';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';
@@ -1572,8 +1590,8 @@ extension on TranslationsKo {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7일 ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return '또는';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return '평생 이용권';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return '무제한';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return '등급별 기능';
 			case 'billDetailsPage.features.rows.planCreationLimit': return '플랜 생성 가능 횟수';
 			case 'billDetailsPage.features.rows.chatLimit': return '플랜 생성 중 채팅 가능 횟수';
@@ -1598,9 +1616,9 @@ extension on TranslationsKo {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7일';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070원';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return '평생';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800원';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return '무제한';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800원';
 			case 'billDetailsPage.restorePurchaseSection.title': return '구매 복원';
 			case 'billDetailsPage.restorePurchaseSection.description': return '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';
 			case 'billDetailsPage.restorePurchaseSection.button': return '구매 복원';

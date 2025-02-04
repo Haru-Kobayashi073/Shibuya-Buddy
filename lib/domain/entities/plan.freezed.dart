@@ -239,7 +239,7 @@ class _$PlanImpl implements _Plan {
       required this.title,
       required this.description,
       required this.thumbnailUrl,
-      required final List<Topic> topics,
+      final List<Topic> topics = const [],
       this.authorId = '',
       this.ranking,
       this.isBookmarked = false,
@@ -262,6 +262,7 @@ class _$PlanImpl implements _Plan {
   final String thumbnailUrl;
   final List<Topic> _topics;
   @override
+  @JsonKey()
   List<Topic> get topics {
     if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
@@ -352,7 +353,7 @@ abstract class _Plan implements Plan {
       required final String title,
       required final String description,
       required final String thumbnailUrl,
-      required final List<Topic> topics,
+      final List<Topic> topics,
       final String authorId,
       final int? ranking,
       final bool isBookmarked,

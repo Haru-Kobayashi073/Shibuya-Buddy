@@ -21,7 +21,8 @@ Topic _$TopicFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Topic {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  Map<AppLocale, String> get translatedNameMap =>
+      throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
   List<String> get relatedPlanIds => throw _privateConstructorUsedError;
@@ -44,7 +45,7 @@ abstract class $TopicCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String name,
+      Map<AppLocale, String> translatedNameMap,
       String thumbnailUrl,
       int totalCount,
       List<String> relatedPlanIds,
@@ -68,7 +69,7 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? translatedNameMap = null,
     Object? thumbnailUrl = null,
     Object? totalCount = null,
     Object? relatedPlanIds = null,
@@ -80,10 +81,10 @@ class _$TopicCopyWithImpl<$Res, $Val extends Topic>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      translatedNameMap: null == translatedNameMap
+          ? _value.translatedNameMap
+          : translatedNameMap // ignore: cast_nullable_to_non_nullable
+              as Map<AppLocale, String>,
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
@@ -117,7 +118,7 @@ abstract class _$$TopicImplCopyWith<$Res> implements $TopicCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String name,
+      Map<AppLocale, String> translatedNameMap,
       String thumbnailUrl,
       int totalCount,
       List<String> relatedPlanIds,
@@ -139,7 +140,7 @@ class __$$TopicImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? translatedNameMap = null,
     Object? thumbnailUrl = null,
     Object? totalCount = null,
     Object? relatedPlanIds = null,
@@ -151,10 +152,10 @@ class __$$TopicImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      translatedNameMap: null == translatedNameMap
+          ? _value._translatedNameMap
+          : translatedNameMap // ignore: cast_nullable_to_non_nullable
+              as Map<AppLocale, String>,
       thumbnailUrl: null == thumbnailUrl
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
@@ -185,13 +186,14 @@ class __$$TopicImplCopyWithImpl<$Res>
 class _$TopicImpl implements _Topic {
   const _$TopicImpl(
       {this.id = '',
-      required this.name,
+      required final Map<AppLocale, String> translatedNameMap,
       required this.thumbnailUrl,
       this.totalCount = 0,
       final List<String> relatedPlanIds = const [],
       this.ranking,
       this.createdAt = ''})
-      : _relatedPlanIds = relatedPlanIds;
+      : _translatedNameMap = translatedNameMap,
+        _relatedPlanIds = relatedPlanIds;
 
   factory _$TopicImpl.fromJson(Map<String, dynamic> json) =>
       _$$TopicImplFromJson(json);
@@ -199,8 +201,15 @@ class _$TopicImpl implements _Topic {
   @override
   @JsonKey()
   final String id;
+  final Map<AppLocale, String> _translatedNameMap;
   @override
-  final String name;
+  Map<AppLocale, String> get translatedNameMap {
+    if (_translatedNameMap is EqualUnmodifiableMapView)
+      return _translatedNameMap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_translatedNameMap);
+  }
+
   @override
   final String thumbnailUrl;
   @override
@@ -223,7 +232,7 @@ class _$TopicImpl implements _Topic {
 
   @override
   String toString() {
-    return 'Topic(id: $id, name: $name, thumbnailUrl: $thumbnailUrl, totalCount: $totalCount, relatedPlanIds: $relatedPlanIds, ranking: $ranking, createdAt: $createdAt)';
+    return 'Topic(id: $id, translatedNameMap: $translatedNameMap, thumbnailUrl: $thumbnailUrl, totalCount: $totalCount, relatedPlanIds: $relatedPlanIds, ranking: $ranking, createdAt: $createdAt)';
   }
 
   @override
@@ -232,7 +241,8 @@ class _$TopicImpl implements _Topic {
         (other.runtimeType == runtimeType &&
             other is _$TopicImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality()
+                .equals(other._translatedNameMap, _translatedNameMap) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.totalCount, totalCount) ||
@@ -249,7 +259,7 @@ class _$TopicImpl implements _Topic {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      name,
+      const DeepCollectionEquality().hash(_translatedNameMap),
       thumbnailUrl,
       totalCount,
       const DeepCollectionEquality().hash(_relatedPlanIds),
@@ -275,7 +285,7 @@ class _$TopicImpl implements _Topic {
 abstract class _Topic implements Topic {
   const factory _Topic(
       {final String id,
-      required final String name,
+      required final Map<AppLocale, String> translatedNameMap,
       required final String thumbnailUrl,
       final int totalCount,
       final List<String> relatedPlanIds,
@@ -287,7 +297,7 @@ abstract class _Topic implements Topic {
   @override
   String get id;
   @override
-  String get name;
+  Map<AppLocale, String> get translatedNameMap;
   @override
   String get thumbnailUrl;
   @override

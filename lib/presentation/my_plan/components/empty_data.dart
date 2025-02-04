@@ -21,12 +21,16 @@ class EmptyDataView extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            message,
-            style: AppTextStyle.textStyle.copyWith(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: AppColor.grey600,
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: AppTextStyle.textStyle.copyWith(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: AppColor.grey600,
+              ),
             ),
           ),
           Padding(

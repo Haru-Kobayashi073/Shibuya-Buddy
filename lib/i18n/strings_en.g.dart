@@ -455,6 +455,7 @@ class TranslationsAuthenticationSignInPageEn {
 	String get optionText => ' or ';
 	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
 	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
+	late final TranslationsAuthenticationSignInPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -500,7 +501,7 @@ class TranslationsAuthenticationEmailVerificationPageEn {
 
 	// Translations
 	String get title => 'Email Address Verification';
-	String descriptionForDestination({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+	String descriptionForDestination({required Object email}) => 'A verification email has been sent to the entered ${email}';
 	String get descriptionForCoolDown => 'You can resend the verification email once every 60 seconds.';
 	late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons = TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
 	late final TranslationsAuthenticationEmailVerificationPageSnackBarEn snackBar = TranslationsAuthenticationEmailVerificationPageSnackBarEn._(_root);
@@ -846,7 +847,7 @@ class TranslationsBillDetailsPagePricingOptionsEn {
 	late final TranslationsBillDetailsPagePricingOptionsThreeDaysEn threeDays = TranslationsBillDetailsPagePricingOptionsThreeDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsFiveDaysEn fiveDays = TranslationsBillDetailsPagePricingOptionsFiveDaysEn._(_root);
 	late final TranslationsBillDetailsPagePricingOptionsSevenDaysEn sevenDays = TranslationsBillDetailsPagePricingOptionsSevenDaysEn._(_root);
-	late final TranslationsBillDetailsPagePricingOptionsLifetimeEn lifetime = TranslationsBillDetailsPagePricingOptionsLifetimeEn._(_root);
+	late final TranslationsBillDetailsPagePricingOptionsUnlimitedEn unlimited = TranslationsBillDetailsPagePricingOptionsUnlimitedEn._(_root);
 }
 
 // Path: billDetailsPage.restorePurchaseSection
@@ -926,6 +927,17 @@ class TranslationsAuthenticationSignInPageButtonsEn {
 	String get appleSignIn => 'Sign in with Apple';
 	String get googleSignIn => 'Sign in with Google';
 	String get signInAfter => 'Register Later';
+}
+
+// Path: authentication.signInPage.changeLanguageDialog
+class TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
+	TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select Language';
+	String get button => 'Close';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -1065,6 +1077,7 @@ class TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
 	String get receive => 'Please enter your phone number';
 	String get internationalFormat => 'in international format';
 	String get input => 'to receive the SMS code';
+	String get purposeForPhoneNumber => 'Your phone number will only be used to send an SMS verification code and will not be used for any other purpose';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1075,6 +1088,7 @@ class TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
 
 	// Translations
 	String get empty => 'Please enter your phone number';
+	String get invalidPhoneNumber => 'The phone number format is incorrect';
 	String get success => 'SMS code has been sent';
 	String get error => 'Failed to send SMS code. Please check your phone number and try again.';
 	String get unexpectedError => 'An unexpected error occurred:';
@@ -1248,14 +1262,14 @@ class TranslationsBillDetailsPagePricingOptionsSevenDaysEn {
 	String get price => '2,070 yen';
 }
 
-// Path: billDetailsPage.pricingOptions.lifetime
-class TranslationsBillDetailsPagePricingOptionsLifetimeEn {
-	TranslationsBillDetailsPagePricingOptionsLifetimeEn._(this._root);
+// Path: billDetailsPage.pricingOptions.unlimited
+class TranslationsBillDetailsPagePricingOptionsUnlimitedEn {
+	TranslationsBillDetailsPagePricingOptionsUnlimitedEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get duration => 'Lifetime';
+	String get duration => 'Unlimited';
 	String get discount => '-20%';
 	String get price => '25,800 yen';
 }
@@ -1316,8 +1330,8 @@ class TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	String fiveDays({required Object price}) => '・5 days ${price}';
 	String sevenDays({required Object price}) => '・7 days ${price}';
 	String get or => 'or';
-	String get lifetime => 'Lifetime';
-	String lifetimePrice({required Object price}) => '${price}';
+	String get unlimited => 'Unlimited';
+	String unlimitedPrice({required Object price}) => '${price}';
 }
 
 // Path: billDetailsPage.features.columns.standard
@@ -1395,6 +1409,8 @@ extension on Translations {
 			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
 			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
 			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.signInPage.changeLanguageDialog.title': return 'Select Language';
+			case 'authentication.signInPage.changeLanguageDialog.button': return 'Close';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
@@ -1413,7 +1429,7 @@ extension on Translations {
 			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
 			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email has been sent to the entered ${email}';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return 'Send Verification Email';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Verification Email';
@@ -1438,9 +1454,11 @@ extension on Translations {
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'Please enter your phone number';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international format';
 			case 'authentication.phoneNumberInputPage.discription.input': return 'to receive the SMS code';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return 'Your phone number will only be used to send an SMS verification code and will not be used for any other purpose';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return 'Please enter your phone number';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return 'The phone number format is incorrect';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS code has been sent';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'Failed to send SMS code. Please check your phone number and try again.';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';
@@ -1576,8 +1594,8 @@ extension on Translations {
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.fiveDays': return ({required Object price}) => '・5 days ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.sevenDays': return ({required Object price}) => '・7 days ${price}';
 			case 'billDetailsPage.pricingPlan.details.premiumPrice.or': return 'or';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetime': return 'Lifetime';
-			case 'billDetailsPage.pricingPlan.details.premiumPrice.lifetimePrice': return ({required Object price}) => '${price}';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimited': return 'Unlimited';
+			case 'billDetailsPage.pricingPlan.details.premiumPrice.unlimitedPrice': return ({required Object price}) => '${price}';
 			case 'billDetailsPage.features.title': return 'Features by Grade';
 			case 'billDetailsPage.features.rows.planCreationLimit': return 'Number of plans that can be created';
 			case 'billDetailsPage.features.rows.chatLimit': return 'Number of chats available during plan creation';
@@ -1602,9 +1620,9 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.sevenDays.duration': return '7 days';
 			case 'billDetailsPage.pricingOptions.sevenDays.discount': return '-10%';
 			case 'billDetailsPage.pricingOptions.sevenDays.price': return '2,070 yen';
-			case 'billDetailsPage.pricingOptions.lifetime.duration': return 'Lifetime';
-			case 'billDetailsPage.pricingOptions.lifetime.discount': return '-20%';
-			case 'billDetailsPage.pricingOptions.lifetime.price': return '25,800 yen';
+			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
+			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
+			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800 yen';
 			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
 			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
 			case 'billDetailsPage.restorePurchaseSection.button': return 'Restore Purchase';

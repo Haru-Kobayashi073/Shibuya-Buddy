@@ -70,6 +70,10 @@
                 "appleSignIn": "使用Apple登录",
                 "googleSignIn": "使用Google登录",
                 "signInAfter": "稍后注册"
+            },
+            "changeLanguageDialog": {
+                "title": "选择语言",
+                "button": "关闭"
             }
         },
         "firebaseAuth": {
@@ -109,7 +113,7 @@
         },
         "emailVerificationPage": {
             "title": "邮箱地址验证",
-            "descriptionForDestination": "将向输入的${email}发送确认邮件。",
+            "descriptionForDestination": "已向输入的${email}发送了验证邮件",
             "descriptionForCoolDown": "确认邮件每60秒只能重新发送一次。",
             "buttons": {
                 "sendEmail": "发送确认邮件",
@@ -154,17 +158,18 @@
             "discription": {
                 "receive": "以接收 SMS 验证码",
                 "internationalFormat": "国际电话格式",
-                "input": "请输入您的电话号码"
+                "input": "请输入您的电话号码",
+                "purposeForPhoneNumber": "您的电话号码仅用于发送SMS验证码，不会被用于其他用途"
             },
             "phoneNumber": "电话号码",
             "sendSmsCode": "发送 SMS 验证码",
             "scaffoldMessenger": {
                 "empty": "请输入您的电话号码",
+                "invalidPhoneNumber": "电话号码格式不正确",
                 "success": "SMS 验证码已发送",
                 "error": "SMS 验证码发送失败。请确认电话号码后重试。",
                 "unexpectedError": "发生了意外错误：",
                 "phoneNumberVerificaiton": "电话号码验证尚未完成"
-
             }
         },
         "smsVerificationPage": {
@@ -393,8 +398,8 @@
                     "fiveDays": "・5天 ${price}",
                     "sevenDays": "・7天 ${price}",
                     "or": "或者",
-                    "lifetime": "永久版",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "无限制",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -441,8 +446,8 @@
                 "discount": "-10%",
                 "price": "2,070日元"
             },
-            "lifetime": {
-                "duration": "终身",
+            "unlimited": {
+                "duration": "无限制",
                 "discount": "-20%",
                 "price": "25,800日元"
             }

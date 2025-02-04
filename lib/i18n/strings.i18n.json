@@ -70,6 +70,10 @@
                 "appleSignIn": "Sign in with Apple",
                 "googleSignIn": "Sign in with Google",
                 "signInAfter": "Register Later"
+            },
+            "changeLanguageDialog": {
+                "title": "Select Language",
+                "button": "Close"
             }
         },
         "firebaseAuth": {
@@ -109,7 +113,7 @@
         },
         "emailVerificationPage": {
             "title": "Email Address Verification",
-            "descriptionForDestination": "A verification email will be sent to the entered ${email}.",
+            "descriptionForDestination": "A verification email has been sent to the entered ${email}",
             "descriptionForCoolDown": "You can resend the verification email once every 60 seconds.",
             "buttons": {
                 "sendEmail": "Send Verification Email",
@@ -154,17 +158,18 @@
             "discription": {
                 "receive": "Please enter your phone number",
                 "internationalFormat": "in international format",
-                "input": "to receive the SMS code"
+                "input": "to receive the SMS code",
+                "purposeForPhoneNumber": "Your phone number will only be used to send an SMS verification code and will not be used for any other purpose"
             },
             "phoneNumber": "Phone Number",
             "sendSmsCode": "Send SMS Code",
             "scaffoldMessenger": {
                 "empty": "Please enter your phone number",
+                "invalidPhoneNumber": "The phone number format is incorrect",
                 "success": "SMS code has been sent",
                 "error": "Failed to send SMS code. Please check your phone number and try again.",
                 "unexpectedError": "An unexpected error occurred:",
                 "phoneNumberVerificaiton": "Phone number verification is not completed."
-
             }
         },
         "smsVerificationPage": {
@@ -393,8 +398,8 @@
                     "fiveDays": "・5 days ${price}",
                     "sevenDays": "・7 days ${price}",
                     "or": "or",
-                    "lifetime": "Lifetime",
-                    "lifetimePrice": "${price}"
+                    "unlimited": "Unlimited",
+                    "unlimitedPrice": "${price}"
                 }
             }
         },
@@ -441,8 +446,8 @@
                 "discount": "-10%",
                 "price": "2,070 yen"
             },
-            "lifetime": {
-                "duration": "Lifetime",
+            "unlimited": {
+                "duration": "Unlimited",
                 "discount": "-20%",
                 "price": "25,800 yen"
             }

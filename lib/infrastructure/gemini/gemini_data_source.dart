@@ -56,7 +56,6 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                     'title',
                     'description',
                     'thumbnail_url',
-                    'topics',
                   ],
                   properties: {
                     'title': Schema(
@@ -67,22 +66,6 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                     ),
                     'thumbnail_url': Schema(
                       SchemaType.string,
-                    ),
-                    'topics': Schema(
-                      SchemaType.array,
-                      items: Schema(
-                        SchemaType.object,
-                        enumValues: [],
-                        requiredProperties: ['thumbnail_url', 'name'],
-                        properties: {
-                          'thumbnail_url': Schema(
-                            SchemaType.string,
-                          ),
-                          'name': Schema(
-                            SchemaType.string,
-                          ),
-                        },
-                      ),
                     ),
                   },
                 ),
