@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../domain/entities/topic.dart';
 import '../../../i18n/strings.g.dart';
 import '../../routes/app_router.dart';
 import '../shared_preferences/shared_preferences_config.dart';
@@ -66,6 +67,18 @@ class LocaleService extends _$LocaleService {
       AppLocale.zhHans => i18nLanguage.simplifiedChinese,
       AppLocale.zhHant => i18nLanguage.traditionalChinese,
       AppLocale.ko => i18nLanguage.korean,
+    };
+  }
+
+  String getTranslatedTopicName(Topic topic) {
+    final translatedNameMap = topic.translatedNameMap;
+
+    return switch (state) {
+      AppLocale.en => translatedNameMap[AppLocale.en]!,
+      AppLocale.ja => translatedNameMap[AppLocale.ja]!,
+      AppLocale.zhHans => translatedNameMap[AppLocale.zhHans]!,
+      AppLocale.zhHant => translatedNameMap[AppLocale.zhHant]!,
+      AppLocale.ko => translatedNameMap[AppLocale.ko]!,
     };
   }
 }
