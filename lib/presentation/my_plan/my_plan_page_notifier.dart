@@ -21,6 +21,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
 
   @override
   Future<MyPlanPageState> build() async {
+    await Future<void>.delayed(const Duration(seconds: 9999)); //デバッグ用
     final bookmarkPlans = await getBookmarkPlans();
     final createdPlans = await getCreatedPlans();
 
