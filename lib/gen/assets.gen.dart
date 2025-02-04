@@ -36,8 +36,8 @@ class $AssetsImagesGen {
   AssetGenImage get billingHeader =>
       const AssetGenImage('assets/images/billing_header.png');
 
-  /// File path: assets/images/error.png
-  AssetGenImage get error => const AssetGenImage('assets/images/error.png');
+  /// File path: assets/images/error-image.svg
+  String get errorImage => 'assets/images/error-image.svg';
 
   /// File path: assets/images/gourmet.png
   AssetGenImage get gourmet => const AssetGenImage('assets/images/gourmet.png');
@@ -54,11 +54,11 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/user_icon.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
         activity,
         anime,
         billingHeader,
-        error,
+        errorImage,
         gourmet,
         sample,
         shopping,
