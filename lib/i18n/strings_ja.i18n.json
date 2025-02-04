@@ -453,9 +453,8 @@
             }
         },
         "restorePurchaseSection": {
-            "title": "購入の復元",
-            "description": "過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。",
-            "button": "購入を復元"
+            "button": "購入を復元",
+            "textButton": "購入の復元とは？"
         },
         "upgradeButton": "プレミアムにアップグレード",
         "snackBar": {

@@ -453,9 +453,8 @@
             }
         },
         "restorePurchaseSection": {
-            "title": "Restore Purchase",
-            "description": "If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.",
-            "button": "Restore Purchase"
+            "button": "Restore Purchase",
+            "textButton": "What is Restore Purchase?"
         },
         "upgradeButton": "Upgrade to Premium",
         "snackBar": {

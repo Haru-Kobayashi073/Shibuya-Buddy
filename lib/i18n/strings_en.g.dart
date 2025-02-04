@@ -857,9 +857,8 @@ class TranslationsBillDetailsPageRestorePurchaseSectionEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Restore Purchase';
-	String get description => 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
 	String get button => 'Restore Purchase';
+	String get textButton => 'What is Restore Purchase?';
 }
 
 // Path: billDetailsPage.snackBar
@@ -1623,9 +1622,8 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800 yen';
-			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
-			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
 			case 'billDetailsPage.restorePurchaseSection.button': return 'Restore Purchase';
+			case 'billDetailsPage.restorePurchaseSection.textButton': return 'What is Restore Purchase?';
 			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
 			case 'billDetailsPage.snackBar.error.failedToPurchase': return 'Purchase failed. Please try again later.';
 			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return 'No purchase history found.';

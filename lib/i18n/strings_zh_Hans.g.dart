@@ -853,9 +853,8 @@ class _TranslationsBillDetailsPageRestorePurchaseSectionZhHans implements Transl
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '恢复购买';
-	@override String get description => '如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。';
 	@override String get button => '恢复购买';
+	@override String get textButton => '什么是购买恢复？';
 }
 
 // Path: billDetailsPage.snackBar
@@ -1619,9 +1618,8 @@ extension on TranslationsZhHans {
 			case 'billDetailsPage.pricingOptions.unlimited.duration': return '无限制';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800日元';
-			case 'billDetailsPage.restorePurchaseSection.title': return '恢复购买';
-			case 'billDetailsPage.restorePurchaseSection.description': return '如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '恢复购买';
+			case 'billDetailsPage.restorePurchaseSection.textButton': return '什么是购买恢复？';
 			case 'billDetailsPage.upgradeButton': return '升级到高级计划';
 			case 'billDetailsPage.snackBar.error.failedToPurchase': return '购买失败，请稍后再试。';
 			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '未找到购买记录。';
