@@ -14,27 +14,22 @@ class RestorePurchaseSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
     final notifier = ref.read(billDetailPageNotifierProvider.notifier);
-
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         WideButton(
           label: i18n.billDetailsPage.restorePurchaseSection.button,
           color: AppColor.grey200,
-          onPressed: () async => notifier.restorePurhcaseItem(),
+          onPressed: notifier.restorePurhcaseItem,
         ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: notifier.launchNotion,
-            child: Text.rich(
-              TextSpan(
-                text: '購入の復元とは?',
-                style: AppTextStyle.textStyle.copyWith(
-                  color: AppColor.grey800,
-                  decoration: TextDecoration.underline,
-                  decorationColor: AppColor.grey600,
-                ),
-              ),
+        TextButton(
+          onPressed: notifier.launchNotion,
+          child: Text(
+            '購入の復元とは?',
+            style: AppTextStyle.textStyle.copyWith(
+              color: AppColor.grey800,
+              decoration: TextDecoration.underline,
+              decorationColor: AppColor.grey600,
             ),
           ),
         ),
