@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -110,7 +110,7 @@ class MyPage extends ConsumerWidget {
         );
       },
       error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(currentUserStreamProvider)),
+          ErrorView(onRetry: () => ref.invalidate(currentUserStreamProvider)),
       loading: Loading.new,
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
@@ -55,7 +55,7 @@ class HomePage extends ConsumerWidget {
         );
       },
       error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(homePageNotifierProvider)),
+          ErrorView(onRetry: () => ref.invalidate(homePageNotifierProvider)),
       loading: Loading.new,
     );
   }

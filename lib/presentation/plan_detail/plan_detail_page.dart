@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/entities/plan.dart';
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
@@ -141,7 +141,7 @@ class PlanDetailPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) => ErrorPage(
+      error: (_, __) => ErrorView(
         onRetry: () => ref.invalidate(planDetailPageNotifierProvider(plan)),
       ),
       loading: Loading.new,

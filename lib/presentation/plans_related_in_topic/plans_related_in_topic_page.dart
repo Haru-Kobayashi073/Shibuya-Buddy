@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/loading_overlay.dart';
 import '../components/plan_card.dart';
@@ -51,7 +51,7 @@ class PlansRelatedInTopicPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) => ErrorPage(
+      error: (_, __) => ErrorView(
         onRetry: () =>
             ref.invalidate(plansRelatedInTopicPageNotifierProvider(planIds)),
       ),

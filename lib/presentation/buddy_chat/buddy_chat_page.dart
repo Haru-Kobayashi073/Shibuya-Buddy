@@ -6,7 +6,7 @@ import 'package:lottie/lottie.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/billing_grade_options.dart';
@@ -152,7 +152,7 @@ class BuddyChatPage extends HookConsumerWidget {
           );
         },
         error: (e, s) {
-          return ErrorPage(
+          return ErrorView(
             onRetry: () => ref.invalidate(buddyChatPageNotifierProvider),
           );
         },

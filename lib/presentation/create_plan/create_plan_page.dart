@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/routes/app_router.dart';
@@ -238,7 +238,7 @@ class CreatePlanPage extends HookConsumerWidget {
         );
       },
       error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(createPlanNotifierProvider)),
+          ErrorView(onRetry: () => ref.invalidate(createPlanNotifierProvider)),
       loading: Loading.new,
     );
   }

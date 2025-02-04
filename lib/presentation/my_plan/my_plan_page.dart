@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../error_page.dart';
+import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -75,7 +75,7 @@ class MyPlanPage extends ConsumerWidget {
         );
       },
       error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(myPlanPageNotifierProvider)),
+          ErrorView(onRetry: () => ref.invalidate(myPlanPageNotifierProvider)),
       loading: Loading.new,
     );
   }
