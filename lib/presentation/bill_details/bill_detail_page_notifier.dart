@@ -105,8 +105,6 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
     final url = Uri.parse(
       'https://pond-link-c69.notion.site/1904d7d3b38980f0a608e48ccd13dce4?pvs=4',
     );
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url, mode: LaunchMode.externalApplication);
-    }
+    await launchUrl(url, mode: LaunchMode.externalApplication);
   }
 }
