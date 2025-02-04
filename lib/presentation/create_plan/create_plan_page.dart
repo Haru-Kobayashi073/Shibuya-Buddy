@@ -6,13 +6,13 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
-import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/confirm_dialog.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import '../components/wide_button.dart';
 import 'components/plan_text_field.dart';

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../error_view.dart';
+
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import 'bookmark_plans_tab_view.dart';
 import 'created_plans_tab_view.dart';

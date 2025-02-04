@@ -7,11 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/entities/plan.dart';
-import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import '../components/place_card.dart';
 import '../components/presistent_cached_network_image.dart';

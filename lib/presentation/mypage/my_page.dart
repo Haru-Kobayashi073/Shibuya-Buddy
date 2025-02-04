@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import '../../error_view.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import 'components/account_status.dart';
 import 'components/list_tile_with_icon.dart';

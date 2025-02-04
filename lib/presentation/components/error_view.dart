@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../i18n/strings.g.dart';
-import 'gen/assets.gen.dart';
-import 'utils/extensions/context.dart';
-import 'utils/styles/app_color.dart';
+import '../../../../i18n/strings.g.dart';
+import '../../gen/assets.gen.dart';
+import '../../utils/extensions/context.dart';
+import '../../utils/styles/app_color.dart';
 
 class ErrorView extends StatelessWidget {
   const ErrorView({super.key, required this.onRetry});
