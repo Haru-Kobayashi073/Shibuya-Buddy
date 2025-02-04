@@ -453,9 +453,8 @@
             }
         },
         "restorePurchaseSection": {
-            "title": "恢復購買",
-            "description": "如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。",
-            "button": "恢復購買"
+            "button": "恢復購買",
+            "textButton": "什麼是購買恢復？"
         },
         "upgradeButton": "升級到高級方案",
         "snackBar": {

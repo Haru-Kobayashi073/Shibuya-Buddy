@@ -853,9 +853,8 @@ class _TranslationsBillDetailsPageRestorePurchaseSectionJa implements Translatio
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '購入の復元';
-	@override String get description => '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
 	@override String get button => '購入を復元';
+	@override String get textButton => '購入の復元とは？';
 }
 
 // Path: billDetailsPage.snackBar
@@ -1619,9 +1618,8 @@ extension on TranslationsJa {
 			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800円';
-			case 'billDetailsPage.restorePurchaseSection.title': return '購入の復元';
-			case 'billDetailsPage.restorePurchaseSection.description': return '過去に、現在と同じAppStoreアカウントやGoogle Playアカウントで購入した有効な購入アイテムがある場合、それらを復元することが可能です。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '購入を復元';
+			case 'billDetailsPage.restorePurchaseSection.textButton': return '購入の復元とは？';
 			case 'billDetailsPage.upgradeButton': return 'プレミアムにアップグレード';
 			case 'billDetailsPage.snackBar.error.failedToPurchase': return '購入に失敗しました。時間をおいて再度お試しください。';
 			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '購入履歴がありません。';
