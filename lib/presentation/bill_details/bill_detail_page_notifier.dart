@@ -107,8 +107,6 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
     );
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
-    } else {
-      debugPrint('Could not launch $url');
     }
   }
 }
