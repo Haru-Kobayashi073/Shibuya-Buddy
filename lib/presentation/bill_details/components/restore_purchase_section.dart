@@ -23,9 +23,7 @@ class RestorePurchaseSection extends ConsumerWidget {
           onPressed: notifier.restorePurhcaseItem,
         ),
         TextButton(
-          onPressed: () async => ref
-              .read(billDetailPageNotifierProvider.notifier)
-              .restorePurhcaseItem(),
+          onPressed: notifier.launchNotion,
           child: Text(
             i18n.billDetailsPage.restorePurchaseSection.textButton,
             style: AppTextStyle.textStyle.copyWith(
