@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../i18n/strings.g.dart';
@@ -14,31 +13,30 @@ class RestorePurchaseSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
+    final notifier = ref.read(billDetailPageNotifierProvider.notifier);
 
     return Column(
       children: [
-        Text(
-          i18n.billDetailsPage.restorePurchaseSection.title,
-          style: AppTextStyle.textStyle.copyWith(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const Gap(16),
-        Text(
-          i18n.billDetailsPage.restorePurchaseSection.description,
-          textAlign: TextAlign.center,
-          style: AppTextStyle.textStyle.copyWith(
-            fontSize: 16,
-          ),
-        ),
-        const Gap(16),
         WideButton(
           label: i18n.billDetailsPage.restorePurchaseSection.button,
           color: AppColor.grey200,
-          onPressed: () async => ref
-              .read(billDetailPageNotifierProvider.notifier)
-              .restorePurhcaseItem(),
+          onPressed: () async => notifier.restorePurhcaseItem(),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: TextButton(
+            onPressed: notifier.launchNotion,
+            child: Text.rich(
+              TextSpan(
+                text: '購入の復元とは?',
+                style: AppTextStyle.textStyle.copyWith(
+                  color: AppColor.grey800,
+                  decoration: TextDecoration.underline,
+                  decorationColor: AppColor.grey600,
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     );
