@@ -25,7 +25,7 @@ class RestorePurchaseSection extends ConsumerWidget {
         TextButton(
           onPressed: notifier.launchNotion,
           child: Text(
-            '購入の復元とは?',
+            i18n.billDetailsPage.restorePurchaseSection.textButton,
             style: AppTextStyle.textStyle.copyWith(
               color: AppColor.grey800,
               decoration: TextDecoration.underline,
