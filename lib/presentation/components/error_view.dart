@@ -25,70 +25,72 @@ class ErrorView extends HookWidget {
     useEffect(
       () {
         logger
-          ..t('ErrorView: $error')
-          ..t('ErrorView: $stackTrace');
+          ..e('ErrorView: $error')
+          ..e('ErrorView: $stackTrace');
         return null;
       },
       const [],
     );
 
-    return SafeArea(
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // イラスト
-              SvgPicture.asset(
-                Assets.images.errorImage,
-                width: context.deviceWidth * 0.8,
-              ),
-              const SizedBox(height: 32),
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // イラスト
+                SvgPicture.asset(
+                  Assets.images.errorImage,
+                  width: context.deviceWidth * 0.8,
+                ),
+                const SizedBox(height: 32),
 
-              // メッセージ
-              Text(
-                i18n.errorPage.title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.black,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                i18n.errorPage.message,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: AppColor.black,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 32),
-
-              // リトライボタン
-              ElevatedButton(
-                onPressed: onRetry,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.yellow600Primary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 100,
-                    vertical: 12,
-                  ),
-                ),
-                child: Text(
-                  i18n.errorPage.retryButton,
+                // メッセージ
+                Text(
+                  i18n.errorPage.title,
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                     color: AppColor.black,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
+                const SizedBox(height: 8),
+                Text(
+                  i18n.errorPage.message,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: AppColor.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 32),
+
+                // リトライボタン
+                ElevatedButton(
+                  onPressed: onRetry,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.yellow600Primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 100,
+                      vertical: 12,
+                    ),
+                  ),
+                  child: Text(
+                    i18n.errorPage.retryButton,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: AppColor.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

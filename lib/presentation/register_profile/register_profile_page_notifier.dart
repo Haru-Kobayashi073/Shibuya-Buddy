@@ -61,7 +61,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       );
       onSuccess();
     } on Exception catch (e) {
-      logger.d('registerInformation: $e');
+      logger.e('registerInformation: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -76,7 +76,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       await userDataSource.createUser(user: state.user);
       onSuccess();
     } on Exception catch (e) {
-      logger.d('onPressedSkipButton: $e');
+      logger.e('onPressedSkipButton: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -91,7 +91,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
         state = state.copyWith(pickedFile: pickedImageFile);
       }
     } on Exception catch (e) {
-      logger.d('pickImage: $e');
+      logger.e('pickImage: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -107,7 +107,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
           await fileDataSource.getUploadedImageUrl(file: state.pickedFile!);
       return url;
     } on Exception catch (e) {
-      logger.d('_getUploadedImageUri: $e');
+      logger.e('_getUploadedImageUri: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     }
 

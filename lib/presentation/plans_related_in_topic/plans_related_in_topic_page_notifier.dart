@@ -28,7 +28,7 @@ class PlansRelatedInTopicPageNotifier
       }
       return plans;
     } on Exception catch (e) {
-      logger.d('getPlansRelatedInTopic: $e');
+      logger.e('getPlansRelatedInTopic: $e');
       return <Plan>[];
     }
   }

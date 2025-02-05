@@ -42,7 +42,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getPopularPlans();
     } on Exception catch (e) {
-      logger.d('getPopularPlans: $e');
+      logger.e('getPopularPlans: $e');
       return <Plan>[];
     }
   }
@@ -51,7 +51,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await topicDataSource.getPopularTopics();
     } on Exception catch (e) {
-      logger.d('getPopularTopics: $e');
+      logger.e('getPopularTopics: $e');
       return <Topic>[];
     }
   }
@@ -60,7 +60,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
-      logger.d('getRecentPlans: $e');
+      logger.e('getRecentPlans: $e');
     }
     return null;
   }

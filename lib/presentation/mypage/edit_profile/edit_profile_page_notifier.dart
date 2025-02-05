@@ -105,7 +105,7 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
       );
       return url;
     } on Exception catch (e) {
-      logger.d('getUploadedImageUri: $e');
+      logger.e('getUploadedImageUri: $e');
     }
 
     return null;

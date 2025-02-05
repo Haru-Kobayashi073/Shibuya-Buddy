@@ -40,7 +40,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       final price = inAppPurchaseService.getPurchaseItemPrice();
       return price;
     } on Exception catch (e) {
-      logger.d('getPurchaseItemPrice: $e');
+      logger.e('getPurchaseItemPrice: $e');
       return {};
     }
   }
@@ -52,7 +52,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       await inAppPurchaseService.makePurchase(packageId);
       onSuccess();
     } on Exception catch (e) {
-      logger.d('purchaseItem: $e');
+      logger.e('purchaseItem: $e');
       scaffoldMessenger
           .showExceptionSnackBar(i18nSnackBarError.failedToPurchase);
     } finally {
@@ -71,7 +71,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
         return;
       }
     } on Exception catch (e) {
-      logger.d('restorePurhcaseItem: $e');
+      logger.e('restorePurhcaseItem: $e');
       scaffoldMessenger
           .showExceptionSnackBar(i18nSnackBarError.failedToRestorePurchase);
     } finally {

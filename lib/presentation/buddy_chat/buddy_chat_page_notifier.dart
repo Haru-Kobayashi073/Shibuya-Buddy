@@ -219,7 +219,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         placeIds: placeIds,
       );
     } on Exception catch (e) {
-      logger.d('getPlacesPhotoUrls: $e');
+      logger.e('getPlacesPhotoUrls: $e');
     }
     if (forFirstBuild) {
       return chatMessage.copyWith(

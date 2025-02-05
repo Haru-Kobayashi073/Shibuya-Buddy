@@ -35,7 +35,7 @@ class CurrentUser extends _$CurrentUser {
           await userDataSource.fetchUser(userId: firebaseAuth.currentUser!.uid);
       state = user;
     } on Exception catch (e) {
-      logger.d('fetchUser: $e');
+      logger.e('fetchUser: $e');
     }
   }
 }
