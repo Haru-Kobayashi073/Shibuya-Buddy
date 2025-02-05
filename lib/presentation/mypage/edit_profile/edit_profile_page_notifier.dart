@@ -60,7 +60,8 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
 
         onSuccess();
       }
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('editProfile: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.editProfilePage.snackBar.error.failedToUpdate,
       );
@@ -81,7 +82,8 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
           ),
         );
       }
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('pickImage: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.editProfilePage.snackBar.error.failedToPickImage,
       );

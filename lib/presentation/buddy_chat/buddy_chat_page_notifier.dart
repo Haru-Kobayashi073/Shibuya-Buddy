@@ -92,7 +92,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
                   : null,
         ),
       );
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('recieveMessage: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedRecieveMessage,
       );
@@ -134,7 +135,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       await Future<void>.delayed(const Duration(milliseconds: 1000));
 
       await onSuccess();
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('completeCreatePlan: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
