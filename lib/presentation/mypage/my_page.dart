@@ -109,8 +109,11 @@ class MyPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorView(onRetry: () => ref.invalidate(currentUserStreamProvider)),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(currentUserStreamProvider),
+      ),
       loading: Loading.new,
     );
   }

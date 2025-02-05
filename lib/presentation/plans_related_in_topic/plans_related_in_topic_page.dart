@@ -51,7 +51,9 @@ class PlansRelatedInTopicPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) => ErrorView(
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
         onRetry: () =>
             ref.invalidate(plansRelatedInTopicPageNotifierProvider(planIds)),
       ),

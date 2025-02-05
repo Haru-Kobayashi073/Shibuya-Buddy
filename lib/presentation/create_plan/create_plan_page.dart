@@ -237,8 +237,11 @@ class CreatePlanPage extends HookConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorView(onRetry: () => ref.invalidate(createPlanNotifierProvider)),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(createPlanNotifierProvider),
+      ),
       loading: Loading.new,
     );
   }

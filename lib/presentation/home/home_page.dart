@@ -54,8 +54,11 @@ class HomePage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorView(onRetry: () => ref.invalidate(homePageNotifierProvider)),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(homePageNotifierProvider),
+      ),
       loading: Loading.new,
     );
   }

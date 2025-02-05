@@ -75,8 +75,11 @@ class MyPlanPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorView(onRetry: () => ref.invalidate(myPlanPageNotifierProvider)),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(myPlanPageNotifierProvider),
+      ),
       loading: Loading.new,
     );
   }

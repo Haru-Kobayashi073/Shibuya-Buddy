@@ -153,6 +153,8 @@ class BuddyChatPage extends HookConsumerWidget {
         },
         error: (e, s) {
           return ErrorView(
+            error: e,
+            stackTrace: s,
             onRetry: () => ref.invalidate(buddyChatPageNotifierProvider),
           );
         },
