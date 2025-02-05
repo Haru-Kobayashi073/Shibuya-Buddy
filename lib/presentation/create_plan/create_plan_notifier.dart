@@ -7,6 +7,7 @@ import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/topic.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/topic/topic_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'components/custom_cupertino_date_picker.dart';
 import 'create_plan_state.dart';
@@ -30,7 +31,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     try {
       return await topicDataSource.getTopics();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.d('getTopics: $e');
       return [];
     }
   }

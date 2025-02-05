@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -8,6 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../domain/entities/purchase_recipt.dart';
 import '../../../domain/entities/user.dart';
 import '../../../infrastructure/purchase/purchase_data_source.dart';
+import '../../custom_logger.dart';
 import '../current_user/current_user.dart';
 import 'in_app_purchase_service_state.dart';
 import 'purchase_item_config.dart';
@@ -71,12 +71,12 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         final packages = offering.availablePackages;
 
         for (final package in packages) {
-          debugPrint('package: ${package.identifier}');
+          logger.d('package: ${package.identifier}');
         }
         return offerings;
       }
     } on PlatformException catch (e) {
-      debugPrint('getOfferingItems error: $e');
+      logger.d('getOfferingItems error $e');
     }
     return null;
   }
@@ -140,7 +140,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       );
       ref.invalidate(currentUserProvider);
     } on PlatformException catch (e) {
-      debugPrint('makePurchase error $e');
+      logger.d('makePurchase: $e');
     }
   }
 
@@ -166,7 +166,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         return false;
       }
     } on PlatformException catch (e) {
-      debugPrint('purchase repo restorePurchase error $e');
+      logger.d('canRestorePurchase: $e');
       return false;
     }
   }

@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/user.dart';
@@ -7,8 +6,7 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/file/file_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../infrastructure/user/user_data_source.dart';
-import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
-    as messenger;
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
@@ -23,7 +21,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   FileDataSource get fileDataSource =>
       ref.read(fileDataSourceProvider.notifier);
   auth.User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
-  messenger.ScaffoldMessenger get scaffoldMessenger =>
+  ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
 
   TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn
@@ -63,7 +61,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       );
       onSuccess();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.d('registerInformation: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -78,7 +76,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       await userDataSource.createUser(user: state.user);
       onSuccess();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.d('onPressedSkipButton: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -93,7 +91,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
         state = state.copyWith(pickedFile: pickedImageFile);
       }
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.d('pickImage: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -109,7 +107,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
           await fileDataSource.getUploadedImageUrl(file: state.pickedFile!);
       return url;
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.d('_getUploadedImageUri: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     }
 

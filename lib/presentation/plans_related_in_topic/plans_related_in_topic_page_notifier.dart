@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/custom_logger.dart';
 
 part 'plans_related_in_topic_page_notifier.g.dart';
 
@@ -28,7 +28,7 @@ class PlansRelatedInTopicPageNotifier
       }
       return plans;
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.d('getPlansRelatedInTopic: $e');
       return <Plan>[];
     }
   }

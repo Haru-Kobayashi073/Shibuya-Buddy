@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../i18n/strings.g.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
 import '../../utils/providers/in_app_purchase/purchase_item_config.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
@@ -40,7 +40,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       final price = inAppPurchaseService.getPurchaseItemPrice();
       return price;
     } on Exception catch (e) {
-      debugPrint('getPurchaseItemPrice error: $e');
+      logger.d('getPurchaseItemPrice: $e');
       return {};
     }
   }
@@ -52,7 +52,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       await inAppPurchaseService.makePurchase(packageId);
       onSuccess();
     } on Exception catch (e) {
-      debugPrint('purchaseItem error: $e');
+      logger.d('purchaseItem: $e');
       scaffoldMessenger
           .showExceptionSnackBar(i18nSnackBarError.failedToPurchase);
     } finally {
@@ -71,7 +71,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
         return;
       }
     } on Exception catch (e) {
-      debugPrint('restorePurhcaseItem error: $e');
+      logger.d('restorePurhcaseItem: $e');
       scaffoldMessenger
           .showExceptionSnackBar(i18nSnackBarError.failedToRestorePurchase);
     } finally {
