@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../domain/entities/user.dart';
 import '../../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../../infrastructure/user/user_data_source.dart';
+import '../../custom_logger.dart';
 import '../scaffold_messenger/scaffold_messenger.dart';
 
 part 'current_user.g.dart';
@@ -35,7 +35,7 @@ class CurrentUser extends _$CurrentUser {
           await userDataSource.fetchUser(userId: firebaseAuth.currentUser!.uid);
       state = user;
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('fetchUser: $e');
     }
   }
 }

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
@@ -31,6 +32,7 @@ class SignUpPageNotifier extends _$SignUpPageNotifier {
       );
       onSuccess();
     } on FirebaseAuthException catch (e) {
+      logger.e('signUpWithEmailAndPassword: $e');
       final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)

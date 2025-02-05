@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
-import '../../i18n/strings.g.dart';
-import 'gen/assets.gen.dart';
-import 'utils/styles/app_color.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../i18n/strings.g.dart';
+import '../../gen/assets.gen.dart';
+import '../../utils/custom_logger.dart';
+import '../../utils/extensions/context.dart';
+import '../../utils/styles/app_color.dart';
 
-class ErrorPage extends StatelessWidget {
-  const ErrorPage({super.key, required this.onRetry});
+class ErrorView extends HookWidget {
+  const ErrorView({
+    super.key,
+    required this.error,
+    required this.stackTrace,
+    required this.onRetry,
+  });
+  final Object error;
+  final StackTrace stackTrace;
   final VoidCallback onRetry;
 
   @override
   Widget build(BuildContext context) {
     final i18n = Translations.of(context);
+
+    useEffect(
+      () {
+        logger
+          ..e('ErrorView: $error')
+          ..e('ErrorView: $stackTrace');
+        return null;
+      },
+      const [],
+    );
 
     return Scaffold(
       body: SafeArea(
@@ -20,9 +41,9 @@ class ErrorPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // イラスト
-                Image.asset(
-                  Assets.images.error.path,
-                  height: 366,
+                SvgPicture.asset(
+                  Assets.images.errorImage,
+                  width: context.deviceWidth * 0.8,
                 ),
                 const SizedBox(height: 32),
 
