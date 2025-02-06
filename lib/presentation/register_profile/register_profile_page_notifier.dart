@@ -58,7 +58,8 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       ),
     );
     try {
-      await userDataSource.createUser(
+      // userUpdate
+      await userDataSource.editUser(
         user: state.user,
       );
       onSuccess();
@@ -75,7 +76,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
-      await userDataSource.createUser(user: state.user);
+      await userDataSource.editUser(user: state.user);
       onSuccess();
     } on Exception catch (e) {
       debugPrint(e.toString());
