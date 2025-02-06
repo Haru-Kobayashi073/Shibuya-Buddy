@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
@@ -66,20 +67,22 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
           );
           // 遷移処理をonSuccessで受け取る
           onSuccess(verificationId);
+          ref.read(isShowLoadingOverlayProvider.notifier).state = false;
         },
         onError: (error) {
           // 電話番号が間違っている場合やサーバーエラーの場合
           scaffoldMessenger.showExceptionSnackBar(
             i18n.error,
           );
+          ref.read(isShowLoadingOverlayProvider.notifier).state = false;
         },
       );
     } on Exception catch (error) {
+      logger.e('sendSmsCode: $error');
       // その他の例外エラー
       scaffoldMessenger.showExceptionSnackBar(
         '${i18n.unexpectedError} $error',
       );
-    } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }

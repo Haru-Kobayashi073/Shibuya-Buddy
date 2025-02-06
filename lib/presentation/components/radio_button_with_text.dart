@@ -13,7 +13,6 @@ import '../../utils/styles/app_text_style.dart';
 ///      onChanged: (value) {
 ///        setState(() {
 ///          if (value != null) {
-///            debugPrint('TapJapanese');
 ///            selectLanguage = value;
 ///          }
 ///        });

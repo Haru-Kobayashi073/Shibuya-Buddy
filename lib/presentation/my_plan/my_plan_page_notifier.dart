@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as custom;
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
@@ -40,10 +41,12 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
         plans.add(await planDataSource.getPlanData(planId: id));
       }
       return plans;
-    } on FirebaseException catch (_) {
+    } on FirebaseException catch (e) {
+      logger.e('getBookmarkPlans: $e');
       scaffoldMessenger.showExceptionSnackBar(snacki18n.failedGetPlanData);
       return [];
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('getBookmarkPlans: $e');
       scaffoldMessenger.showExceptionSnackBar(snacki18n.displayError);
       return [];
     }
@@ -53,7 +56,8 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
     try {
       final plans = await planDataSource.getPlansMadeByPersonal();
       return plans;
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('getCreatedPlans: $e');
       scaffoldMessenger.showExceptionSnackBar(t.myPlanPage.error.displayError);
       return [];
     }
@@ -73,7 +77,8 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
               .toList(),
         ),
       );
-    } on FirebaseException catch (_) {
+    } on FirebaseException catch (e) {
+      logger.e('unBookmark: $e');
       scaffoldMessenger
           .showExceptionSnackBar(t.myPlanPage.error.failedUnBookmark);
     }

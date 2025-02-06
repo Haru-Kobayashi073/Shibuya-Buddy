@@ -8,6 +8,7 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../infrastructure/user/user_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
 import 'sms_verification_state.dart';
@@ -64,6 +65,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
       );
       onSuccess();
     } on Object catch (error) {
+      logger.e('verifySmsCode: $error');
       scaffoldMessenger.showExceptionSnackBar(
         '${i18n.error} $error',
       );
@@ -98,6 +100,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         },
       );
     } on Exception catch (error) {
+      logger.e('sendSmsCode: $error');
       scaffoldMessenger.showExceptionSnackBar(
         '${i18nPhoneNumberInputScaffoldMessenger.unexpectedError} $error',
       );

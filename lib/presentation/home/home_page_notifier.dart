@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
@@ -7,6 +6,7 @@ import '../../domain/entities/user.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../infrastructure/topic/topic_data_source.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
 import 'home_page_state.dart';
@@ -42,7 +42,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getPopularPlans();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getPopularPlans: $e');
       return <Plan>[];
     }
   }
@@ -51,7 +51,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await topicDataSource.getPopularTopics();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getPopularTopics: $e');
       return <Topic>[];
     }
   }
@@ -60,7 +60,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getRecentPlans: $e');
     }
     return null;
   }
