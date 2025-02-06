@@ -67,12 +67,14 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
           );
           // 遷移処理をonSuccessで受け取る
           onSuccess(verificationId);
+          ref.read(isShowLoadingOverlayProvider.notifier).state = false;
         },
         onError: (error) {
           // 電話番号が間違っている場合やサーバーエラーの場合
           scaffoldMessenger.showExceptionSnackBar(
             i18n.error,
           );
+          ref.read(isShowLoadingOverlayProvider.notifier).state = false;
         },
       );
     } on Exception catch (error) {
@@ -81,7 +83,6 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
       scaffoldMessenger.showExceptionSnackBar(
         '${i18n.unexpectedError} $error',
       );
-    } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
