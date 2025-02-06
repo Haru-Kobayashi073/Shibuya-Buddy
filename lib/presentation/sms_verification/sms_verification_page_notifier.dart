@@ -52,7 +52,6 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         smsCode,
       );
       state = state.copyWith(isSmsVerified: true);
-      //createUser
       await userDataSource.createUser(
         user: User(
           uid: currentUser.uid,

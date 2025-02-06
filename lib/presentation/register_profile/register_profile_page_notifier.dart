@@ -56,7 +56,6 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       ),
     );
     try {
-      // userUpdate
       await userDataSource.editUser(
         user: state.user,
       );

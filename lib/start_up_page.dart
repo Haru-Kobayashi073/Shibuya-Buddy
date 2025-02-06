@@ -18,15 +18,10 @@ class StartUpPage extends HookConsumerWidget {
     final message = ref.watch(scaffoldMessengerProvider.notifier);
     final i18nEmail = t.authentication.emailVerificationPage.snackBar;
     final i18nPhone = t.authentication.phoneNumberInputPage.scaffoldMessenger;
-    final logger = Logger();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       user.when(
         data: (user) {
           if (user != null) {
-            logger
-              ..i('電話番号:${user.phoneNumber == null}')
-              ..i('メール認証:${user.emailVerified}')
-              ..i('名前:${user.uid}');
             if (!user.emailVerified) {
               context.go(
                 EmailVerificationPageRouteData(email: user.email.toString())
