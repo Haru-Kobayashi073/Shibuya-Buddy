@@ -453,9 +453,8 @@
             }
         },
         "restorePurchaseSection": {
-            "title": "恢复购买",
-            "description": "如果您过去使用相同的AppStore账户或Google Play账户购买了有效的项目，可以恢复这些购买。",
-            "button": "恢复购买"
+            "button": "恢复购买",
+            "textButton": "什么是购买恢复？"
         },
         "upgradeButton": "升级到高级计划",
         "snackBar": {

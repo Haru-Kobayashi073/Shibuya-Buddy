@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../domain/entities/topic.dart';
+import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/styles/app_text_style.dart';
 
-class RowCategoryTags extends StatelessWidget {
+class RowCategoryTags extends ConsumerWidget {
   const RowCategoryTags({
     super.key,
-    required this.tags,
+    required this.topics,
     required this.tagColor,
     required this.spacing,
   });
 
-  final List<String> tags;
+  final List<Topic> topics;
   final Color tagColor;
   final int spacing;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final localeNotifier = ref.read(localeServiceProvider.notifier);
+    final tags = topics.map(localeNotifier.getTranslatedTopicName).toList();
+
     return LayoutBuilder(
       builder: (context, constraints) {
         return Row(
-          children: _buildTagWidgets(constraints.maxWidth),
+          children: _buildTagWidgets(constraints.maxWidth, tags),
         );
       },
     );
   }
 
-  List<Widget> _buildTagWidgets(double maxWidth) {
+  List<Widget> _buildTagWidgets(double maxWidth, List<String> tags) {
     final tagWidgets = <Widget>[];
     var currentLineWidth = 0;
 

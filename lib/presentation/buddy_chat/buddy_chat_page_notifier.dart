@@ -10,6 +10,7 @@ import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/place_detail/place_detail_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
@@ -91,7 +92,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
                   : null,
         ),
       );
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('recieveMessage: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedRecieveMessage,
       );
@@ -133,7 +135,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       await Future<void>.delayed(const Duration(milliseconds: 1000));
 
       await onSuccess();
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('completeCreatePlan: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
@@ -218,7 +221,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         placeIds: placeIds,
       );
     } on Exception catch (e) {
-      debugPrint('Error in buddyChatPageNotifier by _getAllFilledMessage: $e');
+      logger.e('getPlacesPhotoUrls: $e');
     }
     if (forFirstBuild) {
       return chatMessage.copyWith(

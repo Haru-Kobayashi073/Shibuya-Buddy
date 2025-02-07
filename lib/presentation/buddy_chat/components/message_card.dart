@@ -113,7 +113,7 @@ class _PlanCard extends StatelessWidget {
               const SizedBox(height: 8),
               // 複数のタグを表示する部分
               CategoryTags(
-                tags: plan.topics.map((e) => e.name).toList(),
+                topics: plan.topics,
                 spacing: 8,
                 tagColor: AppColor.white,
               ),

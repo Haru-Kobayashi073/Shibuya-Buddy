@@ -853,9 +853,8 @@ class _TranslationsBillDetailsPageRestorePurchaseSectionKo implements Translatio
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '구매 복원';
-	@override String get description => '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';
 	@override String get button => '구매 복원';
+	@override String get textButton => '구매 복원이란?';
 }
 
 // Path: billDetailsPage.snackBar
@@ -1619,9 +1618,8 @@ extension on TranslationsKo {
 			case 'billDetailsPage.pricingOptions.unlimited.duration': return '무제한';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800원';
-			case 'billDetailsPage.restorePurchaseSection.title': return '구매 복원';
-			case 'billDetailsPage.restorePurchaseSection.description': return '이전에 동일한 AppStore 계정이나 Google Play 계정으로 구매한 유효한 항목이 있는 경우, 이를 복원할 수 있습니다.';
 			case 'billDetailsPage.restorePurchaseSection.button': return '구매 복원';
+			case 'billDetailsPage.restorePurchaseSection.textButton': return '구매 복원이란?';
 			case 'billDetailsPage.upgradeButton': return '프리미엄으로 업그레이드';
 			case 'billDetailsPage.snackBar.error.failedToPurchase': return '구매에 실패했습니다. 잠시 후 다시 시도해주세요.';
 			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '구매 기록이 없습니다.';

@@ -1,8 +1,10 @@
-import 'dart:ui';
-
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +19,8 @@ const flavor = String.fromEnvironment('flavor');
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initATT();
+  FlutterNativeSplash.remove();
   await LocaleSettings.useDeviceLocale();
   await initializeDateFormatting();
 
@@ -24,7 +28,12 @@ Future<void> main() async {
       ? prod.DefaultFirebaseOptions.currentPlatform
       : dev.DefaultFirebaseOptions.currentPlatform;
   await Firebase.initializeApp(options: firebaseOptions);
-
+  await FirebaseAppCheck.instance.activate(
+    androidProvider:
+        kReleaseMode ? AndroidProvider.playIntegrity : AndroidProvider.debug,
+    appleProvider:
+        kReleaseMode ? AppleProvider.deviceCheck : AppleProvider.debug,
+  );
   if (flavor == 'prod') {
     // Pass all uncaught "fatal" errors from the framework to Crashlytics
     FlutterError.onError = (errorDetails) {
@@ -49,4 +58,12 @@ Future<void> main() async {
       ),
     ),
   );
+}
+
+Future<void> initATT() async {
+  if (await AppTrackingTransparency.trackingAuthorizationStatus ==
+      TrackingStatus.notDetermined) {
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    await AppTrackingTransparency.requestTrackingAuthorization();
+  }
 }

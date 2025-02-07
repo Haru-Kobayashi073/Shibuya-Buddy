@@ -1,7 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../i18n/strings.g.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
 import '../../utils/providers/in_app_purchase/purchase_item_config.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
@@ -39,7 +40,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       final price = inAppPurchaseService.getPurchaseItemPrice();
       return price;
     } on Exception catch (e) {
-      debugPrint('getPurchaseItemPrice error: $e');
+      logger.e('getPurchaseItemPrice: $e');
       return {};
     }
   }
@@ -51,7 +52,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
       await inAppPurchaseService.makePurchase(packageId);
       onSuccess();
     } on Exception catch (e) {
-      debugPrint('purchaseItem error: $e');
+      logger.e('purchaseItem: $e');
       scaffoldMessenger
           .showExceptionSnackBar(i18nSnackBarError.failedToPurchase);
     } finally {
@@ -70,7 +71,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
         return;
       }
     } on Exception catch (e) {
-      debugPrint('restorePurhcaseItem error: $e');
+      logger.e('restorePurhcaseItem: $e');
       scaffoldMessenger
           .showExceptionSnackBar(i18nSnackBarError.failedToRestorePurchase);
     } finally {
@@ -98,5 +99,12 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
     } else {
       return '';
     }
+  }
+
+  Future<void> launchNotion() async {
+    final url = Uri.parse(
+      'https://pond-link-c69.notion.site/1904d7d3b38980f0a608e48ccd13dce4?pvs=4',
+    );
+    await launchUrl(url, mode: LaunchMode.externalApplication);
   }
 }

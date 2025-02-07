@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../error_page.dart';
 import '../../utils/styles/app_text_style.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import '../components/plan_card.dart';
 import 'plans_related_in_topic_page_notifier.dart';
@@ -51,7 +51,9 @@ class PlansRelatedInTopicPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) => ErrorPage(
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
         onRetry: () =>
             ref.invalidate(plansRelatedInTopicPageNotifierProvider(planIds)),
       ),

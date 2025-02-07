@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
-import '../create_plan_loading/create_loading_overlay.dart';
+import '../components/error_view.dart';
+import '../components/loading_overlay.dart';
 import 'bookmark_plans_tab_view.dart';
 import 'created_plans_tab_view.dart';
 import 'my_plan_page_notifier.dart';
@@ -75,9 +75,12 @@ class MyPlanPage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(myPlanPageNotifierProvider)),
-      loading: CreateLoading.new,
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(myPlanPageNotifierProvider),
+      ),
+      loading: Loading.new,
     );
   }
 }

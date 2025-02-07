@@ -48,7 +48,7 @@ class RecentPlan extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 RowCategoryTags(
-                  tags: plan.topics.map((e) => e.name).toList(),
+                  topics: plan.topics,
                   tagColor: AppColor.blue50Background,
                   spacing: 8,
                 ),

@@ -5,6 +5,7 @@ import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../my_plan/my_plan_page_notifier.dart';
 import 'plan_detail_page_state.dart';
@@ -36,7 +37,8 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
   Future<Plan> getPlan() async {
     try {
       return await planDataSource.getPlanData(planId: plan.id);
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('getPlan: $e');
       return plan;
     }
   }
@@ -67,7 +69,8 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       }
       // あまりしたくはないが、MyPlanPageNotifierの状態を更新するためにinvalidateする
       ref.invalidate(myPlanPageNotifierProvider);
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('onBookmarkButtonTap: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.planDetailsPage.snackBar.error.failedToUpdateBookmark,
       );

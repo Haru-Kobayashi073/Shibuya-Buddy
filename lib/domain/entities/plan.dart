@@ -13,7 +13,7 @@ abstract class Plan with _$Plan {
     required String title,
     required String description,
     required String thumbnailUrl,
-    required List<Topic> topics,
+    @Default([]) List<Topic> topics,
     @Default('') String authorId,
     int? ranking,
     @Default(false) bool isBookmarked,
