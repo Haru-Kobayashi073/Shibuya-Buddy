@@ -119,7 +119,7 @@ class RegisterProfilePage extends HookConsumerWidget {
                   label: i18nRegisterProfilePage.buttons.skip,
                   color: AppColor.blue50Background,
                   onPressed: () async =>
-                      const HomeScreenRouteData().push<void>(context),
+                      const HomeScreenRouteData().go(context),
                 ),
               ],
             ),
