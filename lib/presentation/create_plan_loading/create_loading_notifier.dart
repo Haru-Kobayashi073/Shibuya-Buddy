@@ -29,9 +29,9 @@ class CreateLoadingPage extends _$CreateLoadingPage {
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
       changeloadingText();
-      if (updateLoadingIndicator(1) > 100) {
-        resetLoadingIndicator();
-      } //仮
+      // if (updateLoadingIndicator(1) > 100) {
+      //   resetLoadingIndicator();
+      // } //仮
     });
   }
 
