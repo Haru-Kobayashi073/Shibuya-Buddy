@@ -17,6 +17,7 @@ import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
 import '../../utils/routes/app_router.dart';
 import '../components/loading_overlay.dart';
+import '../create_plan_loading/create_loading_notifier.dart';
 import 'buddy_chat_page_state.dart';
 
 part 'buddy_chat_page_notifier.g.dart';
@@ -167,25 +168,28 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }
 
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
+    final loadingNotifier = ref.watch(createLoadingPageProvider.notifier);
     final scrollController = ScrollController();
 
     ref.onDispose(
       scrollController.dispose,
     );
-
+    loadingNotifier.startAutoChange();
+    loadingNotifier.resetLoadingIndicator();
+    // await loadingNotifier.updateLoadingIndicator(0);
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
-
+    // loadingNotifier.updateLoadingIndicator(80);
     final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
-
+    // loadingNotifier.updateLoadingIndicator(85);
     final message = ChatMessage(
       id: buddyMessage.id,
       message: buddyMessage.plan!.description,
       author: ChatAuthor.buddy,
       createdAt: buddyMessage.createdAt,
     );
-
+    // loadingNotifier.updateLoadingIndicator(90);
     final messages = [buddyMessage, message];
-
+    // loadingNotifier.updateLoadingIndicator(100);
     return BuddyChatPageState(
       messages: messages,
       possibleChatCount: null,
