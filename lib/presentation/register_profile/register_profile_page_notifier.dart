@@ -73,7 +73,6 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
-      await userDataSource.editUser(user: state.user);
       onSuccess();
     } on Exception catch (e) {
       logger.e('onPressedSkipButton: $e');
