@@ -68,20 +68,6 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
     }
   }
 
-  Future<void> onPressedSkipButton({
-    required void Function() onSuccess,
-  }) async {
-    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
-    try {
-      onSuccess();
-    } on Exception catch (e) {
-      logger.e('onPressedSkipButton: $e');
-      scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
-    } finally {
-      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
-    }
-  }
-
   Future<void> pickImage() async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
