@@ -30,7 +30,9 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace = "com.shibuya.buddy"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+
+    // 色々な主要パッケージが下記バージョン以上を推奨
+    ndkVersion = "25.1.8937393"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
