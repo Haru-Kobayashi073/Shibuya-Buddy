@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   app_tracking_transparency: ^2.0.6+1
+  background_locator_2: ^2.0.6
   cached_network_image: ^3.4.1
   carousel_slider: ^5.0.0
   cloud_firestore: ^5.5.0
@@ -66,6 +67,7 @@ dependencies:
   logger: ^2.5.0
   lottie: ^3.2.0
   material_symbols_icons: ^4.2789.0
+  native_geofence: ^1.0.8
   package_info_plus: ^8.1.2
   path_provider: ^2.1.5
   purchases_flutter: ^8.4.0

@@ -86,6 +86,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  background_locator_2:
+    dependency: "direct main"
+    description:
+      name: background_locator_2
+      sha256: "145ef41767306052cbb2159478c0369b83c9800740f7acc656530c263d371695"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6"
   boolean_selector:
     dependency: transitive
     description:
@@ -1226,6 +1234,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  native_geofence:
+    dependency: "direct main"
+    description:
+      name: native_geofence
+      sha256: be33691f635d46e0c7776c535d0a7ced297136d6b4dcbce78a7f9a013502907b
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.8"
   octo_image:
     dependency: transitive
     description:
