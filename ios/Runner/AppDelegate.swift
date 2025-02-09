@@ -2,6 +2,13 @@ import Flutter
 import UIKit
 import GoogleMaps
 import native_geofence
+import background_locator_2
+
+func registerPlugins(registry: FlutterPluginRegistry) -> () {
+  if (!registry.hasPlugin("BackgroundLocatorPlugin")) {
+      GeneratedPluginRegistrant.register(with: registry)
+  } 
+}
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -18,6 +25,8 @@ import native_geofence
     if let googleMapApiKey = Bundle.main.infoDictionary?["GoogleMapAPIKey"] as? String {
       GMSServices.provideAPIKey(googleMapApiKey)
     }
+
+    BackgroundLocatorPlugin.setPluginRegistrantCallback(registerPlugins)
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
