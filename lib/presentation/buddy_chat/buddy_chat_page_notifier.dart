@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:native_geofence/native_geofence.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../domain/entities/chat_message.dart';
+import '../../domain/entities/place.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
@@ -13,6 +15,7 @@ import '../../utils/billing_grade_options.dart';
 import '../../utils/custom_logger.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/providers/current_user/current_user.dart';
+import '../../utils/providers/geofence/geofence_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
 import '../../utils/routes/app_router.dart';
@@ -33,6 +36,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
       ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
+  GeofenceService get geofenceService =>
+      ref.read(geofenceServiceProvider.notifier);
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
@@ -125,6 +130,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
             (place) => place.copyWith(id: const Uuid().v4()),
           )
           .toList();
+
+      await addGeofences(targetPlaces);
+
       await planDataSource.createPlan(
         plan: targetPlan,
         places: targetPlaces,
@@ -322,5 +330,19 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         possibleChatCount: null,
       ),
     );
+  }
+
+  Future<void> addGeofences(List<Place> places) async {
+    for (final place in places) {
+      await geofenceService.addGeofence(
+        id: place.id,
+        location: Location(
+          latitude: place.location.latitude,
+          longitude: place.location.longitude,
+        ),
+      );
+    }
+
+    await geofenceService.getRegisteredGenfences();
   }
 }
