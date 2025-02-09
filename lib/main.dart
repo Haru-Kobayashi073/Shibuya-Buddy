@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:native_geofence/native_geofence.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'i18n/strings.g.dart';
@@ -66,4 +69,12 @@ Future<void> initATT() async {
     await Future<void>.delayed(const Duration(milliseconds: 200));
     await AppTrackingTransparency.requestTrackingAuthorization();
   }
+}
+
+@pragma('vm:entry-point')
+Future<void> geofenceTriggered(GeofenceCallbackParams params) async {
+  debugPrint('Geofence triggered with params: $params');
+  final send = IsolateNameServer.lookupPortByName('native_geofence_send_port');
+  final trigeredGeofenceIds = params.geofences.map((e) => e.id).toList();
+  send?.send(trigeredGeofenceIds);
 }
