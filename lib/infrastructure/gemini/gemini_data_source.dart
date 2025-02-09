@@ -20,7 +20,7 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     const apiKey = String.fromEnvironment('geminiAPIKey');
 
     return GenerativeModel(
-      model: 'gemini-1.5-flash-latest',
+      model: 'gemini-2.0-flash',
       apiKey: apiKey,
       generationConfig: GenerationConfig(
         temperature: 1,
