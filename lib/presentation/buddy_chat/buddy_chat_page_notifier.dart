@@ -117,7 +117,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       final targetPlan = targetMessage.plan!.copyWith(
         id: const Uuid().v4(),
         authorId: ref.read(currentUserProvider).uid,
-        topics: targetMessage.plan!.topics,
+        topics: planPrompt.topics,
         createdAt: DateTime.now().toIso8601String(),
       );
       final targetPlaces = targetMessage.places!
