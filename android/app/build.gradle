@@ -32,7 +32,7 @@ android {
     compileSdk = flutter.compileSdkVersion
 
     // 色々な主要パッケージが下記バージョン以上を推奨
-    ndkVersion = "25.1.8937393"
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
