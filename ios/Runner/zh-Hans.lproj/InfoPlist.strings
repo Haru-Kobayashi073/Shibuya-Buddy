@@ -1,5 +1,8 @@
 "NSPhotoLibraryUsageDescription" = "您是否允许从相册中选择个人资料图标？";
 "NSUserTrackingUsageDescription" = "为了优化广告等，我们将跟踪您的数据。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "选择“始终允许“后，您的数据将用于服务改进。感谢您的配合。您的位置信息不会与他人共享。";
+"NSLocationWhenInUseUsageDescription" = "选择“始终允许”后，您的数据将用于服务改进。感谢您的配合。";
+
 /*
   InfoPlist.strings
   Runner

@@ -269,6 +269,8 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - permission_handler_apple (9.3.0):
+    - Flutter
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
@@ -310,6 +312,7 @@ DEPENDENCIES:
   - native_geofence (from `.symlinks/plugins/native_geofence/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - purchases_flutter (from `.symlinks/plugins/purchases_flutter/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sign_in_with_apple (from `.symlinks/plugins/sign_in_with_apple/ios`)
@@ -399,6 +402,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
   purchases_flutter:
     :path: ".symlinks/plugins/purchases_flutter/ios"
   shared_preferences_foundation:
@@ -470,6 +475,7 @@ SPEC CHECKSUMS:
   native_geofence: b6b6b2bca9bbf8181e646aab0e41a012089ee905
   package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+  permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   purchases_flutter: 4194023eb12a7f1f2cccd980c998806bea570e2b
@@ -481,6 +487,6 @@ SPEC CHECKSUMS:
   sqflite_darwin: 44bb54cc302bff1fbe5752293aba1820b157cf1c
   url_launcher_ios: 694010445543906933d732453a59da0a173ae33d
 
-PODFILE CHECKSUM: d951bc8a4b6271b591b385f17ceae0d902bdabf6
+PODFILE CHECKSUM: 08497ac9f8e03d7b741aaa6f5c8c7ef5167e5d80
 
 COCOAPODS: 1.16.2
