@@ -16,6 +16,7 @@ import 'i18n/strings.g.dart';
 import 'infrastructure/firebase/firebase_options_dev.dart' as dev;
 import 'infrastructure/firebase/firebase_options_prod.dart' as prod;
 import 'presentation/app.dart';
+import 'utils/custom_logger.dart';
 import 'utils/providers/shared_preferences/shared_preferences_service.dart';
 
 const flavor = String.fromEnvironment('flavor');
@@ -73,7 +74,7 @@ Future<void> initATT() async {
 
 @pragma('vm:entry-point')
 Future<void> geofenceTriggered(GeofenceCallbackParams params) async {
-  debugPrint('Geofence triggered with params: $params');
+  logger.d('Geofence triggered with params: $params');
   final send = IsolateNameServer.lookupPortByName('native_geofence_send_port');
   final trigeredGeofenceIds = params.geofences.map((e) => e.id).toList();
   send?.send(trigeredGeofenceIds);
