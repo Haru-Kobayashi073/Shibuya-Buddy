@@ -43,6 +43,10 @@
 	<string>プロフィールのアイコンの設定にフォトライブラリから選択します。許可をしますか？</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>広告などの最適化のため、あなたのデータをトラッキングします。</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>USER_VISIBLE_STRING__DESCRIBE_HOW_YOUR_APP_USES_LOCATION.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>USER_VISIBLE_STRING__DESCRIBE_HOW_YOUR_APP_USES_BACKGROUND_LOCATION.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
