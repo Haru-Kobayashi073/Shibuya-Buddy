@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:native_geofence/native_geofence.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -6,6 +8,9 @@ import '../../../main.dart';
 import '../../custom_logger.dart';
 
 part 'geofence_service.g.dart';
+
+const geofenceSendPort = 'geofence_send_port';
+final ReceivePort geofenceReceivePort = ReceivePort();
 
 @riverpod
 class GeofenceService extends _$GeofenceService {
