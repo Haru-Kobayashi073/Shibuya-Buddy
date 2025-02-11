@@ -56,10 +56,7 @@ class GeofenceService extends _$GeofenceService {
   Future<bool> checkPermissionAboutLocation() async {
     final locationPerm = await Permission.locationWhenInUse.request();
     final backgroundLocationPerm = await Permission.locationAlways.request();
-    final notificationPerm = await Permission.notification.request();
-    return locationPerm.isGranted &&
-        backgroundLocationPerm.isGranted &&
-        notificationPerm.isGranted;
+    return locationPerm.isGranted && backgroundLocationPerm.isGranted;
   }
 
   Future<void> getRegisteredGenfences() async {
