@@ -6,7 +6,7 @@ part of 'map_page_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mapPageNotifierHash() => r'3015b02dbceae0bd966a93fc5a4c6b2b91dc5b29';
+String _$mapPageNotifierHash() => r'ce296ce1c3af79325bc4d5fa721d9fbcafaa381d';
 
 /// Copied from Dart SDK
 class _SystemHash {
