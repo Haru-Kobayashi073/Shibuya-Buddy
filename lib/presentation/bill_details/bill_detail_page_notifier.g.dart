@@ -7,7 +7,7 @@ part of 'bill_detail_page_notifier.dart';
 // **************************************************************************
 
 String _$billDetailPageNotifierHash() =>
-    r'612f90afad392bd4aff334e5a73da101909aa7e6';
+    r'b5f4726ba168c6c61764b2118aba768245339af3';
 
 /// See also [BillDetailPageNotifier].
 @ProviderFor(BillDetailPageNotifier)
