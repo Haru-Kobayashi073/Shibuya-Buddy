@@ -1,6 +1,3 @@
-import 'dart:isolate';
-import 'dart:ui';
-
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
@@ -43,21 +40,6 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       /// ユーザー情報を取得
       await ref.read(currentUserProvider.notifier).fetchUser();
-
-      /// Geofencingを初期化
-      final port = ReceivePort();
-      IsolateNameServer.registerPortWithName(
-        port.sendPort,
-        'native_geofence_send_port',
-      );
-      port.listen((dynamic data) async {
-        logger.d('geofenceState: $data');
-        for (final id in data as List<String>) {
-          await ref
-              .read(geofenceServiceProvider.notifier)
-              .deleteGeofence(id: id);
-        }
-      });
       await ref.read(geofenceServiceProvider.notifier).initialize();
 
       /// In-App Purchaseを初期化
