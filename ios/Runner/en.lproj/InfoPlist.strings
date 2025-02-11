@@ -1,5 +1,7 @@
 "NSPhotoLibraryUsageDescription" = "Would you like to grant permission to select a profile icon from the photo library?";
 "NSUserTrackingUsageDescription" = "We will track your data to optimize ads and other services.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Selecting “Always Allow“ will allow your data to be used for service improvement. We appreciate your cooperation. Your location information will not be shared with others.";
+"NSLocationWhenInUseUsageDescription" = "Selecting “Always Allow“ will allow your data to be used for service improvement. We appreciate your cooperation.";
 
 /*
   InfoPlist.strings
