@@ -53,6 +53,10 @@ class GeofenceService extends _$GeofenceService {
     await nativeGeofenceManager.removeGeofenceById(id);
   }
 
+  Future<void> deleteGeofences() async {
+    await nativeGeofenceManager.removeAllGeofences();
+  }
+
   Future<bool> checkPermissionAboutLocation() async {
     final locationPerm = await Permission.locationWhenInUse.request();
     final backgroundLocationPerm = await Permission.locationAlways.request();
