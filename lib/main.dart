@@ -25,6 +25,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initATT();
   FlutterNativeSplash.remove();
+  setupGeofenceListener();
   await LocaleSettings.useDeviceLocale();
   await initializeDateFormatting();
 
@@ -62,6 +63,28 @@ Future<void> main() async {
       ),
     ),
   );
+}
+
+void setupGeofenceListener() {
+  IsolateNameServer.removePortNameMapping(geofenceSendPort);
+  final success = IsolateNameServer.registerPortWithName(
+    geofenceReceivePort.sendPort,
+    geofenceSendPort,
+  );
+
+  if (success) {
+    logger.d('Successfully registered geofenceReceivePort');
+  } else {
+    logger.e('Failed to register geofenceReceivePort');
+  }
+
+  geofenceReceivePort.listen((dynamic data) async {
+    logger.d('geofenceState: $data');
+    for (final id in data as List<String>) {
+      await NativeGeofenceManager.instance.removeGeofenceById(id);
+    }
+    geofenceReceivePort.close();
+  });
 }
 
 Future<void> initATT() async {
