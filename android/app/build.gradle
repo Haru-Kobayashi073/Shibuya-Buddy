@@ -52,6 +52,7 @@ android {
         applicationId "${dartDefines.appId}"
         resValue "string", "app_name", "${dartDefines.appName}"
         resValue "string", "google_map_api_key", "${dartDefines.GoogleMapAPIKey}"
+        resValue "string", "admob_app_id", "${dartDefines.admobAppId}"
     }
 
         signingConfigs {
