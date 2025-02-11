@@ -343,6 +343,6 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       );
     }
 
-    await geofenceService.getRegisteredGenfences();
+    await geofenceService.getRegisteredGeofences();
   }
 }

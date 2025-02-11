@@ -25,7 +25,7 @@ class GeofenceService extends _$GeofenceService {
     await nativeGeofenceManager.initialize();
     await checkPermissionAboutLocation();
     logger.d('initializeAppServices: geofenceService initialized');
-    await getRegisteredGenfences();
+    await getRegisteredGeofences();
   }
 
   Future<void> addGeofence({
@@ -68,7 +68,7 @@ class GeofenceService extends _$GeofenceService {
     return locationPerm.isGranted && backgroundLocationPerm.isGranted;
   }
 
-  Future<void> getRegisteredGenfences() async {
+  Future<void> getRegisteredGeofences() async {
     final geofences = await nativeGeofenceManager.getRegisteredGeofences();
     logger.d('geofences: $geofences');
   }

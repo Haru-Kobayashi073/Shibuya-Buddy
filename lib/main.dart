@@ -100,6 +100,6 @@ Future<void> initATT() async {
 Future<void> geofenceTriggered(GeofenceCallbackParams params) async {
   logger.d('Geofence triggered with params: $params');
   final send = IsolateNameServer.lookupPortByName(geofenceSendPort);
-  final trigeredGeofenceIds = params.geofences.map((e) => e.id).toList();
-  send?.send(trigeredGeofenceIds);
+  final triggeredGeofenceIds = params.geofences.map((e) => e.id).toList();
+  send?.send(triggeredGeofenceIds);
 }
