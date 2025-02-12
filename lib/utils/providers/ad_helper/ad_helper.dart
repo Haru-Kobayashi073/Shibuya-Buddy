@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -40,24 +41,28 @@ class AdHelper extends _$AdHelper {
   AdHelperState build() {
     ref.onDispose(() async {
       await state.bannerAd?.dispose();
+      await state.nativeAd?.dispose();
     });
     return const AdHelperState();
   }
 
   Future<void> loadBannerAd() async {
-    if (!state.isLoaded) {
+    if (!state.isLoadedBannerAd) {
       await BannerAd(
         adUnitId: AdHelper.bannerAdUnitId,
         request: const AdRequest(),
         size: AdSize.banner,
         listener: BannerAdListener(
           onAdLoaded: (ad) {
-            state = state.copyWith(bannerAd: ad as BannerAd, isLoaded: true);
+            state = state.copyWith(
+              bannerAd: ad as BannerAd,
+              isLoadedBannerAd: true,
+            );
             logger.i('Banner ad loaded');
           },
-          onAdFailedToLoad: (ad, err) {
+          onAdFailedToLoad: (ad, err) async {
             logger.e('Failed to load a banner ad: $err');
-            ad.dispose();
+            await ad.dispose();
           },
         ),
       ).load();
@@ -65,31 +70,32 @@ class AdHelper extends _$AdHelper {
   }
 
   Future<void> loadNativeAd() async {
-    await NativeAd(
-      adUnitId: AdHelper.nativeAdUnitId,
-      listener: NativeAdListener(
-        onAdLoaded: (ad) {
-          state = state.copyWith(nativeAd: ad as NativeAd, isLoaded: true);
-          logger.i('Native ad loaded');
-        },
-        onAdFailedToLoad: (ad, error) {
-          // Dispose the ad here to free resources.
-          logger.e('Failed to load a native ad: $error');
-          ad.dispose();
-        },
-      ),
-      request: const AdRequest(),
-      // Styling
-      nativeTemplateStyle: NativeTemplateStyle(
-        // Required: Choose a template.
-        templateType: TemplateType.medium,
-        // Optional: Customize the ad's style.
-        cornerRadius: 12,
-        callToActionTextStyle: NativeTemplateTextStyle(
-          style: NativeTemplateFontStyle.monospace,
-          size: 16,
+    if (!state.isLoadedNativeAd) {
+      await NativeAd(
+        adUnitId: AdHelper.nativeAdUnitId,
+        listener: NativeAdListener(
+          onAdLoaded: (ad) {
+            state = state.copyWith(
+              nativeAd: ad as NativeAd,
+              isLoadedNativeAd: true,
+            );
+            logger.i('Native ad loaded');
+          },
+          onAdFailedToLoad: (ad, error) async {
+            // Dispose the ad here to free resources.
+            logger.e('Failed to load a native ad: $error');
+            await ad.dispose();
+          },
         ),
-      ),
-    ).load();
+        request: const AdRequest(),
+        // Styling
+        nativeTemplateStyle: NativeTemplateStyle(
+          // Required: Choose a template.
+          templateType: TemplateType.medium,
+          cornerRadius: 12,
+          // Optional: Customize the ad's style.
+        ),
+      ).load();
+    }
   }
 }
