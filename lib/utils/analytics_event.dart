@@ -4,7 +4,8 @@ enum AnalyticsEvent {
   billDetailDialogView('bill_detail_dialog_view'),
   mapPageView('map_page_view'),
   errorView('error_view'),
-  deleteAccount('delete_account');
+  deleteAccount('delete_account'),
+  chatLimitReached('chat_limit_reached');
 
   const AnalyticsEvent(this.key);
   final String key;
