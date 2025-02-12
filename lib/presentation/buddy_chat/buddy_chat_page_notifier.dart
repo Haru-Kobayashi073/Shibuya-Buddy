@@ -34,9 +34,12 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
       ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
+  CreateLoadingPage get loadingNotifier =>
+      ref.read(createLoadingPageProvider.notifier);
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
+    await Future.microtask(() => loadingNotifier.updateLoadingIndicator(0));
     return _getFirstBuddyMessage();
   }
 
@@ -168,28 +171,21 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }
 
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
-    final loadingNotifier = ref.watch(createLoadingPageProvider.notifier);
     final scrollController = ScrollController();
-
+    await loadingNotifier.updateLoadingIndicator(0);
     ref.onDispose(
       scrollController.dispose,
     );
-    loadingNotifier.startAutoChange();
-    loadingNotifier.resetLoadingIndicator();
-    // await loadingNotifier.updateLoadingIndicator(0);
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
-    // loadingNotifier.updateLoadingIndicator(80);
+    await loadingNotifier.updateLoadingIndicator(30);
     final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
-    // loadingNotifier.updateLoadingIndicator(85);
     final message = ChatMessage(
       id: buddyMessage.id,
       message: buddyMessage.plan!.description,
       author: ChatAuthor.buddy,
       createdAt: buddyMessage.createdAt,
     );
-    // loadingNotifier.updateLoadingIndicator(90);
     final messages = [buddyMessage, message];
-    // loadingNotifier.updateLoadingIndicator(100);
     return BuddyChatPageState(
       messages: messages,
       possibleChatCount: null,
