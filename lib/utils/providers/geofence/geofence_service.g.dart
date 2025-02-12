@@ -6,7 +6,7 @@ part of 'geofence_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$geofenceServiceHash() => r'bd366dba636fb54a327acd563ec46401c9f06faf';
+String _$geofenceServiceHash() => r'6215fa19adf117f51cc0e715614ce87ef3b606ee';
 
 /// See also [GeofenceService].
 @ProviderFor(GeofenceService)
