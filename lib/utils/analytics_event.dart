@@ -5,7 +5,8 @@ enum AnalyticsEvent {
   mapPageView('map_page_view'),
   errorView('error_view'),
   deleteAccount('delete_account'),
-  chatLimitReached('chat_limit_reached');
+  chatLimitReached('chat_limit_reached'),
+  completeCreatePlan('complete_create_plan');
 
   const AnalyticsEvent(this.key);
   final String key;
