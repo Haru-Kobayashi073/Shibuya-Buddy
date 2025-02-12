@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/extensions/context.dart';
+import '../../utils/providers/ad_helper/ad_helper.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -30,6 +33,7 @@ class PlanDetailPage extends ConsumerWidget {
     final planDetailPagei18n = i18n.planDetailsPage;
     final state = ref.watch(planDetailPageNotifierProvider(plan));
     final notifier = ref.read(planDetailPageNotifierProvider(plan).notifier);
+    final ads = ref.watch(adHelperProvider);
 
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)
         .format(DateTime.now());
@@ -104,6 +108,21 @@ class PlanDetailPage extends ConsumerWidget {
                         ),
                       ),
                     ),
+                    if (ads.nativeAd != null && ads.isLoadedNativeAd)
+                      SliverToBoxAdapter(
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minWidth: 320, // minimum recommended width
+                            minHeight: 320, // minimum recommended height
+                            maxWidth: context.deviceWidth,
+                            maxHeight: 400,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: AdWidget(ad: ads.nativeAd!),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),
