@@ -191,6 +191,27 @@ class SignInPage extends HookConsumerWidget {
                 ),
                 const SliverGap(16),
                 SliverToBoxAdapter(
+                  child: WideButton.border(
+                    label: i18nSignInPage.buttons.signUp,
+                    color: AppColor.white,
+                    border: const BorderSide(color: AppColor.black),
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        await notifier.signUpWithEmailAndPassword(
+                          emailAddress: emailController.text,
+                          password: passwordController.text,
+                          onSuccess: () async {
+                            await EmailVerificationPageRouteData(
+                              email: emailController.text,
+                            ).push<void>(context);
+                          },
+                        );
+                      }
+                    },
+                  ),
+                ),
+                const SliverGap(16),
+                SliverToBoxAdapter(
                   child: Row(
                     children: [
                       const Expanded(
@@ -208,16 +229,6 @@ class SignInPage extends HookConsumerWidget {
                         child: Divider(color: AppColor.grey600),
                       ),
                     ],
-                  ),
-                ),
-                const SliverGap(16),
-                SliverToBoxAdapter(
-                  child: WideButton.border(
-                    label: i18nSignInPage.buttons.signUp,
-                    color: AppColor.white,
-                    border: const BorderSide(color: AppColor.black),
-                    onPressed: () async =>
-                        const SignUpPageRouteData().push<void>(context),
                   ),
                 ),
                 const SliverGap(16),
