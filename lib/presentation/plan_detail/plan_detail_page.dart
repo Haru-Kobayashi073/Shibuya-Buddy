@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,6 +9,8 @@ import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/analytics_event.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -20,12 +23,34 @@ import 'components/circle_icon_button.dart';
 import 'components/plan_header.dart';
 import 'plan_detail_page_notifier.dart';
 
-class PlanDetailPage extends ConsumerWidget {
+class PlanDetailPage extends HookConsumerWidget {
   const PlanDetailPage({super.key, required this.plan});
   final Plan plan;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(
+      () {
+        Future.microtask(() async {
+          final analytics = ref.read(analyticsNotifierProvider);
+          try {
+            print('🔥 Sending Firebase Analytics Event: billDetailPageView');
+            await analytics.logEvent(
+              AnalyticsEvent.billDetailPageView,
+              parameters: {
+                'page': 'BillDetailsPage',
+              },
+            );
+            print('✅ Firebase Analytics Event Sent Successfully');
+          } catch (e) {
+            print('❌ Firebase Analytics Event Failed: $e');
+          }
+        });
+        return null;
+      },
+      [],
+    );
+
     final i18n = Translations.of(context);
     final planDetailPagei18n = i18n.planDetailsPage;
     final state = ref.watch(planDetailPageNotifierProvider(plan));
