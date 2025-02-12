@@ -140,6 +140,7 @@ class AccountPage extends ConsumerWidget {
                       await notifier.deleteAccount(
                         onSuccess: () async =>
                             const SignInPageRouteData().go(context),
+                            ref: ref,
                       );
                     },
                     titleText: diaLogi18n.deleteAccount,
