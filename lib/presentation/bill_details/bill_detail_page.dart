@@ -32,14 +32,19 @@ class BillDetailsPage extends HookConsumerWidget {
     useEffect(
       () {
         Future.delayed(Duration.zero, () async {
-          await ref
-              .read(analyticsNotifierProvider)
-              .logEvent(AnalyticsEvent.billDetailPageView);
+          final eventName = isDialog
+              ? AnalyticsEvent.billDetailPageView
+              : AnalyticsEvent.billDetailDialogView;
+
+          await ref.read(analyticsNotifierProvider).logEvent(
+                eventName,
+              );
         });
         return null;
       },
       [],
     );
+
     const bottomModalHeight = 182.0;
     return Scaffold(
       body: SafeArea(
