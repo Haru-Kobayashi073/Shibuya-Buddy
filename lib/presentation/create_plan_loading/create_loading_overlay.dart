@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -37,27 +38,40 @@ class CreateLoading extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final loadingNotifier = ref.watch(createLoadingPageProvider.notifier);
     final state = ref.watch(createLoadingPageProvider);
-    loadingNotifier.startAutoChange();
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Center(
-          //   child: Lottie.asset(
-          //     Assets.lottie.animation1736996724199,
-          //     width: 80,
-          //     height: 80,
-          //   ),
-          // ),
+          Center(
+            child: Lottie.asset(
+              'assets/lottie/Animation - 1739357512444.json',
+              height: 250,
+            ),
+          ),
           Text(
             '${state.loadingIndicator}%',
-            style: AppTextStyle.textStyle.copyWith(fontSize: 16),
+            style: AppTextStyle.textStyle
+                .copyWith(fontSize: 16, color: AppColor.grey800),
           ),
           const SizedBox(
-            height: 50,
+            height: 16,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 100,
+              right: 100,
+            ),
+            child: LinearProgressIndicator(
+              valueColor: const AlwaysStoppedAnimation<Color?>(
+                AppColor.yellow600Primary,
+              ),
+              backgroundColor: AppColor.yellow200,
+              minHeight: 10,
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+              value: state.loadingIndicator / 100,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -66,20 +80,14 @@ class CreateLoading extends ConsumerWidget {
                 state.loadingText,
                 style: AppTextStyle.textStyle.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 14,
                   color: AppColor.grey800,
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 64,
-              right: 64,
-            ),
-            child: LinearProgressIndicator(
-              value: state.loadingIndicator / 100,
-            ),
+          const SizedBox(
+            height: 16,
           ),
         ],
       ),
