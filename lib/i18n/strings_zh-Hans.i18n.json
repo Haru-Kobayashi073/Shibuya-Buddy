@@ -56,19 +56,19 @@
         }
     },
     "authentication": {
-        "signInPage": {
-            "title": "登录",
+        "authenticationPage": {
+            "title": "登录 / 注册",
             "optionText": " 或 ",
             "textFields": {
-                "email": "电子邮件地址",
+                "email": "邮箱地址",
                 "password": "密码"
             },
             "buttons": {
                 "signIn": "登录",
                 "signUp": "注册",
                 "resetPassword": "忘记密码？",
-                "appleSignIn": "使用Apple登录",
-                "googleSignIn": "使用Google登录",
+                "appleSignIn": "使用 Apple 登录",
+                "googleSignIn": "使用 Google 登录",
                 "signInAfter": "稍后注册"
             },
             "changeLanguageDialog": {
@@ -95,20 +95,6 @@
             },
             "buttons": {
                 "submit": "发送"
-            }
-        },
-        "signUpPage": {
-            "title": {
-                "defaultText": "新用户注册",
-                "modifyEmail": "更改邮箱地址"
-            },
-            "textFields": {
-                "email": "邮箱地址",
-                "password": "密码"
-            },
-            "button": {
-                "defaultText": "注册",
-                "modifyEmail": "更改"
             }
         },
         "emailVerificationPage": {
