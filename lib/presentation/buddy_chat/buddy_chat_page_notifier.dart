@@ -115,6 +115,17 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
+      final buddyMessageCount = state.requireValue.messages
+          .where((message) => message.author == ChatAuthor.buddy)
+          .length;
+
+      await ref.read(analyticsNotifierProvider).logEvent(
+        AnalyticsEvent.completeCreatePlan,
+        parameters: {
+          'buddy_message_count': buddyMessageCount,
+        },
+      );
+
       final targetMessage = state.requireValue.messages.lastWhere(
         (message) => message.plan != null && message.places != null,
         orElse: () => state.requireValue.messages.first,
