@@ -3,6 +3,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../utils/analytics_event.dart';
 
+final firebaseAnalyticsProvider = Provider<FirebaseAnalytics>((ref) {
+  return FirebaseAnalytics.instance;
+});
+
+// FirebaseAnalyticsにlogEventを送るクラス
 class FirebaseAnalyticsDataSource {
   FirebaseAnalyticsDataSource(this._analytics);
   final FirebaseAnalytics _analytics;
@@ -18,8 +23,9 @@ class FirebaseAnalyticsDataSource {
   }
 }
 
+// ProviderでFirebaseAnalyticsDataSourceを提供
 final firebaseAnalyticsDataSourceProvider =
     Provider<FirebaseAnalyticsDataSource>((ref) {
-  final analytics = FirebaseAnalytics.instance;
+  final analytics = ref.read(firebaseAnalyticsProvider);
   return FirebaseAnalyticsDataSource(analytics);
 });
