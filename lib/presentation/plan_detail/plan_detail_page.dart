@@ -31,20 +31,10 @@ class PlanDetailPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     useEffect(
       () {
-        Future.microtask(() async {
-          final analytics = ref.read(analyticsNotifierProvider);
-          try {
-            print('🔥 Sending Firebase Analytics Event: billDetailPageView');
-            await analytics.logEvent(
-              AnalyticsEvent.billDetailPageView,
-              parameters: {
-                'page': 'BillDetailsPage',
-              },
-            );
-            print('✅ Firebase Analytics Event Sent Successfully');
-          } catch (e) {
-            print('❌ Firebase Analytics Event Failed: $e');
-          }
+        Future.delayed(Duration.zero, () async {
+          await ref
+              .read(analyticsNotifierProvider)
+              .logEvent(AnalyticsEvent.planDetailPageView);
         });
         return null;
       },
