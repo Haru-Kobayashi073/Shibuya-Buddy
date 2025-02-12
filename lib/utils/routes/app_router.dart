@@ -36,7 +36,6 @@ import '../../presentation/popular_topics/popular_topics_page.dart';
 import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
 import '../../presentation/sign_in/sign_in_page.dart';
-import '../../presentation/sign_up/sign_up_page.dart';
 import '../../presentation/sms_verification/sms_verification_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
@@ -352,7 +351,6 @@ class BillDetailsDialogRouteData extends GoRouteData {
         ),
       ],
     ),
-    TypedGoRoute<SignUpPageRouteData>(path: Routes.signUp),
   ],
 )
 class SignInPageRouteData extends GoRouteData {
@@ -382,18 +380,6 @@ class CompleteSendEmailPageRouteData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return CompleteSendEmailPage(email: email);
-  }
-}
-
-class SignUpPageRouteData extends GoRouteData {
-  const SignUpPageRouteData({
-    this.fromEmailVerify = false,
-  });
-  final bool fromEmailVerify;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return SignUpPage(fromEmailVerify: fromEmailVerify);
   }
 }
 
