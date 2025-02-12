@@ -14,7 +14,7 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $billDetailsPageRouteData,
       $billDetailsDialogRouteData,
-      $signInPageRouteData,
+      $authenticationPageRouteData,
       $emailVerificationPageRouteData,
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
@@ -478,9 +478,9 @@ extension<T extends Enum> on Map<T, String> {
       entries.singleWhere((element) => element.value == value).key;
 }
 
-RouteBase get $signInPageRouteData => GoRouteData.$route(
+RouteBase get $authenticationPageRouteData => GoRouteData.$route(
       path: '/signIn',
-      factory: $SignInPageRouteDataExtension._fromState,
+      factory: $AuthenticationPageRouteDataExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'resetPassword',
@@ -495,9 +495,9 @@ RouteBase get $signInPageRouteData => GoRouteData.$route(
       ],
     );
 
-extension $SignInPageRouteDataExtension on SignInPageRouteData {
-  static SignInPageRouteData _fromState(GoRouterState state) =>
-      const SignInPageRouteData();
+extension $AuthenticationPageRouteDataExtension on AuthenticationPageRouteData {
+  static AuthenticationPageRouteData _fromState(GoRouterState state) =>
+      const AuthenticationPageRouteData();
 
   String get location => GoRouteData.$location(
         '/signIn',

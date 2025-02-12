@@ -13,10 +13,10 @@ import '../../utils/providers/shared_preferences/shared_preferences_config.dart'
 import '../../utils/providers/shared_preferences/shared_preferences_service.dart';
 import '../components/loading_overlay.dart';
 
-part 'sign_in_page_notifier.g.dart';
+part 'authentication_page_notifier.g.dart';
 
 @riverpod
-class SignInPageNotifier extends _$SignInPageNotifier {
+class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);

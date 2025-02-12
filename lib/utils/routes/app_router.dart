@@ -15,6 +15,7 @@ import '../../presentation/about_app/about_app_page.dart';
 import '../../presentation/about_dev/about_dev_page.dart';
 import '../../presentation/account/account_page.dart';
 import '../../presentation/ai_functions_detail/ai_functions_detail_page.dart';
+import '../../presentation/authentication/authentication_page.dart';
 import '../../presentation/bill_details/bill_detail_page.dart';
 import '../../presentation/buddy_chat/buddy_chat_page.dart';
 import '../../presentation/change_language/change_language_page.dart';
@@ -35,7 +36,6 @@ import '../../presentation/popular_plans/popular_plans_page.dart';
 import '../../presentation/popular_topics/popular_topics_page.dart';
 import '../../presentation/register_profile/register_profile_page.dart';
 import '../../presentation/reset_password/reset_password_page.dart';
-import '../../presentation/sign_in/sign_in_page.dart';
 import '../../presentation/sms_verification/sms_verification_page.dart';
 import '../../presentation/terms_of_use_privacy_policy/terms_of_use_privacy_policy_page.dart';
 import '../../start_up_page.dart';
@@ -340,8 +340,8 @@ class BillDetailsDialogRouteData extends GoRouteData {
   }
 }
 
-@TypedGoRoute<SignInPageRouteData>(
-  path: Routes.signIn,
+@TypedGoRoute<AuthenticationPageRouteData>(
+  path: Routes.authentication,
   routes: [
     TypedGoRoute<ResetPasswordPageRouteData>(
       path: Routes.resetPassword,
@@ -353,12 +353,12 @@ class BillDetailsDialogRouteData extends GoRouteData {
     ),
   ],
 )
-class SignInPageRouteData extends GoRouteData {
-  const SignInPageRouteData();
+class AuthenticationPageRouteData extends GoRouteData {
+  const AuthenticationPageRouteData();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignInPage();
+    return const AuthenticationPage();
   }
 }
 
