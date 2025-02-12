@@ -11,8 +11,10 @@ part 'create_loading_notifier.g.dart';
 @riverpod
 class CreateLoadingPage extends _$CreateLoadingPage {
   Timer? _timer;
+
   @override
   CreateloadingPageState build() {
+    startAutoChange();
     return CreateloadingPageState(
       loadingText: loadingTexts[loadingTexts.length - 1],
     );
@@ -27,18 +29,15 @@ class CreateLoadingPage extends _$CreateLoadingPage {
 
   void startAutoChange() {
     _timer?.cancel();
-    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) async {
       changeloadingText();
-      // if (updateLoadingIndicator(1) > 100) {
-      //   resetLoadingIndicator();
-      // } //仮
     });
   }
 
-  int updateLoadingIndicator(int update) {
+  Future<void> updateLoadingIndicator(int update) async {
     final progress = state.loadingIndicator;
-    state = state.copyWith(loadingIndicator: update + progress);
-    return update + progress;
+    final newProgress = progress + update;
+    state = state.copyWith(loadingIndicator: newProgress);
   }
 
   void resetLoadingIndicator() {
