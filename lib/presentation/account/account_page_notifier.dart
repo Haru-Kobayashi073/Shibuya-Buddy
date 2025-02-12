@@ -1,11 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/custom_logger.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'account_page_state.dart';
 
@@ -109,9 +112,13 @@ class AccountPageNotifier extends _$AccountPageNotifier {
 
   Future<void> deleteAccount({
     required Future<void> Function() onSuccess,
+    required WidgetRef ref,
   }) async {
     try {
       await authenticationDataSource.deleteAccount();
+      await ref.read(analyticsNotifierProvider).logEvent(
+            AnalyticsEvent.deleteAccount,
+          );
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.deleteAccount);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
