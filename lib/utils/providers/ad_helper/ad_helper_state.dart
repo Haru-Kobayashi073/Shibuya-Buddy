@@ -8,6 +8,7 @@ abstract class AdHelperState with _$AdHelperState {
   const factory AdHelperState({
     BannerAd? bannerAd,
     NativeAd? nativeAd,
-    @Default(false) bool isLoaded,
+    @Default(false) bool isLoadedBannerAd,
+    @Default(false) bool isLoadedNativeAd,
   }) = _AdHelperState;
 }

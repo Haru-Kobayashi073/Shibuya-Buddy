@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AdHelperState {
   BannerAd? get bannerAd => throw _privateConstructorUsedError;
   NativeAd? get nativeAd => throw _privateConstructorUsedError;
-  bool get isLoaded => throw _privateConstructorUsedError;
+  bool get isLoadedBannerAd => throw _privateConstructorUsedError;
+  bool get isLoadedNativeAd => throw _privateConstructorUsedError;
 
   /// Create a copy of AdHelperState
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,11 @@ abstract class $AdHelperStateCopyWith<$Res> {
           AdHelperState value, $Res Function(AdHelperState) then) =
       _$AdHelperStateCopyWithImpl<$Res, AdHelperState>;
   @useResult
-  $Res call({BannerAd? bannerAd, NativeAd? nativeAd, bool isLoaded});
+  $Res call(
+      {BannerAd? bannerAd,
+      NativeAd? nativeAd,
+      bool isLoadedBannerAd,
+      bool isLoadedNativeAd});
 }
 
 /// @nodoc
@@ -53,7 +58,8 @@ class _$AdHelperStateCopyWithImpl<$Res, $Val extends AdHelperState>
   $Res call({
     Object? bannerAd = freezed,
     Object? nativeAd = freezed,
-    Object? isLoaded = null,
+    Object? isLoadedBannerAd = null,
+    Object? isLoadedNativeAd = null,
   }) {
     return _then(_value.copyWith(
       bannerAd: freezed == bannerAd
@@ -64,9 +70,13 @@ class _$AdHelperStateCopyWithImpl<$Res, $Val extends AdHelperState>
           ? _value.nativeAd
           : nativeAd // ignore: cast_nullable_to_non_nullable
               as NativeAd?,
-      isLoaded: null == isLoaded
-          ? _value.isLoaded
-          : isLoaded // ignore: cast_nullable_to_non_nullable
+      isLoadedBannerAd: null == isLoadedBannerAd
+          ? _value.isLoadedBannerAd
+          : isLoadedBannerAd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadedNativeAd: null == isLoadedNativeAd
+          ? _value.isLoadedNativeAd
+          : isLoadedNativeAd // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -80,7 +90,11 @@ abstract class _$$AdHelperStateImplCopyWith<$Res>
       __$$AdHelperStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BannerAd? bannerAd, NativeAd? nativeAd, bool isLoaded});
+  $Res call(
+      {BannerAd? bannerAd,
+      NativeAd? nativeAd,
+      bool isLoadedBannerAd,
+      bool isLoadedNativeAd});
 }
 
 /// @nodoc
@@ -98,7 +112,8 @@ class __$$AdHelperStateImplCopyWithImpl<$Res>
   $Res call({
     Object? bannerAd = freezed,
     Object? nativeAd = freezed,
-    Object? isLoaded = null,
+    Object? isLoadedBannerAd = null,
+    Object? isLoadedNativeAd = null,
   }) {
     return _then(_$AdHelperStateImpl(
       bannerAd: freezed == bannerAd
@@ -109,9 +124,13 @@ class __$$AdHelperStateImplCopyWithImpl<$Res>
           ? _value.nativeAd
           : nativeAd // ignore: cast_nullable_to_non_nullable
               as NativeAd?,
-      isLoaded: null == isLoaded
-          ? _value.isLoaded
-          : isLoaded // ignore: cast_nullable_to_non_nullable
+      isLoadedBannerAd: null == isLoadedBannerAd
+          ? _value.isLoadedBannerAd
+          : isLoadedBannerAd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadedNativeAd: null == isLoadedNativeAd
+          ? _value.isLoadedNativeAd
+          : isLoadedNativeAd // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -121,7 +140,10 @@ class __$$AdHelperStateImplCopyWithImpl<$Res>
 
 class _$AdHelperStateImpl implements _AdHelperState {
   const _$AdHelperStateImpl(
-      {this.bannerAd, this.nativeAd, this.isLoaded = false});
+      {this.bannerAd,
+      this.nativeAd,
+      this.isLoadedBannerAd = false,
+      this.isLoadedNativeAd = false});
 
   @override
   final BannerAd? bannerAd;
@@ -129,11 +151,14 @@ class _$AdHelperStateImpl implements _AdHelperState {
   final NativeAd? nativeAd;
   @override
   @JsonKey()
-  final bool isLoaded;
+  final bool isLoadedBannerAd;
+  @override
+  @JsonKey()
+  final bool isLoadedNativeAd;
 
   @override
   String toString() {
-    return 'AdHelperState(bannerAd: $bannerAd, nativeAd: $nativeAd, isLoaded: $isLoaded)';
+    return 'AdHelperState(bannerAd: $bannerAd, nativeAd: $nativeAd, isLoadedBannerAd: $isLoadedBannerAd, isLoadedNativeAd: $isLoadedNativeAd)';
   }
 
   @override
@@ -145,12 +170,15 @@ class _$AdHelperStateImpl implements _AdHelperState {
                 other.bannerAd == bannerAd) &&
             (identical(other.nativeAd, nativeAd) ||
                 other.nativeAd == nativeAd) &&
-            (identical(other.isLoaded, isLoaded) ||
-                other.isLoaded == isLoaded));
+            (identical(other.isLoadedBannerAd, isLoadedBannerAd) ||
+                other.isLoadedBannerAd == isLoadedBannerAd) &&
+            (identical(other.isLoadedNativeAd, isLoadedNativeAd) ||
+                other.isLoadedNativeAd == isLoadedNativeAd));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bannerAd, nativeAd, isLoaded);
+  int get hashCode => Object.hash(
+      runtimeType, bannerAd, nativeAd, isLoadedBannerAd, isLoadedNativeAd);
 
   /// Create a copy of AdHelperState
   /// with the given fields replaced by the non-null parameter values.
@@ -165,14 +193,17 @@ abstract class _AdHelperState implements AdHelperState {
   const factory _AdHelperState(
       {final BannerAd? bannerAd,
       final NativeAd? nativeAd,
-      final bool isLoaded}) = _$AdHelperStateImpl;
+      final bool isLoadedBannerAd,
+      final bool isLoadedNativeAd}) = _$AdHelperStateImpl;
 
   @override
   BannerAd? get bannerAd;
   @override
   NativeAd? get nativeAd;
   @override
-  bool get isLoaded;
+  bool get isLoadedBannerAd;
+  @override
+  bool get isLoadedNativeAd;
 
   /// Create a copy of AdHelperState
   /// with the given fields replaced by the non-null parameter values.
