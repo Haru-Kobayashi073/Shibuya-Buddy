@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../gen/assets.gen.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/styles/app_color.dart';
 import 'components/bottom_modal.dart';
 import 'components/grade_based_features.dart';
@@ -13,7 +17,7 @@ import 'components/plan_table.dart';
 import 'components/premium_plan.dart';
 import 'components/restore_purchase_section.dart';
 
-class BillDetailsPage extends StatelessWidget {
+class BillDetailsPage extends HookConsumerWidget {
   const BillDetailsPage({
     super.key,
     this.isDialog = false,
@@ -24,9 +28,19 @@ class BillDetailsPage extends StatelessWidget {
   final BillingLimitedFeatures feature;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(
+      () {
+        Future.delayed(Duration.zero, () async {
+          await ref
+              .read(analyticsNotifierProvider)
+              .logEvent(AnalyticsEvent.billDetailPageView);
+        });
+        return null;
+      },
+      [],
+    );
     const bottomModalHeight = 182.0;
-
     return Scaffold(
       body: SafeArea(
         top: false,
