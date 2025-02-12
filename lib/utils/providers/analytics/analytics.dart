@@ -15,7 +15,6 @@ class AnalyticsNotifier {
   }
 }
 
-// Provider: Notifier を提供
 final analyticsNotifierProvider = Provider<AnalyticsNotifier>((ref) {
   final dataSource = ref.read(firebaseAnalyticsDataSourceProvider);
   return AnalyticsNotifier(dataSource);
