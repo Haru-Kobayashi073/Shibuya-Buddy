@@ -21,8 +21,6 @@ class MapPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isLoaded =
-        ref.watch(adHelperProvider.select((value) => value.isLoaded));
     final state = ref.watch(mapPageNotifierProvider(places));
     final i18n = Translations.of(context);
 
@@ -51,15 +49,22 @@ class MapPage extends ConsumerWidget {
                 myLocationButtonEnabled: false,
                 markers: value.markers.toSet(),
               ),
-              if (value.bannerAd != null && isLoaded)
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: SizedBox(
-                    width: value.bannerAd!.size.width.toDouble(),
-                    height: value.bannerAd!.size.height.toDouble(),
-                    child: AdWidget(ad: value.bannerAd!),
-                  ),
-                ),
+              Consumer(
+                builder: (_, ref, __) {
+                  final ads = ref.watch(adHelperProvider);
+                  if (ads.bannerAd != null && ads.isLoadedBannerAd) {
+                    return Align(
+                      alignment: Alignment.topCenter,
+                      child: SizedBox(
+                        width: ads.bannerAd!.size.width.toDouble(),
+                        height: ads.bannerAd!.size.height.toDouble(),
+                        child: AdWidget(ad: ads.bannerAd!),
+                      ),
+                    );
+                  }
+                  return const SizedBox();
+                },
+              ),
             ],
           ),
         );
