@@ -9,9 +9,11 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/place_detail/place_detail_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/custom_logger.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
@@ -45,6 +47,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     required void Function() needUpgradeToPremium,
   }) async {
     if (isStandardGradeUser && state.requireValue.possibleChatCount == 0) {
+      await ref.read(analyticsNotifierProvider).logEvent(
+            AnalyticsEvent.chatLimitReached,
+          );
       needUpgradeToPremium();
       return;
     }
