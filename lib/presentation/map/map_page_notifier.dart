@@ -1,5 +1,4 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,17 +11,13 @@ part 'map_page_notifier.g.dart';
 @riverpod
 class MapPageNotifier extends _$MapPageNotifier {
   AdHelper get adHelper => ref.read(adHelperProvider.notifier);
-  BannerAd? get bannerAd => ref.watch(adHelperProvider).bannerAd;
 
   @override
   Future<MapPageState> build(List<Place> places) async {
     final markers = _getMarkers();
     await adHelper.loadBannerAd();
 
-    return MapPageState(
-      bannerAd: bannerAd,
-      markers: markers,
-    );
+    return MapPageState(markers: markers);
   }
 
   List<Marker> _getMarkers() {

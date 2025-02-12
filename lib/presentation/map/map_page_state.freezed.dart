@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MapPageState {
-  BannerAd? get bannerAd => throw _privateConstructorUsedError;
   List<Marker> get markers => throw _privateConstructorUsedError;
 
   /// Create a copy of MapPageState
@@ -32,7 +31,7 @@ abstract class $MapPageStateCopyWith<$Res> {
           MapPageState value, $Res Function(MapPageState) then) =
       _$MapPageStateCopyWithImpl<$Res, MapPageState>;
   @useResult
-  $Res call({BannerAd? bannerAd, List<Marker> markers});
+  $Res call({List<Marker> markers});
 }
 
 /// @nodoc
@@ -50,14 +49,9 @@ class _$MapPageStateCopyWithImpl<$Res, $Val extends MapPageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bannerAd = freezed,
     Object? markers = null,
   }) {
     return _then(_value.copyWith(
-      bannerAd: freezed == bannerAd
-          ? _value.bannerAd
-          : bannerAd // ignore: cast_nullable_to_non_nullable
-              as BannerAd?,
       markers: null == markers
           ? _value.markers
           : markers // ignore: cast_nullable_to_non_nullable
@@ -74,7 +68,7 @@ abstract class _$$MapPageStateImplCopyWith<$Res>
       __$$MapPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BannerAd? bannerAd, List<Marker> markers});
+  $Res call({List<Marker> markers});
 }
 
 /// @nodoc
@@ -90,14 +84,9 @@ class __$$MapPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bannerAd = freezed,
     Object? markers = null,
   }) {
     return _then(_$MapPageStateImpl(
-      bannerAd: freezed == bannerAd
-          ? _value.bannerAd
-          : bannerAd // ignore: cast_nullable_to_non_nullable
-              as BannerAd?,
       markers: null == markers
           ? _value._markers
           : markers // ignore: cast_nullable_to_non_nullable
@@ -109,11 +98,9 @@ class __$$MapPageStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MapPageStateImpl implements _MapPageState {
-  const _$MapPageStateImpl({this.bannerAd, required final List<Marker> markers})
+  const _$MapPageStateImpl({required final List<Marker> markers})
       : _markers = markers;
 
-  @override
-  final BannerAd? bannerAd;
   final List<Marker> _markers;
   @override
   List<Marker> get markers {
@@ -124,7 +111,7 @@ class _$MapPageStateImpl implements _MapPageState {
 
   @override
   String toString() {
-    return 'MapPageState(bannerAd: $bannerAd, markers: $markers)';
+    return 'MapPageState(markers: $markers)';
   }
 
   @override
@@ -132,14 +119,12 @@ class _$MapPageStateImpl implements _MapPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MapPageStateImpl &&
-            (identical(other.bannerAd, bannerAd) ||
-                other.bannerAd == bannerAd) &&
             const DeepCollectionEquality().equals(other._markers, _markers));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, bannerAd, const DeepCollectionEquality().hash(_markers));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_markers));
 
   /// Create a copy of MapPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -151,12 +136,9 @@ class _$MapPageStateImpl implements _MapPageState {
 }
 
 abstract class _MapPageState implements MapPageState {
-  const factory _MapPageState(
-      {final BannerAd? bannerAd,
-      required final List<Marker> markers}) = _$MapPageStateImpl;
+  const factory _MapPageState({required final List<Marker> markers}) =
+      _$MapPageStateImpl;
 
-  @override
-  BannerAd? get bannerAd;
   @override
   List<Marker> get markers;
 
