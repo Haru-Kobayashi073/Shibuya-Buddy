@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/entities/place.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/analytics_event.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/styles/app_text_style.dart';
 
-class MapPage extends StatelessWidget {
+class MapPage extends HookConsumerWidget {
   const MapPage({
     super.key,
     required this.places,
@@ -28,8 +32,21 @@ class MapPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
+
+    useEffect(
+      () {
+        Future.delayed(Duration.zero, () async {
+          await ref
+              .read(analyticsNotifierProvider)
+              .logEvent(AnalyticsEvent.mapPageView);
+        });
+        return null;
+      },
+      [],
+    );
+
     final markers = places.map((place) {
       final lat = place.location.latitude;
       final lng = place.location.longitude;
