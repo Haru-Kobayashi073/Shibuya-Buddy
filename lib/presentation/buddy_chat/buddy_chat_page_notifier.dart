@@ -47,9 +47,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     required void Function() needUpgradeToPremium,
   }) async {
     if (isStandardGradeUser && state.requireValue.possibleChatCount == 0) {
-      await ref.read(analyticsNotifierProvider).logEvent(
-            AnalyticsEvent.chatLimitReached,
-          );
+      await ref
+          .read(analyticsNotifierProvider.notifier)
+          .logEvent(AnalyticsEvent.chatLimitReached);
       needUpgradeToPremium();
       return;
     }
@@ -119,11 +119,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
           .where((message) => message.author == ChatAuthor.buddy)
           .length;
 
-      await ref.read(analyticsNotifierProvider).logEvent(
+      await ref.read(analyticsNotifierProvider.notifier).logEvent(
         AnalyticsEvent.completeCreatePlan,
-        parameters: {
-          'buddy_message_count': buddyMessageCount,
-        },
+        parameters: {'buddy_message_count': buddyMessageCount},
       );
 
       final targetMessage = state.requireValue.messages.lastWhere(

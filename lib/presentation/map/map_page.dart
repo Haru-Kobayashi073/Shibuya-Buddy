@@ -39,7 +39,7 @@ class MapPage extends HookConsumerWidget {
       () {
         Future.delayed(Duration.zero, () async {
           await ref
-              .read(analyticsNotifierProvider)
+              .read(analyticsNotifierProvider.notifier)
               .logEvent(AnalyticsEvent.mapPageView);
         });
         return null;

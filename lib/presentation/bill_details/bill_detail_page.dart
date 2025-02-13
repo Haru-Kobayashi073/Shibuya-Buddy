@@ -36,9 +36,9 @@ class BillDetailsPage extends HookConsumerWidget {
               ? AnalyticsEvent.billDetailPageView
               : AnalyticsEvent.billDetailDialogView;
 
-          await ref.read(analyticsNotifierProvider).logEvent(
-                eventName,
-              );
+          await ref
+              .read(analyticsNotifierProvider.notifier)
+              .logEvent(eventName);
         });
         return null;
       },
