@@ -29,7 +29,6 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   app_tracking_transparency: ^2.0.6+1
-  background_locator_2: ^2.0.6
   cached_network_image: ^3.4.1
   carousel_slider: ^5.0.0
   cloud_firestore: ^5.5.0

@@ -14,7 +14,7 @@ List<RouteBase> get $appRoutes => [
       $myPageRouteData,
       $billDetailsPageRouteData,
       $billDetailsDialogRouteData,
-      $signInPageRouteData,
+      $authenticationPageRouteData,
       $emailVerificationPageRouteData,
       $registerProfilePageRouteData,
       $buddyChatPageRouteData,
@@ -478,9 +478,9 @@ extension<T extends Enum> on Map<T, String> {
       entries.singleWhere((element) => element.value == value).key;
 }
 
-RouteBase get $signInPageRouteData => GoRouteData.$route(
+RouteBase get $authenticationPageRouteData => GoRouteData.$route(
       path: '/signIn',
-      factory: $SignInPageRouteDataExtension._fromState,
+      factory: $AuthenticationPageRouteDataExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'resetPassword',
@@ -492,16 +492,12 @@ RouteBase get $signInPageRouteData => GoRouteData.$route(
             ),
           ],
         ),
-        GoRouteData.$route(
-          path: 'signUp',
-          factory: $SignUpPageRouteDataExtension._fromState,
-        ),
       ],
     );
 
-extension $SignInPageRouteDataExtension on SignInPageRouteData {
-  static SignInPageRouteData _fromState(GoRouterState state) =>
-      const SignInPageRouteData();
+extension $AuthenticationPageRouteDataExtension on AuthenticationPageRouteData {
+  static AuthenticationPageRouteData _fromState(GoRouterState state) =>
+      const AuthenticationPageRouteData();
 
   String get location => GoRouteData.$location(
         '/signIn',
@@ -557,52 +553,6 @@ extension $CompleteSendEmailPageRouteDataExtension
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
-}
-
-extension $SignUpPageRouteDataExtension on SignUpPageRouteData {
-  static SignUpPageRouteData _fromState(GoRouterState state) =>
-      SignUpPageRouteData(
-        fromEmailVerify: _$convertMapValue('from-email-verify',
-                state.uri.queryParameters, _$boolConverter) ??
-            false,
-      );
-
-  String get location => GoRouteData.$location(
-        '/signIn/signUp',
-        queryParams: {
-          if (fromEmailVerify != false)
-            'from-email-verify': fromEmailVerify.toString(),
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-T? _$convertMapValue<T>(
-  String key,
-  Map<String, String> map,
-  T Function(String) converter,
-) {
-  final value = map[key];
-  return value == null ? null : converter(value);
-}
-
-bool _$boolConverter(String value) {
-  switch (value) {
-    case 'true':
-      return true;
-    case 'false':
-      return false;
-    default:
-      throw UnsupportedError('Cannot convert "$value" into a bool.');
-  }
 }
 
 RouteBase get $emailVerificationPageRouteData => GoRouteData.$route(

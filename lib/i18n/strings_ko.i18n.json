@@ -56,8 +56,8 @@
         }
     },
     "authentication": {
-        "signInPage": {
-            "title": "로그인",
+        "authenticationPage": {
+            "title": "로그인 / 회원가입",
             "optionText": " 또는 ",
             "textFields": {
                 "email": "이메일 주소",
@@ -66,10 +66,10 @@
             "buttons": {
                 "signIn": "로그인",
                 "signUp": "회원가입",
-                "resetPassword": "비밀번호 찾기",
+                "resetPassword": "비밀번호를 잊으셨나요?",
                 "appleSignIn": "Apple로 로그인",
                 "googleSignIn": "Google로 로그인",
-                "signInAfter": "나중에 하기"
+                "signInAfter": "나중에 가입"
             },
             "changeLanguageDialog": {
                 "title": "언어 선택",
@@ -84,20 +84,6 @@
             },
             "buttons": {
                 "submit": "발송"
-            }
-        },
-        "signUpPage": {
-            "title": {
-                "defaultText": "회원가입",
-                "modifyEmail": "이메일 주소 변경"
-            },
-            "textFields": {
-                "email": "이메일 주소",
-                "password": "비밀번호"
-            },
-            "button": {
-                "defaultText": "회원가입",
-                "modifyEmail": "변경"
             }
         },
         "emailVerificationPage": {
