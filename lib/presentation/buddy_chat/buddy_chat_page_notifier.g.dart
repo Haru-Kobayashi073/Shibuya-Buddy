@@ -7,7 +7,7 @@ part of 'buddy_chat_page_notifier.dart';
 // **************************************************************************
 
 String _$buddyChatPageNotifierHash() =>
-    r'04417b8b8b3d463e2aa1cf34eb52aa839b8f0ab1';
+    r'a2309226d4c7d25b9ccc2c0c898cefa84cd25002';
 
 /// Copied from Dart SDK
 class _SystemHash {
