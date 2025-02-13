@@ -112,13 +112,12 @@ class AccountPageNotifier extends _$AccountPageNotifier {
 
   Future<void> deleteAccount({
     required Future<void> Function() onSuccess,
-    required WidgetRef ref,
   }) async {
     try {
       await authenticationDataSource.deleteAccount();
-      await ref.read(analyticsNotifierProvider).logEvent(
-            AnalyticsEvent.deleteAccount,
-          );
+      await ref
+          .read(analyticsNotifierProvider.notifier)
+          .logEvent(AnalyticsEvent.deleteAccount);
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.deleteAccount);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
