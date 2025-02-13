@@ -10,5 +10,6 @@ abstract class PlanDetailPageState with _$PlanDetailPageState {
   const factory PlanDetailPageState({
     required Plan plan,
     required List<Place> places,
+    required bool isBookmarked,
   }) = _PlanDetailPageState;
 }

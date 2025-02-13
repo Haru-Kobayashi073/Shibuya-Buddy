@@ -142,10 +142,10 @@ class PlanDetailPage extends ConsumerWidget {
                         ),
                         const Spacer(),
                         CircleIconButton(
-                          icon: value.plan.isBookmarked
+                          icon: value.isBookmarked
                               ? Icons.bookmark_rounded
                               : Symbols.bookmark_border_rounded,
-                          iconColor: value.plan.isBookmarked
+                          iconColor: value.isBookmarked
                               ? AppColor.yellow600Primary
                               : AppColor.black,
                           onPressed: notifier.onBookmarkButtonTap,
