@@ -29,7 +29,7 @@ class CreateLoadingPage extends _$CreateLoadingPage {
 
   void startAutoChange() {
     _timer?.cancel();
-    _timer = Timer.periodic(const Duration(seconds: 2), (timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 4), (timer) async {
       changeloadingText();
     });
   }
