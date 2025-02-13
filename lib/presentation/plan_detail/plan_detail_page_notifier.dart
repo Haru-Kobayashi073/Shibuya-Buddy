@@ -2,10 +2,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
+import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/custom_logger.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../my_plan/my_plan_page_notifier.dart';
 import 'plan_detail_page_state.dart';
@@ -20,12 +22,17 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       ref.read(placeDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  User get currentUser => ref.read(currentUserProvider);
 
   @override
   Future<PlanDetailPageState> build(Plan plan) async {
     final latestPlan = await getPlan();
     final places = await getPlaces();
-    return PlanDetailPageState(plan: latestPlan, places: places);
+    return PlanDetailPageState(
+      plan: latestPlan,
+      places: places,
+      isBookmarked: latestPlan.bookmarkedUserIds.contains(currentUser.uid),
+    );
   }
 
   Future<List<Place>> getPlaces() async {
@@ -45,26 +52,38 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
 
   Future<void> onBookmarkButtonTap() async {
     final plan = state.requireValue.plan;
-    final isBookmark = plan.isBookmarked;
+    final isBookmark = state.requireValue.isBookmarked;
 
     try {
       if (isBookmark) {
         final updatedPlan = plan.copyWith(
-          isBookmarked: false,
+          bookmarkedUserIds: plan.bookmarkedUserIds
+              .where((userId) => userId != currentUser.uid)
+              .toList(),
           bookmarkCount: plan.bookmarkCount - 1,
         );
         await planDataSource.unbookmarkPlan(plan: updatedPlan);
         state = AsyncValue.data(
-          state.requireValue.copyWith(plan: updatedPlan),
+          state.requireValue.copyWith(
+            plan: updatedPlan,
+            isBookmarked: false,
+          ),
         );
       } else {
+        final updatedBookmarkedUserIds = [
+          ...plan.bookmarkedUserIds,
+          currentUser.uid,
+        ];
         final updatedPlan = plan.copyWith(
-          isBookmarked: true,
+          bookmarkedUserIds: updatedBookmarkedUserIds,
           bookmarkCount: plan.bookmarkCount + 1,
         );
         await planDataSource.bookmarkPlan(plan: updatedPlan);
         state = AsyncValue.data(
-          state.requireValue.copyWith(plan: updatedPlan),
+          state.requireValue.copyWith(
+            plan: updatedPlan,
+            isBookmarked: true,
+          ),
         );
       }
       // あまりしたくはないが、MyPlanPageNotifierの状態を更新するためにinvalidateする

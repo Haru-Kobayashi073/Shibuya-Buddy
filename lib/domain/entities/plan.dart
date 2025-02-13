@@ -16,7 +16,7 @@ abstract class Plan with _$Plan {
     @Default([]) List<Topic> topics,
     @Default('') String authorId,
     int? ranking,
-    @Default(false) bool isBookmarked,
+    @Default([]) List<String> bookmarkedUserIds,
     @Default(0) int bookmarkCount,
     String? createdAt,
     String? updatedAt,
