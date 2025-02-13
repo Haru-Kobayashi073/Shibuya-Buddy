@@ -33,7 +33,7 @@ class PlanDetailPage extends HookConsumerWidget {
       () {
         Future.delayed(Duration.zero, () async {
           await ref
-              .read(analyticsNotifierProvider)
+              .read(analyticsNotifierProvider.notifier)
               .logEvent(AnalyticsEvent.planDetailPageView);
         });
         return null;
