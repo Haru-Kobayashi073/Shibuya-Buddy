@@ -900,6 +900,55 @@ class TranslationsPlanDetailsPageSnackBarEn {
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
+// Path: createLoadingPage.items
+class TranslationsCreateLoadingPageItemsEn {
+	TranslationsCreateLoadingPageItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get loadingText1 => 'Buddy\'s secretly crafting your travel plans... Shh!';
+	String get loadingText2 => 'Planning the best trip ever... Buddy\'s excited too!';
+	String get loadingText3 => 'Hold onto your passport, adventure loading...';
+	String get loadingText4 => 'Perfect time to daydream about your destination!';
+	String get loadingText5 => 'No snooze button on this adventure!';
+	String get loadingText6 => 'Searching for the best food spots... yum!';
+	String get loadingText7 => 'Creating a no-getting-lost plan... probably.';
+	String get loadingText8 => 'Maybe adding a surprise or two...';
+	String get loadingText9 => 'Buddy\'s working overtime for your perfect trip!';
+	String get loadingText10 => 'Your adventure is brewing...';
+	String get loadingText11 => 'Crafting your travel guide with extra care!';
+	String get loadingText12 => 'Lost? Don\'t worry, Buddy\'s got your back!';
+	String get loadingText13 => 'Shall we make a souvenir shopping list?';
+	String get loadingText14 => 'Amazing memories loading... 99%';
+	String get loadingText15 => 'Excitement level: Over 9000!';
+	String get loadingText16 => 'Hunting for hidden gems just for you...';
+	String get loadingText17 => 'Buddy\'s calculating the best routes... with math!';
+	String get loadingText18 => 'Your personal travel cheerleader at work!';
+	String get loadingText19 => 'Preparing Plan B, C, and maybe Z...';
+	String get loadingText20 => 'Writing the prologue to your adventure!';
+	String get loadingText21 => 'Creating an un-lose-able route... hopefully!';
+	String get loadingText22 => 'Buddy\'s brain is working hard right now';
+	String get loadingText23 => 'Happy birthday to someone, somewhere!';
+	String get loadingText24 => 'Weaving travel dreams...';
+	String get loadingText25 => 'Sprinkling travel wishes...';
+	String get loadingText26 => 'Waiting for travel miracles...';
+	String get loadingText27 => 'Expecting unexpected encounters...';
+	String get loadingText28 => 'Leaving 0.1% room for serendipity';
+	String get loadingText29 => 'Finding spots only locals know about';
+	String get loadingText30 => 'Buddy\'s working... grab a coffee!';
+	String get loadingText31 => 'Preparing anti-lost maps...';
+	String get loadingText32 => 'Faster than a disappearing contrail!';
+	String get loadingText33 => 'Scouting Instagram-worthy photo spots';
+	String get loadingText34 => 'Taking a snack break while planning';
+	String get loadingText35 => 'Find your perfect plan in Topics!';
+	String get loadingText36 => 'Profile updates welcome anytime!';
+	String get loadingText37 => 'Reviews appreciated, high-fives welcome!';
+	String get loadingText38 => 'Team Cat or Team Dog? Meow all the way!';
+	String get loadingText39 => 'May your sightseeing be blessed!';
+	String get loadingText40 => 'Today\'s gonna be pawsome!';
+}
+
 // Path: authentication.authenticationPage.textFields
 class TranslationsAuthenticationAuthenticationPageTextFieldsEn {
 	TranslationsAuthenticationAuthenticationPageTextFieldsEn._(this._root);

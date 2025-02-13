@@ -896,6 +896,55 @@ class _TranslationsPlanDetailsPageSnackBarZhHant implements TranslationsPlanDeta
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHant error = _TranslationsPlanDetailsPageSnackBarErrorZhHant._(_root);
 }
 
+// Path: createLoadingPage.items
+class _TranslationsCreateLoadingPageItemsZhHant implements TranslationsCreateLoadingPageItemsEn {
+	_TranslationsCreateLoadingPageItemsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadingText1 => 'Buddy正在偷偷規劃旅行方案...';
+	@override String get loadingText2 => '正在計畫最棒的旅行...Buddy也很期待！';
+	@override String get loadingText3 => '旅行的未來即將揭曉，稍等片刻~';
+	@override String get loadingText4 => '趁著載入時間做做旅行白日夢吧！';
+	@override String get loadingText5 => '賴床計畫？...不可能的！';
+	@override String get loadingText6 => '美食地圖正在完美規劃中！';
+	@override String get loadingText7 => '規劃不會迷路的路線...應該！';
+	@override String get loadingText8 => '也許會加入一些小驚喜哦？';
+	@override String get loadingText9 => 'Buddy正在努力創造完美旅程！';
+	@override String get loadingText10 => '愉快的旅行準備正在進行中！';
+	@override String get loadingText11 => '旅行手冊正在悄悄製作中...';
+	@override String get loadingText12 => '迷路了？Buddy會想辦法的...大概！';
+	@override String get loadingText13 => '要不要幫你列個伴手禮清單？';
+	@override String get loadingText14 => '最棒的回憶即將產生...大概！';
+	@override String get loadingText15 => '期待指數120%的旅行準備中！';
+	@override String get loadingText16 => '正在探索隱藏景點中...';
+	@override String get loadingText17 => 'Buddy正在偷偷計算最佳路線';
+	@override String get loadingText18 => 'Buddy默默為您的旅行加油！';
+	@override String get loadingText19 => '防止意外的方案也在準備中！';
+	@override String get loadingText20 => '正在書寫快樂旅行的序章！';
+	@override String get loadingText21 => '絕對不會迷路的路線...大概！';
+	@override String get loadingText22 => '這段文字是Buddy絞盡腦汁想出來的';
+	@override String get loadingText23 => '祝今天生日的人生日快樂！';
+	@override String get loadingText24 => '編織旅行夢想中...';
+	@override String get loadingText25 => '注入旅行願望中...';
+	@override String get loadingText26 => '等待旅行奇蹟中...';
+	@override String get loadingText27 => '期待旅行邂逅中...';
+	@override String get loadingText28 => '為意外相遇預留0.1%的可能';
+	@override String get loadingText29 => '探索只有當地人知道的私房景點';
+	@override String get loadingText30 => 'Buddy正在規劃中...喝杯茶等等吧';
+	@override String get loadingText31 => '防止迷路的地圖準備中';
+	@override String get loadingText32 => '比飛機雲消失還快的規劃速度！';
+	@override String get loadingText33 => '尋找最適合自拍的打卡地點';
+	@override String get loadingText34 => '邊吃零食邊規劃中';
+	@override String get loadingText35 => '在主題中找到心儀的計畫！';
+	@override String get loadingText36 => '隨時都能更改個人資料哦！';
+	@override String get loadingText37 => '期待您的應用評價！';
+	@override String get loadingText38 => '貓派還是狗派？我選貓派';
+	@override String get loadingText39 => '願您的觀光之旅一切順利！';
+	@override String get loadingText40 => '今天一定會有好事發生！';
+}
+
 // Path: authentication.authenticationPage.textFields
 class _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant implements TranslationsAuthenticationAuthenticationPageTextFieldsEn {
 	_TranslationsAuthenticationAuthenticationPageTextFieldsZhHant._(this._root);
