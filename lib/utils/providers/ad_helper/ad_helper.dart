@@ -16,9 +16,9 @@ class AdHelper extends _$AdHelper {
     const admobAndroidBannerUnitId =
         String.fromEnvironment('admobAndroidBannerUnitId');
     if (Platform.isAndroid) {
-      return admobiOSBannerUnitId;
-    } else if (Platform.isIOS) {
       return admobAndroidBannerUnitId;
+    } else if (Platform.isIOS) {
+      return admobiOSBannerUnitId;
     } else {
       throw UnsupportedError('Unsupported platform');
     }
@@ -29,9 +29,9 @@ class AdHelper extends _$AdHelper {
     const admobAndroidNativeUnitId =
         String.fromEnvironment('admobAndroidNativeUnitId');
     if (Platform.isAndroid) {
-      return admobiOSNativeUnitId;
-    } else if (Platform.isIOS) {
       return admobAndroidNativeUnitId;
+    } else if (Platform.isIOS) {
+      return admobiOSNativeUnitId;
     } else {
       throw UnsupportedError('Unsupported platform');
     }
