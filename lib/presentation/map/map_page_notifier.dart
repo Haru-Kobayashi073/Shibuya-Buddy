@@ -26,7 +26,7 @@ class MapPageNotifier extends _$MapPageNotifier {
       final lng = place.location.longitude;
       final markerPosition = LatLng(lat, lng);
       return Marker(
-        markerId: MarkerId(place.name),
+        markerId: MarkerId(place.id),
         position: markerPosition,
         onTap: () async => _openGoogleMapApp(markerPosition),
         infoWindow: InfoWindow(
