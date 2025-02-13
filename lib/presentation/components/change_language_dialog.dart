@@ -18,7 +18,7 @@ class ChangeLanguageDialog extends ConsumerWidget {
     final i18n = Translations.of(context);
     final languagesi18n = i18n.changeLanguagePage.items;
     final changeLanguageDialog =
-        i18n.authentication.signInPage.changeLanguageDialog;
+        i18n.authentication.authenticationPage.changeLanguageDialog;
 
     return SimpleDialog(
       backgroundColor: AppColor.white,

@@ -106,10 +106,9 @@ class TranslationsAuthenticationEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageEn authenticationPage = TranslationsAuthenticationAuthenticationPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
-	late final TranslationsAuthenticationSignUpPageEn signUpPage = TranslationsAuthenticationSignUpPageEn._(_root);
 	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
 	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
@@ -444,18 +443,18 @@ class TranslationsAccountPageDiaLogEn {
 	String get deleteAccountText => 'Deleting your account will remove all data.';
 }
 
-// Path: authentication.signInPage
-class TranslationsAuthenticationSignInPageEn {
-	TranslationsAuthenticationSignInPageEn._(this._root);
+// Path: authentication.authenticationPage
+class TranslationsAuthenticationAuthenticationPageEn {
+	TranslationsAuthenticationAuthenticationPageEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Sign In';
+	String get title => 'Sign In / Sign Up';
 	String get optionText => ' or ';
-	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
-	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
-	late final TranslationsAuthenticationSignInPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageTextFieldsEn textFields = TranslationsAuthenticationAuthenticationPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageButtonsEn buttons = TranslationsAuthenticationAuthenticationPageButtonsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -479,18 +478,6 @@ class TranslationsAuthenticationResetPasswordPageEn {
 	String get description => 'A password reset email will be sent to the entered email address';
 	late final TranslationsAuthenticationResetPasswordPageTextFieldsEn textFields = TranslationsAuthenticationResetPasswordPageTextFieldsEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
-}
-
-// Path: authentication.signUpPage
-class TranslationsAuthenticationSignUpPageEn {
-	TranslationsAuthenticationSignUpPageEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsAuthenticationSignUpPageTitleEn title = TranslationsAuthenticationSignUpPageTitleEn._(_root);
-	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
-	late final TranslationsAuthenticationSignUpPageButtonEn button = TranslationsAuthenticationSignUpPageButtonEn._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -902,9 +889,9 @@ class TranslationsPlanDetailsPageSnackBarEn {
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
-// Path: authentication.signInPage.textFields
-class TranslationsAuthenticationSignInPageTextFieldsEn {
-	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
+// Path: authentication.authenticationPage.textFields
+class TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	TranslationsAuthenticationAuthenticationPageTextFieldsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -913,9 +900,9 @@ class TranslationsAuthenticationSignInPageTextFieldsEn {
 	String get password => 'Password';
 }
 
-// Path: authentication.signInPage.buttons
-class TranslationsAuthenticationSignInPageButtonsEn {
-	TranslationsAuthenticationSignInPageButtonsEn._(this._root);
+// Path: authentication.authenticationPage.buttons
+class TranslationsAuthenticationAuthenticationPageButtonsEn {
+	TranslationsAuthenticationAuthenticationPageButtonsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -928,9 +915,9 @@ class TranslationsAuthenticationSignInPageButtonsEn {
 	String get signInAfter => 'Register Later';
 }
 
-// Path: authentication.signInPage.changeLanguageDialog
-class TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
-	TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(this._root);
+// Path: authentication.authenticationPage.changeLanguageDialog
+class TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -973,39 +960,6 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 
 	// Translations
 	String get submit => 'Submit';
-}
-
-// Path: authentication.signUpPage.title
-class TranslationsAuthenticationSignUpPageTitleEn {
-	TranslationsAuthenticationSignUpPageTitleEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get defaultText => 'Sign Up';
-	String get modifyEmail => 'Change Email Address';
-}
-
-// Path: authentication.signUpPage.textFields
-class TranslationsAuthenticationSignUpPageTextFieldsEn {
-	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get email => 'Email Address';
-	String get password => 'Password';
-}
-
-// Path: authentication.signUpPage.button
-class TranslationsAuthenticationSignUpPageButtonEn {
-	TranslationsAuthenticationSignUpPageButtonEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get defaultText => 'Sign Up';
-	String get modifyEmail => 'Change Email Address';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1398,18 +1352,18 @@ extension on Translations {
 			case 'accountPage.diaLog.signOutText': return 'Re-login is required to use the app\'s features.';
 			case 'accountPage.diaLog.deleteAccount': return 'Do you want to delete your account?';
 			case 'accountPage.diaLog.deleteAccountText': return 'Deleting your account will remove all data.';
-			case 'authentication.signInPage.title': return 'Sign In';
-			case 'authentication.signInPage.optionText': return ' or ';
-			case 'authentication.signInPage.textFields.email': return 'Email Address';
-			case 'authentication.signInPage.textFields.password': return 'Password';
-			case 'authentication.signInPage.buttons.signIn': return 'Sign In';
-			case 'authentication.signInPage.buttons.signUp': return 'Sign Up';
-			case 'authentication.signInPage.buttons.resetPassword': return 'Forgot Password?';
-			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
-			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
-			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
-			case 'authentication.signInPage.changeLanguageDialog.title': return 'Select Language';
-			case 'authentication.signInPage.changeLanguageDialog.button': return 'Close';
+			case 'authentication.authenticationPage.title': return 'Sign In / Sign Up';
+			case 'authentication.authenticationPage.optionText': return ' or ';
+			case 'authentication.authenticationPage.textFields.email': return 'Email Address';
+			case 'authentication.authenticationPage.textFields.password': return 'Password';
+			case 'authentication.authenticationPage.buttons.signIn': return 'Sign In';
+			case 'authentication.authenticationPage.buttons.signUp': return 'Sign Up';
+			case 'authentication.authenticationPage.buttons.resetPassword': return 'Forgot Password?';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return 'Sign in with Apple';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return 'Sign in with Google';
+			case 'authentication.authenticationPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return 'Select Language';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return 'Close';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
@@ -1421,12 +1375,6 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
-			case 'authentication.signUpPage.title.defaultText': return 'Sign Up';
-			case 'authentication.signUpPage.title.modifyEmail': return 'Change Email Address';
-			case 'authentication.signUpPage.textFields.email': return 'Email Address';
-			case 'authentication.signUpPage.textFields.password': return 'Password';
-			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
-			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email has been sent to the entered ${email}';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';

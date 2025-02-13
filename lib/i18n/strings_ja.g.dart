@@ -102,9 +102,8 @@ class _TranslationsAuthenticationJa implements TranslationsAuthenticationEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationSignInPageJa signInPage = _TranslationsAuthenticationSignInPageJa._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageJa authenticationPage = _TranslationsAuthenticationAuthenticationPageJa._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageJa resetPasswordPage = _TranslationsAuthenticationResetPasswordPageJa._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageJa signUpPage = _TranslationsAuthenticationSignUpPageJa._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageJa emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageJa._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageJa registerProfilePage = _TranslationsAuthenticationRegisterProfilePageJa._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageJa completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageJa._(_root);
@@ -440,18 +439,18 @@ class _TranslationsAccountPageDiaLogJa implements TranslationsAccountPageDiaLogE
 	@override String get deleteAccountText => 'アカウントを削除すると、すべてのデータが削除されます。';
 }
 
-// Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageJa implements TranslationsAuthenticationSignInPageEn {
-	_TranslationsAuthenticationSignInPageJa._(this._root);
+// Path: authentication.authenticationPage
+class _TranslationsAuthenticationAuthenticationPageJa implements TranslationsAuthenticationAuthenticationPageEn {
+	_TranslationsAuthenticationAuthenticationPageJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'ログイン';
+	@override String get title => 'ログイン / 新規登録';
 	@override String get optionText => ' または ';
-	@override late final _TranslationsAuthenticationSignInPageTextFieldsJa textFields = _TranslationsAuthenticationSignInPageTextFieldsJa._(_root);
-	@override late final _TranslationsAuthenticationSignInPageButtonsJa buttons = _TranslationsAuthenticationSignInPageButtonsJa._(_root);
-	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogJa changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogJa._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsJa textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsJa._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageButtonsJa buttons = _TranslationsAuthenticationAuthenticationPageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa._(_root);
 }
 
 // Path: authentication.resetPasswordPage
@@ -465,18 +464,6 @@ class _TranslationsAuthenticationResetPasswordPageJa implements TranslationsAuth
 	@override String get description => '入力されたメールアドレスにパスワードリセットのメールを送信します';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsJa textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsJa._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsJa buttons = _TranslationsAuthenticationResetPasswordPageButtonsJa._(_root);
-}
-
-// Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageJa implements TranslationsAuthenticationSignUpPageEn {
-	_TranslationsAuthenticationSignUpPageJa._(this._root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override late final _TranslationsAuthenticationSignUpPageTitleJa title = _TranslationsAuthenticationSignUpPageTitleJa._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageTextFieldsJa textFields = _TranslationsAuthenticationSignUpPageTextFieldsJa._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageButtonJa button = _TranslationsAuthenticationSignUpPageButtonJa._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -898,9 +885,9 @@ class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsP
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
 }
 
-// Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsJa implements TranslationsAuthenticationSignInPageTextFieldsEn {
-	_TranslationsAuthenticationSignInPageTextFieldsJa._(this._root);
+// Path: authentication.authenticationPage.textFields
+class _TranslationsAuthenticationAuthenticationPageTextFieldsJa implements TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	_TranslationsAuthenticationAuthenticationPageTextFieldsJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
@@ -909,9 +896,9 @@ class _TranslationsAuthenticationSignInPageTextFieldsJa implements TranslationsA
 	@override String get password => 'パスワード';
 }
 
-// Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsJa implements TranslationsAuthenticationSignInPageButtonsEn {
-	_TranslationsAuthenticationSignInPageButtonsJa._(this._root);
+// Path: authentication.authenticationPage.buttons
+class _TranslationsAuthenticationAuthenticationPageButtonsJa implements TranslationsAuthenticationAuthenticationPageButtonsEn {
+	_TranslationsAuthenticationAuthenticationPageButtonsJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
@@ -919,14 +906,14 @@ class _TranslationsAuthenticationSignInPageButtonsJa implements TranslationsAuth
 	@override String get signIn => 'ログイン';
 	@override String get signUp => '新規登録';
 	@override String get resetPassword => 'パスワードを忘れた方はこちら';
-	@override String get appleSignIn => 'Appleでログイン';
-	@override String get googleSignIn => 'Googleでログイン';
+	@override String get appleSignIn => 'Appleで認証';
+	@override String get googleSignIn => 'Googleで認証';
 	@override String get signInAfter => '後で登録';
 }
 
-// Path: authentication.signInPage.changeLanguageDialog
-class _TranslationsAuthenticationSignInPageChangeLanguageDialogJa implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
-	_TranslationsAuthenticationSignInPageChangeLanguageDialogJa._(this._root);
+// Path: authentication.authenticationPage.changeLanguageDialog
+class _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa implements TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa._(this._root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
@@ -953,39 +940,6 @@ class _TranslationsAuthenticationResetPasswordPageButtonsJa implements Translati
 
 	// Translations
 	@override String get submit => '送信';
-}
-
-// Path: authentication.signUpPage.title
-class _TranslationsAuthenticationSignUpPageTitleJa implements TranslationsAuthenticationSignUpPageTitleEn {
-	_TranslationsAuthenticationSignUpPageTitleJa._(this._root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '新規登録';
-	@override String get modifyEmail => 'メールアドレスの変更';
-}
-
-// Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsJa implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-	_TranslationsAuthenticationSignUpPageTextFieldsJa._(this._root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get email => 'メールアドレス';
-	@override String get password => 'パスワード';
-}
-
-// Path: authentication.signUpPage.button
-class _TranslationsAuthenticationSignUpPageButtonJa implements TranslationsAuthenticationSignUpPageButtonEn {
-	_TranslationsAuthenticationSignUpPageButtonJa._(this._root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '新規登録';
-	@override String get modifyEmail => '変更';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1394,28 +1348,22 @@ extension on TranslationsJa {
 			case 'accountPage.diaLog.signOutText': return 'アプリの機能を利用するためには再ログインが必要です。';
 			case 'accountPage.diaLog.deleteAccount': return 'アカウントを削除しますか？';
 			case 'accountPage.diaLog.deleteAccountText': return 'アカウントを削除すると、すべてのデータが削除されます。';
-			case 'authentication.signInPage.title': return 'ログイン';
-			case 'authentication.signInPage.optionText': return ' または ';
-			case 'authentication.signInPage.textFields.email': return 'メールアドレス';
-			case 'authentication.signInPage.textFields.password': return 'パスワード';
-			case 'authentication.signInPage.buttons.signIn': return 'ログイン';
-			case 'authentication.signInPage.buttons.signUp': return '新規登録';
-			case 'authentication.signInPage.buttons.resetPassword': return 'パスワードを忘れた方はこちら';
-			case 'authentication.signInPage.buttons.appleSignIn': return 'Appleでログイン';
-			case 'authentication.signInPage.buttons.googleSignIn': return 'Googleでログイン';
-			case 'authentication.signInPage.buttons.signInAfter': return '後で登録';
-			case 'authentication.signInPage.changeLanguageDialog.title': return '言語を選択';
-			case 'authentication.signInPage.changeLanguageDialog.button': return '閉じる';
+			case 'authentication.authenticationPage.title': return 'ログイン / 新規登録';
+			case 'authentication.authenticationPage.optionText': return ' または ';
+			case 'authentication.authenticationPage.textFields.email': return 'メールアドレス';
+			case 'authentication.authenticationPage.textFields.password': return 'パスワード';
+			case 'authentication.authenticationPage.buttons.signIn': return 'ログイン';
+			case 'authentication.authenticationPage.buttons.signUp': return '新規登録';
+			case 'authentication.authenticationPage.buttons.resetPassword': return 'パスワードを忘れた方はこちら';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return 'Appleで認証';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return 'Googleで認証';
+			case 'authentication.authenticationPage.buttons.signInAfter': return '後で登録';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return '言語を選択';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return '閉じる';
 			case 'authentication.resetPasswordPage.title': return 'パスワードのリセット';
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
 			case 'authentication.resetPasswordPage.buttons.submit': return '送信';
-			case 'authentication.signUpPage.title.defaultText': return '新規登録';
-			case 'authentication.signUpPage.title.modifyEmail': return 'メールアドレスの変更';
-			case 'authentication.signUpPage.textFields.email': return 'メールアドレス';
-			case 'authentication.signUpPage.textFields.password': return 'パスワード';
-			case 'authentication.signUpPage.button.defaultText': return '新規登録';
-			case 'authentication.signUpPage.button.modifyEmail': return '変更';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信しました';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認メールの再送信は、60秒ごとに1回可能です。';

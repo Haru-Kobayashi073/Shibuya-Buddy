@@ -74,6 +74,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>GoogleMapAPIKey</key>
+	<string>${GoogleMapAPIKey}</string>
+	<key>GADApplicationIdentifier</key>
+	<string>${admobiOSAppId}</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

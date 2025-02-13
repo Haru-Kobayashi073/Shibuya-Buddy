@@ -29,7 +29,6 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   app_tracking_transparency: ^2.0.6+1
-  background_locator_2: ^2.0.6
   cached_network_image: ^3.4.1
   carousel_slider: ^5.0.0
   cloud_firestore: ^5.5.0
@@ -57,6 +56,7 @@ dependencies:
   google_fonts: ^6.2.1
   google_generative_ai: ^0.4.6
   google_maps_flutter: ^2.10.0
+  google_mobile_ads: ^5.3.1
   google_sign_in: ^6.2.2
   hooks_riverpod: ^2.5.4
   image_picker: ^1.1.2
