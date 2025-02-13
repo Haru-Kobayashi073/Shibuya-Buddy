@@ -1,5 +1,8 @@
 "NSPhotoLibraryUsageDescription" = "您是否允許從相簿中選擇個人檔案圖示？";
 "NSUserTrackingUsageDescription" = "為了優化廣告等，我們將跟蹤您的數據。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "選擇「始終允許」後，您的數據將用於服務改進。感謝您的配合。您的位置信息不會與他人共享。";
+"NSLocationWhenInUseUsageDescription" = "選擇「始終允許」後，您的數據將用於服務改進。感謝您的配合。";
+
 
 /*
   InfoPlist.strings

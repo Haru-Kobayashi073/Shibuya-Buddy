@@ -7,7 +7,7 @@ part of 'phone_number_input_page_notifier.dart';
 // **************************************************************************
 
 String _$phoneNumberInputPageNotifierHash() =>
-    r'48c3f7935b1d10a34db713e8801745fc1b47cad5';
+    r'1f1076dfe61f1652b2c4bc1a343df30abb305ad2';
 
 /// See also [PhoneNumberInputPageNotifier].
 @ProviderFor(PhoneNumberInputPageNotifier)

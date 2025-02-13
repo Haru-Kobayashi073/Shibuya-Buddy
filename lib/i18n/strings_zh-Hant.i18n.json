@@ -56,19 +56,19 @@
         }
     },
     "authentication": {
-        "signInPage": {
-            "title": "登入",
+        "authenticationPage": {
+            "title": "登入 / 註冊",
             "optionText": " 或 ",
             "textFields": {
-                "email": "電郵",
+                "email": "電子郵件地址",
                 "password": "密碼"
             },
             "buttons": {
                 "signIn": "登入",
                 "signUp": "註冊",
                 "resetPassword": "忘記密碼？",
-                "appleSignIn": "使用Apple登入",
-                "googleSignIn": "使用Google登入",
+                "appleSignIn": "使用 Apple 登入",
+                "googleSignIn": "使用 Google 登入",
                 "signInAfter": "稍後註冊"
             },
             "changeLanguageDialog": {
@@ -95,20 +95,6 @@
             },
             "buttons": {
                 "submit": "發送"
-            }
-        },
-        "signUpPage": {
-            "title": {
-                "defaultText": "新用戶註冊",
-                "modifyEmail": "更改電子郵件地址"
-            },
-            "textFields": {
-                "email": "電子郵件地址",
-                "password": "密碼"
-            },
-            "button": {
-                "defaultText": "註冊",
-                "modifyEmail": "更改"
             }
         },
         "emailVerificationPage": {

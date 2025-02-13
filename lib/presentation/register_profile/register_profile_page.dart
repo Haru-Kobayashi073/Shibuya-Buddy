@@ -118,13 +118,8 @@ class RegisterProfilePage extends HookConsumerWidget {
                 WideButton(
                   label: i18nRegisterProfilePage.buttons.skip,
                   color: AppColor.blue50Background,
-                  onPressed: () async => notifier.onPressedSkipButton(
-                    onSuccess: () {
-                      context.go(
-                        const HomeScreenRouteData().location,
-                      );
-                    },
-                  ),
+                  onPressed: () async =>
+                      const HomeScreenRouteData().go(context),
                 ),
               ],
             ),

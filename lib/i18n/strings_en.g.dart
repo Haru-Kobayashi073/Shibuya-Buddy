@@ -107,10 +107,9 @@ class TranslationsAuthenticationEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageEn authenticationPage = TranslationsAuthenticationAuthenticationPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
-	late final TranslationsAuthenticationSignUpPageEn signUpPage = TranslationsAuthenticationSignUpPageEn._(_root);
 	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
 	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
@@ -455,18 +454,18 @@ class TranslationsAccountPageDiaLogEn {
 	String get deleteAccountText => 'Deleting your account will remove all data.';
 }
 
-// Path: authentication.signInPage
-class TranslationsAuthenticationSignInPageEn {
-	TranslationsAuthenticationSignInPageEn._(this._root);
+// Path: authentication.authenticationPage
+class TranslationsAuthenticationAuthenticationPageEn {
+	TranslationsAuthenticationAuthenticationPageEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Sign In';
+	String get title => 'Sign In / Sign Up';
 	String get optionText => ' or ';
-	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
-	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
-	late final TranslationsAuthenticationSignInPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageTextFieldsEn textFields = TranslationsAuthenticationAuthenticationPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageButtonsEn buttons = TranslationsAuthenticationAuthenticationPageButtonsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -490,18 +489,6 @@ class TranslationsAuthenticationResetPasswordPageEn {
 	String get description => 'A password reset email will be sent to the entered email address';
 	late final TranslationsAuthenticationResetPasswordPageTextFieldsEn textFields = TranslationsAuthenticationResetPasswordPageTextFieldsEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
-}
-
-// Path: authentication.signUpPage
-class TranslationsAuthenticationSignUpPageEn {
-	TranslationsAuthenticationSignUpPageEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsAuthenticationSignUpPageTitleEn title = TranslationsAuthenticationSignUpPageTitleEn._(_root);
-	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
-	late final TranslationsAuthenticationSignUpPageButtonEn button = TranslationsAuthenticationSignUpPageButtonEn._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -913,58 +900,9 @@ class TranslationsPlanDetailsPageSnackBarEn {
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
-// Path: createLoadingPage.items
-class TranslationsCreateLoadingPageItemsEn {
-	TranslationsCreateLoadingPageItemsEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get loadingText1 => 'Buddy\'s secretly crafting your travel plans... Shh!';
-	String get loadingText2 => 'Planning the best trip ever... Buddy\'s excited too!';
-	String get loadingText3 => 'Hold onto your passport, adventure loading...';
-	String get loadingText4 => 'Perfect time to daydream about your destination!';
-	String get loadingText5 => 'No snooze button on this adventure!';
-	String get loadingText6 => 'Searching for the best food spots... yum!';
-	String get loadingText7 => 'Creating a no-getting-lost plan... probably.';
-	String get loadingText8 => 'Maybe adding a surprise or two...';
-	String get loadingText9 => 'Buddy\'s working overtime for your perfect trip!';
-	String get loadingText10 => 'Your adventure is brewing...';
-	String get loadingText11 => 'Crafting your travel guide with extra care!';
-	String get loadingText12 => 'Lost? Don\'t worry, Buddy\'s got your back!';
-	String get loadingText13 => 'Shall we make a souvenir shopping list?';
-	String get loadingText14 => 'Amazing memories loading... 99%';
-	String get loadingText15 => 'Excitement level: Over 9000!';
-	String get loadingText16 => 'Hunting for hidden gems just for you...';
-	String get loadingText17 => 'Buddy\'s calculating the best routes... with math!';
-	String get loadingText18 => 'Your personal travel cheerleader at work!';
-	String get loadingText19 => 'Preparing Plan B, C, and maybe Z...';
-	String get loadingText20 => 'Writing the prologue to your adventure!';
-	String get loadingText21 => 'Creating an un-lose-able route... hopefully!';
-	String get loadingText22 => 'Buddy\'s brain is working hard right now';
-	String get loadingText23 => 'Happy birthday to someone, somewhere!';
-	String get loadingText24 => 'Weaving travel dreams...';
-	String get loadingText25 => 'Sprinkling travel wishes...';
-	String get loadingText26 => 'Waiting for travel miracles...';
-	String get loadingText27 => 'Expecting unexpected encounters...';
-	String get loadingText28 => 'Leaving 0.1% room for serendipity';
-	String get loadingText29 => 'Finding spots only locals know about';
-	String get loadingText30 => 'Buddy\'s working... grab a coffee!';
-	String get loadingText31 => 'Preparing anti-lost maps...';
-	String get loadingText32 => 'Faster than a disappearing contrail!';
-	String get loadingText33 => 'Scouting Instagram-worthy photo spots';
-	String get loadingText34 => 'Taking a snack break while planning';
-	String get loadingText35 => 'Find your perfect plan in Topics!';
-	String get loadingText36 => 'Profile updates welcome anytime!';
-	String get loadingText37 => 'Reviews appreciated, high-fives welcome!';
-	String get loadingText38 => 'Team Cat or Team Dog? Meow all the way!';
-	String get loadingText39 => 'May your sightseeing be blessed!';
-	String get loadingText40 => 'Today\'s gonna be pawsome!';
-}
-
-// Path: authentication.signInPage.textFields
-class TranslationsAuthenticationSignInPageTextFieldsEn {
-	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
+// Path: authentication.authenticationPage.textFields
+class TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	TranslationsAuthenticationAuthenticationPageTextFieldsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -973,9 +911,9 @@ class TranslationsAuthenticationSignInPageTextFieldsEn {
 	String get password => 'Password';
 }
 
-// Path: authentication.signInPage.buttons
-class TranslationsAuthenticationSignInPageButtonsEn {
-	TranslationsAuthenticationSignInPageButtonsEn._(this._root);
+// Path: authentication.authenticationPage.buttons
+class TranslationsAuthenticationAuthenticationPageButtonsEn {
+	TranslationsAuthenticationAuthenticationPageButtonsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -988,9 +926,9 @@ class TranslationsAuthenticationSignInPageButtonsEn {
 	String get signInAfter => 'Register Later';
 }
 
-// Path: authentication.signInPage.changeLanguageDialog
-class TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
-	TranslationsAuthenticationSignInPageChangeLanguageDialogEn._(this._root);
+// Path: authentication.authenticationPage.changeLanguageDialog
+class TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1033,39 +971,6 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 
 	// Translations
 	String get submit => 'Submit';
-}
-
-// Path: authentication.signUpPage.title
-class TranslationsAuthenticationSignUpPageTitleEn {
-	TranslationsAuthenticationSignUpPageTitleEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get defaultText => 'Sign Up';
-	String get modifyEmail => 'Change Email Address';
-}
-
-// Path: authentication.signUpPage.textFields
-class TranslationsAuthenticationSignUpPageTextFieldsEn {
-	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get email => 'Email Address';
-	String get password => 'Password';
-}
-
-// Path: authentication.signUpPage.button
-class TranslationsAuthenticationSignUpPageButtonEn {
-	TranslationsAuthenticationSignUpPageButtonEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get defaultText => 'Sign Up';
-	String get modifyEmail => 'Change Email Address';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1458,18 +1363,18 @@ extension on Translations {
 			case 'accountPage.diaLog.signOutText': return 'Re-login is required to use the app\'s features.';
 			case 'accountPage.diaLog.deleteAccount': return 'Do you want to delete your account?';
 			case 'accountPage.diaLog.deleteAccountText': return 'Deleting your account will remove all data.';
-			case 'authentication.signInPage.title': return 'Sign In';
-			case 'authentication.signInPage.optionText': return ' or ';
-			case 'authentication.signInPage.textFields.email': return 'Email Address';
-			case 'authentication.signInPage.textFields.password': return 'Password';
-			case 'authentication.signInPage.buttons.signIn': return 'Sign In';
-			case 'authentication.signInPage.buttons.signUp': return 'Sign Up';
-			case 'authentication.signInPage.buttons.resetPassword': return 'Forgot Password?';
-			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
-			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
-			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
-			case 'authentication.signInPage.changeLanguageDialog.title': return 'Select Language';
-			case 'authentication.signInPage.changeLanguageDialog.button': return 'Close';
+			case 'authentication.authenticationPage.title': return 'Sign In / Sign Up';
+			case 'authentication.authenticationPage.optionText': return ' or ';
+			case 'authentication.authenticationPage.textFields.email': return 'Email Address';
+			case 'authentication.authenticationPage.textFields.password': return 'Password';
+			case 'authentication.authenticationPage.buttons.signIn': return 'Sign In';
+			case 'authentication.authenticationPage.buttons.signUp': return 'Sign Up';
+			case 'authentication.authenticationPage.buttons.resetPassword': return 'Forgot Password?';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return 'Sign in with Apple';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return 'Sign in with Google';
+			case 'authentication.authenticationPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return 'Select Language';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return 'Close';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
@@ -1481,12 +1386,6 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
-			case 'authentication.signUpPage.title.defaultText': return 'Sign Up';
-			case 'authentication.signUpPage.title.modifyEmail': return 'Change Email Address';
-			case 'authentication.signUpPage.textFields.email': return 'Email Address';
-			case 'authentication.signUpPage.textFields.password': return 'Password';
-			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
-			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email has been sent to the entered ${email}';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';

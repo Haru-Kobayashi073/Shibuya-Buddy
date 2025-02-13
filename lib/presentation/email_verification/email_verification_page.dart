@@ -141,8 +141,7 @@ class EmailVerificationPage extends ConsumerWidget {
                 label: i18nEmailVerificationPage.buttons.retypeEmail,
                 color: AppColor.blue50Background,
                 onPressed: () async =>
-                    const SignUpPageRouteData(fromEmailVerify: true)
-                        .push<void>(context),
+                    const AuthenticationPageRouteData().push<void>(context),
               ),
           ],
         ),

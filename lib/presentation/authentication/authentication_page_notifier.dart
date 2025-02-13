@@ -5,16 +5,18 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../utils/providers/shared_preferences/shared_preferences_config.dart';
 import '../../utils/providers/shared_preferences/shared_preferences_service.dart';
+import '../components/loading_overlay.dart';
 
-part 'sign_in_page_notifier.g.dart';
+part 'authentication_page_notifier.g.dart';
 
 @riverpod
-class SignInPageNotifier extends _$SignInPageNotifier {
+class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
@@ -58,6 +60,29 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     }
   }
 
+  Future<void> signUpWithEmailAndPassword({
+    required String emailAddress,
+    required String password,
+    required void Function() onSuccess,
+  }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
+    try {
+      await authenticationDataSource.signUpWithEmailAndPassword(
+        emailAddress,
+        password,
+      );
+      onSuccess();
+    } on FirebaseAuthException catch (e) {
+      logger.e('signUpWithEmailAndPassword: $e');
+      final exceptionMessage = e.toLocalizedMessage;
+      ref
+          .read(scaffoldMessengerProvider.notifier)
+          .showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
+    }
+  }
+
   Future<void> signInWithGoogle({
     required void Function(String email) needEmailVerify,
     required void Function() needPhoneVerify,
@@ -65,13 +90,13 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   }) async {
     try {
       await authenticationDataSource.signInWithGoogle();
-      if ((firebaseAuth.currentUser!.emailVerified) ||
-          (firebaseAuth.currentUser!.phoneNumber != null)) {
-        onSuccess();
-      } else if (firebaseAuth.currentUser!.emailVerified) {
-        needEmailVerify(firebaseAuth.currentUser!.email!);
-      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+      if (firebaseAuth.currentUser!.phoneNumber == null ||
+          firebaseAuth.currentUser!.phoneNumber == '') {
         needPhoneVerify();
+      } else if (!firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
+      } else {
+        onSuccess();
       }
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
@@ -86,12 +111,11 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   }) async {
     try {
       await authenticationDataSource.signInWithApple();
-      if ((firebaseAuth.currentUser!.emailVerified) ||
-          (firebaseAuth.currentUser!.phoneNumber != null)) {
-      } else if (firebaseAuth.currentUser!.emailVerified) {
-        needEmailVerify(firebaseAuth.currentUser!.email!);
-      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+      if (firebaseAuth.currentUser!.phoneNumber == null ||
+          firebaseAuth.currentUser!.phoneNumber == '') {
         needPhoneVerify();
+      } else if (!firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
       } else {
         onSuccess();
       }

@@ -103,10 +103,9 @@ class _TranslationsAuthenticationZhHans implements TranslationsAuthenticationEn 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationSignInPageZhHans signInPage = _TranslationsAuthenticationSignInPageZhHans._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageZhHans authenticationPage = _TranslationsAuthenticationAuthenticationPageZhHans._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthZhHans firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHans._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageZhHans resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHans._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageZhHans signUpPage = _TranslationsAuthenticationSignUpPageZhHans._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageZhHans emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageZhHans._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageZhHans registerProfilePage = _TranslationsAuthenticationRegisterProfilePageZhHans._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHans completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHans._(_root);
@@ -451,18 +450,18 @@ class _TranslationsAccountPageDiaLogZhHans implements TranslationsAccountPageDia
 	@override String get deleteAccountText => '删除账户后，所有数据将被删除。';
 }
 
-// Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageZhHans implements TranslationsAuthenticationSignInPageEn {
-	_TranslationsAuthenticationSignInPageZhHans._(this._root);
+// Path: authentication.authenticationPage
+class _TranslationsAuthenticationAuthenticationPageZhHans implements TranslationsAuthenticationAuthenticationPageEn {
+	_TranslationsAuthenticationAuthenticationPageZhHans._(this._root);
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '登录';
+	@override String get title => '登录 / 注册';
 	@override String get optionText => ' 或 ';
-	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHans._(_root);
-	@override late final _TranslationsAuthenticationSignInPageButtonsZhHans buttons = _TranslationsAuthenticationSignInPageButtonsZhHans._(_root);
-	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHans changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHans._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsZhHans textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageButtonsZhHans buttons = _TranslationsAuthenticationAuthenticationPageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -486,18 +485,6 @@ class _TranslationsAuthenticationResetPasswordPageZhHans implements Translations
 	@override String get description => '将向输入的电子邮件地址发送密码重置邮件';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHans buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHans._(_root);
-}
-
-// Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageZhHans implements TranslationsAuthenticationSignUpPageEn {
-	_TranslationsAuthenticationSignUpPageZhHans._(this._root);
-
-	final TranslationsZhHans _root; // ignore: unused_field
-
-	// Translations
-	@override late final _TranslationsAuthenticationSignUpPageTitleZhHans title = _TranslationsAuthenticationSignUpPageTitleZhHans._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHans textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHans._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageButtonZhHans button = _TranslationsAuthenticationSignUpPageButtonZhHans._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -909,69 +896,20 @@ class _TranslationsPlanDetailsPageSnackBarZhHans implements TranslationsPlanDeta
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHans error = _TranslationsPlanDetailsPageSnackBarErrorZhHans._(_root);
 }
 
-// Path: createLoadingPage.items
-class _TranslationsCreateLoadingPageItemsZhHans implements TranslationsCreateLoadingPageItemsEn {
-	_TranslationsCreateLoadingPageItemsZhHans._(this._root);
+// Path: authentication.authenticationPage.textFields
+class _TranslationsAuthenticationAuthenticationPageTextFieldsZhHans implements TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	_TranslationsAuthenticationAuthenticationPageTextFieldsZhHans._(this._root);
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get loadingText1 => 'Buddy正在偷偷规划旅行方案...';
-	@override String get loadingText2 => '正在计划最棒的旅行...Buddy也很期待！';
-	@override String get loadingText3 => '旅行的未来即将揭晓，稍等片刻~';
-	@override String get loadingText4 => '趁着加载时间做做旅行白日梦吧！';
-	@override String get loadingText5 => '赖床计划？...不可能的！';
-	@override String get loadingText6 => '美食地图正在完美规划中！';
-	@override String get loadingText7 => '规划不会迷路的路线...应该！';
-	@override String get loadingText8 => '也许会加入一些小惊喜哦？';
-	@override String get loadingText9 => 'Buddy正在努力创造完美旅程！';
-	@override String get loadingText10 => '愉快的旅行准备正在进行中！';
-	@override String get loadingText11 => '旅行手册正在悄悄制作中...';
-	@override String get loadingText12 => '迷路了？Buddy会想办法的...大概！';
-	@override String get loadingText13 => '要不要帮你列个伴手礼清单？';
-	@override String get loadingText14 => '最棒的回忆即将产生...大概！';
-	@override String get loadingText15 => '期待指数120%的旅行准备中！';
-	@override String get loadingText16 => '正在探索隐藏景点中...';
-	@override String get loadingText17 => 'Buddy正在偷偷计算最佳路线';
-	@override String get loadingText18 => 'Buddy默默为您的旅行加油！';
-	@override String get loadingText19 => '防止意外的方案也在准备中！';
-	@override String get loadingText20 => '正在书写快乐旅行的序章！';
-	@override String get loadingText21 => '绝对不会迷路的路线...大概！';
-	@override String get loadingText22 => '这段文字是Buddy绞尽脑汁想出来的';
-	@override String get loadingText23 => '祝今天生日的人生日快乐！';
-	@override String get loadingText24 => '编织旅行梦想中...';
-	@override String get loadingText25 => '注入旅行愿望中...';
-	@override String get loadingText26 => '等待旅行奇迹中...';
-	@override String get loadingText27 => '期待旅行邂逅中...';
-	@override String get loadingText28 => '为意外相遇预留0.1%的可能';
-	@override String get loadingText29 => '探索只有当地人知道的私房景点';
-	@override String get loadingText30 => 'Buddy正在规划中...喝杯茶等等吧';
-	@override String get loadingText31 => '防止迷路的地图准备中';
-	@override String get loadingText32 => '比飞机云消失还快的规划速度！';
-	@override String get loadingText33 => '寻找最适合自拍的打卡地点';
-	@override String get loadingText34 => '边吃零食边规划中';
-	@override String get loadingText35 => '在主题中找到心仪的计划！';
-	@override String get loadingText36 => '随时都能更改个人资料哦！';
-	@override String get loadingText37 => '期待您的应用评价！';
-	@override String get loadingText38 => '猫派还是狗派？我选猫派';
-	@override String get loadingText39 => '愿您的观光之旅一切顺利！';
-	@override String get loadingText40 => '今天一定会有好事发生！';
-}
-
-// Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsZhHans implements TranslationsAuthenticationSignInPageTextFieldsEn {
-	_TranslationsAuthenticationSignInPageTextFieldsZhHans._(this._root);
-
-	final TranslationsZhHans _root; // ignore: unused_field
-
-	// Translations
-	@override String get email => '电子邮件地址';
+	@override String get email => '邮箱地址';
 	@override String get password => '密码';
 }
 
-// Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsZhHans implements TranslationsAuthenticationSignInPageButtonsEn {
-	_TranslationsAuthenticationSignInPageButtonsZhHans._(this._root);
+// Path: authentication.authenticationPage.buttons
+class _TranslationsAuthenticationAuthenticationPageButtonsZhHans implements TranslationsAuthenticationAuthenticationPageButtonsEn {
+	_TranslationsAuthenticationAuthenticationPageButtonsZhHans._(this._root);
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
@@ -979,14 +917,14 @@ class _TranslationsAuthenticationSignInPageButtonsZhHans implements Translations
 	@override String get signIn => '登录';
 	@override String get signUp => '注册';
 	@override String get resetPassword => '忘记密码？';
-	@override String get appleSignIn => '使用Apple登录';
-	@override String get googleSignIn => '使用Google登录';
+	@override String get appleSignIn => '使用 Apple 登录';
+	@override String get googleSignIn => '使用 Google 登录';
 	@override String get signInAfter => '稍后注册';
 }
 
-// Path: authentication.signInPage.changeLanguageDialog
-class _TranslationsAuthenticationSignInPageChangeLanguageDialogZhHans implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
-	_TranslationsAuthenticationSignInPageChangeLanguageDialogZhHans._(this._root);
+// Path: authentication.authenticationPage.changeLanguageDialog
+class _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans implements TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans._(this._root);
 
 	final TranslationsZhHans _root; // ignore: unused_field
 
@@ -1029,39 +967,6 @@ class _TranslationsAuthenticationResetPasswordPageButtonsZhHans implements Trans
 
 	// Translations
 	@override String get submit => '发送';
-}
-
-// Path: authentication.signUpPage.title
-class _TranslationsAuthenticationSignUpPageTitleZhHans implements TranslationsAuthenticationSignUpPageTitleEn {
-	_TranslationsAuthenticationSignUpPageTitleZhHans._(this._root);
-
-	final TranslationsZhHans _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '新用户注册';
-	@override String get modifyEmail => '更改邮箱地址';
-}
-
-// Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsZhHans implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-	_TranslationsAuthenticationSignUpPageTextFieldsZhHans._(this._root);
-
-	final TranslationsZhHans _root; // ignore: unused_field
-
-	// Translations
-	@override String get email => '邮箱地址';
-	@override String get password => '密码';
-}
-
-// Path: authentication.signUpPage.button
-class _TranslationsAuthenticationSignUpPageButtonZhHans implements TranslationsAuthenticationSignUpPageButtonEn {
-	_TranslationsAuthenticationSignUpPageButtonZhHans._(this._root);
-
-	final TranslationsZhHans _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '注册';
-	@override String get modifyEmail => '更改';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1454,18 +1359,18 @@ extension on TranslationsZhHans {
 			case 'accountPage.diaLog.signOutText': return '使用应用功能需要重新登录。';
 			case 'accountPage.diaLog.deleteAccount': return '您要删除账户吗？';
 			case 'accountPage.diaLog.deleteAccountText': return '删除账户后，所有数据将被删除。';
-			case 'authentication.signInPage.title': return '登录';
-			case 'authentication.signInPage.optionText': return ' 或 ';
-			case 'authentication.signInPage.textFields.email': return '电子邮件地址';
-			case 'authentication.signInPage.textFields.password': return '密码';
-			case 'authentication.signInPage.buttons.signIn': return '登录';
-			case 'authentication.signInPage.buttons.signUp': return '注册';
-			case 'authentication.signInPage.buttons.resetPassword': return '忘记密码？';
-			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登录';
-			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登录';
-			case 'authentication.signInPage.buttons.signInAfter': return '稍后注册';
-			case 'authentication.signInPage.changeLanguageDialog.title': return '选择语言';
-			case 'authentication.signInPage.changeLanguageDialog.button': return '关闭';
+			case 'authentication.authenticationPage.title': return '登录 / 注册';
+			case 'authentication.authenticationPage.optionText': return ' 或 ';
+			case 'authentication.authenticationPage.textFields.email': return '邮箱地址';
+			case 'authentication.authenticationPage.textFields.password': return '密码';
+			case 'authentication.authenticationPage.buttons.signIn': return '登录';
+			case 'authentication.authenticationPage.buttons.signUp': return '注册';
+			case 'authentication.authenticationPage.buttons.resetPassword': return '忘记密码？';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return '使用 Apple 登录';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return '使用 Google 登录';
+			case 'authentication.authenticationPage.buttons.signInAfter': return '稍后注册';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return '选择语言';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return '关闭';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请检查网络连接后重试';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密码太短。请输入6个字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '电子邮件地址格式不正确';
@@ -1477,12 +1382,6 @@ extension on TranslationsZhHans {
 			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
 			case 'authentication.resetPasswordPage.textFields.email': return '邮箱';
 			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
-			case 'authentication.signUpPage.title.defaultText': return '新用户注册';
-			case 'authentication.signUpPage.title.modifyEmail': return '更改邮箱地址';
-			case 'authentication.signUpPage.textFields.email': return '邮箱地址';
-			case 'authentication.signUpPage.textFields.password': return '密码';
-			case 'authentication.signUpPage.button.defaultText': return '注册';
-			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '已向输入的${email}发送了验证邮件';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '确认邮件每60秒只能重新发送一次。';

@@ -30,7 +30,9 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace = "com.shibuya.buddy"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+
+    // 色々な主要パッケージが下記バージョン以上を推奨
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -45,13 +47,14 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 23 // FirebaseAuth が 23 以上でないと動かない
+        minSdk = 26 // native_geofence が 26 以上でないと動かない
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         applicationId "${dartDefines.appId}"
         resValue "string", "app_name", "${dartDefines.appName}"
         resValue "string", "google_map_api_key", "${dartDefines.GoogleMapAPIKey}"
+        resValue "string", "admob_app_id", "${dartDefines.admobAndroidAppId}"
     }
 
         signingConfigs {

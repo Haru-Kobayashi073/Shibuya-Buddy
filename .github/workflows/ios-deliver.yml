@@ -35,6 +35,12 @@ jobs:
           revenueCatGoogleAPIKey: ${{ secrets.REVENUE_CAT_GOOGLE_API_KEY }}
           GoogleMapAPIKey: ${{ secrets.GOOGLE_MAP_API_KEY }}
           reversedClientId: ${{ secrets.REVERSED_CLIENT_ID }}
+          admobiOSAppId: ${{ secrets.ADMOB_IOS_APP_ID }}
+          admobAndroidAppId: ${{ secrets.ADMOB_ANDROID_APP_ID }}
+          admobiOSBannerUnitId: ${{ secrets.ADMOB_IOS_BANNER_UNIT_ID }}
+          admobAndroidBannerUnitId: ${{ secrets.ADMOB_ANDROID_BANNER_UNIT_ID }}
+          admobiOSNativeUnitId: ${{ secrets.ADMOB_IOS_NATIVE_UNIT_ID }}
+          admobAndroidNativeUnitId: ${{ secrets.ADMOB_ANDROID_NATIVE_UNIT_ID }}
 
         run: |
           mkdir -p ./dart_defines 
@@ -48,6 +54,12 @@ jobs:
           echo "revenueCatGoogleAPIKey=$revenueCatGoogleAPIKey" >> ./dart_defines/prod.env
           echo "GoogleMapAPIKey=$GoogleMapAPIKey" >> ./dart_defines/prod.env
           echo "reversedClientId=$reversedClientId" >> ./dart_defines/prod.env
+          echo "admobiOSAppId=$admobiOSAppId" >> ./dart_defines/prod.env
+          echo "admobAndroidAppId=$admobAndroidAppId" >> ./dart_defines/prod.env
+          echo "admobiOSBannerUnitId=$admobiOSBannerUnitId" >> ./dart_defines/prod.env
+          echo "admobAndroidBannerUnitId=$admobAndroidBannerUnitId" >> ./dart_defines/prod.env
+          echo "admobiOSNativeUnitId=$admobiOSNativeUnitId" >> ./dart_defines/prod.env
+          echo "admobAndroidNativeUnitId=$admobAndroidNativeUnitId" >> ./dart_defines/prod.env
           cat ./dart_defines/prod.env
 
       - name: Import Prod Provisioning Profile

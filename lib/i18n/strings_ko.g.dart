@@ -103,9 +103,8 @@ class _TranslationsAuthenticationKo implements TranslationsAuthenticationEn {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationSignInPageKo signInPage = _TranslationsAuthenticationSignInPageKo._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageKo authenticationPage = _TranslationsAuthenticationAuthenticationPageKo._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageKo resetPasswordPage = _TranslationsAuthenticationResetPasswordPageKo._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageKo signUpPage = _TranslationsAuthenticationSignUpPageKo._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageKo emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageKo._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageKo registerProfilePage = _TranslationsAuthenticationRegisterProfilePageKo._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageKo completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageKo._(_root);
@@ -451,18 +450,18 @@ class _TranslationsAccountPageDiaLogKo implements TranslationsAccountPageDiaLogE
 	@override String get deleteAccountText => '삭제 시 모든 데이터가 영구적으로 삭제됩니다.';
 }
 
-// Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageKo implements TranslationsAuthenticationSignInPageEn {
-	_TranslationsAuthenticationSignInPageKo._(this._root);
+// Path: authentication.authenticationPage
+class _TranslationsAuthenticationAuthenticationPageKo implements TranslationsAuthenticationAuthenticationPageEn {
+	_TranslationsAuthenticationAuthenticationPageKo._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '로그인';
+	@override String get title => '로그인 / 회원가입';
 	@override String get optionText => ' 또는 ';
-	@override late final _TranslationsAuthenticationSignInPageTextFieldsKo textFields = _TranslationsAuthenticationSignInPageTextFieldsKo._(_root);
-	@override late final _TranslationsAuthenticationSignInPageButtonsKo buttons = _TranslationsAuthenticationSignInPageButtonsKo._(_root);
-	@override late final _TranslationsAuthenticationSignInPageChangeLanguageDialogKo changeLanguageDialog = _TranslationsAuthenticationSignInPageChangeLanguageDialogKo._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsKo textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsKo._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageButtonsKo buttons = _TranslationsAuthenticationAuthenticationPageButtonsKo._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogKo changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogKo._(_root);
 }
 
 // Path: authentication.resetPasswordPage
@@ -476,18 +475,6 @@ class _TranslationsAuthenticationResetPasswordPageKo implements TranslationsAuth
 	@override String get description => '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsKo textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsKo._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsKo buttons = _TranslationsAuthenticationResetPasswordPageButtonsKo._(_root);
-}
-
-// Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageKo implements TranslationsAuthenticationSignUpPageEn {
-	_TranslationsAuthenticationSignUpPageKo._(this._root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override late final _TranslationsAuthenticationSignUpPageTitleKo title = _TranslationsAuthenticationSignUpPageTitleKo._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageTextFieldsKo textFields = _TranslationsAuthenticationSignUpPageTextFieldsKo._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageButtonKo button = _TranslationsAuthenticationSignUpPageButtonKo._(_root);
 }
 
 // Path: authentication.emailVerificationPage
@@ -909,58 +896,9 @@ class _TranslationsPlanDetailsPageSnackBarKo implements TranslationsPlanDetailsP
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorKo error = _TranslationsPlanDetailsPageSnackBarErrorKo._(_root);
 }
 
-// Path: createLoadingPage.items
-class _TranslationsCreateLoadingPageItemsKo implements TranslationsCreateLoadingPageItemsEn {
-	_TranslationsCreateLoadingPageItemsKo._(this._root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get loadingText1 => 'Buddy가 여행 계획을 몰래 짜고 있어요...';
-	@override String get loadingText2 => '최고의 여행을 계획 중...Buddy도 설렘 가득!';
-	@override String get loadingText3 => '여행의 미래, 잠시만 기다려주세요~';
-	@override String get loadingText4 => '로딩 시간에 여행 상상 어때요?';
-	@override String get loadingText5 => '늦잠 계획은 없어요! (아마도)';
-	@override String get loadingText6 => '맛있는 식사 계획도 완벽해요!';
-	@override String get loadingText7 => '길 잃지 않는 계획 작성 중...아마도.';
-	@override String get loadingText8 => '깜짝 서프라이즈가 숨어있을지도?';
-	@override String get loadingText9 => 'Buddy, 완벽한 여행을 위해 고군분투 중!';
-	@override String get loadingText10 => '즐거운 여행 준비 착착 진행 중!';
-	@override String get loadingText11 => '여행 안내서를 몰래 만들고 있어요.';
-	@override String get loadingText12 => '길을 잃어도 Buddy가 어떻게든...할걸요!';
-	@override String get loadingText13 => '기념품 리스트, 만들어드릴까요?';
-	@override String get loadingText14 => '최고의 추억이 기다리고 있어요...아마도.';
-	@override String get loadingText15 => '설렘 지수 120%의 여행 준비 중!';
-	@override String get loadingText16 => '숨겨진 명소도 찾아보고 있어요.';
-	@override String get loadingText17 => 'Buddy가 최적 루트를 몰래 계산 중.';
-	@override String get loadingText18 => '당신의 여행, Buddy가 몰래 응원!';
-	@override String get loadingText19 => '문제 방지 계획도 준비 중!';
-	@override String get loadingText20 => '즐거운 여행의 프롤로그 작성 중!';
-	@override String get loadingText21 => '절대 길 잃지 않는 루트...아마도!';
-	@override String get loadingText22 => '이 텍스트는 Buddy가 생각하고 있어요';
-	@override String get loadingText23 => '오늘 생일인 분 축하드려요!';
-	@override String get loadingText24 => '여행의 꿈을 짜는 중...!';
-	@override String get loadingText25 => '여행의 소원을 담는 중...!';
-	@override String get loadingText26 => '여행의 기적을 기다리는 중...!';
-	@override String get loadingText27 => '여행의 만남을 기대하는 중...!';
-	@override String get loadingText28 => '예상치 못한 만남을 위해 0.1% 남겨두기';
-	@override String get loadingText29 => '현지인만 아는 숨은 명소 탐험 중';
-	@override String get loadingText30 => 'Buddy가 계획 작성 중...커피 한잔 하면서 기다려요';
-	@override String get loadingText31 => '길치 방지용 지도도 준비 중이에요';
-	@override String get loadingText32 => '비행기 구름보다 빠르게 계획 완성!';
-	@override String get loadingText33 => '인생샷 스팟 탐색 중';
-	@override String get loadingText34 => '간식 타임과 함께 계획 중';
-	@override String get loadingText35 => '토픽에서 마음에 드는 플랜을 찾아보세요!';
-	@override String get loadingText36 => '프로필은 언제든지 수정할 수 있어요!';
-	@override String get loadingText37 => '앱 리뷰 기다리고 있어요!';
-	@override String get loadingText38 => '강아지파 고양이파? 저는 고양이파예요';
-	@override String get loadingText39 => '관광에서 좋은 일만 가득하길!';
-	@override String get loadingText40 => '오늘은 분명 좋은 일이 있을 거예요!';
-}
-
-// Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsKo implements TranslationsAuthenticationSignInPageTextFieldsEn {
-	_TranslationsAuthenticationSignInPageTextFieldsKo._(this._root);
+// Path: authentication.authenticationPage.textFields
+class _TranslationsAuthenticationAuthenticationPageTextFieldsKo implements TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	_TranslationsAuthenticationAuthenticationPageTextFieldsKo._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -969,24 +907,24 @@ class _TranslationsAuthenticationSignInPageTextFieldsKo implements TranslationsA
 	@override String get password => '비밀번호';
 }
 
-// Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsKo implements TranslationsAuthenticationSignInPageButtonsEn {
-	_TranslationsAuthenticationSignInPageButtonsKo._(this._root);
+// Path: authentication.authenticationPage.buttons
+class _TranslationsAuthenticationAuthenticationPageButtonsKo implements TranslationsAuthenticationAuthenticationPageButtonsEn {
+	_TranslationsAuthenticationAuthenticationPageButtonsKo._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
 	@override String get signIn => '로그인';
 	@override String get signUp => '회원가입';
-	@override String get resetPassword => '비밀번호 찾기';
+	@override String get resetPassword => '비밀번호를 잊으셨나요?';
 	@override String get appleSignIn => 'Apple로 로그인';
 	@override String get googleSignIn => 'Google로 로그인';
-	@override String get signInAfter => '나중에 하기';
+	@override String get signInAfter => '나중에 가입';
 }
 
-// Path: authentication.signInPage.changeLanguageDialog
-class _TranslationsAuthenticationSignInPageChangeLanguageDialogKo implements TranslationsAuthenticationSignInPageChangeLanguageDialogEn {
-	_TranslationsAuthenticationSignInPageChangeLanguageDialogKo._(this._root);
+// Path: authentication.authenticationPage.changeLanguageDialog
+class _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogKo implements TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationAuthenticationPageChangeLanguageDialogKo._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -1013,39 +951,6 @@ class _TranslationsAuthenticationResetPasswordPageButtonsKo implements Translati
 
 	// Translations
 	@override String get submit => '발송';
-}
-
-// Path: authentication.signUpPage.title
-class _TranslationsAuthenticationSignUpPageTitleKo implements TranslationsAuthenticationSignUpPageTitleEn {
-	_TranslationsAuthenticationSignUpPageTitleKo._(this._root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '회원가입';
-	@override String get modifyEmail => '이메일 주소 변경';
-}
-
-// Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsKo implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-	_TranslationsAuthenticationSignUpPageTextFieldsKo._(this._root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get email => '이메일 주소';
-	@override String get password => '비밀번호';
-}
-
-// Path: authentication.signUpPage.button
-class _TranslationsAuthenticationSignUpPageButtonKo implements TranslationsAuthenticationSignUpPageButtonEn {
-	_TranslationsAuthenticationSignUpPageButtonKo._(this._root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '회원가입';
-	@override String get modifyEmail => '변경';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1454,28 +1359,22 @@ extension on TranslationsKo {
 			case 'accountPage.diaLog.signOutText': return '다시 로그인해야 서비스를 이용하실 수 있습니다.';
 			case 'accountPage.diaLog.deleteAccount': return '정말 계정을 삭제하시겠습니까?';
 			case 'accountPage.diaLog.deleteAccountText': return '삭제 시 모든 데이터가 영구적으로 삭제됩니다.';
-			case 'authentication.signInPage.title': return '로그인';
-			case 'authentication.signInPage.optionText': return ' 또는 ';
-			case 'authentication.signInPage.textFields.email': return '이메일 주소';
-			case 'authentication.signInPage.textFields.password': return '비밀번호';
-			case 'authentication.signInPage.buttons.signIn': return '로그인';
-			case 'authentication.signInPage.buttons.signUp': return '회원가입';
-			case 'authentication.signInPage.buttons.resetPassword': return '비밀번호 찾기';
-			case 'authentication.signInPage.buttons.appleSignIn': return 'Apple로 로그인';
-			case 'authentication.signInPage.buttons.googleSignIn': return 'Google로 로그인';
-			case 'authentication.signInPage.buttons.signInAfter': return '나중에 하기';
-			case 'authentication.signInPage.changeLanguageDialog.title': return '언어 선택';
-			case 'authentication.signInPage.changeLanguageDialog.button': return '닫기';
+			case 'authentication.authenticationPage.title': return '로그인 / 회원가입';
+			case 'authentication.authenticationPage.optionText': return ' 또는 ';
+			case 'authentication.authenticationPage.textFields.email': return '이메일 주소';
+			case 'authentication.authenticationPage.textFields.password': return '비밀번호';
+			case 'authentication.authenticationPage.buttons.signIn': return '로그인';
+			case 'authentication.authenticationPage.buttons.signUp': return '회원가입';
+			case 'authentication.authenticationPage.buttons.resetPassword': return '비밀번호를 잊으셨나요?';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return 'Apple로 로그인';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return 'Google로 로그인';
+			case 'authentication.authenticationPage.buttons.signInAfter': return '나중에 가입';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return '언어 선택';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return '닫기';
 			case 'authentication.resetPasswordPage.title': return '비밀번호 재설정';
 			case 'authentication.resetPasswordPage.description': return '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 			case 'authentication.resetPasswordPage.textFields.email': return '이메일 주소';
 			case 'authentication.resetPasswordPage.buttons.submit': return '발송';
-			case 'authentication.signUpPage.title.defaultText': return '회원가입';
-			case 'authentication.signUpPage.title.modifyEmail': return '이메일 주소 변경';
-			case 'authentication.signUpPage.textFields.email': return '이메일 주소';
-			case 'authentication.signUpPage.textFields.password': return '비밀번호';
-			case 'authentication.signUpPage.button.defaultText': return '회원가입';
-			case 'authentication.signUpPage.button.modifyEmail': return '변경';
 			case 'authentication.emailVerificationPage.title': return '이메일 주소 확인';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '입력된 ${email}로 확인 이메일을 보냈습니다';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '확인 이메일 재발송은 60초마다 1회 가능합니다.';
