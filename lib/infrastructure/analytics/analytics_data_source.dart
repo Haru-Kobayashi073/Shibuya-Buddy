@@ -14,6 +14,7 @@ class FirebaseAnalyticsDataSource extends _$FirebaseAnalyticsDataSource {
     return FirebaseAnalyticsDataSource();
   }
 
+  // 行動ログ
   Future<void> logEvent(
     AnalyticsEvent event, {
     Map<String, Object>? parameters,
@@ -21,6 +22,17 @@ class FirebaseAnalyticsDataSource extends _$FirebaseAnalyticsDataSource {
     await _analytics.logEvent(
       name: event.key,
       parameters: parameters,
+    );
+  }
+
+  // 画面遷移ログ
+  Future<void> logScreenView({
+    required String screenName,
+    String? screenClassOverride,
+  }) async {
+    await _analytics.logScreenView(
+      screenName: screenName,
+      screenClass: screenClassOverride ?? screenName,
     );
   }
 }

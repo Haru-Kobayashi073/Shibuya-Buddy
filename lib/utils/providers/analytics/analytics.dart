@@ -12,11 +12,22 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
   @override
   void build() {
   }
-
+  // 行動ログ
   Future<void> logEvent(
     AnalyticsEvent event, {
     Map<String, Object>? parameters,
   }) async {
     await _dataSource.logEvent(event, parameters: parameters);
+  }
+
+ // 画面遷移ログ
+    Future<void> logScreenView({
+    required String screenName,
+    String? screenClassOverride,
+  }) async {
+    await _dataSource.logScreenView(
+      screenName: screenName,
+      screenClassOverride: screenClassOverride,
+    );
   }
 }
