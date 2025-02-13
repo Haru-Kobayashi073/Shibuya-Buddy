@@ -11,7 +11,7 @@ class FirebaseAnalyticsDataSource extends _$FirebaseAnalyticsDataSource {
 
   @override
   FirebaseAnalyticsDataSource build() {
-    return FirebaseAnalyticsDataSource();
+    return this;
   }
 
   // 行動ログ
