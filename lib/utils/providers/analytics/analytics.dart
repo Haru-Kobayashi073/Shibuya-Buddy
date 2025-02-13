@@ -1,6 +1,9 @@
+import 'package:firebase_core/firebase_core.dart'; // FirebaseException 用に追加
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '../../../infrastructure/analytics/analytics_data_source.dart';
 import '../../../utils/analytics_event.dart';
+import '../../../utils/custom_logger.dart'; // CustomLogger をインポート
 
 part 'analytics.g.dart';
 
@@ -11,12 +14,28 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
 
   @override
   void build() {}
+
   // 行動ログ
   Future<void> logEvent(
     UserActionEvent event, {
     Map<String, Object>? parameters,
   }) async {
-    await _dataSource.logEvent(event.key, parameters: parameters);
+    try {
+      await _dataSource.logEvent(event.key, parameters: parameters);
+      logger.t('Event logged: ${event.key}');
+    } on FirebaseException catch (e, stackTrace) {
+      logger.e(
+        'Firebase error logging event: ${event.key}',
+        error: e,
+        stackTrace: stackTrace,
+      );
+    } on Exception catch (e, stackTrace) {
+      logger.e(
+        'General error logging event: ${event.key}',
+        error: e,
+        stackTrace: stackTrace,
+      );
+    }
   }
 
   // 画面遷移ログ
@@ -24,9 +43,24 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
     ScreenViewEvent event, {
     String? screenClassOverride,
   }) async {
-    await _dataSource.logScreenView(
-      event.key,
-      screenClassOverride: screenClassOverride,
-    );
+    try {
+      await _dataSource.logScreenView(
+        event.key,
+        screenClassOverride: screenClassOverride,
+      );
+      logger.t('Screen view logged: ${event.key}');
+    } on FirebaseException catch (e, stackTrace) {
+      logger.e(
+        'Firebase error logging screen view: ${event.key}',
+        error: e,
+        stackTrace: stackTrace,
+      );
+    } on Exception catch (e, stackTrace) {
+      logger.e(
+        'General error logging screen view: ${event.key}',
+        error: e,
+        stackTrace: stackTrace,
+      );
+    }
   }
 }
