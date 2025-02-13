@@ -50,6 +50,7 @@ class TranslationsJa implements Translations {
 	@override late final _TranslationsPromptJa prompt = _TranslationsPromptJa._(_root);
 	@override late final _TranslationsBillDetailsPageJa billDetailsPage = _TranslationsBillDetailsPageJa._(_root);
 	@override late final _TranslationsPlanDetailsPageJa planDetailsPage = _TranslationsPlanDetailsPageJa._(_root);
+	@override late final _TranslationsCreateLoadingPageJa createLoadingPage = _TranslationsCreateLoadingPageJa._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日本語',
@@ -318,6 +319,16 @@ class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
 	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
 	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarJa snackBar = _TranslationsPlanDetailsPageSnackBarJa._(_root);
+}
+
+// Path: createLoadingPage
+class _TranslationsCreateLoadingPageJa implements TranslationsCreateLoadingPageEn {
+	_TranslationsCreateLoadingPageJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreateLoadingPageItemsJa items = _TranslationsCreateLoadingPageItemsJa._(_root);
 }
 
 // Path: errorPage
@@ -896,6 +907,55 @@ class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsP
 
 	// Translations
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
+}
+
+// Path: createLoadingPage.items
+class _TranslationsCreateLoadingPageItemsJa implements TranslationsCreateLoadingPageItemsEn {
+	_TranslationsCreateLoadingPageItemsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadingText1 => 'Buddyが旅行プランを練ってます…こっそり。';
+	@override String get loadingText2 => '最高の旅を計画中…Buddyもワクワク!';
+	@override String get loadingText3 => '旅行の未来、ちょっとだけ待ってね。';
+	@override String get loadingText4 => 'このロード時間で旅の妄想どうぞ！';
+	@override String get loadingText5 => '寝坊プラン？…入れませんよ！（たぶん）';
+	@override String get loadingText6 => '美味しいご飯の計画もバッチリです！';
+	@override String get loadingText7 => '迷子にならないプランを作成中…たぶん。';
+	@override String get loadingText8 => '予定にサプライズを仕込むかも？';
+	@override String get loadingText9 => 'Buddy、完璧な旅を目指して奮闘中!';
+	@override String get loadingText10 => '楽しい旅の準備、着々と進行中！';
+	@override String get loadingText11 => '旅のしおり、こっそり作ってます。';
+	@override String get loadingText12 => '道に迷ったらBuddyがなんとかする…はず!';
+	@override String get loadingText13 => 'お土産リスト、勝手に作りましょうか？';
+	@override String get loadingText14 => '最高の思い出が待ってる…たぶん。';
+	@override String get loadingText15 => 'ワクワク指数120%の旅を準備中！';
+	@override String get loadingText16 => '隠れスポットも探しておきますね。';
+	@override String get loadingText17 => 'Buddyが最適ルートをこっそり計算中。';
+	@override String get loadingText18 => 'あなたの旅、Buddyがこっそり応援!';
+	@override String get loadingText19 => 'トラブル回避プランもこっそり準備！';
+	@override String get loadingText20 => '楽しい旅行のプロローグ、執筆中！';
+	@override String get loadingText21 => '絶対に迷わないルートを…たぶん！';
+	@override String get loadingText22 => 'ここのテキストはBuddyが考えているよ';
+	@override String get loadingText23 => '今日誕生日の人おめでとう!';
+	@override String get loadingText24 => '旅の夢、紡ぎ中…！';
+	@override String get loadingText25 => '旅の願い、込め中…！';
+	@override String get loadingText26 => '旅の奇跡、待ち中…！';
+	@override String get loadingText27 => '旅の出会い、期待中…！';
+	@override String get loadingText28 => '想定外の出会いを0.1%残してます';
+	@override String get loadingText29 => '地元民しか知らない穴場を探検中';
+	@override String get loadingText30 => 'Buddyがプラン作成中…コーヒー飲んで待っててね';
+	@override String get loadingText31 => '迷子防止用の地図も準備中です';
+	@override String get loadingText32 => '飛行機雲が消えないうちにプラン完成！';
+	@override String get loadingText33 => '旅先で自撮りが映えるスポット探検中';
+	@override String get loadingText34 => 'おやつタイムを挟みつつ計画中';
+	@override String get loadingText35 => 'トピックから自分の好きなプランを見つけよう!';
+	@override String get loadingText36 => 'プロフィールはいつでも変えられるよ!';
+	@override String get loadingText37 => 'アプリのレビューお待ちしています!';
+	@override String get loadingText38 => '犬派猫派と聞かれたら私は猫派';
+	@override String get loadingText39 => '観光でいいことがありますように!';
+	@override String get loadingText40 => '今日はきっといいことがあるよ!';
 }
 
 // Path: authentication.signInPage.textFields
@@ -1628,6 +1688,46 @@ extension on TranslationsJa {
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
+			case 'createLoadingPage.items.loadingText1': return 'Buddyが旅行プランを練ってます…こっそり。';
+			case 'createLoadingPage.items.loadingText2': return '最高の旅を計画中…Buddyもワクワク!';
+			case 'createLoadingPage.items.loadingText3': return '旅行の未来、ちょっとだけ待ってね。';
+			case 'createLoadingPage.items.loadingText4': return 'このロード時間で旅の妄想どうぞ！';
+			case 'createLoadingPage.items.loadingText5': return '寝坊プラン？…入れませんよ！（たぶん）';
+			case 'createLoadingPage.items.loadingText6': return '美味しいご飯の計画もバッチリです！';
+			case 'createLoadingPage.items.loadingText7': return '迷子にならないプランを作成中…たぶん。';
+			case 'createLoadingPage.items.loadingText8': return '予定にサプライズを仕込むかも？';
+			case 'createLoadingPage.items.loadingText9': return 'Buddy、完璧な旅を目指して奮闘中!';
+			case 'createLoadingPage.items.loadingText10': return '楽しい旅の準備、着々と進行中！';
+			case 'createLoadingPage.items.loadingText11': return '旅のしおり、こっそり作ってます。';
+			case 'createLoadingPage.items.loadingText12': return '道に迷ったらBuddyがなんとかする…はず!';
+			case 'createLoadingPage.items.loadingText13': return 'お土産リスト、勝手に作りましょうか？';
+			case 'createLoadingPage.items.loadingText14': return '最高の思い出が待ってる…たぶん。';
+			case 'createLoadingPage.items.loadingText15': return 'ワクワク指数120%の旅を準備中！';
+			case 'createLoadingPage.items.loadingText16': return '隠れスポットも探しておきますね。';
+			case 'createLoadingPage.items.loadingText17': return 'Buddyが最適ルートをこっそり計算中。';
+			case 'createLoadingPage.items.loadingText18': return 'あなたの旅、Buddyがこっそり応援!';
+			case 'createLoadingPage.items.loadingText19': return 'トラブル回避プランもこっそり準備！';
+			case 'createLoadingPage.items.loadingText20': return '楽しい旅行のプロローグ、執筆中！';
+			case 'createLoadingPage.items.loadingText21': return '絶対に迷わないルートを…たぶん！';
+			case 'createLoadingPage.items.loadingText22': return 'ここのテキストはBuddyが考えているよ';
+			case 'createLoadingPage.items.loadingText23': return '今日誕生日の人おめでとう!';
+			case 'createLoadingPage.items.loadingText24': return '旅の夢、紡ぎ中…！';
+			case 'createLoadingPage.items.loadingText25': return '旅の願い、込め中…！';
+			case 'createLoadingPage.items.loadingText26': return '旅の奇跡、待ち中…！';
+			case 'createLoadingPage.items.loadingText27': return '旅の出会い、期待中…！';
+			case 'createLoadingPage.items.loadingText28': return '想定外の出会いを0.1%残してます';
+			case 'createLoadingPage.items.loadingText29': return '地元民しか知らない穴場を探検中';
+			case 'createLoadingPage.items.loadingText30': return 'Buddyがプラン作成中…コーヒー飲んで待っててね';
+			case 'createLoadingPage.items.loadingText31': return '迷子防止用の地図も準備中です';
+			case 'createLoadingPage.items.loadingText32': return '飛行機雲が消えないうちにプラン完成！';
+			case 'createLoadingPage.items.loadingText33': return '旅先で自撮りが映えるスポット探検中';
+			case 'createLoadingPage.items.loadingText34': return 'おやつタイムを挟みつつ計画中';
+			case 'createLoadingPage.items.loadingText35': return 'トピックから自分の好きなプランを見つけよう!';
+			case 'createLoadingPage.items.loadingText36': return 'プロフィールはいつでも変えられるよ!';
+			case 'createLoadingPage.items.loadingText37': return 'アプリのレビューお待ちしています!';
+			case 'createLoadingPage.items.loadingText38': return '犬派猫派と聞かれたら私は猫派';
+			case 'createLoadingPage.items.loadingText39': return '観光でいいことがありますように!';
+			case 'createLoadingPage.items.loadingText40': return '今日はきっといいことがあるよ!';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日本語';
 			case 'locales.zh': return '中国語';

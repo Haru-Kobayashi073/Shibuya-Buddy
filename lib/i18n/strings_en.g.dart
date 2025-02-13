@@ -54,6 +54,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
 	late final TranslationsBillDetailsPageEn billDetailsPage = TranslationsBillDetailsPageEn._(_root);
 	late final TranslationsPlanDetailsPageEn planDetailsPage = TranslationsPlanDetailsPageEn._(_root);
+	late final TranslationsCreateLoadingPageEn createLoadingPage = TranslationsCreateLoadingPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -322,6 +323,16 @@ class TranslationsPlanDetailsPageEn {
 	late final TranslationsPlanDetailsPageDateTimeEn dateTime = TranslationsPlanDetailsPageDateTimeEn._(_root);
 	late final TranslationsPlanDetailsPageItemEn item = TranslationsPlanDetailsPageItemEn._(_root);
 	late final TranslationsPlanDetailsPageSnackBarEn snackBar = TranslationsPlanDetailsPageSnackBarEn._(_root);
+}
+
+// Path: createLoadingPage
+class TranslationsCreateLoadingPageEn {
+	TranslationsCreateLoadingPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsCreateLoadingPageItemsEn items = TranslationsCreateLoadingPageItemsEn._(_root);
 }
 
 // Path: errorPage
@@ -900,6 +911,55 @@ class TranslationsPlanDetailsPageSnackBarEn {
 
 	// Translations
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
+}
+
+// Path: createLoadingPage.items
+class TranslationsCreateLoadingPageItemsEn {
+	TranslationsCreateLoadingPageItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get loadingText1 => 'Buddy\'s secretly crafting your travel plans... Shh!';
+	String get loadingText2 => 'Planning the best trip ever... Buddy\'s excited too!';
+	String get loadingText3 => 'Hold onto your passport, adventure loading...';
+	String get loadingText4 => 'Perfect time to daydream about your destination!';
+	String get loadingText5 => 'No snooze button on this adventure!';
+	String get loadingText6 => 'Searching for the best food spots... yum!';
+	String get loadingText7 => 'Creating a no-getting-lost plan... probably.';
+	String get loadingText8 => 'Maybe adding a surprise or two...';
+	String get loadingText9 => 'Buddy\'s working overtime for your perfect trip!';
+	String get loadingText10 => 'Your adventure is brewing...';
+	String get loadingText11 => 'Crafting your travel guide with extra care!';
+	String get loadingText12 => 'Lost? Don\'t worry, Buddy\'s got your back!';
+	String get loadingText13 => 'Shall we make a souvenir shopping list?';
+	String get loadingText14 => 'Amazing memories loading... 99%';
+	String get loadingText15 => 'Excitement level: Over 9000!';
+	String get loadingText16 => 'Hunting for hidden gems just for you...';
+	String get loadingText17 => 'Buddy\'s calculating the best routes... with math!';
+	String get loadingText18 => 'Your personal travel cheerleader at work!';
+	String get loadingText19 => 'Preparing Plan B, C, and maybe Z...';
+	String get loadingText20 => 'Writing the prologue to your adventure!';
+	String get loadingText21 => 'Creating an un-lose-able route... hopefully!';
+	String get loadingText22 => 'Buddy\'s brain is working hard right now';
+	String get loadingText23 => 'Happy birthday to someone, somewhere!';
+	String get loadingText24 => 'Weaving travel dreams...';
+	String get loadingText25 => 'Sprinkling travel wishes...';
+	String get loadingText26 => 'Waiting for travel miracles...';
+	String get loadingText27 => 'Expecting unexpected encounters...';
+	String get loadingText28 => 'Leaving 0.1% room for serendipity';
+	String get loadingText29 => 'Finding spots only locals know about';
+	String get loadingText30 => 'Buddy\'s working... grab a coffee!';
+	String get loadingText31 => 'Preparing anti-lost maps...';
+	String get loadingText32 => 'Faster than a disappearing contrail!';
+	String get loadingText33 => 'Scouting Instagram-worthy photo spots';
+	String get loadingText34 => 'Taking a snack break while planning';
+	String get loadingText35 => 'Find your perfect plan in Topics!';
+	String get loadingText36 => 'Profile updates welcome anytime!';
+	String get loadingText37 => 'Reviews appreciated, high-fives welcome!';
+	String get loadingText38 => 'Team Cat or Team Dog? Meow all the way!';
+	String get loadingText39 => 'May your sightseeing be blessed!';
+	String get loadingText40 => 'Today\'s gonna be pawsome!';
 }
 
 // Path: authentication.signInPage.textFields
@@ -1632,6 +1692,46 @@ extension on Translations {
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
+			case 'createLoadingPage.items.loadingText1': return 'Buddy\'s secretly crafting your travel plans... Shh!';
+			case 'createLoadingPage.items.loadingText2': return 'Planning the best trip ever... Buddy\'s excited too!';
+			case 'createLoadingPage.items.loadingText3': return 'Hold onto your passport, adventure loading...';
+			case 'createLoadingPage.items.loadingText4': return 'Perfect time to daydream about your destination!';
+			case 'createLoadingPage.items.loadingText5': return 'No snooze button on this adventure!';
+			case 'createLoadingPage.items.loadingText6': return 'Searching for the best food spots... yum!';
+			case 'createLoadingPage.items.loadingText7': return 'Creating a no-getting-lost plan... probably.';
+			case 'createLoadingPage.items.loadingText8': return 'Maybe adding a surprise or two...';
+			case 'createLoadingPage.items.loadingText9': return 'Buddy\'s working overtime for your perfect trip!';
+			case 'createLoadingPage.items.loadingText10': return 'Your adventure is brewing...';
+			case 'createLoadingPage.items.loadingText11': return 'Crafting your travel guide with extra care!';
+			case 'createLoadingPage.items.loadingText12': return 'Lost? Don\'t worry, Buddy\'s got your back!';
+			case 'createLoadingPage.items.loadingText13': return 'Shall we make a souvenir shopping list?';
+			case 'createLoadingPage.items.loadingText14': return 'Amazing memories loading... 99%';
+			case 'createLoadingPage.items.loadingText15': return 'Excitement level: Over 9000!';
+			case 'createLoadingPage.items.loadingText16': return 'Hunting for hidden gems just for you...';
+			case 'createLoadingPage.items.loadingText17': return 'Buddy\'s calculating the best routes... with math!';
+			case 'createLoadingPage.items.loadingText18': return 'Your personal travel cheerleader at work!';
+			case 'createLoadingPage.items.loadingText19': return 'Preparing Plan B, C, and maybe Z...';
+			case 'createLoadingPage.items.loadingText20': return 'Writing the prologue to your adventure!';
+			case 'createLoadingPage.items.loadingText21': return 'Creating an un-lose-able route... hopefully!';
+			case 'createLoadingPage.items.loadingText22': return 'Buddy\'s brain is working hard right now';
+			case 'createLoadingPage.items.loadingText23': return 'Happy birthday to someone, somewhere!';
+			case 'createLoadingPage.items.loadingText24': return 'Weaving travel dreams...';
+			case 'createLoadingPage.items.loadingText25': return 'Sprinkling travel wishes...';
+			case 'createLoadingPage.items.loadingText26': return 'Waiting for travel miracles...';
+			case 'createLoadingPage.items.loadingText27': return 'Expecting unexpected encounters...';
+			case 'createLoadingPage.items.loadingText28': return 'Leaving 0.1% room for serendipity';
+			case 'createLoadingPage.items.loadingText29': return 'Finding spots only locals know about';
+			case 'createLoadingPage.items.loadingText30': return 'Buddy\'s working... grab a coffee!';
+			case 'createLoadingPage.items.loadingText31': return 'Preparing anti-lost maps...';
+			case 'createLoadingPage.items.loadingText32': return 'Faster than a disappearing contrail!';
+			case 'createLoadingPage.items.loadingText33': return 'Scouting Instagram-worthy photo spots';
+			case 'createLoadingPage.items.loadingText34': return 'Taking a snack break while planning';
+			case 'createLoadingPage.items.loadingText35': return 'Find your perfect plan in Topics!';
+			case 'createLoadingPage.items.loadingText36': return 'Profile updates welcome anytime!';
+			case 'createLoadingPage.items.loadingText37': return 'Reviews appreciated, high-fives welcome!';
+			case 'createLoadingPage.items.loadingText38': return 'Team Cat or Team Dog? Meow all the way!';
+			case 'createLoadingPage.items.loadingText39': return 'May your sightseeing be blessed!';
+			case 'createLoadingPage.items.loadingText40': return 'Today\'s gonna be pawsome!';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';
