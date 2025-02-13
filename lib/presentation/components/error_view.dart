@@ -35,10 +35,10 @@ class ErrorView extends HookConsumerWidget {
 
         Future.delayed(Duration.zero, () async {
           await ref.read(analyticsNotifierProvider.notifier).logScreenView(
-                screenName: AnalyticsEvent.errorView.key,
+                ScreenViewEvent.mapPageView,
               );
           await ref.read(analyticsNotifierProvider.notifier).logEvent(
-            AnalyticsEvent.errorView,
+            UserActionEvent.error,
             parameters: {
               'error': error.toString(),
               'stackTrace': stackTrace.toString(),

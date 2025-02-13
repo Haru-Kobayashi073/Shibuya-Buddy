@@ -116,7 +116,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       await authenticationDataSource.deleteAccount();
       await ref
           .read(analyticsNotifierProvider.notifier)
-          .logEvent(AnalyticsEvent.deleteAccount);
+          .logEvent(UserActionEvent.deleteAccount);
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.deleteAccount);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
