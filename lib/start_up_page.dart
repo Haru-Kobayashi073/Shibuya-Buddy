@@ -39,7 +39,7 @@ class StartUpPage extends HookConsumerWidget {
               context.go(const HomeScreenRouteData().location);
             }
           } else {
-            context.go(const SignInPageRouteData().location);
+            context.go(const AuthenticationPageRouteData().location);
           }
         },
         error: (e, s) => const SizedBox(),
