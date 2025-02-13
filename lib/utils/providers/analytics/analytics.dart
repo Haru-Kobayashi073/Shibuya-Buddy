@@ -14,19 +14,19 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
   }
   // 行動ログ
   Future<void> logEvent(
-    AnalyticsEvent event, {
+    UserActionEvent event, {
     Map<String, Object>? parameters,
   }) async {
-    await _dataSource.logEvent(event, parameters: parameters);
+    await _dataSource.logEvent(event.key, parameters: parameters);
   }
 
  // 画面遷移ログ
-    Future<void> logScreenView({
-    required String screenName,
+    Future<void> logScreenView(
+    ScreenViewEvent event, {
     String? screenClassOverride,
   }) async {
     await _dataSource.logScreenView(
-      screenName: screenName,
+      event.key,
       screenClassOverride: screenClassOverride,
     );
   }

@@ -1,8 +1,8 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../utils/analytics_event.dart';
 import '../firebase/firebase_analytics_provider.dart';
+
 part 'analytics_data_source.g.dart';
 
 @riverpod
@@ -16,18 +16,18 @@ class FirebaseAnalyticsDataSource extends _$FirebaseAnalyticsDataSource {
 
   // 行動ログ
   Future<void> logEvent(
-    AnalyticsEvent event, {
+    String eventName, {
     Map<String, Object>? parameters,
   }) async {
     await _analytics.logEvent(
-      name: event.key,
+      name: eventName,
       parameters: parameters,
     );
   }
 
   // 画面遷移ログ
-  Future<void> logScreenView({
-    required String screenName,
+  Future<void> logScreenView(
+    String screenName, {
     String? screenClassOverride,
   }) async {
     await _analytics.logScreenView(
