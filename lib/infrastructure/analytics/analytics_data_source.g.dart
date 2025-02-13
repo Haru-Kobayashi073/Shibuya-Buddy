@@ -7,7 +7,7 @@ part of 'analytics_data_source.dart';
 // **************************************************************************
 
 String _$firebaseAnalyticsDataSourceHash() =>
-    r'146b7842a8aeb1824988aeeb3786412ded86daa1';
+    r'0c4f673b2f408ce4f43293a5ee356c0f2e46dbd6';
 
 /// See also [FirebaseAnalyticsDataSource].
 @ProviderFor(FirebaseAnalyticsDataSource)
