@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../domain/entities/plan.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../../components/expandable_text.dart';
 import '../../home/components/category_tags.dart';
 
 class PlanHeader extends StatelessWidget {
@@ -40,10 +41,7 @@ class PlanHeader extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              plan.description,
-              style: AppTextStyle.textStyle.copyWith(fontSize: 14),
-            ),
+            child: ExpandableText(plan.description),
           ),
           const SizedBox(height: 8),
         ],
