@@ -1,11 +1,17 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../infrastructure/analytics/analytics_data_source.dart';
 import '../../../utils/analytics_event.dart';
 
-class AnalyticsNotifier {
-  AnalyticsNotifier(this._dataSource);
-  final FirebaseAnalyticsDataSource _dataSource;
+part 'analytics.g.dart';
+
+@riverpod
+class AnalyticsNotifier extends _$AnalyticsNotifier {
+  FirebaseAnalyticsDataSource get _dataSource =>
+      ref.read(firebaseAnalyticsDataSourceProvider);
+
+  @override
+  Future<void> build() async {
+  }
 
   Future<void> logEvent(
     AnalyticsEvent event, {
@@ -14,8 +20,3 @@ class AnalyticsNotifier {
     await _dataSource.logEvent(event, parameters: parameters);
   }
 }
-
-final analyticsNotifierProvider = Provider<AnalyticsNotifier>((ref) {
-  final dataSource = ref.read(firebaseAnalyticsDataSourceProvider);
-  return AnalyticsNotifier(dataSource);
-});
