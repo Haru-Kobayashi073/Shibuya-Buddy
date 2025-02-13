@@ -6,14 +6,15 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/entities/place.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/providers/ad_helper/ad_helper.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import 'map_page_notifier.dart';
 
 class MapPage extends HookConsumerWidget {
-class MapPage extends ConsumerWidget {
   const MapPage({
     super.key,
     required this.places,
@@ -23,6 +24,17 @@ class MapPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(
+      () {
+        Future.delayed(Duration.zero, () async {
+          await ref
+              .read(analyticsNotifierProvider.notifier)
+              .logScreenView(ScreenViewEvent.mapPageView);
+        });
+        return null;
+      },
+      [],
+    );
     final state = ref.watch(mapPageNotifierProvider(places));
     final i18n = Translations.of(context);
 
