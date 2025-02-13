@@ -7,7 +7,7 @@ part of 'plans_related_in_topic_page_notifier.dart';
 // **************************************************************************
 
 String _$plansRelatedInTopicPageNotifierHash() =>
-    r'0e3638d2a41afab463e17ec12dc46c23fec750b6';
+    r'4ed7f2562b7ef7b9ee5eaa981102d40d894562cc';
 
 /// Copied from Dart SDK
 class _SystemHash {

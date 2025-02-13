@@ -17,7 +17,6 @@ class StartUpPage extends HookConsumerWidget {
     final message = ref.watch(scaffoldMessengerProvider.notifier);
     final i18nEmail = t.authentication.emailVerificationPage.snackBar;
     final i18nPhone = t.authentication.phoneNumberInputPage.scaffoldMessenger;
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       user.when(
         data: (user) {
@@ -30,7 +29,7 @@ class StartUpPage extends HookConsumerWidget {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 message.showExceptionSnackBar(i18nEmail.emailVerification);
               });
-            } else if (user.phoneNumber == null) {
+            } else if (user.phoneNumber == null || user.phoneNumber == '') {
               context.go(const PhoneNumberInputPageRouteData().location);
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 message

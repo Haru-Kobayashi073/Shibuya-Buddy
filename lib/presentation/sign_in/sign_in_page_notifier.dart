@@ -65,13 +65,13 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   }) async {
     try {
       await authenticationDataSource.signInWithGoogle();
-      if ((firebaseAuth.currentUser!.emailVerified) ||
-          (firebaseAuth.currentUser!.phoneNumber != null)) {
-        onSuccess();
-      } else if (firebaseAuth.currentUser!.emailVerified) {
-        needEmailVerify(firebaseAuth.currentUser!.email!);
-      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+      if (firebaseAuth.currentUser!.phoneNumber == null ||
+          firebaseAuth.currentUser!.phoneNumber == '') {
         needPhoneVerify();
+      } else if (!firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
+      } else {
+        onSuccess();
       }
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
@@ -86,12 +86,11 @@ class SignInPageNotifier extends _$SignInPageNotifier {
   }) async {
     try {
       await authenticationDataSource.signInWithApple();
-      if ((firebaseAuth.currentUser!.emailVerified) ||
-          (firebaseAuth.currentUser!.phoneNumber != null)) {
-      } else if (firebaseAuth.currentUser!.emailVerified) {
-        needEmailVerify(firebaseAuth.currentUser!.email!);
-      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+      if (firebaseAuth.currentUser!.phoneNumber == null ||
+          firebaseAuth.currentUser!.phoneNumber == '') {
         needPhoneVerify();
+      } else if (!firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
       } else {
         onSuccess();
       }

@@ -56,27 +56,12 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       ),
     );
     try {
-      await userDataSource.createUser(
+      await userDataSource.editUser(
         user: state.user,
       );
       onSuccess();
     } on Exception catch (e) {
       logger.e('registerInformation: $e');
-      scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
-    } finally {
-      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
-    }
-  }
-
-  Future<void> onPressedSkipButton({
-    required void Function() onSuccess,
-  }) async {
-    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
-    try {
-      await userDataSource.createUser(user: state.user);
-      onSuccess();
-    } on Exception catch (e) {
-      logger.e('onPressedSkipButton: $e');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
