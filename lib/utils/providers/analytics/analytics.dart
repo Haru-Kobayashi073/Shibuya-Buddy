@@ -10,8 +10,7 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
       ref.read(firebaseAnalyticsDataSourceProvider);
 
   @override
-  void build() {
-  }
+  void build() {}
   // 行動ログ
   Future<void> logEvent(
     UserActionEvent event, {
@@ -20,8 +19,8 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
     await _dataSource.logEvent(event.key, parameters: parameters);
   }
 
- // 画面遷移ログ
-    Future<void> logScreenView(
+  // 画面遷移ログ
+  Future<void> logScreenView(
     ScreenViewEvent event, {
     String? screenClassOverride,
   }) async {
