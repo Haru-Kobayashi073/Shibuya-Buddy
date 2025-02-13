@@ -34,6 +34,9 @@ class ErrorView extends HookConsumerWidget {
           ..e('ErrorView: $stackTrace');
 
         Future.delayed(Duration.zero, () async {
+          await ref.read(analyticsNotifierProvider.notifier).logScreenView(
+                screenName: AnalyticsEvent.errorView.key,
+              );
           await ref.read(analyticsNotifierProvider.notifier).logEvent(
             AnalyticsEvent.errorView,
             parameters: {

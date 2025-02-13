@@ -38,7 +38,7 @@ class BillDetailsPage extends HookConsumerWidget {
 
           await ref
               .read(analyticsNotifierProvider.notifier)
-              .logEvent(eventName);
+              .logScreenView(screenName: eventName.key);
         });
         return null;
       },
