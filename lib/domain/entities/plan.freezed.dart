@@ -27,7 +27,7 @@ mixin _$Plan {
   List<Topic> get topics => throw _privateConstructorUsedError;
   String get authorId => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
-  bool get isBookmarked => throw _privateConstructorUsedError;
+  List<String> get bookmarkedUserIds => throw _privateConstructorUsedError;
   int get bookmarkCount => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $PlanCopyWith<$Res> {
       List<Topic> topics,
       String authorId,
       int? ranking,
-      bool isBookmarked,
+      List<String> bookmarkedUserIds,
       int bookmarkCount,
       String? createdAt,
       String? updatedAt});
@@ -82,7 +82,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? topics = null,
     Object? authorId = null,
     Object? ranking = freezed,
-    Object? isBookmarked = null,
+    Object? bookmarkedUserIds = null,
     Object? bookmarkCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -116,10 +116,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.ranking
           : ranking // ignore: cast_nullable_to_non_nullable
               as int?,
-      isBookmarked: null == isBookmarked
-          ? _value.isBookmarked
-          : isBookmarked // ignore: cast_nullable_to_non_nullable
-              as bool,
+      bookmarkedUserIds: null == bookmarkedUserIds
+          ? _value.bookmarkedUserIds
+          : bookmarkedUserIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       bookmarkCount: null == bookmarkCount
           ? _value.bookmarkCount
           : bookmarkCount // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       List<Topic> topics,
       String authorId,
       int? ranking,
-      bool isBookmarked,
+      List<String> bookmarkedUserIds,
       int bookmarkCount,
       String? createdAt,
       String? updatedAt});
@@ -176,7 +176,7 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? topics = null,
     Object? authorId = null,
     Object? ranking = freezed,
-    Object? isBookmarked = null,
+    Object? bookmarkedUserIds = null,
     Object? bookmarkCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -210,10 +210,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.ranking
           : ranking // ignore: cast_nullable_to_non_nullable
               as int?,
-      isBookmarked: null == isBookmarked
-          ? _value.isBookmarked
-          : isBookmarked // ignore: cast_nullable_to_non_nullable
-              as bool,
+      bookmarkedUserIds: null == bookmarkedUserIds
+          ? _value._bookmarkedUserIds
+          : bookmarkedUserIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       bookmarkCount: null == bookmarkCount
           ? _value.bookmarkCount
           : bookmarkCount // ignore: cast_nullable_to_non_nullable
@@ -242,11 +242,12 @@ class _$PlanImpl implements _Plan {
       final List<Topic> topics = const [],
       this.authorId = '',
       this.ranking,
-      this.isBookmarked = false,
+      final List<String> bookmarkedUserIds = const [],
       this.bookmarkCount = 0,
       this.createdAt,
       this.updatedAt})
-      : _topics = topics;
+      : _topics = topics,
+        _bookmarkedUserIds = bookmarkedUserIds;
 
   factory _$PlanImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlanImplFromJson(json);
@@ -274,9 +275,16 @@ class _$PlanImpl implements _Plan {
   final String authorId;
   @override
   final int? ranking;
+  final List<String> _bookmarkedUserIds;
   @override
   @JsonKey()
-  final bool isBookmarked;
+  List<String> get bookmarkedUserIds {
+    if (_bookmarkedUserIds is EqualUnmodifiableListView)
+      return _bookmarkedUserIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_bookmarkedUserIds);
+  }
+
   @override
   @JsonKey()
   final int bookmarkCount;
@@ -287,7 +295,7 @@ class _$PlanImpl implements _Plan {
 
   @override
   String toString() {
-    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, isBookmarked: $isBookmarked, bookmarkCount: $bookmarkCount, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, bookmarkedUserIds: $bookmarkedUserIds, bookmarkCount: $bookmarkCount, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -305,8 +313,8 @@ class _$PlanImpl implements _Plan {
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
-            (identical(other.isBookmarked, isBookmarked) ||
-                other.isBookmarked == isBookmarked) &&
+            const DeepCollectionEquality()
+                .equals(other._bookmarkedUserIds, _bookmarkedUserIds) &&
             (identical(other.bookmarkCount, bookmarkCount) ||
                 other.bookmarkCount == bookmarkCount) &&
             (identical(other.createdAt, createdAt) ||
@@ -326,7 +334,7 @@ class _$PlanImpl implements _Plan {
       const DeepCollectionEquality().hash(_topics),
       authorId,
       ranking,
-      isBookmarked,
+      const DeepCollectionEquality().hash(_bookmarkedUserIds),
       bookmarkCount,
       createdAt,
       updatedAt);
@@ -356,7 +364,7 @@ abstract class _Plan implements Plan {
       final List<Topic> topics,
       final String authorId,
       final int? ranking,
-      final bool isBookmarked,
+      final List<String> bookmarkedUserIds,
       final int bookmarkCount,
       final String? createdAt,
       final String? updatedAt}) = _$PlanImpl;
@@ -378,7 +386,7 @@ abstract class _Plan implements Plan {
   @override
   int? get ranking;
   @override
-  bool get isBookmarked;
+  List<String> get bookmarkedUserIds;
   @override
   int get bookmarkCount;
   @override

@@ -56,7 +56,7 @@ class CompleteSendEmailPage extends ConsumerWidget {
               label: i18nCompleteSendEmailPage.buttons.toSignIn,
               color: AppColor.yellow600Primary,
               onPressed: () {
-                const SignInPageRouteData().go(context);
+                const AuthenticationPageRouteData().go(context);
               },
             ),
             const SizedBox(height: 16),

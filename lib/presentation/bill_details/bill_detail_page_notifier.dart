@@ -103,7 +103,7 @@ class BillDetailPageNotifier extends _$BillDetailPageNotifier {
 
   Future<void> launchNotion() async {
     final url = Uri.parse(
-      'https://pond-link-c69.notion.site/1904d7d3b38980f0a608e48ccd13dce4?pvs=4',
+      'https://general-epoxy-a08.notion.site/1982e4c8d4408076a55dd8a1e2037c17?pvs=4',
     );
     await launchUrl(url, mode: LaunchMode.externalApplication);
   }

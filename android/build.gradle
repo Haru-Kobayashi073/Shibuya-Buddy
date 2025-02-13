@@ -32,7 +32,6 @@ subprojects {
                 }
             }
         }
-
     }
 }
 subprojects {
