@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../gen/assets.gen.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import 'create_loading_notifier.dart';
@@ -46,7 +47,7 @@ class CreateLoading extends ConsumerWidget {
         children: [
           Center(
             child: Lottie.asset(
-              'assets/lottie/Animation - 1739357512444.json',
+              Assets.lottie.animation1739357512444,
               height: 250,
             ),
           ),
