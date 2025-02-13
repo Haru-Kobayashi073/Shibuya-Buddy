@@ -33,8 +33,8 @@ class BillDetailsPage extends HookConsumerWidget {
       () {
         Future.delayed(Duration.zero, () async {
           final eventName = isDialog
-              ? ScreenViewEvent.billDetailPageView
-              : ScreenViewEvent.billDetailDialogView;
+              ? ScreenViewEvent.billDetailDialogView
+              : ScreenViewEvent.billDetailPageView;
 
           await ref
               .read(analyticsNotifierProvider.notifier)
