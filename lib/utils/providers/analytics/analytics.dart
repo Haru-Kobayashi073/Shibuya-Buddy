@@ -10,8 +10,7 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
       ref.read(firebaseAnalyticsDataSourceProvider);
 
   @override
-  Future<void> build() async {
-  }
+  Future<void> build() async {}
 
   Future<void> logEvent(
     AnalyticsEvent event, {

@@ -7,8 +7,7 @@ part 'analytics_data_source.g.dart';
 
 @riverpod
 class FirebaseAnalyticsDataSource extends _$FirebaseAnalyticsDataSource {
-  FirebaseAnalytics get _analytics =>
-      ref.read(firebaseAnalyticsProvider);
+  FirebaseAnalytics get _analytics => ref.read(firebaseAnalyticsProvider);
 
   @override
   FirebaseAnalyticsDataSource build() {
