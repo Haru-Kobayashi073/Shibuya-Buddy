@@ -3,8 +3,7 @@ class Routes {
   static const home = '/home';
   static const myPlan = '/myPlan';
   static const myPage = '/myPage';
-  static const signIn = '/signIn';
-  static const signUp = 'signUp';
+  static const authentication = '/authentication';
   static const emailVerification = '/emailVerification';
   static const registerProfile = '/registerProfile';
   static const resetPassword = 'resetPassword';
