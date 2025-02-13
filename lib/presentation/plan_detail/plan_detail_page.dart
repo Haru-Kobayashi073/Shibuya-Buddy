@@ -41,6 +41,7 @@ class PlanDetailPage extends ConsumerWidget {
             children: [
               SafeArea(
                 top: false,
+                bottom: false,
                 child: CustomScrollView(
                   slivers: [
                     SliverAppBar(
@@ -100,6 +101,7 @@ class PlanDetailPage extends ConsumerWidget {
                                   )
                                   .toList(),
                             ),
+                            const Gap(32),
                           ],
                         ),
                       ),
