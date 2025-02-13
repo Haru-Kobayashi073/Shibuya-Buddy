@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
@@ -7,6 +8,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:native_geofence/native_geofence.dart';
@@ -40,17 +42,10 @@ Future<void> main() async {
     appleProvider:
         kReleaseMode ? AppleProvider.deviceCheck : AppleProvider.debug,
   );
-  if (flavor == 'prod') {
-    // Pass all uncaught "fatal" errors from the framework to Crashlytics
-    FlutterError.onError = (errorDetails) {
-      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-    };
 
-    PlatformDispatcher.instance.onError = (error, stack) {
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      return true;
-    };
-  }
+  await handleErrorForAppCheck();
+
+  await MobileAds.instance.initialize();
 
   runApp(
     ProviderScope(
@@ -93,6 +88,22 @@ Future<void> initATT() async {
       TrackingStatus.notDetermined) {
     await Future<void>.delayed(const Duration(milliseconds: 200));
     await AppTrackingTransparency.requestTrackingAuthorization();
+  }
+}
+
+Future<void> handleErrorForAppCheck() async {
+  if (kReleaseMode) {
+    // Pass all uncaught "fatal" errors from the framework to Crashlytics
+    FlutterError.onError = (errorDetails) async {
+      await FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+    };
+
+    PlatformDispatcher.instance.onError = (error, stack) {
+      unawaited(
+        FirebaseCrashlytics.instance.recordError(error, stack, fatal: true),
+      );
+      return true;
+    };
   }
 }
 
