@@ -11,9 +11,11 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/place_detail/place_detail_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/custom_logger.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/geofence/geofence_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
@@ -50,6 +52,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     required void Function() needUpgradeToPremium,
   }) async {
     if (isStandardGradeUser && state.requireValue.possibleChatCount == 0) {
+      await ref
+          .read(analyticsNotifierProvider.notifier)
+          .logEvent(UserActionEvent.chatLimitReached);
       needUpgradeToPremium();
       return;
     }
@@ -115,6 +120,15 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
+      final buddyMessageCount = state.requireValue.messages
+          .where((message) => message.author == ChatAuthor.buddy)
+          .length;
+
+      await ref.read(analyticsNotifierProvider.notifier).logEvent(
+        UserActionEvent.completeCreatePlan,
+        parameters: {'buddy_message_count': buddyMessageCount},
+      );
+
       final targetMessage = state.requireValue.messages.lastWhere(
         (message) => message.plan != null && message.places != null,
         orElse: () => state.requireValue.messages.first,
