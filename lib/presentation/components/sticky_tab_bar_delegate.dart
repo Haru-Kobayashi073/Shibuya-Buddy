@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/styles/app_color.dart';
+
 class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
   const StickyTabBarDelegate(this.tabBar);
 
@@ -17,7 +19,10 @@ class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    return tabBar;
+    return ColoredBox(
+      color: AppColor.white,
+      child: tabBar,
+    );
   }
 
   @override
