@@ -39,8 +39,4 @@ class CreateLoadingViewNotifier extends _$CreateLoadingViewNotifier {
     final newProgress = progress + update;
     state = state.copyWith(loadingIndicator: newProgress);
   }
-
-  void resetLoadingIndicator() {
-    state = state.copyWith(loadingIndicator: 0);
-  }
 }
