@@ -47,7 +47,6 @@ class PlanInformationView extends HookConsumerWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const Gap(16),
           Align(
             alignment: Alignment.centerLeft,
             child: ExpandableText(plan.description),

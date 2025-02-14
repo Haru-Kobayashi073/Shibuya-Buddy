@@ -145,7 +145,7 @@ class PlanDetailPage extends HookConsumerWidget {
               ];
             },
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.all(16),
               child: TabBarView(
                 controller: tabController,
                 children: [
