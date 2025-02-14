@@ -479,7 +479,7 @@ extension<T extends Enum> on Map<T, String> {
 }
 
 RouteBase get $authenticationPageRouteData => GoRouteData.$route(
-      path: '/signIn',
+      path: '/authentication',
       factory: $AuthenticationPageRouteDataExtension._fromState,
       routes: [
         GoRouteData.$route(
@@ -500,7 +500,7 @@ extension $AuthenticationPageRouteDataExtension on AuthenticationPageRouteData {
       const AuthenticationPageRouteData();
 
   String get location => GoRouteData.$location(
-        '/signIn',
+        '/authentication',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -518,7 +518,7 @@ extension $ResetPasswordPageRouteDataExtension on ResetPasswordPageRouteData {
       const ResetPasswordPageRouteData();
 
   String get location => GoRouteData.$location(
-        '/signIn/resetPassword',
+        '/authentication/resetPassword',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -539,7 +539,7 @@ extension $CompleteSendEmailPageRouteDataExtension
       );
 
   String get location => GoRouteData.$location(
-        '/signIn/resetPassword/completeSendEmail',
+        '/authentication/resetPassword/completeSendEmail',
         queryParams: {
           'email': email,
         },

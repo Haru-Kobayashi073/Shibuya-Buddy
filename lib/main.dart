@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -18,6 +19,7 @@ import 'i18n/strings.g.dart';
 import 'infrastructure/firebase/firebase_options_dev.dart' as dev;
 import 'infrastructure/firebase/firebase_options_prod.dart' as prod;
 import 'presentation/app.dart';
+import 'utils/analytics_event.dart';
 import 'utils/custom_logger.dart';
 import 'utils/providers/geofence/geofence_service.dart';
 import 'utils/providers/shared_preferences/shared_preferences_service.dart';
@@ -77,6 +79,9 @@ void setupGeofenceListener() {
   geofenceReceivePort.listen((dynamic data) async {
     logger.d('geofenceState: $data');
     for (final id in data as List<String>) {
+      await FirebaseAnalytics.instance.logEvent(
+        name: UserActionEvent.enterGeofence.key,
+      );
       await NativeGeofenceManager.instance.removeGeofenceById(id);
     }
     geofenceReceivePort.close();

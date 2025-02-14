@@ -13,7 +13,8 @@ enum UserActionEvent {
   deleteAccount('delete_account'),
   chatLimitReached('chat_limit_reached'),
   completeCreatePlan('complete_create_plan'),
-  customError('custom_error');
+  customError('custom_error'),
+  enterGeofence('enter_geofence');
 
   const UserActionEvent(this.key);
   final String key;
