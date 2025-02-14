@@ -10,8 +10,10 @@ import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/extensions/context.dart';
 import '../../utils/providers/ad_helper/ad_helper.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -33,6 +35,18 @@ class PlanDetailPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(
+      () {
+        Future.delayed(Duration.zero, () async {
+          await ref
+              .read(analyticsNotifierProvider.notifier)
+              .logScreenView(ScreenViewEvent.planDetailPageView);
+        });
+        return null;
+      },
+      [],
+    );
+
     final i18n = Translations.of(context);
     final planDetailPagei18n = i18n.planDetailsPage;
     final state = ref.watch(planDetailPageNotifierProvider(plan));
