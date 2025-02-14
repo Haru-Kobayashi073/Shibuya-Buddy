@@ -9,7 +9,7 @@ import 'loading_text.dart';
 part 'create_loading_notifier.g.dart';
 
 @riverpod
-class CreateLoadingView extends _$CreateLoadingView {
+class CreateLoadingViewNotifier extends _$CreateLoadingViewNotifier {
   Timer? _timer;
 
   @override

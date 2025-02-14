@@ -40,8 +40,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   bool get isStandardGradeUser =>
       ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
 
-  CreateLoadingView get loadingNotifier =>
-      ref.read(createLoadingViewProvider.notifier);
+  CreateLoadingViewNotifier get loadingNotifier =>
+      ref.read(createLoadingViewNotifierProvider.notifier);
 
   GeofenceService get geofenceService =>
       ref.read(geofenceServiceProvider.notifier);
@@ -196,12 +196,12 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
     final scrollController = ScrollController();
-    await loadingNotifier.updateLoadingIndicator(0);
     ref.onDispose(
       scrollController.dispose,
     );
+    await loadingNotifier.updateLoadingIndicator(20);
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
-    await loadingNotifier.updateLoadingIndicator(30);
+    await loadingNotifier.updateLoadingIndicator(80);
     final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
     final message = ChatMessage(
       id: buddyMessage.id,

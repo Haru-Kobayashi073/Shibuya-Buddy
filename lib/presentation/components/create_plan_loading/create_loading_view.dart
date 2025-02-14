@@ -13,7 +13,7 @@ class CreateLoadingView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(createLoadingViewProvider);
+    final state = ref.watch(createLoadingViewNotifierProvider);
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(
