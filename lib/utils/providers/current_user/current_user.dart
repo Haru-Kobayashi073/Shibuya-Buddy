@@ -20,6 +20,7 @@ class CurrentUser extends _$CurrentUser {
   @override
   User build() {
     return User(
+      name: '',
       uid: '',
       billingGrade: BillingGrade.standard,
       createdAt: DateTime.now(),

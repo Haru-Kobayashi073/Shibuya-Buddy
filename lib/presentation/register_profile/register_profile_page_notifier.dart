@@ -35,6 +35,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   RegisterProfilePageState build() {
     return RegisterProfilePageState(
       user: User(
+        name: '',
         uid: currentUser.uid,
         billingGrade: BillingGrade.standard,
         createdAt: DateTime.now(),
@@ -51,7 +52,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
     final imageUri = await _getUploadedImageUri();
     state = state.copyWith(
       user: state.user.copyWith(
-        name: name,
+        name: name!,
         imageUrl: imageUri,
       ),
     );
