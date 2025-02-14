@@ -51,7 +51,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
     final imageUri = await _getUploadedImageUri();
     state = state.copyWith(
       user: state.user.copyWith(
-        name: name,
+        name: name== null? name:'名無しさん',
         imageUrl: imageUri,
       ),
     );
