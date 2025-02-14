@@ -578,10 +578,10 @@ class _TranslationsChangeLanguagePageItemsKo implements TranslationsChangeLangua
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get japanese => '일본어';
-	@override String get english => '영어';
-	@override String get simplifiedChinese => '중국어(간체)';
-	@override String get traditionalChinese => '중국어(번체)';
+	@override String get japanese => '日本語';
+	@override String get english => 'English';
+	@override String get simplifiedChinese => '中文（简体）';
+	@override String get traditionalChinese => '中文(繁体字)';
 	@override String get korean => '한국어';
 }
 
@@ -1482,10 +1482,10 @@ extension on TranslationsKo {
 			case 'myPage.accountStatus.premium': return '프리미엄 회원';
 			case 'myPage.accountStatus.standard': return '스탠다드 회원';
 			case 'changeLanguagePage.title': return '언어';
-			case 'changeLanguagePage.items.japanese': return '일본어';
-			case 'changeLanguagePage.items.english': return '영어';
-			case 'changeLanguagePage.items.simplifiedChinese': return '중국어(간체)';
-			case 'changeLanguagePage.items.traditionalChinese': return '중국어(번체)';
+			case 'changeLanguagePage.items.japanese': return '日本語';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
 			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return '테마';
 			case 'changeThemePage.items.system': return '시스템';

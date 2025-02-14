@@ -582,11 +582,11 @@ class TranslationsChangeLanguagePageItemsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get japanese => 'Japanese';
+	String get japanese => '日本語';
 	String get english => 'English';
-	String get simplifiedChinese => 'Chinese (Simplified)';
-	String get traditionalChinese => 'Chinese (Traditional)';
-	String get korean => 'korean';
+	String get simplifiedChinese => '中文（简体）';
+	String get traditionalChinese => '中文(繁体字)';
+	String get korean => '한국어';
 }
 
 // Path: changeThemePage.items
@@ -1486,11 +1486,11 @@ extension on Translations {
 			case 'myPage.accountStatus.premium': return 'Premium Member';
 			case 'myPage.accountStatus.standard': return 'Standard Member';
 			case 'changeLanguagePage.title': return 'Language';
-			case 'changeLanguagePage.items.japanese': return 'Japanese';
+			case 'changeLanguagePage.items.japanese': return '日本語';
 			case 'changeLanguagePage.items.english': return 'English';
-			case 'changeLanguagePage.items.simplifiedChinese': return 'Chinese (Simplified)';
-			case 'changeLanguagePage.items.traditionalChinese': return 'Chinese (Traditional)';
-			case 'changeLanguagePage.items.korean': return 'korean';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return 'Theme';
 			case 'changeThemePage.items.system': return 'System';
 			case 'changeThemePage.items.light': return 'Light';

@@ -578,11 +578,11 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get japanese => '日本人';
-	@override String get english => '英语';
+	@override String get japanese => '日本語';
+	@override String get english => 'English';
 	@override String get simplifiedChinese => '中文（简体）';
-	@override String get traditionalChinese => '中文（繁体）';
-	@override String get korean => '韩语';
+	@override String get traditionalChinese => '中文(繁体字)';
+	@override String get korean => '한국어';
 }
 
 // Path: changeThemePage.items
@@ -1482,11 +1482,11 @@ extension on TranslationsZhHans {
 			case 'myPage.accountStatus.premium': return '高级会员';
 			case 'myPage.accountStatus.standard': return '标准会员';
 			case 'changeLanguagePage.title': return '语言';
-			case 'changeLanguagePage.items.japanese': return '日本人';
-			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.japanese': return '日本語';
+			case 'changeLanguagePage.items.english': return 'English';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
-			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
-			case 'changeLanguagePage.items.korean': return '韩语';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return '主题';
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';

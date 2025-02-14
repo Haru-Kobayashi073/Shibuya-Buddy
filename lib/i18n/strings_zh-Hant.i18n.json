@@ -224,11 +224,11 @@
     "changeLanguagePage": {
         "title": "語言",
         "items": {
-            "japanese": "日语",
-            "english": "英语",
-            "simplifiedChinese": "中文(简体字)",
+            "japanese": "日本語",
+            "english": "English",
+            "simplifiedChinese": "中文（简体）",
             "traditionalChinese": "中文(繁体字)",
-            "korean": "韓語"
+            "korean": "한국어"
         }
     },
     "changeThemePage": {

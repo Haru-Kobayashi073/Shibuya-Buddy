@@ -225,11 +225,11 @@
     "changeLanguagePage": {
         "title": "Language",
         "items": {
-            "japanese": "Japanese",
+            "japanese": "日本語",
             "english": "English",
-            "simplifiedChinese": "Chinese (Simplified)",
-            "traditionalChinese": "Chinese (Traditional)",
-            "korean": "korean"
+            "simplifiedChinese": "中文（简体）",
+            "traditionalChinese": "中文(繁体字)",
+            "korean": "한국어"
         }
     },
     "changeThemePage": {

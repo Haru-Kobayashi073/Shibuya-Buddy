@@ -579,10 +579,10 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 
 	// Translations
 	@override String get japanese => '日本語';
-	@override String get english => '英語';
-	@override String get simplifiedChinese => '中国語（簡体字）';
-	@override String get traditionalChinese => '中国語（繁体字）';
-	@override String get korean => '韓国語';
+	@override String get english => 'English';
+	@override String get simplifiedChinese => '中文（简体）';
+	@override String get traditionalChinese => '中文(繁体字)';
+	@override String get korean => '한국어';
 }
 
 // Path: changeThemePage.items
@@ -1483,10 +1483,10 @@ extension on TranslationsJa {
 			case 'myPage.accountStatus.standard': return 'スタンダード会員';
 			case 'changeLanguagePage.title': return '言語';
 			case 'changeLanguagePage.items.japanese': return '日本語';
-			case 'changeLanguagePage.items.english': return '英語';
-			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
-			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
-			case 'changeLanguagePage.items.korean': return '韓国語';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return 'テーマ';
 			case 'changeThemePage.items.system': return 'システム';
 			case 'changeThemePage.items.light': return 'ライト';
