@@ -1,27 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'place_detail_data_source.dart';
+part of 'firebase_app_check_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$placeDetailDataSourceHash() =>
-    r'4eb8a53da08da8cc4e7df661dc4d6d10f366ac42';
+String _$firebaseAppCheckHash() => r'9a5bd98b9feefa24bd4b95196a120f8d18dc7c3c';
 
-/// See also [PlaceDetailDataSource].
-@ProviderFor(PlaceDetailDataSource)
-final placeDetailDataSourceProvider =
-    AutoDisposeNotifierProvider<PlaceDetailDataSource, void>.internal(
-  PlaceDetailDataSource.new,
-  name: r'placeDetailDataSourceProvider',
+/// See also [firebaseAppCheck].
+@ProviderFor(firebaseAppCheck)
+final firebaseAppCheckProvider = Provider<FirebaseAppCheck>.internal(
+  firebaseAppCheck,
+  name: r'firebaseAppCheckProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$placeDetailDataSourceHash,
+      : _$firebaseAppCheckHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$PlaceDetailDataSource = AutoDisposeNotifier<void>;
+typedef FirebaseAppCheckRef = ProviderRef<FirebaseAppCheck>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

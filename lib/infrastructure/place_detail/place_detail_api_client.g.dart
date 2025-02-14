@@ -25,6 +25,7 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
   Future<PlaceDetailResponse> getPlaceIdByName({
     required Map<String, dynamic> searchQuery,
     required String apiKey,
+    required String appCheckToken,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -36,6 +37,7 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
       r'pageSize': 1,
       r'maxResultCount': 5,
       r'X-Goog-Api-Key': apiKey,
+      r'X-Firebase-AppCheck': appCheckToken,
     };
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -75,6 +77,7 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
     required int maxWidthPx,
     required bool skipHttpRedirect,
     required String apiKey,
+    required String appCheckToken,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -85,6 +88,7 @@ class _PlaceDetailApiClient implements PlaceDetailApiClient {
     final _headers = <String, dynamic>{
       r'Content-Type': 'application/json',
       r'X-Goog-Api-Key': apiKey,
+      r'X-Firebase-AppCheck': appCheckToken,
     };
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
