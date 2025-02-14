@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../error_page.dart';
 import '../../utils/billing_grade_options.dart';
 import '../../utils/routes/app_router.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import 'components/create_plan_button.dart';
 import 'components/popular_plans_carousel.dart';
@@ -54,8 +54,11 @@ class HomePage extends ConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(homePageNotifierProvider)),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(homePageNotifierProvider),
+      ),
       loading: Loading.new,
     );
   }

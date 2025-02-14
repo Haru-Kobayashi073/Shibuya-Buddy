@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import 'email_verification_state.dart';
 
@@ -65,7 +66,8 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
         }
       });
       scaffoldMessenger.showSuccessSnackBar(i18n.success);
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('sendEmailVerification: $e');
       scaffoldMessenger.showExceptionSnackBar(i18n.error.unexpected);
     }
   }

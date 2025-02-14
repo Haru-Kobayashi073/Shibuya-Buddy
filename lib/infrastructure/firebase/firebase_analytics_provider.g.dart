@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_in_page_notifier.dart';
+part of 'firebase_analytics_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signInPageNotifierHash() =>
-    r'e0f1926ae68db76c48f46bb12d426222f0df542c';
+String _$firebaseAnalyticsHash() => r'b29586e755491bcb565492f7746b320016e02482';
 
-/// See also [SignInPageNotifier].
-@ProviderFor(SignInPageNotifier)
-final signInPageNotifierProvider =
-    AutoDisposeNotifierProvider<SignInPageNotifier, bool>.internal(
-  SignInPageNotifier.new,
-  name: r'signInPageNotifierProvider',
+/// See also [firebaseAnalytics].
+@ProviderFor(firebaseAnalytics)
+final firebaseAnalyticsProvider =
+    AutoDisposeProvider<FirebaseAnalytics>.internal(
+  firebaseAnalytics,
+  name: r'firebaseAnalyticsProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$signInPageNotifierHash,
+      : _$firebaseAnalyticsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SignInPageNotifier = AutoDisposeNotifier<bool>;
+typedef FirebaseAnalyticsRef = AutoDisposeProviderRef<FirebaseAnalytics>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

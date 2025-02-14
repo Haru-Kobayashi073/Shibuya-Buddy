@@ -1,27 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_up_page_notifier.dart';
+part of 'firebase_app_check_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signUpPageNotifierHash() =>
-    r'cca8859f6c7214b378ae9ce9302cdd75ebb65305';
+String _$firebaseAppCheckHash() => r'9a5bd98b9feefa24bd4b95196a120f8d18dc7c3c';
 
-/// See also [SignUpPageNotifier].
-@ProviderFor(SignUpPageNotifier)
-final signUpPageNotifierProvider =
-    AutoDisposeNotifierProvider<SignUpPageNotifier, void>.internal(
-  SignUpPageNotifier.new,
-  name: r'signUpPageNotifierProvider',
+/// See also [firebaseAppCheck].
+@ProviderFor(firebaseAppCheck)
+final firebaseAppCheckProvider = Provider<FirebaseAppCheck>.internal(
+  firebaseAppCheck,
+  name: r'firebaseAppCheckProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$signUpPageNotifierHash,
+      : _$firebaseAppCheckHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SignUpPageNotifier = AutoDisposeNotifier<void>;
+typedef FirebaseAppCheckRef = ProviderRef<FirebaseAppCheck>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

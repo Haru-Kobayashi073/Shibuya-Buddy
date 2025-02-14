@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -37,18 +35,32 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>GoogleMapAPIKey</key>
+	<string>${GoogleMapAPIKey}</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>「常に許可」を選択するとサービスの改善にデータが使用されます。ご協力ください。あなたの位置情報が他人にシェアされることはありません。</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>「常に許可」を選択するとサービスの改善にデータが使用されます。ご協力ください。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>プロフィールのアイコンの設定にフォトライブラリから選択します。許可をしますか？</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>広告などの最適化のため、あなたのデータをトラッキングします。</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -64,6 +76,8 @@
 	</array>
 	<key>GoogleMapAPIKey</key>
 	<string>${GoogleMapAPIKey}</string>
+	<key>GADApplicationIdentifier</key>
+	<string>${admobiOSAppId}</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>

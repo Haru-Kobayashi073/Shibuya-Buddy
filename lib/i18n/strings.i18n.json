@@ -56,8 +56,8 @@
         }
     },
     "authentication": {
-        "signInPage": {
-            "title": "Sign In",
+        "authenticationPage": {
+            "title": "Sign In / Sign Up",
             "optionText": " or ",
             "textFields": {
                 "email": "Email Address",
@@ -95,20 +95,6 @@
             },
             "buttons": {
                 "submit": "Submit"
-            }
-        },
-        "signUpPage": {
-            "title": {
-                "defaultText": "Sign Up",
-                "modifyEmail": "Change Email Address"
-            },
-            "textFields": {
-                "email": "Email Address",
-                "password": "Password"
-            },
-            "button": {
-                "defaultText": "Sign Up",
-                "modifyEmail": "Change Email Address"
             }
         },
         "emailVerificationPage": {
@@ -453,9 +439,8 @@
             }
         },
         "restorePurchaseSection": {
-            "title": "Restore Purchase",
-            "description": "If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.",
-            "button": "Restore Purchase"
+            "button": "Restore Purchase",
+            "textButton": "What is Restore Purchase?"
         },
         "upgradeButton": "Upgrade to Premium",
         "snackBar": {
@@ -478,6 +463,50 @@
             "error": {
                 "failedToUpdateBookmark": "Failed to update the bookmark. Please try again later."
             }
+        }
+    },
+    "createLoadingPage":{
+        "items":{
+            "loadingText1": "Buddy's secretly crafting your travel plans... Shh!",
+            "loadingText2": "Planning the best trip ever... Buddy's excited too!",
+            "loadingText3": "Hold onto your passport, adventure loading...",
+            "loadingText4": "Perfect time to daydream about your destination!",
+            "loadingText5": "No snooze button on this adventure!",
+            "loadingText6": "Searching for the best food spots... yum!",
+            "loadingText7": "Creating a no-getting-lost plan... probably.",
+            "loadingText8": "Maybe adding a surprise or two...",
+            "loadingText9": "Buddy's working overtime for your perfect trip!",
+            "loadingText10": "Your adventure is brewing...",
+            "loadingText11": "Crafting your travel guide with extra care!",
+            "loadingText12": "Lost? Don't worry, Buddy's got your back!",
+            "loadingText13": "Shall we make a souvenir shopping list?",
+            "loadingText14": "Amazing memories loading... 99%",
+            "loadingText15": "Excitement level: Over 9000!",
+            "loadingText16": "Hunting for hidden gems just for you...",
+            "loadingText17": "Buddy's calculating the best routes... with math!",
+            "loadingText18": "Your personal travel cheerleader at work!",
+            "loadingText19": "Preparing Plan B, C, and maybe Z...",
+            "loadingText20": "Writing the prologue to your adventure!",
+            "loadingText21": "Creating an un-lose-able route... hopefully!",
+            "loadingText22": "Buddy's brain is working hard right now",
+            "loadingText23": "Happy birthday to someone, somewhere!",
+            "loadingText24": "Weaving travel dreams...",
+            "loadingText25": "Sprinkling travel wishes...",
+            "loadingText26": "Waiting for travel miracles...",
+            "loadingText27": "Expecting unexpected encounters...",
+            "loadingText28": "Leaving 0.1% room for serendipity",
+            "loadingText29": "Finding spots only locals know about",
+            "loadingText30": "Buddy's working... grab a coffee!",
+            "loadingText31": "Preparing anti-lost maps...",
+            "loadingText32": "Faster than a disappearing contrail!",
+            "loadingText33": "Scouting Instagram-worthy photo spots",
+            "loadingText34": "Taking a snack break while planning",
+            "loadingText35": "Find your perfect plan in Topics!",
+            "loadingText36": "Profile updates welcome anytime!",
+            "loadingText37": "Reviews appreciated, high-fives welcome!",
+            "loadingText38": "Team Cat or Team Dog? Meow all the way!",
+            "loadingText39": "May your sightseeing be blessed!",
+            "loadingText40": "Today's gonna be pawsome!"
         }
     },
     "locales(map)": {

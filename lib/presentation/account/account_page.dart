@@ -113,7 +113,7 @@ class AccountPage extends ConsumerWidget {
                     onConfirm: () async {
                       await notifier.signOut(
                         onSuccess: () async =>
-                            const SignInPageRouteData().go(context),
+                            const AuthenticationPageRouteData().go(context),
                       );
                     },
                     titleText: diaLogi18n.signOut,
@@ -139,7 +139,7 @@ class AccountPage extends ConsumerWidget {
                     onConfirm: () async {
                       await notifier.deleteAccount(
                         onSuccess: () async =>
-                            const SignInPageRouteData().go(context),
+                            const AuthenticationPageRouteData().go(context),
                       );
                     },
                     titleText: diaLogi18n.deleteAccount,

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PlanDetailPageState {
   Plan get plan => throw _privateConstructorUsedError;
   List<Place> get places => throw _privateConstructorUsedError;
+  bool get isBookmarked => throw _privateConstructorUsedError;
 
   /// Create a copy of PlanDetailPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,7 @@ abstract class $PlanDetailPageStateCopyWith<$Res> {
           PlanDetailPageState value, $Res Function(PlanDetailPageState) then) =
       _$PlanDetailPageStateCopyWithImpl<$Res, PlanDetailPageState>;
   @useResult
-  $Res call({Plan plan, List<Place> places});
+  $Res call({Plan plan, List<Place> places, bool isBookmarked});
 
   $PlanCopyWith<$Res> get plan;
 }
@@ -54,6 +55,7 @@ class _$PlanDetailPageStateCopyWithImpl<$Res, $Val extends PlanDetailPageState>
   $Res call({
     Object? plan = null,
     Object? places = null,
+    Object? isBookmarked = null,
   }) {
     return _then(_value.copyWith(
       plan: null == plan
@@ -64,6 +66,10 @@ class _$PlanDetailPageStateCopyWithImpl<$Res, $Val extends PlanDetailPageState>
           ? _value.places
           : places // ignore: cast_nullable_to_non_nullable
               as List<Place>,
+      isBookmarked: null == isBookmarked
+          ? _value.isBookmarked
+          : isBookmarked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -86,7 +92,7 @@ abstract class _$$PlanDetailPageStateImplCopyWith<$Res>
       __$$PlanDetailPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Plan plan, List<Place> places});
+  $Res call({Plan plan, List<Place> places, bool isBookmarked});
 
   @override
   $PlanCopyWith<$Res> get plan;
@@ -107,6 +113,7 @@ class __$$PlanDetailPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? plan = null,
     Object? places = null,
+    Object? isBookmarked = null,
   }) {
     return _then(_$PlanDetailPageStateImpl(
       plan: null == plan
@@ -117,6 +124,10 @@ class __$$PlanDetailPageStateImplCopyWithImpl<$Res>
           ? _value._places
           : places // ignore: cast_nullable_to_non_nullable
               as List<Place>,
+      isBookmarked: null == isBookmarked
+          ? _value.isBookmarked
+          : isBookmarked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -125,7 +136,9 @@ class __$$PlanDetailPageStateImplCopyWithImpl<$Res>
 
 class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
   const _$PlanDetailPageStateImpl(
-      {required this.plan, required final List<Place> places})
+      {required this.plan,
+      required final List<Place> places,
+      required this.isBookmarked})
       : _places = places;
 
   @override
@@ -139,8 +152,11 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
   }
 
   @override
+  final bool isBookmarked;
+
+  @override
   String toString() {
-    return 'PlanDetailPageState(plan: $plan, places: $places)';
+    return 'PlanDetailPageState(plan: $plan, places: $places, isBookmarked: $isBookmarked)';
   }
 
   @override
@@ -149,12 +165,14 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
         (other.runtimeType == runtimeType &&
             other is _$PlanDetailPageStateImpl &&
             (identical(other.plan, plan) || other.plan == plan) &&
-            const DeepCollectionEquality().equals(other._places, _places));
+            const DeepCollectionEquality().equals(other._places, _places) &&
+            (identical(other.isBookmarked, isBookmarked) ||
+                other.isBookmarked == isBookmarked));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, plan, const DeepCollectionEquality().hash(_places));
+  int get hashCode => Object.hash(runtimeType, plan,
+      const DeepCollectionEquality().hash(_places), isBookmarked);
 
   /// Create a copy of PlanDetailPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -169,12 +187,15 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
 abstract class _PlanDetailPageState implements PlanDetailPageState {
   const factory _PlanDetailPageState(
       {required final Plan plan,
-      required final List<Place> places}) = _$PlanDetailPageStateImpl;
+      required final List<Place> places,
+      required final bool isBookmarked}) = _$PlanDetailPageStateImpl;
 
   @override
   Plan get plan;
   @override
   List<Place> get places;
+  @override
+  bool get isBookmarked;
 
   /// Create a copy of PlanDetailPageState
   /// with the given fields replaced by the non-null parameter values.

@@ -11,6 +11,7 @@ import '../../../utils/hooks/use_form_state_key.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../../utils/validator.dart';
+import '../../components/error_view.dart';
 import '../../components/loading_overlay.dart';
 import '../../components/simple_text_field.dart';
 import '../../components/wide_button.dart';
@@ -100,7 +101,11 @@ class EditProfilePage extends HookConsumerWidget {
           ),
         );
       },
-      error: (_, __) => const SizedBox.shrink(),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(editProfilePageNotifierProvider(user)),
+      ),
       loading: Loading.new,
     );
   }
