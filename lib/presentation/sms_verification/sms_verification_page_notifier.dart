@@ -57,6 +57,8 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
           uid: currentUser.uid,
           billingGrade: BillingGrade.standard,
           createdAt: DateTime.now(),
+          name:
+              'user ${currentUser.uid.substring(currentUser.uid.length - 6)}',
         ),
       );
       scaffoldMessenger.showSuccessSnackBar(
