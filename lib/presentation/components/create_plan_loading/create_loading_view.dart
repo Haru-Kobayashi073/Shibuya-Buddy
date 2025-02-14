@@ -2,44 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../gen/assets.gen.dart';
-import '../../utils/styles/app_color.dart';
-import '../../utils/styles/app_text_style.dart';
+import '../../../gen/assets.gen.dart';
+import '../../../utils/styles/app_color.dart';
+import '../../../utils/styles/app_text_style.dart';
 import 'create_loading_notifier.dart';
 
-final isShowLoadingOverlayProvider = StateProvider.autoDispose((ref) => false);
-
-class CreateLoadingOverlay extends ConsumerWidget {
-  const CreateLoadingOverlay({
-    super.key,
-    this.backgroundColor = Colors.black26,
-  });
-
+class CreateLoadingView extends ConsumerWidget {
+  const CreateLoadingView({super.key, this.backgroundColor = Colors.white});
   final Color backgroundColor;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final overlayLoading = ref.watch(isShowLoadingOverlayProvider);
-
-    return Visibility(
-      visible: overlayLoading,
-      child: ColoredBox(
-        color: backgroundColor,
-        child: const SizedBox.expand(
-          child: CreateLoading(backgroundColor: Colors.transparent),
-        ),
-      ),
-    );
-  }
-}
-
-class CreateLoading extends ConsumerWidget {
-  const CreateLoading({super.key, this.backgroundColor = Colors.white});
-  final Color backgroundColor;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(createLoadingPageProvider);
+    final state = ref.watch(createLoadingViewProvider);
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(
@@ -76,14 +50,13 @@ class CreateLoading extends ConsumerWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Align(
-              child: Text(
-                state.loadingText,
-                style: AppTextStyle.textStyle.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: AppColor.grey800,
-                ),
+            child: Text(
+              state.loadingText,
+              textAlign: TextAlign.center,
+              style: AppTextStyle.textStyle.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                color: AppColor.grey800,
               ),
             ),
           ),

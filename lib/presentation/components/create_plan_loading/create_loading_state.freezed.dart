@@ -15,38 +15,38 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CreateloadingPageState {
+mixin _$CreateLoadingViewState {
   String get loadingText => throw _privateConstructorUsedError;
   int get loadingIndicator => throw _privateConstructorUsedError;
 
-  /// Create a copy of CreateloadingPageState
+  /// Create a copy of CreateLoadingViewState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CreateloadingPageStateCopyWith<CreateloadingPageState> get copyWith =>
+  $CreateLoadingViewStateCopyWith<CreateLoadingViewState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateloadingPageStateCopyWith<$Res> {
-  factory $CreateloadingPageStateCopyWith(CreateloadingPageState value,
-          $Res Function(CreateloadingPageState) then) =
-      _$CreateloadingPageStateCopyWithImpl<$Res, CreateloadingPageState>;
+abstract class $CreateLoadingViewStateCopyWith<$Res> {
+  factory $CreateLoadingViewStateCopyWith(CreateLoadingViewState value,
+          $Res Function(CreateLoadingViewState) then) =
+      _$CreateLoadingViewStateCopyWithImpl<$Res, CreateLoadingViewState>;
   @useResult
   $Res call({String loadingText, int loadingIndicator});
 }
 
 /// @nodoc
-class _$CreateloadingPageStateCopyWithImpl<$Res,
-        $Val extends CreateloadingPageState>
-    implements $CreateloadingPageStateCopyWith<$Res> {
-  _$CreateloadingPageStateCopyWithImpl(this._value, this._then);
+class _$CreateLoadingViewStateCopyWithImpl<$Res,
+        $Val extends CreateLoadingViewState>
+    implements $CreateLoadingViewStateCopyWith<$Res> {
+  _$CreateLoadingViewStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CreateloadingPageState
+  /// Create a copy of CreateLoadingViewState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -68,28 +68,28 @@ class _$CreateloadingPageStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$CreateloadingPageStateImplCopyWith<$Res>
-    implements $CreateloadingPageStateCopyWith<$Res> {
-  factory _$$CreateloadingPageStateImplCopyWith(
-          _$CreateloadingPageStateImpl value,
-          $Res Function(_$CreateloadingPageStateImpl) then) =
-      __$$CreateloadingPageStateImplCopyWithImpl<$Res>;
+abstract class _$$CreateLoadingViewStateImplCopyWith<$Res>
+    implements $CreateLoadingViewStateCopyWith<$Res> {
+  factory _$$CreateLoadingViewStateImplCopyWith(
+          _$CreateLoadingViewStateImpl value,
+          $Res Function(_$CreateLoadingViewStateImpl) then) =
+      __$$CreateLoadingViewStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String loadingText, int loadingIndicator});
 }
 
 /// @nodoc
-class __$$CreateloadingPageStateImplCopyWithImpl<$Res>
-    extends _$CreateloadingPageStateCopyWithImpl<$Res,
-        _$CreateloadingPageStateImpl>
-    implements _$$CreateloadingPageStateImplCopyWith<$Res> {
-  __$$CreateloadingPageStateImplCopyWithImpl(
-      _$CreateloadingPageStateImpl _value,
-      $Res Function(_$CreateloadingPageStateImpl) _then)
+class __$$CreateLoadingViewStateImplCopyWithImpl<$Res>
+    extends _$CreateLoadingViewStateCopyWithImpl<$Res,
+        _$CreateLoadingViewStateImpl>
+    implements _$$CreateLoadingViewStateImplCopyWith<$Res> {
+  __$$CreateLoadingViewStateImplCopyWithImpl(
+      _$CreateLoadingViewStateImpl _value,
+      $Res Function(_$CreateLoadingViewStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CreateloadingPageState
+  /// Create a copy of CreateLoadingViewState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -97,7 +97,7 @@ class __$$CreateloadingPageStateImplCopyWithImpl<$Res>
     Object? loadingText = null,
     Object? loadingIndicator = null,
   }) {
-    return _then(_$CreateloadingPageStateImpl(
+    return _then(_$CreateLoadingViewStateImpl(
       loadingText: null == loadingText
           ? _value.loadingText
           : loadingText // ignore: cast_nullable_to_non_nullable
@@ -112,8 +112,8 @@ class __$$CreateloadingPageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateloadingPageStateImpl implements _CreateloadingPageState {
-  const _$CreateloadingPageStateImpl(
+class _$CreateLoadingViewStateImpl implements _CreateLoadingViewState {
+  const _$CreateLoadingViewStateImpl(
       {this.loadingText = 'Loading', this.loadingIndicator = 0});
 
   @override
@@ -125,14 +125,14 @@ class _$CreateloadingPageStateImpl implements _CreateloadingPageState {
 
   @override
   String toString() {
-    return 'CreateloadingPageState(loadingText: $loadingText, loadingIndicator: $loadingIndicator)';
+    return 'CreateLoadingViewState(loadingText: $loadingText, loadingIndicator: $loadingIndicator)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateloadingPageStateImpl &&
+            other is _$CreateLoadingViewStateImpl &&
             (identical(other.loadingText, loadingText) ||
                 other.loadingText == loadingText) &&
             (identical(other.loadingIndicator, loadingIndicator) ||
@@ -142,30 +142,30 @@ class _$CreateloadingPageStateImpl implements _CreateloadingPageState {
   @override
   int get hashCode => Object.hash(runtimeType, loadingText, loadingIndicator);
 
-  /// Create a copy of CreateloadingPageState
+  /// Create a copy of CreateLoadingViewState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateloadingPageStateImplCopyWith<_$CreateloadingPageStateImpl>
-      get copyWith => __$$CreateloadingPageStateImplCopyWithImpl<
-          _$CreateloadingPageStateImpl>(this, _$identity);
+  _$$CreateLoadingViewStateImplCopyWith<_$CreateLoadingViewStateImpl>
+      get copyWith => __$$CreateLoadingViewStateImplCopyWithImpl<
+          _$CreateLoadingViewStateImpl>(this, _$identity);
 }
 
-abstract class _CreateloadingPageState implements CreateloadingPageState {
-  const factory _CreateloadingPageState(
+abstract class _CreateLoadingViewState implements CreateLoadingViewState {
+  const factory _CreateLoadingViewState(
       {final String loadingText,
-      final int loadingIndicator}) = _$CreateloadingPageStateImpl;
+      final int loadingIndicator}) = _$CreateLoadingViewStateImpl;
 
   @override
   String get loadingText;
   @override
   int get loadingIndicator;
 
-  /// Create a copy of CreateloadingPageState
+  /// Create a copy of CreateLoadingViewState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CreateloadingPageStateImplCopyWith<_$CreateloadingPageStateImpl>
+  _$$CreateLoadingViewStateImplCopyWith<_$CreateLoadingViewStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

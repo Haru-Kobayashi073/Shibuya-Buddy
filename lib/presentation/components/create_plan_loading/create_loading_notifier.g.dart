@@ -6,21 +6,21 @@ part of 'create_loading_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$createLoadingPageHash() => r'df1fc7253f28e8f105d3a9b537431320f0351c7d';
+String _$createLoadingViewHash() => r'e118f4fbf7e4d26ba91a1005e916dfed2f4dc71d';
 
-/// See also [CreateLoadingPage].
-@ProviderFor(CreateLoadingPage)
-final createLoadingPageProvider = AutoDisposeNotifierProvider<CreateLoadingPage,
-    CreateloadingPageState>.internal(
-  CreateLoadingPage.new,
-  name: r'createLoadingPageProvider',
+/// See also [CreateLoadingView].
+@ProviderFor(CreateLoadingView)
+final createLoadingViewProvider = AutoDisposeNotifierProvider<CreateLoadingView,
+    CreateLoadingViewState>.internal(
+  CreateLoadingView.new,
+  name: r'createLoadingViewProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$createLoadingPageHash,
+      : _$createLoadingViewHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CreateLoadingPage = AutoDisposeNotifier<CreateloadingPageState>;
+typedef _$CreateLoadingView = AutoDisposeNotifier<CreateLoadingViewState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

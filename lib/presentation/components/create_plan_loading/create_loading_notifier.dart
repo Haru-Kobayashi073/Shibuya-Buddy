@@ -9,13 +9,13 @@ import 'loading_text.dart';
 part 'create_loading_notifier.g.dart';
 
 @riverpod
-class CreateLoadingPage extends _$CreateLoadingPage {
+class CreateLoadingView extends _$CreateLoadingView {
   Timer? _timer;
 
   @override
-  CreateloadingPageState build() {
+  CreateLoadingViewState build() {
     startAutoChange();
-    return CreateloadingPageState(
+    return CreateLoadingViewState(
       loadingText: loadingTexts[loadingTexts.length - 1],
     );
   }
