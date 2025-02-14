@@ -41,6 +41,8 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
     required Future<void> Function() onFailure,
   }) async {
     final i18n = t.authentication.emailVerificationPage.snackBar;
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
+
     try {
       await authenticationDataSource.signInWithEmailAndPassword(
         emailAddress,
@@ -57,6 +59,8 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
@@ -88,6 +92,7 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
     required void Function() needPhoneVerify,
     required void Function() onSuccess,
   }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.signInWithGoogle();
       if (firebaseAuth.currentUser!.phoneNumber == null ||
@@ -101,6 +106,8 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
@@ -109,6 +116,7 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
     required void Function() needPhoneVerify,
     required void Function() onSuccess,
   }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.signInWithApple();
       if (firebaseAuth.currentUser!.phoneNumber == null ||
@@ -122,6 +130,8 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
