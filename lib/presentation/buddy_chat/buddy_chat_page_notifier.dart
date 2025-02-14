@@ -21,8 +21,8 @@ import '../../utils/providers/geofence/geofence_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
 import '../../utils/routes/app_router.dart';
+import '../components/create_plan_loading/create_loading_notifier.dart';
 import '../components/loading_overlay.dart';
-import '../create_plan_loading/create_loading_notifier.dart';
 import 'buddy_chat_page_state.dart';
 
 part 'buddy_chat_page_notifier.g.dart';
@@ -40,8 +40,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   bool get isStandardGradeUser =>
       ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
 
-  CreateLoadingPage get loadingNotifier =>
-      ref.read(createLoadingPageProvider.notifier);
+  CreateLoadingView get loadingNotifier =>
+      ref.read(createLoadingViewProvider.notifier);
 
   GeofenceService get geofenceService =>
       ref.read(geofenceServiceProvider.notifier);
