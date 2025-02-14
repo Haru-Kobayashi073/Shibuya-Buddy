@@ -7,7 +7,6 @@ import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../utils/custom_logger.dart';
-import '../../utils/providers/ad_helper/ad_helper.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../my_plan/my_plan_page_notifier.dart';
@@ -23,14 +22,12 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       ref.read(placeDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
-  AdHelper get adHelper => ref.read(adHelperProvider.notifier);
   User get currentUser => ref.read(currentUserProvider);
 
   @override
   Future<PlanDetailPageState> build(Plan plan) async {
     final latestPlan = await getPlan();
     final places = await getPlaces();
-    await adHelper.loadNativeAd();
 
     return PlanDetailPageState(
       plan: latestPlan,
