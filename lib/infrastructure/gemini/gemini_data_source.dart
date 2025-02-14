@@ -9,7 +9,6 @@ import '../../domain/entities/gemini_response.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/repositories/gemini_repository.dart';
 import '../../i18n/strings.g.dart';
-import '../../presentation/components/create_plan_loading/create_loading_notifier.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/translate_prompt.dart';
 
@@ -163,17 +162,13 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
 
   @override
   Future<ChatMessage> sendPlanDetail({required PlanPrompt planPrompt}) async {
-    final loadingNotifier = ref.read(createLoadingViewProvider.notifier);
-    await loadingNotifier.updateLoadingIndicator(5);
     final currentLocale = ref.read(localeServiceProvider);
     final translatedPrompt =
         TranslatePrompt(currentLocale, planPrompt).switchPromptLocale();
-    await loadingNotifier.updateLoadingIndicator(15);
     final convertModelToString = Content.multi([
       TextPart(translatedPrompt),
     ]);
     final response = await state.sendMessage(convertModelToString);
-    await loadingNotifier.updateLoadingIndicator(50);
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
     return ChatMessage(
