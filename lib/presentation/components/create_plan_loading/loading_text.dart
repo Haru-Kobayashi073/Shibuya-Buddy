@@ -1,8 +1,9 @@
-import '../../i18n/strings.g.dart';
+import '../../../i18n/strings.g.dart';
 
 List<String> loadingTexts = [
   t.createLoadingPage.items.loadingText1,
   t.createLoadingPage.items.loadingText2,
+  t.createLoadingPage.items.loadingText17,
   t.createLoadingPage.items.loadingText3,
   t.createLoadingPage.items.loadingText4,
   t.createLoadingPage.items.loadingText5,
