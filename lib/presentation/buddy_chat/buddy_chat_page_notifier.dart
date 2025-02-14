@@ -48,7 +48,6 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
-    await Future.microtask(() => loadingNotifier.updateLoadingIndicator(0));
     return _getFirstBuddyMessage();
   }
 
@@ -195,6 +194,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }
 
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
+    await Future.microtask(() => loadingNotifier.updateLoadingIndicator(0));
     final scrollController = ScrollController();
     ref.onDispose(
       scrollController.dispose,
