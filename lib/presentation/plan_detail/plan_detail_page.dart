@@ -76,7 +76,7 @@ class PlanDetailPage extends HookConsumerWidget {
                     ),
                     SliverToBoxAdapter(
                       child: PlanHeader(
-                        plan: plan,
+                        plan: value.plan,
                         haveUsedPlan: value.haveUsedPlan,
                       ),
                     ),
