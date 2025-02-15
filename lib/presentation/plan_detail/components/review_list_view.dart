@@ -13,21 +13,19 @@ class ReviewListView extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    '4.7',
-                    style: AppTextStyle.textStyle.copyWith(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const Gap(8),
                   Column(
                     children: [
+                      Text(
+                        '4.7',
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       SizedBox(
                         width: 120,
                         height: 24,
@@ -37,7 +35,7 @@ class ReviewListView extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return const Icon(
                               Icons.star,
-                              color: AppColor.yellow600Primary,
+                              color: AppColor.yellow900Tertiary,
                             );
                           },
                         ),
@@ -50,8 +48,75 @@ class ReviewListView extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const Spacer(),
+                  Column(
+                    children: [
+                      Text(
+                        'タップして評価',
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Gap(4),
+                      SizedBox(
+                        width: 216,
+                        height: 40,
+                        child: ListView.separated(
+                          itemCount: 5,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return const Icon(
+                              Icons.star_border_outlined,
+                              color: AppColor.yellow600Primary,
+                              size: 40,
+                            );
+                          },
+                          separatorBuilder: (_, __) => const Gap(4),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
                 ],
               ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     Text(
+              //       '4.7',
+              //       style: AppTextStyle.textStyle.copyWith(
+              //         fontSize: 40,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     const Gap(8),
+              //     Column(
+              //       children: [
+              //         SizedBox(
+              //           width: 120,
+              //           height: 24,
+              //           child: ListView.builder(
+              //             itemCount: 5,
+              //             scrollDirection: Axis.horizontal,
+              //             itemBuilder: (context, index) {
+              //               return const Icon(
+              //                 Icons.star,
+              //                 color: AppColor.yellow600Primary,
+              //               );
+              //             },
+              //           ),
+              //         ),
+              //         Text(
+              //           '22件の評価',
+              //           style: AppTextStyle.textStyle.copyWith(
+              //             fontSize: 16,
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ],
+              // ),
               const Gap(16),
               Align(
                 alignment: Alignment.centerLeft,
