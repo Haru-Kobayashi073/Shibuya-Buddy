@@ -36,6 +36,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       plan: latestPlan,
       places: places,
       isBookmarked: latestPlan.bookmarkedUserIds.contains(currentUser.uid),
+      haveUsedPlan: plan.usedUserIds.contains(currentUser.uid),
     );
   }
 
