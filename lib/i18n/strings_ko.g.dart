@@ -317,6 +317,8 @@ class _TranslationsPlanDetailsPageKo implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeKo dateTime = _TranslationsPlanDetailsPageDateTimeKo._(_root);
 	@override late final _TranslationsPlanDetailsPageItemKo item = _TranslationsPlanDetailsPageItemKo._(_root);
+	@override String get haveUsedPlan => '이 플랜을 사용했습니다';
+	@override late final _TranslationsPlanDetailsPageDialogKo dialog = _TranslationsPlanDetailsPageDialogKo._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarKo snackBar = _TranslationsPlanDetailsPageSnackBarKo._(_root);
 }
 
@@ -884,6 +886,18 @@ class _TranslationsPlanDetailsPageItemKo implements TranslationsPlanDetailsPageI
 
 	// Translations
 	@override String get viewOnMap => '지도에서 보기';
+}
+
+// Path: planDetailsPage.dialog
+class _TranslationsPlanDetailsPageDialogKo implements TranslationsPlanDetailsPageDialogEn {
+	_TranslationsPlanDetailsPageDialogKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?';
+	@override String get description => 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
+	@override String get button => '닫기';
 }
 
 // Path: planDetailsPage.snackBar
@@ -1635,6 +1649,10 @@ extension on TranslationsKo {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}에 생성된 플랜';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy년 MM월 dd일';
 			case 'planDetailsPage.item.viewOnMap': return '지도에서 보기';
+			case 'planDetailsPage.haveUsedPlan': return '이 플랜을 사용했습니다';
+			case 'planDetailsPage.dialog.title': return 'Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?';
+			case 'planDetailsPage.dialog.description': return 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
+			case 'planDetailsPage.dialog.button': return '닫기';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요.';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy가 여행 계획을 몰래 짜고 있어요...';
 			case 'createLoadingPage.items.loadingText2': return '최고의 여행을 계획 중...Buddy도 설렘 가득!';

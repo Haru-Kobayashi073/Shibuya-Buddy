@@ -7,7 +7,7 @@ part of 'create_loading_notifier.dart';
 // **************************************************************************
 
 String _$createLoadingViewNotifierHash() =>
-    r'ab5b58d2a6a9af0108b1e3087d381983ce34e191';
+    r'60158c9a9f71de95b466d54b67098839bf23bee9';
 
 /// See also [CreateLoadingViewNotifier].
 @ProviderFor(CreateLoadingViewNotifier)

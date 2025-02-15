@@ -459,14 +459,20 @@
         "item": {
             "viewOnMap": "View on Map"
         },
+        "haveUsedPlan": "You have used this plan",
+        "dialog": {
+            "title": "Q. How can I prove that I have used this plan?",
+            "description": "A. You have visited the locations included in the plan.\n We use location information to determine this, but your data will not be used for anything other than this feature.",
+            "button": "Close"
+        },
         "snackBar": {
             "error": {
                 "failedToUpdateBookmark": "Failed to update the bookmark. Please try again later."
             }
         }
     },
-    "createLoadingPage":{
-        "items":{
+    "createLoadingPage": {
+        "items": {
             "loadingText1": "Buddy's secretly crafting your travel plans... Shh!",
             "loadingText2": "Planning the best trip ever... Buddy's excited too!",
             "loadingText3": "Hold onto your passport, adventure loading...",

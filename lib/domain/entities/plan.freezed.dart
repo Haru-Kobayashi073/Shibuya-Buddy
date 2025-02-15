@@ -28,6 +28,7 @@ mixin _$Plan {
   String get authorId => throw _privateConstructorUsedError;
   int? get ranking => throw _privateConstructorUsedError;
   List<String> get bookmarkedUserIds => throw _privateConstructorUsedError;
+  List<String> get usedUserIds => throw _privateConstructorUsedError;
   int get bookmarkCount => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
@@ -55,6 +56,7 @@ abstract class $PlanCopyWith<$Res> {
       String authorId,
       int? ranking,
       List<String> bookmarkedUserIds,
+      List<String> usedUserIds,
       int bookmarkCount,
       String? createdAt,
       String? updatedAt});
@@ -83,6 +85,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? authorId = null,
     Object? ranking = freezed,
     Object? bookmarkedUserIds = null,
+    Object? usedUserIds = null,
     Object? bookmarkCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -120,6 +123,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.bookmarkedUserIds
           : bookmarkedUserIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      usedUserIds: null == usedUserIds
+          ? _value.usedUserIds
+          : usedUserIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       bookmarkCount: null == bookmarkCount
           ? _value.bookmarkCount
           : bookmarkCount // ignore: cast_nullable_to_non_nullable
@@ -152,6 +159,7 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       String authorId,
       int? ranking,
       List<String> bookmarkedUserIds,
+      List<String> usedUserIds,
       int bookmarkCount,
       String? createdAt,
       String? updatedAt});
@@ -177,6 +185,7 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? authorId = null,
     Object? ranking = freezed,
     Object? bookmarkedUserIds = null,
+    Object? usedUserIds = null,
     Object? bookmarkCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -214,6 +223,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value._bookmarkedUserIds
           : bookmarkedUserIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      usedUserIds: null == usedUserIds
+          ? _value._usedUserIds
+          : usedUserIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       bookmarkCount: null == bookmarkCount
           ? _value.bookmarkCount
           : bookmarkCount // ignore: cast_nullable_to_non_nullable
@@ -243,11 +256,13 @@ class _$PlanImpl implements _Plan {
       this.authorId = '',
       this.ranking,
       final List<String> bookmarkedUserIds = const [],
+      final List<String> usedUserIds = const [],
       this.bookmarkCount = 0,
       this.createdAt,
       this.updatedAt})
       : _topics = topics,
-        _bookmarkedUserIds = bookmarkedUserIds;
+        _bookmarkedUserIds = bookmarkedUserIds,
+        _usedUserIds = usedUserIds;
 
   factory _$PlanImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlanImplFromJson(json);
@@ -285,6 +300,15 @@ class _$PlanImpl implements _Plan {
     return EqualUnmodifiableListView(_bookmarkedUserIds);
   }
 
+  final List<String> _usedUserIds;
+  @override
+  @JsonKey()
+  List<String> get usedUserIds {
+    if (_usedUserIds is EqualUnmodifiableListView) return _usedUserIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_usedUserIds);
+  }
+
   @override
   @JsonKey()
   final int bookmarkCount;
@@ -295,7 +319,7 @@ class _$PlanImpl implements _Plan {
 
   @override
   String toString() {
-    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, bookmarkedUserIds: $bookmarkedUserIds, bookmarkCount: $bookmarkCount, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Plan(id: $id, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, topics: $topics, authorId: $authorId, ranking: $ranking, bookmarkedUserIds: $bookmarkedUserIds, usedUserIds: $usedUserIds, bookmarkCount: $bookmarkCount, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -315,6 +339,8 @@ class _$PlanImpl implements _Plan {
             (identical(other.ranking, ranking) || other.ranking == ranking) &&
             const DeepCollectionEquality()
                 .equals(other._bookmarkedUserIds, _bookmarkedUserIds) &&
+            const DeepCollectionEquality()
+                .equals(other._usedUserIds, _usedUserIds) &&
             (identical(other.bookmarkCount, bookmarkCount) ||
                 other.bookmarkCount == bookmarkCount) &&
             (identical(other.createdAt, createdAt) ||
@@ -335,6 +361,7 @@ class _$PlanImpl implements _Plan {
       authorId,
       ranking,
       const DeepCollectionEquality().hash(_bookmarkedUserIds),
+      const DeepCollectionEquality().hash(_usedUserIds),
       bookmarkCount,
       createdAt,
       updatedAt);
@@ -365,6 +392,7 @@ abstract class _Plan implements Plan {
       final String authorId,
       final int? ranking,
       final List<String> bookmarkedUserIds,
+      final List<String> usedUserIds,
       final int bookmarkCount,
       final String? createdAt,
       final String? updatedAt}) = _$PlanImpl;
@@ -387,6 +415,8 @@ abstract class _Plan implements Plan {
   int? get ranking;
   @override
   List<String> get bookmarkedUserIds;
+  @override
+  List<String> get usedUserIds;
   @override
   int get bookmarkCount;
   @override
