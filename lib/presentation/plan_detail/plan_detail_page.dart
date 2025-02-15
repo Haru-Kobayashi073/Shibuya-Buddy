@@ -75,7 +75,10 @@ class PlanDetailPage extends HookConsumerWidget {
                       ),
                     ),
                     SliverToBoxAdapter(
-                      child: PlanHeader(plan: plan),
+                      child: PlanHeader(
+                        plan: plan,
+                        haveUsedPlan: value.haveUsedPlan,
+                      ),
                     ),
                     SliverToBoxAdapter(
                       child: Padding(
