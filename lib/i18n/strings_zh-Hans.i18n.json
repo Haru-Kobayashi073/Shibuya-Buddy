@@ -459,14 +459,20 @@
         "item": {
             "viewOnMap": "在地图上查看"
         },
+        "haveUsedPlan": "您已使用此计划",
+        "dialog": {
+            "title": "Q. 如何证明您已使用此计划？",
+            "description": "A. 您已访问计划中包含的地点。\n 我们使用位置信息进行判断，但不会将您的信息用于此功能以外的用途。",
+            "button": "关闭"
+        },
         "snackBar": {
             "error": {
                 "failedToUpdateBookmark": "更新书签失败，请稍后再试"
             }
         }
     },
-    "createLoadingPage":{
-        "items":{
+    "createLoadingPage": {
+        "items": {
             "loadingText1": "Buddy正在偷偷规划旅行方案...",
             "loadingText2": "正在计划最棒的旅行...Buddy也很期待！",
             "loadingText3": "旅行的未来即将揭晓，稍等片刻~",

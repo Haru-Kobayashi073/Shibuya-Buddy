@@ -459,14 +459,20 @@
         "item": {
             "viewOnMap": "지도에서 보기"
         },
+        "haveUsedPlan": "이 플랜을 사용했습니다",
+        "dialog": {
+            "title": "Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?",
+            "description": "A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.",
+            "button": "닫기"
+        },
         "snackBar": {
             "error": {
                 "failedToUpdateBookmark": "북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요."
             }
         }
     },
-    "createLoadingPage":{
-        "items":{
+    "createLoadingPage": {
+        "items": {
             "loadingText1": "Buddy가 여행 계획을 몰래 짜고 있어요...",
             "loadingText2": "최고의 여행을 계획 중...Buddy도 설렘 가득!",
             "loadingText3": "여행의 미래, 잠시만 기다려주세요~",

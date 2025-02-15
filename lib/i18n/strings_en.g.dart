@@ -321,6 +321,8 @@ class TranslationsPlanDetailsPageEn {
 	// Translations
 	late final TranslationsPlanDetailsPageDateTimeEn dateTime = TranslationsPlanDetailsPageDateTimeEn._(_root);
 	late final TranslationsPlanDetailsPageItemEn item = TranslationsPlanDetailsPageItemEn._(_root);
+	String get haveUsedPlan => 'You have used this plan';
+	late final TranslationsPlanDetailsPageDialogEn dialog = TranslationsPlanDetailsPageDialogEn._(_root);
 	late final TranslationsPlanDetailsPageSnackBarEn snackBar = TranslationsPlanDetailsPageSnackBarEn._(_root);
 }
 
@@ -888,6 +890,18 @@ class TranslationsPlanDetailsPageItemEn {
 
 	// Translations
 	String get viewOnMap => 'View on Map';
+}
+
+// Path: planDetailsPage.dialog
+class TranslationsPlanDetailsPageDialogEn {
+	TranslationsPlanDetailsPageDialogEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Q. How can I prove that I have used this plan?';
+	String get description => 'A. You have visited the locations included in the plan.\n We use location information to determine this, but your data will not be used for anything other than this feature.';
+	String get button => 'Close';
 }
 
 // Path: planDetailsPage.snackBar
@@ -1639,6 +1653,10 @@ extension on Translations {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
+			case 'planDetailsPage.haveUsedPlan': return 'You have used this plan';
+			case 'planDetailsPage.dialog.title': return 'Q. How can I prove that I have used this plan?';
+			case 'planDetailsPage.dialog.description': return 'A. You have visited the locations included in the plan.\n We use location information to determine this, but your data will not be used for anything other than this feature.';
+			case 'planDetailsPage.dialog.button': return 'Close';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy\'s secretly crafting your travel plans... Shh!';
 			case 'createLoadingPage.items.loadingText2': return 'Planning the best trip ever... Buddy\'s excited too!';
