@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../../domain/entities/topic.dart';
 
 part 'create_plan_state.freezed.dart';
@@ -10,7 +9,8 @@ class CreatePlanState with _$CreatePlanState {
     @Default('渋谷') String location,
     String? startDate,
     String? endDate,
-    @Default('') String numberOfPeople,
+    @Default(0) int adultCount,
+    @Default(0) int childCount,
     @Default([]) List<String> transports,
     @Default([]) List<String> categories,
     @Default([]) List<Topic> selectedTopics,
@@ -24,6 +24,6 @@ class CreatePlanState with _$CreatePlanState {
         topics.isNotEmpty &&
         startDate != null &&
         endDate != null &&
-        numberOfPeople.isNotEmpty;
+        (adultCount + childCount) > 0;
   }
 }
