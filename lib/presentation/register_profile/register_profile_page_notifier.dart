@@ -35,7 +35,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   RegisterProfilePageState build() {
     return RegisterProfilePageState(
       user: User(
-        name: '',
+        name: currentUser.displayName.toString(),
         uid: currentUser.uid,
         billingGrade: BillingGrade.standard,
         createdAt: DateTime.now(),
@@ -44,7 +44,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   }
 
   Future<void> registerInformation({
-    required String? name,
+    required String name,
     required void Function() onSuccess,
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
@@ -52,7 +52,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
     final imageUri = await _getUploadedImageUri();
     state = state.copyWith(
       user: state.user.copyWith(
-        name: name!,
+        name: name,
         imageUrl: imageUri,
       ),
     );
