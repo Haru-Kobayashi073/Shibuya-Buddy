@@ -216,10 +216,10 @@
     "changeLanguagePage": {
         "title": "언어",
         "items": {
-            "japanese": "일본어",
-            "english": "영어",
-            "simplifiedChinese": "중국어(간체)",
-            "traditionalChinese": "중국어(번체)",
+            "japanese": "日本語",
+            "english": "English",
+            "simplifiedChinese": "中文（简体）",
+            "traditionalChinese": "中文(繁体字)",
             "korean": "한국어"
         }
     },

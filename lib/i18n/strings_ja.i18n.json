@@ -217,10 +217,10 @@
         "title": "言語",
         "items": {
             "japanese": "日本語",
-            "english": "英語",
-            "simplifiedChinese": "中国語（簡体字）",
-            "traditionalChinese": "中国語（繁体字）",
-            "korean": "韓国語"
+            "english": "English",
+            "simplifiedChinese": "中文（简体）",
+            "traditionalChinese": "中文(繁体字)",
+            "korean": "한국어"
         }
     },
     "changeThemePage": {
