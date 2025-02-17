@@ -6,12 +6,13 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
-import '../../error_page.dart';
 import '../../i18n/strings.g.dart';
+import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/confirm_dialog.dart';
+import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
 import '../components/wide_button.dart';
 import 'components/plan_text_field.dart';
@@ -36,14 +37,16 @@ class CreatePlanPage extends HookConsumerWidget {
     final transportController = useTextEditingController();
     final categoryController = useTextEditingController();
     final topicsController = useTextEditingController();
+    final localeNotifier = ref.read(localeServiceProvider.notifier);
 
     return planState.when(
       data: (value) {
         final planState = value;
         useEffect(
           () {
-            topicsController.text =
-                planState.selectedTopics.map((e) => e.name).join(', ');
+            topicsController.text = planState.selectedTopics
+                .map(localeNotifier.getTranslatedTopicName)
+                .join(', ');
             numberOfPeopleController.text = planState.numberOfPeople;
             transportController.text = planState.transports.join(', ');
             categoryController.text = planState.categories.join(', ');
@@ -234,8 +237,11 @@ class CreatePlanPage extends HookConsumerWidget {
           ),
         );
       },
-      error: (_, __) =>
-          ErrorPage(onRetry: () => ref.invalidate(createPlanNotifierProvider)),
+      error: (e, s) => ErrorView(
+        error: e,
+        stackTrace: s,
+        onRetry: () => ref.invalidate(createPlanNotifierProvider),
+      ),
       loading: Loading.new,
     );
   }

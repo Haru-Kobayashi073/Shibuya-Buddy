@@ -12,6 +12,7 @@ const firestore = admin.firestore();
 functions.setGlobalOptions({
     region: "asia-northeast1",
     timeoutSeconds: 300,
+    enforceAppCheck: true,
 });
 
 const cloudTasksClient = new CloudTasksClient();
@@ -166,5 +167,35 @@ export const rankDownToStandard = functions.https.onRequest(async (req: any, res
     } catch (error) {
         console.error("Error updating user: ", error);
         return res.status(500).send("Error updating user");
+    }
+});
+
+export const updateAllDocuments = scheduler.onSchedule("0 0 * * 0", async () => {
+    try {
+        const plansSnapshot = await firestore.collection('plans').get();
+        const usersSnapshot = await firestore.collection('users').get();
+
+        const batch = firestore.batch();
+        
+        plansSnapshot.docs.forEach((doc) => {
+            const bookmarkedUserIds: Array<string> = [];
+            usersSnapshot.docs.forEach((user) => {
+                if (user.data().bookmarkedPlanIds.includes(doc.id)) {
+                    bookmarkedUserIds.push(user.id);
+                }
+            });
+            batch.update(doc.ref, {
+                is_bookmarked: admin.firestore.FieldValue.delete(),
+                bookmarkedUserIds: admin.firestore.FieldValue.delete(),
+                bookmarkCount: admin.firestore.FieldValue.delete(),
+                bookmarked_user_ids: bookmarkedUserIds,
+                bookmark_count: bookmarkedUserIds.length,
+            });
+        });
+
+        await batch.commit();
+        console.log("Updated documents");
+    } catch (error) {
+        console.error("Error updating documents:", error);
     }
 });

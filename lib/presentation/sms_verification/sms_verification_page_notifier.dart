@@ -1,10 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart' hide ScaffoldMessenger;
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../infrastructure/user/user_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
 import 'sms_verification_state.dart';
@@ -15,9 +19,12 @@ part 'sms_verification_page_notifier.g.dart';
 class SmsVerificationNotifier extends _$SmsVerificationNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
+  UserDataSource get userDataSource =>
+      ref.read(userDataSourceProvider.notifier);
 
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  auth.User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
 
   @override
   SmsVerificationState build() => const SmsVerificationState();
@@ -28,7 +35,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
 
   Future<void> verifySmsCode(
     String smsCode,
-    VoidCallback onSuccess,
+    void Function() onSuccess,
   ) async {
     final i18n = t.authentication.smsVerificationPage.scaffoldMessenger;
 
@@ -45,11 +52,19 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         smsCode,
       );
       state = state.copyWith(isSmsVerified: true);
+      await userDataSource.createUser(
+        user: User(
+          uid: currentUser.uid,
+          billingGrade: BillingGrade.standard,
+          createdAt: DateTime.now(),
+        ),
+      );
       scaffoldMessenger.showSuccessSnackBar(
         i18n.success,
       );
       onSuccess();
     } on Object catch (error) {
+      logger.e('verifySmsCode: $error');
       scaffoldMessenger.showExceptionSnackBar(
         '${i18n.error} $error',
       );
@@ -84,6 +99,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         },
       );
     } on Exception catch (error) {
+      logger.e('sendSmsCode: $error');
       scaffoldMessenger.showExceptionSnackBar(
         '${i18nPhoneNumberInputScaffoldMessenger.unexpectedError} $error',
       );

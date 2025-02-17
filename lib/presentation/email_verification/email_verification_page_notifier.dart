@@ -4,8 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
-import '../../utils/routes/app_router.dart';
 import 'email_verification_state.dart';
 
 part 'email_verification_page_notifier.g.dart';
@@ -16,22 +16,29 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
       ref.read(authenticationDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  TranslationsAuthenticationEmailVerificationPageSnackBarEn get i18n =>
+      t.authentication.emailVerificationPage.snackBar;
 
   @override
   EmailVerificationState build() {
     /// メール認証が完了しているかを一秒ごとに確認する。
-    final timer =
-        Timer.periodic(const Duration(seconds: 1), (Timer timer) async {
+    final checkVerifyTimer = Timer.periodic(const Duration(seconds: 1),
+        (Timer checkVerifyTimer) async {
       final emailVerified = await authenticationDataSource.isEmailVerified();
       if (emailVerified) {
-        timer.cancel();
+        checkVerifyTimer.cancel();
         state = state.copyWith(
           isEmailVerified: true,
           emailVerificationButtonState: EmailVerificationButtonState.verified,
         );
+      } else {
+        if (checkVerifyTimer.tick == 1) {
+          await sendEmailVerification();
+        }
       }
     });
-    ref.onDispose(timer.cancel);
+
+    ref.onDispose(checkVerifyTimer.cancel);
     return const EmailVerificationState();
   }
 
@@ -40,10 +47,7 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
         EmailVerificationButtonState.coolDown) {
       return;
     }
-    final i18n = Translations.of(rootNavigatorKey.currentContext!)
-        .authentication
-        .emailVerificationPage
-        .snackBar;
+
     try {
       await authenticationDataSource.sendEmailVerification();
       state = state.copyWith(
@@ -62,7 +66,8 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
         }
       });
       scaffoldMessenger.showSuccessSnackBar(i18n.success);
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('sendEmailVerification: $e');
       scaffoldMessenger.showExceptionSnackBar(i18n.error.unexpected);
     }
   }

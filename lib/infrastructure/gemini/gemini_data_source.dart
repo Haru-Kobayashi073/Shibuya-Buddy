@@ -20,7 +20,7 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     const apiKey = String.fromEnvironment('geminiAPIKey');
 
     return GenerativeModel(
-      model: 'gemini-1.5-flash-latest',
+      model: 'gemini-2.0-flash',
       apiKey: apiKey,
       generationConfig: GenerationConfig(
         temperature: 1,
@@ -56,7 +56,6 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                     'title',
                     'description',
                     'thumbnail_url',
-                    'topics',
                   ],
                   properties: {
                     'title': Schema(
@@ -67,22 +66,6 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
                     ),
                     'thumbnail_url': Schema(
                       SchemaType.string,
-                    ),
-                    'topics': Schema(
-                      SchemaType.array,
-                      items: Schema(
-                        SchemaType.object,
-                        enumValues: [],
-                        requiredProperties: ['thumbnail_url', 'name'],
-                        properties: {
-                          'thumbnail_url': Schema(
-                            SchemaType.string,
-                          ),
-                          'name': Schema(
-                            SchemaType.string,
-                          ),
-                        },
-                      ),
                     ),
                   },
                 ),
@@ -182,12 +165,10 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     final currentLocale = ref.read(localeServiceProvider);
     final translatedPrompt =
         TranslatePrompt(currentLocale, planPrompt).switchPromptLocale();
-
     final convertModelToString = Content.multi([
       TextPart(translatedPrompt),
     ]);
     final response = await state.sendMessage(convertModelToString);
-
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
     return ChatMessage(

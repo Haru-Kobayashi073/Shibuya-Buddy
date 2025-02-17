@@ -38,6 +38,7 @@ abstract class PlaceDetailApiClient {
   Future<PlaceDetailResponse> getPlaceIdByName({
     @Body() required Map<String, dynamic> searchQuery,
     @Header('X-Goog-Api-Key') required String apiKey,
+    @Header('X-Firebase-AppCheck') required String appCheckToken,
   });
 
   @GET('/{placeId}/media')
@@ -50,5 +51,6 @@ abstract class PlaceDetailApiClient {
     @Query('maxWidthPx') required int maxWidthPx,
     @Query('skipHttpRedirect') required bool skipHttpRedirect,
     @Header('X-Goog-Api-Key') required String apiKey,
+    @Header('X-Firebase-AppCheck') required String appCheckToken,
   });
 }

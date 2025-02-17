@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
@@ -7,7 +6,9 @@ import '../../domain/entities/user.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
 import '../../infrastructure/topic/topic_data_source.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/providers/current_user/current_user.dart';
+import '../../utils/providers/geofence/geofence_service.dart';
 import '../../utils/providers/in_app_purchase/in_app_purchase_service.dart';
 import 'home_page_state.dart';
 
@@ -22,11 +23,8 @@ class HomePageNotifier extends _$HomePageNotifier {
 
   @override
   Future<HomePageState> build() async {
-    const flavor = String.fromEnvironment('flavor');
-    await ref.read(currentUserProvider.notifier).fetchUser();
-    if (flavor == 'prod') {
-      await ref.read(inAppPurchaseServiceProvider.notifier).build();
-    }
+    await initializeAppServices();
+
     final popularPlans = await getPopularPlans();
     final popularTopics = await getPopularTopics();
     final recentPlans = await getRecentPlans();
@@ -38,11 +36,27 @@ class HomePageNotifier extends _$HomePageNotifier {
     );
   }
 
+  Future<void> initializeAppServices() async {
+    try {
+      /// ユーザー情報を取得
+      await ref.read(currentUserProvider.notifier).fetchUser();
+      await ref.read(geofenceServiceProvider.notifier).initialize();
+
+      /// In-App Purchaseを初期化
+      const flavor = String.fromEnvironment('flavor');
+      if (flavor == 'prod') {
+        await ref.read(inAppPurchaseServiceProvider.notifier).build();
+      }
+    } on Exception catch (e) {
+      logger.e('initializeAppServices: $e');
+    }
+  }
+
   Future<List<Plan>> getPopularPlans() async {
     try {
       return await planDataSource.getPopularPlans();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getPopularPlans: $e');
       return <Plan>[];
     }
   }
@@ -51,7 +65,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await topicDataSource.getPopularTopics();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getPopularTopics: $e');
       return <Topic>[];
     }
   }
@@ -60,7 +74,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getRecentPlans: $e');
     }
     return null;
   }

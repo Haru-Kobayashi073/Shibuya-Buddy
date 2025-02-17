@@ -1,15 +1,55 @@
 import 'package:flutter/material.dart';
-import '../../i18n/strings.g.dart';
-import 'gen/assets.gen.dart';
-import 'utils/styles/app_color.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ErrorPage extends StatelessWidget {
-  const ErrorPage({super.key, required this.onRetry});
+import '../../../../i18n/strings.g.dart';
+import '../../gen/assets.gen.dart';
+import '../../utils/analytics_event.dart';
+import '../../utils/custom_logger.dart';
+import '../../utils/extensions/context.dart';
+import '../../utils/providers/analytics/analytics.dart';
+import '../../utils/styles/app_color.dart';
+
+class ErrorView extends HookConsumerWidget {
+  const ErrorView({
+    super.key,
+    required this.error,
+    required this.stackTrace,
+    required this.onRetry,
+  });
+
+  final Object error;
+  final StackTrace stackTrace;
   final VoidCallback onRetry;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
+
+    useEffect(
+      () {
+        logger
+          ..e('ErrorView: $error')
+          ..e('ErrorView: $stackTrace');
+
+        Future.delayed(Duration.zero, () async {
+          await ref.read(analyticsNotifierProvider.notifier).logScreenView(
+                ScreenViewEvent.errorView,
+              );
+          await ref.read(analyticsNotifierProvider.notifier).logEvent(
+            UserActionEvent.customError,
+            parameters: {
+              'error': error.toString(),
+              'stackTrace': stackTrace.toString(),
+            },
+          );
+        });
+
+        return null;
+      },
+      [],
+    );
 
     return Scaffold(
       body: SafeArea(
@@ -20,9 +60,9 @@ class ErrorPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // イラスト
-                Image.asset(
-                  Assets.images.error.path,
-                  height: 366,
+                SvgPicture.asset(
+                  Assets.images.errorImage,
+                  width: context.deviceWidth * 0.8,
                 ),
                 const SizedBox(height: 32),
 

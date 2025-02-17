@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../domain/entities/user.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../infrastructure/file/file_data_source.dart';
 import '../../../infrastructure/user/user_data_source.dart';
+import '../../../utils/custom_logger.dart';
 import '../../../utils/providers/current_user/current_user.dart';
-import '../../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
-    as messenger;
+import '../../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../../components/loading_overlay.dart';
 import 'edit_profile_page_state.dart';
 
@@ -19,8 +18,8 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
       ref.read(userDataSourceProvider.notifier);
   FileDataSource get fileDataSource =>
       ref.read(fileDataSourceProvider.notifier);
-  messenger.ScaffoldMessenger get scaffoldMessenger =>
-      ref.read(messenger.scaffoldMessengerProvider.notifier);
+  ScaffoldMessenger get scaffoldMessenger =>
+      ref.read(scaffoldMessengerProvider.notifier);
 
   @override
   Future<EditProfilePageState> build(User user) async {
@@ -61,7 +60,8 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
 
         onSuccess();
       }
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('editProfile: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.editProfilePage.snackBar.error.failedToUpdate,
       );
@@ -82,7 +82,8 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
           ),
         );
       }
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('pickImage: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.editProfilePage.snackBar.error.failedToPickImage,
       );
@@ -106,7 +107,7 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
       );
       return url;
     } on Exception catch (e) {
-      debugPrint(e.toString());
+      logger.e('getUploadedImageUri: $e');
     }
 
     return null;

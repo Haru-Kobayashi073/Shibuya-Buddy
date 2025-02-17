@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../domain/entities/plan.dart';
+import '../../../domain/entities/topic.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../utils/routes/app_router.dart';
 import '../../../utils/styles/app_color.dart';
@@ -81,14 +82,14 @@ class PopularPlansCarousel extends HookWidget {
           ),
           buildBottomContainer(
             plan.title,
-            plan.topics.map((e) => e.name).toList(),
+            plan.topics,
           ),
         ],
       ),
     );
   }
 
-  Widget buildBottomContainer(String title, List<String> tags) {
+  Widget buildBottomContainer(String title, List<Topic> topics) {
     return Container(
       padding: const EdgeInsets.all(16),
       width: double.infinity,
@@ -111,7 +112,7 @@ class PopularPlansCarousel extends HookWidget {
           ),
           const SizedBox(height: 4),
           CategoryTags(
-            tags: tags,
+            topics: topics,
             tagColor: AppColor.white,
             spacing: 8,
           ),

@@ -5,23 +5,33 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/locale/locale_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
+import '../../utils/providers/shared_preferences/shared_preferences_config.dart';
+import '../../utils/providers/shared_preferences/shared_preferences_service.dart';
+import '../components/loading_overlay.dart';
 
-part 'sign_in_page_notifier.g.dart';
+part 'authentication_page_notifier.g.dart';
 
 @riverpod
-class SignInPageNotifier extends _$SignInPageNotifier {
+class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
   AuthenticationDataSource get authenticationDataSource =>
       ref.read(authenticationDataSourceProvider.notifier);
   FirebaseAuth get firebaseAuth => ref.read(firebaseAuthProvider);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
+  SharedPreferencesService get sharedPreferencesService =>
+      ref.read(sharedPreferencesServiceProvider.notifier);
 
   @override
-  void build() {
-    return;
+  bool build() {
+    final hasAlreadyLaunchedFirstTime = sharedPreferencesService.getBoolValue(
+      key: SharedPreferencesKey.hasAlreadyLaunchedFirstTime,
+    );
+
+    return hasAlreadyLaunchedFirstTime;
   }
 
   Future<void> signInWithEmailAndPassword({
@@ -31,6 +41,8 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     required Future<void> Function() onFailure,
   }) async {
     final i18n = t.authentication.emailVerificationPage.snackBar;
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
+
     try {
       await authenticationDataSource.signInWithEmailAndPassword(
         emailAddress,
@@ -47,6 +59,31 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
+    }
+  }
+
+  Future<void> signUpWithEmailAndPassword({
+    required String emailAddress,
+    required String password,
+    required void Function() onSuccess,
+  }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
+    try {
+      await authenticationDataSource.signUpWithEmailAndPassword(
+        emailAddress,
+        password,
+      );
+      onSuccess();
+    } on FirebaseAuthException catch (e) {
+      logger.e('signUpWithEmailAndPassword: $e');
+      final exceptionMessage = e.toLocalizedMessage;
+      ref
+          .read(scaffoldMessengerProvider.notifier)
+          .showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
@@ -55,19 +92,22 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     required void Function() needPhoneVerify,
     required void Function() onSuccess,
   }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.signInWithGoogle();
-      if ((firebaseAuth.currentUser!.emailVerified) ||
-          (firebaseAuth.currentUser!.phoneNumber != null)) {
-        onSuccess();
-      } else if (firebaseAuth.currentUser!.emailVerified) {
-        needEmailVerify(firebaseAuth.currentUser!.email!);
-      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+      if (firebaseAuth.currentUser!.phoneNumber == null ||
+          firebaseAuth.currentUser!.phoneNumber == '') {
         needPhoneVerify();
+      } else if (!firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
+      } else {
+        onSuccess();
       }
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
@@ -76,20 +116,22 @@ class SignInPageNotifier extends _$SignInPageNotifier {
     required void Function() needPhoneVerify,
     required void Function() onSuccess,
   }) async {
+    ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
       await authenticationDataSource.signInWithApple();
-      if ((firebaseAuth.currentUser!.emailVerified) ||
-          (firebaseAuth.currentUser!.phoneNumber != null)) {
-      } else if (firebaseAuth.currentUser!.emailVerified) {
-        needEmailVerify(firebaseAuth.currentUser!.email!);
-      } else if (firebaseAuth.currentUser!.phoneNumber == null) {
+      if (firebaseAuth.currentUser!.phoneNumber == null ||
+          firebaseAuth.currentUser!.phoneNumber == '') {
         needPhoneVerify();
+      } else if (!firebaseAuth.currentUser!.emailVerified) {
+        needEmailVerify(firebaseAuth.currentUser!.email!);
       } else {
         onSuccess();
       }
     } on FirebaseAuthException catch (e) {
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } finally {
+      ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
@@ -99,5 +141,12 @@ class SignInPageNotifier extends _$SignInPageNotifier {
           ref.read(localeServiceProvider.notifier).getLocaleFromString(text);
       await ref.read(localeServiceProvider.notifier).changeLocale(appLocale);
     }
+  }
+
+  Future<void> setFalseSharedPreferencesKey() async {
+    await sharedPreferencesService.setBoolValue(
+      key: SharedPreferencesKey.hasAlreadyLaunchedFirstTime,
+      value: true,
+    );
   }
 }

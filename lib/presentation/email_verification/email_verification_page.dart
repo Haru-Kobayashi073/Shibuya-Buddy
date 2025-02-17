@@ -26,6 +26,33 @@ class EmailVerificationPage extends ConsumerWidget {
     final state = ref.watch(emailVerificationPageNotifierProvider);
     final notifier = ref.read(emailVerificationPageNotifierProvider.notifier);
 
+    Widget getSubmitLabel() {
+      final style = AppTextStyle.textStyle.copyWith(
+        fontSize: 14,
+        color: AppColor.black,
+        fontWeight: FontWeight.w700,
+      );
+      return switch (state.emailVerificationButtonState) {
+        EmailVerificationButtonState.initialize =>
+          LoadingAnimationWidget.waveDots(
+            color: AppColor.black,
+            size: 20,
+          ),
+        EmailVerificationButtonState.coolDown => Text(
+            '${state.resendEmailVerificationCountdown}s',
+            style: style,
+          ),
+        EmailVerificationButtonState.resend => Text(
+            i18nEmailVerificationPage.buttons.resendEmail,
+            style: style,
+          ),
+        EmailVerificationButtonState.verified => Text(
+            i18nEmailVerificationPage.buttons.toNext,
+            style: style,
+          ),
+      };
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.white,
@@ -79,28 +106,34 @@ class EmailVerificationPage extends ConsumerWidget {
                     ),
             ),
             const Gap(64),
-            WideButton(
-              label: switch (state.emailVerificationButtonState) {
-                EmailVerificationButtonState.initialize =>
-                  i18nEmailVerificationPage.buttons.sendEmail,
-                EmailVerificationButtonState.coolDown =>
-                  '${state.resendEmailVerificationCountdown}s',
-                EmailVerificationButtonState.resend =>
-                  i18nEmailVerificationPage.buttons.resendEmail,
-                EmailVerificationButtonState.verified =>
-                  i18nEmailVerificationPage.buttons.toNext,
-              },
-              color: state.emailVerificationButtonState ==
-                      EmailVerificationButtonState.coolDown
-                  ? AppColor.grey600
-                  : AppColor.yellow600Primary,
-              onPressed: () async {
-                if (state.isEmailVerified) {
-                  const PhoneNumberInputPageRouteData().go(context);
-                } else {
-                  await notifier.sendEmailVerification();
-                }
-              },
+            SizedBox(
+              width: double.infinity,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: state.emailVerificationButtonState ==
+                          EmailVerificationButtonState.coolDown
+                      ? AppColor.grey600
+                      : AppColor.yellow600Primary,
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                child: FilledButton.icon(
+                  style: FilledButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    backgroundColor: Colors.transparent,
+                  ),
+                  onPressed: () async {
+                    if (state.isEmailVerified) {
+                      const PhoneNumberInputPageRouteData().go(context);
+                    } else {
+                      await notifier.sendEmailVerification();
+                    }
+                  },
+                  label: getSubmitLabel(),
+                ),
+              ),
             ),
             const Gap(16),
             if (!state.isEmailVerified)
@@ -108,8 +141,7 @@ class EmailVerificationPage extends ConsumerWidget {
                 label: i18nEmailVerificationPage.buttons.retypeEmail,
                 color: AppColor.blue50Background,
                 onPressed: () async =>
-                    const SignUpPageRouteData(fromEmailVerify: true)
-                        .push<void>(context),
+                    const AuthenticationPageRouteData().push<void>(context),
               ),
           ],
         ),

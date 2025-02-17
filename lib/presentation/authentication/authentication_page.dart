@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,12 +16,13 @@ import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
+import '../components/change_language_dialog.dart';
 import '../components/simple_text_field.dart';
 import '../components/wide_button.dart';
-import 'sign_in_page_notifier.dart';
+import 'authentication_page_notifier.dart';
 
-class SignInPage extends HookConsumerWidget {
-  const SignInPage({super.key});
+class AuthenticationPage extends HookConsumerWidget {
+  const AuthenticationPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,10 +31,33 @@ class SignInPage extends HookConsumerWidget {
     final focusNode = useFocusNode();
     final hidePassword = useState(true);
     final formKey = useFormStateKey();
-    final notifier = ref.read(signInPageNotifierProvider.notifier);
+    final hasAlreadyLaunchedFirstTime =
+        ref.watch(authenticationPageNotifierProvider);
+    final notifier = ref.read(authenticationPageNotifierProvider.notifier);
     final i18n = Translations.of(context);
-    final i18nSignInPage = i18n.authentication.signInPage;
+    final i18nAuthenticationPage = i18n.authentication.authenticationPage;
     final i18nLanguage = i18n.changeLanguagePage.items;
+
+    useEffect(
+      () {
+        Future.microtask(
+          () async {
+            if (!hasAlreadyLaunchedFirstTime) {
+              if (!context.mounted) {
+                return;
+              }
+              await showDialog<void>(
+                context: context,
+                builder: (_) => const ChangeLanguageDialog(),
+              );
+              await notifier.setFalseSharedPreferencesKey();
+            }
+          },
+        );
+        return null;
+      },
+      [],
+    );
 
     Future<void> signIn() async {
       if (formKey.currentState!.validate()) {
@@ -66,7 +93,7 @@ class SignInPage extends HookConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        i18nSignInPage.title,
+                        i18nAuthenticationPage.title,
                         style: AppTextStyle.textStyle.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -113,7 +140,7 @@ class SignInPage extends HookConsumerWidget {
                     validator: Validator.email,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
-                    label: i18nSignInPage.textFields.email,
+                    label: i18nAuthenticationPage.textFields.email,
                   ),
                 ),
                 const SliverGap(16),
@@ -126,7 +153,7 @@ class SignInPage extends HookConsumerWidget {
                     textInputAction: TextInputAction.done,
                     obscureText: hidePassword.value,
                     onFieldSubmitted: (_) async => signIn(),
-                    label: i18nSignInPage.textFields.password,
+                    label: i18nAuthenticationPage.textFields.password,
                     icon: IconButton(
                       onPressed: () {
                         hidePassword.value = !hidePassword.value;
@@ -146,7 +173,7 @@ class SignInPage extends HookConsumerWidget {
                     onTap: () async =>
                         const ResetPasswordPageRouteData().push<void>(context),
                     child: Text(
-                      i18nSignInPage.buttons.resetPassword,
+                      i18nAuthenticationPage.buttons.resetPassword,
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 12,
                         decoration: TextDecoration.underline,
@@ -158,9 +185,30 @@ class SignInPage extends HookConsumerWidget {
                 const SliverGap(24),
                 SliverToBoxAdapter(
                   child: WideButton(
-                    label: i18nSignInPage.buttons.signIn,
+                    label: i18nAuthenticationPage.buttons.signIn,
                     color: AppColor.yellow600Primary,
                     onPressed: () async => signIn(),
+                  ),
+                ),
+                const SliverGap(16),
+                SliverToBoxAdapter(
+                  child: WideButton.border(
+                    label: i18nAuthenticationPage.buttons.signUp,
+                    color: AppColor.white,
+                    border: const BorderSide(color: AppColor.black),
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        await notifier.signUpWithEmailAndPassword(
+                          emailAddress: emailController.text,
+                          password: passwordController.text,
+                          onSuccess: () async {
+                            await EmailVerificationPageRouteData(
+                              email: emailController.text,
+                            ).push<void>(context);
+                          },
+                        );
+                      }
+                    },
                   ),
                 ),
                 const SliverGap(16),
@@ -171,7 +219,7 @@ class SignInPage extends HookConsumerWidget {
                         child: Divider(color: AppColor.grey600),
                       ),
                       Text(
-                        i18nSignInPage.optionText,
+                        i18nAuthenticationPage.optionText,
                         style: AppTextStyle.textStyle.copyWith(
                           color: AppColor.grey600,
                           fontSize: 12,
@@ -185,36 +233,27 @@ class SignInPage extends HookConsumerWidget {
                   ),
                 ),
                 const SliverGap(16),
-                SliverToBoxAdapter(
-                  child: WideButton.border(
-                    label: i18nSignInPage.buttons.signUp,
-                    color: AppColor.white,
-                    border: const BorderSide(color: AppColor.black),
-                    onPressed: () async =>
-                        const SignUpPageRouteData().push<void>(context),
-                  ),
-                ),
-                const SliverGap(16),
-                SliverToBoxAdapter(
-                  child: WideButton.icon(
-                    label: i18nSignInPage.buttons.appleSignIn,
-                    color: AppColor.blue50Background,
-                    icon: SvgPicture.asset(Assets.icons.appleIcon),
-                    onPressed: () async => notifier.signInWithApple(
-                      needEmailVerify: (email) async =>
-                          EmailVerificationPageRouteData(email: email)
-                              .go(context),
-                      needPhoneVerify: () async =>
-                          const PhoneNumberInputPageRouteData().go(context),
-                      onSuccess: () async =>
-                          const HomeScreenRouteData().go(context),
+                if (!Platform.isAndroid)
+                  SliverToBoxAdapter(
+                    child: WideButton.icon(
+                      label: i18nAuthenticationPage.buttons.appleSignIn,
+                      color: AppColor.blue50Background,
+                      icon: SvgPicture.asset(Assets.icons.appleIcon),
+                      onPressed: () async => notifier.signInWithApple(
+                        needEmailVerify: (email) async =>
+                            EmailVerificationPageRouteData(email: email)
+                                .go(context),
+                        needPhoneVerify: () async =>
+                            const PhoneNumberInputPageRouteData().go(context),
+                        onSuccess: () async =>
+                            const HomeScreenRouteData().go(context),
+                      ),
                     ),
                   ),
-                ),
                 const SliverGap(16),
                 SliverToBoxAdapter(
                   child: WideButton.icon(
-                    label: i18nSignInPage.buttons.googleSignIn,
+                    label: i18nAuthenticationPage.buttons.googleSignIn,
                     color: AppColor.blue50Background,
                     icon: SvgPicture.asset(Assets.icons.googleIcon),
                     onPressed: () async => notifier.signInWithGoogle(

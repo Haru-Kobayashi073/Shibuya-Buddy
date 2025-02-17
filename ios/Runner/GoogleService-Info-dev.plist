@@ -32,5 +32,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:346265803262:ios:2bb6114de5aff3657b08af</string>
+	<key>FirebaseDebugEnabled</key>
+	<true></true>
 </dict>
 </plist>

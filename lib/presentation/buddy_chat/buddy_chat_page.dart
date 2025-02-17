@@ -6,7 +6,6 @@ import 'package:lottie/lottie.dart';
 
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/plan_prompt.dart';
-import '../../error_page.dart';
 import '../../gen/assets.gen.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/billing_grade_options.dart';
@@ -16,7 +15,8 @@ import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/validator.dart';
 import '../components/confirm_dialog.dart';
-import '../components/loading_overlay.dart';
+import '../components/create_plan_loading/create_loading_view.dart';
+import '../components/error_view.dart';
 import '../home/home_page_notifier.dart';
 import 'buddy_chat_page_notifier.dart';
 import 'components/message_card.dart';
@@ -152,11 +152,13 @@ class BuddyChatPage extends HookConsumerWidget {
           );
         },
         error: (e, s) {
-          return ErrorPage(
+          return ErrorView(
+            error: e,
+            stackTrace: s,
             onRetry: () => ref.invalidate(buddyChatPageNotifierProvider),
           );
         },
-        loading: () => const Loading(),
+        loading: CreateLoadingView.new,
       ),
     );
   }

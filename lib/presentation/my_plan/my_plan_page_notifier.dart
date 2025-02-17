@@ -3,8 +3,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/plan.dart';
+import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/custom_logger.dart';
+import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as custom;
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
@@ -18,6 +21,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
       ref.read(scaffoldMessengerProvider.notifier);
   PlanDataSource get planDataSource =>
       ref.read(planDataSourceProvider.notifier);
+  User get currentUser => ref.read(currentUserProvider);
 
   @override
   Future<MyPlanPageState> build() async {
@@ -40,10 +44,12 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
         plans.add(await planDataSource.getPlanData(planId: id));
       }
       return plans;
-    } on FirebaseException catch (_) {
+    } on FirebaseException catch (e) {
+      logger.e('getBookmarkPlans: $e');
       scaffoldMessenger.showExceptionSnackBar(snacki18n.failedGetPlanData);
       return [];
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('getBookmarkPlans: $e');
       scaffoldMessenger.showExceptionSnackBar(snacki18n.displayError);
       return [];
     }
@@ -53,7 +59,8 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
     try {
       final plans = await planDataSource.getPlansMadeByPersonal();
       return plans;
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('getCreatedPlans: $e');
       scaffoldMessenger.showExceptionSnackBar(t.myPlanPage.error.displayError);
       return [];
     }
@@ -62,7 +69,9 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
   Future<void> unBookmark({required Plan plan}) async {
     try {
       final updatedPlan = plan.copyWith(
-        isBookmarked: false,
+        bookmarkedUserIds: plan.bookmarkedUserIds
+            .where((userId) => userId != currentUser.uid)
+            .toList(),
         bookmarkCount: plan.bookmarkCount - 1,
       );
       await planDataSource.unbookmarkPlan(plan: updatedPlan);
@@ -73,7 +82,8 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
               .toList(),
         ),
       );
-    } on FirebaseException catch (_) {
+    } on FirebaseException catch (e) {
+      logger.e('unBookmark: $e');
       scaffoldMessenger
           .showExceptionSnackBar(t.myPlanPage.error.failedUnBookmark);
     }

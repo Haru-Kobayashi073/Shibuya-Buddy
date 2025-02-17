@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:native_geofence/native_geofence.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../domain/entities/chat_message.dart';
+import '../../domain/entities/place.dart';
 import '../../domain/entities/plan_prompt.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/gemini/gemini_data_source.dart';
 import '../../infrastructure/place_detail/place_detail_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../utils/analytics_event.dart';
 import '../../utils/billing_grade_options.dart';
+import '../../utils/custom_logger.dart';
 import '../../utils/extensions/context.dart';
+import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/providers/current_user/current_user.dart';
+import '../../utils/providers/geofence/geofence_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
 import '../../utils/routes/app_router.dart';
+import '../components/create_plan_loading/create_loading_notifier.dart';
 import '../components/loading_overlay.dart';
 import 'buddy_chat_page_state.dart';
 
@@ -33,6 +40,12 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   bool get isStandardGradeUser =>
       ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
 
+  CreateLoadingViewNotifier get loadingNotifier =>
+      ref.read(createLoadingViewNotifierProvider.notifier);
+
+  GeofenceService get geofenceService =>
+      ref.read(geofenceServiceProvider.notifier);
+
   @override
   Future<BuddyChatPageState> build({required PlanPrompt planPrompt}) async {
     return _getFirstBuddyMessage();
@@ -44,6 +57,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     required void Function() needUpgradeToPremium,
   }) async {
     if (isStandardGradeUser && state.requireValue.possibleChatCount == 0) {
+      await ref
+          .read(analyticsNotifierProvider.notifier)
+          .logEvent(UserActionEvent.chatLimitReached);
       needUpgradeToPremium();
       return;
     }
@@ -74,7 +90,10 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     try {
       final res = await geminiDataSource.sendMessage(message: message);
 
-      final buddyMessage = await _getAllFilledMessage(res);
+      final buddyMessage = await _getAllFilledMessage(
+        res,
+        forFirstBuild: false,
+      );
 
       state = AsyncValue.data(
         state.requireValue.copyWith(
@@ -88,7 +107,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
                   : null,
         ),
       );
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('recieveMessage: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedRecieveMessage,
       );
@@ -105,6 +125,15 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
     try {
+      final buddyMessageCount = state.requireValue.messages
+          .where((message) => message.author == ChatAuthor.buddy)
+          .length;
+
+      await ref.read(analyticsNotifierProvider.notifier).logEvent(
+        UserActionEvent.completeCreatePlan,
+        parameters: {'buddy_message_count': buddyMessageCount},
+      );
+
       final targetMessage = state.requireValue.messages.lastWhere(
         (message) => message.plan != null && message.places != null,
         orElse: () => state.requireValue.messages.first,
@@ -112,7 +141,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       final targetPlan = targetMessage.plan!.copyWith(
         id: const Uuid().v4(),
         authorId: ref.read(currentUserProvider).uid,
-        topics: targetMessage.plan!.topics,
+        topics: planPrompt.topics,
         createdAt: DateTime.now().toIso8601String(),
       );
       final targetPlaces = targetMessage.places!
@@ -120,6 +149,9 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
             (place) => place.copyWith(id: const Uuid().v4()),
           )
           .toList();
+
+      await addGeofences(targetPlaces);
+
       await planDataSource.createPlan(
         plan: targetPlan,
         places: targetPlaces,
@@ -130,7 +162,8 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       await Future<void>.delayed(const Duration(milliseconds: 1000));
 
       await onSuccess();
-    } on Exception catch (_) {
+    } on Exception catch (e) {
+      logger.e('completeCreatePlan: $e');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
@@ -161,25 +194,22 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }
 
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
+    await Future.microtask(() => loadingNotifier.updateLoadingIndicator(0));
     final scrollController = ScrollController();
-
     ref.onDispose(
       scrollController.dispose,
     );
-
+    await loadingNotifier.updateLoadingIndicator(20);
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
-
-    final buddyMessage = await _getAllFilledMessage(res);
-
+    await loadingNotifier.updateLoadingIndicator(80);
+    final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
     final message = ChatMessage(
       id: buddyMessage.id,
       message: buddyMessage.plan!.description,
       author: ChatAuthor.buddy,
       createdAt: buddyMessage.createdAt,
     );
-
     final messages = [buddyMessage, message];
-
     return BuddyChatPageState(
       messages: messages,
       possibleChatCount: null,
@@ -187,14 +217,21 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     );
   }
 
-  Future<ChatMessage> _getAllFilledMessage(ChatMessage chatMessage) async {
+  Future<ChatMessage> _getAllFilledMessage(
+    ChatMessage chatMessage, {
+    required bool forFirstBuild,
+  }) async {
     var placeIds = <String>[];
     var photoUrls = <String>[];
 
     /// 検索したい写真の名前をリスト化
     final placeDetailStrings = <String>[
-      chatMessage.plan?.title ?? '',
-      ...chatMessage.places?.map((place) => place.name) ?? [],
+      if (forFirstBuild) ...[
+        ...chatMessage.places?.map((place) => place.name) ?? [],
+      ] else ...[
+        /// すでに表示されている場所の名前をのぞいた、検索したい写真の名前をリスト化
+        ...getPlaceNamesWithoutAlreadySearched(chatMessage) ?? [],
+      ],
     ];
 
     try {
@@ -208,22 +245,99 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         placeIds: placeIds,
       );
     } on Exception catch (e) {
-      debugPrint('Error in buddyChatPageNotifier by _getAllFilledMessage: $e');
+      logger.e('getPlacesPhotoUrls: $e');
     }
-    return chatMessage.copyWith(
-      plan: chatMessage.plan?.copyWith(
-        thumbnailUrl: photoUrls[0],
-        topics: planPrompt.topics,
-      ),
-      places: chatMessage.places?.asMap().entries.map(
-        (entry) {
-          final place = entry.value;
-          return place.copyWith(
-            thumbnailUrl: photoUrls[entry.key + 1],
-          );
-        },
-      ).toList(),
+    if (forFirstBuild) {
+      return chatMessage.copyWith(
+        plan: chatMessage.plan?.copyWith(
+          thumbnailUrl: photoUrls[0],
+          topics: planPrompt.topics,
+        ),
+        places: chatMessage.places?.asMap().entries.map(
+          (entry) {
+            final place = entry.value;
+            return place.copyWith(
+              thumbnailUrl: photoUrls[entry.key],
+            );
+          },
+        ).toList(),
+      );
+    } else {
+      // 最初のメッセージ以外の場合
+      return _setChatmessageFields(
+        chatMessage,
+        photoUrls,
+        placeDetailStrings,
+      );
+    }
+  }
+
+  List<String>? getPlaceNamesWithoutAlreadySearched(ChatMessage chatMessage) {
+    final alreadySearchedPlaceNames = state.requireValue.messages
+        .lastWhere((message) => message.places != null)
+        .places
+        ?.map((place) => place.name)
+        .toList();
+
+    return chatMessage.places
+        ?.where((place) => !alreadySearchedPlaceNames!.contains(place.name))
+        .map((place) => place.name)
+        .toList();
+  }
+
+  ChatMessage _setChatmessageFields(
+    ChatMessage chatMessage,
+    List<String> photoUrls,
+    List<String> placeDetailStrings,
+  ) {
+    final lastMessage = state.requireValue.messages.lastWhere(
+      (message) => message.plan != null && message.places != null,
     );
+    // すでに表示されている場所の数 + 新しく検索した文字列の合計が、これから表示する場所の数と一致する場合
+    // 新しく検索した文字列を元に取得した写真のURLを、新しく検索した場所の写真のURLとして上書き追加
+    if (lastMessage.places!.length + placeDetailStrings.length ==
+        chatMessage.places!.length) {
+      return chatMessage.copyWith(
+        plan: chatMessage.plan?.copyWith(
+          thumbnailUrl: lastMessage.plan!.thumbnailUrl,
+        ),
+        places: [
+          ...lastMessage.places!,
+          ...chatMessage.places!
+              .where(
+            (place) =>
+                !lastMessage.places!.map((e) => e.name).contains(place.name),
+          )
+              .map(
+            (place) {
+              return place.copyWith(
+                thumbnailUrl: photoUrls[chatMessage.places!.indexOf(place) -
+                    lastMessage.places!.length],
+              );
+            },
+          ),
+        ],
+      );
+    } else {
+      // 一つ目の場所から全てが新しく検索されている場合
+      // 新しく検索した文字列を元に取得した写真のURLを、新しく検索した場所の写真のURLとして上書き追加
+
+      return chatMessage.copyWith(
+        plan: chatMessage.plan?.copyWith(
+          thumbnailUrl: photoUrls[0],
+        ),
+        places: [
+          ...chatMessage.places!.asMap().entries.map(
+            (entry) {
+              final place = entry.value;
+              return place.copyWith(
+                thumbnailUrl: photoUrls[entry.key],
+              );
+            },
+          ),
+        ],
+      );
+    }
   }
 
   void changeStandardConfigToPremium() {
@@ -232,5 +346,19 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         possibleChatCount: null,
       ),
     );
+  }
+
+  Future<void> addGeofences(List<Place> places) async {
+    for (final place in places) {
+      await geofenceService.addGeofence(
+        id: place.id,
+        location: Location(
+          latitude: place.location.latitude,
+          longitude: place.location.longitude,
+        ),
+      );
+    }
+
+    await geofenceService.getRegisteredGeofences();
   }
 }

@@ -50,6 +50,7 @@ class TranslationsZhHant implements Translations {
 	@override late final _TranslationsPromptZhHant prompt = _TranslationsPromptZhHant._(_root);
 	@override late final _TranslationsBillDetailsPageZhHant billDetailsPage = _TranslationsBillDetailsPageZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageZhHant planDetailsPage = _TranslationsPlanDetailsPageZhHant._(_root);
+	@override late final _TranslationsCreateLoadingPageZhHant createLoadingPage = _TranslationsCreateLoadingPageZhHant._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英語',
 		'ja': '日語',
@@ -102,10 +103,9 @@ class _TranslationsAuthenticationZhHant implements TranslationsAuthenticationEn 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAuthenticationSignInPageZhHant signInPage = _TranslationsAuthenticationSignInPageZhHant._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageZhHant authenticationPage = _TranslationsAuthenticationAuthenticationPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationFirebaseAuthZhHant firebaseAuth = _TranslationsAuthenticationFirebaseAuthZhHant._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageZhHant resetPasswordPage = _TranslationsAuthenticationResetPasswordPageZhHant._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageZhHant signUpPage = _TranslationsAuthenticationSignUpPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageZhHant emailVerificationPage = _TranslationsAuthenticationEmailVerificationPageZhHant._(_root);
 	@override late final _TranslationsAuthenticationRegisterProfilePageZhHant registerProfilePage = _TranslationsAuthenticationRegisterProfilePageZhHant._(_root);
 	@override late final _TranslationsAuthenticationCompleteSendEmailPageZhHant completeSendEmailPage = _TranslationsAuthenticationCompleteSendEmailPageZhHant._(_root);
@@ -320,6 +320,16 @@ class _TranslationsPlanDetailsPageZhHant implements TranslationsPlanDetailsPageE
 	@override late final _TranslationsPlanDetailsPageSnackBarZhHant snackBar = _TranslationsPlanDetailsPageSnackBarZhHant._(_root);
 }
 
+// Path: createLoadingPage
+class _TranslationsCreateLoadingPageZhHant implements TranslationsCreateLoadingPageEn {
+	_TranslationsCreateLoadingPageZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreateLoadingPageItemsZhHant items = _TranslationsCreateLoadingPageItemsZhHant._(_root);
+}
+
 // Path: errorPage
 class _TranslationsErrorPageZhHant implements TranslationsErrorPageEn {
 	_TranslationsErrorPageZhHant._(this._root);
@@ -440,17 +450,18 @@ class _TranslationsAccountPageDiaLogZhHant implements TranslationsAccountPageDia
 	@override String get deleteAccountText => '刪除帳戶後，所有數據將被刪除。';
 }
 
-// Path: authentication.signInPage
-class _TranslationsAuthenticationSignInPageZhHant implements TranslationsAuthenticationSignInPageEn {
-	_TranslationsAuthenticationSignInPageZhHant._(this._root);
+// Path: authentication.authenticationPage
+class _TranslationsAuthenticationAuthenticationPageZhHant implements TranslationsAuthenticationAuthenticationPageEn {
+	_TranslationsAuthenticationAuthenticationPageZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '登入';
+	@override String get title => '登入 / 註冊';
 	@override String get optionText => ' 或 ';
-	@override late final _TranslationsAuthenticationSignInPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignInPageTextFieldsZhHant._(_root);
-	@override late final _TranslationsAuthenticationSignInPageButtonsZhHant buttons = _TranslationsAuthenticationSignInPageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageButtonsZhHant buttons = _TranslationsAuthenticationAuthenticationPageButtonsZhHant._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHant changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHant._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -476,18 +487,6 @@ class _TranslationsAuthenticationResetPasswordPageZhHant implements Translations
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHant buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHant._(_root);
 }
 
-// Path: authentication.signUpPage
-class _TranslationsAuthenticationSignUpPageZhHant implements TranslationsAuthenticationSignUpPageEn {
-	_TranslationsAuthenticationSignUpPageZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override late final _TranslationsAuthenticationSignUpPageTitleZhHant title = _TranslationsAuthenticationSignUpPageTitleZhHant._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageTextFieldsZhHant textFields = _TranslationsAuthenticationSignUpPageTextFieldsZhHant._(_root);
-	@override late final _TranslationsAuthenticationSignUpPageButtonZhHant button = _TranslationsAuthenticationSignUpPageButtonZhHant._(_root);
-}
-
 // Path: authentication.emailVerificationPage
 class _TranslationsAuthenticationEmailVerificationPageZhHant implements TranslationsAuthenticationEmailVerificationPageEn {
 	_TranslationsAuthenticationEmailVerificationPageZhHant._(this._root);
@@ -496,7 +495,7 @@ class _TranslationsAuthenticationEmailVerificationPageZhHant implements Translat
 
 	// Translations
 	@override String get title => '電子郵件地址驗證';
-	@override String descriptionForDestination({required Object email}) => '將向輸入的${email}發送確認郵件。';
+	@override String descriptionForDestination({required Object email}) => '已向輸入的${email}發送了驗證郵件';
 	@override String get descriptionForCoolDown => '確認郵件每60秒只能重新發送一次。';
 	@override late final _TranslationsAuthenticationEmailVerificationPageButtonsZhHant buttons = _TranslationsAuthenticationEmailVerificationPageButtonsZhHant._(_root);
 	@override late final _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant snackBar = _TranslationsAuthenticationEmailVerificationPageSnackBarZhHant._(_root);
@@ -852,9 +851,8 @@ class _TranslationsBillDetailsPageRestorePurchaseSectionZhHant implements Transl
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '恢復購買';
-	@override String get description => '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';
 	@override String get button => '恢復購買';
+	@override String get textButton => '什麼是購買恢復？';
 }
 
 // Path: billDetailsPage.snackBar
@@ -898,20 +896,69 @@ class _TranslationsPlanDetailsPageSnackBarZhHant implements TranslationsPlanDeta
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHant error = _TranslationsPlanDetailsPageSnackBarErrorZhHant._(_root);
 }
 
-// Path: authentication.signInPage.textFields
-class _TranslationsAuthenticationSignInPageTextFieldsZhHant implements TranslationsAuthenticationSignInPageTextFieldsEn {
-	_TranslationsAuthenticationSignInPageTextFieldsZhHant._(this._root);
+// Path: createLoadingPage.items
+class _TranslationsCreateLoadingPageItemsZhHant implements TranslationsCreateLoadingPageItemsEn {
+	_TranslationsCreateLoadingPageItemsZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get email => '電郵';
+	@override String get loadingText1 => 'Buddy正在偷偷規劃旅行方案...';
+	@override String get loadingText2 => '正在計畫最棒的旅行...Buddy也很期待！';
+	@override String get loadingText3 => '旅行的未來即將揭曉，稍等片刻~';
+	@override String get loadingText4 => '趁著載入時間做做旅行白日夢吧！';
+	@override String get loadingText5 => '賴床計畫？...不可能的！';
+	@override String get loadingText6 => '美食地圖正在完美規劃中！';
+	@override String get loadingText7 => '規劃不會迷路的路線...應該！';
+	@override String get loadingText8 => '也許會加入一些小驚喜哦？';
+	@override String get loadingText9 => 'Buddy正在努力創造完美旅程！';
+	@override String get loadingText10 => '愉快的旅行準備正在進行中！';
+	@override String get loadingText11 => '旅行手冊正在悄悄製作中...';
+	@override String get loadingText12 => '迷路了？Buddy會想辦法的...大概！';
+	@override String get loadingText13 => '要不要幫你列個伴手禮清單？';
+	@override String get loadingText14 => '最棒的回憶即將產生...大概！';
+	@override String get loadingText15 => '期待指數120%的旅行準備中！';
+	@override String get loadingText16 => '正在探索隱藏景點中...';
+	@override String get loadingText17 => 'Buddy正在偷偷計算最佳路線';
+	@override String get loadingText18 => 'Buddy默默為您的旅行加油！';
+	@override String get loadingText19 => '防止意外的方案也在準備中！';
+	@override String get loadingText20 => '正在書寫快樂旅行的序章！';
+	@override String get loadingText21 => '絕對不會迷路的路線...大概！';
+	@override String get loadingText22 => '這段文字是Buddy絞盡腦汁想出來的';
+	@override String get loadingText23 => '祝今天生日的人生日快樂！';
+	@override String get loadingText24 => '編織旅行夢想中...';
+	@override String get loadingText25 => '注入旅行願望中...';
+	@override String get loadingText26 => '等待旅行奇蹟中...';
+	@override String get loadingText27 => '期待旅行邂逅中...';
+	@override String get loadingText28 => '為意外相遇預留0.1%的可能';
+	@override String get loadingText29 => '探索只有當地人知道的私房景點';
+	@override String get loadingText30 => 'Buddy正在規劃中...喝杯茶等等吧';
+	@override String get loadingText31 => '防止迷路的地圖準備中';
+	@override String get loadingText32 => '比飛機雲消失還快的規劃速度！';
+	@override String get loadingText33 => '尋找最適合自拍的打卡地點';
+	@override String get loadingText34 => '邊吃零食邊規劃中';
+	@override String get loadingText35 => '在主題中找到心儀的計畫！';
+	@override String get loadingText36 => '隨時都能更改個人資料哦！';
+	@override String get loadingText37 => '期待您的應用評價！';
+	@override String get loadingText38 => '貓派還是狗派？我選貓派';
+	@override String get loadingText39 => '願您的觀光之旅一切順利！';
+	@override String get loadingText40 => '今天一定會有好事發生！';
+}
+
+// Path: authentication.authenticationPage.textFields
+class _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant implements TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	_TranslationsAuthenticationAuthenticationPageTextFieldsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get email => '電子郵件地址';
 	@override String get password => '密碼';
 }
 
-// Path: authentication.signInPage.buttons
-class _TranslationsAuthenticationSignInPageButtonsZhHant implements TranslationsAuthenticationSignInPageButtonsEn {
-	_TranslationsAuthenticationSignInPageButtonsZhHant._(this._root);
+// Path: authentication.authenticationPage.buttons
+class _TranslationsAuthenticationAuthenticationPageButtonsZhHant implements TranslationsAuthenticationAuthenticationPageButtonsEn {
+	_TranslationsAuthenticationAuthenticationPageButtonsZhHant._(this._root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
@@ -919,9 +966,20 @@ class _TranslationsAuthenticationSignInPageButtonsZhHant implements Translations
 	@override String get signIn => '登入';
 	@override String get signUp => '註冊';
 	@override String get resetPassword => '忘記密碼？';
-	@override String get appleSignIn => '使用Apple登入';
-	@override String get googleSignIn => '使用Google登入';
+	@override String get appleSignIn => '使用 Apple 登入';
+	@override String get googleSignIn => '使用 Google 登入';
 	@override String get signInAfter => '稍後註冊';
+}
+
+// Path: authentication.authenticationPage.changeLanguageDialog
+class _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHant implements TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	_TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '選擇語言';
+	@override String get button => '關閉';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -958,39 +1016,6 @@ class _TranslationsAuthenticationResetPasswordPageButtonsZhHant implements Trans
 
 	// Translations
 	@override String get submit => '發送';
-}
-
-// Path: authentication.signUpPage.title
-class _TranslationsAuthenticationSignUpPageTitleZhHant implements TranslationsAuthenticationSignUpPageTitleEn {
-	_TranslationsAuthenticationSignUpPageTitleZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '新用戶註冊';
-	@override String get modifyEmail => '更改電子郵件地址';
-}
-
-// Path: authentication.signUpPage.textFields
-class _TranslationsAuthenticationSignUpPageTextFieldsZhHant implements TranslationsAuthenticationSignUpPageTextFieldsEn {
-	_TranslationsAuthenticationSignUpPageTextFieldsZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get email => '電子郵件地址';
-	@override String get password => '密碼';
-}
-
-// Path: authentication.signUpPage.button
-class _TranslationsAuthenticationSignUpPageButtonZhHant implements TranslationsAuthenticationSignUpPageButtonEn {
-	_TranslationsAuthenticationSignUpPageButtonZhHant._(this._root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get defaultText => '註冊';
-	@override String get modifyEmail => '更改';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1061,6 +1086,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageDiscriptionZhHant implement
 	@override String get receive => '以接收 SMS 驗證碼';
 	@override String get internationalFormat => '國際電話格式';
 	@override String get input => '請輸入您的電話號碼';
+	@override String get purposeForPhoneNumber => '您的電話號碼僅用於發送SMS驗證碼，不會被用於其他用途';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1071,6 +1097,7 @@ class _TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerZhHant imp
 
 	// Translations
 	@override String get empty => '請輸入您的電話號碼';
+	@override String get invalidPhoneNumber => '電話號碼格式不正確';
 	@override String get success => 'SMS 驗證碼已發送';
 	@override String get error => 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
 	@override String get unexpectedError => '發生未預期的錯誤：';
@@ -1381,16 +1408,18 @@ extension on TranslationsZhHant {
 			case 'accountPage.diaLog.signOutText': return '使用應用功能需要重新登入。';
 			case 'accountPage.diaLog.deleteAccount': return '您要刪除帳戶嗎？';
 			case 'accountPage.diaLog.deleteAccountText': return '刪除帳戶後，所有數據將被刪除。';
-			case 'authentication.signInPage.title': return '登入';
-			case 'authentication.signInPage.optionText': return ' 或 ';
-			case 'authentication.signInPage.textFields.email': return '電郵';
-			case 'authentication.signInPage.textFields.password': return '密碼';
-			case 'authentication.signInPage.buttons.signIn': return '登入';
-			case 'authentication.signInPage.buttons.signUp': return '註冊';
-			case 'authentication.signInPage.buttons.resetPassword': return '忘記密碼？';
-			case 'authentication.signInPage.buttons.appleSignIn': return '使用Apple登入';
-			case 'authentication.signInPage.buttons.googleSignIn': return '使用Google登入';
-			case 'authentication.signInPage.buttons.signInAfter': return '稍後註冊';
+			case 'authentication.authenticationPage.title': return '登入 / 註冊';
+			case 'authentication.authenticationPage.optionText': return ' 或 ';
+			case 'authentication.authenticationPage.textFields.email': return '電子郵件地址';
+			case 'authentication.authenticationPage.textFields.password': return '密碼';
+			case 'authentication.authenticationPage.buttons.signIn': return '登入';
+			case 'authentication.authenticationPage.buttons.signUp': return '註冊';
+			case 'authentication.authenticationPage.buttons.resetPassword': return '忘記密碼？';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return '使用 Apple 登入';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return '使用 Google 登入';
+			case 'authentication.authenticationPage.buttons.signInAfter': return '稍後註冊';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return '選擇語言';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return '關閉';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '請檢查網路連線後重試';
 			case 'authentication.firebaseAuth.error.weakPassword': return '密碼太短。請輸入6個字符或更多';
 			case 'authentication.firebaseAuth.error.invalidEmail': return '電子郵件地址格式不正確';
@@ -1402,14 +1431,8 @@ extension on TranslationsZhHant {
 			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';
 			case 'authentication.resetPasswordPage.textFields.email': return '電子郵件地址';
 			case 'authentication.resetPasswordPage.buttons.submit': return '發送';
-			case 'authentication.signUpPage.title.defaultText': return '新用戶註冊';
-			case 'authentication.signUpPage.title.modifyEmail': return '更改電子郵件地址';
-			case 'authentication.signUpPage.textFields.email': return '電子郵件地址';
-			case 'authentication.signUpPage.textFields.password': return '密碼';
-			case 'authentication.signUpPage.button.defaultText': return '註冊';
-			case 'authentication.signUpPage.button.modifyEmail': return '更改';
 			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '將向輸入的${email}發送確認郵件。';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '已向輸入的${email}發送了驗證郵件';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return '確認郵件每60秒只能重新發送一次。';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return '發送確認郵件';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return '重新發送確認郵件';
@@ -1434,9 +1457,11 @@ extension on TranslationsZhHant {
 			case 'authentication.phoneNumberInputPage.discription.receive': return '以接收 SMS 驗證碼';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return '國際電話格式';
 			case 'authentication.phoneNumberInputPage.discription.input': return '請輸入您的電話號碼';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return '您的電話號碼僅用於發送SMS驗證碼，不會被用於其他用途';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return '電話號碼';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return '發送 SMS 驗證碼';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return '請輸入您的電話號碼';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return '電話號碼格式不正確';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS 驗證碼已發送';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'SMS 驗證碼發送失敗。請確認電話號碼後再試一次。';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return '發生未預期的錯誤：';
@@ -1601,9 +1626,8 @@ extension on TranslationsZhHant {
 			case 'billDetailsPage.pricingOptions.unlimited.duration': return '無限制';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800日圓';
-			case 'billDetailsPage.restorePurchaseSection.title': return '恢復購買';
-			case 'billDetailsPage.restorePurchaseSection.description': return '如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。';
 			case 'billDetailsPage.restorePurchaseSection.button': return '恢復購買';
+			case 'billDetailsPage.restorePurchaseSection.textButton': return '什麼是購買恢復？';
 			case 'billDetailsPage.upgradeButton': return '升級到高級方案';
 			case 'billDetailsPage.snackBar.error.failedToPurchase': return '購買失敗，請稍後再試。';
 			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return '未找到購買記錄。';
@@ -1612,6 +1636,46 @@ extension on TranslationsZhHant {
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後再試';
+			case 'createLoadingPage.items.loadingText1': return 'Buddy正在偷偷規劃旅行方案...';
+			case 'createLoadingPage.items.loadingText2': return '正在計畫最棒的旅行...Buddy也很期待！';
+			case 'createLoadingPage.items.loadingText3': return '旅行的未來即將揭曉，稍等片刻~';
+			case 'createLoadingPage.items.loadingText4': return '趁著載入時間做做旅行白日夢吧！';
+			case 'createLoadingPage.items.loadingText5': return '賴床計畫？...不可能的！';
+			case 'createLoadingPage.items.loadingText6': return '美食地圖正在完美規劃中！';
+			case 'createLoadingPage.items.loadingText7': return '規劃不會迷路的路線...應該！';
+			case 'createLoadingPage.items.loadingText8': return '也許會加入一些小驚喜哦？';
+			case 'createLoadingPage.items.loadingText9': return 'Buddy正在努力創造完美旅程！';
+			case 'createLoadingPage.items.loadingText10': return '愉快的旅行準備正在進行中！';
+			case 'createLoadingPage.items.loadingText11': return '旅行手冊正在悄悄製作中...';
+			case 'createLoadingPage.items.loadingText12': return '迷路了？Buddy會想辦法的...大概！';
+			case 'createLoadingPage.items.loadingText13': return '要不要幫你列個伴手禮清單？';
+			case 'createLoadingPage.items.loadingText14': return '最棒的回憶即將產生...大概！';
+			case 'createLoadingPage.items.loadingText15': return '期待指數120%的旅行準備中！';
+			case 'createLoadingPage.items.loadingText16': return '正在探索隱藏景點中...';
+			case 'createLoadingPage.items.loadingText17': return 'Buddy正在偷偷計算最佳路線';
+			case 'createLoadingPage.items.loadingText18': return 'Buddy默默為您的旅行加油！';
+			case 'createLoadingPage.items.loadingText19': return '防止意外的方案也在準備中！';
+			case 'createLoadingPage.items.loadingText20': return '正在書寫快樂旅行的序章！';
+			case 'createLoadingPage.items.loadingText21': return '絕對不會迷路的路線...大概！';
+			case 'createLoadingPage.items.loadingText22': return '這段文字是Buddy絞盡腦汁想出來的';
+			case 'createLoadingPage.items.loadingText23': return '祝今天生日的人生日快樂！';
+			case 'createLoadingPage.items.loadingText24': return '編織旅行夢想中...';
+			case 'createLoadingPage.items.loadingText25': return '注入旅行願望中...';
+			case 'createLoadingPage.items.loadingText26': return '等待旅行奇蹟中...';
+			case 'createLoadingPage.items.loadingText27': return '期待旅行邂逅中...';
+			case 'createLoadingPage.items.loadingText28': return '為意外相遇預留0.1%的可能';
+			case 'createLoadingPage.items.loadingText29': return '探索只有當地人知道的私房景點';
+			case 'createLoadingPage.items.loadingText30': return 'Buddy正在規劃中...喝杯茶等等吧';
+			case 'createLoadingPage.items.loadingText31': return '防止迷路的地圖準備中';
+			case 'createLoadingPage.items.loadingText32': return '比飛機雲消失還快的規劃速度！';
+			case 'createLoadingPage.items.loadingText33': return '尋找最適合自拍的打卡地點';
+			case 'createLoadingPage.items.loadingText34': return '邊吃零食邊規劃中';
+			case 'createLoadingPage.items.loadingText35': return '在主題中找到心儀的計畫！';
+			case 'createLoadingPage.items.loadingText36': return '隨時都能更改個人資料哦！';
+			case 'createLoadingPage.items.loadingText37': return '期待您的應用評價！';
+			case 'createLoadingPage.items.loadingText38': return '貓派還是狗派？我選貓派';
+			case 'createLoadingPage.items.loadingText39': return '願您的觀光之旅一切順利！';
+			case 'createLoadingPage.items.loadingText40': return '今天一定會有好事發生！';
 			case 'locales.en': return '英語';
 			case 'locales.ja': return '日語';
 			case 'locales.zh': return '中文';

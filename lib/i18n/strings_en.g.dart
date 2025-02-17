@@ -54,6 +54,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPromptEn prompt = TranslationsPromptEn._(_root);
 	late final TranslationsBillDetailsPageEn billDetailsPage = TranslationsBillDetailsPageEn._(_root);
 	late final TranslationsPlanDetailsPageEn planDetailsPage = TranslationsPlanDetailsPageEn._(_root);
+	late final TranslationsCreateLoadingPageEn createLoadingPage = TranslationsCreateLoadingPageEn._(_root);
 	Map<String, String> get locales => {
 		'en': 'English',
 		'ja': 'Japanese',
@@ -106,10 +107,9 @@ class TranslationsAuthenticationEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final TranslationsAuthenticationSignInPageEn signInPage = TranslationsAuthenticationSignInPageEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageEn authenticationPage = TranslationsAuthenticationAuthenticationPageEn._(_root);
 	late final TranslationsAuthenticationFirebaseAuthEn firebaseAuth = TranslationsAuthenticationFirebaseAuthEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageEn resetPasswordPage = TranslationsAuthenticationResetPasswordPageEn._(_root);
-	late final TranslationsAuthenticationSignUpPageEn signUpPage = TranslationsAuthenticationSignUpPageEn._(_root);
 	late final TranslationsAuthenticationEmailVerificationPageEn emailVerificationPage = TranslationsAuthenticationEmailVerificationPageEn._(_root);
 	late final TranslationsAuthenticationRegisterProfilePageEn registerProfilePage = TranslationsAuthenticationRegisterProfilePageEn._(_root);
 	late final TranslationsAuthenticationCompleteSendEmailPageEn completeSendEmailPage = TranslationsAuthenticationCompleteSendEmailPageEn._(_root);
@@ -324,6 +324,16 @@ class TranslationsPlanDetailsPageEn {
 	late final TranslationsPlanDetailsPageSnackBarEn snackBar = TranslationsPlanDetailsPageSnackBarEn._(_root);
 }
 
+// Path: createLoadingPage
+class TranslationsCreateLoadingPageEn {
+	TranslationsCreateLoadingPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsCreateLoadingPageItemsEn items = TranslationsCreateLoadingPageItemsEn._(_root);
+}
+
 // Path: errorPage
 class TranslationsErrorPageEn {
 	TranslationsErrorPageEn._(this._root);
@@ -444,17 +454,18 @@ class TranslationsAccountPageDiaLogEn {
 	String get deleteAccountText => 'Deleting your account will remove all data.';
 }
 
-// Path: authentication.signInPage
-class TranslationsAuthenticationSignInPageEn {
-	TranslationsAuthenticationSignInPageEn._(this._root);
+// Path: authentication.authenticationPage
+class TranslationsAuthenticationAuthenticationPageEn {
+	TranslationsAuthenticationAuthenticationPageEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Sign In';
+	String get title => 'Sign In / Sign Up';
 	String get optionText => ' or ';
-	late final TranslationsAuthenticationSignInPageTextFieldsEn textFields = TranslationsAuthenticationSignInPageTextFieldsEn._(_root);
-	late final TranslationsAuthenticationSignInPageButtonsEn buttons = TranslationsAuthenticationSignInPageButtonsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageTextFieldsEn textFields = TranslationsAuthenticationAuthenticationPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageButtonsEn buttons = TranslationsAuthenticationAuthenticationPageButtonsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(_root);
 }
 
 // Path: authentication.firebaseAuth
@@ -480,18 +491,6 @@ class TranslationsAuthenticationResetPasswordPageEn {
 	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
 }
 
-// Path: authentication.signUpPage
-class TranslationsAuthenticationSignUpPageEn {
-	TranslationsAuthenticationSignUpPageEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsAuthenticationSignUpPageTitleEn title = TranslationsAuthenticationSignUpPageTitleEn._(_root);
-	late final TranslationsAuthenticationSignUpPageTextFieldsEn textFields = TranslationsAuthenticationSignUpPageTextFieldsEn._(_root);
-	late final TranslationsAuthenticationSignUpPageButtonEn button = TranslationsAuthenticationSignUpPageButtonEn._(_root);
-}
-
 // Path: authentication.emailVerificationPage
 class TranslationsAuthenticationEmailVerificationPageEn {
 	TranslationsAuthenticationEmailVerificationPageEn._(this._root);
@@ -500,7 +499,7 @@ class TranslationsAuthenticationEmailVerificationPageEn {
 
 	// Translations
 	String get title => 'Email Address Verification';
-	String descriptionForDestination({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+	String descriptionForDestination({required Object email}) => 'A verification email has been sent to the entered ${email}';
 	String get descriptionForCoolDown => 'You can resend the verification email once every 60 seconds.';
 	late final TranslationsAuthenticationEmailVerificationPageButtonsEn buttons = TranslationsAuthenticationEmailVerificationPageButtonsEn._(_root);
 	late final TranslationsAuthenticationEmailVerificationPageSnackBarEn snackBar = TranslationsAuthenticationEmailVerificationPageSnackBarEn._(_root);
@@ -856,9 +855,8 @@ class TranslationsBillDetailsPageRestorePurchaseSectionEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Restore Purchase';
-	String get description => 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
 	String get button => 'Restore Purchase';
+	String get textButton => 'What is Restore Purchase?';
 }
 
 // Path: billDetailsPage.snackBar
@@ -902,9 +900,58 @@ class TranslationsPlanDetailsPageSnackBarEn {
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
-// Path: authentication.signInPage.textFields
-class TranslationsAuthenticationSignInPageTextFieldsEn {
-	TranslationsAuthenticationSignInPageTextFieldsEn._(this._root);
+// Path: createLoadingPage.items
+class TranslationsCreateLoadingPageItemsEn {
+	TranslationsCreateLoadingPageItemsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get loadingText1 => 'Buddy\'s secretly crafting your travel plans... Shh!';
+	String get loadingText2 => 'Planning the best trip ever... Buddy\'s excited too!';
+	String get loadingText3 => 'Hold onto your passport, adventure loading...';
+	String get loadingText4 => 'Perfect time to daydream about your destination!';
+	String get loadingText5 => 'No snooze button on this adventure!';
+	String get loadingText6 => 'Searching for the best food spots... yum!';
+	String get loadingText7 => 'Creating a no-getting-lost plan... probably.';
+	String get loadingText8 => 'Maybe adding a surprise or two...';
+	String get loadingText9 => 'Buddy\'s working overtime for your perfect trip!';
+	String get loadingText10 => 'Your adventure is brewing...';
+	String get loadingText11 => 'Crafting your travel guide with extra care!';
+	String get loadingText12 => 'Lost? Don\'t worry, Buddy\'s got your back!';
+	String get loadingText13 => 'Shall we make a souvenir shopping list?';
+	String get loadingText14 => 'Amazing memories loading... 99%';
+	String get loadingText15 => 'Excitement level: Over 9000!';
+	String get loadingText16 => 'Hunting for hidden gems just for you...';
+	String get loadingText17 => 'Buddy\'s calculating the best routes... with math!';
+	String get loadingText18 => 'Your personal travel cheerleader at work!';
+	String get loadingText19 => 'Preparing Plan B, C, and maybe Z...';
+	String get loadingText20 => 'Writing the prologue to your adventure!';
+	String get loadingText21 => 'Creating an un-lose-able route... hopefully!';
+	String get loadingText22 => 'Buddy\'s brain is working hard right now';
+	String get loadingText23 => 'Happy birthday to someone, somewhere!';
+	String get loadingText24 => 'Weaving travel dreams...';
+	String get loadingText25 => 'Sprinkling travel wishes...';
+	String get loadingText26 => 'Waiting for travel miracles...';
+	String get loadingText27 => 'Expecting unexpected encounters...';
+	String get loadingText28 => 'Leaving 0.1% room for serendipity';
+	String get loadingText29 => 'Finding spots only locals know about';
+	String get loadingText30 => 'Buddy\'s working... grab a coffee!';
+	String get loadingText31 => 'Preparing anti-lost maps...';
+	String get loadingText32 => 'Faster than a disappearing contrail!';
+	String get loadingText33 => 'Scouting Instagram-worthy photo spots';
+	String get loadingText34 => 'Taking a snack break while planning';
+	String get loadingText35 => 'Find your perfect plan in Topics!';
+	String get loadingText36 => 'Profile updates welcome anytime!';
+	String get loadingText37 => 'Reviews appreciated, high-fives welcome!';
+	String get loadingText38 => 'Team Cat or Team Dog? Meow all the way!';
+	String get loadingText39 => 'May your sightseeing be blessed!';
+	String get loadingText40 => 'Today\'s gonna be pawsome!';
+}
+
+// Path: authentication.authenticationPage.textFields
+class TranslationsAuthenticationAuthenticationPageTextFieldsEn {
+	TranslationsAuthenticationAuthenticationPageTextFieldsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -913,9 +960,9 @@ class TranslationsAuthenticationSignInPageTextFieldsEn {
 	String get password => 'Password';
 }
 
-// Path: authentication.signInPage.buttons
-class TranslationsAuthenticationSignInPageButtonsEn {
-	TranslationsAuthenticationSignInPageButtonsEn._(this._root);
+// Path: authentication.authenticationPage.buttons
+class TranslationsAuthenticationAuthenticationPageButtonsEn {
+	TranslationsAuthenticationAuthenticationPageButtonsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -926,6 +973,17 @@ class TranslationsAuthenticationSignInPageButtonsEn {
 	String get appleSignIn => 'Sign in with Apple';
 	String get googleSignIn => 'Sign in with Google';
 	String get signInAfter => 'Register Later';
+}
+
+// Path: authentication.authenticationPage.changeLanguageDialog
+class TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
+	TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Select Language';
+	String get button => 'Close';
 }
 
 // Path: authentication.firebaseAuth.error
@@ -962,39 +1020,6 @@ class TranslationsAuthenticationResetPasswordPageButtonsEn {
 
 	// Translations
 	String get submit => 'Submit';
-}
-
-// Path: authentication.signUpPage.title
-class TranslationsAuthenticationSignUpPageTitleEn {
-	TranslationsAuthenticationSignUpPageTitleEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get defaultText => 'Sign Up';
-	String get modifyEmail => 'Change Email Address';
-}
-
-// Path: authentication.signUpPage.textFields
-class TranslationsAuthenticationSignUpPageTextFieldsEn {
-	TranslationsAuthenticationSignUpPageTextFieldsEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get email => 'Email Address';
-	String get password => 'Password';
-}
-
-// Path: authentication.signUpPage.button
-class TranslationsAuthenticationSignUpPageButtonEn {
-	TranslationsAuthenticationSignUpPageButtonEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get defaultText => 'Sign Up';
-	String get modifyEmail => 'Change Email Address';
 }
 
 // Path: authentication.emailVerificationPage.buttons
@@ -1065,6 +1090,7 @@ class TranslationsAuthenticationPhoneNumberInputPageDiscriptionEn {
 	String get receive => 'Please enter your phone number';
 	String get internationalFormat => 'in international format';
 	String get input => 'to receive the SMS code';
+	String get purposeForPhoneNumber => 'Your phone number will only be used to send an SMS verification code and will not be used for any other purpose';
 }
 
 // Path: authentication.phoneNumberInputPage.scaffoldMessenger
@@ -1075,6 +1101,7 @@ class TranslationsAuthenticationPhoneNumberInputPageScaffoldMessengerEn {
 
 	// Translations
 	String get empty => 'Please enter your phone number';
+	String get invalidPhoneNumber => 'The phone number format is incorrect';
 	String get success => 'SMS code has been sent';
 	String get error => 'Failed to send SMS code. Please check your phone number and try again.';
 	String get unexpectedError => 'An unexpected error occurred:';
@@ -1385,16 +1412,18 @@ extension on Translations {
 			case 'accountPage.diaLog.signOutText': return 'Re-login is required to use the app\'s features.';
 			case 'accountPage.diaLog.deleteAccount': return 'Do you want to delete your account?';
 			case 'accountPage.diaLog.deleteAccountText': return 'Deleting your account will remove all data.';
-			case 'authentication.signInPage.title': return 'Sign In';
-			case 'authentication.signInPage.optionText': return ' or ';
-			case 'authentication.signInPage.textFields.email': return 'Email Address';
-			case 'authentication.signInPage.textFields.password': return 'Password';
-			case 'authentication.signInPage.buttons.signIn': return 'Sign In';
-			case 'authentication.signInPage.buttons.signUp': return 'Sign Up';
-			case 'authentication.signInPage.buttons.resetPassword': return 'Forgot Password?';
-			case 'authentication.signInPage.buttons.appleSignIn': return 'Sign in with Apple';
-			case 'authentication.signInPage.buttons.googleSignIn': return 'Sign in with Google';
-			case 'authentication.signInPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.authenticationPage.title': return 'Sign In / Sign Up';
+			case 'authentication.authenticationPage.optionText': return ' or ';
+			case 'authentication.authenticationPage.textFields.email': return 'Email Address';
+			case 'authentication.authenticationPage.textFields.password': return 'Password';
+			case 'authentication.authenticationPage.buttons.signIn': return 'Sign In';
+			case 'authentication.authenticationPage.buttons.signUp': return 'Sign Up';
+			case 'authentication.authenticationPage.buttons.resetPassword': return 'Forgot Password?';
+			case 'authentication.authenticationPage.buttons.appleSignIn': return 'Sign in with Apple';
+			case 'authentication.authenticationPage.buttons.googleSignIn': return 'Sign in with Google';
+			case 'authentication.authenticationPage.buttons.signInAfter': return 'Register Later';
+			case 'authentication.authenticationPage.changeLanguageDialog.title': return 'Select Language';
+			case 'authentication.authenticationPage.changeLanguageDialog.button': return 'Close';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return 'Please try again in a good network environment';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'Password is too short. Please enter 6 characters or more';
 			case 'authentication.firebaseAuth.error.invalidEmail': return 'Email address is not in the correct format';
@@ -1406,14 +1435,8 @@ extension on Translations {
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
-			case 'authentication.signUpPage.title.defaultText': return 'Sign Up';
-			case 'authentication.signUpPage.title.modifyEmail': return 'Change Email Address';
-			case 'authentication.signUpPage.textFields.email': return 'Email Address';
-			case 'authentication.signUpPage.textFields.password': return 'Password';
-			case 'authentication.signUpPage.button.defaultText': return 'Sign Up';
-			case 'authentication.signUpPage.button.modifyEmail': return 'Change Email Address';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
-			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email will be sent to the entered ${email}.';
+			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email has been sent to the entered ${email}';
 			case 'authentication.emailVerificationPage.descriptionForCoolDown': return 'You can resend the verification email once every 60 seconds.';
 			case 'authentication.emailVerificationPage.buttons.sendEmail': return 'Send Verification Email';
 			case 'authentication.emailVerificationPage.buttons.resendEmail': return 'Resend Verification Email';
@@ -1438,9 +1461,11 @@ extension on Translations {
 			case 'authentication.phoneNumberInputPage.discription.receive': return 'Please enter your phone number';
 			case 'authentication.phoneNumberInputPage.discription.internationalFormat': return 'in international format';
 			case 'authentication.phoneNumberInputPage.discription.input': return 'to receive the SMS code';
+			case 'authentication.phoneNumberInputPage.discription.purposeForPhoneNumber': return 'Your phone number will only be used to send an SMS verification code and will not be used for any other purpose';
 			case 'authentication.phoneNumberInputPage.phoneNumber': return 'Phone Number';
 			case 'authentication.phoneNumberInputPage.sendSmsCode': return 'Send SMS Code';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.empty': return 'Please enter your phone number';
+			case 'authentication.phoneNumberInputPage.scaffoldMessenger.invalidPhoneNumber': return 'The phone number format is incorrect';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.success': return 'SMS code has been sent';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.error': return 'Failed to send SMS code. Please check your phone number and try again.';
 			case 'authentication.phoneNumberInputPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';
@@ -1605,9 +1630,8 @@ extension on Translations {
 			case 'billDetailsPage.pricingOptions.unlimited.duration': return 'Unlimited';
 			case 'billDetailsPage.pricingOptions.unlimited.discount': return '-20%';
 			case 'billDetailsPage.pricingOptions.unlimited.price': return '25,800 yen';
-			case 'billDetailsPage.restorePurchaseSection.title': return 'Restore Purchase';
-			case 'billDetailsPage.restorePurchaseSection.description': return 'If you have valid items purchased in the past using the same AppStore or Google Play account, you can restore those purchases.';
 			case 'billDetailsPage.restorePurchaseSection.button': return 'Restore Purchase';
+			case 'billDetailsPage.restorePurchaseSection.textButton': return 'What is Restore Purchase?';
 			case 'billDetailsPage.upgradeButton': return 'Upgrade to Premium';
 			case 'billDetailsPage.snackBar.error.failedToPurchase': return 'Purchase failed. Please try again later.';
 			case 'billDetailsPage.snackBar.error.PurchaseHistoryNotFound': return 'No purchase history found.';
@@ -1616,6 +1640,46 @@ extension on Translations {
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
+			case 'createLoadingPage.items.loadingText1': return 'Buddy\'s secretly crafting your travel plans... Shh!';
+			case 'createLoadingPage.items.loadingText2': return 'Planning the best trip ever... Buddy\'s excited too!';
+			case 'createLoadingPage.items.loadingText3': return 'Hold onto your passport, adventure loading...';
+			case 'createLoadingPage.items.loadingText4': return 'Perfect time to daydream about your destination!';
+			case 'createLoadingPage.items.loadingText5': return 'No snooze button on this adventure!';
+			case 'createLoadingPage.items.loadingText6': return 'Searching for the best food spots... yum!';
+			case 'createLoadingPage.items.loadingText7': return 'Creating a no-getting-lost plan... probably.';
+			case 'createLoadingPage.items.loadingText8': return 'Maybe adding a surprise or two...';
+			case 'createLoadingPage.items.loadingText9': return 'Buddy\'s working overtime for your perfect trip!';
+			case 'createLoadingPage.items.loadingText10': return 'Your adventure is brewing...';
+			case 'createLoadingPage.items.loadingText11': return 'Crafting your travel guide with extra care!';
+			case 'createLoadingPage.items.loadingText12': return 'Lost? Don\'t worry, Buddy\'s got your back!';
+			case 'createLoadingPage.items.loadingText13': return 'Shall we make a souvenir shopping list?';
+			case 'createLoadingPage.items.loadingText14': return 'Amazing memories loading... 99%';
+			case 'createLoadingPage.items.loadingText15': return 'Excitement level: Over 9000!';
+			case 'createLoadingPage.items.loadingText16': return 'Hunting for hidden gems just for you...';
+			case 'createLoadingPage.items.loadingText17': return 'Buddy\'s calculating the best routes... with math!';
+			case 'createLoadingPage.items.loadingText18': return 'Your personal travel cheerleader at work!';
+			case 'createLoadingPage.items.loadingText19': return 'Preparing Plan B, C, and maybe Z...';
+			case 'createLoadingPage.items.loadingText20': return 'Writing the prologue to your adventure!';
+			case 'createLoadingPage.items.loadingText21': return 'Creating an un-lose-able route... hopefully!';
+			case 'createLoadingPage.items.loadingText22': return 'Buddy\'s brain is working hard right now';
+			case 'createLoadingPage.items.loadingText23': return 'Happy birthday to someone, somewhere!';
+			case 'createLoadingPage.items.loadingText24': return 'Weaving travel dreams...';
+			case 'createLoadingPage.items.loadingText25': return 'Sprinkling travel wishes...';
+			case 'createLoadingPage.items.loadingText26': return 'Waiting for travel miracles...';
+			case 'createLoadingPage.items.loadingText27': return 'Expecting unexpected encounters...';
+			case 'createLoadingPage.items.loadingText28': return 'Leaving 0.1% room for serendipity';
+			case 'createLoadingPage.items.loadingText29': return 'Finding spots only locals know about';
+			case 'createLoadingPage.items.loadingText30': return 'Buddy\'s working... grab a coffee!';
+			case 'createLoadingPage.items.loadingText31': return 'Preparing anti-lost maps...';
+			case 'createLoadingPage.items.loadingText32': return 'Faster than a disappearing contrail!';
+			case 'createLoadingPage.items.loadingText33': return 'Scouting Instagram-worthy photo spots';
+			case 'createLoadingPage.items.loadingText34': return 'Taking a snack break while planning';
+			case 'createLoadingPage.items.loadingText35': return 'Find your perfect plan in Topics!';
+			case 'createLoadingPage.items.loadingText36': return 'Profile updates welcome anytime!';
+			case 'createLoadingPage.items.loadingText37': return 'Reviews appreciated, high-fives welcome!';
+			case 'createLoadingPage.items.loadingText38': return 'Team Cat or Team Dog? Meow all the way!';
+			case 'createLoadingPage.items.loadingText39': return 'May your sightseeing be blessed!';
+			case 'createLoadingPage.items.loadingText40': return 'Today\'s gonna be pawsome!';
 			case 'locales.en': return 'English';
 			case 'locales.ja': return 'Japanese';
 			case 'locales.zh': return 'Chinese';

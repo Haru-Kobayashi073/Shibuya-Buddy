@@ -1,4 +1,7 @@
 "NSPhotoLibraryUsageDescription" = "プロフィールのアイコンの設定にフォトライブラリから選択します。許可をしますか？";
+"NSUserTrackingUsageDescription" = "広告などの最適化のため、あなたのデータをトラッキングします。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "「常に許可」を選択するとサービスの改善にデータが使用されます。ご協力ください。あなたの位置情報が他人にシェアされることはありません。";
+"NSLocationWhenInUseUsageDescription" = "「常に許可」を選択するとサービスの改善にデータが使用されます。ご協力ください。";
 
 /*
   InfoPlist.strings

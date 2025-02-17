@@ -56,20 +56,24 @@
         }
     },
     "authentication": {
-        "signInPage": {
-            "title": "登入",
+        "authenticationPage": {
+            "title": "登入 / 註冊",
             "optionText": " 或 ",
             "textFields": {
-                "email": "電郵",
+                "email": "電子郵件地址",
                 "password": "密碼"
             },
             "buttons": {
                 "signIn": "登入",
                 "signUp": "註冊",
                 "resetPassword": "忘記密碼？",
-                "appleSignIn": "使用Apple登入",
-                "googleSignIn": "使用Google登入",
+                "appleSignIn": "使用 Apple 登入",
+                "googleSignIn": "使用 Google 登入",
                 "signInAfter": "稍後註冊"
+            },
+            "changeLanguageDialog": {
+                "title": "選擇語言",
+                "button": "關閉"
             }
         },
         "firebaseAuth": {
@@ -93,23 +97,9 @@
                 "submit": "發送"
             }
         },
-        "signUpPage": {
-            "title": {
-                "defaultText": "新用戶註冊",
-                "modifyEmail": "更改電子郵件地址"
-            },
-            "textFields": {
-                "email": "電子郵件地址",
-                "password": "密碼"
-            },
-            "button": {
-                "defaultText": "註冊",
-                "modifyEmail": "更改"
-            }
-        },
         "emailVerificationPage": {
             "title": "電子郵件地址驗證",
-            "descriptionForDestination": "將向輸入的${email}發送確認郵件。",
+            "descriptionForDestination": "已向輸入的${email}發送了驗證郵件",
             "descriptionForCoolDown": "確認郵件每60秒只能重新發送一次。",
             "buttons": {
                 "sendEmail": "發送確認郵件",
@@ -154,12 +144,14 @@
             "discription": {
                 "receive": "以接收 SMS 驗證碼",
                 "internationalFormat": "國際電話格式",
-                "input": "請輸入您的電話號碼"
+                "input": "請輸入您的電話號碼",
+                "purposeForPhoneNumber": "您的電話號碼僅用於發送SMS驗證碼，不會被用於其他用途"
             },
             "phoneNumber": "電話號碼",
             "sendSmsCode": "發送 SMS 驗證碼",
             "scaffoldMessenger": {
                 "empty": "請輸入您的電話號碼",
+                "invalidPhoneNumber": "電話號碼格式不正確",
                 "success": "SMS 驗證碼已發送",
                 "error": "SMS 驗證碼發送失敗。請確認電話號碼後再試一次。",
                 "unexpectedError": "發生未預期的錯誤：",
@@ -447,9 +439,8 @@
             }
         },
         "restorePurchaseSection": {
-            "title": "恢復購買",
-            "description": "如果您過去使用相同的AppStore帳戶或Google Play帳戶購買了有效的項目，可以恢復這些購買。",
-            "button": "恢復購買"
+            "button": "恢復購買",
+            "textButton": "什麼是購買恢復？"
         },
         "upgradeButton": "升級到高級方案",
         "snackBar": {
@@ -472,6 +463,50 @@
             "error": {
                 "failedToUpdateBookmark": "更新書籤失敗，請稍後再試"
             }
+        }
+    },
+    "createLoadingPage":{
+        "items":{
+            "loadingText1": "Buddy正在偷偷規劃旅行方案...",
+            "loadingText2": "正在計畫最棒的旅行...Buddy也很期待！",
+            "loadingText3": "旅行的未來即將揭曉，稍等片刻~",
+            "loadingText4": "趁著載入時間做做旅行白日夢吧！",
+            "loadingText5": "賴床計畫？...不可能的！",
+            "loadingText6": "美食地圖正在完美規劃中！",
+            "loadingText7": "規劃不會迷路的路線...應該！",
+            "loadingText8": "也許會加入一些小驚喜哦？",
+            "loadingText9": "Buddy正在努力創造完美旅程！",
+            "loadingText10": "愉快的旅行準備正在進行中！",
+            "loadingText11": "旅行手冊正在悄悄製作中...",
+            "loadingText12": "迷路了？Buddy會想辦法的...大概！",
+            "loadingText13": "要不要幫你列個伴手禮清單？",
+            "loadingText14": "最棒的回憶即將產生...大概！",
+            "loadingText15": "期待指數120%的旅行準備中！",
+            "loadingText16": "正在探索隱藏景點中...",
+            "loadingText17": "Buddy正在偷偷計算最佳路線",
+            "loadingText18": "Buddy默默為您的旅行加油！",
+            "loadingText19": "防止意外的方案也在準備中！",
+            "loadingText20": "正在書寫快樂旅行的序章！",
+            "loadingText21": "絕對不會迷路的路線...大概！",
+            "loadingText22": "這段文字是Buddy絞盡腦汁想出來的",
+            "loadingText23": "祝今天生日的人生日快樂！",
+            "loadingText24": "編織旅行夢想中...",
+            "loadingText25": "注入旅行願望中...",
+            "loadingText26": "等待旅行奇蹟中...",
+            "loadingText27": "期待旅行邂逅中...",
+            "loadingText28": "為意外相遇預留0.1%的可能",
+            "loadingText29": "探索只有當地人知道的私房景點",
+            "loadingText30": "Buddy正在規劃中...喝杯茶等等吧",
+            "loadingText31": "防止迷路的地圖準備中",
+            "loadingText32": "比飛機雲消失還快的規劃速度！",
+            "loadingText33": "尋找最適合自拍的打卡地點",
+            "loadingText34": "邊吃零食邊規劃中",
+            "loadingText35": "在主題中找到心儀的計畫！",
+            "loadingText36": "隨時都能更改個人資料哦！",
+            "loadingText37": "期待您的應用評價！",
+            "loadingText38": "貓派還是狗派？我選貓派",
+            "loadingText39": "願您的觀光之旅一切順利！",
+            "loadingText40": "今天一定會有好事發生！"
         }
     },
     "locales(map)": {
