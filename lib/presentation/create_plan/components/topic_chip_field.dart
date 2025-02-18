@@ -45,7 +45,10 @@ class TopicChipField extends ConsumerWidget {
                       ? AppColor.blue800Secondary
                       : Colors.transparent,
                 ),
-                label: Text(localeNotifier.getTranslatedTopicName(topic)),
+                label: Text(
+                  localeNotifier.getTranslatedTopicName(topic),
+                  style: const TextStyle(color: AppColor.black),
+                ),
                 showCheckmark: false,
                 onSelected: (value) {
                   onSelected(topic, isSelected: value);
