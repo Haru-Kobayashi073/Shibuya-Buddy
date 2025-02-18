@@ -84,18 +84,21 @@ class CreatePlanPage extends HookConsumerWidget {
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      color: AppColor.black,
                     ),
                   ),
                   const Gap(8),
                   PlanTextField(
-                    label: '',
                     prefixIcon: const Icon(
                       Symbols.location_on,
+                      // enabled: false の場合はデフォルトで薄い色になるため、
+                      // 必要に応じて color を指定し直す
                       color: AppColor.blue800Secondary,
                     ),
                     controller: locationController,
+                    readOnly: true,
                   ),
-                  // 場所終わり
+
                   const Gap(16),
                   // 日程入力のタイトル（共通：スケジュール）
                   Text(
