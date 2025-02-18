@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../i18n/strings.g.dart';
+import '../../../utils/styles/app_color.dart';
 import '../create_plan_notifier.dart';
 import 'plan_text_field.dart';
 
@@ -27,7 +28,10 @@ class ScheduleSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: PlanTextField(
-        prefixIcon: const Icon(Icons.calendar_month),
+        prefixIcon: const Icon(
+          Symbols.calendar_month,
+          color: AppColor.blue800Secondary,
+        ),
         label: isStartDate
             ? t.createPlanPage.label.scheduleStart
             : t.createPlanPage.label.scheduleEnd,

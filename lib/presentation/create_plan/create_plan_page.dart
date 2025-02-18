@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../i18n/strings.g.dart';
 import '../../utils/routes/app_router.dart';
@@ -33,7 +34,6 @@ class CreatePlanPage extends HookConsumerWidget {
     final startDateController = useTextEditingController();
     final endDateController = useTextEditingController();
 
-    // AsyncValueからデータ部分を取り出して、useEffectを常に呼び出すようにする
     final planState =
         planStateAsync.maybeWhen(data: (data) => data, orElse: () => null);
     useEffect(
@@ -89,7 +89,10 @@ class CreatePlanPage extends HookConsumerWidget {
                   const Gap(8),
                   PlanTextField(
                     label: '',
-                    prefixIcon: const Icon(Icons.location_on),
+                    prefixIcon: const Icon(
+                      Symbols.location_on,
+                      color: AppColor.blue800Secondary,
+                    ),
                     controller: locationController,
                   ),
                   // 場所終わり

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../utils/styles/app_color.dart';
 
@@ -24,10 +25,10 @@ class TransportSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     // 交通手段に対応するアイコンをマッピング
     final iconsMap = <String, IconData>{
-      'Train': Icons.train,
-      'Car': Icons.directions_car,
-      '車': Icons.directions_car,
-      'バス': Icons.directions_bus,
+      'Train': Symbols.train,
+      'Car': Symbols.directions_car,
+      '車': Symbols.directions_car,
+      'バス': Symbols.directions_bus,
     };
 
     return Wrap(
@@ -35,7 +36,7 @@ class TransportSelector extends StatelessWidget {
       runSpacing: 8,
       children: transportOptions.map((option) {
         final isSelected = selectedTransports.contains(option);
-        final icon = iconsMap[option] ?? Icons.directions_transit;
+        final icon = iconsMap[option] ?? Symbols.directions_transit;
 
         return TransportButton(
           option: option,

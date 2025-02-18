@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
@@ -67,7 +68,7 @@ class NumberOfPeopleSelector extends StatelessWidget {
                 text: subtitle,
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 14,
-                  color: Colors.grey,
+                  color: AppColor.grey600,
                 ),
               ),
             ],
@@ -89,7 +90,7 @@ class NumberOfPeopleSelector extends StatelessWidget {
                       const BoxConstraints(minWidth: 24, minHeight: 24),
                   onPressed: onDecrement,
                   iconSize: 14,
-                  icon: const Icon(Icons.remove),
+                  icon: const Icon(Symbols.remove),
                 ),
                 Text(
                   '$count',
@@ -101,7 +102,7 @@ class NumberOfPeopleSelector extends StatelessWidget {
                       const BoxConstraints(minWidth: 24, minHeight: 24),
                   onPressed: onIncrement,
                   iconSize: 14,
-                  icon: const Icon(Icons.add),
+                  icon: const Icon(Symbols.add),
                 ),
               ],
             ),
