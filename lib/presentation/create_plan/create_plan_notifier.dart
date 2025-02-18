@@ -45,7 +45,9 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
   void updateSelectedTopics(Topic topic, {required bool isSelected}) {
     final updatedTopics = List<Topic>.from(state.requireValue.selectedTopics);
     if (isSelected) {
-      if (!updatedTopics.contains(topic)) updatedTopics.add(topic);
+      if (!updatedTopics.contains(topic)) {
+        updatedTopics.add(topic);
+      }
     } else {
       updatedTopics.remove(topic);
     }
