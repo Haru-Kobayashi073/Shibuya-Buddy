@@ -76,7 +76,7 @@ class NumberOfPeopleSelector extends StatelessWidget {
         ),
         DecoratedBox(
           decoration: BoxDecoration(
-            border: Border.all(color: AppColor.blue800Secondary),
+            color: AppColor.blue50Background,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Padding(
