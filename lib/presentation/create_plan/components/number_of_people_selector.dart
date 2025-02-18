@@ -89,7 +89,7 @@ class NumberOfPeopleSelector extends StatelessWidget {
                   constraints:
                       const BoxConstraints(minWidth: 24, minHeight: 24),
                   onPressed: onDecrement,
-                  iconSize: 14,
+                  iconSize: 18,
                   icon: const Icon(Symbols.remove),
                 ),
                 Text(
@@ -101,7 +101,7 @@ class NumberOfPeopleSelector extends StatelessWidget {
                   constraints:
                       const BoxConstraints(minWidth: 24, minHeight: 24),
                   onPressed: onIncrement,
-                  iconSize: 14,
+                  iconSize: 18,
                   icon: const Icon(Symbols.add),
                 ),
               ],
