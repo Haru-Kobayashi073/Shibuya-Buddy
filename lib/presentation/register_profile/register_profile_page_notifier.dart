@@ -35,6 +35,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   RegisterProfilePageState build() {
     return RegisterProfilePageState(
       user: User(
+        name: currentUser.displayName.toString(),
         uid: currentUser.uid,
         billingGrade: BillingGrade.standard,
         createdAt: DateTime.now(),
@@ -43,7 +44,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
   }
 
   Future<void> registerInformation({
-    required String? name,
+    required String name,
     required void Function() onSuccess,
   }) async {
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
@@ -59,6 +60,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       await userDataSource.editUser(
         user: state.user,
       );
+      await currentUser.updateDisplayName(name);
       onSuccess();
     } on Exception catch (e) {
       logger.e('registerInformation: $e');
