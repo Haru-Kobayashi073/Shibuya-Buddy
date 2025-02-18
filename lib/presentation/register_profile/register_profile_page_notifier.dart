@@ -60,6 +60,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       await userDataSource.editUser(
         user: state.user,
       );
+      await currentUser.updateDisplayName(name);
       onSuccess();
     } on Exception catch (e) {
       logger.e('registerInformation: $e');
