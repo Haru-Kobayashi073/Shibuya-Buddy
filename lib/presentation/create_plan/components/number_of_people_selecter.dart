@@ -3,34 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
-class DottedLine extends StatelessWidget {
-  const DottedLine({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        const dashWidth = 4.0;
-        const dashHeight = 1.0;
-        final dashCount =
-            (constraints.constrainWidth() / (dashWidth * 2)).floor();
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(
-            dashCount,
-            (_) => const SizedBox(
-              width: dashWidth,
-              height: dashHeight,
-              child: DecoratedBox(
-                decoration: BoxDecoration(color: AppColor.grey200),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
-
 class NumberOfPeopleSelecter extends StatelessWidget {
   const NumberOfPeopleSelecter({
     super.key,
@@ -55,14 +27,15 @@ class NumberOfPeopleSelecter extends StatelessWidget {
       children: [
         _buildRow(
           label: '大人',
+          subtitle: '（13歳以上）',
           count: adultCount,
           onIncrement: onIncrementAdult,
           onDecrement: onDecrementAdult,
-          withDottedLine: true,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 4),
         _buildRow(
-          label: '子供',
+          label: '子ども',
+          subtitle: '（13歳未満）',
           count: childCount,
           onIncrement: onIncrementChild,
           onDecrement: onDecrementChild,
@@ -73,50 +46,68 @@ class NumberOfPeopleSelecter extends StatelessWidget {
 
   Widget _buildRow({
     required String label,
+    required String subtitle,
     required int count,
     required VoidCallback onIncrement,
     required VoidCallback onDecrement,
-    bool withDottedLine = false,
   }) {
-    final rowContent = Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(label, style: AppTextStyle.textStyle.copyWith(fontSize: 14)),
+        // RichText を使って、ラベル部分は濃い色、補足部分は薄い色で表示
+        RichText(
+          text: TextSpan(
+            text: label,
+            style: AppTextStyle.textStyle.copyWith(
+              fontSize: 14,
+              color: AppColor.black, // 濃い色
+            ),
+            children: [
+              TextSpan(
+                text: subtitle,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 14,
+                  color: Colors.grey, // 薄い色
+                ),
+              ),
+            ],
+          ),
+        ),
         DecoratedBox(
           decoration: BoxDecoration(
             border: Border.all(color: AppColor.blue800Secondary),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                onPressed: onDecrement,
-                iconSize: 16,
-                icon: const Icon(Icons.remove),
-              ),
-              Text(
-                '$count',
-                style: AppTextStyle.textStyle.copyWith(fontSize: 16),
-              ),
-              IconButton(
-                onPressed: onIncrement,
-                iconSize: 16,
-                icon: const Icon(Icons.add),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints:
+                      const BoxConstraints(minWidth: 24, minHeight: 24),
+                  onPressed: onDecrement,
+                  iconSize: 14,
+                  icon: const Icon(Icons.remove),
+                ),
+                Text(
+                  '$count',
+                  style: AppTextStyle.textStyle.copyWith(fontSize: 14),
+                ),
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints:
+                      const BoxConstraints(minWidth: 24, minHeight: 24),
+                  onPressed: onIncrement,
+                  iconSize: 14,
+                  icon: const Icon(Icons.add),
+                ),
+              ],
+            ),
           ),
         ),
       ],
     );
-    return withDottedLine
-        ? Column(
-            children: [
-              rowContent,
-              const SizedBox(height: 8),
-              const DottedLine(),
-            ],
-          )
-        : rowContent;
   }
 }
