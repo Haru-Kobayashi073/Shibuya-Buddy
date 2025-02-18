@@ -76,16 +76,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     );
   }
 
-  void updateCategory(String selectedCategory) {
-    final updatedList = _toggleListField(
-      selectedItems: state.requireValue.categories,
-      item: selectedCategory,
-    );
-    state = AsyncValue.data(
-      state.requireValue.copyWith(categories: updatedList),
-    );
-  }
-
   List<String> _toggleListField({
     required List<String> selectedItems,
     required String item,
@@ -163,16 +153,15 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
           'zh-Hans': 'M月d日 EEEE hh:mm a',
         }[currentLocale] ??
         'MMM d, EEEE HH:mm';
-
     return DateFormat(pattern, currentLocale).parse(dateString);
   }
 
   // 大人の人数操作
   void incrementAdult() {
     final newAdultCount = state.requireValue.adultCount + 1;
-    state =
-        AsyncValue.data(state.requireValue.copyWith(adultCount: newAdultCount));
-    print('大人の人数: $newAdultCount');
+    state = AsyncValue.data(
+      state.requireValue.copyWith(adultCount: newAdultCount),
+    );
   }
 
   void decrementAdult() {
@@ -181,16 +170,15 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(adultCount: newAdultCount),
       );
-      print('大人の人数: $newAdultCount');
     }
   }
 
   // 子供の人数操作
   void incrementChild() {
     final newChildCount = state.requireValue.childCount + 1;
-    state =
-        AsyncValue.data(state.requireValue.copyWith(childCount: newChildCount));
-    print('子供の人数: $newChildCount');
+    state = AsyncValue.data(
+      state.requireValue.copyWith(childCount: newChildCount),
+    );
   }
 
   void decrementChild() {
@@ -199,7 +187,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       state = AsyncValue.data(
         state.requireValue.copyWith(childCount: newChildCount),
       );
-      print('子供の人数: $newChildCount');
     }
   }
 }
