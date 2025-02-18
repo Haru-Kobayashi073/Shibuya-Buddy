@@ -29,10 +29,10 @@ class TopicChipField extends ConsumerWidget {
           final isSelected = selectedTopics.contains(topic);
           return Theme(
             data: Theme.of(context).copyWith(
-              splashColor: AppColor.grey400, // スプラッシュカラーをgreyに設定
-              highlightColor: Colors.transparent, // ハイライトカラーを透明に設定
-              focusColor: Colors.transparent, // フォーカスカラーを透明に設定
-              hoverColor: Colors.transparent, // ホバーカラーを透明に設定
+              splashColor: AppColor.grey400,
+              highlightColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
             ),
             child: Material(
               color: Colors.transparent,
