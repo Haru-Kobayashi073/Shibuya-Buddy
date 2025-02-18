@@ -13,6 +13,7 @@ class PlanTextField extends StatelessWidget {
     this.keyboardType,
     this.inputFormatters,
     this.onTap,
+    this.readOnly = true,
   });
 
   final String label;
@@ -21,6 +22,7 @@ class PlanTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final VoidCallback? onTap;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class PlanTextField extends StatelessWidget {
       onTap: onTap,
       minLines: 1,
       maxLines: 2,
-      readOnly: true,
+      readOnly: readOnly,
       controller: controller,
       keyboardType: keyboardType,
       textInputAction: TextInputAction.next,
