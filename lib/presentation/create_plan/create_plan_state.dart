@@ -20,7 +20,6 @@ class CreatePlanState with _$CreatePlanState {
 
   bool isSelectedAll() {
     return transports.isNotEmpty &&
-        categories.isNotEmpty &&
         topics.isNotEmpty &&
         startDate != null &&
         endDate != null &&
