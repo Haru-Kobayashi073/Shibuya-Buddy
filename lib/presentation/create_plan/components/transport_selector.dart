@@ -100,7 +100,7 @@ class TransportButton extends StatelessWidget {
                     option,
                     style: const TextStyle(
                       fontSize: 12,
-                      color: AppColor.blue800Secondary,
+                      color: AppColor.black,
                     ),
                   ),
                 ],
