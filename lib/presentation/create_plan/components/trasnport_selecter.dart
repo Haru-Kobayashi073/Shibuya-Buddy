@@ -23,30 +23,92 @@ class TransportSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 交通手段に対応するアイコンをマッピング
-    // 必要に応じて増やしたり変更したりしてください
     final iconsMap = <String, IconData>{
-      '電車': Icons.train,
-      '徒歩': Icons.directions_walk,
+      'Train': Icons.train,
+      'Car': Icons.directions_car,
       '車': Icons.directions_car,
       'バス': Icons.directions_bus,
     };
+
     return Wrap(
-      spacing: 8, // チップ同士の横方向の間隔
-      runSpacing: 8, // チップ同士の縦方向の間隔（折り返しが発生する場合）
+      spacing: 8,
+      runSpacing: 8,
       children: transportOptions.map((option) {
         final isSelected = selectedTransports.contains(option);
-        final icon = iconsMap[option] ?? Icons.directions_transit; // デフォルト
+        final icon = iconsMap[option] ?? Icons.directions_transit;
 
-        return FilterChip(
-          backgroundColor: AppColor.blue50Background,
-          side: BorderSide.none, // ボーダーを消す
-          avatar: Icon(icon, size: 18, color: AppColor.blue800Secondary),
-          label: Text(option),
-          selected: isSelected,
-          onSelected: (_) => onTransportSelected(option),
-          showCheckmark: false,
+        return TransportButton(
+          option: option,
+          icon: icon,
+          isSelected: isSelected,
+          onTap: () => onTransportSelected(option),
         );
       }).toList(),
+    );
+  }
+}
+
+class TransportButton extends StatelessWidget {
+  const TransportButton({
+    super.key,
+    required this.option,
+    required this.icon,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final String option;
+  final IconData icon;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: Theme.of(context).copyWith(
+        splashColor: AppColor.grey400, // ここでスプラッシュカラーを設定
+        highlightColor: Colors.transparent, // 必要に応じてハイライトカラーも調整
+      ),
+      child: Material(
+        color: AppColor.blue50Background,
+        borderRadius: BorderRadius.circular(8),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(8),
+          // InkWellのリップルアニメーションが利用される
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              border: isSelected
+                  ? Border.all(color: AppColor.blue800Secondary)
+                  : null,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    icon,
+                    size: 24,
+                    color: AppColor.blue800Secondary,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    option,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: AppColor.blue800Secondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
