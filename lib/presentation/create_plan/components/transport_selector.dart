@@ -66,8 +66,8 @@ class TransportButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        splashColor: AppColor.grey400, // ここでスプラッシュカラーを設定
-        highlightColor: Colors.transparent, // 必要に応じてハイライトカラーも調整
+        splashColor: AppColor.grey400,
+        highlightColor: Colors.transparent,
       ),
       child: Material(
         color: AppColor.blue50Background,
@@ -75,7 +75,6 @@ class TransportButton extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(8),
-          // InkWellのリップルアニメーションが利用される
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             width: 64,

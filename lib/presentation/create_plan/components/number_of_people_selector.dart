@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
-class NumberOfPeopleSelecter extends StatelessWidget {
-  const NumberOfPeopleSelecter({
+class NumberOfPeopleSelector extends StatelessWidget {
+  const NumberOfPeopleSelector({
     super.key,
     required this.adultCount,
     required this.childCount,
@@ -60,14 +60,14 @@ class NumberOfPeopleSelecter extends StatelessWidget {
             text: label,
             style: AppTextStyle.textStyle.copyWith(
               fontSize: 14,
-              color: AppColor.black, // 濃い色
+              color: AppColor.black,
             ),
             children: [
               TextSpan(
                 text: subtitle,
                 style: AppTextStyle.textStyle.copyWith(
                   fontSize: 14,
-                  color: Colors.grey, // 薄い色
+                  color: Colors.grey,
                 ),
               ),
             ],

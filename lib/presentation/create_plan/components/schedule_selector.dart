@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-import '../../../i18n/strings.g.dart'; // パスは必要に応じて調整してください
+import '../../../i18n/strings.g.dart';
 import '../create_plan_notifier.dart';
 import 'plan_text_field.dart';
 
 /// 日付選択用ウィジェット（入力フィールドのみを表示）
-class ScheduleSelecter extends StatelessWidget {
-  const ScheduleSelecter({
+class ScheduleSelector extends StatelessWidget {
+  const ScheduleSelector({
     super.key,
     required this.dateController,
     required this.planNotifier,
