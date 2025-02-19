@@ -216,11 +216,11 @@
     "changeLanguagePage": {
         "title": "語言",
         "items": {
-            "japanese": "日语",
-            "english": "英语",
-            "simplifiedChinese": "中文(简体字)",
+            "japanese": "日本語",
+            "english": "English",
+            "simplifiedChinese": "中文（简体）",
             "traditionalChinese": "中文(繁体字)",
-            "korean": "韓語"
+            "korean": "한국어"
         }
     },
     "changeThemePage": {
@@ -455,14 +455,20 @@
         "item": {
             "viewOnMap": "在地圖上查看"
         },
+        "haveUsedPlan": "您已使用此計畫",
+        "dialog": {
+            "title": "Q. 如何證明您已使用此計畫？",
+            "description": "A. 您已造訪計畫中包含的地點。\n 我們使用位置信息進行判斷，但不會將您的信息用於此功能以外的用途。",
+            "button": "關閉"
+        },
         "snackBar": {
             "error": {
                 "failedToUpdateBookmark": "更新書籤失敗，請稍後再試"
             }
         }
     },
-    "createLoadingPage":{
-        "items":{
+    "createLoadingPage": {
+        "items": {
             "loadingText1": "Buddy正在偷偷規劃旅行方案...",
             "loadingText2": "正在計畫最棒的旅行...Buddy也很期待！",
             "loadingText3": "旅行的未來即將揭曉，稍等片刻~",

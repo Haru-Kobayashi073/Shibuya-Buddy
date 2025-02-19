@@ -52,13 +52,21 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         smsCode,
       );
       state = state.copyWith(isSmsVerified: true);
+
+      final generatedName =
+          'user ${currentUser.uid.substring(currentUser.uid.length - 5)}';
+
       await userDataSource.createUser(
         user: User(
           uid: currentUser.uid,
           billingGrade: BillingGrade.standard,
           createdAt: DateTime.now(),
+          name: generatedName,
         ),
       );
+
+      await currentUser.updateDisplayName(generatedName);
+
       scaffoldMessenger.showSuccessSnackBar(
         i18n.success,
       );
