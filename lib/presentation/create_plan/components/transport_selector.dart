@@ -3,7 +3,8 @@ import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../utils/styles/app_color.dart';
 
-/// 交通手段の選択を行うカスタムウィジェット
+/// 交通手段の選択を行うカスタムウィジェット（多言語対応）
+/// 日本語、英語、韓国語、簡体字・繁体字中国語に対応します。
 class TransportSelector extends StatelessWidget {
   const TransportSelector({
     super.key,
@@ -23,12 +24,12 @@ class TransportSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 交通手段に対応するアイコンをマッピング
-    final iconsMap = <String, IconData>{
-      'Train': Symbols.train,
-      'Car': Symbols.directions_car,
-      '車': Symbols.directions_car,
-      'バス': Symbols.directions_bus,
+    // 多言語対応のため、各交通手段の名称を複数言語のバリアントとして定義
+    final iconsMap = <Set<String>, IconData>{
+      {'Train', '電車', '지하철', '火车', '火車'}: Symbols.train,
+      {'Walking', '徒歩', '걷기', '步行'}: Symbols.directions_walk,
+      {'Car', '車', '차', '汽车', '汽車'}: Symbols.directions_car,
+      {'Bus', 'バス', '버스', '巴士'}: Symbols.directions_bus,
     };
 
     return Wrap(
@@ -36,7 +37,14 @@ class TransportSelector extends StatelessWidget {
       runSpacing: 8,
       children: transportOptions.map((option) {
         final isSelected = selectedTransports.contains(option);
-        final icon = iconsMap[option] ?? Symbols.directions_transit;
+        // 各エントリのキー集合に指定のオプションが含まれているかでアイコンを決定
+        final icon = iconsMap.entries
+            .firstWhere(
+              (entry) => entry.key.contains(option),
+              orElse: () =>
+                  const MapEntry(<String>{}, Symbols.directions_transit),
+            )
+            .value;
 
         return TransportButton(
           option: option,
