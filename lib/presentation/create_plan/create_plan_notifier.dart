@@ -136,8 +136,8 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
         firstDate: state.requireValue.startDate!,
         lastDate: state.requireValue.endDate!
       ),
-      numberOfPeople:
-          '${state.requireValue.adultCount + state.requireValue.childCount}',
+      childCount: state.requireValue.childCountString,
+      adultCount: state.requireValue.adultCountString,
       transports: state.requireValue.transports,
       categories: state.requireValue.categories,
       topics: state.requireValue.selectedTopics,
