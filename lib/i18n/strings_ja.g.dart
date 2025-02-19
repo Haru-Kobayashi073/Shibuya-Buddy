@@ -225,26 +225,12 @@ class _TranslationsCreatePlanPageJa implements TranslationsCreatePlanPageEn {
 	@override late final _TranslationsCreatePlanPageLabelJa label = _TranslationsCreatePlanPageLabelJa._(_root);
 	@override late final _TranslationsCreatePlanPageHintTextJa hintText = _TranslationsCreatePlanPageHintTextJa._(_root);
 	@override late final _TranslationsCreatePlanPageModalJa modal = _TranslationsCreatePlanPageModalJa._(_root);
-	@override List<String> get numberOfPeopleOptions => [
-		'1人',
-		'2人',
-		'3人',
-		'4人',
-		'5人',
-		'6人以上',
-	];
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsJa numberOfPeopleOptions = _TranslationsCreatePlanPageNumberOfPeopleOptionsJa._(_root);
 	@override List<String> get transportOptions => [
 		'電車',
 		'徒歩',
 		'車',
 		'バス',
-	];
-	@override List<String> get categoryOptions => [
-		'子連れ向け',
-		'大人向け',
-		'エンタメ',
-		'アクティビティ',
-		'歴史',
 	];
 	@override List<String> get defaultTopics => [
 		'グルメ',
@@ -692,6 +678,7 @@ class _TranslationsCreatePlanPageLabelJa implements TranslationsCreatePlanPageLa
 
 	// Translations
 	@override String get location => '目的地';
+	@override String get scheduleTitle => 'スケジュール';
 	@override String get scheduleStart => '開始日';
 	@override String get scheduleEnd => '終了日';
 	@override String get numberOfPeople => '人数';
@@ -718,6 +705,17 @@ class _TranslationsCreatePlanPageModalJa implements TranslationsCreatePlanPageMo
 
 	// Translations
 	@override String get title => '日付を選択';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsJa implements TranslationsCreatePlanPageNumberOfPeopleOptionsEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultJa adult = _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultJa._(_root);
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsChildJa child = _TranslationsCreatePlanPageNumberOfPeopleOptionsChildJa._(_root);
 }
 
 // Path: createPlanPage.snackBar
@@ -1153,6 +1151,28 @@ class _TranslationsBuddyChatPageSnackBarErrorJa implements TranslationsBuddyChat
 	@override String get failedCompleteCreatePlan => 'プランの作成に失敗しました。時間をおいて再度お試しください';
 }
 
+// Path: createPlanPage.numberOfPeopleOptions.adult
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultJa implements TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsAdultJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '大人';
+	@override String get subtitle => '（13歳以上）';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions.child
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsChildJa implements TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsChildJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '子ども';
+	@override String get subtitle => '（13歳未満）';
+}
+
 // Path: createPlanPage.snackBar.error
 class _TranslationsCreatePlanPageSnackBarErrorJa implements TranslationsCreatePlanPageSnackBarErrorEn {
 	_TranslationsCreatePlanPageSnackBarErrorJa._(this._root);
@@ -1539,6 +1559,7 @@ extension on TranslationsJa {
 			case 'popularTopics.sectionName': return '人気のトピック';
 			case 'createPlanPage.title': return 'プランの作成';
 			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleTitle': return 'スケジュール';
 			case 'createPlanPage.label.scheduleStart': return '開始日';
 			case 'createPlanPage.label.scheduleEnd': return '終了日';
 			case 'createPlanPage.label.numberOfPeople': return '人数';
@@ -1547,21 +1568,14 @@ extension on TranslationsJa {
 			case 'createPlanPage.label.topics': return '旅のトピック';
 			case 'createPlanPage.hintText.location': return '渋谷';
 			case 'createPlanPage.modal.title': return '日付を選択';
-			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
-			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
-			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
-			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
-			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
-			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.numberOfPeopleOptions.adult.title': return '大人';
+			case 'createPlanPage.numberOfPeopleOptions.adult.subtitle': return '（13歳以上）';
+			case 'createPlanPage.numberOfPeopleOptions.child.title': return '子ども';
+			case 'createPlanPage.numberOfPeopleOptions.child.subtitle': return '（13歳未満）';
 			case 'createPlanPage.transportOptions.0': return '電車';
 			case 'createPlanPage.transportOptions.1': return '徒歩';
 			case 'createPlanPage.transportOptions.2': return '車';
 			case 'createPlanPage.transportOptions.3': return 'バス';
-			case 'createPlanPage.categoryOptions.0': return '子連れ向け';
-			case 'createPlanPage.categoryOptions.1': return '大人向け';
-			case 'createPlanPage.categoryOptions.2': return 'エンタメ';
-			case 'createPlanPage.categoryOptions.3': return 'アクティビティ';
-			case 'createPlanPage.categoryOptions.4': return '歴史';
 			case 'createPlanPage.defaultTopics.0': return 'グルメ';
 			case 'createPlanPage.defaultTopics.1': return 'ショッピング';
 			case 'createPlanPage.defaultTopics.2': return 'アクティビティ';

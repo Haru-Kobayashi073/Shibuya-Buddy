@@ -280,6 +280,7 @@
         "title": "プランの作成",
         "label": {
             "location": "目的地",
+            "scheduleTitle": "スケジュール",
             "scheduleStart": "開始日",
             "scheduleEnd": "終了日",
             "numberOfPeople": "人数",
@@ -293,26 +294,21 @@
         "modal": {
             "title": "日付を選択"
         },
-        "numberOfPeopleOptions": [
-            "1人",
-            "2人",
-            "3人",
-            "4人",
-            "5人",
-            "6人以上"
-        ],
+        "numberOfPeopleOptions": {
+            "adult": {
+                "title": "大人",
+                "subtitle": "（13歳以上）"
+            },
+            "child": {
+                "title": "子ども",
+                "subtitle": "（13歳未満）"
+            }
+        },
         "transportOptions": [
             "電車",
             "徒歩",
             "車",
             "バス"
-        ],
-        "categoryOptions": [
-            "子連れ向け",
-            "大人向け",
-            "エンタメ",
-            "アクティビティ",
-            "歴史"
         ],
         "defaultTopics": [
             "グルメ",

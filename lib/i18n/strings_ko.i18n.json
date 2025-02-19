@@ -280,6 +280,7 @@
         "title": "플랜 생성",
         "label": {
             "location": "목적지",
+            "scheduleTitle": "일정",
             "scheduleStart": "시작일",
             "scheduleEnd": "종료일",
             "numberOfPeople": "인원",
@@ -293,26 +294,21 @@
         "modal": {
             "title": "날짜 선택"
         },
-        "numberOfPeopleOptions": [
-            "1명",
-            "2명",
-            "3명",
-            "4명",
-            "5명",
-            "6명 이상"
-        ],
+        "numberOfPeopleOptions": {
+            "adult": {
+                "title": "어른",
+                "subtitle": "（13세 이상）"
+            },
+            "child": {
+                "title": "어린이",
+                "subtitle": "（13세 미만）"
+            }
+        },
         "transportOptions": [
             "전철",
             "도보",
             "자동차",
             "버스"
-        ],
-        "categoryOptions": [
-            "아이 동반",
-            "성인 대상",
-            "엔터테인먼트",
-            "액티비티",
-            "역사"
         ],
         "defaultTopics": [
             "맛집",
