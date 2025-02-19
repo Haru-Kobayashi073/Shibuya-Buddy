@@ -9,7 +9,7 @@ part 'user.g.dart';
 abstract class User with _$User {
   const factory User({
     required String uid,
-    String? name,
+    required String name,
     String? imageUrl,
     required BillingGrade billingGrade,
     @Default([]) List<String> bookmarkedPlanIds,

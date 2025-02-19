@@ -317,6 +317,8 @@ class _TranslationsPlanDetailsPageZhHant implements TranslationsPlanDetailsPageE
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeZhHant dateTime = _TranslationsPlanDetailsPageDateTimeZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageItemZhHant item = _TranslationsPlanDetailsPageItemZhHant._(_root);
+	@override String get haveUsedPlan => '您已使用此計畫';
+	@override late final _TranslationsPlanDetailsPageDialogZhHant dialog = _TranslationsPlanDetailsPageDialogZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarZhHant snackBar = _TranslationsPlanDetailsPageSnackBarZhHant._(_root);
 }
 
@@ -577,11 +579,11 @@ class _TranslationsChangeLanguagePageItemsZhHant implements TranslationsChangeLa
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get japanese => '日语';
-	@override String get english => '英语';
-	@override String get simplifiedChinese => '中文(简体字)';
+	@override String get japanese => '日本語';
+	@override String get english => 'English';
+	@override String get simplifiedChinese => '中文（简体）';
 	@override String get traditionalChinese => '中文(繁体字)';
-	@override String get korean => '韓語';
+	@override String get korean => '한국어';
 }
 
 // Path: changeThemePage.items
@@ -884,6 +886,18 @@ class _TranslationsPlanDetailsPageItemZhHant implements TranslationsPlanDetailsP
 
 	// Translations
 	@override String get viewOnMap => '在地圖上查看';
+}
+
+// Path: planDetailsPage.dialog
+class _TranslationsPlanDetailsPageDialogZhHant implements TranslationsPlanDetailsPageDialogEn {
+	_TranslationsPlanDetailsPageDialogZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Q. 如何證明您已使用此計畫？';
+	@override String get description => 'A. 您已造訪計畫中包含的地點。\n 我們使用位置信息進行判斷，但不會將您的信息用於此功能以外的用途。';
+	@override String get button => '關閉';
 }
 
 // Path: planDetailsPage.snackBar
@@ -1507,11 +1521,11 @@ extension on TranslationsZhHant {
 			case 'myPage.accountStatus.premium': return '進階會員';
 			case 'myPage.accountStatus.standard': return '標準會員';
 			case 'changeLanguagePage.title': return '語言';
-			case 'changeLanguagePage.items.japanese': return '日语';
-			case 'changeLanguagePage.items.english': return '英语';
-			case 'changeLanguagePage.items.simplifiedChinese': return '中文(简体字)';
+			case 'changeLanguagePage.items.japanese': return '日本語';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
 			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
-			case 'changeLanguagePage.items.korean': return '韓語';
+			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return '主题';
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';
@@ -1635,6 +1649,10 @@ extension on TranslationsZhHant {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
+			case 'planDetailsPage.haveUsedPlan': return '您已使用此計畫';
+			case 'planDetailsPage.dialog.title': return 'Q. 如何證明您已使用此計畫？';
+			case 'planDetailsPage.dialog.description': return 'A. 您已造訪計畫中包含的地點。\n 我們使用位置信息進行判斷，但不會將您的信息用於此功能以外的用途。';
+			case 'planDetailsPage.dialog.button': return '關閉';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後再試';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy正在偷偷規劃旅行方案...';
 			case 'createLoadingPage.items.loadingText2': return '正在計畫最棒的旅行...Buddy也很期待！';

@@ -317,6 +317,8 @@ class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeJa dateTime = _TranslationsPlanDetailsPageDateTimeJa._(_root);
 	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
+	@override String get haveUsedPlan => 'あなたはこのプランを利用しました';
+	@override late final _TranslationsPlanDetailsPageDialogJa dialog = _TranslationsPlanDetailsPageDialogJa._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarJa snackBar = _TranslationsPlanDetailsPageSnackBarJa._(_root);
 }
 
@@ -578,10 +580,10 @@ class _TranslationsChangeLanguagePageItemsJa implements TranslationsChangeLangua
 
 	// Translations
 	@override String get japanese => '日本語';
-	@override String get english => '英語';
-	@override String get simplifiedChinese => '中国語（簡体字）';
-	@override String get traditionalChinese => '中国語（繁体字）';
-	@override String get korean => '韓国語';
+	@override String get english => 'English';
+	@override String get simplifiedChinese => '中文（简体）';
+	@override String get traditionalChinese => '中文(繁体字)';
+	@override String get korean => '한국어';
 }
 
 // Path: changeThemePage.items
@@ -884,6 +886,18 @@ class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageI
 
 	// Translations
 	@override String get viewOnMap => '地図で見る';
+}
+
+// Path: planDetailsPage.dialog
+class _TranslationsPlanDetailsPageDialogJa implements TranslationsPlanDetailsPageDialogEn {
+	_TranslationsPlanDetailsPageDialogJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Q. どのようにしてプランを利用したことを示せますか？';
+	@override String get description => 'A. あなたはプランに含まれている場所に訪れました。\n 位置情報を利用して判断していますが、この機能以外に情報が使用されることはありません。';
+	@override String get button => '閉じる';
 }
 
 // Path: planDetailsPage.snackBar
@@ -1508,10 +1522,10 @@ extension on TranslationsJa {
 			case 'myPage.accountStatus.standard': return 'スタンダード会員';
 			case 'changeLanguagePage.title': return '言語';
 			case 'changeLanguagePage.items.japanese': return '日本語';
-			case 'changeLanguagePage.items.english': return '英語';
-			case 'changeLanguagePage.items.simplifiedChinese': return '中国語（簡体字）';
-			case 'changeLanguagePage.items.traditionalChinese': return '中国語（繁体字）';
-			case 'changeLanguagePage.items.korean': return '韓国語';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return 'テーマ';
 			case 'changeThemePage.items.system': return 'システム';
 			case 'changeThemePage.items.light': return 'ライト';
@@ -1635,6 +1649,10 @@ extension on TranslationsJa {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';
+			case 'planDetailsPage.haveUsedPlan': return 'あなたはこのプランを利用しました';
+			case 'planDetailsPage.dialog.title': return 'Q. どのようにしてプランを利用したことを示せますか？';
+			case 'planDetailsPage.dialog.description': return 'A. あなたはプランに含まれている場所に訪れました。\n 位置情報を利用して判断していますが、この機能以外に情報が使用されることはありません。';
+			case 'planDetailsPage.dialog.button': return '閉じる';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
 			case 'createLoadingPage.items.loadingText1': return 'Buddyが旅行プランを練ってます…こっそり。';
 			case 'createLoadingPage.items.loadingText2': return '最高の旅を計画中…Buddyもワクワク!';

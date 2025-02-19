@@ -21,7 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String get uid => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   BillingGrade get billingGrade => throw _privateConstructorUsedError;
   List<String> get bookmarkedPlanIds => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {String uid,
-      String? name,
+      String name,
       String? imageUrl,
       BillingGrade billingGrade,
       List<String> bookmarkedPlanIds,
@@ -73,7 +73,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? uid = null,
-    Object? name = freezed,
+    Object? name = null,
     Object? imageUrl = freezed,
     Object? billingGrade = null,
     Object? bookmarkedPlanIds = null,
@@ -86,10 +86,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -127,7 +127,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {String uid,
-      String? name,
+      String name,
       String? imageUrl,
       BillingGrade billingGrade,
       List<String> bookmarkedPlanIds,
@@ -149,7 +149,7 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = null,
-    Object? name = freezed,
+    Object? name = null,
     Object? imageUrl = freezed,
     Object? billingGrade = null,
     Object? bookmarkedPlanIds = null,
@@ -162,10 +162,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -199,7 +199,7 @@ class __$$UserImplCopyWithImpl<$Res>
 class _$UserImpl implements _User {
   const _$UserImpl(
       {required this.uid,
-      this.name,
+      required this.name,
       this.imageUrl,
       required this.billingGrade,
       final List<String> bookmarkedPlanIds = const [],
@@ -214,7 +214,7 @@ class _$UserImpl implements _User {
   @override
   final String uid;
   @override
-  final String? name;
+  final String name;
   @override
   final String? imageUrl;
   @override
@@ -298,7 +298,7 @@ class _$UserImpl implements _User {
 abstract class _User implements User {
   const factory _User(
       {required final String uid,
-      final String? name,
+      required final String name,
       final String? imageUrl,
       required final BillingGrade billingGrade,
       final List<String> bookmarkedPlanIds,
@@ -311,7 +311,7 @@ abstract class _User implements User {
   @override
   String get uid;
   @override
-  String? get name;
+  String get name;
   @override
   String? get imageUrl;
   @override

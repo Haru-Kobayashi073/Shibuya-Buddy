@@ -11,5 +11,6 @@ abstract class PlanDetailPageState with _$PlanDetailPageState {
     required Plan plan,
     required List<Place> places,
     required bool isBookmarked,
+    required bool haveUsedPlan,
   }) = _PlanDetailPageState;
 }

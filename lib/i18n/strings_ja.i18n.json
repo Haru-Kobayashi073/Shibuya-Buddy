@@ -132,7 +132,7 @@
             "title": "電話番号を入力",
             "discription": {
                 "receive": "SMSコードを受け取るために",
-                "internationalFormat" : "国際電話番号形式で",
+                "internationalFormat": "国際電話番号形式で",
                 "input": "電話番号を入力してください",
                 "purposeForPhoneNumber": "SMSコードを送信すること以外で電話番号が利用されることはありません"
             },
@@ -217,10 +217,10 @@
         "title": "言語",
         "items": {
             "japanese": "日本語",
-            "english": "英語",
-            "simplifiedChinese": "中国語（簡体字）",
-            "traditionalChinese": "中国語（繁体字）",
-            "korean": "韓国語"
+            "english": "English",
+            "simplifiedChinese": "中文（简体）",
+            "traditionalChinese": "中文(繁体字)",
+            "korean": "한국어"
         }
     },
     "changeThemePage": {
@@ -459,14 +459,20 @@
         "item": {
             "viewOnMap": "地図で見る"
         },
+        "haveUsedPlan": "あなたはこのプランを利用しました",
+        "dialog": {
+            "title": "Q. どのようにしてプランを利用したことを示せますか？",
+            "description": "A. あなたはプランに含まれている場所に訪れました。\n 位置情報を利用して判断していますが、この機能以外に情報が使用されることはありません。",
+            "button": "閉じる"
+        },
         "snackBar": {
             "error": {
                 "failedToUpdateBookmark": "ブックマークの更新に失敗しました しばらくしてから再度お試しください"
             }
         }
     },
-    "createLoadingPage":{
-        "items":{
+    "createLoadingPage": {
+        "items": {
             "loadingText1": "Buddyが旅行プランを練ってます…こっそり。",
             "loadingText2": "最高の旅を計画中…Buddyもワクワク!",
             "loadingText3": "旅行の未来、ちょっとだけ待ってね。",

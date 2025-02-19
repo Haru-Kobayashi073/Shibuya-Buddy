@@ -66,7 +66,7 @@ class AccountStatus extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 3),
                     child: Text(
-                      user.name ?? myPageItemi18n.unregisteredUserName,
+                      user.name,
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
