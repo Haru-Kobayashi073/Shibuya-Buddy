@@ -102,7 +102,7 @@ class CreatePlanPage extends HookConsumerWidget {
                   const Gap(16),
                   // 日程入力のタイトル（共通：スケジュール）
                   Text(
-                    'スケジュール',
+                    t.createPlanPage.label.scheduleTitle,
                     style: AppTextStyle.textStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

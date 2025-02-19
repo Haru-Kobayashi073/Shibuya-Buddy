@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 
@@ -27,16 +28,16 @@ class NumberOfPeopleSelector extends StatelessWidget {
     return Column(
       children: [
         _buildRow(
-          label: '大人',
-          subtitle: '（13歳以上）',
+          label: t.createPlanPage.numberOfPeopleOptions.adult.title,
+          subtitle: t.createPlanPage.numberOfPeopleOptions.adult.subtitle,
           count: adultCount,
           onIncrement: onIncrementAdult,
           onDecrement: onDecrementAdult,
         ),
         const SizedBox(height: 4),
         _buildRow(
-          label: '子ども',
-          subtitle: '（13歳未満）',
+          label: t.createPlanPage.numberOfPeopleOptions.child.title,
+          subtitle: t.createPlanPage.numberOfPeopleOptions.child.subtitle,
           count: childCount,
           onIncrement: onIncrementChild,
           onDecrement: onDecrementChild,
@@ -55,7 +56,6 @@ class NumberOfPeopleSelector extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // RichText を使って、ラベル部分は濃い色、補足部分は薄い色で表示
         RichText(
           text: TextSpan(
             text: label,
