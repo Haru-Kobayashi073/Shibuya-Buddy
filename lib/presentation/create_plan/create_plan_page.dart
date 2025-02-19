@@ -28,7 +28,6 @@ class CreatePlanPage extends HookConsumerWidget {
     final planStateAsync = ref.watch(createPlanNotifierProvider);
     final planNotifier = ref.watch(createPlanNotifierProvider.notifier);
 
-    // 各種コントローラーの生成
     final locationController =
         useTextEditingController(text: t.createPlanPage.hintText.location);
     final startDateController = useTextEditingController();
@@ -91,16 +90,14 @@ class CreatePlanPage extends HookConsumerWidget {
                   PlanTextField(
                     prefixIcon: const Icon(
                       Symbols.location_on,
-                      // enabled: false の場合はデフォルトで薄い色になるため、
-                      // 必要に応じて color を指定し直す
                       color: AppColor.blue800Secondary,
                     ),
                     controller: locationController,
                     readOnly: true,
                   ),
-
                   const Gap(16),
-                  // 日程入力のタイトル（共通：スケジュール）
+
+                  // スケジュール
                   Text(
                     t.createPlanPage.label.scheduleTitle,
                     style: AppTextStyle.textStyle.copyWith(
@@ -109,7 +106,6 @@ class CreatePlanPage extends HookConsumerWidget {
                     ),
                   ),
                   const Gap(8),
-                  // 日程入力（開始日／終了日）
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -135,7 +131,6 @@ class CreatePlanPage extends HookConsumerWidget {
                     ],
                   ),
                   const Gap(16),
-                  // 日程入力おわり
 
                   // 人数選択
                   Text(
@@ -156,7 +151,7 @@ class CreatePlanPage extends HookConsumerWidget {
                   ),
                   const Gap(16),
 
-                  // 交通手段選択
+                  // 交通手段
                   Text(
                     t.createPlanPage.label.transport,
                     style: AppTextStyle.textStyle.copyWith(

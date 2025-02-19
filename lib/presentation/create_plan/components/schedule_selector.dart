@@ -6,7 +6,6 @@ import '../../../utils/styles/app_color.dart';
 import '../create_plan_notifier.dart';
 import 'plan_text_field.dart';
 
-/// 日付選択用ウィジェット（入力フィールドのみを表示）
 class ScheduleSelector extends StatelessWidget {
   const ScheduleSelector({
     super.key,
@@ -15,13 +14,10 @@ class ScheduleSelector extends StatelessWidget {
     required this.isStartDate,
   });
 
-  /// 日付を表示・管理するコントローラー
   final TextEditingController dateController;
 
-  /// 日付選択ロジックを扱う Notifier
   final CreatePlanNotifier planNotifier;
 
-  /// 開始日か終了日かを判別するフラグ
   final bool isStartDate;
 
   @override

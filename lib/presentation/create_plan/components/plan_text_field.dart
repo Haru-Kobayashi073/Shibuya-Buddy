@@ -26,12 +26,8 @@ class PlanTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // readOnly フラグをもとに、TextField の有効／無効を切り替える
     return TextField(
-      // readOnly でもユーザーがタップできてしまうので、
-      // 見た目上わかりやすいように enabled を制御する
       readOnly: readOnly,
-      // readOnly の場合はカーソルを非表示にする
       showCursor: false,
       onTap: onTap,
       controller: controller,
@@ -41,8 +37,6 @@ class PlanTextField extends StatelessWidget {
       minLines: 1,
       maxLines: 2,
       decoration: InputDecoration(
-        // ラベルテキスト
-        // 背景色を「編集不可」のときだけ変えたい場合は条件分岐する
         filled: true,
         fillColor: AppColor.blue50Background,
         prefixIcon: prefixIcon,

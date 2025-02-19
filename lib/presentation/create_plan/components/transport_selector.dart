@@ -15,7 +15,6 @@ class TransportSelector extends StatelessWidget {
   final List<String> selectedTransports;
   final ValueChanged<String> onTransportSelected;
 
-  // 各交通手段に対応するアイコン
   static const _iconList = <IconData>[
     Symbols.train,
     Symbols.directions_walk,
