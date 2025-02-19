@@ -63,7 +63,6 @@ class TransportButton extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(
         splashColor: AppColor.grey400,
-        highlightColor: Colors.transparent,
       ),
       child: Material(
         color: AppColor.blue50Background,

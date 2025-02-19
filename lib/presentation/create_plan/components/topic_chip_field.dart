@@ -30,30 +30,23 @@ class TopicChipField extends ConsumerWidget {
           return Theme(
             data: Theme.of(context).copyWith(
               splashColor: AppColor.grey400,
-              highlightColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
             ),
-            child: Material(
-              color: Colors.transparent,
-              child: FilterChip(
-                selected: isSelected,
-                backgroundColor: AppColor.blue50Background,
-                selectedColor: AppColor.blue50Background,
-                side: BorderSide(
-                  color: isSelected
-                      ? AppColor.blue800Secondary
-                      : Colors.transparent,
-                ),
-                label: Text(
-                  localeNotifier.getTranslatedTopicName(topic),
-                  style: const TextStyle(color: AppColor.black),
-                ),
-                showCheckmark: false,
-                onSelected: (value) {
-                  onSelected(topic, isSelected: value);
-                },
+            child: FilterChip(
+              selected: isSelected,
+              backgroundColor: AppColor.blue50Background,
+              selectedColor: AppColor.blue50Background,
+              side: BorderSide(
+                color:
+                    isSelected ? AppColor.blue800Secondary : Colors.transparent,
               ),
+              label: Text(
+                localeNotifier.getTranslatedTopicName(topic),
+                style: const TextStyle(color: AppColor.black),
+              ),
+              showCheckmark: false,
+              onSelected: (value) {
+                onSelected(topic, isSelected: value);
+              },
             ),
           );
         }).toList(),
