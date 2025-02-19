@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../domain/entities/topic.dart';
 
 part 'create_plan_state.freezed.dart';
@@ -25,4 +26,10 @@ class CreatePlanState with _$CreatePlanState {
         endDate != null &&
         (adultCount + childCount) > 0;
   }
+
+  /// 大人の人数を文字列として取得
+  String get adultCountString => '$adultCount';
+
+  /// 子供の人数を文字列として取得
+  String get childCountString => '$childCount';
 }
