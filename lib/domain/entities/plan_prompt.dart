@@ -13,7 +13,8 @@ abstract class PlanPrompt with _$PlanPrompt {
     required String id,
     @DateTimeConverter()
     required ({String firstDate, String lastDate}) schedules,
-    required String numberOfPeople,
+    required String childCount,
+    required String adultCount,
     required List<String> transports,
     required List<String> categories,
     required List<Topic> topics,

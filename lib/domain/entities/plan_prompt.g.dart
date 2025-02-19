@@ -16,7 +16,8 @@ _$PlanPromptImpl _$$PlanPromptImplFromJson(Map<String, dynamic> json) =>
           lastDate: $jsonValue['lastDate'] as String,
         ),
       ),
-      numberOfPeople: json['numberOfPeople'] as String,
+      childCount: json['childCount'] as String,
+      adultCount: json['adultCount'] as String,
       transports: (json['transports'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -37,7 +38,8 @@ Map<String, dynamic> _$$PlanPromptImplToJson(_$PlanPromptImpl instance) =>
         'firstDate': instance.schedules.firstDate,
         'lastDate': instance.schedules.lastDate,
       },
-      'numberOfPeople': instance.numberOfPeople,
+      'childCount': instance.childCount,
+      'adultCount': instance.adultCount,
       'transports': instance.transports,
       'categories': instance.categories,
       'topics': instance.topics.map((e) => e.toJson()).toList(),
