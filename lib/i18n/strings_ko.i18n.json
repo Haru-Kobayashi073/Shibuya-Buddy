@@ -216,10 +216,10 @@
     "changeLanguagePage": {
         "title": "언어",
         "items": {
-            "japanese": "일본어",
-            "english": "영어",
-            "simplifiedChinese": "중국어(간체)",
-            "traditionalChinese": "중국어(번체)",
+            "japanese": "日本語",
+            "english": "English",
+            "simplifiedChinese": "中文（简体）",
+            "traditionalChinese": "中文(繁体字)",
             "korean": "한국어"
         }
     },
@@ -459,10 +459,60 @@
         "item": {
             "viewOnMap": "지도에서 보기"
         },
+        "haveUsedPlan": "이 플랜을 사용했습니다",
+        "dialog": {
+            "title": "Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?",
+            "description": "A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.",
+            "button": "닫기"
+        },
         "snackBar": {
             "error": {
                 "failedToUpdateBookmark": "북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요."
             }
+        }
+    },
+    "createLoadingPage": {
+        "items": {
+            "loadingText1": "Buddy가 여행 계획을 몰래 짜고 있어요...",
+            "loadingText2": "최고의 여행을 계획 중...Buddy도 설렘 가득!",
+            "loadingText3": "여행의 미래, 잠시만 기다려주세요~",
+            "loadingText4": "로딩 시간에 여행 상상 어때요?",
+            "loadingText5": "늦잠 계획은 없어요! (아마도)",
+            "loadingText6": "맛있는 식사 계획도 완벽해요!",
+            "loadingText7": "길 잃지 않는 계획 작성 중...아마도.",
+            "loadingText8": "깜짝 서프라이즈가 숨어있을지도?",
+            "loadingText9": "Buddy, 완벽한 여행을 위해 고군분투 중!",
+            "loadingText10": "즐거운 여행 준비 착착 진행 중!",
+            "loadingText11": "여행 안내서를 몰래 만들고 있어요.",
+            "loadingText12": "길을 잃어도 Buddy가 어떻게든...할걸요!",
+            "loadingText13": "기념품 리스트, 만들어드릴까요?",
+            "loadingText14": "최고의 추억이 기다리고 있어요...아마도.",
+            "loadingText15": "설렘 지수 120%의 여행 준비 중!",
+            "loadingText16": "숨겨진 명소도 찾아보고 있어요.",
+            "loadingText17": "Buddy가 최적 루트를 몰래 계산 중.",
+            "loadingText18": "당신의 여행, Buddy가 몰래 응원!",
+            "loadingText19": "문제 방지 계획도 준비 중!",
+            "loadingText20": "즐거운 여행의 프롤로그 작성 중!",
+            "loadingText21": "절대 길 잃지 않는 루트...아마도!",
+            "loadingText22": "이 텍스트는 Buddy가 생각하고 있어요",
+            "loadingText23": "오늘 생일인 분 축하드려요!",
+            "loadingText24": "여행의 꿈을 짜는 중...!",
+            "loadingText25": "여행의 소원을 담는 중...!",
+            "loadingText26": "여행의 기적을 기다리는 중...!",
+            "loadingText27": "여행의 만남을 기대하는 중...!",
+            "loadingText28": "예상치 못한 만남을 위해 0.1% 남겨두기",
+            "loadingText29": "현지인만 아는 숨은 명소 탐험 중",
+            "loadingText30": "Buddy가 계획 작성 중...커피 한잔 하면서 기다려요",
+            "loadingText31": "길치 방지용 지도도 준비 중이에요",
+            "loadingText32": "비행기 구름보다 빠르게 계획 완성!",
+            "loadingText33": "인생샷 스팟 탐색 중",
+            "loadingText34": "간식 타임과 함께 계획 중",
+            "loadingText35": "토픽에서 마음에 드는 플랜을 찾아보세요!",
+            "loadingText36": "프로필은 언제든지 수정할 수 있어요!",
+            "loadingText37": "앱 리뷰 기다리고 있어요!",
+            "loadingText38": "강아지파 고양이파? 저는 고양이파예요",
+            "loadingText39": "관광에서 좋은 일만 가득하길!",
+            "loadingText40": "오늘은 분명 좋은 일이 있을 거예요!"
         }
     },
     "locales(map)": {

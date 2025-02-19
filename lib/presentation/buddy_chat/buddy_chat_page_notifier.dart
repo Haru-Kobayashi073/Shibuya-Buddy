@@ -21,6 +21,7 @@ import '../../utils/providers/geofence/geofence_service.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart'
     as scaffold_messenger;
 import '../../utils/routes/app_router.dart';
+import '../components/create_plan_loading/create_loading_notifier.dart';
 import '../components/loading_overlay.dart';
 import 'buddy_chat_page_state.dart';
 
@@ -38,6 +39,10 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       ref.read(scaffold_messenger.scaffoldMessengerProvider.notifier);
   bool get isStandardGradeUser =>
       ref.read(currentUserProvider).billingGrade == BillingGrade.standard;
+
+  CreateLoadingViewNotifier get loadingNotifier =>
+      ref.read(createLoadingViewNotifierProvider.notifier);
+
   GeofenceService get geofenceService =>
       ref.read(geofenceServiceProvider.notifier);
 
@@ -189,25 +194,22 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
   }
 
   Future<BuddyChatPageState> _getFirstBuddyMessage() async {
+    await Future.microtask(() => loadingNotifier.updateLoadingIndicator(0));
     final scrollController = ScrollController();
-
     ref.onDispose(
       scrollController.dispose,
     );
-
+    await loadingNotifier.updateLoadingIndicator(20);
     final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
-
+    await loadingNotifier.updateLoadingIndicator(80);
     final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
-
     final message = ChatMessage(
       id: buddyMessage.id,
       message: buddyMessage.plan!.description,
       author: ChatAuthor.buddy,
       createdAt: buddyMessage.createdAt,
     );
-
     final messages = [buddyMessage, message];
-
     return BuddyChatPageState(
       messages: messages,
       possibleChatCount: null,

@@ -149,7 +149,11 @@ class PlanDetailPage extends HookConsumerWidget {
               child: TabBarView(
                 controller: tabController,
                 children: [
-                  PlanInformationView(plan: plan, places: value.places),
+                  PlanInformationView(
+                    plan: plan,
+                    places: value.places,
+                    haveUsedPlan: value.haveUsedPlan,
+                  ),
                   const ReviewListView(),
                 ],
               ),

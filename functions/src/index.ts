@@ -199,3 +199,47 @@ export const updateAllDocuments = scheduler.onSchedule("0 0 * * 0", async () => 
         console.error("Error updating documents:", error);
     }
 });
+
+export const updatePlanAtEnterGeofence = functions.https.onCall(async (req: any, res: any) => {
+
+    const userId = req.data.userId || req.auth?.uid;
+    const planId = req.data.planId;
+    console.log(userId);
+
+
+    if (!userId) {
+        console.error("User ID is required");
+        return;
+    }
+
+    if (!planId) {
+        console.error("Plan ID is required");
+        return;
+    }
+
+    const planRef = firestore.collection("plans").doc(planId);
+
+    try {
+        const planSnapshot = await planRef.get();
+        const plan = planSnapshot.data();
+        if (!plan) {
+            console.error("Plan not found");
+            return;
+        }
+
+        if (!plan.used_user_ids) {
+            plan.used_user_ids = [];
+        }
+
+        if (!plan.used_user_ids.includes(userId)) {
+            plan.used_user_ids.push(userId);
+            planRef.update(plan);
+        }
+
+        console.log("Updated plan");
+        return;
+    } catch (error) {
+        console.error("Error updating plan: ", error);
+        return;
+    }
+});

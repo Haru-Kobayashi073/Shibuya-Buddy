@@ -50,6 +50,7 @@ class TranslationsKo implements Translations {
 	@override late final _TranslationsPromptKo prompt = _TranslationsPromptKo._(_root);
 	@override late final _TranslationsBillDetailsPageKo billDetailsPage = _TranslationsBillDetailsPageKo._(_root);
 	@override late final _TranslationsPlanDetailsPageKo planDetailsPage = _TranslationsPlanDetailsPageKo._(_root);
+	@override late final _TranslationsCreateLoadingPageKo createLoadingPage = _TranslationsCreateLoadingPageKo._(_root);
 	@override Map<String, String> get locales => {
 		'en': '영어',
 		'ja': '일본어',
@@ -316,7 +317,19 @@ class _TranslationsPlanDetailsPageKo implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeKo dateTime = _TranslationsPlanDetailsPageDateTimeKo._(_root);
 	@override late final _TranslationsPlanDetailsPageItemKo item = _TranslationsPlanDetailsPageItemKo._(_root);
+	@override String get haveUsedPlan => '이 플랜을 사용했습니다';
+	@override late final _TranslationsPlanDetailsPageDialogKo dialog = _TranslationsPlanDetailsPageDialogKo._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarKo snackBar = _TranslationsPlanDetailsPageSnackBarKo._(_root);
+}
+
+// Path: createLoadingPage
+class _TranslationsCreateLoadingPageKo implements TranslationsCreateLoadingPageEn {
+	_TranslationsCreateLoadingPageKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreateLoadingPageItemsKo items = _TranslationsCreateLoadingPageItemsKo._(_root);
 }
 
 // Path: errorPage
@@ -566,10 +579,10 @@ class _TranslationsChangeLanguagePageItemsKo implements TranslationsChangeLangua
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get japanese => '일본어';
-	@override String get english => '영어';
-	@override String get simplifiedChinese => '중국어(간체)';
-	@override String get traditionalChinese => '중국어(번체)';
+	@override String get japanese => '日本語';
+	@override String get english => 'English';
+	@override String get simplifiedChinese => '中文（简体）';
+	@override String get traditionalChinese => '中文(繁体字)';
 	@override String get korean => '한국어';
 }
 
@@ -875,6 +888,18 @@ class _TranslationsPlanDetailsPageItemKo implements TranslationsPlanDetailsPageI
 	@override String get viewOnMap => '지도에서 보기';
 }
 
+// Path: planDetailsPage.dialog
+class _TranslationsPlanDetailsPageDialogKo implements TranslationsPlanDetailsPageDialogEn {
+	_TranslationsPlanDetailsPageDialogKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?';
+	@override String get description => 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
+	@override String get button => '닫기';
+}
+
 // Path: planDetailsPage.snackBar
 class _TranslationsPlanDetailsPageSnackBarKo implements TranslationsPlanDetailsPageSnackBarEn {
 	_TranslationsPlanDetailsPageSnackBarKo._(this._root);
@@ -883,6 +908,55 @@ class _TranslationsPlanDetailsPageSnackBarKo implements TranslationsPlanDetailsP
 
 	// Translations
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorKo error = _TranslationsPlanDetailsPageSnackBarErrorKo._(_root);
+}
+
+// Path: createLoadingPage.items
+class _TranslationsCreateLoadingPageItemsKo implements TranslationsCreateLoadingPageItemsEn {
+	_TranslationsCreateLoadingPageItemsKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadingText1 => 'Buddy가 여행 계획을 몰래 짜고 있어요...';
+	@override String get loadingText2 => '최고의 여행을 계획 중...Buddy도 설렘 가득!';
+	@override String get loadingText3 => '여행의 미래, 잠시만 기다려주세요~';
+	@override String get loadingText4 => '로딩 시간에 여행 상상 어때요?';
+	@override String get loadingText5 => '늦잠 계획은 없어요! (아마도)';
+	@override String get loadingText6 => '맛있는 식사 계획도 완벽해요!';
+	@override String get loadingText7 => '길 잃지 않는 계획 작성 중...아마도.';
+	@override String get loadingText8 => '깜짝 서프라이즈가 숨어있을지도?';
+	@override String get loadingText9 => 'Buddy, 완벽한 여행을 위해 고군분투 중!';
+	@override String get loadingText10 => '즐거운 여행 준비 착착 진행 중!';
+	@override String get loadingText11 => '여행 안내서를 몰래 만들고 있어요.';
+	@override String get loadingText12 => '길을 잃어도 Buddy가 어떻게든...할걸요!';
+	@override String get loadingText13 => '기념품 리스트, 만들어드릴까요?';
+	@override String get loadingText14 => '최고의 추억이 기다리고 있어요...아마도.';
+	@override String get loadingText15 => '설렘 지수 120%의 여행 준비 중!';
+	@override String get loadingText16 => '숨겨진 명소도 찾아보고 있어요.';
+	@override String get loadingText17 => 'Buddy가 최적 루트를 몰래 계산 중.';
+	@override String get loadingText18 => '당신의 여행, Buddy가 몰래 응원!';
+	@override String get loadingText19 => '문제 방지 계획도 준비 중!';
+	@override String get loadingText20 => '즐거운 여행의 프롤로그 작성 중!';
+	@override String get loadingText21 => '절대 길 잃지 않는 루트...아마도!';
+	@override String get loadingText22 => '이 텍스트는 Buddy가 생각하고 있어요';
+	@override String get loadingText23 => '오늘 생일인 분 축하드려요!';
+	@override String get loadingText24 => '여행의 꿈을 짜는 중...!';
+	@override String get loadingText25 => '여행의 소원을 담는 중...!';
+	@override String get loadingText26 => '여행의 기적을 기다리는 중...!';
+	@override String get loadingText27 => '여행의 만남을 기대하는 중...!';
+	@override String get loadingText28 => '예상치 못한 만남을 위해 0.1% 남겨두기';
+	@override String get loadingText29 => '현지인만 아는 숨은 명소 탐험 중';
+	@override String get loadingText30 => 'Buddy가 계획 작성 중...커피 한잔 하면서 기다려요';
+	@override String get loadingText31 => '길치 방지용 지도도 준비 중이에요';
+	@override String get loadingText32 => '비행기 구름보다 빠르게 계획 완성!';
+	@override String get loadingText33 => '인생샷 스팟 탐색 중';
+	@override String get loadingText34 => '간식 타임과 함께 계획 중';
+	@override String get loadingText35 => '토픽에서 마음에 드는 플랜을 찾아보세요!';
+	@override String get loadingText36 => '프로필은 언제든지 수정할 수 있어요!';
+	@override String get loadingText37 => '앱 리뷰 기다리고 있어요!';
+	@override String get loadingText38 => '강아지파 고양이파? 저는 고양이파예요';
+	@override String get loadingText39 => '관광에서 좋은 일만 가득하길!';
+	@override String get loadingText40 => '오늘은 분명 좋은 일이 있을 거예요!';
 }
 
 // Path: authentication.authenticationPage.textFields
@@ -1447,10 +1521,10 @@ extension on TranslationsKo {
 			case 'myPage.accountStatus.premium': return '프리미엄 회원';
 			case 'myPage.accountStatus.standard': return '스탠다드 회원';
 			case 'changeLanguagePage.title': return '언어';
-			case 'changeLanguagePage.items.japanese': return '일본어';
-			case 'changeLanguagePage.items.english': return '영어';
-			case 'changeLanguagePage.items.simplifiedChinese': return '중국어(간체)';
-			case 'changeLanguagePage.items.traditionalChinese': return '중국어(번체)';
+			case 'changeLanguagePage.items.japanese': return '日本語';
+			case 'changeLanguagePage.items.english': return 'English';
+			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
 			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return '테마';
 			case 'changeThemePage.items.system': return '시스템';
@@ -1575,7 +1649,51 @@ extension on TranslationsKo {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}에 생성된 플랜';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy년 MM월 dd일';
 			case 'planDetailsPage.item.viewOnMap': return '지도에서 보기';
+			case 'planDetailsPage.haveUsedPlan': return '이 플랜을 사용했습니다';
+			case 'planDetailsPage.dialog.title': return 'Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?';
+			case 'planDetailsPage.dialog.description': return 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
+			case 'planDetailsPage.dialog.button': return '닫기';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요.';
+			case 'createLoadingPage.items.loadingText1': return 'Buddy가 여행 계획을 몰래 짜고 있어요...';
+			case 'createLoadingPage.items.loadingText2': return '최고의 여행을 계획 중...Buddy도 설렘 가득!';
+			case 'createLoadingPage.items.loadingText3': return '여행의 미래, 잠시만 기다려주세요~';
+			case 'createLoadingPage.items.loadingText4': return '로딩 시간에 여행 상상 어때요?';
+			case 'createLoadingPage.items.loadingText5': return '늦잠 계획은 없어요! (아마도)';
+			case 'createLoadingPage.items.loadingText6': return '맛있는 식사 계획도 완벽해요!';
+			case 'createLoadingPage.items.loadingText7': return '길 잃지 않는 계획 작성 중...아마도.';
+			case 'createLoadingPage.items.loadingText8': return '깜짝 서프라이즈가 숨어있을지도?';
+			case 'createLoadingPage.items.loadingText9': return 'Buddy, 완벽한 여행을 위해 고군분투 중!';
+			case 'createLoadingPage.items.loadingText10': return '즐거운 여행 준비 착착 진행 중!';
+			case 'createLoadingPage.items.loadingText11': return '여행 안내서를 몰래 만들고 있어요.';
+			case 'createLoadingPage.items.loadingText12': return '길을 잃어도 Buddy가 어떻게든...할걸요!';
+			case 'createLoadingPage.items.loadingText13': return '기념품 리스트, 만들어드릴까요?';
+			case 'createLoadingPage.items.loadingText14': return '최고의 추억이 기다리고 있어요...아마도.';
+			case 'createLoadingPage.items.loadingText15': return '설렘 지수 120%의 여행 준비 중!';
+			case 'createLoadingPage.items.loadingText16': return '숨겨진 명소도 찾아보고 있어요.';
+			case 'createLoadingPage.items.loadingText17': return 'Buddy가 최적 루트를 몰래 계산 중.';
+			case 'createLoadingPage.items.loadingText18': return '당신의 여행, Buddy가 몰래 응원!';
+			case 'createLoadingPage.items.loadingText19': return '문제 방지 계획도 준비 중!';
+			case 'createLoadingPage.items.loadingText20': return '즐거운 여행의 프롤로그 작성 중!';
+			case 'createLoadingPage.items.loadingText21': return '절대 길 잃지 않는 루트...아마도!';
+			case 'createLoadingPage.items.loadingText22': return '이 텍스트는 Buddy가 생각하고 있어요';
+			case 'createLoadingPage.items.loadingText23': return '오늘 생일인 분 축하드려요!';
+			case 'createLoadingPage.items.loadingText24': return '여행의 꿈을 짜는 중...!';
+			case 'createLoadingPage.items.loadingText25': return '여행의 소원을 담는 중...!';
+			case 'createLoadingPage.items.loadingText26': return '여행의 기적을 기다리는 중...!';
+			case 'createLoadingPage.items.loadingText27': return '여행의 만남을 기대하는 중...!';
+			case 'createLoadingPage.items.loadingText28': return '예상치 못한 만남을 위해 0.1% 남겨두기';
+			case 'createLoadingPage.items.loadingText29': return '현지인만 아는 숨은 명소 탐험 중';
+			case 'createLoadingPage.items.loadingText30': return 'Buddy가 계획 작성 중...커피 한잔 하면서 기다려요';
+			case 'createLoadingPage.items.loadingText31': return '길치 방지용 지도도 준비 중이에요';
+			case 'createLoadingPage.items.loadingText32': return '비행기 구름보다 빠르게 계획 완성!';
+			case 'createLoadingPage.items.loadingText33': return '인생샷 스팟 탐색 중';
+			case 'createLoadingPage.items.loadingText34': return '간식 타임과 함께 계획 중';
+			case 'createLoadingPage.items.loadingText35': return '토픽에서 마음에 드는 플랜을 찾아보세요!';
+			case 'createLoadingPage.items.loadingText36': return '프로필은 언제든지 수정할 수 있어요!';
+			case 'createLoadingPage.items.loadingText37': return '앱 리뷰 기다리고 있어요!';
+			case 'createLoadingPage.items.loadingText38': return '강아지파 고양이파? 저는 고양이파예요';
+			case 'createLoadingPage.items.loadingText39': return '관광에서 좋은 일만 가득하길!';
+			case 'createLoadingPage.items.loadingText40': return '오늘은 분명 좋은 일이 있을 거예요!';
 			case 'locales.en': return '영어';
 			case 'locales.ja': return '일본어';
 			case 'locales.zh': return '중국어';

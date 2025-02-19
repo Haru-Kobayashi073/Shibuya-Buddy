@@ -165,12 +165,10 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     final currentLocale = ref.read(localeServiceProvider);
     final translatedPrompt =
         TranslatePrompt(currentLocale, planPrompt).switchPromptLocale();
-
     final convertModelToString = Content.multi([
       TextPart(translatedPrompt),
     ]);
     final response = await state.sendMessage(convertModelToString);
-
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
     return ChatMessage(

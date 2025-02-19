@@ -50,6 +50,7 @@ class TranslationsZhHans implements Translations {
 	@override late final _TranslationsPromptZhHans prompt = _TranslationsPromptZhHans._(_root);
 	@override late final _TranslationsBillDetailsPageZhHans billDetailsPage = _TranslationsBillDetailsPageZhHans._(_root);
 	@override late final _TranslationsPlanDetailsPageZhHans planDetailsPage = _TranslationsPlanDetailsPageZhHans._(_root);
+	@override late final _TranslationsCreateLoadingPageZhHans createLoadingPage = _TranslationsCreateLoadingPageZhHans._(_root);
 	@override Map<String, String> get locales => {
 		'en': '英语',
 		'ja': '日语',
@@ -316,7 +317,19 @@ class _TranslationsPlanDetailsPageZhHans implements TranslationsPlanDetailsPageE
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeZhHans dateTime = _TranslationsPlanDetailsPageDateTimeZhHans._(_root);
 	@override late final _TranslationsPlanDetailsPageItemZhHans item = _TranslationsPlanDetailsPageItemZhHans._(_root);
+	@override String get haveUsedPlan => '您已使用此计划';
+	@override late final _TranslationsPlanDetailsPageDialogZhHans dialog = _TranslationsPlanDetailsPageDialogZhHans._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarZhHans snackBar = _TranslationsPlanDetailsPageSnackBarZhHans._(_root);
+}
+
+// Path: createLoadingPage
+class _TranslationsCreateLoadingPageZhHans implements TranslationsCreateLoadingPageEn {
+	_TranslationsCreateLoadingPageZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreateLoadingPageItemsZhHans items = _TranslationsCreateLoadingPageItemsZhHans._(_root);
 }
 
 // Path: errorPage
@@ -566,11 +579,11 @@ class _TranslationsChangeLanguagePageItemsZhHans implements TranslationsChangeLa
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get japanese => '日本人';
-	@override String get english => '英语';
+	@override String get japanese => '日本語';
+	@override String get english => 'English';
 	@override String get simplifiedChinese => '中文（简体）';
-	@override String get traditionalChinese => '中文（繁体）';
-	@override String get korean => '韩语';
+	@override String get traditionalChinese => '中文(繁体字)';
+	@override String get korean => '한국어';
 }
 
 // Path: changeThemePage.items
@@ -875,6 +888,18 @@ class _TranslationsPlanDetailsPageItemZhHans implements TranslationsPlanDetailsP
 	@override String get viewOnMap => '在地图上查看';
 }
 
+// Path: planDetailsPage.dialog
+class _TranslationsPlanDetailsPageDialogZhHans implements TranslationsPlanDetailsPageDialogEn {
+	_TranslationsPlanDetailsPageDialogZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Q. 如何证明您已使用此计划？';
+	@override String get description => 'A. 您已访问计划中包含的地点。\n 我们使用位置信息进行判断，但不会将您的信息用于此功能以外的用途。';
+	@override String get button => '关闭';
+}
+
 // Path: planDetailsPage.snackBar
 class _TranslationsPlanDetailsPageSnackBarZhHans implements TranslationsPlanDetailsPageSnackBarEn {
 	_TranslationsPlanDetailsPageSnackBarZhHans._(this._root);
@@ -883,6 +908,55 @@ class _TranslationsPlanDetailsPageSnackBarZhHans implements TranslationsPlanDeta
 
 	// Translations
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHans error = _TranslationsPlanDetailsPageSnackBarErrorZhHans._(_root);
+}
+
+// Path: createLoadingPage.items
+class _TranslationsCreateLoadingPageItemsZhHans implements TranslationsCreateLoadingPageItemsEn {
+	_TranslationsCreateLoadingPageItemsZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadingText1 => 'Buddy正在偷偷规划旅行方案...';
+	@override String get loadingText2 => '正在计划最棒的旅行...Buddy也很期待！';
+	@override String get loadingText3 => '旅行的未来即将揭晓，稍等片刻~';
+	@override String get loadingText4 => '趁着加载时间做做旅行白日梦吧！';
+	@override String get loadingText5 => '赖床计划？...不可能的！';
+	@override String get loadingText6 => '美食地图正在完美规划中！';
+	@override String get loadingText7 => '规划不会迷路的路线...应该！';
+	@override String get loadingText8 => '也许会加入一些小惊喜哦？';
+	@override String get loadingText9 => 'Buddy正在努力创造完美旅程！';
+	@override String get loadingText10 => '愉快的旅行准备正在进行中！';
+	@override String get loadingText11 => '旅行手册正在悄悄制作中...';
+	@override String get loadingText12 => '迷路了？Buddy会想办法的...大概！';
+	@override String get loadingText13 => '要不要帮你列个伴手礼清单？';
+	@override String get loadingText14 => '最棒的回忆即将产生...大概！';
+	@override String get loadingText15 => '期待指数120%的旅行准备中！';
+	@override String get loadingText16 => '正在探索隐藏景点中...';
+	@override String get loadingText17 => 'Buddy正在偷偷计算最佳路线';
+	@override String get loadingText18 => 'Buddy默默为您的旅行加油！';
+	@override String get loadingText19 => '防止意外的方案也在准备中！';
+	@override String get loadingText20 => '正在书写快乐旅行的序章！';
+	@override String get loadingText21 => '绝对不会迷路的路线...大概！';
+	@override String get loadingText22 => '这段文字是Buddy绞尽脑汁想出来的';
+	@override String get loadingText23 => '祝今天生日的人生日快乐！';
+	@override String get loadingText24 => '编织旅行梦想中...';
+	@override String get loadingText25 => '注入旅行愿望中...';
+	@override String get loadingText26 => '等待旅行奇迹中...';
+	@override String get loadingText27 => '期待旅行邂逅中...';
+	@override String get loadingText28 => '为意外相遇预留0.1%的可能';
+	@override String get loadingText29 => '探索只有当地人知道的私房景点';
+	@override String get loadingText30 => 'Buddy正在规划中...喝杯茶等等吧';
+	@override String get loadingText31 => '防止迷路的地图准备中';
+	@override String get loadingText32 => '比飞机云消失还快的规划速度！';
+	@override String get loadingText33 => '寻找最适合自拍的打卡地点';
+	@override String get loadingText34 => '边吃零食边规划中';
+	@override String get loadingText35 => '在主题中找到心仪的计划！';
+	@override String get loadingText36 => '随时都能更改个人资料哦！';
+	@override String get loadingText37 => '期待您的应用评价！';
+	@override String get loadingText38 => '猫派还是狗派？我选猫派';
+	@override String get loadingText39 => '愿您的观光之旅一切顺利！';
+	@override String get loadingText40 => '今天一定会有好事发生！';
 }
 
 // Path: authentication.authenticationPage.textFields
@@ -1447,11 +1521,11 @@ extension on TranslationsZhHans {
 			case 'myPage.accountStatus.premium': return '高级会员';
 			case 'myPage.accountStatus.standard': return '标准会员';
 			case 'changeLanguagePage.title': return '语言';
-			case 'changeLanguagePage.items.japanese': return '日本人';
-			case 'changeLanguagePage.items.english': return '英语';
+			case 'changeLanguagePage.items.japanese': return '日本語';
+			case 'changeLanguagePage.items.english': return 'English';
 			case 'changeLanguagePage.items.simplifiedChinese': return '中文（简体）';
-			case 'changeLanguagePage.items.traditionalChinese': return '中文（繁体）';
-			case 'changeLanguagePage.items.korean': return '韩语';
+			case 'changeLanguagePage.items.traditionalChinese': return '中文(繁体字)';
+			case 'changeLanguagePage.items.korean': return '한국어';
 			case 'changeThemePage.title': return '主题';
 			case 'changeThemePage.items.system': return '系统';
 			case 'changeThemePage.items.light': return '光';
@@ -1575,7 +1649,51 @@ extension on TranslationsZhHans {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
+			case 'planDetailsPage.haveUsedPlan': return '您已使用此计划';
+			case 'planDetailsPage.dialog.title': return 'Q. 如何证明您已使用此计划？';
+			case 'planDetailsPage.dialog.description': return 'A. 您已访问计划中包含的地点。\n 我们使用位置信息进行判断，但不会将您的信息用于此功能以外的用途。';
+			case 'planDetailsPage.dialog.button': return '关闭';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新书签失败，请稍后再试';
+			case 'createLoadingPage.items.loadingText1': return 'Buddy正在偷偷规划旅行方案...';
+			case 'createLoadingPage.items.loadingText2': return '正在计划最棒的旅行...Buddy也很期待！';
+			case 'createLoadingPage.items.loadingText3': return '旅行的未来即将揭晓，稍等片刻~';
+			case 'createLoadingPage.items.loadingText4': return '趁着加载时间做做旅行白日梦吧！';
+			case 'createLoadingPage.items.loadingText5': return '赖床计划？...不可能的！';
+			case 'createLoadingPage.items.loadingText6': return '美食地图正在完美规划中！';
+			case 'createLoadingPage.items.loadingText7': return '规划不会迷路的路线...应该！';
+			case 'createLoadingPage.items.loadingText8': return '也许会加入一些小惊喜哦？';
+			case 'createLoadingPage.items.loadingText9': return 'Buddy正在努力创造完美旅程！';
+			case 'createLoadingPage.items.loadingText10': return '愉快的旅行准备正在进行中！';
+			case 'createLoadingPage.items.loadingText11': return '旅行手册正在悄悄制作中...';
+			case 'createLoadingPage.items.loadingText12': return '迷路了？Buddy会想办法的...大概！';
+			case 'createLoadingPage.items.loadingText13': return '要不要帮你列个伴手礼清单？';
+			case 'createLoadingPage.items.loadingText14': return '最棒的回忆即将产生...大概！';
+			case 'createLoadingPage.items.loadingText15': return '期待指数120%的旅行准备中！';
+			case 'createLoadingPage.items.loadingText16': return '正在探索隐藏景点中...';
+			case 'createLoadingPage.items.loadingText17': return 'Buddy正在偷偷计算最佳路线';
+			case 'createLoadingPage.items.loadingText18': return 'Buddy默默为您的旅行加油！';
+			case 'createLoadingPage.items.loadingText19': return '防止意外的方案也在准备中！';
+			case 'createLoadingPage.items.loadingText20': return '正在书写快乐旅行的序章！';
+			case 'createLoadingPage.items.loadingText21': return '绝对不会迷路的路线...大概！';
+			case 'createLoadingPage.items.loadingText22': return '这段文字是Buddy绞尽脑汁想出来的';
+			case 'createLoadingPage.items.loadingText23': return '祝今天生日的人生日快乐！';
+			case 'createLoadingPage.items.loadingText24': return '编织旅行梦想中...';
+			case 'createLoadingPage.items.loadingText25': return '注入旅行愿望中...';
+			case 'createLoadingPage.items.loadingText26': return '等待旅行奇迹中...';
+			case 'createLoadingPage.items.loadingText27': return '期待旅行邂逅中...';
+			case 'createLoadingPage.items.loadingText28': return '为意外相遇预留0.1%的可能';
+			case 'createLoadingPage.items.loadingText29': return '探索只有当地人知道的私房景点';
+			case 'createLoadingPage.items.loadingText30': return 'Buddy正在规划中...喝杯茶等等吧';
+			case 'createLoadingPage.items.loadingText31': return '防止迷路的地图准备中';
+			case 'createLoadingPage.items.loadingText32': return '比飞机云消失还快的规划速度！';
+			case 'createLoadingPage.items.loadingText33': return '寻找最适合自拍的打卡地点';
+			case 'createLoadingPage.items.loadingText34': return '边吃零食边规划中';
+			case 'createLoadingPage.items.loadingText35': return '在主题中找到心仪的计划！';
+			case 'createLoadingPage.items.loadingText36': return '随时都能更改个人资料哦！';
+			case 'createLoadingPage.items.loadingText37': return '期待您的应用评价！';
+			case 'createLoadingPage.items.loadingText38': return '猫派还是狗派？我选猫派';
+			case 'createLoadingPage.items.loadingText39': return '愿您的观光之旅一切顺利！';
+			case 'createLoadingPage.items.loadingText40': return '今天一定会有好事发生！';
 			case 'locales.en': return '英语';
 			case 'locales.ja': return '日语';
 			case 'locales.zh': return '中文';

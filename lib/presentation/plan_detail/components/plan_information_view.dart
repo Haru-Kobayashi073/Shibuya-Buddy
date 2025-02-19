@@ -16,15 +16,18 @@ import '../../../utils/styles/app_text_style.dart';
 import '../../components/expandable_text.dart';
 import '../../components/place_card.dart';
 import '../../components/wide_button.dart';
+import 'have_used_plan_question_dialog.dart';
 
 class PlanInformationView extends HookConsumerWidget {
   const PlanInformationView({
     super.key,
     required this.plan,
     required this.places,
+    required this.haveUsedPlan,
   });
   final Plan plan;
   final List<Place> places;
+  final bool haveUsedPlan;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -54,6 +57,32 @@ class PlanInformationView extends HookConsumerWidget {
           const Gap(8),
           Column(
             children: [
+              if (haveUsedPlan)
+                GestureDetector(
+                  onTap: () async {
+                    await showDialog<void>(
+                      context: context,
+                      builder: (_) => const HaveUsedPlanQuestionDialog(),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.check_circle,
+                        color: AppColor.yellow600Primary,
+                      ),
+                      const Gap(4),
+                      Text(
+                        planDetailPagei18n.haveUsedPlan,
+                        style: AppTextStyle.textStyle.copyWith(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              const Gap(8),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(

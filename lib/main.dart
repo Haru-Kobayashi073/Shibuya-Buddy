@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -78,11 +80,20 @@ void setupGeofenceListener() {
 
   geofenceReceivePort.listen((dynamic data) async {
     logger.d('geofenceState: $data');
-    for (final id in data as List<String>) {
+    for (final planId in data as List<String>) {
+      final userId = FirebaseAuth.instance.currentUser?.uid;
+      await FirebaseFunctions.instanceFor(
+        region: 'asia-northeast1', // 東京リージョンを指定
+      ).httpsCallable('updatePlanAtEnterGeofence').call<void>(
+        {
+          'planId': planId,
+          'userId': userId,
+        },
+      );
       await FirebaseAnalytics.instance.logEvent(
         name: UserActionEvent.enterGeofence.key,
       );
-      await NativeGeofenceManager.instance.removeGeofenceById(id);
+      await NativeGeofenceManager.instance.removeGeofenceById(planId);
     }
     geofenceReceivePort.close();
   });
