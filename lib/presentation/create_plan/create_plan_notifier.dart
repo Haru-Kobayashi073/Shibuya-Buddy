@@ -133,7 +133,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       childCount: state.requireValue.childCountString,
       adultCount: state.requireValue.adultCountString,
       transports: state.requireValue.transports,
-      categories: state.requireValue.categories,
       topics: state.requireValue.selectedTopics,
       createdAt: DateTime.now(),
     );

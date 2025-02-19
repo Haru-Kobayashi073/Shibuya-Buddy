@@ -21,9 +21,6 @@ _$PlanPromptImpl _$$PlanPromptImplFromJson(Map<String, dynamic> json) =>
       transports: (json['transports'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      categories: (json['categories'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
       topics: (json['topics'] as List<dynamic>)
           .map((e) => Topic.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -41,7 +38,6 @@ Map<String, dynamic> _$$PlanPromptImplToJson(_$PlanPromptImpl instance) =>
       'childCount': instance.childCount,
       'adultCount': instance.adultCount,
       'transports': instance.transports,
-      'categories': instance.categories,
       'topics': instance.topics.map((e) => e.toJson()).toList(),
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
     };

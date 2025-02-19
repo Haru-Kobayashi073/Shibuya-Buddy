@@ -16,7 +16,6 @@ abstract class PlanPrompt with _$PlanPrompt {
     required String childCount,
     required String adultCount,
     required List<String> transports,
-    required List<String> categories,
     required List<Topic> topics,
     @DateTimeConverter() required DateTime createdAt,
   }) = _PlanPrompt;

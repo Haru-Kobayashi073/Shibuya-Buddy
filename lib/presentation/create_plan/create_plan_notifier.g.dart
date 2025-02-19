@@ -7,7 +7,7 @@ part of 'create_plan_notifier.dart';
 // **************************************************************************
 
 String _$createPlanNotifierHash() =>
-    r'b81f2efbdffc54fbe380911c11a628d7fdce5016';
+    r'019238a9b65279a58d8de9a5927e5128c55db87b';
 
 /// See also [CreatePlanNotifier].
 @ProviderFor(CreatePlanNotifier)
