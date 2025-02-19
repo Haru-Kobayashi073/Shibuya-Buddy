@@ -24,7 +24,8 @@ class CreatePlanState with _$CreatePlanState {
         topics.isNotEmpty &&
         startDate != null &&
         endDate != null &&
-        (adultCount + childCount) > 0;
+        (adultCount + childCount) > 0 &&
+        selectedTopics.isNotEmpty;
   }
 
   /// 大人の人数を文字列として取得
