@@ -36,12 +36,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     }
   }
 
-  void clearSelectedTopics() {
-    state = AsyncValue.data(
-      state.requireValue.copyWith(selectedTopics: []),
-    );
-  }
-
   void updateSelectedTopics(Topic topic, {required bool isSelected}) {
     final updatedTopics = List<Topic>.from(state.requireValue.selectedTopics);
     if (isSelected) {
