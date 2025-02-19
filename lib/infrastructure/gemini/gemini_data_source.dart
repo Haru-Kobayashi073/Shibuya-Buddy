@@ -20,7 +20,7 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     const apiKey = String.fromEnvironment('geminiAPIKey');
 
     return GenerativeModel(
-      model: 'gemini-2.0-flash',
+      model: 'gemini-1.5-flash',
       apiKey: apiKey,
       generationConfig: GenerationConfig(
         temperature: 1,
@@ -165,17 +165,19 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
     final currentLocale = ref.read(localeServiceProvider);
     final translatedPrompt =
         TranslatePrompt(currentLocale, planPrompt).switchPromptLocale();
+
     final convertModelToString = Content.multi([
       TextPart(translatedPrompt),
     ]);
+
     final response = await state.sendMessage(convertModelToString);
     if (response.text == null) {
-      throw GenerativeAIException('Failed to send message');
+      throw Exception('Failed to send message');
     }
 
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
     if (jsonMap.isEmpty) {
-      throw GenerativeAIException('Failed to send message');
+      throw Exception('Failed to send message');
     }
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
     return ChatMessage(
