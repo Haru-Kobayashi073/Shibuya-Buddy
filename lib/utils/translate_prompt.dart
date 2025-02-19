@@ -30,8 +30,6 @@ class TranslatePrompt {
       交通手段は、${planPrompt.transports.join(',')}です。
       )}です。
 
-      カテゴリーは、${planPrompt.categories.join(',')}です。
-
       旅のトピックは、${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.ja]).join(',')}です。
 
       出力は以下のフォーマットにしてください。
@@ -64,8 +62,6 @@ class TranslatePrompt {
       人数为成人${planPrompt.adultCount}人，儿童${planPrompt.childCount}人。
 
       交通方式为${planPrompt.transports.join(',')}。
-
-      类别为${planPrompt.categories.join(',')}。
 
       旅行主题为${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.zhHans]).join(',')}。
 
@@ -100,8 +96,6 @@ class TranslatePrompt {
 
       交通方式為${planPrompt.transports.join(',')}。
 
-      類別為${planPrompt.categories.join(',')}。
-
       旅行主題為${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.zhHant]).join(',')}。
 
       輸出請使用以下格式。
@@ -135,8 +129,6 @@ class TranslatePrompt {
 
       Transportation methods include ${planPrompt.transports.join(',')}.
 
-      Categories include ${planPrompt.categories.join(',')}.
-
       Travel themes include ${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.en]).join(',')}.
 
       Please use the following format for output.
@@ -169,8 +161,6 @@ class TranslatePrompt {
       인원은 성인${planPrompt.adultCount}명과 어린이${planPrompt.childCount}명입니다.
 
       교통수단은 ${planPrompt.transports.join(',')}입니다.
-
-      카테고리는 ${planPrompt.categories.join(',')}입니다.
 
       여행 주제는 ${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.ko]).join(',')}입니다.
 
