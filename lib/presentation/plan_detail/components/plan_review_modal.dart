@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,7 +12,11 @@ import '../../../utils/validator.dart';
 import '../../components/wide_button.dart';
 
 class PlanReviewModal extends HookWidget {
-  const PlanReviewModal({super.key});
+  const PlanReviewModal({
+    super.key,
+    required this.rating,
+  });
+  final double rating;
 
   @override
   Widget build(BuildContext context) {
@@ -39,24 +44,26 @@ class PlanReviewModal extends HookWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
-              width: 216,
-              height: 40,
-              child: ListView.separated(
-                itemCount: 5,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
-                      Icons.star_border_outlined,
-                      color: AppColor.yellow800Secondary,
-                      size: 40,
-                    ),
-                  );
-                },
-                separatorBuilder: (_, __) => const Gap(4),
+            RatingBar(
+              initialRating: rating,
+              ratingWidget: RatingWidget(
+                full: const Icon(
+                  Icons.star,
+                  color: AppColor.yellow800Secondary,
+                  size: 40,
+                ),
+                half: const Icon(
+                  Icons.star_half,
+                  color: AppColor.yellow800Secondary,
+                  size: 40,
+                ),
+                empty: const Icon(
+                  Icons.star_border_outlined,
+                  color: AppColor.yellow800Secondary,
+                  size: 40,
+                ),
               ),
+              onRatingUpdate: (_) {},
             ),
             Form(
               key: formKey,

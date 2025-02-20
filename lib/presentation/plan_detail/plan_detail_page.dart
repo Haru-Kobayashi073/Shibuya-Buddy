@@ -17,6 +17,7 @@ import '../home/components/category_tags.dart';
 import 'components/circle_icon_button.dart';
 import 'components/plan_information_view.dart';
 import 'components/review_list_view.dart';
+import 'components/star_review_rating.dart';
 import 'plan_detail_page_notifier.dart';
 
 class PlanDetailPage extends HookConsumerWidget {
@@ -110,20 +111,7 @@ class PlanDetailPage extends HookConsumerWidget {
                         const Gap(8),
                         Row(
                           children: [
-                            SizedBox(
-                              width: 120,
-                              height: 24,
-                              child: ListView.builder(
-                                itemCount: 5,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return const Icon(
-                                    Icons.star,
-                                    color: AppColor.yellow600Primary,
-                                  );
-                                },
-                              ),
-                            ),
+                            const StarReviewRating(rating: 2.7),
                             Text(
                               '4.7',
                               style: AppTextStyle.textStyle.copyWith(
