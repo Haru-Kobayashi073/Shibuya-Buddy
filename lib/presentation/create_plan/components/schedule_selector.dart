@@ -28,7 +28,7 @@ class ScheduleSelector extends StatelessWidget {
             ? t.createPlanPage.label.scheduleStart
             : t.createPlanPage.label.scheduleEnd,
         controller: dateController,
-        onTap:onTap,
+        onTap: onTap,
       ),
     );
   }
