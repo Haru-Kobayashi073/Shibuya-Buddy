@@ -19,7 +19,8 @@ mixin _$CreatePlanState {
   String get location => throw _privateConstructorUsedError;
   String? get startDate => throw _privateConstructorUsedError;
   String? get endDate => throw _privateConstructorUsedError;
-  String get numberOfPeople => throw _privateConstructorUsedError;
+  int get adultCount => throw _privateConstructorUsedError;
+  int get childCount => throw _privateConstructorUsedError;
   List<String> get transports => throw _privateConstructorUsedError;
   List<String> get categories => throw _privateConstructorUsedError;
   List<Topic> get selectedTopics => throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ abstract class $CreatePlanStateCopyWith<$Res> {
       {String location,
       String? startDate,
       String? endDate,
-      String numberOfPeople,
+      int adultCount,
+      int childCount,
       List<String> transports,
       List<String> categories,
       List<Topic> selectedTopics,
@@ -67,7 +69,8 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
     Object? location = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? numberOfPeople = null,
+    Object? adultCount = null,
+    Object? childCount = null,
     Object? transports = null,
     Object? categories = null,
     Object? selectedTopics = null,
@@ -86,10 +89,14 @@ class _$CreatePlanStateCopyWithImpl<$Res, $Val extends CreatePlanState>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      numberOfPeople: null == numberOfPeople
-          ? _value.numberOfPeople
-          : numberOfPeople // ignore: cast_nullable_to_non_nullable
-              as String,
+      adultCount: null == adultCount
+          ? _value.adultCount
+          : adultCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      childCount: null == childCount
+          ? _value.childCount
+          : childCount // ignore: cast_nullable_to_non_nullable
+              as int,
       transports: null == transports
           ? _value.transports
           : transports // ignore: cast_nullable_to_non_nullable
@@ -122,7 +129,8 @@ abstract class _$$CreatePlanStateImplCopyWith<$Res>
       {String location,
       String? startDate,
       String? endDate,
-      String numberOfPeople,
+      int adultCount,
+      int childCount,
       List<String> transports,
       List<String> categories,
       List<Topic> selectedTopics,
@@ -145,7 +153,8 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
     Object? location = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? numberOfPeople = null,
+    Object? adultCount = null,
+    Object? childCount = null,
     Object? transports = null,
     Object? categories = null,
     Object? selectedTopics = null,
@@ -164,10 +173,14 @@ class __$$CreatePlanStateImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      numberOfPeople: null == numberOfPeople
-          ? _value.numberOfPeople
-          : numberOfPeople // ignore: cast_nullable_to_non_nullable
-              as String,
+      adultCount: null == adultCount
+          ? _value.adultCount
+          : adultCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      childCount: null == childCount
+          ? _value.childCount
+          : childCount // ignore: cast_nullable_to_non_nullable
+              as int,
       transports: null == transports
           ? _value._transports
           : transports // ignore: cast_nullable_to_non_nullable
@@ -195,7 +208,8 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
       {this.location = '渋谷',
       this.startDate,
       this.endDate,
-      this.numberOfPeople = '',
+      this.adultCount = 0,
+      this.childCount = 0,
       final List<String> transports = const [],
       final List<String> categories = const [],
       final List<Topic> selectedTopics = const [],
@@ -215,7 +229,10 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
   final String? endDate;
   @override
   @JsonKey()
-  final String numberOfPeople;
+  final int adultCount;
+  @override
+  @JsonKey()
+  final int childCount;
   final List<String> _transports;
   @override
   @JsonKey()
@@ -253,7 +270,7 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
 
   @override
   String toString() {
-    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, numberOfPeople: $numberOfPeople, transports: $transports, categories: $categories, selectedTopics: $selectedTopics, topics: $topics)';
+    return 'CreatePlanState(location: $location, startDate: $startDate, endDate: $endDate, adultCount: $adultCount, childCount: $childCount, transports: $transports, categories: $categories, selectedTopics: $selectedTopics, topics: $topics)';
   }
 
   @override
@@ -266,8 +283,10 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.numberOfPeople, numberOfPeople) ||
-                other.numberOfPeople == numberOfPeople) &&
+            (identical(other.adultCount, adultCount) ||
+                other.adultCount == adultCount) &&
+            (identical(other.childCount, childCount) ||
+                other.childCount == childCount) &&
             const DeepCollectionEquality()
                 .equals(other._transports, _transports) &&
             const DeepCollectionEquality()
@@ -283,7 +302,8 @@ class _$CreatePlanStateImpl extends _CreatePlanState {
       location,
       startDate,
       endDate,
-      numberOfPeople,
+      adultCount,
+      childCount,
       const DeepCollectionEquality().hash(_transports),
       const DeepCollectionEquality().hash(_categories),
       const DeepCollectionEquality().hash(_selectedTopics),
@@ -304,7 +324,8 @@ abstract class _CreatePlanState extends CreatePlanState {
       {final String location,
       final String? startDate,
       final String? endDate,
-      final String numberOfPeople,
+      final int adultCount,
+      final int childCount,
       final List<String> transports,
       final List<String> categories,
       final List<Topic> selectedTopics,
@@ -318,7 +339,9 @@ abstract class _CreatePlanState extends CreatePlanState {
   @override
   String? get endDate;
   @override
-  String get numberOfPeople;
+  int get adultCount;
+  @override
+  int get childCount;
   @override
   List<String> get transports;
   @override

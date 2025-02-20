@@ -24,9 +24,9 @@ mixin _$PlanPrompt {
   @DateTimeConverter()
   ({String firstDate, String lastDate}) get schedules =>
       throw _privateConstructorUsedError;
-  String get numberOfPeople => throw _privateConstructorUsedError;
+  String get childCount => throw _privateConstructorUsedError;
+  String get adultCount => throw _privateConstructorUsedError;
   List<String> get transports => throw _privateConstructorUsedError;
-  List<String> get categories => throw _privateConstructorUsedError;
   List<Topic> get topics => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -50,9 +50,9 @@ abstract class $PlanPromptCopyWith<$Res> {
   $Res call(
       {String id,
       @DateTimeConverter() ({String firstDate, String lastDate}) schedules,
-      String numberOfPeople,
+      String childCount,
+      String adultCount,
       List<String> transports,
-      List<String> categories,
       List<Topic> topics,
       @DateTimeConverter() DateTime createdAt});
 }
@@ -74,9 +74,9 @@ class _$PlanPromptCopyWithImpl<$Res, $Val extends PlanPrompt>
   $Res call({
     Object? id = null,
     Object? schedules = null,
-    Object? numberOfPeople = null,
+    Object? childCount = null,
+    Object? adultCount = null,
     Object? transports = null,
-    Object? categories = null,
     Object? topics = null,
     Object? createdAt = null,
   }) {
@@ -89,17 +89,17 @@ class _$PlanPromptCopyWithImpl<$Res, $Val extends PlanPrompt>
           ? _value.schedules
           : schedules // ignore: cast_nullable_to_non_nullable
               as ({String firstDate, String lastDate}),
-      numberOfPeople: null == numberOfPeople
-          ? _value.numberOfPeople
-          : numberOfPeople // ignore: cast_nullable_to_non_nullable
+      childCount: null == childCount
+          ? _value.childCount
+          : childCount // ignore: cast_nullable_to_non_nullable
+              as String,
+      adultCount: null == adultCount
+          ? _value.adultCount
+          : adultCount // ignore: cast_nullable_to_non_nullable
               as String,
       transports: null == transports
           ? _value.transports
           : transports // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
       topics: null == topics
           ? _value.topics
@@ -124,9 +124,9 @@ abstract class _$$PlanPromptImplCopyWith<$Res>
   $Res call(
       {String id,
       @DateTimeConverter() ({String firstDate, String lastDate}) schedules,
-      String numberOfPeople,
+      String childCount,
+      String adultCount,
       List<String> transports,
-      List<String> categories,
       List<Topic> topics,
       @DateTimeConverter() DateTime createdAt});
 }
@@ -146,9 +146,9 @@ class __$$PlanPromptImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? schedules = null,
-    Object? numberOfPeople = null,
+    Object? childCount = null,
+    Object? adultCount = null,
     Object? transports = null,
-    Object? categories = null,
     Object? topics = null,
     Object? createdAt = null,
   }) {
@@ -161,17 +161,17 @@ class __$$PlanPromptImplCopyWithImpl<$Res>
           ? _value.schedules
           : schedules // ignore: cast_nullable_to_non_nullable
               as ({String firstDate, String lastDate}),
-      numberOfPeople: null == numberOfPeople
-          ? _value.numberOfPeople
-          : numberOfPeople // ignore: cast_nullable_to_non_nullable
+      childCount: null == childCount
+          ? _value.childCount
+          : childCount // ignore: cast_nullable_to_non_nullable
+              as String,
+      adultCount: null == adultCount
+          ? _value.adultCount
+          : adultCount // ignore: cast_nullable_to_non_nullable
               as String,
       transports: null == transports
           ? _value._transports
           : transports // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
       topics: null == topics
           ? _value._topics
@@ -192,13 +192,12 @@ class _$PlanPromptImpl implements _PlanPrompt {
   const _$PlanPromptImpl(
       {required this.id,
       @DateTimeConverter() required this.schedules,
-      required this.numberOfPeople,
+      required this.childCount,
+      required this.adultCount,
       required final List<String> transports,
-      required final List<String> categories,
       required final List<Topic> topics,
       @DateTimeConverter() required this.createdAt})
       : _transports = transports,
-        _categories = categories,
         _topics = topics;
 
   factory _$PlanPromptImpl.fromJson(Map<String, dynamic> json) =>
@@ -210,21 +209,15 @@ class _$PlanPromptImpl implements _PlanPrompt {
   @DateTimeConverter()
   final ({String firstDate, String lastDate}) schedules;
   @override
-  final String numberOfPeople;
+  final String childCount;
+  @override
+  final String adultCount;
   final List<String> _transports;
   @override
   List<String> get transports {
     if (_transports is EqualUnmodifiableListView) return _transports;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_transports);
-  }
-
-  final List<String> _categories;
-  @override
-  List<String> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
   }
 
   final List<Topic> _topics;
@@ -241,7 +234,7 @@ class _$PlanPromptImpl implements _PlanPrompt {
 
   @override
   String toString() {
-    return 'PlanPrompt(id: $id, schedules: $schedules, numberOfPeople: $numberOfPeople, transports: $transports, categories: $categories, topics: $topics, createdAt: $createdAt)';
+    return 'PlanPrompt(id: $id, schedules: $schedules, childCount: $childCount, adultCount: $adultCount, transports: $transports, topics: $topics, createdAt: $createdAt)';
   }
 
   @override
@@ -252,12 +245,12 @@ class _$PlanPromptImpl implements _PlanPrompt {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.schedules, schedules) ||
                 other.schedules == schedules) &&
-            (identical(other.numberOfPeople, numberOfPeople) ||
-                other.numberOfPeople == numberOfPeople) &&
+            (identical(other.childCount, childCount) ||
+                other.childCount == childCount) &&
+            (identical(other.adultCount, adultCount) ||
+                other.adultCount == adultCount) &&
             const DeepCollectionEquality()
                 .equals(other._transports, _transports) &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories) &&
             const DeepCollectionEquality().equals(other._topics, _topics) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -269,9 +262,9 @@ class _$PlanPromptImpl implements _PlanPrompt {
       runtimeType,
       id,
       schedules,
-      numberOfPeople,
+      childCount,
+      adultCount,
       const DeepCollectionEquality().hash(_transports),
-      const DeepCollectionEquality().hash(_categories),
       const DeepCollectionEquality().hash(_topics),
       createdAt);
 
@@ -296,9 +289,9 @@ abstract class _PlanPrompt implements PlanPrompt {
           {required final String id,
           @DateTimeConverter()
           required final ({String firstDate, String lastDate}) schedules,
-          required final String numberOfPeople,
+          required final String childCount,
+          required final String adultCount,
           required final List<String> transports,
-          required final List<String> categories,
           required final List<Topic> topics,
           @DateTimeConverter() required final DateTime createdAt}) =
       _$PlanPromptImpl;
@@ -312,11 +305,11 @@ abstract class _PlanPrompt implements PlanPrompt {
   @DateTimeConverter()
   ({String firstDate, String lastDate}) get schedules;
   @override
-  String get numberOfPeople;
+  String get childCount;
+  @override
+  String get adultCount;
   @override
   List<String> get transports;
-  @override
-  List<String> get categories;
   @override
   List<Topic> get topics;
   @override

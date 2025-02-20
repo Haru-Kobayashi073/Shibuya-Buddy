@@ -225,26 +225,12 @@ class _TranslationsCreatePlanPageZhHant implements TranslationsCreatePlanPageEn 
 	@override late final _TranslationsCreatePlanPageLabelZhHant label = _TranslationsCreatePlanPageLabelZhHant._(_root);
 	@override late final _TranslationsCreatePlanPageHintTextZhHant hintText = _TranslationsCreatePlanPageHintTextZhHant._(_root);
 	@override late final _TranslationsCreatePlanPageModalZhHant modal = _TranslationsCreatePlanPageModalZhHant._(_root);
-	@override List<String> get numberOfPeopleOptions => [
-		'1人',
-		'2人',
-		'3人',
-		'4人',
-		'5人',
-		'6人以上',
-	];
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsZhHant numberOfPeopleOptions = _TranslationsCreatePlanPageNumberOfPeopleOptionsZhHant._(_root);
 	@override List<String> get transportOptions => [
 		'火車',
 		'步行',
 		'汽車',
 		'巴士',
-	];
-	@override List<String> get categoryOptions => [
-		'親子',
-		'成人',
-		'娛樂',
-		'活動',
-		'歷史',
 	];
 	@override List<String> get defaultTopics => [
 		'美食',
@@ -694,6 +680,7 @@ class _TranslationsCreatePlanPageLabelZhHant implements TranslationsCreatePlanPa
 
 	// Translations
 	@override String get location => '目的地';
+	@override String get scheduleTitle => '日期';
 	@override String get scheduleStart => '開始日期';
 	@override String get scheduleEnd => '結束日期';
 	@override String get numberOfPeople => '人數';
@@ -720,6 +707,17 @@ class _TranslationsCreatePlanPageModalZhHant implements TranslationsCreatePlanPa
 
 	// Translations
 	@override String get title => '選擇日期';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsZhHant implements TranslationsCreatePlanPageNumberOfPeopleOptionsEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultZhHant adult = _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultZhHant._(_root);
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsChildZhHant child = _TranslationsCreatePlanPageNumberOfPeopleOptionsChildZhHant._(_root);
 }
 
 // Path: createPlanPage.snackBar
@@ -1167,6 +1165,28 @@ class _TranslationsBuddyChatPageSnackBarErrorZhHant implements TranslationsBuddy
 	@override String get failedCompleteCreatePlan => '無法完成建立計劃，請稍後再試';
 }
 
+// Path: createPlanPage.numberOfPeopleOptions.adult
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultZhHant implements TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsAdultZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '成人';
+	@override String get subtitle => '（13歲以上）';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions.child
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsChildZhHant implements TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsChildZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '兒童';
+	@override String get subtitle => '（未滿13歲）';
+}
+
 // Path: createPlanPage.snackBar.error
 class _TranslationsCreatePlanPageSnackBarErrorZhHant implements TranslationsCreatePlanPageSnackBarErrorEn {
 	_TranslationsCreatePlanPageSnackBarErrorZhHant._(this._root);
@@ -1553,6 +1573,7 @@ extension on TranslationsZhHant {
 			case 'popularTopics.sectionName': return '熱門話題';
 			case 'createPlanPage.title': return '建立計劃';
 			case 'createPlanPage.label.location': return '目的地';
+			case 'createPlanPage.label.scheduleTitle': return '日期';
 			case 'createPlanPage.label.scheduleStart': return '開始日期';
 			case 'createPlanPage.label.scheduleEnd': return '結束日期';
 			case 'createPlanPage.label.numberOfPeople': return '人數';
@@ -1561,21 +1582,14 @@ extension on TranslationsZhHant {
 			case 'createPlanPage.label.topics': return '旅行主題';
 			case 'createPlanPage.hintText.location': return '澀谷';
 			case 'createPlanPage.modal.title': return '選擇日期';
-			case 'createPlanPage.numberOfPeopleOptions.0': return '1人';
-			case 'createPlanPage.numberOfPeopleOptions.1': return '2人';
-			case 'createPlanPage.numberOfPeopleOptions.2': return '3人';
-			case 'createPlanPage.numberOfPeopleOptions.3': return '4人';
-			case 'createPlanPage.numberOfPeopleOptions.4': return '5人';
-			case 'createPlanPage.numberOfPeopleOptions.5': return '6人以上';
+			case 'createPlanPage.numberOfPeopleOptions.adult.title': return '成人';
+			case 'createPlanPage.numberOfPeopleOptions.adult.subtitle': return '（13歲以上）';
+			case 'createPlanPage.numberOfPeopleOptions.child.title': return '兒童';
+			case 'createPlanPage.numberOfPeopleOptions.child.subtitle': return '（未滿13歲）';
 			case 'createPlanPage.transportOptions.0': return '火車';
 			case 'createPlanPage.transportOptions.1': return '步行';
 			case 'createPlanPage.transportOptions.2': return '汽車';
 			case 'createPlanPage.transportOptions.3': return '巴士';
-			case 'createPlanPage.categoryOptions.0': return '親子';
-			case 'createPlanPage.categoryOptions.1': return '成人';
-			case 'createPlanPage.categoryOptions.2': return '娛樂';
-			case 'createPlanPage.categoryOptions.3': return '活動';
-			case 'createPlanPage.categoryOptions.4': return '歷史';
 			case 'createPlanPage.defaultTopics.0': return '美食';
 			case 'createPlanPage.defaultTopics.1': return '購物';
 			case 'createPlanPage.defaultTopics.2': return '活動';

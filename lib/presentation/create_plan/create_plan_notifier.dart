@@ -36,12 +36,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     }
   }
 
-  void clearSelectedTopics() {
-    state = AsyncValue.data(
-      state.requireValue.copyWith(selectedTopics: []),
-    );
-  }
-
   void updateSelectedTopics(Topic topic, {required bool isSelected}) {
     final updatedTopics = List<Topic>.from(state.requireValue.selectedTopics);
     if (isSelected) {
@@ -65,15 +59,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
           'zh-Hans': 'M月d日 EEEE hh:mm a',
         }[currentLocale] ??
         'MMM d, EEEE HH:mm';
-
-    final formatter = DateFormat(pattern, currentLocale);
-    return formatter.format(date);
-  }
-
-  void updateNumberOfPeople(String selecteNum) {
-    state = AsyncValue.data(
-      state.requireValue.copyWith(numberOfPeople: selecteNum),
-    );
+    return DateFormat(pattern, currentLocale).format(date);
   }
 
   void updateTransport(String selectedTransport) {
@@ -83,16 +69,6 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     );
     state = AsyncValue.data(
       state.requireValue.copyWith(transports: updatedList),
-    );
-  }
-
-  void updateCategory(String selectedCategory) {
-    final updatedList = _toggleListField(
-      selectedItems: state.requireValue.categories,
-      item: selectedCategory,
-    );
-    state = AsyncValue.data(
-      state.requireValue.copyWith(categories: updatedList),
     );
   }
 
@@ -111,19 +87,15 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     required bool isStartDate,
   }) async {
     var chosenDate = DateTime.now();
-
     await showCupertinoModalPopup<void>(
       context: context,
-      builder: (context) {
-        return CustomCupertinoDatePicker(
-          onDateTimeChanged: (date) {
-            chosenDate = date;
-            targetController.text = _formatDate(date);
-          },
-        );
-      },
+      builder: (context) => CustomCupertinoDatePicker(
+        onDateTimeChanged: (date) {
+          chosenDate = date;
+          targetController.text = _formatDate(date);
+        },
+      ),
     );
-
     if (isStartDate) {
       state = AsyncValue.data(
         state.requireValue.copyWith(startDate: _formatDate(chosenDate)),
@@ -144,26 +116,23 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
       );
       return;
     }
-
     final startDate = _parseDate(state.requireValue.startDate!);
     final endDate = _parseDate(state.requireValue.endDate!);
-
     if (startDate.isAfter(endDate)) {
       scaffoldMessenger.showExceptionSnackBar(
         t.createPlanPage.snackBar.error.invalidDateRange,
       );
       return;
     }
-
     final planPrompt = PlanPrompt(
       id: const Uuid().v4(),
       schedules: (
         firstDate: state.requireValue.startDate!,
-        lastDate: state.requireValue.endDate!,
+        lastDate: state.requireValue.endDate!
       ),
-      numberOfPeople: state.requireValue.numberOfPeople,
+      childCount: state.requireValue.childCountString,
+      adultCount: state.requireValue.adultCountString,
       transports: state.requireValue.transports,
-      categories: state.requireValue.categories,
       topics: state.requireValue.selectedTopics,
       createdAt: DateTime.now(),
     );
@@ -179,8 +148,40 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
           'zh-Hans': 'M月d日 EEEE hh:mm a',
         }[currentLocale] ??
         'MMM d, EEEE HH:mm';
+    return DateFormat(pattern, currentLocale).parse(dateString);
+  }
 
-    final formatter = DateFormat(pattern, currentLocale);
-    return formatter.parse(dateString);
+  // 大人の人数操作
+  void incrementAdult() {
+    final newAdultCount = state.requireValue.adultCount + 1;
+    state = AsyncValue.data(
+      state.requireValue.copyWith(adultCount: newAdultCount),
+    );
+  }
+
+  void decrementAdult() {
+    if (state.requireValue.adultCount > 0) {
+      final newAdultCount = state.requireValue.adultCount - 1;
+      state = AsyncValue.data(
+        state.requireValue.copyWith(adultCount: newAdultCount),
+      );
+    }
+  }
+
+  // 子供の人数操作
+  void incrementChild() {
+    final newChildCount = state.requireValue.childCount + 1;
+    state = AsyncValue.data(
+      state.requireValue.copyWith(childCount: newChildCount),
+    );
+  }
+
+  void decrementChild() {
+    if (state.requireValue.childCount > 0) {
+      final newChildCount = state.requireValue.childCount - 1;
+      state = AsyncValue.data(
+        state.requireValue.copyWith(childCount: newChildCount),
+      );
+    }
   }
 }

@@ -8,7 +8,7 @@ part of 'user.dart';
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       uid: json['uid'] as String,
-      name: json['name'] as String?,
+      name: json['name'] as String,
       imageUrl: json['imageUrl'] as String?,
       billingGrade: $enumDecode(_$BillingGradeEnumMap, json['billingGrade']),
       bookmarkedPlanIds: (json['bookmarkedPlanIds'] as List<dynamic>?)
