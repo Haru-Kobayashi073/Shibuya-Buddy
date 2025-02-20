@@ -46,6 +46,19 @@ class CreatePlanPage extends HookConsumerWidget {
       [planState],
     );
 
+    // 日付ピッカーを表示する処理を定義
+    Future<void> showDatePicker(
+      BuildContext context,
+      TextEditingController controller, {
+      required bool isStartDate,
+    }) async {
+      await planNotifier.showCupertinoDatePicker(
+        context,
+        controller,
+        isStartDate: isStartDate,
+      );
+    }
+
     return planStateAsync.when(
       data: (planState) => PopScope(
         canPop: false,
@@ -111,8 +124,12 @@ class CreatePlanPage extends HookConsumerWidget {
                     children: [
                       ScheduleSelector(
                         dateController: startDateController,
-                        planNotifier: planNotifier,
                         isStartDate: true,
+                        onTap: () async => showDatePicker(
+                          context,
+                          startDateController,
+                          isStartDate: true,
+                        ),
                       ),
                       const Gap(8),
                       Text(
@@ -125,8 +142,12 @@ class CreatePlanPage extends HookConsumerWidget {
                       const Gap(8),
                       ScheduleSelector(
                         dateController: endDateController,
-                        planNotifier: planNotifier,
                         isStartDate: false,
+                        onTap: () async => showDatePicker(
+                          context,
+                          endDateController,
+                          isStartDate: false,
+                        ),
                       ),
                     ],
                   ),

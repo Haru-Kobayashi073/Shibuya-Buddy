@@ -3,22 +3,18 @@ import 'package:material_symbols_icons/symbols.dart';
 
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
-import '../create_plan_notifier.dart';
 import 'plan_text_field.dart';
 
 class ScheduleSelector extends StatelessWidget {
   const ScheduleSelector({
     super.key,
     required this.dateController,
-    required this.planNotifier,
     required this.isStartDate,
+    required this.onTap,
   });
-
   final TextEditingController dateController;
-
-  final CreatePlanNotifier planNotifier;
-
   final bool isStartDate;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +28,7 @@ class ScheduleSelector extends StatelessWidget {
             ? t.createPlanPage.label.scheduleStart
             : t.createPlanPage.label.scheduleEnd,
         controller: dateController,
-        onTap: () async {
-          await planNotifier.showCupertinoDatePicker(
-            context,
-            dateController,
-            isStartDate: isStartDate,
-          );
-        },
+        onTap:onTap,
       ),
     );
   }
