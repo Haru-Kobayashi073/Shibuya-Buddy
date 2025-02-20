@@ -33,7 +33,7 @@ class TransportSelector extends StatelessWidget {
         final icon = index < _iconList.length
             ? _iconList[index]
             : Symbols.directions_transit;
-        return TransportButton(
+        return _TransportButton(
           option: option,
           icon: icon,
           isSelected: isSelected,
@@ -44,9 +44,8 @@ class TransportSelector extends StatelessWidget {
   }
 }
 
-class TransportButton extends StatelessWidget {
-  const TransportButton({
-    super.key,
+class _TransportButton extends StatelessWidget {
+  const _TransportButton({
     required this.option,
     required this.icon,
     required this.isSelected,
