@@ -25,12 +25,10 @@ class TranslatePrompt {
 
       日付は、${planPrompt.schedules.firstDate}から${planPrompt.schedules.lastDate}までの間で考えてください。
 
-      人数は、${planPrompt.numberOfPeople}人です。
+      人数は、大人が${planPrompt.adultCount}人と子供が${planPrompt.childCount}人です。
 
       交通手段は、${planPrompt.transports.join(',')}です。
       )}です。
-
-      カテゴリーは、${planPrompt.categories.join(',')}です。
 
       旅のトピックは、${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.ja]).join(',')}です。
 
@@ -61,11 +59,9 @@ class TranslatePrompt {
 
       日期请考虑从${planPrompt.schedules.firstDate}到${planPrompt.schedules.lastDate}。
 
-      人数为${planPrompt.numberOfPeople}人。
+      人数为成人${planPrompt.adultCount}人，儿童${planPrompt.childCount}人。
 
       交通方式为${planPrompt.transports.join(',')}。
-
-      类别为${planPrompt.categories.join(',')}。
 
       旅行主题为${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.zhHans]).join(',')}。
 
@@ -96,11 +92,9 @@ class TranslatePrompt {
 
       日期請考慮從${planPrompt.schedules.firstDate}到${planPrompt.schedules.lastDate}。
 
-      人數為${planPrompt.numberOfPeople}人。
+      人數為成人${planPrompt.adultCount}人，兒童${planPrompt.childCount}人。
 
       交通方式為${planPrompt.transports.join(',')}。
-
-      類別為${planPrompt.categories.join(',')}。
 
       旅行主題為${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.zhHant]).join(',')}。
 
@@ -131,11 +125,9 @@ class TranslatePrompt {
 
       Consider the dates from ${planPrompt.schedules.firstDate} to ${planPrompt.schedules.lastDate}.
 
-      The number of people is ${planPrompt.numberOfPeople}.
+      The number of people is ${planPrompt.adultCount} adults and ${planPrompt.childCount} children.
 
       Transportation methods include ${planPrompt.transports.join(',')}.
-
-      Categories include ${planPrompt.categories.join(',')}.
 
       Travel themes include ${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.en]).join(',')}.
 
@@ -166,11 +158,9 @@ class TranslatePrompt {
 
       날짜는 ${planPrompt.schedules.firstDate}부터 ${planPrompt.schedules.lastDate}까지 고려해주세요.
 
-      인원은 ${planPrompt.numberOfPeople}명입니다.
+      인원은 성인${planPrompt.adultCount}명과 어린이${planPrompt.childCount}명입니다.
 
       교통수단은 ${planPrompt.transports.join(',')}입니다.
-
-      카테고리는 ${planPrompt.categories.join(',')}입니다.
 
       여행 주제는 ${planPrompt.topics.map((e) => e.translatedNameMap[AppLocale.ko]).join(',')}입니다.
 

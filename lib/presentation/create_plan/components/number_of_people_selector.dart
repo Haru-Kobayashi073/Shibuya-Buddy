@@ -1,0 +1,114 @@
+import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
+
+import '../../../i18n/strings.g.dart';
+import '../../../utils/styles/app_color.dart';
+import '../../../utils/styles/app_text_style.dart';
+
+class NumberOfPeopleSelector extends StatelessWidget {
+  const NumberOfPeopleSelector({
+    super.key,
+    required this.adultCount,
+    required this.childCount,
+    required this.onIncrementAdult,
+    required this.onDecrementAdult,
+    required this.onIncrementChild,
+    required this.onDecrementChild,
+  });
+
+  final int adultCount;
+  final int childCount;
+  final VoidCallback onIncrementAdult;
+  final VoidCallback onDecrementAdult;
+  final VoidCallback onIncrementChild;
+  final VoidCallback onDecrementChild;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _buildRow(
+          label: t.createPlanPage.numberOfPeopleOptions.adult.title,
+          subtitle: t.createPlanPage.numberOfPeopleOptions.adult.subtitle,
+          count: adultCount,
+          onIncrement: onIncrementAdult,
+          onDecrement: onDecrementAdult,
+        ),
+        const SizedBox(height: 4),
+        _buildRow(
+          label: t.createPlanPage.numberOfPeopleOptions.child.title,
+          subtitle: t.createPlanPage.numberOfPeopleOptions.child.subtitle,
+          count: childCount,
+          onIncrement: onIncrementChild,
+          onDecrement: onDecrementChild,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRow({
+    required String label,
+    required String subtitle,
+    required int count,
+    required VoidCallback onIncrement,
+    required VoidCallback onDecrement,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        RichText(
+          text: TextSpan(
+            text: label,
+            style: AppTextStyle.textStyle.copyWith(
+              fontSize: 14,
+              color: AppColor.black,
+            ),
+            children: [
+              TextSpan(
+                text: subtitle,
+                style: AppTextStyle.textStyle.copyWith(
+                  fontSize: 14,
+                  color: AppColor.grey600,
+                ),
+              ),
+            ],
+          ),
+        ),
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: AppColor.blue50Background,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints:
+                      const BoxConstraints(minWidth: 24, minHeight: 24),
+                  onPressed: onDecrement,
+                  iconSize: 18,
+                  icon: const Icon(Symbols.remove),
+                ),
+                Text(
+                  '$count',
+                  style: AppTextStyle.textStyle.copyWith(fontSize: 14),
+                ),
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints:
+                      const BoxConstraints(minWidth: 24, minHeight: 24),
+                  onPressed: onIncrement,
+                  iconSize: 18,
+                  icon: const Icon(Symbols.add),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

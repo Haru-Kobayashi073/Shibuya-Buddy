@@ -20,30 +20,36 @@ class TopicChipField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final localeNotifier = ref.read(localeServiceProvider.notifier);
-
     return Align(
       alignment: Alignment.centerLeft,
-      child: Column(
-        children: [
-          Wrap(
-            spacing: 8,
-            runSpacing: -4,
-            children: topics
-                .where((topic) => !selectedTopics.contains(topic))
-                .map((topic) {
-              return FilterChip(
-                side: BorderSide.none,
-                backgroundColor: AppColor.blue50Background,
-                label: Text(
-                  localeNotifier.getTranslatedTopicName(topic),
-                ),
-                onSelected: (isSelected) {
-                  onSelected(topic, isSelected: true);
-                },
-              );
-            }).toList(),
-          ),
-        ],
+      child: Wrap(
+        spacing: 8,
+        runSpacing: -4,
+        children: topics.map((topic) {
+          final isSelected = selectedTopics.contains(topic);
+          return Theme(
+            data: Theme.of(context).copyWith(
+              splashColor: AppColor.grey400,
+            ),
+            child: FilterChip(
+              selected: isSelected,
+              backgroundColor: AppColor.blue50Background,
+              selectedColor: AppColor.blue50Background,
+              side: BorderSide(
+                color:
+                    isSelected ? AppColor.blue800Secondary : Colors.transparent,
+              ),
+              label: Text(
+                localeNotifier.getTranslatedTopicName(topic),
+                style: const TextStyle(color: AppColor.black),
+              ),
+              showCheckmark: false,
+              onSelected: (value) {
+                onSelected(topic, isSelected: value);
+              },
+            ),
+          );
+        }).toList(),
       ),
     );
   }

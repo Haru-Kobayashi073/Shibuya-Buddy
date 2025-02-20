@@ -10,7 +10,8 @@ class CreatePlanState with _$CreatePlanState {
     @Default('渋谷') String location,
     String? startDate,
     String? endDate,
-    @Default('') String numberOfPeople,
+    @Default(0) int adultCount,
+    @Default(0) int childCount,
     @Default([]) List<String> transports,
     @Default([]) List<String> categories,
     @Default([]) List<Topic> selectedTopics,
@@ -20,10 +21,16 @@ class CreatePlanState with _$CreatePlanState {
 
   bool isSelectedAll() {
     return transports.isNotEmpty &&
-        categories.isNotEmpty &&
         topics.isNotEmpty &&
         startDate != null &&
         endDate != null &&
-        numberOfPeople.isNotEmpty;
+        (adultCount + childCount) > 0 &&
+        selectedTopics.isNotEmpty;
   }
+
+  /// 大人の人数を文字列として取得
+  String get adultCountString => '$adultCount';
+
+  /// 子供の人数を文字列として取得
+  String get childCountString => '$childCount';
 }
