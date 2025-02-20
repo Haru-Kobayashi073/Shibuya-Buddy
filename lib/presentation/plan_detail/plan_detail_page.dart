@@ -90,8 +90,8 @@ class PlanDetailPage extends HookConsumerWidget {
                   centerTitle: false,
                   automaticallyImplyLeading: false,
                   scrolledUnderElevation: 0,
-                  expandedHeight: 100,
-                  toolbarHeight: 100,
+                  expandedHeight: 124,
+                  toolbarHeight: 124,
                   backgroundColor: AppColor.white,
                   primary: isScrolled.value,
                   title: Container(
@@ -107,7 +107,40 @@ class PlanDetailPage extends HookConsumerWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const Gap(16),
+                        const Gap(8),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 120,
+                              height: 24,
+                              child: ListView.builder(
+                                itemCount: 5,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return const Icon(
+                                    Icons.star,
+                                    color: AppColor.yellow600Primary,
+                                  );
+                                },
+                              ),
+                            ),
+                            Text(
+                              '4.7',
+                              style: AppTextStyle.textStyle.copyWith(
+                                fontSize: 16,
+                              ),
+                            ),
+                            const Gap(8),
+                            Text(
+                              '(22件の評価)',
+                              style: AppTextStyle.textStyle.copyWith(
+                                color: AppColor.grey600,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Gap(8),
                         CategoryTags(
                           topics: plan.topics,
                           tagColor: AppColor.blue50Background,
