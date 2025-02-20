@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import 'plan_review_modal.dart';
 
 class ReviewListView extends StatelessWidget {
   const ReviewListView({super.key});
@@ -33,10 +34,18 @@ class ReviewListView extends StatelessWidget {
                         itemCount: 5,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return const Icon(
-                            Icons.star_border_outlined,
-                            color: AppColor.yellow800Secondary,
-                            size: 40,
+                          return GestureDetector(
+                            onTap: () async {
+                              await showModalBottomSheet<void>(
+                                context: context,
+                                builder: (context) => const PlanReviewModal(),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.star_border_outlined,
+                              color: AppColor.yellow800Secondary,
+                              size: 40,
+                            ),
                           );
                         },
                         separatorBuilder: (_, __) => const Gap(4),
