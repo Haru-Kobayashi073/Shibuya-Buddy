@@ -225,26 +225,12 @@ class _TranslationsCreatePlanPageKo implements TranslationsCreatePlanPageEn {
 	@override late final _TranslationsCreatePlanPageLabelKo label = _TranslationsCreatePlanPageLabelKo._(_root);
 	@override late final _TranslationsCreatePlanPageHintTextKo hintText = _TranslationsCreatePlanPageHintTextKo._(_root);
 	@override late final _TranslationsCreatePlanPageModalKo modal = _TranslationsCreatePlanPageModalKo._(_root);
-	@override List<String> get numberOfPeopleOptions => [
-		'1명',
-		'2명',
-		'3명',
-		'4명',
-		'5명',
-		'6명 이상',
-	];
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsKo numberOfPeopleOptions = _TranslationsCreatePlanPageNumberOfPeopleOptionsKo._(_root);
 	@override List<String> get transportOptions => [
 		'전철',
 		'도보',
 		'자동차',
 		'버스',
-	];
-	@override List<String> get categoryOptions => [
-		'아이 동반',
-		'성인 대상',
-		'엔터테인먼트',
-		'액티비티',
-		'역사',
 	];
 	@override List<String> get defaultTopics => [
 		'맛집',
@@ -694,6 +680,7 @@ class _TranslationsCreatePlanPageLabelKo implements TranslationsCreatePlanPageLa
 
 	// Translations
 	@override String get location => '목적지';
+	@override String get scheduleTitle => '일정';
 	@override String get scheduleStart => '시작일';
 	@override String get scheduleEnd => '종료일';
 	@override String get numberOfPeople => '인원';
@@ -720,6 +707,17 @@ class _TranslationsCreatePlanPageModalKo implements TranslationsCreatePlanPageMo
 
 	// Translations
 	@override String get title => '날짜 선택';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsKo implements TranslationsCreatePlanPageNumberOfPeopleOptionsEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultKo adult = _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultKo._(_root);
+	@override late final _TranslationsCreatePlanPageNumberOfPeopleOptionsChildKo child = _TranslationsCreatePlanPageNumberOfPeopleOptionsChildKo._(_root);
 }
 
 // Path: createPlanPage.snackBar
@@ -1167,6 +1165,28 @@ class _TranslationsBuddyChatPageSnackBarErrorKo implements TranslationsBuddyChat
 	@override String get failedCompleteCreatePlan => '플랜 생성에 실패했습니다. 잠시 후 다시 시도해주세요.';
 }
 
+// Path: createPlanPage.numberOfPeopleOptions.adult
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsAdultKo implements TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsAdultKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '어른';
+	@override String get subtitle => '（13세 이상）';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions.child
+class _TranslationsCreatePlanPageNumberOfPeopleOptionsChildKo implements TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn {
+	_TranslationsCreatePlanPageNumberOfPeopleOptionsChildKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '어린이';
+	@override String get subtitle => '（13세 미만）';
+}
+
 // Path: createPlanPage.snackBar.error
 class _TranslationsCreatePlanPageSnackBarErrorKo implements TranslationsCreatePlanPageSnackBarErrorEn {
 	_TranslationsCreatePlanPageSnackBarErrorKo._(this._root);
@@ -1553,6 +1573,7 @@ extension on TranslationsKo {
 			case 'popularTopics.sectionName': return '인기 주제';
 			case 'createPlanPage.title': return '플랜 생성';
 			case 'createPlanPage.label.location': return '목적지';
+			case 'createPlanPage.label.scheduleTitle': return '일정';
 			case 'createPlanPage.label.scheduleStart': return '시작일';
 			case 'createPlanPage.label.scheduleEnd': return '종료일';
 			case 'createPlanPage.label.numberOfPeople': return '인원';
@@ -1561,21 +1582,14 @@ extension on TranslationsKo {
 			case 'createPlanPage.label.topics': return '여행 주제';
 			case 'createPlanPage.hintText.location': return '시부야';
 			case 'createPlanPage.modal.title': return '날짜 선택';
-			case 'createPlanPage.numberOfPeopleOptions.0': return '1명';
-			case 'createPlanPage.numberOfPeopleOptions.1': return '2명';
-			case 'createPlanPage.numberOfPeopleOptions.2': return '3명';
-			case 'createPlanPage.numberOfPeopleOptions.3': return '4명';
-			case 'createPlanPage.numberOfPeopleOptions.4': return '5명';
-			case 'createPlanPage.numberOfPeopleOptions.5': return '6명 이상';
+			case 'createPlanPage.numberOfPeopleOptions.adult.title': return '어른';
+			case 'createPlanPage.numberOfPeopleOptions.adult.subtitle': return '（13세 이상）';
+			case 'createPlanPage.numberOfPeopleOptions.child.title': return '어린이';
+			case 'createPlanPage.numberOfPeopleOptions.child.subtitle': return '（13세 미만）';
 			case 'createPlanPage.transportOptions.0': return '전철';
 			case 'createPlanPage.transportOptions.1': return '도보';
 			case 'createPlanPage.transportOptions.2': return '자동차';
 			case 'createPlanPage.transportOptions.3': return '버스';
-			case 'createPlanPage.categoryOptions.0': return '아이 동반';
-			case 'createPlanPage.categoryOptions.1': return '성인 대상';
-			case 'createPlanPage.categoryOptions.2': return '엔터테인먼트';
-			case 'createPlanPage.categoryOptions.3': return '액티비티';
-			case 'createPlanPage.categoryOptions.4': return '역사';
 			case 'createPlanPage.defaultTopics.0': return '맛집';
 			case 'createPlanPage.defaultTopics.1': return '쇼핑';
 			case 'createPlanPage.defaultTopics.2': return '액티비티';

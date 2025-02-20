@@ -229,26 +229,12 @@ class TranslationsCreatePlanPageEn {
 	late final TranslationsCreatePlanPageLabelEn label = TranslationsCreatePlanPageLabelEn._(_root);
 	late final TranslationsCreatePlanPageHintTextEn hintText = TranslationsCreatePlanPageHintTextEn._(_root);
 	late final TranslationsCreatePlanPageModalEn modal = TranslationsCreatePlanPageModalEn._(_root);
-	List<String> get numberOfPeopleOptions => [
-		'1 person',
-		'2 people',
-		'3 people',
-		'4 people',
-		'5 people',
-		'6 or more',
-	];
+	late final TranslationsCreatePlanPageNumberOfPeopleOptionsEn numberOfPeopleOptions = TranslationsCreatePlanPageNumberOfPeopleOptionsEn._(_root);
 	List<String> get transportOptions => [
 		'Train',
 		'Walking',
 		'Car',
 		'Bus',
-	];
-	List<String> get categoryOptions => [
-		'Family-Friendly',
-		'Adult',
-		'Entertainment',
-		'Activity',
-		'History',
 	];
 	List<String> get defaultTopics => [
 		'Gourmet',
@@ -698,6 +684,7 @@ class TranslationsCreatePlanPageLabelEn {
 
 	// Translations
 	String get location => 'Destination';
+	String get scheduleTitle => 'Schedule';
 	String get scheduleStart => 'Start Date';
 	String get scheduleEnd => 'End Date';
 	String get numberOfPeople => 'Number of People';
@@ -724,6 +711,17 @@ class TranslationsCreatePlanPageModalEn {
 
 	// Translations
 	String get title => 'Select a date';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions
+class TranslationsCreatePlanPageNumberOfPeopleOptionsEn {
+	TranslationsCreatePlanPageNumberOfPeopleOptionsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn adult = TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn._(_root);
+	late final TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn child = TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn._(_root);
 }
 
 // Path: createPlanPage.snackBar
@@ -1171,6 +1169,28 @@ class TranslationsBuddyChatPageSnackBarErrorEn {
 	String get failedCompleteCreatePlan => 'Failed to complete plan creation. Please try again later.';
 }
 
+// Path: createPlanPage.numberOfPeopleOptions.adult
+class TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn {
+	TranslationsCreatePlanPageNumberOfPeopleOptionsAdultEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Adult';
+	String get subtitle => '（13 years and over）';
+}
+
+// Path: createPlanPage.numberOfPeopleOptions.child
+class TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn {
+	TranslationsCreatePlanPageNumberOfPeopleOptionsChildEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Child';
+	String get subtitle => '（Under 13）';
+}
+
 // Path: createPlanPage.snackBar.error
 class TranslationsCreatePlanPageSnackBarErrorEn {
 	TranslationsCreatePlanPageSnackBarErrorEn._(this._root);
@@ -1557,6 +1577,7 @@ extension on Translations {
 			case 'popularTopics.sectionName': return 'Popular Topics';
 			case 'createPlanPage.title': return 'Create Plan';
 			case 'createPlanPage.label.location': return 'Destination';
+			case 'createPlanPage.label.scheduleTitle': return 'Schedule';
 			case 'createPlanPage.label.scheduleStart': return 'Start Date';
 			case 'createPlanPage.label.scheduleEnd': return 'End Date';
 			case 'createPlanPage.label.numberOfPeople': return 'Number of People';
@@ -1565,21 +1586,14 @@ extension on Translations {
 			case 'createPlanPage.label.topics': return 'Travel Topics';
 			case 'createPlanPage.hintText.location': return 'Shibuya';
 			case 'createPlanPage.modal.title': return 'Select a date';
-			case 'createPlanPage.numberOfPeopleOptions.0': return '1 person';
-			case 'createPlanPage.numberOfPeopleOptions.1': return '2 people';
-			case 'createPlanPage.numberOfPeopleOptions.2': return '3 people';
-			case 'createPlanPage.numberOfPeopleOptions.3': return '4 people';
-			case 'createPlanPage.numberOfPeopleOptions.4': return '5 people';
-			case 'createPlanPage.numberOfPeopleOptions.5': return '6 or more';
+			case 'createPlanPage.numberOfPeopleOptions.adult.title': return 'Adult';
+			case 'createPlanPage.numberOfPeopleOptions.adult.subtitle': return '（13 years and over）';
+			case 'createPlanPage.numberOfPeopleOptions.child.title': return 'Child';
+			case 'createPlanPage.numberOfPeopleOptions.child.subtitle': return '（Under 13）';
 			case 'createPlanPage.transportOptions.0': return 'Train';
 			case 'createPlanPage.transportOptions.1': return 'Walking';
 			case 'createPlanPage.transportOptions.2': return 'Car';
 			case 'createPlanPage.transportOptions.3': return 'Bus';
-			case 'createPlanPage.categoryOptions.0': return 'Family-Friendly';
-			case 'createPlanPage.categoryOptions.1': return 'Adult';
-			case 'createPlanPage.categoryOptions.2': return 'Entertainment';
-			case 'createPlanPage.categoryOptions.3': return 'Activity';
-			case 'createPlanPage.categoryOptions.4': return 'History';
 			case 'createPlanPage.defaultTopics.0': return 'Gourmet';
 			case 'createPlanPage.defaultTopics.1': return 'Shopping';
 			case 'createPlanPage.defaultTopics.2': return 'Activities';

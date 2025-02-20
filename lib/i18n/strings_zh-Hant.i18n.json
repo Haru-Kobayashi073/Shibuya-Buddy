@@ -280,6 +280,7 @@
         "title": "建立計劃",
         "label": {
             "location": "目的地",
+            "scheduleTitle": "日期",
             "scheduleStart": "開始日期",
             "scheduleEnd": "結束日期",
             "numberOfPeople": "人數",
@@ -293,26 +294,21 @@
         "modal": {
             "title": "選擇日期"
         },
-        "numberOfPeopleOptions": [
-            "1人",
-            "2人",
-            "3人",
-            "4人",
-            "5人",
-            "6人以上"
-        ],
+        "numberOfPeopleOptions": {
+            "adult": {
+                "title": "成人",
+                "subtitle": "（13歲以上）"
+            },
+            "child": {
+                "title": "兒童",
+                "subtitle": "（未滿13歲）"
+            }
+        },
         "transportOptions": [
             "火車",
             "步行",
             "汽車",
             "巴士"
-        ],
-        "categoryOptions": [
-            "親子",
-            "成人",
-            "娛樂",
-            "活動",
-            "歷史"
         ],
         "defaultTopics": [
             "美食",
