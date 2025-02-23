@@ -25,79 +25,112 @@ class PlanReviewModal extends HookWidget {
 
     return Container(
       height: context.deviceHeight * 0.5,
-      color: Colors.white,
       padding: const EdgeInsets.all(16),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: IconButton(
-                onPressed: () => context.pop(),
-                icon: const Icon(Icons.close),
-              ),
-            ),
-            Text(
-              'タップして評価',
-              style: AppTextStyle.textStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            RatingBar(
-              initialRating: rating,
-              ratingWidget: RatingWidget(
-                full: const Icon(
-                  Icons.star,
-                  color: AppColor.yellow800Secondary,
-                  size: 40,
-                ),
-                half: const Icon(
-                  Icons.star_half,
-                  color: AppColor.yellow800Secondary,
-                  size: 40,
-                ),
-                empty: const Icon(
-                  Icons.star_border_outlined,
-                  color: AppColor.yellow800Secondary,
-                  size: 40,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 24,
+                height: 24,
+                child: IconButton(
+                  onPressed: () => context.pop(),
+                  constraints: const BoxConstraints(),
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.close),
                 ),
               ),
-              onRatingUpdate: (_) {},
-            ),
-            Form(
-              key: formKey,
-              child: TextFormField(
-                minLines: 1,
-                maxLines: 6,
-                cursorColor: AppColor.black,
-                keyboardType: TextInputType.multiline,
-                validator: Validator.common,
-                maxLength: 256,
-                controller: controller,
-                onFieldSubmitted: (_) {},
-                decoration: const InputDecoration(
-                  counter: SizedBox.shrink(),
-                  filled: true,
-                  fillColor: AppColor.grey200,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+              Align(
+                child: Column(
+                  children: [
+                    Text(
+                      'タップして評価',
+                      style: AppTextStyle.textStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    RatingBar(
+                      initialRating: rating,
+                      ratingWidget: RatingWidget(
+                        full: const Icon(
+                          Icons.star,
+                          color: AppColor.yellow800Secondary,
+                          size: 40,
+                        ),
+                        half: const Icon(
+                          Icons.star_half,
+                          color: AppColor.yellow800Secondary,
+                          size: 40,
+                        ),
+                        empty: const Icon(
+                          Icons.star_border_outlined,
+                          color: AppColor.yellow800Secondary,
+                          size: 40,
+                        ),
+                      ),
+                      onRatingUpdate: (_) {},
+                    ),
+                  ],
+                ),
+              ),
+              const Gap(32),
+              Form(
+                key: formKey,
+                child: TextFormField(
+                  minLines: 1,
+                  maxLines: 6,
+                  cursorColor: AppColor.blue800Secondary,
+                  keyboardType: TextInputType.multiline,
+                  validator: Validator.common,
+                  maxLength: 256,
+                  controller: controller,
+                  onFieldSubmitted: (_) {},
+                  decoration: InputDecoration(
+                    counter: const SizedBox.shrink(),
+                    label: Text(
+                      '口コミ (任意)',
+                      style: AppTextStyle.textStyle.copyWith(
+                        color: AppColor.black,
+                      ),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                      ),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                      ),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppColor.blue800Secondary,
+                        width: 2,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            const Gap(8),
-            WideButton(
-              label: '投稿',
-              color: AppColor.yellow600Primary,
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  context.pop();
-                }
-              },
-            ),
-          ],
+              const Gap(32),
+              WideButton(
+                label: '投稿',
+                color: AppColor.yellow600Primary,
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    context.pop();
+                  }
+                },
+              ),
+              Gap(MediaQuery.of(context).viewInsets.bottom),
+            ],
+          ),
         ),
       ),
     );
