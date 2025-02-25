@@ -2,10 +2,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
+import '../../domain/entities/plan_review.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../infrastructure/plan_review/plan_review_data_source.dart';
 import '../../utils/custom_logger.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
@@ -20,6 +22,8 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       ref.read(planDataSourceProvider.notifier);
   PlaceDataSource get placeDataSource =>
       ref.read(placeDataSourceProvider.notifier);
+  PlanReviewDataSource get planReviewDataSource =>
+      ref.read(planReviewDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
   User get currentUser => ref.read(currentUserProvider);
@@ -28,12 +32,27 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
   Future<PlanDetailPageState> build(Plan plan) async {
     final latestPlan = await getPlan();
     final places = await getPlaces();
+    final planReviews = await getPlanReviews();
 
     return PlanDetailPageState(
       plan: latestPlan,
       places: places,
       isBookmarked: latestPlan.bookmarkedUserIds.contains(currentUser.uid),
       haveUsedPlan: latestPlan.usedUserIds.contains(currentUser.uid),
+      reviewsWithContent:
+          planReviews.where((review) => review.content != null).toList(),
+      reviewCount: planReviews.length,
+      reviewWithContentsCount:
+          planReviews.where((review) => review.content != null).length,
+      comprehensiveRating: planReviews.isEmpty
+          ? 0
+          : planReviews
+                  .map((review) => review.reviewRating)
+                  .reduce((a, b) => a + b) ~/
+              planReviews.length,
+      currentUserReview: planReviews.firstWhere(
+        (review) => review.authorId == currentUser.uid,
+      ),
     );
   }
 
@@ -49,6 +68,15 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     } on Exception catch (e) {
       logger.e('getPlan: $e');
       return plan;
+    }
+  }
+
+  Future<List<PlanReview>> getPlanReviews() async {
+    try {
+      return await planReviewDataSource.getPlanReviews(planId: plan.id);
+    } on Exception catch (e) {
+      logger.e('getPlanReviews: $e');
+      return [];
     }
   }
 
