@@ -46,11 +46,12 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       reviewWithContentsCount:
           planReviews.where((review) => review.content != null).length,
       comprehensiveRating: planReviews.isEmpty
-          ? 0
-          : planReviews
-                  .map((review) => review.reviewRating)
-                  .reduce((a, b) => a + b) ~/
-              planReviews.length,
+          ? 0.0
+          : (planReviews
+                      .map((review) => review.reviewRating)
+                      .reduce((a, b) => a + b) ~/
+                  planReviews.length)
+              .toDouble(),
       currentUserReview: planReviews.firstWhereOrNull(
         (review) => review.authorId == currentUser.uid,
       ),
