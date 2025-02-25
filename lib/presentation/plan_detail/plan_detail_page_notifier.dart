@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../domain/entities/place.dart';
@@ -50,7 +51,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
                   .map((review) => review.reviewRating)
                   .reduce((a, b) => a + b) ~/
               planReviews.length,
-      currentUserReview: planReviews.firstWhere(
+      currentUserReview: planReviews.firstWhereOrNull(
         (review) => review.authorId == currentUser.uid,
       ),
     );
