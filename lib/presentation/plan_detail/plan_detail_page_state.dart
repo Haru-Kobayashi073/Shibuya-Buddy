@@ -16,6 +16,7 @@ abstract class PlanDetailPageState with _$PlanDetailPageState {
     @Default([]) List<PlanReview> reviewsWithContent,
     @Default(0) int comprehensiveRating,
     @Default(0) int reviewCount,
+    @Default(0) int reviewWithContentsCount,
     PlanReview? currentUserReview,
   }) = _PlanDetailPageState;
 }

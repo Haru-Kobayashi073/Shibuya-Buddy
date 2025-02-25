@@ -23,6 +23,7 @@ mixin _$PlanDetailPageState {
   List<PlanReview> get reviewsWithContent => throw _privateConstructorUsedError;
   int get comprehensiveRating => throw _privateConstructorUsedError;
   int get reviewCount => throw _privateConstructorUsedError;
+  int get reviewWithContentsCount => throw _privateConstructorUsedError;
   PlanReview? get currentUserReview => throw _privateConstructorUsedError;
 
   /// Create a copy of PlanDetailPageState
@@ -46,6 +47,7 @@ abstract class $PlanDetailPageStateCopyWith<$Res> {
       List<PlanReview> reviewsWithContent,
       int comprehensiveRating,
       int reviewCount,
+      int reviewWithContentsCount,
       PlanReview? currentUserReview});
 
   $PlanCopyWith<$Res> get plan;
@@ -74,6 +76,7 @@ class _$PlanDetailPageStateCopyWithImpl<$Res, $Val extends PlanDetailPageState>
     Object? reviewsWithContent = null,
     Object? comprehensiveRating = null,
     Object? reviewCount = null,
+    Object? reviewWithContentsCount = null,
     Object? currentUserReview = freezed,
   }) {
     return _then(_value.copyWith(
@@ -104,6 +107,10 @@ class _$PlanDetailPageStateCopyWithImpl<$Res, $Val extends PlanDetailPageState>
       reviewCount: null == reviewCount
           ? _value.reviewCount
           : reviewCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      reviewWithContentsCount: null == reviewWithContentsCount
+          ? _value.reviewWithContentsCount
+          : reviewWithContentsCount // ignore: cast_nullable_to_non_nullable
               as int,
       currentUserReview: freezed == currentUserReview
           ? _value.currentUserReview
@@ -153,6 +160,7 @@ abstract class _$$PlanDetailPageStateImplCopyWith<$Res>
       List<PlanReview> reviewsWithContent,
       int comprehensiveRating,
       int reviewCount,
+      int reviewWithContentsCount,
       PlanReview? currentUserReview});
 
   @override
@@ -181,6 +189,7 @@ class __$$PlanDetailPageStateImplCopyWithImpl<$Res>
     Object? reviewsWithContent = null,
     Object? comprehensiveRating = null,
     Object? reviewCount = null,
+    Object? reviewWithContentsCount = null,
     Object? currentUserReview = freezed,
   }) {
     return _then(_$PlanDetailPageStateImpl(
@@ -212,6 +221,10 @@ class __$$PlanDetailPageStateImplCopyWithImpl<$Res>
           ? _value.reviewCount
           : reviewCount // ignore: cast_nullable_to_non_nullable
               as int,
+      reviewWithContentsCount: null == reviewWithContentsCount
+          ? _value.reviewWithContentsCount
+          : reviewWithContentsCount // ignore: cast_nullable_to_non_nullable
+              as int,
       currentUserReview: freezed == currentUserReview
           ? _value.currentUserReview
           : currentUserReview // ignore: cast_nullable_to_non_nullable
@@ -231,6 +244,7 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
       final List<PlanReview> reviewsWithContent = const [],
       this.comprehensiveRating = 0,
       this.reviewCount = 0,
+      this.reviewWithContentsCount = 0,
       this.currentUserReview})
       : _places = places,
         _reviewsWithContent = reviewsWithContent;
@@ -266,11 +280,14 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
   @JsonKey()
   final int reviewCount;
   @override
+  @JsonKey()
+  final int reviewWithContentsCount;
+  @override
   final PlanReview? currentUserReview;
 
   @override
   String toString() {
-    return 'PlanDetailPageState(plan: $plan, places: $places, isBookmarked: $isBookmarked, haveUsedPlan: $haveUsedPlan, reviewsWithContent: $reviewsWithContent, comprehensiveRating: $comprehensiveRating, reviewCount: $reviewCount, currentUserReview: $currentUserReview)';
+    return 'PlanDetailPageState(plan: $plan, places: $places, isBookmarked: $isBookmarked, haveUsedPlan: $haveUsedPlan, reviewsWithContent: $reviewsWithContent, comprehensiveRating: $comprehensiveRating, reviewCount: $reviewCount, reviewWithContentsCount: $reviewWithContentsCount, currentUserReview: $currentUserReview)';
   }
 
   @override
@@ -290,6 +307,9 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
                 other.comprehensiveRating == comprehensiveRating) &&
             (identical(other.reviewCount, reviewCount) ||
                 other.reviewCount == reviewCount) &&
+            (identical(
+                    other.reviewWithContentsCount, reviewWithContentsCount) ||
+                other.reviewWithContentsCount == reviewWithContentsCount) &&
             (identical(other.currentUserReview, currentUserReview) ||
                 other.currentUserReview == currentUserReview));
   }
@@ -304,6 +324,7 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
       const DeepCollectionEquality().hash(_reviewsWithContent),
       comprehensiveRating,
       reviewCount,
+      reviewWithContentsCount,
       currentUserReview);
 
   /// Create a copy of PlanDetailPageState
@@ -325,6 +346,7 @@ abstract class _PlanDetailPageState implements PlanDetailPageState {
       final List<PlanReview> reviewsWithContent,
       final int comprehensiveRating,
       final int reviewCount,
+      final int reviewWithContentsCount,
       final PlanReview? currentUserReview}) = _$PlanDetailPageStateImpl;
 
   @override
@@ -341,6 +363,8 @@ abstract class _PlanDetailPageState implements PlanDetailPageState {
   int get comprehensiveRating;
   @override
   int get reviewCount;
+  @override
+  int get reviewWithContentsCount;
   @override
   PlanReview? get currentUserReview;
 
