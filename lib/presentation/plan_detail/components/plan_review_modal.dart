@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../utils/extensions/context.dart';
 import '../../../utils/hooks/use_form_state_key.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
@@ -24,7 +23,6 @@ class PlanReviewModal extends HookWidget {
     final formKey = useFormStateKey();
 
     return Container(
-      height: context.deviceHeight * 0.5,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -45,6 +43,7 @@ class PlanReviewModal extends HookWidget {
                   icon: const Icon(Icons.close),
                 ),
               ),
+              const Gap(16),
               Align(
                 child: Column(
                   children: [
@@ -128,7 +127,6 @@ class PlanReviewModal extends HookWidget {
                   }
                 },
               ),
-              Gap(MediaQuery.of(context).viewInsets.bottom),
             ],
           ),
         ),
