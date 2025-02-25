@@ -21,7 +21,7 @@ mixin _$PlanDetailPageState {
   bool get isBookmarked => throw _privateConstructorUsedError;
   bool get haveUsedPlan => throw _privateConstructorUsedError;
   List<PlanReview> get reviewsWithContent => throw _privateConstructorUsedError;
-  int get comprehensiveRating => throw _privateConstructorUsedError;
+  double get comprehensiveRating => throw _privateConstructorUsedError;
   int get reviewCount => throw _privateConstructorUsedError;
   int get reviewWithContentsCount => throw _privateConstructorUsedError;
   PlanReview? get currentUserReview => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $PlanDetailPageStateCopyWith<$Res> {
       bool isBookmarked,
       bool haveUsedPlan,
       List<PlanReview> reviewsWithContent,
-      int comprehensiveRating,
+      double comprehensiveRating,
       int reviewCount,
       int reviewWithContentsCount,
       PlanReview? currentUserReview});
@@ -103,7 +103,7 @@ class _$PlanDetailPageStateCopyWithImpl<$Res, $Val extends PlanDetailPageState>
       comprehensiveRating: null == comprehensiveRating
           ? _value.comprehensiveRating
           : comprehensiveRating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       reviewCount: null == reviewCount
           ? _value.reviewCount
           : reviewCount // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ abstract class _$$PlanDetailPageStateImplCopyWith<$Res>
       bool isBookmarked,
       bool haveUsedPlan,
       List<PlanReview> reviewsWithContent,
-      int comprehensiveRating,
+      double comprehensiveRating,
       int reviewCount,
       int reviewWithContentsCount,
       PlanReview? currentUserReview});
@@ -216,7 +216,7 @@ class __$$PlanDetailPageStateImplCopyWithImpl<$Res>
       comprehensiveRating: null == comprehensiveRating
           ? _value.comprehensiveRating
           : comprehensiveRating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       reviewCount: null == reviewCount
           ? _value.reviewCount
           : reviewCount // ignore: cast_nullable_to_non_nullable
@@ -275,7 +275,7 @@ class _$PlanDetailPageStateImpl implements _PlanDetailPageState {
 
   @override
   @JsonKey()
-  final int comprehensiveRating;
+  final double comprehensiveRating;
   @override
   @JsonKey()
   final int reviewCount;
@@ -344,7 +344,7 @@ abstract class _PlanDetailPageState implements PlanDetailPageState {
       required final bool isBookmarked,
       required final bool haveUsedPlan,
       final List<PlanReview> reviewsWithContent,
-      final int comprehensiveRating,
+      final double comprehensiveRating,
       final int reviewCount,
       final int reviewWithContentsCount,
       final PlanReview? currentUserReview}) = _$PlanDetailPageStateImpl;
@@ -360,7 +360,7 @@ abstract class _PlanDetailPageState implements PlanDetailPageState {
   @override
   List<PlanReview> get reviewsWithContent;
   @override
-  int get comprehensiveRating;
+  double get comprehensiveRating;
   @override
   int get reviewCount;
   @override

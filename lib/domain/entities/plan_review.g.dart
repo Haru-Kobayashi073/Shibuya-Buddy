@@ -11,7 +11,7 @@ _$PlanReviewImpl _$$PlanReviewImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       planId: json['plan_id'] as String,
       authorId: json['author_id'] as String,
-      reviewRating: (json['review_rating'] as num).toInt(),
+      reviewRating: (json['review_rating'] as num).toDouble(),
       content: json['content'] as String?,
       createdAt:
           const DateTimeConverter().fromJson(json['created_at'] as String),

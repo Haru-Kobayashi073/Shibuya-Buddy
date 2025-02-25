@@ -14,7 +14,7 @@ abstract class PlanDetailPageState with _$PlanDetailPageState {
     required bool isBookmarked,
     required bool haveUsedPlan,
     @Default([]) List<PlanReview> reviewsWithContent,
-    @Default(0) int comprehensiveRating,
+    @Default(0) double comprehensiveRating,
     @Default(0) int reviewCount,
     @Default(0) int reviewWithContentsCount,
     PlanReview? currentUserReview,

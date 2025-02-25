@@ -23,7 +23,7 @@ mixin _$PlanReview {
   String get id => throw _privateConstructorUsedError;
   String get planId => throw _privateConstructorUsedError;
   String get authorId => throw _privateConstructorUsedError;
-  int get reviewRating => throw _privateConstructorUsedError;
+  double get reviewRating => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $PlanReviewCopyWith<$Res> {
       {String id,
       String planId,
       String authorId,
-      int reviewRating,
+      double reviewRating,
       String? content,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime? updatedAt});
@@ -95,7 +95,7 @@ class _$PlanReviewCopyWithImpl<$Res, $Val extends PlanReview>
       reviewRating: null == reviewRating
           ? _value.reviewRating
           : reviewRating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -124,7 +124,7 @@ abstract class _$$PlanReviewImplCopyWith<$Res>
       {String id,
       String planId,
       String authorId,
-      int reviewRating,
+      double reviewRating,
       String? content,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime? updatedAt});
@@ -167,7 +167,7 @@ class __$$PlanReviewImplCopyWithImpl<$Res>
       reviewRating: null == reviewRating
           ? _value.reviewRating
           : reviewRating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -207,7 +207,7 @@ class _$PlanReviewImpl implements _PlanReview {
   @override
   final String authorId;
   @override
-  final int reviewRating;
+  final double reviewRating;
   @override
   final String? content;
   @override
@@ -266,7 +266,7 @@ abstract class _PlanReview implements PlanReview {
       {required final String id,
       required final String planId,
       required final String authorId,
-      required final int reviewRating,
+      required final double reviewRating,
       final String? content,
       @DateTimeConverter() required final DateTime createdAt,
       @DateTimeConverter() final DateTime? updatedAt}) = _$PlanReviewImpl;
@@ -281,7 +281,7 @@ abstract class _PlanReview implements PlanReview {
   @override
   String get authorId;
   @override
-  int get reviewRating;
+  double get reviewRating;
   @override
   String? get content;
   @override

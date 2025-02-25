@@ -12,7 +12,7 @@ abstract class PlanReview with _$PlanReview {
     required String id,
     required String planId,
     required String authorId,
-    required int reviewRating,
+    required double reviewRating,
     String? content,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverter() DateTime? updatedAt,
