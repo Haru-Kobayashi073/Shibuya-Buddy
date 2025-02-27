@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
@@ -24,7 +25,10 @@ class PlanReviewModal extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController();
+    final controller =
+        useTextEditingController(text: currentUserReviewContents.content);
+    final planDetailPagei18n = Translations.of(context).planDetailsPage;
+    final updatedRating = useState(currentUserReviewContents.rating);
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -77,7 +81,9 @@ class PlanReviewModal extends HookWidget {
                           size: 40,
                         ),
                       ),
-                      onRatingUpdate: (_) {},
+                      onRatingUpdate: (rating) {
+                        updatedRating.value = rating;
+                      },
                     ),
                   ],
                 ),
@@ -124,7 +130,11 @@ class PlanReviewModal extends HookWidget {
                     : planDetailPagei18n.item.createReview,
                 color: AppColor.yellow600Primary,
                 onPressed: () => onPressedCreateButton(
-                  (rating: rating, content: controller.text),
+                  (
+                    reviewId: currentUserReviewContents.reviewId,
+                    rating: updatedRating.value,
+                    content: controller.text,
+                  ),
                 ),
               ),
             ],
