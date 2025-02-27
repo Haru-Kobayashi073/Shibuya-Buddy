@@ -145,8 +145,10 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     try {
       // すでにレビュー済みだが、変更がない場合は何もしない
       if (state.requireValue.currentUserReview != null &&
-          state.requireValue.currentUserReview!.reviewRating ==
-              reviewContents.rating) {
+          (state.requireValue.currentUserReview!.reviewRating ==
+                  reviewContents.rating &&
+              state.requireValue.currentUserReview!.content ==
+                  reviewContents.content)) {
         scaffoldMessenger.showExceptionSnackBar(
           planDetailPageSnackBari18n.error.modificationNotFound,
         );
