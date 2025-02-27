@@ -14,12 +14,12 @@ class ReviewListView extends StatelessWidget {
   const ReviewListView({
     super.key,
     required this.reviewsWithContent,
-    required this.currentUserReviewRating,
+    required this.currentUserReview,
     required this.reviewWithContentsCount,
     required this.onPressedCreateButton,
   });
   final List<PlanReview> reviewsWithContent;
-  final double? currentUserReviewRating;
+  final PlanReview? currentUserReview;
   final int reviewWithContentsCount;
   final void Function(ReviewContents) onPressedCreateButton;
 
@@ -65,7 +65,7 @@ class ReviewListView extends StatelessWidget {
                           size: 40,
                         ),
                       ),
-                      initialRating: currentUserReviewRating ?? 0,
+                      initialRating: currentUserReview?.reviewRating ?? 0,
                       onRatingUpdate: (rating) async {
                         await showModalBottomSheet<void>(
                           context: context,

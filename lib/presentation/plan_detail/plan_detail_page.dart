@@ -182,8 +182,7 @@ class PlanDetailPage extends HookConsumerWidget {
                   ),
                   ReviewListView(
                     reviewsWithContent: value.reviewsWithContent,
-                    currentUserReviewRating:
-                        value.currentUserReview?.reviewRating,
+                    currentUserReview: value.currentUserReview,
                     reviewWithContentsCount: value.reviewWithContentsCount,
                     onPressedCreateButton: (reviewContents) async =>
                         notifier.writeReview(
