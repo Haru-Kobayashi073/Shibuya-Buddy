@@ -25,7 +25,22 @@ class PlanReviewDataSource extends _$PlanReviewDataSource
         .collection('plans')
         .doc(planReview.planId)
         .collection('reviews')
-        .add(
+        .doc(planReview.id)
+        .set(
+          planReview.toJson(),
+        );
+  }
+
+  @override
+  Future<void> updatePlanReview({
+    required PlanReview planReview,
+  }) async {
+    await firestore
+        .collection('plans')
+        .doc(planReview.planId)
+        .collection('reviews')
+        .doc(planReview.id)
+        .update(
           planReview.toJson(),
         );
   }
