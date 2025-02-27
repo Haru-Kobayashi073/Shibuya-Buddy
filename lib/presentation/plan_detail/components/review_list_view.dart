@@ -123,8 +123,10 @@ class ReviewListView extends StatelessWidget {
                     StarReviewRating(rating: reviewWithCountent.reviewRating),
                     const Spacer(),
                     Text(
-                      DateFormat(planDetailPagei18n.dateTime.dateFormat)
-                          .format(reviewWithCountent.createdAt),
+                      DateFormat(planDetailPagei18n.dateTime.dateFormat).format(
+                        reviewWithCountent.updatedAt ??
+                            reviewWithCountent.createdAt,
+                      ),
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 14,
                         color: AppColor.grey600,
