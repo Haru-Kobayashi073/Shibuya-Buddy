@@ -4,10 +4,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../utils/hooks/use_form_state_key.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
-import '../../../utils/validator.dart';
 import '../../components/wide_button.dart';
 
 class PlanReviewModal extends HookWidget {
@@ -20,7 +18,6 @@ class PlanReviewModal extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useTextEditingController();
-    final formKey = useFormStateKey();
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -79,40 +76,36 @@ class PlanReviewModal extends HookWidget {
                 ),
               ),
               const Gap(32),
-              Form(
-                key: formKey,
-                child: TextFormField(
-                  minLines: 1,
-                  maxLines: 6,
-                  cursorColor: AppColor.blue800Secondary,
-                  keyboardType: TextInputType.multiline,
-                  validator: Validator.common,
-                  maxLength: 256,
-                  controller: controller,
-                  onFieldSubmitted: (_) {},
-                  decoration: InputDecoration(
-                    counter: const SizedBox.shrink(),
-                    label: Text(
-                      '口コミ (任意)',
-                      style: AppTextStyle.textStyle.copyWith(
-                        color: AppColor.black,
-                      ),
+              TextFormField(
+                minLines: 1,
+                maxLines: 6,
+                cursorColor: AppColor.blue800Secondary,
+                keyboardType: TextInputType.multiline,
+                maxLength: 256,
+                controller: controller,
+                onFieldSubmitted: (_) {},
+                decoration: InputDecoration(
+                  counter: const SizedBox.shrink(),
+                  label: Text(
+                    '口コミ (任意)',
+                    style: AppTextStyle.textStyle.copyWith(
+                      color: AppColor.black,
                     ),
-                    border: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColor.blue800Secondary,
-                      ),
+                  ),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: AppColor.blue800Secondary,
                     ),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColor.blue800Secondary,
-                      ),
+                  ),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: AppColor.blue800Secondary,
                     ),
-                    focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColor.blue800Secondary,
-                        width: 2,
-                      ),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: AppColor.blue800Secondary,
+                      width: 2,
                     ),
                   ),
                 ),
