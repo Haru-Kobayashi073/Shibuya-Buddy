@@ -43,7 +43,7 @@ class GeminiMockDataSource extends _$GeminiMockDataSource
             'https://www.miyashita-park.tokyo/pressdata/miyashitapark_%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E5%83%8F-2.jpg',
         topics: [],
         authorId: 'gemini',
-        createdAt: DateTime.now().toIso8601String(),
+        createdAt: DateTime.now(),
       ),
       places: [
         Place(

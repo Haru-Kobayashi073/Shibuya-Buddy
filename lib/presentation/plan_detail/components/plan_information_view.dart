@@ -35,7 +35,7 @@ class PlanInformationView extends HookConsumerWidget {
     final planDetailPagei18n = i18n.planDetailsPage;
     final ads = ref.watch(adHelperProvider);
     final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)
-        .format(DateTime.now());
+        .format(plan.createdAt!);
 
     useEffect(
       () {

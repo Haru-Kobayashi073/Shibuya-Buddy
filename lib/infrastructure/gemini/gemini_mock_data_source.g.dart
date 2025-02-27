@@ -7,7 +7,7 @@ part of 'gemini_mock_data_source.dart';
 // **************************************************************************
 
 String _$geminiMockDataSourceHash() =>
-    r'9a7349e3bcb72c33d84fc3027d2294c9f3c7844f';
+    r'9247cb74eba625adf1648d36fe9917dd51e0df70';
 
 /// See also [GeminiMockDataSource].
 @ProviderFor(GeminiMockDataSource)
