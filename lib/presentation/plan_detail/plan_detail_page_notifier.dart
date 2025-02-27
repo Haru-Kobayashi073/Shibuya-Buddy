@@ -143,14 +143,34 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     required void Function() onSuccess,
   }) async {
     try {
-      final review = PlanReview(
-        id: const Uuid().v4(),
-        authorId: currentUser.uid,
-        planId: plan.id,
-        reviewRating: reviewContents.rating,
-        content: reviewContents.content,
-        createdAt: DateTime.now(),
-      );
+      // すでにレビュー済みだが、変更がない場合は何もしない
+      if (state.requireValue.currentUserReview != null &&
+          state.requireValue.currentUserReview!.reviewRating ==
+              reviewContents.rating) {
+        scaffoldMessenger.showExceptionSnackBar(
+          planDetailPageSnackBari18n.error.modificationNotFound,
+        );
+        return;
+      }
+      // すでにレビュー済みの場合は更新、未レビューの場合は新規作成
+      if (reviewContents.reviewId != null &&
+          reviewContents.reviewId!.isNotEmpty) {
+        final updatedReview = state.requireValue.currentUserReview!.copyWith(
+          reviewRating: reviewContents.rating,
+          content: reviewContents.content,
+          updatedAt: DateTime.now(),
+        );
+
+        await planReviewDataSource.updatePlanReview(planReview: updatedReview);
+      } else {
+        final review = PlanReview(
+          id: const Uuid().v4(),
+          authorId: currentUser.uid,
+          planId: plan.id,
+          reviewRating: reviewContents.rating,
+          content: reviewContents.content,
+          createdAt: DateTime.now(),
+        );
 
         await planReviewDataSource.createPlanReview(
           planReview: review,
