@@ -26,8 +26,10 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
               .toList() ??
           const [],
       bookmarkCount: (json['bookmark_count'] as num?)?.toInt() ?? 0,
-      createdAt: json['created_at'] as String?,
-      updatedAt: json['updated_at'] as String?,
+      createdAt: _$JsonConverterFromJson<String, DateTime>(
+          json['created_at'], const DateTimeConverter().fromJson),
+      updatedAt: _$JsonConverterFromJson<String, DateTime>(
+          json['updated_at'], const DateTimeConverter().fromJson),
     );
 
 Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
@@ -42,6 +44,20 @@ Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
       'bookmarked_user_ids': instance.bookmarkedUserIds,
       'used_user_ids': instance.usedUserIds,
       'bookmark_count': instance.bookmarkCount,
-      'created_at': instance.createdAt,
-      'updated_at': instance.updatedAt,
+      'created_at': _$JsonConverterToJson<String, DateTime>(
+          instance.createdAt, const DateTimeConverter().toJson),
+      'updated_at': _$JsonConverterToJson<String, DateTime>(
+          instance.updatedAt, const DateTimeConverter().toJson),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
