@@ -138,7 +138,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     }
   }
 
-  Future<void> createReview({
+  Future<void> writeReview({
     required ReviewContents reviewContents,
     required void Function() onSuccess,
   }) async {
