@@ -40,11 +40,17 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       places: places,
       isBookmarked: latestPlan.bookmarkedUserIds.contains(currentUser.uid),
       haveUsedPlan: latestPlan.usedUserIds.contains(currentUser.uid),
-      reviewsWithContent:
-          planReviews.where((review) => review.content != null).toList(),
+      reviewsWithContent: planReviews
+          .where(
+            (review) => review.content != null && review.content!.isNotEmpty,
+          )
+          .toList(),
       reviewCount: planReviews.length,
-      reviewWithContentsCount:
-          planReviews.where((review) => review.content != null).length,
+      reviewWithContentsCount: planReviews
+          .where(
+            (review) => review.content != null && review.content!.isNotEmpty,
+          )
+          .length,
       comprehensiveRating: planReviews.isEmpty
           ? 0.0
           : (planReviews
