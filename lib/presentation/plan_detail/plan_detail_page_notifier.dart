@@ -181,12 +181,48 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       scaffoldMessenger.showSuccessSnackBar(
         planDetailPageSnackBari18n.success.successToCreateReview,
       );
+      await _refreshReviews();
       onSuccess();
     } on Exception catch (e) {
       logger.e('createReview: $e');
       scaffoldMessenger.showExceptionSnackBar(
         planDetailPageSnackBari18n.error.failedToCreateReview,
       );
+    }
+  }
+
+  Future<void> _refreshReviews() async {
+    try {
+      final latestPlanReviews = await getPlanReviews();
+      state = AsyncValue.data(
+        state.requireValue.copyWith(
+          reviewsWithContent: latestPlanReviews
+              .where(
+                (review) =>
+                    review.content != null && review.content!.isNotEmpty,
+              )
+              .toList(),
+          reviewCount: latestPlanReviews.length,
+          reviewWithContentsCount: latestPlanReviews
+              .where(
+                (review) =>
+                    review.content != null && review.content!.isNotEmpty,
+              )
+              .length,
+          comprehensiveRating: latestPlanReviews.isEmpty
+              ? 0.0
+              : (latestPlanReviews
+                          .map((review) => review.reviewRating)
+                          .reduce((a, b) => a + b) ~/
+                      latestPlanReviews.length)
+                  .toDouble(),
+          currentUserReview: latestPlanReviews.firstWhereOrNull(
+            (review) => review.authorId == currentUser.uid,
+          ),
+        ),
+      );
+    } on Exception catch (e) {
+      logger.e('refreshReviews: $e');
     }
   }
 }
