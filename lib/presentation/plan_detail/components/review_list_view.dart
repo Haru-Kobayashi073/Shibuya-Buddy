@@ -70,7 +70,11 @@ class ReviewListView extends StatelessWidget {
                         await showModalBottomSheet<void>(
                           context: context,
                           builder: (context) => PlanReviewModal(
-                            rating: rating,
+                            currentUserReviewContents: (
+                              reviewId: currentUserReview?.id,
+                              rating: rating,
+                              content: currentUserReview?.content,
+                            ),
                             onPressedCreateButton: (reviewContents) {
                               onPressedCreateButton(
                                 (

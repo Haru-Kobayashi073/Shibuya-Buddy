@@ -17,10 +17,10 @@ typedef ReviewContents = ({
 class PlanReviewModal extends HookWidget {
   const PlanReviewModal({
     super.key,
-    required this.rating,
+    required this.currentUserReviewContents,
     required this.onPressedCreateButton,
   });
-  final double rating;
+  final ReviewContents currentUserReviewContents;
   final void Function(ReviewContents reviewContents) onPressedCreateButton;
 
   @override
@@ -63,7 +63,7 @@ class PlanReviewModal extends HookWidget {
                       ),
                     ),
                     RatingBar(
-                      initialRating: rating,
+                      initialRating: currentUserReviewContents.rating,
                       ratingWidget: RatingWidget(
                         full: const Icon(
                           Icons.star,
