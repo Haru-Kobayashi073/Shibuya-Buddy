@@ -893,6 +893,8 @@ class _TranslationsPlanDetailsPageItemKo implements TranslationsPlanDetailsPageI
 	@override String get createReview => '게시';
 	@override String get changeReview => '리뷰 수정';
 	@override String get reviewContentWithOptionalLabel => '리뷰 (선택 사항)';
+	@override String get displayMoreText => ' 더 보기';
+	@override String get displayLessText => ' 닫기';
 }
 
 // Path: planDetailsPage.dialog
@@ -1704,6 +1706,8 @@ extension on TranslationsKo {
 			case 'planDetailsPage.item.createReview': return '게시';
 			case 'planDetailsPage.item.changeReview': return '리뷰 수정';
 			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '리뷰 (선택 사항)';
+			case 'planDetailsPage.item.displayMoreText': return ' 더 보기';
+			case 'planDetailsPage.item.displayLessText': return ' 닫기';
 			case 'planDetailsPage.haveUsedPlan': return '이 플랜을 사용하셨습니다';
 			case 'planDetailsPage.dialog.title': return 'Q. 플랜을 사용한 것을 어떻게 증명할 수 있나요?';
 			case 'planDetailsPage.dialog.description': return 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 사용하여 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';

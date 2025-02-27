@@ -897,6 +897,8 @@ class TranslationsPlanDetailsPageItemEn {
 	String get createReview => 'Post';
 	String get changeReview => 'Edit Review';
 	String get reviewContentWithOptionalLabel => 'Review (Optional)';
+	String get displayMoreText => ' Show more';
+	String get displayLessText => ' Close';
 }
 
 // Path: planDetailsPage.dialog
@@ -1708,6 +1710,8 @@ extension on Translations {
 			case 'planDetailsPage.item.createReview': return 'Post';
 			case 'planDetailsPage.item.changeReview': return 'Edit Review';
 			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return 'Review (Optional)';
+			case 'planDetailsPage.item.displayMoreText': return ' Show more';
+			case 'planDetailsPage.item.displayLessText': return ' Close';
 			case 'planDetailsPage.haveUsedPlan': return 'You have used this plan';
 			case 'planDetailsPage.dialog.title': return 'Q. How can I prove that I have used this plan?';
 			case 'planDetailsPage.dialog.description': return 'A. You have visited the locations included in the plan.\n We use location data to determine this, but the data will not be used for any other purposes.';

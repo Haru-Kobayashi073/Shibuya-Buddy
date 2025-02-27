@@ -461,7 +461,9 @@
             "wordOfMouthCount": "（${count}条口碑）",
             "createReview": "发表",
             "changeReview": "更改评价",
-            "reviewContentWithOptionalLabel": "口碑（可选）"
+            "reviewContentWithOptionalLabel": "口碑（可选）",
+            "displayMoreText": " 查看更多",
+            "displayLessText": " 关闭"
         },
         "haveUsedPlan": "您已使用此计划",
         "dialog": {

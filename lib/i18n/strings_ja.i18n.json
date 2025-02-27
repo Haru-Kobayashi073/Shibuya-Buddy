@@ -461,7 +461,9 @@
             "wordOfMouthCount": "(口コミ${count}件)",
             "createReview": "投稿",
             "changeReview": "評価を変更",
-            "reviewContentWithOptionalLabel": "口コミ (任意)"
+            "reviewContentWithOptionalLabel": "口コミ (任意)",
+            "displayMoreText": " もっと見る",
+            "displayLessText": " 閉じる"
         },
         "haveUsedPlan": "あなたはこのプランを利用しました",
         "dialog": {

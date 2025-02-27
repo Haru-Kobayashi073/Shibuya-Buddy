@@ -461,7 +461,9 @@
             "wordOfMouthCount": "(${count}개의 후기)",
             "createReview": "게시",
             "changeReview": "리뷰 수정",
-            "reviewContentWithOptionalLabel": "리뷰 (선택 사항)"
+            "reviewContentWithOptionalLabel": "리뷰 (선택 사항)",
+            "displayMoreText": " 더 보기",
+            "displayLessText": " 닫기"
         },
         "haveUsedPlan": "이 플랜을 사용하셨습니다",
         "dialog": {

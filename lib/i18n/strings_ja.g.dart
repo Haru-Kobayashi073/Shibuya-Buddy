@@ -893,6 +893,8 @@ class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageI
 	@override String get createReview => '投稿';
 	@override String get changeReview => '評価を変更';
 	@override String get reviewContentWithOptionalLabel => '口コミ (任意)';
+	@override String get displayMoreText => ' もっと見る';
+	@override String get displayLessText => ' 閉じる';
 }
 
 // Path: planDetailsPage.dialog
@@ -1704,6 +1706,8 @@ extension on TranslationsJa {
 			case 'planDetailsPage.item.createReview': return '投稿';
 			case 'planDetailsPage.item.changeReview': return '評価を変更';
 			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '口コミ (任意)';
+			case 'planDetailsPage.item.displayMoreText': return ' もっと見る';
+			case 'planDetailsPage.item.displayLessText': return ' 閉じる';
 			case 'planDetailsPage.haveUsedPlan': return 'あなたはこのプランを利用しました';
 			case 'planDetailsPage.dialog.title': return 'Q. どのようにしてプランを利用したことを示せますか？';
 			case 'planDetailsPage.dialog.description': return 'A. あなたはプランに含まれている場所に訪れました。\n 位置情報を利用して判断していますが、この機能以外に情報が使用されることはありません。';

@@ -461,7 +461,9 @@
             "wordOfMouthCount": "(${count} word-of-mouth)",
             "createReview": "Post",
             "changeReview": "Edit Review",
-            "reviewContentWithOptionalLabel": "Review (Optional)"
+            "reviewContentWithOptionalLabel": "Review (Optional)",
+            "displayMoreText": " Show more",
+            "displayLessText": " Close"
         },
         "haveUsedPlan": "You have used this plan",
         "dialog": {

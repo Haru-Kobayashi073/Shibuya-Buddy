@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import '../../i18n/strings.g.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 
@@ -18,9 +19,10 @@ class ExpandableText extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final planDetailPagei18n = Translations.of(context).planDetailsPage;
     const ellipsis = '...';
-    const moreText = ' もっと見る';
-    const lessText = ' 閉じる';
+    final moreText = planDetailPagei18n.item.displayMoreText;
+    final lessText = planDetailPagei18n.item.displayLessText;
     const colorClickableText = AppColor.blue600Primary;
     final isExpanded = useState(false);
 

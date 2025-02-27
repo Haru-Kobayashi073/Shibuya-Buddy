@@ -893,6 +893,8 @@ class _TranslationsPlanDetailsPageItemZhHant implements TranslationsPlanDetailsP
 	@override String get createReview => '發表';
 	@override String get changeReview => '更改評價';
 	@override String get reviewContentWithOptionalLabel => '口碑（可選）';
+	@override String get displayMoreText => ' 查看更多';
+	@override String get displayLessText => ' 關閉';
 }
 
 // Path: planDetailsPage.dialog
@@ -1704,6 +1706,8 @@ extension on TranslationsZhHant {
 			case 'planDetailsPage.item.createReview': return '發表';
 			case 'planDetailsPage.item.changeReview': return '更改評價';
 			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '口碑（可選）';
+			case 'planDetailsPage.item.displayMoreText': return ' 查看更多';
+			case 'planDetailsPage.item.displayLessText': return ' 關閉';
 			case 'planDetailsPage.haveUsedPlan': return '您已使用此計畫';
 			case 'planDetailsPage.dialog.title': return 'Q. 如何證明您已使用該計畫？';
 			case 'planDetailsPage.dialog.description': return 'A. 您已前往計畫中包含的地點。\n 我們利用位置信息進行判斷，但此信息不會用於其他用途。';
