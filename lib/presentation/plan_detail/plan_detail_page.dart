@@ -111,16 +111,18 @@ class PlanDetailPage extends HookConsumerWidget {
                         const Gap(8),
                         Row(
                           children: [
-                            const StarReviewRating(rating: 2.7),
+                            StarReviewRating(rating: value.comprehensiveRating),
                             Text(
-                              '4.7',
+                              value.comprehensiveRating.toString(),
                               style: AppTextStyle.textStyle.copyWith(
                                 fontSize: 16,
                               ),
                             ),
                             const Gap(8),
                             Text(
-                              '(22件の評価)',
+                              value.reviewCount > 0
+                                  ? '(${value.reviewCount}件の評価)'
+                                  : '評価なし',
                               style: AppTextStyle.textStyle.copyWith(
                                 color: AppColor.grey600,
                                 fontSize: 14,
@@ -175,7 +177,17 @@ class PlanDetailPage extends HookConsumerWidget {
                     places: value.places,
                     haveUsedPlan: value.haveUsedPlan,
                   ),
-                  const ReviewListView(),
+                  ReviewListView(
+                    reviewsWithContent: value.reviewsWithContent,
+                    currentUserReviewRating:
+                        value.currentUserReview?.reviewRating,
+                    reviewWithContentsCount: value.reviewWithContentsCount,
+                    onPressedCreateButton: (reviewContents) async =>
+                        notifier.createReview(
+                      reviewContents: reviewContents,
+                      onSuccess: () => context.pop(),
+                    ),
+                  ),
                 ],
               ),
             ),

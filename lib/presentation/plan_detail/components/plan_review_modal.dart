@@ -8,12 +8,19 @@ import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
 
+typedef ReviewContents = ({
+  double rating,
+  String content,
+});
+
 class PlanReviewModal extends HookWidget {
   const PlanReviewModal({
     super.key,
     required this.rating,
+    required this.onPressedCreateButton,
   });
   final double rating;
+  final void Function(ReviewContents reviewContents) onPressedCreateButton;
 
   @override
   Widget build(BuildContext context) {
@@ -114,11 +121,9 @@ class PlanReviewModal extends HookWidget {
               WideButton(
                 label: '投稿',
                 color: AppColor.yellow600Primary,
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    context.pop();
-                  }
-                },
+                onPressed: () => onPressedCreateButton(
+                  (rating: rating, content: controller.text),
+                ),
               ),
             ],
           ),
