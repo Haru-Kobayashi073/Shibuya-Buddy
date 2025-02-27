@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
@@ -13,6 +14,7 @@ import '../../utils/custom_logger.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../my_plan/my_plan_page_notifier.dart';
+import 'components/plan_review_modal.dart';
 import 'plan_detail_page_state.dart';
 
 part 'plan_detail_page_notifier.g.dart';
@@ -131,6 +133,31 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       scaffoldMessenger.showExceptionSnackBar(
         t.planDetailsPage.snackBar.error.failedToUpdateBookmark,
       );
+    }
+  }
+
+  Future<void> createReview({
+    required ReviewContents reviewContents,
+    required void Function() onSuccess,
+  }) async {
+    try {
+      final review = PlanReview(
+        id: const Uuid().v4(),
+        authorId: currentUser.uid,
+        planId: plan.id,
+        reviewRating: reviewContents.rating,
+        content: reviewContents.content,
+        createdAt: DateTime.now(),
+      );
+
+      await planReviewDataSource.createPlanReview(
+        planReview: review,
+      );
+      scaffoldMessenger.showSuccessSnackBar('レビューを投稿しました');
+      onSuccess();
+    } on Exception catch (e) {
+      logger.e('createReview: $e');
+      scaffoldMessenger.showExceptionSnackBar('レビューの投稿に失敗しました');
     }
   }
 }
