@@ -78,6 +78,7 @@ class ReviewListView extends StatelessWidget {
                             onPressedCreateButton: (reviewContents) {
                               onPressedCreateButton(
                                 (
+                                  reviewId: reviewContents.reviewId,
                                   rating: reviewContents.rating,
                                   content: reviewContents.content,
                                 ),

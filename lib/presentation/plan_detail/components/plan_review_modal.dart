@@ -10,8 +10,9 @@ import '../../../utils/styles/app_text_style.dart';
 import '../../components/wide_button.dart';
 
 typedef ReviewContents = ({
+  String? reviewId, // レビューIDがある場合はすでにレビューを投稿済み
   double rating,
-  String content,
+  String? content,
 });
 
 class PlanReviewModal extends HookWidget {
