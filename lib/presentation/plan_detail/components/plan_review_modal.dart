@@ -52,7 +52,7 @@ class PlanReviewModal extends HookWidget {
                 child: Column(
                   children: [
                     Text(
-                      'タップして評価',
+                      planDetailPagei18n.item.tapToReview,
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class PlanReviewModal extends HookWidget {
                 decoration: InputDecoration(
                   counter: const SizedBox.shrink(),
                   label: Text(
-                    '口コミ (任意)',
+                    planDetailPagei18n.item.reviewContentWithOptionalLabel,
                     style: AppTextStyle.textStyle.copyWith(
                       color: AppColor.black,
                     ),
@@ -119,7 +119,9 @@ class PlanReviewModal extends HookWidget {
               ),
               const Gap(32),
               WideButton(
-                label: '投稿',
+                label: currentUserReviewContents.reviewId != null
+                    ? planDetailPagei18n.item.changeReview
+                    : planDetailPagei18n.item.createReview,
                 color: AppColor.yellow600Primary,
                 onPressed: () => onPressedCreateButton(
                   (rating: rating, content: controller.text),

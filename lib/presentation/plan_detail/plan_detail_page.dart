@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/entities/plan.dart';
+import '../../i18n/strings.g.dart';
 import '../../utils/analytics_event.dart';
 import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/styles/app_color.dart';
@@ -42,6 +43,7 @@ class PlanDetailPage extends HookConsumerWidget {
     final tabController = useTabController(initialLength: 2);
     final scrollController = useScrollController();
     final isScrolled = useState(false);
+    final planDetailPagei18n = Translations.of(context).planDetailsPage;
 
     return state.when(
       data: (value) {
@@ -121,8 +123,9 @@ class PlanDetailPage extends HookConsumerWidget {
                             const Gap(8),
                             Text(
                               value.reviewCount > 0
-                                  ? '(${value.reviewCount}件の評価)'
-                                  : '評価なし',
+                                  ? planDetailPagei18n.item
+                                      .reviewCount(count: value.reviewCount)
+                                  : planDetailPagei18n.item.noReview,
                               style: AppTextStyle.textStyle.copyWith(
                                 color: AppColor.grey600,
                                 fontSize: 14,
@@ -158,9 +161,9 @@ class PlanDetailPage extends HookConsumerWidget {
                       unselectedLabelColor: AppColor.black,
                       indicatorColor: AppColor.blue800Secondary,
                       dividerColor: AppColor.blue900Tertiary,
-                      tabs: const [
-                        Tab(text: '情報'),
-                        Tab(text: '口コミ'),
+                      tabs: [
+                        Tab(text: planDetailPagei18n.tab.information),
+                        Tab(text: planDetailPagei18n.tab.wordOfMouth),
                       ],
                     ),
                   ),

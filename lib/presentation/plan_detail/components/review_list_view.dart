@@ -38,7 +38,9 @@ class ReviewListView extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'タップして評価',
+                      currentUserReview?.reviewRating != 0
+                          ? planDetailPagei18n.item.yourReview
+                          : planDetailPagei18n.item.tapToReview,
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -88,7 +90,8 @@ class ReviewListView extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '口コミ($reviewWithContentsCount件)',
+                  planDetailPagei18n.item
+                      .wordOfMouthCount(count: reviewWithContentsCount),
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

@@ -30,6 +30,8 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
   User get currentUser => ref.read(currentUserProvider);
+  TranslationsPlanDetailsPageSnackBarEn get planDetailPageSnackBari18n =>
+      t.planDetailsPage.snackBar;
 
   @override
   Future<PlanDetailPageState> build(Plan plan) async {
@@ -131,7 +133,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     } on Exception catch (e) {
       logger.e('onBookmarkButtonTap: $e');
       scaffoldMessenger.showExceptionSnackBar(
-        t.planDetailsPage.snackBar.error.failedToUpdateBookmark,
+        planDetailPageSnackBari18n.error.failedToUpdateBookmark,
       );
     }
   }
@@ -150,14 +152,19 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
         createdAt: DateTime.now(),
       );
 
-      await planReviewDataSource.createPlanReview(
-        planReview: review,
+        await planReviewDataSource.createPlanReview(
+          planReview: review,
+        );
+      }
+      scaffoldMessenger.showSuccessSnackBar(
+        planDetailPageSnackBari18n.success.successToCreateReview,
       );
-      scaffoldMessenger.showSuccessSnackBar('レビューを投稿しました');
       onSuccess();
     } on Exception catch (e) {
       logger.e('createReview: $e');
-      scaffoldMessenger.showExceptionSnackBar('レビューの投稿に失敗しました');
+      scaffoldMessenger.showExceptionSnackBar(
+        planDetailPageSnackBari18n.error.failedToCreateReview,
+      );
     }
   }
 }
