@@ -453,17 +453,34 @@
             "dateFormat": "yyyy年MM月dd日"
         },
         "item": {
-            "viewOnMap": "在地图上查看"
+            "viewOnMap": "在地图上查看",
+            "reviewCount": "（${count}条评价）",
+            "noReview": "暂无评价",
+            "yourReview": "您的评价",
+            "tapToReview": "点击评分",
+            "wordOfMouthCount": "（${count}条口碑）",
+            "createReview": "发表",
+            "changeReview": "更改评价",
+            "reviewContentWithOptionalLabel": "口碑（可选）"
         },
         "haveUsedPlan": "您已使用此计划",
         "dialog": {
-            "title": "Q. 如何证明您已使用此计划？",
-            "description": "A. 您已访问计划中包含的地点。\n 我们使用位置信息进行判断，但不会将您的信息用于此功能以外的用途。",
+            "title": "Q. 如何证明您已使用该计划？",
+            "description": "A. 您已前往计划中包含的地点。\n 我们利用位置信息进行判断，但此信息不会用于其他用途。",
             "button": "关闭"
         },
+        "tab": {
+            "information": "信息",
+            "wordOfMouth": "口碑"
+        },
         "snackBar": {
+            "success": {
+                "successToCreateReview": "评价已完成"
+            },
             "error": {
-                "failedToUpdateBookmark": "更新书签失败，请稍后再试"
+                "failedToUpdateBookmark": "更新书签失败，请稍后重试",
+                "failedToCreateReview": "提交评价失败，请稍后重试",
+                "modificationNotFound": "没有更改"
             }
         }
     },

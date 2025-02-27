@@ -305,6 +305,7 @@ class _TranslationsPlanDetailsPageZhHans implements TranslationsPlanDetailsPageE
 	@override late final _TranslationsPlanDetailsPageItemZhHans item = _TranslationsPlanDetailsPageItemZhHans._(_root);
 	@override String get haveUsedPlan => '您已使用此计划';
 	@override late final _TranslationsPlanDetailsPageDialogZhHans dialog = _TranslationsPlanDetailsPageDialogZhHans._(_root);
+	@override late final _TranslationsPlanDetailsPageTabZhHans tab = _TranslationsPlanDetailsPageTabZhHans._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarZhHans snackBar = _TranslationsPlanDetailsPageSnackBarZhHans._(_root);
 }
 
@@ -884,6 +885,14 @@ class _TranslationsPlanDetailsPageItemZhHans implements TranslationsPlanDetailsP
 
 	// Translations
 	@override String get viewOnMap => '在地图上查看';
+	@override String reviewCount({required Object count}) => '（${count}条评价）';
+	@override String get noReview => '暂无评价';
+	@override String get yourReview => '您的评价';
+	@override String get tapToReview => '点击评分';
+	@override String wordOfMouthCount({required Object count}) => '（${count}条口碑）';
+	@override String get createReview => '发表';
+	@override String get changeReview => '更改评价';
+	@override String get reviewContentWithOptionalLabel => '口碑（可选）';
 }
 
 // Path: planDetailsPage.dialog
@@ -893,9 +902,20 @@ class _TranslationsPlanDetailsPageDialogZhHans implements TranslationsPlanDetail
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Q. 如何证明您已使用此计划？';
-	@override String get description => 'A. 您已访问计划中包含的地点。\n 我们使用位置信息进行判断，但不会将您的信息用于此功能以外的用途。';
+	@override String get title => 'Q. 如何证明您已使用该计划？';
+	@override String get description => 'A. 您已前往计划中包含的地点。\n 我们利用位置信息进行判断，但此信息不会用于其他用途。';
 	@override String get button => '关闭';
+}
+
+// Path: planDetailsPage.tab
+class _TranslationsPlanDetailsPageTabZhHans implements TranslationsPlanDetailsPageTabEn {
+	_TranslationsPlanDetailsPageTabZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get information => '信息';
+	@override String get wordOfMouth => '口碑';
 }
 
 // Path: planDetailsPage.snackBar
@@ -905,6 +925,7 @@ class _TranslationsPlanDetailsPageSnackBarZhHans implements TranslationsPlanDeta
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarSuccessZhHans success = _TranslationsPlanDetailsPageSnackBarSuccessZhHans._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHans error = _TranslationsPlanDetailsPageSnackBarErrorZhHans._(_root);
 }
 
@@ -1329,6 +1350,16 @@ class _TranslationsBillDetailsPageSnackBarErrorZhHans implements TranslationsBil
 	@override String get failedToRestorePurchase => '恢复购买失败，请稍后再试';
 }
 
+// Path: planDetailsPage.snackBar.success
+class _TranslationsPlanDetailsPageSnackBarSuccessZhHans implements TranslationsPlanDetailsPageSnackBarSuccessEn {
+	_TranslationsPlanDetailsPageSnackBarSuccessZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get successToCreateReview => '评价已完成';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorZhHans implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorZhHans._(this._root);
@@ -1336,7 +1367,9 @@ class _TranslationsPlanDetailsPageSnackBarErrorZhHans implements TranslationsPla
 	final TranslationsZhHans _root; // ignore: unused_field
 
 	// Translations
-	@override String get failedToUpdateBookmark => '更新书签失败，请稍后再试';
+	@override String get failedToUpdateBookmark => '更新书签失败，请稍后重试';
+	@override String get failedToCreateReview => '提交评价失败，请稍后重试';
+	@override String get modificationNotFound => '没有更改';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1663,11 +1696,24 @@ extension on TranslationsZhHans {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}创建的计划';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地图上查看';
+			case 'planDetailsPage.item.reviewCount': return ({required Object count}) => '（${count}条评价）';
+			case 'planDetailsPage.item.noReview': return '暂无评价';
+			case 'planDetailsPage.item.yourReview': return '您的评价';
+			case 'planDetailsPage.item.tapToReview': return '点击评分';
+			case 'planDetailsPage.item.wordOfMouthCount': return ({required Object count}) => '（${count}条口碑）';
+			case 'planDetailsPage.item.createReview': return '发表';
+			case 'planDetailsPage.item.changeReview': return '更改评价';
+			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '口碑（可选）';
 			case 'planDetailsPage.haveUsedPlan': return '您已使用此计划';
-			case 'planDetailsPage.dialog.title': return 'Q. 如何证明您已使用此计划？';
-			case 'planDetailsPage.dialog.description': return 'A. 您已访问计划中包含的地点。\n 我们使用位置信息进行判断，但不会将您的信息用于此功能以外的用途。';
+			case 'planDetailsPage.dialog.title': return 'Q. 如何证明您已使用该计划？';
+			case 'planDetailsPage.dialog.description': return 'A. 您已前往计划中包含的地点。\n 我们利用位置信息进行判断，但此信息不会用于其他用途。';
 			case 'planDetailsPage.dialog.button': return '关闭';
-			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新书签失败，请稍后再试';
+			case 'planDetailsPage.tab.information': return '信息';
+			case 'planDetailsPage.tab.wordOfMouth': return '口碑';
+			case 'planDetailsPage.snackBar.success.successToCreateReview': return '评价已完成';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新书签失败，请稍后重试';
+			case 'planDetailsPage.snackBar.error.failedToCreateReview': return '提交评价失败，请稍后重试';
+			case 'planDetailsPage.snackBar.error.modificationNotFound': return '没有更改';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy正在偷偷规划旅行方案...';
 			case 'createLoadingPage.items.loadingText2': return '正在计划最棒的旅行...Buddy也很期待！';
 			case 'createLoadingPage.items.loadingText3': return '旅行的未来即将揭晓，稍等片刻~';

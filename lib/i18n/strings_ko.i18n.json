@@ -453,17 +453,34 @@
             "dateFormat": "yyyy년 MM월 dd일"
         },
         "item": {
-            "viewOnMap": "지도에서 보기"
+            "viewOnMap": "지도에서 보기",
+            "reviewCount": "(${count}개의 리뷰)",
+            "noReview": "리뷰 없음",
+            "yourReview": "내 리뷰",
+            "tapToReview": "탭하여 평가하기",
+            "wordOfMouthCount": "(${count}개의 후기)",
+            "createReview": "게시",
+            "changeReview": "리뷰 수정",
+            "reviewContentWithOptionalLabel": "리뷰 (선택 사항)"
         },
-        "haveUsedPlan": "이 플랜을 사용했습니다",
+        "haveUsedPlan": "이 플랜을 사용하셨습니다",
         "dialog": {
-            "title": "Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?",
-            "description": "A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.",
+            "title": "Q. 플랜을 사용한 것을 어떻게 증명할 수 있나요?",
+            "description": "A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 사용하여 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.",
             "button": "닫기"
         },
+        "tab": {
+            "information": "정보",
+            "wordOfMouth": "리뷰"
+        },
         "snackBar": {
+            "success": {
+                "successToCreateReview": "리뷰가 완료되었습니다"
+            },
             "error": {
-                "failedToUpdateBookmark": "북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요."
+                "failedToUpdateBookmark": "북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요.",
+                "failedToCreateReview": "리뷰 등록에 실패했습니다. 잠시 후 다시 시도해주세요.",
+                "modificationNotFound": "변경 사항이 없습니다."
             }
         }
     },

@@ -453,17 +453,34 @@
             "dateFormat": "MM/dd/yyyy"
         },
         "item": {
-            "viewOnMap": "View on Map"
+            "viewOnMap": "View on Map",
+            "reviewCount": "(${count} reviews)",
+            "noReview": "No reviews",
+            "yourReview": "Your Review",
+            "tapToReview": "Tap to rate",
+            "wordOfMouthCount": "(${count} word-of-mouth)",
+            "createReview": "Post",
+            "changeReview": "Edit Review",
+            "reviewContentWithOptionalLabel": "Review (Optional)"
         },
         "haveUsedPlan": "You have used this plan",
         "dialog": {
             "title": "Q. How can I prove that I have used this plan?",
-            "description": "A. You have visited the locations included in the plan.\n We use location information to determine this, but your data will not be used for anything other than this feature.",
+            "description": "A. You have visited the locations included in the plan.\n We use location data to determine this, but the data will not be used for any other purposes.",
             "button": "Close"
         },
+        "tab": {
+            "information": "Information",
+            "wordOfMouth": "Reviews"
+        },
         "snackBar": {
+            "success": {
+                "successToCreateReview": "Review completed"
+            },
             "error": {
-                "failedToUpdateBookmark": "Failed to update the bookmark. Please try again later."
+                "failedToUpdateBookmark": "Failed to update bookmark. Please try again later.",
+                "failedToCreateReview": "Failed to submit review. Please try again later.",
+                "modificationNotFound": "No changes found"
             }
         }
     },

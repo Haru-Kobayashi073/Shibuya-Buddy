@@ -303,8 +303,9 @@ class _TranslationsPlanDetailsPageKo implements TranslationsPlanDetailsPageEn {
 	// Translations
 	@override late final _TranslationsPlanDetailsPageDateTimeKo dateTime = _TranslationsPlanDetailsPageDateTimeKo._(_root);
 	@override late final _TranslationsPlanDetailsPageItemKo item = _TranslationsPlanDetailsPageItemKo._(_root);
-	@override String get haveUsedPlan => '이 플랜을 사용했습니다';
+	@override String get haveUsedPlan => '이 플랜을 사용하셨습니다';
 	@override late final _TranslationsPlanDetailsPageDialogKo dialog = _TranslationsPlanDetailsPageDialogKo._(_root);
+	@override late final _TranslationsPlanDetailsPageTabKo tab = _TranslationsPlanDetailsPageTabKo._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarKo snackBar = _TranslationsPlanDetailsPageSnackBarKo._(_root);
 }
 
@@ -884,6 +885,14 @@ class _TranslationsPlanDetailsPageItemKo implements TranslationsPlanDetailsPageI
 
 	// Translations
 	@override String get viewOnMap => '지도에서 보기';
+	@override String reviewCount({required Object count}) => '(${count}개의 리뷰)';
+	@override String get noReview => '리뷰 없음';
+	@override String get yourReview => '내 리뷰';
+	@override String get tapToReview => '탭하여 평가하기';
+	@override String wordOfMouthCount({required Object count}) => '(${count}개의 후기)';
+	@override String get createReview => '게시';
+	@override String get changeReview => '리뷰 수정';
+	@override String get reviewContentWithOptionalLabel => '리뷰 (선택 사항)';
 }
 
 // Path: planDetailsPage.dialog
@@ -893,9 +902,20 @@ class _TranslationsPlanDetailsPageDialogKo implements TranslationsPlanDetailsPag
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?';
-	@override String get description => 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
+	@override String get title => 'Q. 플랜을 사용한 것을 어떻게 증명할 수 있나요?';
+	@override String get description => 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 사용하여 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
 	@override String get button => '닫기';
+}
+
+// Path: planDetailsPage.tab
+class _TranslationsPlanDetailsPageTabKo implements TranslationsPlanDetailsPageTabEn {
+	_TranslationsPlanDetailsPageTabKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get information => '정보';
+	@override String get wordOfMouth => '리뷰';
 }
 
 // Path: planDetailsPage.snackBar
@@ -905,6 +925,7 @@ class _TranslationsPlanDetailsPageSnackBarKo implements TranslationsPlanDetailsP
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarSuccessKo success = _TranslationsPlanDetailsPageSnackBarSuccessKo._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorKo error = _TranslationsPlanDetailsPageSnackBarErrorKo._(_root);
 }
 
@@ -1329,6 +1350,16 @@ class _TranslationsBillDetailsPageSnackBarErrorKo implements TranslationsBillDet
 	@override String get failedToRestorePurchase => '구매 복원에 실패했습니다. 잠시 후 다시 시도해주세요.';
 }
 
+// Path: planDetailsPage.snackBar.success
+class _TranslationsPlanDetailsPageSnackBarSuccessKo implements TranslationsPlanDetailsPageSnackBarSuccessEn {
+	_TranslationsPlanDetailsPageSnackBarSuccessKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get successToCreateReview => '리뷰가 완료되었습니다';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorKo implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorKo._(this._root);
@@ -1337,6 +1368,8 @@ class _TranslationsPlanDetailsPageSnackBarErrorKo implements TranslationsPlanDet
 
 	// Translations
 	@override String get failedToUpdateBookmark => '북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요.';
+	@override String get failedToCreateReview => '리뷰 등록에 실패했습니다. 잠시 후 다시 시도해주세요.';
+	@override String get modificationNotFound => '변경 사항이 없습니다.';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1663,11 +1696,24 @@ extension on TranslationsKo {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}에 생성된 플랜';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy년 MM월 dd일';
 			case 'planDetailsPage.item.viewOnMap': return '지도에서 보기';
-			case 'planDetailsPage.haveUsedPlan': return '이 플랜을 사용했습니다';
-			case 'planDetailsPage.dialog.title': return 'Q. 어떻게 플랜을 사용했음을 증명할 수 있나요?';
-			case 'planDetailsPage.dialog.description': return 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 이용해 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
+			case 'planDetailsPage.item.reviewCount': return ({required Object count}) => '(${count}개의 리뷰)';
+			case 'planDetailsPage.item.noReview': return '리뷰 없음';
+			case 'planDetailsPage.item.yourReview': return '내 리뷰';
+			case 'planDetailsPage.item.tapToReview': return '탭하여 평가하기';
+			case 'planDetailsPage.item.wordOfMouthCount': return ({required Object count}) => '(${count}개의 후기)';
+			case 'planDetailsPage.item.createReview': return '게시';
+			case 'planDetailsPage.item.changeReview': return '리뷰 수정';
+			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '리뷰 (선택 사항)';
+			case 'planDetailsPage.haveUsedPlan': return '이 플랜을 사용하셨습니다';
+			case 'planDetailsPage.dialog.title': return 'Q. 플랜을 사용한 것을 어떻게 증명할 수 있나요?';
+			case 'planDetailsPage.dialog.description': return 'A. 플랜에 포함된 장소를 방문하셨습니다.\n 위치 정보를 사용하여 판단하지만, 이 기능 외에는 정보가 사용되지 않습니다.';
 			case 'planDetailsPage.dialog.button': return '닫기';
+			case 'planDetailsPage.tab.information': return '정보';
+			case 'planDetailsPage.tab.wordOfMouth': return '리뷰';
+			case 'planDetailsPage.snackBar.success.successToCreateReview': return '리뷰가 완료되었습니다';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '북마크 업데이트에 실패했습니다. 잠시 후 다시 시도해주세요.';
+			case 'planDetailsPage.snackBar.error.failedToCreateReview': return '리뷰 등록에 실패했습니다. 잠시 후 다시 시도해주세요.';
+			case 'planDetailsPage.snackBar.error.modificationNotFound': return '변경 사항이 없습니다.';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy가 여행 계획을 몰래 짜고 있어요...';
 			case 'createLoadingPage.items.loadingText2': return '최고의 여행을 계획 중...Buddy도 설렘 가득!';
 			case 'createLoadingPage.items.loadingText3': return '여행의 미래, 잠시만 기다려주세요~';

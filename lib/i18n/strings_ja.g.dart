@@ -305,6 +305,7 @@ class _TranslationsPlanDetailsPageJa implements TranslationsPlanDetailsPageEn {
 	@override late final _TranslationsPlanDetailsPageItemJa item = _TranslationsPlanDetailsPageItemJa._(_root);
 	@override String get haveUsedPlan => 'あなたはこのプランを利用しました';
 	@override late final _TranslationsPlanDetailsPageDialogJa dialog = _TranslationsPlanDetailsPageDialogJa._(_root);
+	@override late final _TranslationsPlanDetailsPageTabJa tab = _TranslationsPlanDetailsPageTabJa._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarJa snackBar = _TranslationsPlanDetailsPageSnackBarJa._(_root);
 }
 
@@ -884,6 +885,14 @@ class _TranslationsPlanDetailsPageItemJa implements TranslationsPlanDetailsPageI
 
 	// Translations
 	@override String get viewOnMap => '地図で見る';
+	@override String reviewCount({required Object count}) => '(${count}件の評価)';
+	@override String get noReview => '評価なし';
+	@override String get yourReview => 'あなたの評価';
+	@override String get tapToReview => 'タップして評価';
+	@override String wordOfMouthCount({required Object count}) => '(口コミ${count}件)';
+	@override String get createReview => '投稿';
+	@override String get changeReview => '評価を変更';
+	@override String get reviewContentWithOptionalLabel => '口コミ (任意)';
 }
 
 // Path: planDetailsPage.dialog
@@ -898,6 +907,17 @@ class _TranslationsPlanDetailsPageDialogJa implements TranslationsPlanDetailsPag
 	@override String get button => '閉じる';
 }
 
+// Path: planDetailsPage.tab
+class _TranslationsPlanDetailsPageTabJa implements TranslationsPlanDetailsPageTabEn {
+	_TranslationsPlanDetailsPageTabJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get information => '情報';
+	@override String get wordOfMouth => '口コミ';
+}
+
 // Path: planDetailsPage.snackBar
 class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsPageSnackBarEn {
 	_TranslationsPlanDetailsPageSnackBarJa._(this._root);
@@ -905,6 +925,7 @@ class _TranslationsPlanDetailsPageSnackBarJa implements TranslationsPlanDetailsP
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarSuccessJa success = _TranslationsPlanDetailsPageSnackBarSuccessJa._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorJa error = _TranslationsPlanDetailsPageSnackBarErrorJa._(_root);
 }
 
@@ -1329,6 +1350,16 @@ class _TranslationsBillDetailsPageSnackBarErrorJa implements TranslationsBillDet
 	@override String get failedToRestorePurchase => '購入の復元に失敗しました。時間をおいて再度お試しください';
 }
 
+// Path: planDetailsPage.snackBar.success
+class _TranslationsPlanDetailsPageSnackBarSuccessJa implements TranslationsPlanDetailsPageSnackBarSuccessEn {
+	_TranslationsPlanDetailsPageSnackBarSuccessJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get successToCreateReview => 'レビューが完了しました';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorJa._(this._root);
@@ -1337,6 +1368,8 @@ class _TranslationsPlanDetailsPageSnackBarErrorJa implements TranslationsPlanDet
 
 	// Translations
 	@override String get failedToUpdateBookmark => 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
+	@override String get failedToCreateReview => 'レビューに失敗しました しばらくしてから再度お試しください';
+	@override String get modificationNotFound => '変更がありません';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1663,11 +1696,24 @@ extension on TranslationsJa {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}に作られたプラン';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '地図で見る';
+			case 'planDetailsPage.item.reviewCount': return ({required Object count}) => '(${count}件の評価)';
+			case 'planDetailsPage.item.noReview': return '評価なし';
+			case 'planDetailsPage.item.yourReview': return 'あなたの評価';
+			case 'planDetailsPage.item.tapToReview': return 'タップして評価';
+			case 'planDetailsPage.item.wordOfMouthCount': return ({required Object count}) => '(口コミ${count}件)';
+			case 'planDetailsPage.item.createReview': return '投稿';
+			case 'planDetailsPage.item.changeReview': return '評価を変更';
+			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '口コミ (任意)';
 			case 'planDetailsPage.haveUsedPlan': return 'あなたはこのプランを利用しました';
 			case 'planDetailsPage.dialog.title': return 'Q. どのようにしてプランを利用したことを示せますか？';
 			case 'planDetailsPage.dialog.description': return 'A. あなたはプランに含まれている場所に訪れました。\n 位置情報を利用して判断していますが、この機能以外に情報が使用されることはありません。';
 			case 'planDetailsPage.dialog.button': return '閉じる';
+			case 'planDetailsPage.tab.information': return '情報';
+			case 'planDetailsPage.tab.wordOfMouth': return '口コミ';
+			case 'planDetailsPage.snackBar.success.successToCreateReview': return 'レビューが完了しました';
 			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'ブックマークの更新に失敗しました しばらくしてから再度お試しください';
+			case 'planDetailsPage.snackBar.error.failedToCreateReview': return 'レビューに失敗しました しばらくしてから再度お試しください';
+			case 'planDetailsPage.snackBar.error.modificationNotFound': return '変更がありません';
 			case 'createLoadingPage.items.loadingText1': return 'Buddyが旅行プランを練ってます…こっそり。';
 			case 'createLoadingPage.items.loadingText2': return '最高の旅を計画中…Buddyもワクワク!';
 			case 'createLoadingPage.items.loadingText3': return '旅行の未来、ちょっとだけ待ってね。';
