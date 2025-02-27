@@ -7,7 +7,7 @@ part of 'plan_detail_page_notifier.dart';
 // **************************************************************************
 
 String _$planDetailPageNotifierHash() =>
-    r'03091327cd4c83d0cf1775392f6a6ef1e5338052';
+    r'd9195634ad273f8c732ab9c0b1ec4edc66fc9412';
 
 /// Copied from Dart SDK
 class _SystemHash {
