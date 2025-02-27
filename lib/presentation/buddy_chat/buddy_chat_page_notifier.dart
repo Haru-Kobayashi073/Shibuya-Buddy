@@ -252,6 +252,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         plan: chatMessage.plan?.copyWith(
           thumbnailUrl: photoUrls[0],
           topics: planPrompt.topics,
+          createdAt: DateTime.now(),
         ),
         places: chatMessage.places?.asMap().entries.map(
           (entry) {
