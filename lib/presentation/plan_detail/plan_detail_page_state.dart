@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
+import '../../domain/entities/plan_review.dart';
 
 part 'plan_detail_page_state.freezed.dart';
 
@@ -12,5 +13,10 @@ abstract class PlanDetailPageState with _$PlanDetailPageState {
     required List<Place> places,
     required bool isBookmarked,
     required bool haveUsedPlan,
+    @Default([]) List<PlanReview> reviewsWithContent,
+    @Default(0) double comprehensiveRating,
+    @Default(0) int reviewCount,
+    @Default(0) int reviewWithContentsCount,
+    PlanReview? currentUserReview,
   }) = _PlanDetailPageState;
 }

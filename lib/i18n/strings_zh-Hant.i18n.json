@@ -453,17 +453,36 @@
             "dateFormat": "yyyy年MM月dd日"
         },
         "item": {
-            "viewOnMap": "在地圖上查看"
+            "viewOnMap": "在地圖上查看",
+            "reviewCount": "（${count}條評價）",
+            "noReview": "暫無評價",
+            "yourReview": "您的評價",
+            "tapToReview": "點擊評分",
+            "wordOfMouthCount": "（${count}條口碑）",
+            "createReview": "發表",
+            "changeReview": "更改評價",
+            "reviewContentWithOptionalLabel": "口碑（可選）",
+            "displayMoreText": " 查看更多",
+            "displayLessText": " 關閉"
         },
         "haveUsedPlan": "您已使用此計畫",
         "dialog": {
-            "title": "Q. 如何證明您已使用此計畫？",
-            "description": "A. 您已造訪計畫中包含的地點。\n 我們使用位置信息進行判斷，但不會將您的信息用於此功能以外的用途。",
+            "title": "Q. 如何證明您已使用該計畫？",
+            "description": "A. 您已前往計畫中包含的地點。\n 我們利用位置信息進行判斷，但此信息不會用於其他用途。",
             "button": "關閉"
         },
+        "tab": {
+            "information": "資訊",
+            "wordOfMouth": "口碑"
+        },
         "snackBar": {
+            "success": {
+                "successToCreateReview": "評價已完成"
+            },
             "error": {
-                "failedToUpdateBookmark": "更新書籤失敗，請稍後再試"
+                "failedToUpdateBookmark": "更新書籤失敗，請稍後重試",
+                "failedToCreateReview": "提交評價失敗，請稍後重試",
+                "modificationNotFound": "沒有變更"
             }
         }
     },

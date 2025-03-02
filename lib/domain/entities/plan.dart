@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../utils/date_time_converter.dart';
 import 'topic.dart';
 
 part 'plan.freezed.dart';
@@ -19,8 +20,8 @@ abstract class Plan with _$Plan {
     @Default([]) List<String> bookmarkedUserIds,
     @Default([]) List<String> usedUserIds,
     @Default(0) int bookmarkCount,
-    String? createdAt,
-    String? updatedAt,
+    @DateTimeConverter() DateTime? createdAt,
+    @DateTimeConverter() DateTime? updatedAt,
   }) = _Plan;
 
   factory Plan.fromJson(Map<String, dynamic> json) => _$PlanFromJson(json);

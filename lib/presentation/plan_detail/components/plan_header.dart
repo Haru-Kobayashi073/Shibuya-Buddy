@@ -5,6 +5,7 @@ import '../../../domain/entities/plan.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../utils/styles/app_color.dart';
 import '../../../utils/styles/app_text_style.dart';
+import '../../components/expandable_text.dart';
 import '../../home/components/category_tags.dart';
 import 'have_used_plan_question_dialog.dart';
 
@@ -75,10 +76,7 @@ class PlanHeader extends StatelessWidget {
           const Gap(8),
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              plan.description,
-              style: AppTextStyle.textStyle.copyWith(fontSize: 14),
-            ),
+            child: ExpandableText(plan.description),
           ),
           const SizedBox(height: 8),
         ],

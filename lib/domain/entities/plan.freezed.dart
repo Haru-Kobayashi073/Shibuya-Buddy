@@ -30,8 +30,10 @@ mixin _$Plan {
   List<String> get bookmarkedUserIds => throw _privateConstructorUsedError;
   List<String> get usedUserIds => throw _privateConstructorUsedError;
   int get bookmarkCount => throw _privateConstructorUsedError;
-  String? get createdAt => throw _privateConstructorUsedError;
-  String? get updatedAt => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this Plan to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,8 +60,8 @@ abstract class $PlanCopyWith<$Res> {
       List<String> bookmarkedUserIds,
       List<String> usedUserIds,
       int bookmarkCount,
-      String? createdAt,
-      String? updatedAt});
+      @DateTimeConverter() DateTime? createdAt,
+      @DateTimeConverter() DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -134,11 +136,11 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -161,8 +163,8 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       List<String> bookmarkedUserIds,
       List<String> usedUserIds,
       int bookmarkCount,
-      String? createdAt,
-      String? updatedAt});
+      @DateTimeConverter() DateTime? createdAt,
+      @DateTimeConverter() DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -234,11 +236,11 @@ class __$$PlanImplCopyWithImpl<$Res>
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
     ));
   }
 }
@@ -258,8 +260,8 @@ class _$PlanImpl implements _Plan {
       final List<String> bookmarkedUserIds = const [],
       final List<String> usedUserIds = const [],
       this.bookmarkCount = 0,
-      this.createdAt,
-      this.updatedAt})
+      @DateTimeConverter() this.createdAt,
+      @DateTimeConverter() this.updatedAt})
       : _topics = topics,
         _bookmarkedUserIds = bookmarkedUserIds,
         _usedUserIds = usedUserIds;
@@ -313,9 +315,11 @@ class _$PlanImpl implements _Plan {
   @JsonKey()
   final int bookmarkCount;
   @override
-  final String? createdAt;
+  @DateTimeConverter()
+  final DateTime? createdAt;
   @override
-  final String? updatedAt;
+  @DateTimeConverter()
+  final DateTime? updatedAt;
 
   @override
   String toString() {
@@ -394,8 +398,8 @@ abstract class _Plan implements Plan {
       final List<String> bookmarkedUserIds,
       final List<String> usedUserIds,
       final int bookmarkCount,
-      final String? createdAt,
-      final String? updatedAt}) = _$PlanImpl;
+      @DateTimeConverter() final DateTime? createdAt,
+      @DateTimeConverter() final DateTime? updatedAt}) = _$PlanImpl;
 
   factory _Plan.fromJson(Map<String, dynamic> json) = _$PlanImpl.fromJson;
 
@@ -420,9 +424,11 @@ abstract class _Plan implements Plan {
   @override
   int get bookmarkCount;
   @override
-  String? get createdAt;
+  @DateTimeConverter()
+  DateTime? get createdAt;
   @override
-  String? get updatedAt;
+  @DateTimeConverter()
+  DateTime? get updatedAt;
 
   /// Create a copy of Plan
   /// with the given fields replaced by the non-null parameter values.

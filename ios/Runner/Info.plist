@@ -35,6 +35,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>${admobiOSAppId}</string>
 	<key>GoogleMapAPIKey</key>
 	<string>${GoogleMapAPIKey}</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -74,10 +76,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>GoogleMapAPIKey</key>
-	<string>${GoogleMapAPIKey}</string>
-	<key>GADApplicationIdentifier</key>
-	<string>${admobiOSAppId}</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

@@ -309,6 +309,7 @@ class TranslationsPlanDetailsPageEn {
 	late final TranslationsPlanDetailsPageItemEn item = TranslationsPlanDetailsPageItemEn._(_root);
 	String get haveUsedPlan => 'You have used this plan';
 	late final TranslationsPlanDetailsPageDialogEn dialog = TranslationsPlanDetailsPageDialogEn._(_root);
+	late final TranslationsPlanDetailsPageTabEn tab = TranslationsPlanDetailsPageTabEn._(_root);
 	late final TranslationsPlanDetailsPageSnackBarEn snackBar = TranslationsPlanDetailsPageSnackBarEn._(_root);
 }
 
@@ -888,6 +889,16 @@ class TranslationsPlanDetailsPageItemEn {
 
 	// Translations
 	String get viewOnMap => 'View on Map';
+	String reviewCount({required Object count}) => '(${count} reviews)';
+	String get noReview => 'No reviews';
+	String get yourReview => 'Your Review';
+	String get tapToReview => 'Tap to rate';
+	String wordOfMouthCount({required Object count}) => '(${count} word-of-mouth)';
+	String get createReview => 'Post';
+	String get changeReview => 'Edit Review';
+	String get reviewContentWithOptionalLabel => 'Review (Optional)';
+	String get displayMoreText => ' Show more';
+	String get displayLessText => ' Close';
 }
 
 // Path: planDetailsPage.dialog
@@ -898,8 +909,19 @@ class TranslationsPlanDetailsPageDialogEn {
 
 	// Translations
 	String get title => 'Q. How can I prove that I have used this plan?';
-	String get description => 'A. You have visited the locations included in the plan.\n We use location information to determine this, but your data will not be used for anything other than this feature.';
+	String get description => 'A. You have visited the locations included in the plan.\n We use location data to determine this, but the data will not be used for any other purposes.';
 	String get button => 'Close';
+}
+
+// Path: planDetailsPage.tab
+class TranslationsPlanDetailsPageTabEn {
+	TranslationsPlanDetailsPageTabEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get information => 'Information';
+	String get wordOfMouth => 'Reviews';
 }
 
 // Path: planDetailsPage.snackBar
@@ -909,6 +931,7 @@ class TranslationsPlanDetailsPageSnackBarEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	late final TranslationsPlanDetailsPageSnackBarSuccessEn success = TranslationsPlanDetailsPageSnackBarSuccessEn._(_root);
 	late final TranslationsPlanDetailsPageSnackBarErrorEn error = TranslationsPlanDetailsPageSnackBarErrorEn._(_root);
 }
 
@@ -1333,6 +1356,16 @@ class TranslationsBillDetailsPageSnackBarErrorEn {
 	String get failedToRestorePurchase => 'Failed to restore purchase. Please try again later.';
 }
 
+// Path: planDetailsPage.snackBar.success
+class TranslationsPlanDetailsPageSnackBarSuccessEn {
+	TranslationsPlanDetailsPageSnackBarSuccessEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get successToCreateReview => 'Review completed';
+}
+
 // Path: planDetailsPage.snackBar.error
 class TranslationsPlanDetailsPageSnackBarErrorEn {
 	TranslationsPlanDetailsPageSnackBarErrorEn._(this._root);
@@ -1340,7 +1373,9 @@ class TranslationsPlanDetailsPageSnackBarErrorEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get failedToUpdateBookmark => 'Failed to update the bookmark. Please try again later.';
+	String get failedToUpdateBookmark => 'Failed to update bookmark. Please try again later.';
+	String get failedToCreateReview => 'Failed to submit review. Please try again later.';
+	String get modificationNotFound => 'No changes found';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1667,11 +1702,26 @@ extension on Translations {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => 'Plan created on${date}';
 			case 'planDetailsPage.dateTime.dateFormat': return 'MM/dd/yyyy';
 			case 'planDetailsPage.item.viewOnMap': return 'View on Map';
+			case 'planDetailsPage.item.reviewCount': return ({required Object count}) => '(${count} reviews)';
+			case 'planDetailsPage.item.noReview': return 'No reviews';
+			case 'planDetailsPage.item.yourReview': return 'Your Review';
+			case 'planDetailsPage.item.tapToReview': return 'Tap to rate';
+			case 'planDetailsPage.item.wordOfMouthCount': return ({required Object count}) => '(${count} word-of-mouth)';
+			case 'planDetailsPage.item.createReview': return 'Post';
+			case 'planDetailsPage.item.changeReview': return 'Edit Review';
+			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return 'Review (Optional)';
+			case 'planDetailsPage.item.displayMoreText': return ' Show more';
+			case 'planDetailsPage.item.displayLessText': return ' Close';
 			case 'planDetailsPage.haveUsedPlan': return 'You have used this plan';
 			case 'planDetailsPage.dialog.title': return 'Q. How can I prove that I have used this plan?';
-			case 'planDetailsPage.dialog.description': return 'A. You have visited the locations included in the plan.\n We use location information to determine this, but your data will not be used for anything other than this feature.';
+			case 'planDetailsPage.dialog.description': return 'A. You have visited the locations included in the plan.\n We use location data to determine this, but the data will not be used for any other purposes.';
 			case 'planDetailsPage.dialog.button': return 'Close';
-			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update the bookmark. Please try again later.';
+			case 'planDetailsPage.tab.information': return 'Information';
+			case 'planDetailsPage.tab.wordOfMouth': return 'Reviews';
+			case 'planDetailsPage.snackBar.success.successToCreateReview': return 'Review completed';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return 'Failed to update bookmark. Please try again later.';
+			case 'planDetailsPage.snackBar.error.failedToCreateReview': return 'Failed to submit review. Please try again later.';
+			case 'planDetailsPage.snackBar.error.modificationNotFound': return 'No changes found';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy\'s secretly crafting your travel plans... Shh!';
 			case 'createLoadingPage.items.loadingText2': return 'Planning the best trip ever... Buddy\'s excited too!';
 			case 'createLoadingPage.items.loadingText3': return 'Hold onto your passport, adventure loading...';

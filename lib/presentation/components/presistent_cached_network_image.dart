@@ -8,7 +8,7 @@ class PersistentCachedNetworkImage extends StatelessWidget {
   const PersistentCachedNetworkImage({
     super.key,
     required this.imageUrl,
-    this.width,
+    this.width = double.infinity,
     this.height,
   });
   final String imageUrl;
@@ -17,13 +17,11 @@ class PersistentCachedNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthSize = width ?? double.infinity;
-    final heightSize =
-        widthSize == double.infinity ? context.deviceWidth * 0.4 : height;
+    final heightSize = height ?? context.deviceWidth * 0.4;
 
     return CachedNetworkImage(
       imageUrl: imageUrl,
-      width: widthSize,
+      width: width,
       height: heightSize,
       fit: BoxFit.cover,
       progressIndicatorBuilder: (_, __, DownloadProgress? loadingProgress) {

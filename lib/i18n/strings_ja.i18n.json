@@ -453,7 +453,17 @@
             "dateFormat": "yyyy年MM月dd日"
         },
         "item": {
-            "viewOnMap": "地図で見る"
+            "viewOnMap": "地図で見る",
+            "reviewCount": "(${count}件の評価)",
+            "noReview": "評価なし",
+            "yourReview": "あなたの評価",
+            "tapToReview": "タップして評価",
+            "wordOfMouthCount": "(口コミ${count}件)",
+            "createReview": "投稿",
+            "changeReview": "評価を変更",
+            "reviewContentWithOptionalLabel": "口コミ (任意)",
+            "displayMoreText": " もっと見る",
+            "displayLessText": " 閉じる"
         },
         "haveUsedPlan": "あなたはこのプランを利用しました",
         "dialog": {
@@ -461,9 +471,18 @@
             "description": "A. あなたはプランに含まれている場所に訪れました。\n 位置情報を利用して判断していますが、この機能以外に情報が使用されることはありません。",
             "button": "閉じる"
         },
+        "tab": {
+            "information": "情報",
+            "wordOfMouth": "口コミ"
+        },
         "snackBar": {
+            "success": {
+                "successToCreateReview": "レビューが完了しました"
+            },
             "error": {
-                "failedToUpdateBookmark": "ブックマークの更新に失敗しました しばらくしてから再度お試しください"
+                "failedToUpdateBookmark": "ブックマークの更新に失敗しました しばらくしてから再度お試しください",
+                "failedToCreateReview": "レビューに失敗しました しばらくしてから再度お試しください",
+                "modificationNotFound": "変更がありません"
             }
         }
     },

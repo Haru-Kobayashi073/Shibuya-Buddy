@@ -24,6 +24,7 @@ class ScheduleSelector extends StatelessWidget {
           Symbols.calendar_month,
           color: AppColor.blue800Secondary,
         ),
+        readOnly: true,
         hintText: isStartDate
             ? t.createPlanPage.label.scheduleStart
             : t.createPlanPage.label.scheduleEnd,

@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/entities/plan.dart';
 import '../../i18n/strings.g.dart';
 import '../../utils/analytics_event.dart';
-import '../../utils/extensions/context.dart';
-import '../../utils/providers/ad_helper/ad_helper.dart';
 import '../../utils/providers/analytics/analytics.dart';
-import '../../utils/routes/app_router.dart';
 import '../../utils/styles/app_color.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../components/error_view.dart';
 import '../components/loading_overlay.dart';
-import '../components/place_card.dart';
 import '../components/presistent_cached_network_image.dart';
-import '../components/wide_button.dart';
+import '../components/sticky_tab_bar_delegate.dart';
+import '../home/components/category_tags.dart';
 import 'components/circle_icon_button.dart';
-import 'components/plan_header.dart';
+import 'components/plan_information_view.dart';
+import 'components/review_list_view.dart';
+import 'components/star_review_rating.dart';
 import 'plan_detail_page_notifier.dart';
 
 class PlanDetailPage extends HookConsumerWidget {
@@ -43,138 +38,161 @@ class PlanDetailPage extends HookConsumerWidget {
       },
       [],
     );
-
-    final i18n = Translations.of(context);
-    final planDetailPagei18n = i18n.planDetailsPage;
     final state = ref.watch(planDetailPageNotifierProvider(plan));
     final notifier = ref.read(planDetailPageNotifierProvider(plan).notifier);
-    final ads = ref.watch(adHelperProvider);
-
-    final outputFormat = DateFormat(planDetailPagei18n.dateTime.dateFormat)
-        .format(DateTime.now());
+    final tabController = useTabController(initialLength: 2);
+    final scrollController = useScrollController();
+    final isScrolled = useState(false);
+    final planDetailPagei18n = Translations.of(context).planDetailsPage;
 
     return state.when(
       data: (value) {
         return Scaffold(
-          body: Stack(
-            children: [
-              SafeArea(
-                top: false,
-                child: CustomScrollView(
-                  slivers: [
-                    SliverAppBar(
-                      automaticallyImplyLeading: false,
-                      systemOverlayStyle: const SystemUiOverlayStyle(
-                        statusBarBrightness: Brightness.light,
-                      ),
-                      expandedHeight: 250,
-                      flexibleSpace: FlexibleSpaceBar(
-                        background: PersistentCachedNetworkImage(
-                          imageUrl: value.plan.thumbnailUrl,
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Row(
+              children: [
+                CircleIconButton(
+                  icon: Icons.arrow_back_ios_new_rounded,
+                  iconColor: AppColor.black,
+                  onPressed: () => context.pop(),
+                ),
+                const Spacer(),
+                CircleIconButton(
+                  icon: value.isBookmarked
+                      ? Icons.bookmark_rounded
+                      : Icons.bookmark_border_rounded,
+                  iconColor: value.isBookmarked
+                      ? AppColor.yellow600Primary
+                      : AppColor.black,
+                  onPressed: notifier.onBookmarkButtonTap,
+                ),
+              ],
+            ),
+            backgroundColor: Colors.transparent,
+            forceMaterialTransparency: true,
+            elevation: 0,
+          ),
+          body: NestedScrollView(
+            controller: scrollController,
+            headerSliverBuilder: (_, innerBoxIsScrolled) {
+              scrollController.addListener(() {
+                // 190 = AppBar(118) + SafeAreaTop(62)
+                isScrolled.value = scrollController.position.pixels >= 190;
+              });
+              return [
+                SliverToBoxAdapter(
+                  child: PersistentCachedNetworkImage(
+                    imageUrl: value.plan.thumbnailUrl,
+                    height: 300,
+                  ),
+                ),
+                SliverAppBar(
+                  pinned: true,
+                  centerTitle: false,
+                  automaticallyImplyLeading: false,
+                  scrolledUnderElevation: 0,
+                  expandedHeight: 124,
+                  toolbarHeight: 124,
+                  backgroundColor: AppColor.white,
+                  primary: isScrolled.value,
+                  title: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Gap(16),
+                        Text(
+                          plan.title,
+                          style: AppTextStyle.textStyle.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: PlanHeader(
-                        plan: value.plan,
-                        haveUsedPlan: value.haveUsedPlan,
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16, right: 16),
-                        child: Column(
+                        const Gap(8),
+                        Row(
                           children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                planDetailPagei18n.dateTime
-                                    .createOn(date: outputFormat),
-                                style: AppTextStyle.textStyle.copyWith(
-                                  fontSize: 14,
-                                  color: AppColor.grey600,
-                                ),
+                            StarReviewRating(rating: value.comprehensiveRating),
+                            Text(
+                              value.comprehensiveRating.toString(),
+                              style: AppTextStyle.textStyle.copyWith(
+                                fontSize: 16,
                               ),
                             ),
-                            const Gap(16),
-                            WideButton(
-                              icon: const Icon(
-                                Icons.pin_drop_outlined,
-                                color: AppColor.black,
+                            const Gap(8),
+                            Text(
+                              value.reviewCount > 0
+                                  ? planDetailPagei18n.item
+                                      .reviewCount(count: value.reviewCount)
+                                  : planDetailPagei18n.item.noReview,
+                              style: AppTextStyle.textStyle.copyWith(
+                                color: AppColor.grey600,
+                                fontSize: 14,
                               ),
-                              label: planDetailPagei18n.item.viewOnMap,
-                              color: AppColor.blue50Background,
-                              onPressed: () async {
-                                final places = value.places;
-                                await MapPageRouteData($extra: places)
-                                    .push<void>(context);
-                              },
-                            ),
-                            const Gap(16),
-                            Column(
-                              children: value.places
-                                  .map(
-                                    (place) => PlaceCard(
-                                      place: place,
-                                      index: value.places.indexOf(place),
-                                      endindex: value.places.length - 1,
-                                    ),
-                                  )
-                                  .toList(),
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                    if (ads.nativeAd != null && ads.isLoadedNativeAd)
-                      SliverToBoxAdapter(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minWidth: 320, // minimum recommended width
-                            minHeight: 320, // minimum recommended height
-                            maxWidth: context.deviceWidth,
-                            maxHeight: 400,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: AdWidget(ad: ads.nativeAd!),
-                          ),
+                        const Gap(8),
+                        CategoryTags(
+                          topics: plan.topics,
+                          tagColor: AppColor.blue50Background,
+                          spacing: 4,
                         ),
-                      ),
-                  ],
-                ),
-              ),
-              Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        CircleIconButton(
-                          icon: Icons.arrow_back_ios_new,
-                          iconColor: AppColor.black,
-                          onPressed: () => context.pop(),
-                        ),
-                        const Spacer(),
-                        CircleIconButton(
-                          icon: value.isBookmarked
-                              ? Icons.bookmark_rounded
-                              : Symbols.bookmark_border_rounded,
-                          iconColor: value.isBookmarked
-                              ? AppColor.yellow600Primary
-                              : AppColor.black,
-                          onPressed: notifier.onBookmarkButtonTap,
-                        ),
-                        const Gap(16),
                       ],
                     ),
                   ),
                 ),
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: StickyTabBarDelegate(
+                    TabBar(
+                      controller: tabController,
+                      indicatorWeight: 4,
+                      labelStyle: AppTextStyle.textStyle.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      unselectedLabelStyle: AppTextStyle.textStyle.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      labelColor: AppColor.black,
+                      unselectedLabelColor: AppColor.black,
+                      indicatorColor: AppColor.blue800Secondary,
+                      dividerColor: AppColor.blue900Tertiary,
+                      tabs: [
+                        Tab(text: planDetailPagei18n.tab.information),
+                        Tab(text: planDetailPagei18n.tab.wordOfMouth),
+                      ],
+                    ),
+                  ),
+                ),
+              ];
+            },
+            body: Padding(
+              padding: const EdgeInsets.all(16),
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  PlanInformationView(
+                    plan: plan,
+                    places: value.places,
+                    haveUsedPlan: value.haveUsedPlan,
+                  ),
+                  ReviewListView(
+                    reviewsWithContent: value.reviewsWithContent,
+                    currentUserReview: value.currentUserReview,
+                    reviewWithContentsCount: value.reviewWithContentsCount,
+                    onPressedCreateButton: (reviewContents) async =>
+                        notifier.writeReview(
+                      reviewContents: reviewContents,
+                      onSuccess: () => context.pop(),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         );
       },

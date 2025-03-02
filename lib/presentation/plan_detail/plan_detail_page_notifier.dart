@@ -1,16 +1,20 @@
+import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../domain/entities/place.dart';
 import '../../domain/entities/plan.dart';
+import '../../domain/entities/plan_review.dart';
 import '../../domain/entities/user.dart';
 import '../../i18n/strings.g.dart';
 import '../../infrastructure/place/place_data_source.dart';
 import '../../infrastructure/plan/plan_data_source.dart';
+import '../../infrastructure/plan_review/plan_review_data_source.dart';
 import '../../utils/custom_logger.dart';
-import '../../utils/providers/ad_helper/ad_helper.dart';
 import '../../utils/providers/current_user/current_user.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../my_plan/my_plan_page_notifier.dart';
+import 'components/plan_review_modal.dart';
 import 'plan_detail_page_state.dart';
 
 part 'plan_detail_page_notifier.g.dart';
@@ -21,22 +25,46 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       ref.read(planDataSourceProvider.notifier);
   PlaceDataSource get placeDataSource =>
       ref.read(placeDataSourceProvider.notifier);
+  PlanReviewDataSource get planReviewDataSource =>
+      ref.read(planReviewDataSourceProvider.notifier);
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
-  AdHelper get adHelper => ref.read(adHelperProvider.notifier);
   User get currentUser => ref.read(currentUserProvider);
+  TranslationsPlanDetailsPageSnackBarEn get planDetailPageSnackBari18n =>
+      t.planDetailsPage.snackBar;
 
   @override
   Future<PlanDetailPageState> build(Plan plan) async {
     final latestPlan = await getPlan();
     final places = await getPlaces();
-    await adHelper.loadNativeAd();
+    final planReviews = await getPlanReviews();
 
     return PlanDetailPageState(
       plan: latestPlan,
       places: places,
       isBookmarked: latestPlan.bookmarkedUserIds.contains(currentUser.uid),
       haveUsedPlan: latestPlan.usedUserIds.contains(currentUser.uid),
+      reviewsWithContent: planReviews
+          .where(
+            (review) => review.content != null && review.content!.isNotEmpty,
+          )
+          .toList(),
+      reviewCount: planReviews.length,
+      reviewWithContentsCount: planReviews
+          .where(
+            (review) => review.content != null && review.content!.isNotEmpty,
+          )
+          .length,
+      comprehensiveRating: planReviews.isEmpty
+          ? 0.0
+          : (planReviews
+                      .map((review) => review.reviewRating)
+                      .reduce((a, b) => a + b) ~/
+                  planReviews.length)
+              .toDouble(),
+      currentUserReview: planReviews.firstWhereOrNull(
+        (review) => review.authorId == currentUser.uid,
+      ),
     );
   }
 
@@ -52,6 +80,15 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     } on Exception catch (e) {
       logger.e('getPlan: $e');
       return plan;
+    }
+  }
+
+  Future<List<PlanReview>> getPlanReviews() async {
+    try {
+      return await planReviewDataSource.getPlanReviews(planId: plan.id);
+    } on Exception catch (e) {
+      logger.e('getPlanReviews: $e');
+      return [];
     }
   }
 
@@ -96,8 +133,96 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     } on Exception catch (e) {
       logger.e('onBookmarkButtonTap: $e');
       scaffoldMessenger.showExceptionSnackBar(
-        t.planDetailsPage.snackBar.error.failedToUpdateBookmark,
+        planDetailPageSnackBari18n.error.failedToUpdateBookmark,
       );
+    }
+  }
+
+  Future<void> writeReview({
+    required ReviewContents reviewContents,
+    required void Function() onSuccess,
+  }) async {
+    try {
+      // すでにレビュー済みだが、変更がない場合は何もしない
+      if (state.requireValue.currentUserReview != null &&
+          (state.requireValue.currentUserReview!.reviewRating ==
+                  reviewContents.rating &&
+              state.requireValue.currentUserReview!.content ==
+                  reviewContents.content)) {
+        scaffoldMessenger.showExceptionSnackBar(
+          planDetailPageSnackBari18n.error.modificationNotFound,
+        );
+        return;
+      }
+      // すでにレビュー済みの場合は更新、未レビューの場合は新規作成
+      if (reviewContents.reviewId != null &&
+          reviewContents.reviewId!.isNotEmpty) {
+        final updatedReview = state.requireValue.currentUserReview!.copyWith(
+          reviewRating: reviewContents.rating,
+          content: reviewContents.content,
+          updatedAt: DateTime.now(),
+        );
+
+        await planReviewDataSource.updatePlanReview(planReview: updatedReview);
+      } else {
+        final review = PlanReview(
+          id: const Uuid().v4(),
+          authorId: currentUser.uid,
+          planId: plan.id,
+          reviewRating: reviewContents.rating,
+          content: reviewContents.content,
+          createdAt: DateTime.now(),
+        );
+
+        await planReviewDataSource.createPlanReview(
+          planReview: review,
+        );
+      }
+      scaffoldMessenger.showSuccessSnackBar(
+        planDetailPageSnackBari18n.success.successToCreateReview,
+      );
+      await _refreshReviews();
+      onSuccess();
+    } on Exception catch (e) {
+      logger.e('createReview: $e');
+      scaffoldMessenger.showExceptionSnackBar(
+        planDetailPageSnackBari18n.error.failedToCreateReview,
+      );
+    }
+  }
+
+  Future<void> _refreshReviews() async {
+    try {
+      final latestPlanReviews = await getPlanReviews();
+      state = AsyncValue.data(
+        state.requireValue.copyWith(
+          reviewsWithContent: latestPlanReviews
+              .where(
+                (review) =>
+                    review.content != null && review.content!.isNotEmpty,
+              )
+              .toList(),
+          reviewCount: latestPlanReviews.length,
+          reviewWithContentsCount: latestPlanReviews
+              .where(
+                (review) =>
+                    review.content != null && review.content!.isNotEmpty,
+              )
+              .length,
+          comprehensiveRating: latestPlanReviews.isEmpty
+              ? 0.0
+              : (latestPlanReviews
+                          .map((review) => review.reviewRating)
+                          .reduce((a, b) => a + b) ~/
+                      latestPlanReviews.length)
+                  .toDouble(),
+          currentUserReview: latestPlanReviews.firstWhereOrNull(
+            (review) => review.authorId == currentUser.uid,
+          ),
+        ),
+      );
+    } on Exception catch (e) {
+      logger.e('refreshReviews: $e');
     }
   }
 }

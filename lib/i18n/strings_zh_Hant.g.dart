@@ -305,6 +305,7 @@ class _TranslationsPlanDetailsPageZhHant implements TranslationsPlanDetailsPageE
 	@override late final _TranslationsPlanDetailsPageItemZhHant item = _TranslationsPlanDetailsPageItemZhHant._(_root);
 	@override String get haveUsedPlan => '您已使用此計畫';
 	@override late final _TranslationsPlanDetailsPageDialogZhHant dialog = _TranslationsPlanDetailsPageDialogZhHant._(_root);
+	@override late final _TranslationsPlanDetailsPageTabZhHant tab = _TranslationsPlanDetailsPageTabZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarZhHant snackBar = _TranslationsPlanDetailsPageSnackBarZhHant._(_root);
 }
 
@@ -884,6 +885,16 @@ class _TranslationsPlanDetailsPageItemZhHant implements TranslationsPlanDetailsP
 
 	// Translations
 	@override String get viewOnMap => '在地圖上查看';
+	@override String reviewCount({required Object count}) => '（${count}條評價）';
+	@override String get noReview => '暫無評價';
+	@override String get yourReview => '您的評價';
+	@override String get tapToReview => '點擊評分';
+	@override String wordOfMouthCount({required Object count}) => '（${count}條口碑）';
+	@override String get createReview => '發表';
+	@override String get changeReview => '更改評價';
+	@override String get reviewContentWithOptionalLabel => '口碑（可選）';
+	@override String get displayMoreText => ' 查看更多';
+	@override String get displayLessText => ' 關閉';
 }
 
 // Path: planDetailsPage.dialog
@@ -893,9 +904,20 @@ class _TranslationsPlanDetailsPageDialogZhHant implements TranslationsPlanDetail
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Q. 如何證明您已使用此計畫？';
-	@override String get description => 'A. 您已造訪計畫中包含的地點。\n 我們使用位置信息進行判斷，但不會將您的信息用於此功能以外的用途。';
+	@override String get title => 'Q. 如何證明您已使用該計畫？';
+	@override String get description => 'A. 您已前往計畫中包含的地點。\n 我們利用位置信息進行判斷，但此信息不會用於其他用途。';
 	@override String get button => '關閉';
+}
+
+// Path: planDetailsPage.tab
+class _TranslationsPlanDetailsPageTabZhHant implements TranslationsPlanDetailsPageTabEn {
+	_TranslationsPlanDetailsPageTabZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get information => '資訊';
+	@override String get wordOfMouth => '口碑';
 }
 
 // Path: planDetailsPage.snackBar
@@ -905,6 +927,7 @@ class _TranslationsPlanDetailsPageSnackBarZhHant implements TranslationsPlanDeta
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
+	@override late final _TranslationsPlanDetailsPageSnackBarSuccessZhHant success = _TranslationsPlanDetailsPageSnackBarSuccessZhHant._(_root);
 	@override late final _TranslationsPlanDetailsPageSnackBarErrorZhHant error = _TranslationsPlanDetailsPageSnackBarErrorZhHant._(_root);
 }
 
@@ -1329,6 +1352,16 @@ class _TranslationsBillDetailsPageSnackBarErrorZhHant implements TranslationsBil
 	@override String get failedToRestorePurchase => '恢復購買失敗，請稍後再試';
 }
 
+// Path: planDetailsPage.snackBar.success
+class _TranslationsPlanDetailsPageSnackBarSuccessZhHant implements TranslationsPlanDetailsPageSnackBarSuccessEn {
+	_TranslationsPlanDetailsPageSnackBarSuccessZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get successToCreateReview => '評價已完成';
+}
+
 // Path: planDetailsPage.snackBar.error
 class _TranslationsPlanDetailsPageSnackBarErrorZhHant implements TranslationsPlanDetailsPageSnackBarErrorEn {
 	_TranslationsPlanDetailsPageSnackBarErrorZhHant._(this._root);
@@ -1336,7 +1369,9 @@ class _TranslationsPlanDetailsPageSnackBarErrorZhHant implements TranslationsPla
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get failedToUpdateBookmark => '更新書籤失敗，請稍後再試';
+	@override String get failedToUpdateBookmark => '更新書籤失敗，請稍後重試';
+	@override String get failedToCreateReview => '提交評價失敗，請稍後重試';
+	@override String get modificationNotFound => '沒有變更';
 }
 
 // Path: authentication.emailVerificationPage.snackBar.error
@@ -1663,11 +1698,26 @@ extension on TranslationsZhHant {
 			case 'planDetailsPage.dateTime.createOn': return ({required Object date}) => '${date}建立的方案';
 			case 'planDetailsPage.dateTime.dateFormat': return 'yyyy年MM月dd日';
 			case 'planDetailsPage.item.viewOnMap': return '在地圖上查看';
+			case 'planDetailsPage.item.reviewCount': return ({required Object count}) => '（${count}條評價）';
+			case 'planDetailsPage.item.noReview': return '暫無評價';
+			case 'planDetailsPage.item.yourReview': return '您的評價';
+			case 'planDetailsPage.item.tapToReview': return '點擊評分';
+			case 'planDetailsPage.item.wordOfMouthCount': return ({required Object count}) => '（${count}條口碑）';
+			case 'planDetailsPage.item.createReview': return '發表';
+			case 'planDetailsPage.item.changeReview': return '更改評價';
+			case 'planDetailsPage.item.reviewContentWithOptionalLabel': return '口碑（可選）';
+			case 'planDetailsPage.item.displayMoreText': return ' 查看更多';
+			case 'planDetailsPage.item.displayLessText': return ' 關閉';
 			case 'planDetailsPage.haveUsedPlan': return '您已使用此計畫';
-			case 'planDetailsPage.dialog.title': return 'Q. 如何證明您已使用此計畫？';
-			case 'planDetailsPage.dialog.description': return 'A. 您已造訪計畫中包含的地點。\n 我們使用位置信息進行判斷，但不會將您的信息用於此功能以外的用途。';
+			case 'planDetailsPage.dialog.title': return 'Q. 如何證明您已使用該計畫？';
+			case 'planDetailsPage.dialog.description': return 'A. 您已前往計畫中包含的地點。\n 我們利用位置信息進行判斷，但此信息不會用於其他用途。';
 			case 'planDetailsPage.dialog.button': return '關閉';
-			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後再試';
+			case 'planDetailsPage.tab.information': return '資訊';
+			case 'planDetailsPage.tab.wordOfMouth': return '口碑';
+			case 'planDetailsPage.snackBar.success.successToCreateReview': return '評價已完成';
+			case 'planDetailsPage.snackBar.error.failedToUpdateBookmark': return '更新書籤失敗，請稍後重試';
+			case 'planDetailsPage.snackBar.error.failedToCreateReview': return '提交評價失敗，請稍後重試';
+			case 'planDetailsPage.snackBar.error.modificationNotFound': return '沒有變更';
 			case 'createLoadingPage.items.loadingText1': return 'Buddy正在偷偷規劃旅行方案...';
 			case 'createLoadingPage.items.loadingText2': return '正在計畫最棒的旅行...Buddy也很期待！';
 			case 'createLoadingPage.items.loadingText3': return '旅行的未來即將揭曉，稍等片刻~';
