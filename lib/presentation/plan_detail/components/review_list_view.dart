@@ -113,19 +113,19 @@ class ReviewListView extends StatelessWidget {
         SliverList.separated(
           itemCount: reviewsWithContent.length,
           itemBuilder: (_, index) {
-            final reviewWithCountent = reviewsWithContent[index];
+            final reviewWithContent = reviewsWithContent[index];
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    StarReviewRating(rating: reviewWithCountent.reviewRating),
+                    StarReviewRating(rating: reviewWithContent.reviewRating),
                     const Spacer(),
                     Text(
                       DateFormat(planDetailPagei18n.dateTime.dateFormat).format(
-                        reviewWithCountent.updatedAt ??
-                            reviewWithCountent.createdAt,
+                        reviewWithContent.updatedAt ??
+                            reviewWithContent.createdAt,
                       ),
                       style: AppTextStyle.textStyle.copyWith(
                         fontSize: 14,
@@ -136,7 +136,7 @@ class ReviewListView extends StatelessWidget {
                 ),
                 const Gap(8),
                 Text(
-                  reviewWithCountent.content!,
+                  reviewWithContent.content!,
                   style: AppTextStyle.textStyle.copyWith(
                     fontSize: 16,
                   ),
