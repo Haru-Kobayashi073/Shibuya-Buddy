@@ -27,11 +27,13 @@ class ErrorView extends HookConsumerWidget {
     required this.error,
     required this.stackTrace,
     required this.onRetry,
+    this.isRootPage = false,
   });
 
   final Object error;
   final StackTrace stackTrace;
   final VoidCallback onRetry;
+  final bool isRootPage;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -62,6 +64,17 @@ class ErrorView extends HookConsumerWidget {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.white,
+        forceMaterialTransparency: true,
+        elevation: 0,
+        leading: isRootPage
+            ? null
+            : IconButton(
+                icon: const Icon(Icons.arrow_back_ios),
+                onPressed: () => context.pop(),
+              ),
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(

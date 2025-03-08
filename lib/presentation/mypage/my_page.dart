@@ -113,6 +113,7 @@ class MyPage extends ConsumerWidget {
         error: e,
         stackTrace: s,
         onRetry: () => ref.invalidate(currentUserStreamProvider),
+        isRootPage: true,
       ),
       loading: Loading.new,
     );
