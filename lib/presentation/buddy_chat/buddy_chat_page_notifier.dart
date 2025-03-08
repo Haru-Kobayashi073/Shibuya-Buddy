@@ -200,9 +200,12 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       scrollController.dispose,
     );
     await loadingNotifier.updateLoadingIndicator(20);
-    final res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+    final res = await sendPlanDetail();
+    if (res?.places == null || res?.plan == null) {
+      return throw Exception('Failed to fetch AI response.');
+    }
     await loadingNotifier.updateLoadingIndicator(80);
-    final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
+    final buddyMessage = await _getAllFilledMessage(res!, forFirstBuild: true);
     final message = ChatMessage(
       id: buddyMessage.id,
       message: buddyMessage.plan!.description,
@@ -215,6 +218,36 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
       possibleChatCount: null,
       scrollController: scrollController,
     );
+  }
+
+  Future<ChatMessage?> sendPlanDetail() async {
+    ChatMessage? res;
+    const maxRetries = 3;
+    var retryCount = 0;
+
+    while (retryCount < maxRetries) {
+      try {
+        res = await geminiDataSource.sendPlanDetail(planPrompt: planPrompt);
+
+        if (res.places != null && res.plan != null) {
+          return res;
+        }
+      } on Exception catch (e) {
+        logger.e('${retryCount + 1} 回目失敗: $e');
+      }
+
+      retryCount++;
+
+      if (retryCount < maxRetries) {
+        logger.e('再執行($retryCount/$maxRetries)');
+        await Future<void>.delayed(const Duration(seconds: 1));
+      }
+    }
+    if (res == null || res.places == null || res.plan == null) {
+      logger.e('Failed to fetch response after $maxRetries attempts.');
+      throw Exception('Failed to fetch AI response.');
+    }
+    return null;
   }
 
   Future<ChatMessage> _getAllFilledMessage(
