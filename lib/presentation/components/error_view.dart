@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../i18n/strings.g.dart';
@@ -38,12 +39,19 @@ class ErrorView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
+    var parentWidgetName = 'Unknown';
 
     useEffect(
       () {
+        context.visitAncestorElements((ancestor) {
+          parentWidgetName = ancestor.widget.runtimeType.toString();
+          return false; // 最初の親ウィジェットを取得したら終了
+        });
+
         logger
           ..e('ErrorView: $error')
-          ..e('ErrorView: $stackTrace');
+          ..e('ErrorView: $stackTrace')
+          ..e('Parent Widget: $parentWidgetName');
 
         Future.delayed(Duration.zero, () async {
           await ref.read(analyticsNotifierProvider.notifier).logScreenView(
@@ -54,6 +62,7 @@ class ErrorView extends HookConsumerWidget {
             parameters: {
               'error': error.toString(),
               'stackTrace': stackTrace.toString(),
+              'errorBy': parentWidgetName,
             },
           );
         });
