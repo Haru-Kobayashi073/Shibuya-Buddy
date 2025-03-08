@@ -12,6 +12,16 @@ import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/styles/app_color.dart';
 
 class ErrorView extends HookConsumerWidget {
+  /// このUIを使用する際は、必ずルートの画面なのかどうかを指定してください。
+  /// why: ルートの画面の場合、戻るボタンを表示する必要がないため。
+  /// ```dart
+  /// ErrorView(
+  ///  error: error,
+  /// stackTrace: stackTrace,
+  /// onRetry: () => ref.invalidate(~~~NotifierProvider),
+  /// isRootPage: true,
+  /// )
+  /// ```
   const ErrorView({
     super.key,
     required this.error,
