@@ -35,7 +35,10 @@ class TranslatePrompt {
       出力は以下のフォーマットにしてください。
 
       - プラン内容に関係のある画像のURL(画像を生成し、URLを返してください)
-      - プラン概要のタイトルを渋谷という単語を使わずに、提案するスポットに関連したタイトルを出力
+      - プラン概要のタイトル(提案するスポットに関連したタイトル)
+      - プラン内容に関係のあるトピックのリスト
+        - トピックの名前
+        - トピックのサムネイルURL(画像を生成し、URLを返してください)
       - 観光スポットのタイトル
       - 観光スポットの名前
       - 観光スポットのサムネイルURL(画像を生成し、URLを返してください)
@@ -68,7 +71,10 @@ class TranslatePrompt {
       输出请使用以下格式。
 
       - 与计划相关的图片URL(生成图片并返回URL)
-      - 请输出与推荐景点相关的标题，不使用“涩谷”一词。
+      - 计划概要标题(与推荐热点相关的标题)
+      - 与计划相关的主题列表
+        - 主题名称
+        - 主题缩略图URL(生成图片并返回URL)
       - 景点标题
       - 景点名称
       - 景点缩略图URL(生成图片并返回URL)
@@ -101,7 +107,10 @@ class TranslatePrompt {
       輸出請使用以下格式。
 
       - 與計畫相關的圖片URL(生成圖片並返回URL)
-      - 請輸出與推薦景點相關的標題，不使用“澀谷”一詞。
+      - 計畫概要標題(與推薦熱點相關的標題)
+      - 與計畫相關的主題列表
+        - 主題名稱
+        - 主題縮略圖URL(生成圖片並返回URL)
       - 景點標題
       - 景點名稱
       - 景點縮略圖URL(生成圖片並返回URL)
@@ -134,7 +143,10 @@ class TranslatePrompt {
       Please use the following format for output.
 
       - URL of an image related to the plan (generate an image and provide the URL)
-      - Please output a title related to the proposed spot without using the word "Shibuya."
+      - Title of the plan summary (related to proposed spots)
+      - List of topics related to the plan
+        - Topic name
+        - Thumbnail URL of the topic (generate an image and provide the URL)
       - Title of sightseeing spots
       - Name of sightseeing spots
       - Thumbnail URL of the sightseeing spots (generate an image and provide the URL)
