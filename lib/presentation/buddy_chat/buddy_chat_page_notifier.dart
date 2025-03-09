@@ -108,7 +108,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         ),
       );
     } on Exception catch (e) {
-      logger.e('recieveMessage: $e');
+      logger.error('recieveMessage: $e', methodName: 'recieveMessage');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedRecieveMessage,
       );
@@ -163,7 +163,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
 
       await onSuccess();
     } on Exception catch (e) {
-      logger.e('completeCreatePlan: $e');
+      logger.error('completeCreatePlan: $e', methodName: 'completeCreatePlan');
       scaffoldMessenger.showExceptionSnackBar(
         t.buddyChatPage.snackBar.error.failedCompleteCreatePlan,
       );
@@ -233,18 +233,27 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
           return res;
         }
       } on Exception catch (e) {
-        logger.e('${retryCount + 1} 回目失敗: $e');
+        logger.error(
+          '${retryCount + 1} 回目失敗: $e',
+          methodName: 'sendPlanDetail',
+        );
       }
 
       retryCount++;
 
       if (retryCount < maxRetries) {
-        logger.e('再執行($retryCount/$maxRetries)');
+        logger.error(
+          '再執行($retryCount/$maxRetries)',
+          methodName: 'sendPlanDetail',
+        );
         await Future<void>.delayed(const Duration(seconds: 1));
       }
     }
     if (res == null || res.places == null || res.plan == null) {
-      logger.e('Failed to fetch response after $maxRetries attempts.');
+      logger.error(
+        'Failed to fetch response after $maxRetries attempts.',
+        methodName: 'sendPlanDetail',
+      );
       throw Exception('Failed to fetch AI response.');
     }
     return null;
@@ -278,7 +287,7 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         placeIds: placeIds,
       );
     } on Exception catch (e) {
-      logger.e('getPlacesPhotoUrls: $e');
+      logger.error('getPlacesPhotoUrls: $e', methodName: 'getPlacesPhotoUrls');
     }
     if (forFirstBuild) {
       return chatMessage.copyWith(

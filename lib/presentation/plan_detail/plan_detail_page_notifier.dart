@@ -78,7 +78,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     try {
       return await planDataSource.getPlanData(planId: plan.id);
     } on Exception catch (e) {
-      logger.e('getPlan: $e');
+      logger.error('getPlan: $e', methodName: 'getPlan');
       return plan;
     }
   }
@@ -87,7 +87,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
     try {
       return await planReviewDataSource.getPlanReviews(planId: plan.id);
     } on Exception catch (e) {
-      logger.e('getPlanReviews: $e');
+      logger.error('getPlanReviews: $e', methodName: 'getPlanReviews');
       return [];
     }
   }
@@ -131,7 +131,10 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       // あまりしたくはないが、MyPlanPageNotifierの状態を更新するためにinvalidateする
       ref.invalidate(myPlanPageNotifierProvider);
     } on Exception catch (e) {
-      logger.e('onBookmarkButtonTap: $e');
+      logger.error(
+        'onBookmarkButtonTap: $e',
+        methodName: 'onBookmarkButtonTap',
+      );
       scaffoldMessenger.showExceptionSnackBar(
         planDetailPageSnackBari18n.error.failedToUpdateBookmark,
       );
@@ -184,7 +187,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
       await _refreshReviews();
       onSuccess();
     } on Exception catch (e) {
-      logger.e('createReview: $e');
+      logger.error('createReview: $e', methodName: 'createReview');
       scaffoldMessenger.showExceptionSnackBar(
         planDetailPageSnackBari18n.error.failedToCreateReview,
       );
@@ -222,7 +225,7 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
         ),
       );
     } on Exception catch (e) {
-      logger.e('refreshReviews: $e');
+      logger.error('refreshReviews: $e', methodName: 'refreshReviews');
     }
   }
 }

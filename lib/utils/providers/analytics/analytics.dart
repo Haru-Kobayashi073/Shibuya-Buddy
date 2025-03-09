@@ -24,16 +24,18 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
       await _dataSource.logEvent(event.key, parameters: parameters);
       logger.t('Event logged: ${event.key}');
     } on FirebaseException catch (e, stackTrace) {
-      logger.e(
+      logger.error(
         'Firebase error logging event: ${event.key}',
         error: e,
         stackTrace: stackTrace,
+        methodName: 'logEvent',
       );
     } on Exception catch (e, stackTrace) {
-      logger.e(
+      logger.error(
         'General error logging event: ${event.key}',
         error: e,
         stackTrace: stackTrace,
+        methodName: 'logEvent',
       );
     }
   }
@@ -50,16 +52,18 @@ class AnalyticsNotifier extends _$AnalyticsNotifier {
       );
       logger.t('Screen view logged: ${event.key}');
     } on FirebaseException catch (e, stackTrace) {
-      logger.e(
+      logger.error(
         'Firebase error logging screen view: ${event.key}',
         error: e,
         stackTrace: stackTrace,
+        methodName: 'logScreenView',
       );
     } on Exception catch (e, stackTrace) {
-      logger.e(
+      logger.error(
         'General error logging screen view: ${event.key}',
         error: e,
         stackTrace: stackTrace,
+        methodName: 'logScreenView',
       );
     }
   }

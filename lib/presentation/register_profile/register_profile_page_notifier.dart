@@ -63,7 +63,10 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
       await currentUser.updateDisplayName(name);
       onSuccess();
     } on Exception catch (e) {
-      logger.e('registerInformation: $e');
+      logger.error(
+        'registerInformation: $e',
+        methodName: 'registerInformation',
+      );
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -78,7 +81,7 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
         state = state.copyWith(pickedFile: pickedImageFile);
       }
     } on Exception catch (e) {
-      logger.e('pickImage: $e');
+      logger.error('pickImage: $e', methodName: 'pickImage');
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -94,7 +97,10 @@ class RegisterProfilePageNotifier extends _$RegisterProfilePageNotifier {
           await fileDataSource.getUploadedImageUrl(file: state.pickedFile!);
       return url;
     } on Exception catch (e) {
-      logger.e('_getUploadedImageUri: $e');
+      logger.error(
+        '_getUploadedImageUri: $e',
+        methodName: '_getUploadedImageUri',
+      );
       scaffoldMessenger.showExceptionSnackBar(i18nSnackBarError.unexpected);
     }
 

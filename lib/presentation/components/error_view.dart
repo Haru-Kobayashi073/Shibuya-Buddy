@@ -48,10 +48,12 @@ class ErrorView extends HookConsumerWidget {
           return false; // 最初の親ウィジェットを取得したら終了
         });
 
-        logger
-          ..e('ErrorView: $error')
-          ..e('ErrorView: $stackTrace')
-          ..e('Parent Widget: $parentWidgetName');
+        logger.error(
+          'ErrorView: $error',
+          methodName: parentWidgetName,
+          error: error,
+          stackTrace: stackTrace,
+        );
 
         Future.delayed(Duration.zero, () async {
           await ref.read(analyticsNotifierProvider.notifier).logScreenView(

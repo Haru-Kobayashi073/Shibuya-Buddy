@@ -61,7 +61,7 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
         onSuccess();
       }
     } on Exception catch (e) {
-      logger.e('editProfile: $e');
+      logger.error('editProfile: $e', methodName: 'editProfile');
       scaffoldMessenger.showExceptionSnackBar(
         t.editProfilePage.snackBar.error.failedToUpdate,
       );
@@ -83,7 +83,7 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
         );
       }
     } on Exception catch (e) {
-      logger.e('pickImage: $e');
+      logger.error('pickImage: $e', methodName: 'pickImage');
       scaffoldMessenger.showExceptionSnackBar(
         t.editProfilePage.snackBar.error.failedToPickImage,
       );
@@ -107,7 +107,10 @@ class EditProfilePageNotifier extends _$EditProfilePageNotifier {
       );
       return url;
     } on Exception catch (e) {
-      logger.e('getUploadedImageUri: $e');
+      logger.error(
+        'getUploadedImageUri: $e',
+        methodName: 'getUploadedImageUri',
+      );
     }
 
     return null;

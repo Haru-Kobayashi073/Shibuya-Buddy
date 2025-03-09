@@ -31,7 +31,7 @@ class CreatePlanNotifier extends _$CreatePlanNotifier {
     try {
       return await topicDataSource.getTopics();
     } on Exception catch (e) {
-      logger.e('getTopics: $e');
+      logger.error('getTopics: $e', methodName: 'getTopics');
       return [];
     }
   }

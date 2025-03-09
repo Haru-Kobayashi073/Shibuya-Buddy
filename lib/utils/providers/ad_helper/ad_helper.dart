@@ -61,7 +61,10 @@ class AdHelper extends _$AdHelper {
             logger.i('Banner ad loaded');
           },
           onAdFailedToLoad: (ad, err) async {
-            logger.e('Failed to load a banner ad: $err');
+            logger.error(
+              'Failed to load a banner ad: $err',
+              methodName: 'loadBannerAd',
+            );
             await ad.dispose();
           },
         ),
@@ -83,7 +86,10 @@ class AdHelper extends _$AdHelper {
           },
           onAdFailedToLoad: (ad, error) async {
             // Dispose the ad here to free resources.
-            logger.e('Failed to load a native ad: $error');
+            logger.error(
+              'Failed to load a native ad: $error',
+              methodName: 'loadNativeAd',
+            );
             await ad.dispose();
           },
         ),

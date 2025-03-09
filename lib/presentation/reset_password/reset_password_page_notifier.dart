@@ -37,7 +37,10 @@ class ResetPasswordPageNotifier extends _$ResetPasswordPageNotifier {
         i18nCompleteSendEmailPage.successResendEmail,
       );
     } on FirebaseAuthException catch (e) {
-      logger.e('sendPasswordResetEmail: $e');
+      logger.error(
+        'sendPasswordResetEmail: $e',
+        methodName: 'sendPasswordResetEmail',
+      );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     }

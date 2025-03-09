@@ -72,7 +72,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
       );
       onSuccess();
     } on Object catch (error) {
-      logger.e('verifySmsCode: $error');
+      logger.error('verifySmsCode: $error', methodName: 'verifySmsCode');
       scaffoldMessenger.showExceptionSnackBar(
         '${i18n.error} $error',
       );
@@ -107,7 +107,7 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         },
       );
     } on Exception catch (error) {
-      logger.e('sendSmsCode: $error');
+      logger.error('sendSmsCode: $error', methodName: 'sendSmsCode');
       scaffoldMessenger.showExceptionSnackBar(
         '${i18nPhoneNumberInputScaffoldMessenger.unexpectedError} $error',
       );
