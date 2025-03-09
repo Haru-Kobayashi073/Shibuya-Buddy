@@ -45,11 +45,11 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
       }
       return plans;
     } on FirebaseException catch (e) {
-      logger.e('getBookmarkPlans: $e');
+      logger.error('getBookmarkPlans: $e', methodName: 'getBookmarkPlans');
       scaffoldMessenger.showExceptionSnackBar(snacki18n.failedGetPlanData);
       return [];
     } on Exception catch (e) {
-      logger.e('getBookmarkPlans: $e');
+      logger.error('getBookmarkPlans: $e', methodName: 'getBookmarkPlans');
       scaffoldMessenger.showExceptionSnackBar(snacki18n.displayError);
       return [];
     }
@@ -60,7 +60,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
       final plans = await planDataSource.getPlansMadeByPersonal();
       return plans;
     } on Exception catch (e) {
-      logger.e('getCreatedPlans: $e');
+      logger.error('getCreatedPlans: $e', methodName: 'getCreatedPlans');
       scaffoldMessenger.showExceptionSnackBar(t.myPlanPage.error.displayError);
       return [];
     }
@@ -83,7 +83,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
         ),
       );
     } on FirebaseException catch (e) {
-      logger.e('unBookmark: $e');
+      logger.error('unBookmark: $e', methodName: 'unBookmark');
       scaffoldMessenger
           .showExceptionSnackBar(t.myPlanPage.error.failedUnBookmark);
     }

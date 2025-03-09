@@ -1,7 +1,11 @@
+import 'dart:async';
 import 'dart:developer' as dev;
 
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
+
+import 'analytics_event.dart';
+import 'providers/analytics/analytics.dart';
 
 final logger = CustomLogger();
 
@@ -23,6 +27,34 @@ class CustomLogger extends Logger {
           ),
           level: kReleaseMode ? Level.info : Level.trace,
         );
+
+  void error(
+    dynamic message, {
+    required String methodName,
+    DateTime? time,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
+    if (kReleaseMode) {
+      unawaited(
+        AnalyticsNotifier().logEvent(
+          UserActionEvent.customError,
+          parameters: {
+            'error': error.toString(),
+            'stackTrace': stackTrace.toString(),
+            'errorBy': methodName,
+          },
+        ),
+      );
+    } else {
+      super.e(
+        message,
+        time: time,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+  }
 }
 
 /// log出力をカスタマイズします。

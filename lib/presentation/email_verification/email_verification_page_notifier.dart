@@ -67,7 +67,10 @@ class EmailVerificationPageNotifier extends _$EmailVerificationPageNotifier {
       });
       scaffoldMessenger.showSuccessSnackBar(i18n.success);
     } on Exception catch (e) {
-      logger.e('sendEmailVerification: $e');
+      logger.error(
+        'sendEmailVerification: $e',
+        methodName: 'sendEmailVerification',
+      );
       scaffoldMessenger.showExceptionSnackBar(i18n.error.unexpected);
     }
   }

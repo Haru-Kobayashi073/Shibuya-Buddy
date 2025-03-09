@@ -76,7 +76,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         return offerings;
       }
     } on PlatformException catch (e) {
-      logger.e('getOfferingItems error $e');
+      logger.error('getOfferingItems error $e', methodName: 'getOfferingItems');
     }
     return null;
   }
@@ -140,7 +140,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
       );
       ref.invalidate(currentUserProvider);
     } on PlatformException catch (e) {
-      logger.e('makePurchase: $e');
+      logger.error('makePurchase: $e', methodName: 'makePurchase');
     }
   }
 
@@ -166,7 +166,7 @@ class InAppPurchaseService extends _$InAppPurchaseService {
         return false;
       }
     } on PlatformException catch (e) {
-      logger.e('canRestorePurchase: $e');
+      logger.error('canRestorePurchase: $e', methodName: 'canRestorePurchase');
       return false;
     }
   }

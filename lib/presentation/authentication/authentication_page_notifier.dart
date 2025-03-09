@@ -57,6 +57,10 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
         });
       }
     } on FirebaseAuthException catch (e) {
+      logger.error(
+        'signInWithEmailAndPassword: $e',
+        methodName: 'signInWithEmailAndPassword',
+      );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     } finally {
@@ -77,7 +81,10 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
       );
       onSuccess();
     } on FirebaseAuthException catch (e) {
-      logger.e('signUpWithEmailAndPassword: $e');
+      logger.error(
+        'signUpWithEmailAndPassword: $e',
+        methodName: 'signUpWithEmailAndPassword',
+      );
       final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
@@ -104,6 +111,10 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
         onSuccess();
       }
     } on FirebaseAuthException catch (e) {
+      logger.error(
+        'signInWithGoogle: $e',
+        methodName: 'signInWithGoogle',
+      );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     } finally {
@@ -128,6 +139,10 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
         onSuccess();
       }
     } on FirebaseAuthException catch (e) {
+      logger.error(
+        'signInWithApple: $e',
+        methodName: 'signInWithApple',
+      );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
     } finally {

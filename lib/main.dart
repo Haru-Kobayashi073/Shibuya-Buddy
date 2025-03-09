@@ -75,7 +75,10 @@ void setupGeofenceListener() {
   if (success) {
     logger.d('Successfully registered geofenceReceivePort');
   } else {
-    logger.e('Failed to register geofenceReceivePort');
+    logger.error(
+      'Failed to register geofenceReceivePort',
+      methodName: 'setupGeofenceListener',
+    );
   }
 
   geofenceReceivePort.listen((dynamic data) async {

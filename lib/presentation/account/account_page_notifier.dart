@@ -59,7 +59,10 @@ class AccountPageNotifier extends _$AccountPageNotifier {
         state = state.copyWith(googleLinkage: false);
       }
     } on FirebaseAuthException catch (e) {
-      logger.e('unlinkSocialAccount: $e');
+      logger.error(
+        'unlinkSocialAccount: $e',
+        methodName: 'unlinkSocialAccount',
+      );
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.unlinkageFailure);
     }
   }
@@ -70,12 +73,13 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       state = state.copyWith(appleLinkage: true);
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.successfulLinkage);
     } on FirebaseAuthException catch (e) {
-      logger.e('linkedWithApple: $e');
+      logger.error('linkedWithApple: $e', methodName: 'linkedWithApple');
       final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
-    } on Exception {
+    } on Exception catch (e) {
+      logger.error('linkedWithApple: $e', methodName: 'linkedWithApple');
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
   }
@@ -86,12 +90,13 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       state = state.copyWith(googleLinkage: true);
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.successfulLinkage);
     } on FirebaseAuthException catch (e) {
-      logger.e('linkedWithGoogle: $e');
+      logger.error('linkedWithGoogle: $e', methodName: 'linkedWithGoogle');
       final exceptionMessage = e.toLocalizedMessage;
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
-    } on Exception {
+    } on Exception catch (e) {
+      logger.error('linkedWithGoogle: $e', methodName: 'linkedWithGoogle');
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.linkageCancelled);
     }
   }
@@ -104,7 +109,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.signOut);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
-      logger.e('signOut: $e');
+      logger.error('signOut: $e', methodName: 'signOut');
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.signOutFailure);
     }
   }
@@ -120,7 +125,7 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.deleteAccount);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
-      logger.e('deleteAccount: $e');
+      logger.error('deleteAccount: $e', methodName: 'deleteAccount');
       scaffoldMessenger
           .showExceptionSnackBar(snackBari18n.deleteAccountFailure);
     }

@@ -70,6 +70,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
           ref.read(isShowLoadingOverlayProvider.notifier).state = false;
         },
         onError: (error) {
+          logger.error('sendSmsCode: $error', methodName: 'sendSmsCode');
           // 電話番号が間違っている場合やサーバーエラーの場合
           scaffoldMessenger.showExceptionSnackBar(
             i18n.error,
@@ -78,7 +79,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
         },
       );
     } on Exception catch (error) {
-      logger.e('sendSmsCode: $error');
+      logger.error('sendSmsCode: $error', methodName: 'sendSmsCode');
       // その他の例外エラー
       scaffoldMessenger.showExceptionSnackBar(
         '${i18n.unexpectedError} $error',

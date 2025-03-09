@@ -48,7 +48,10 @@ class HomePageNotifier extends _$HomePageNotifier {
         await ref.read(inAppPurchaseServiceProvider.notifier).build();
       }
     } on Exception catch (e) {
-      logger.e('initializeAppServices: $e');
+      logger.error(
+        'initializeAppServices: $e',
+        methodName: 'initializeAppServices',
+      );
     }
   }
 
@@ -56,7 +59,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getPopularPlans();
     } on Exception catch (e) {
-      logger.e('getPopularPlans: $e');
+      logger.error('getPopularPlans: $e', methodName: 'getPopularPlans');
       return <Plan>[];
     }
   }
@@ -65,7 +68,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await topicDataSource.getPopularTopics();
     } on Exception catch (e) {
-      logger.e('getPopularTopics: $e');
+      logger.error('getPopularTopics: $e', methodName: 'getPopularTopics');
       return <Topic>[];
     }
   }
@@ -74,7 +77,7 @@ class HomePageNotifier extends _$HomePageNotifier {
     try {
       return await planDataSource.getRecentPlansMadeByPersonal();
     } on Exception catch (e) {
-      logger.e('getRecentPlans: $e');
+      logger.error('getRecentPlans: $e', methodName: 'getRecentPlans');
     }
     return null;
   }
