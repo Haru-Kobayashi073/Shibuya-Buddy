@@ -201,11 +201,11 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
     );
     await loadingNotifier.updateLoadingIndicator(20);
     final res = await sendPlanDetail();
-    if (res?.places == null || res?.plan == null) {
+    if (res == null || res.places == null || res.plan == null) {
       return throw Exception('Failed to fetch AI response.');
     }
     await loadingNotifier.updateLoadingIndicator(80);
-    final buddyMessage = await _getAllFilledMessage(res!, forFirstBuild: true);
+    final buddyMessage = await _getAllFilledMessage(res, forFirstBuild: true);
     final message = ChatMessage(
       id: buddyMessage.id,
       message: buddyMessage.plan!.description,
