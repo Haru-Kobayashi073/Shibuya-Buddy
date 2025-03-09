@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../i18n/strings.g.dart';
@@ -12,26 +13,45 @@ import '../../utils/providers/analytics/analytics.dart';
 import '../../utils/styles/app_color.dart';
 
 class ErrorView extends HookConsumerWidget {
+  /// このUIを使用する際は、必ずルートの画面なのかどうかを指定してください。
+  /// why: ルートの画面の場合、戻るボタンを表示する必要がないため。
+  /// ```dart
+  /// ErrorView(
+  ///  error: error,
+  /// stackTrace: stackTrace,
+  /// onRetry: () => ref.invalidate(~~~NotifierProvider),
+  /// isRootPage: true,
+  /// )
+  /// ```
   const ErrorView({
     super.key,
     required this.error,
     required this.stackTrace,
     required this.onRetry,
+    this.isRootPage = false,
   });
 
   final Object error;
   final StackTrace stackTrace;
   final VoidCallback onRetry;
+  final bool isRootPage;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final i18n = Translations.of(context);
+    var parentWidgetName = 'Unknown';
 
     useEffect(
       () {
+        context.visitAncestorElements((ancestor) {
+          parentWidgetName = ancestor.widget.runtimeType.toString();
+          return false; // 最初の親ウィジェットを取得したら終了
+        });
+
         logger
           ..e('ErrorView: $error')
-          ..e('ErrorView: $stackTrace');
+          ..e('ErrorView: $stackTrace')
+          ..e('Parent Widget: $parentWidgetName');
 
         Future.delayed(Duration.zero, () async {
           await ref.read(analyticsNotifierProvider.notifier).logScreenView(
@@ -42,6 +62,7 @@ class ErrorView extends HookConsumerWidget {
             parameters: {
               'error': error.toString(),
               'stackTrace': stackTrace.toString(),
+              'errorBy': parentWidgetName,
             },
           );
         });
@@ -52,6 +73,17 @@ class ErrorView extends HookConsumerWidget {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.white,
+        forceMaterialTransparency: true,
+        elevation: 0,
+        leading: isRootPage
+            ? null
+            : IconButton(
+                icon: const Icon(Icons.arrow_back_ios),
+                onPressed: () => context.pop(),
+              ),
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(

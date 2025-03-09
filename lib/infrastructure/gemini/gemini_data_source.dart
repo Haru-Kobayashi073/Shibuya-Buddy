@@ -147,6 +147,9 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
         TextPart(message),
       ]),
     );
+    if (response.text == null) {
+      return throw Exception('Failed to send message');
+    }
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
 
@@ -169,6 +172,9 @@ class GeminiDataSource extends _$GeminiDataSource implements GeminiRepository {
       TextPart(translatedPrompt),
     ]);
     final response = await state.sendMessage(convertModelToString);
+    if (response.text == null) {
+      return throw Exception('Failed to send plan detail');
+    }
     final jsonMap = jsonDecode(response.text!) as Map<String, dynamic>;
     final geminiResponse = GeminiResponse.fromJson(jsonMap);
     return ChatMessage(

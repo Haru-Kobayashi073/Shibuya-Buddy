@@ -79,6 +79,7 @@ class MyPlanPage extends ConsumerWidget {
         error: e,
         stackTrace: s,
         onRetry: () => ref.invalidate(myPlanPageNotifierProvider),
+        isRootPage: true,
       ),
       loading: Loading.new,
     );

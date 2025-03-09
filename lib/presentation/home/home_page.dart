@@ -58,6 +58,7 @@ class HomePage extends ConsumerWidget {
         error: e,
         stackTrace: s,
         onRetry: () => ref.invalidate(homePageNotifierProvider),
+        isRootPage: true,
       ),
       loading: Loading.new,
     );
