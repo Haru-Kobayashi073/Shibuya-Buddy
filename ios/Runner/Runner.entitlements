@@ -8,5 +8,10 @@
 	<array>
 		<string>Default</string>
 	</array>
+		<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:com.shibuya.buddy</string>
+    </array>
+
 </dict>
 </plist>

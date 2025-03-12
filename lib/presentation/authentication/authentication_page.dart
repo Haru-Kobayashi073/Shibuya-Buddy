@@ -134,6 +134,7 @@ class AuthenticationPage extends HookConsumerWidget {
                 const SliverGap(24),
                 SliverToBoxAdapter(
                   child: SimpleTextField(
+                    autofillHints: const [AutofillHints.email],
                     controller: emailController,
                     onFieldSubmitted: (_) =>
                         FocusScope.of(context).requestFocus(focusNode),
@@ -146,6 +147,7 @@ class AuthenticationPage extends HookConsumerWidget {
                 const SliverGap(16),
                 SliverToBoxAdapter(
                   child: SimpleTextField(
+                    autofillHints: const [AutofillHints.password],
                     controller: passwordController,
                     keyboardType: TextInputType.visiblePassword,
                     focusNode: focusNode,

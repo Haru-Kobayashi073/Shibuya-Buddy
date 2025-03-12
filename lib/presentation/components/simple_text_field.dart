@@ -6,6 +6,7 @@ import '../../utils/styles/app_text_style.dart';
 class SimpleTextField extends StatelessWidget {
   const SimpleTextField({
     super.key,
+    this.autofillHints,
     required this.controller,
     this.focusNode,
     required this.keyboardType,
@@ -28,10 +29,12 @@ class SimpleTextField extends StatelessWidget {
   final Widget? icon;
   final String label;
   final int? maxBytes;
+  final List<String>? autofillHints;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofillHints: autofillHints,
       controller: controller,
       focusNode: focusNode,
       keyboardType: keyboardType,
