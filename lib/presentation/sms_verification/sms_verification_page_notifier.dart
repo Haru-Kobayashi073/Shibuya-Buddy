@@ -25,6 +25,9 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
   ScaffoldMessenger get scaffoldMessenger =>
       ref.read(scaffoldMessengerProvider.notifier);
   auth.User get currentUser => ref.read(firebaseAuthProvider).currentUser!;
+  TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn
+      get smsVerificationPageErrorStr =>
+          t.authentication.smsVerificationPage.scaffoldMessenger.error;
 
   @override
   SmsVerificationState build() => const SmsVerificationState();
@@ -71,17 +74,16 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         i18n.success,
       );
       onSuccess();
-    } on Object catch (error) {
-      logger.error('verifySmsCode: $error', methodName: 'verifySmsCode');
-      scaffoldMessenger.showExceptionSnackBar(
-        '${i18n.error} $error',
-      );
+    } on Exception catch (e) {
+      logger.error('verifySmsCode: $e', methodName: 'verifySmsCode');
+      scaffoldMessenger
+          .showExceptionSnackBar(smsVerificationPageErrorStr.failedToVerify);
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
 
-  Future<void> sendSmsCode(String phoneNumber) async {
+  Future<void> resendSmsCode(String phoneNumber) async {
     final i18nPhoneNumberInputScaffoldMessenger =
         t.authentication.phoneNumberInputPage.scaffoldMessenger;
     if (phoneNumber.isEmpty) {
@@ -102,14 +104,14 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         },
         onError: (error) {
           scaffoldMessenger.showExceptionSnackBar(
-            i18nPhoneNumberInputScaffoldMessenger.error,
+            smsVerificationPageErrorStr.failedToResendSmsCode,
           );
         },
       );
     } on Exception catch (error) {
-      logger.error('sendSmsCode: $error', methodName: 'sendSmsCode');
+      logger.error('resendSmsCode: $error', methodName: 'resendSmsCode');
       scaffoldMessenger.showExceptionSnackBar(
-        '${i18nPhoneNumberInputScaffoldMessenger.unexpectedError} $error',
+        smsVerificationPageErrorStr.failedToResendSmsCode,
       );
     }
   }
