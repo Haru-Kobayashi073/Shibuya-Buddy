@@ -44,9 +44,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
     final i18n = t.authentication.phoneNumberInputPage.scaffoldMessenger;
     if (state.completePhoneNumber.isEmpty) {
       // 電話番号が空の場合
-      scaffoldMessenger.showExceptionSnackBar(
-        i18n.empty,
-      );
+      scaffoldMessenger.showExceptionSnackBar(i18n.empty);
       return;
     }
     ref.read(isShowLoadingOverlayProvider.notifier).state = true;
@@ -62,9 +60,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
         phoneNumber: phoneNumber,
         onCodeSent: (verificationId) async {
           // SMSコードの送信に成功した場合
-          scaffoldMessenger.showSuccessSnackBar(
-            i18n.success,
-          );
+          scaffoldMessenger.showSuccessSnackBar(i18n.success);
           // 遷移処理をonSuccessで受け取る
           onSuccess(verificationId);
           ref.read(isShowLoadingOverlayProvider.notifier).state = false;
@@ -81,9 +77,7 @@ class PhoneNumberInputPageNotifier extends _$PhoneNumberInputPageNotifier {
     } on Exception catch (error) {
       logger.error('sendSmsCode: $error', methodName: 'sendSmsCode');
       // その他の例外エラー
-      scaffoldMessenger.showExceptionSnackBar(
-        '${i18n.unexpectedError} $error',
-      );
+      scaffoldMessenger.showExceptionSnackBar(i18n.error);
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
   }
