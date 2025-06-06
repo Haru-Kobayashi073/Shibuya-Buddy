@@ -1043,6 +1043,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorZhHant implements Translations
 	@override String get userNotFound => '找不到帳戶';
 	@override String get wrongPassword => '密碼錯誤';
 	@override String get emailAlreadyInUse => '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
+	@override String get phoneNumberAlreadyInUse => '該電話號碼已被使用。請使用其他電話號碼。';
 	@override String get unexpected => '發生錯誤。請在良好的網絡環境中重試';
 }
 
@@ -1531,6 +1532,7 @@ extension on TranslationsZhHant {
 			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帳戶';
 			case 'authentication.firebaseAuth.error.wrongPassword': return '密碼錯誤';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return '該電話號碼已被使用。請使用其他電話號碼。';
 			case 'authentication.firebaseAuth.error.unexpected': return '發生錯誤。請在良好的網絡環境中重試';
 			case 'authentication.resetPasswordPage.title': return '重設密碼';
 			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';

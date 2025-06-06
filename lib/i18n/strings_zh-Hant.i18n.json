@@ -88,6 +88,7 @@
                 "userNotFound": "找不到帳戶",
                 "wrongPassword": "密碼錯誤",
                 "emailAlreadyInUse": "電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建",
+                "phoneNumberAlreadyInUse": "該電話號碼已被使用。請使用其他電話號碼。",
                 "unexpected": "發生錯誤。請在良好的網絡環境中重試"
             }
         },

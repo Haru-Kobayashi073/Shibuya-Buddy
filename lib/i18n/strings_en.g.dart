@@ -1047,6 +1047,7 @@ class TranslationsAuthenticationFirebaseAuthErrorEn {
 	String get userNotFound => 'Account not found';
 	String get wrongPassword => 'Password is incorrect';
 	String get emailAlreadyInUse => 'Email address is already in use. Please log in or create with another email address';
+	String get phoneNumberAlreadyInUse => 'This phone number is already in use. Please use a different number.';
 	String get unexpected => 'An error occurred. Please try again in a good network environment';
 }
 
@@ -1535,6 +1536,7 @@ extension on Translations {
 			case 'authentication.firebaseAuth.error.userNotFound': return 'Account not found';
 			case 'authentication.firebaseAuth.error.wrongPassword': return 'Password is incorrect';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'Email address is already in use. Please log in or create with another email address';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return 'This phone number is already in use. Please use a different number.';
 			case 'authentication.firebaseAuth.error.unexpected': return 'An error occurred. Please try again in a good network environment';
 			case 'authentication.resetPasswordPage.title': return 'Reset Password';
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';

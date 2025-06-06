@@ -1184,6 +1184,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 	@override String get userNotFound => 'アカウントが見つかりません';
 	@override String get wrongPassword => 'パスワードが正しくありません';
 	@override String get emailAlreadyInUse => 'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
+	@override String get phoneNumberAlreadyInUse => '電話番号がすでに使用されています。他の電話番号をご使用ください。';
 	@override String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 }
 
@@ -1585,6 +1586,7 @@ extension on TranslationsJa {
 			case 'authentication.firebaseAuth.error.userNotFound': return 'アカウントが見つかりません';
 			case 'authentication.firebaseAuth.error.wrongPassword': return 'パスワードが正しくありません';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return '電話番号がすでに使用されています。他の電話番号をご使用ください。';
 			case 'authentication.firebaseAuth.error.unexpected': return 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 			case 'validation.emailRequired': return 'メールアドレスを入力してください';
 			case 'validation.emailInvalid': return 'メールアドレスの形式が正しくありません';

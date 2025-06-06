@@ -1184,6 +1184,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorKo implements TranslationsAuth
 	@override String get userNotFound => '계정을 찾을 수 없습니다.';
 	@override String get wrongPassword => '비밀번호가 올바르지 않습니다.';
 	@override String get emailAlreadyInUse => '이메일 주소가 이미 사용 중입니다. 로그인하거나 다른 이메일 주소로 생성하세요.';
+	@override String get phoneNumberAlreadyInUse => '이미 사용 중인 전화번호입니다. 다른 번호를 사용해 주세요.';
 	@override String get unexpected => '오류가 발생했습니다. 통신 환경이 좋은 곳에서 다시 시도해주세요.';
 }
 
@@ -1585,6 +1586,7 @@ extension on TranslationsKo {
 			case 'authentication.firebaseAuth.error.userNotFound': return '계정을 찾을 수 없습니다.';
 			case 'authentication.firebaseAuth.error.wrongPassword': return '비밀번호가 올바르지 않습니다.';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '이메일 주소가 이미 사용 중입니다. 로그인하거나 다른 이메일 주소로 생성하세요.';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return '이미 사용 중인 전화번호입니다. 다른 번호를 사용해 주세요.';
 			case 'authentication.firebaseAuth.error.unexpected': return '오류가 발생했습니다. 통신 환경이 좋은 곳에서 다시 시도해주세요.';
 			case 'validation.emailRequired': return '이메일 주소를 입력해주세요.';
 			case 'validation.emailInvalid': return '이메일 주소 형식이 올바르지 않습니다.';

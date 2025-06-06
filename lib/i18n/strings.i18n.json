@@ -88,6 +88,7 @@
                 "userNotFound": "Account not found",
                 "wrongPassword": "Password is incorrect",
                 "emailAlreadyInUse": "Email address is already in use. Please log in or create with another email address",
+                "phoneNumberAlreadyInUse": "This phone number is already in use. Please use a different number.",
                 "unexpected": "An error occurred. Please try again in a good network environment"
             }
         },
