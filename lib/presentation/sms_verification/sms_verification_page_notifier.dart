@@ -9,6 +9,7 @@ import '../../infrastructure/authentication/authentication_data_source.dart';
 import '../../infrastructure/firebase/firebase_auth_provider.dart';
 import '../../infrastructure/user/user_data_source.dart';
 import '../../utils/custom_logger.dart';
+import '../../utils/extensions/firebase_auth_exception.dart';
 import '../../utils/providers/scaffold_messenger/scaffold_messenger.dart';
 import '../components/loading_overlay.dart';
 import 'sms_verification_state.dart';
@@ -74,6 +75,9 @@ class SmsVerificationNotifier extends _$SmsVerificationNotifier {
         i18n.success,
       );
       onSuccess();
+    } on auth.FirebaseAuthException catch (e) {
+      final localizedMessage = e.toLocalizedMessage;
+      scaffoldMessenger.showExceptionSnackBar(localizedMessage);
     } on Exception catch (e) {
       logger.error('verifySmsCode: $e', methodName: 'verifySmsCode');
       scaffoldMessenger
