@@ -63,6 +63,10 @@
                 "email": "電子郵件地址",
                 "password": "密碼"
             },
+            "snackBar": {
+                "failedToSignIn": "登入失敗。",
+                "failedToSignUp": "註冊失敗。"
+            },
             "buttons": {
                 "signIn": "登入",
                 "signUp": "註冊",
@@ -92,6 +96,9 @@
             "description": "將發送密碼重設郵件到輸入的電子郵件地址",
             "textFields": {
                 "email": "電子郵件地址"
+            },
+            "snackBar": {
+                "failedToSendResetPasswordEmail": "發送重設密碼郵件失敗"
             },
             "buttons": {
                 "submit": "發送"
@@ -173,7 +180,10 @@
             "scaffoldMessenger": {
                 "empty": "請輸入 SMS 驗證碼",
                 "success": "驗證成功",
-                "error": "驗證失敗。請確認 SMS 驗證碼後再試一次。",
+                "error": {
+                    "failedToVerify": "驗證失敗。請確認簡訊驗證碼後再試一次。",
+                    "failedToResendSmsCode": "重新發送簡訊驗證碼失敗。請檢查網路連線後再試一次。"
+                },
                 "unexpectedError": "發生未預期的錯誤："
             }
         }

@@ -450,6 +450,7 @@ class _TranslationsAuthenticationAuthenticationPageZhHans implements Translation
 	@override String get optionText => ' 或 ';
 	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsZhHans textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsZhHans._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageButtonsZhHans buttons = _TranslationsAuthenticationAuthenticationPageButtonsZhHans._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageSnackBarZhHans snackBar = _TranslationsAuthenticationAuthenticationPageSnackBarZhHans._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans._(_root);
 }
 
@@ -473,6 +474,7 @@ class _TranslationsAuthenticationResetPasswordPageZhHans implements Translations
 	@override String get title => '重置密码';
 	@override String get description => '将向输入的电子邮件地址发送密码重置邮件';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageSnackBarZhHans snackBar = _TranslationsAuthenticationResetPasswordPageSnackBarZhHans._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHans buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHans._(_root);
 }
 
@@ -1006,6 +1008,17 @@ class _TranslationsAuthenticationAuthenticationPageButtonsZhHans implements Tran
 	@override String get signInAfter => '稍后注册';
 }
 
+// Path: authentication.authenticationPage.snackBar
+class _TranslationsAuthenticationAuthenticationPageSnackBarZhHans implements TranslationsAuthenticationAuthenticationPageSnackBarEn {
+	_TranslationsAuthenticationAuthenticationPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSignIn => '登录失败。';
+	@override String get failedToSignUp => '注册失败。';
+}
+
 // Path: authentication.authenticationPage.changeLanguageDialog
 class _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans implements TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
 	_TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHans._(this._root);
@@ -1041,6 +1054,16 @@ class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHans implements Tr
 
 	// Translations
 	@override String get email => '邮箱';
+}
+
+// Path: authentication.resetPasswordPage.snackBar
+class _TranslationsAuthenticationResetPasswordPageSnackBarZhHans implements TranslationsAuthenticationResetPasswordPageSnackBarEn {
+	_TranslationsAuthenticationResetPasswordPageSnackBarZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSendResetPasswordEmail => '发送重置密码邮件失败';
 }
 
 // Path: authentication.resetPasswordPage.buttons
@@ -1160,7 +1183,7 @@ class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHans impl
 	// Translations
 	@override String get empty => '请输入 SMS 验证码';
 	@override String get success => '验证成功';
-	@override String get error => '验证失败。请确认 SMS 验证码后重试。';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHans error = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHans._(_root);
 	@override String get unexpectedError => '发生了意外错误：';
 }
 
@@ -1395,6 +1418,17 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHans implemen
 	@override String get unexpected => '发生错误，请稍后再试。';
 }
 
+// Path: authentication.smsVerificationPage.scaffoldMessenger.error
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHans implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHans._(this._root);
+
+	final TranslationsZhHans _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToVerify => '验证失败。请确认短信验证码后重试。';
+	@override String get failedToResendSmsCode => '短信验证码重新发送失败。请检查网络连接后重试。';
+}
+
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
 class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHans._(this._root);
@@ -1487,6 +1521,8 @@ extension on TranslationsZhHans {
 			case 'authentication.authenticationPage.buttons.appleSignIn': return '使用 Apple 登录';
 			case 'authentication.authenticationPage.buttons.googleSignIn': return '使用 Google 登录';
 			case 'authentication.authenticationPage.buttons.signInAfter': return '稍后注册';
+			case 'authentication.authenticationPage.snackBar.failedToSignIn': return '登录失败。';
+			case 'authentication.authenticationPage.snackBar.failedToSignUp': return '注册失败。';
 			case 'authentication.authenticationPage.changeLanguageDialog.title': return '选择语言';
 			case 'authentication.authenticationPage.changeLanguageDialog.button': return '关闭';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '请检查网络连接后重试';
@@ -1499,6 +1535,7 @@ extension on TranslationsZhHans {
 			case 'authentication.resetPasswordPage.title': return '重置密码';
 			case 'authentication.resetPasswordPage.description': return '将向输入的电子邮件地址发送密码重置邮件';
 			case 'authentication.resetPasswordPage.textFields.email': return '邮箱';
+			case 'authentication.resetPasswordPage.snackBar.failedToSendResetPasswordEmail': return '发送重置密码邮件失败';
 			case 'authentication.resetPasswordPage.buttons.submit': return '发送';
 			case 'authentication.emailVerificationPage.title': return '邮箱地址验证';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '已向输入的${email}发送了验证邮件';
@@ -1546,7 +1583,8 @@ extension on TranslationsZhHans {
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '修改电话号码';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return '请输入 SMS 验证码';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '验证成功';
-			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '验证失败。请确认 SMS 验证码后重试。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToVerify': return '验证失败。请确认短信验证码后重试。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToResendSmsCode': return '短信验证码重新发送失败。请检查网络连接后重试。';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '发生了意外错误：';
 			case 'validation.emailRequired': return '请输入电子邮件地址';
 			case 'validation.emailInvalid': return '电子邮件地址格式不正确';

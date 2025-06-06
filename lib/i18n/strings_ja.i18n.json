@@ -71,6 +71,10 @@
                 "googleSignIn": "Googleで認証",
                 "signInAfter": "後で登録"
             },
+            "snackBar": {
+                "failedToSignIn": "ログインに失敗しました。",
+                "failedToSignUp": "新規登録に失敗しました。"
+            },
             "changeLanguageDialog": {
                 "title": "言語を選択",
                 "button": "閉じる"
@@ -81,6 +85,9 @@
             "description": "入力されたメールアドレスにパスワードリセットのメールを送信します",
             "textFields": {
                 "email": "メールアドレス"
+            },
+            "snackBar": {
+                "failedToSendResetPasswordEmail": "パスワードリセット用のメール送信に失敗しました"
             },
             "buttons": {
                 "submit": "送信"
@@ -162,7 +169,10 @@
             "scaffoldMessenger": {
                 "empty": "SMSコードを入力してください",
                 "success": "認証に成功しました",
-                "error": "認証に失敗しました。SMSコードをご確認の上、再度お試しください。",
+                "error": {
+                    "failedToVerify": "認証に失敗しました。SMSコードをご確認の上、再度お試しください。",
+                    "failedToResendSmsCode": "SMSコードの再送信に失敗しました。ネット環境を確認してもう一度お試しください。"
+                },
                 "unexpectedError": "予期しないエラーが発生しました:"
             }
         },
