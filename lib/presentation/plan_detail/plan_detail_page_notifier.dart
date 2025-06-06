@@ -69,9 +69,13 @@ class PlanDetailPageNotifier extends _$PlanDetailPageNotifier {
   }
 
   Future<List<Place>> getPlaces() async {
-    final places = await placeDataSource.getPlacesByPlanId(planId: plan.id);
-
-    return places;
+    try {
+      final places = await placeDataSource.getPlacesByPlanId(planId: plan.id);
+      return places;
+    } on Exception catch (e) {
+      logger.error('getPlaces: $e', methodName: 'getPlaces');
+      return [];
+    }
   }
 
   Future<Plan> getPlan() async {
