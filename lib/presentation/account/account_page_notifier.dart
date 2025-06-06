@@ -64,6 +64,12 @@ class AccountPageNotifier extends _$AccountPageNotifier {
         methodName: 'unlinkSocialAccount',
       );
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.unlinkageFailure);
+    } on Exception catch (e) {
+      logger.error(
+        'unlinkSocialAccount: $e',
+        methodName: 'unlinkSocialAccount',
+      );
+      scaffoldMessenger.showExceptionSnackBar(snackBari18n.unlinkageFailure);
     }
   }
 
@@ -111,6 +117,9 @@ class AccountPageNotifier extends _$AccountPageNotifier {
     } on FirebaseAuthException catch (e) {
       logger.error('signOut: $e', methodName: 'signOut');
       scaffoldMessenger.showExceptionSnackBar(snackBari18n.signOutFailure);
+    } on Exception catch (e) {
+      logger.error('signOut: $e', methodName: 'signOut');
+      scaffoldMessenger.showExceptionSnackBar(snackBari18n.signOutFailure);
     }
   }
 
@@ -125,6 +134,10 @@ class AccountPageNotifier extends _$AccountPageNotifier {
       scaffoldMessenger.showSuccessSnackBar(snackBari18n.deleteAccount);
       await onSuccess();
     } on FirebaseAuthException catch (e) {
+      logger.error('deleteAccount: $e', methodName: 'deleteAccount');
+      scaffoldMessenger
+          .showExceptionSnackBar(snackBari18n.deleteAccountFailure);
+    } on Exception catch (e) {
       logger.error('deleteAccount: $e', methodName: 'deleteAccount');
       scaffoldMessenger
           .showExceptionSnackBar(snackBari18n.deleteAccountFailure);
