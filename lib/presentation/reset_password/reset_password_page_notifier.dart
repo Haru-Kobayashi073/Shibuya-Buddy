@@ -43,6 +43,15 @@ class ResetPasswordPageNotifier extends _$ResetPasswordPageNotifier {
       );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } on Exception catch (e) {
+      logger.error(
+        'sendPasswordResetEmail: $e',
+        methodName: 'sendPasswordResetEmail',
+      );
+      scaffoldMessenger.showExceptionSnackBar(
+        t.authentication.resetPasswordPage.snackBar
+            .failedToSendResetPasswordEmail,
+      );
     }
   }
 }
