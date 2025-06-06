@@ -82,7 +82,7 @@ class MyPlanPageNotifier extends _$MyPlanPageNotifier {
               .toList(),
         ),
       );
-    } on FirebaseException catch (e) {
+    } on Exception catch (e) {
       logger.error('unBookmark: $e', methodName: 'unBookmark');
       scaffoldMessenger
           .showExceptionSnackBar(t.myPlanPage.error.failedUnBookmark);
