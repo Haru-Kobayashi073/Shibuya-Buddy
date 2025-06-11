@@ -24,7 +24,7 @@ extension FirebaseAuthExceptionEx on FirebaseAuthException {
         return i18nAuthError.emailAlreadyInUse;
       case 'provider-already-linked':
         return i18nAuthError.phoneNumberAlreadyInUse;
-      
+
       default: // 想定外
         return i18nAuthError.unexpected;
     }
