@@ -4,13 +4,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../i18n/strings.g.dart';
-import '../routes/app_router.dart';
 
 extension FirebaseAuthExceptionEx on FirebaseAuthException {
   String get toLocalizedMessage {
-    final context = rootNavigatorKey.currentContext!;
-    final i18n = Translations.of(context);
-    final i18nAuthError = i18n.authentication.firebaseAuth.error;
+    final i18nAuthError = t.authentication.firebaseAuth.error;
 
     switch (code) {
       case 'network-request-failed':
@@ -25,6 +22,9 @@ extension FirebaseAuthExceptionEx on FirebaseAuthException {
         return i18nAuthError.wrongPassword;
       case 'email-already-in-use':
         return i18nAuthError.emailAlreadyInUse;
+      case 'provider-already-linked':
+        return i18nAuthError.phoneNumberAlreadyInUse;
+
       default: // 想定外
         return i18nAuthError.unexpected;
     }

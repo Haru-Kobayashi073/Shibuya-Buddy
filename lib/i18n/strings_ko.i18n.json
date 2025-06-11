@@ -63,6 +63,10 @@
                 "email": "이메일 주소",
                 "password": "비밀번호"
             },
+            "snackBar": {
+                "failedToSignIn": "로그인에 실패했습니다.",
+                "failedToSignUp": "회원가입에 실패했습니다."
+            },
             "buttons": {
                 "signIn": "로그인",
                 "signUp": "회원가입",
@@ -81,6 +85,9 @@
             "description": "입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.",
             "textFields": {
                 "email": "이메일 주소"
+            },
+            "snackBar": {
+                "failedToSendResetPasswordEmail": "비밀번호 재설정 이메일 전송에 실패했습니다"
             },
             "buttons": {
                 "submit": "발송"
@@ -162,7 +169,10 @@
             "scaffoldMessenger": {
                 "empty": "SMS 코드를 입력해주세요",
                 "success": "인증에 성공했습니다",
-                "error": "인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.",
+                "error": {
+                    "failedToVerify": "인증에 실패했습니다. SMS 코드를 확인한 후 다시 시도해 주세요.",
+                    "failedToResendSmsCode": "SMS 코드 재전송에 실패했습니다. 네트워크 상태를 확인한 후 다시 시도해 주세요."
+                },
                 "unexpectedError": "예기치 못한 오류가 발생했습니다:"
             }
         },
@@ -174,6 +184,7 @@
                 "userNotFound": "계정을 찾을 수 없습니다.",
                 "wrongPassword": "비밀번호가 올바르지 않습니다.",
                 "emailAlreadyInUse": "이메일 주소가 이미 사용 중입니다. 로그인하거나 다른 이메일 주소로 생성하세요.",
+                "phoneNumberAlreadyInUse": "이미 사용 중인 전화번호입니다. 다른 번호를 사용해 주세요.",
                 "unexpected": "오류가 발생했습니다. 통신 환경이 좋은 곳에서 다시 시도해주세요."
             }
         }

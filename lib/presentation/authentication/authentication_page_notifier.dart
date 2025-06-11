@@ -63,6 +63,14 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
       );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } on Exception catch (e) {
+      logger.error(
+        'signInWithEmailAndPassword: $e',
+        methodName: 'signInWithEmailAndPassword',
+      );
+      scaffoldMessenger.showExceptionSnackBar(
+        t.authentication.authenticationPage.snackBar.failedToSignIn,
+      );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
@@ -89,6 +97,14 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
       ref
           .read(scaffoldMessengerProvider.notifier)
           .showExceptionSnackBar(exceptionMessage);
+    } on Exception catch (e) {
+      logger.error(
+        'signUpWithEmailAndPassword: $e',
+        methodName: 'signUpWithEmailAndPassword',
+      );
+      scaffoldMessenger.showExceptionSnackBar(
+        t.authentication.authenticationPage.snackBar.failedToSignUp,
+      );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
@@ -117,6 +133,14 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
       );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } on Exception catch (e) {
+      logger.error(
+        'signInWithGoogle: $e',
+        methodName: 'signInWithGoogle',
+      );
+      scaffoldMessenger.showExceptionSnackBar(
+        t.authentication.authenticationPage.snackBar.failedToSignIn,
+      );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }
@@ -145,6 +169,14 @@ class AuthenticationPageNotifier extends _$AuthenticationPageNotifier {
       );
       final exceptionMessage = e.toLocalizedMessage;
       scaffoldMessenger.showExceptionSnackBar(exceptionMessage);
+    } on Exception catch (e) {
+      logger.error(
+        'signInWithApple: $e',
+        methodName: 'signInWithApple',
+      );
+      scaffoldMessenger.showExceptionSnackBar(
+        t.authentication.authenticationPage.snackBar.failedToSignIn,
+      );
     } finally {
       ref.read(isShowLoadingOverlayProvider.notifier).state = false;
     }

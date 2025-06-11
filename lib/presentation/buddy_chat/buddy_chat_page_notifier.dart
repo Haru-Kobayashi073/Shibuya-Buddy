@@ -254,7 +254,6 @@ class BuddyChatPageNotifier extends _$BuddyChatPageNotifier {
         'Failed to fetch response after $maxRetries attempts.',
         methodName: 'sendPlanDetail',
       );
-      throw Exception('Failed to fetch AI response.');
     }
     return null;
   }

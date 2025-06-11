@@ -63,6 +63,10 @@
                 "email": "Email Address",
                 "password": "Password"
             },
+            "snackBar": {
+                "failedToSignIn": "Failed to sign in.",
+                "failedToSignUp": "Failed to sign up."
+            },
             "buttons": {
                 "signIn": "Sign In",
                 "signUp": "Sign Up",
@@ -84,6 +88,7 @@
                 "userNotFound": "Account not found",
                 "wrongPassword": "Password is incorrect",
                 "emailAlreadyInUse": "Email address is already in use. Please log in or create with another email address",
+                "phoneNumberAlreadyInUse": "This phone number is already in use. Please use a different number.",
                 "unexpected": "An error occurred. Please try again in a good network environment"
             }
         },
@@ -92,6 +97,9 @@
             "description": "A password reset email will be sent to the entered email address",
             "textFields": {
                 "email": "Email Address"
+            },
+            "snackBar": {
+                "failedToSendResetPasswordEmail": "Failed to send password reset email"
             },
             "buttons": {
                 "submit": "Submit"
@@ -173,7 +181,10 @@
             "scaffoldMessenger": {
                 "empty": "Please enter the SMS code",
                 "success": "Verification successful",
-                "error": "Verification failed. Please check the SMS code and try again.",
+                "error": {
+                    "failedToVerify": "Verification failed. Please check the SMS code and try again.",
+                    "failedToResendSmsCode": "Failed to resend SMS code. Please check your network connection and try again."
+                },
                 "unexpectedError": "An unexpected error occurred:"
             }
         }

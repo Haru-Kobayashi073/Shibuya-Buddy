@@ -71,6 +71,10 @@
                 "googleSignIn": "使用 Google 登录",
                 "signInAfter": "稍后注册"
             },
+            "snackBar": {
+                "failedToSignIn": "登录失败。",
+                "failedToSignUp": "注册失败。"
+            },
             "changeLanguageDialog": {
                 "title": "选择语言",
                 "button": "关闭"
@@ -84,6 +88,7 @@
                 "userNotFound": "找不到帐户",
                 "wrongPassword": "密码错误",
                 "emailAlreadyInUse": "电子邮件地址已在使用中。请使用其他电子邮件地址登录或创建",
+                "phoneNumberAlreadyInUse": "该电话号码已被使用。请使用其他电话号码。",
                 "unexpected": "发生错误。请在良好的网络环境中重试"
             }
         },
@@ -92,6 +97,9 @@
             "description": "将向输入的电子邮件地址发送密码重置邮件",
             "textFields": {
                 "email": "邮箱"
+            },
+            "snackBar": {
+                "failedToSendResetPasswordEmail": "发送重置密码邮件失败"
             },
             "buttons": {
                 "submit": "发送"
@@ -173,7 +181,10 @@
             "scaffoldMessenger": {
                 "empty": "请输入 SMS 验证码",
                 "success": "验证成功",
-                "error": "验证失败。请确认 SMS 验证码后重试。",
+                "error": {
+                    "failedToVerify": "验证失败。请确认短信验证码后重试。",
+                    "failedToResendSmsCode": "短信验证码重新发送失败。请检查网络连接后重试。"
+                },
                 "unexpectedError": "发生了意外错误："
             }
         }

@@ -453,6 +453,7 @@ class TranslationsAuthenticationAuthenticationPageEn {
 	String get title => 'Sign In / Sign Up';
 	String get optionText => ' or ';
 	late final TranslationsAuthenticationAuthenticationPageTextFieldsEn textFields = TranslationsAuthenticationAuthenticationPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationAuthenticationPageSnackBarEn snackBar = TranslationsAuthenticationAuthenticationPageSnackBarEn._(_root);
 	late final TranslationsAuthenticationAuthenticationPageButtonsEn buttons = TranslationsAuthenticationAuthenticationPageButtonsEn._(_root);
 	late final TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn changeLanguageDialog = TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn._(_root);
 }
@@ -477,6 +478,7 @@ class TranslationsAuthenticationResetPasswordPageEn {
 	String get title => 'Reset Password';
 	String get description => 'A password reset email will be sent to the entered email address';
 	late final TranslationsAuthenticationResetPasswordPageTextFieldsEn textFields = TranslationsAuthenticationResetPasswordPageTextFieldsEn._(_root);
+	late final TranslationsAuthenticationResetPasswordPageSnackBarEn snackBar = TranslationsAuthenticationResetPasswordPageSnackBarEn._(_root);
 	late final TranslationsAuthenticationResetPasswordPageButtonsEn buttons = TranslationsAuthenticationResetPasswordPageButtonsEn._(_root);
 }
 
@@ -995,6 +997,17 @@ class TranslationsAuthenticationAuthenticationPageTextFieldsEn {
 	String get password => 'Password';
 }
 
+// Path: authentication.authenticationPage.snackBar
+class TranslationsAuthenticationAuthenticationPageSnackBarEn {
+	TranslationsAuthenticationAuthenticationPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToSignIn => 'Failed to sign in.';
+	String get failedToSignUp => 'Failed to sign up.';
+}
+
 // Path: authentication.authenticationPage.buttons
 class TranslationsAuthenticationAuthenticationPageButtonsEn {
 	TranslationsAuthenticationAuthenticationPageButtonsEn._(this._root);
@@ -1034,6 +1047,7 @@ class TranslationsAuthenticationFirebaseAuthErrorEn {
 	String get userNotFound => 'Account not found';
 	String get wrongPassword => 'Password is incorrect';
 	String get emailAlreadyInUse => 'Email address is already in use. Please log in or create with another email address';
+	String get phoneNumberAlreadyInUse => 'This phone number is already in use. Please use a different number.';
 	String get unexpected => 'An error occurred. Please try again in a good network environment';
 }
 
@@ -1045,6 +1059,16 @@ class TranslationsAuthenticationResetPasswordPageTextFieldsEn {
 
 	// Translations
 	String get email => 'Email Address';
+}
+
+// Path: authentication.resetPasswordPage.snackBar
+class TranslationsAuthenticationResetPasswordPageSnackBarEn {
+	TranslationsAuthenticationResetPasswordPageSnackBarEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToSendResetPasswordEmail => 'Failed to send password reset email';
 }
 
 // Path: authentication.resetPasswordPage.buttons
@@ -1164,7 +1188,7 @@ class TranslationsAuthenticationSmsVerificationPageScaffoldMessengerEn {
 	// Translations
 	String get empty => 'Please enter the SMS code';
 	String get success => 'Verification successful';
-	String get error => 'Verification failed. Please check the SMS code and try again.';
+	late final TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn error = TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn._(_root);
 	String get unexpectedError => 'An unexpected error occurred:';
 }
 
@@ -1399,6 +1423,17 @@ class TranslationsAuthenticationRegisterProfilePageSnackBarErrorEn {
 	String get unexpected => 'An error occurred. Please try again later.';
 }
 
+// Path: authentication.smsVerificationPage.scaffoldMessenger.error
+class TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn {
+	TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get failedToVerify => 'Verification failed. Please check the SMS code and try again.';
+	String get failedToResendSmsCode => 'Failed to resend SMS code. Please check your network connection and try again.';
+}
+
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
 class TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn._(this._root);
@@ -1485,6 +1520,8 @@ extension on Translations {
 			case 'authentication.authenticationPage.optionText': return ' or ';
 			case 'authentication.authenticationPage.textFields.email': return 'Email Address';
 			case 'authentication.authenticationPage.textFields.password': return 'Password';
+			case 'authentication.authenticationPage.snackBar.failedToSignIn': return 'Failed to sign in.';
+			case 'authentication.authenticationPage.snackBar.failedToSignUp': return 'Failed to sign up.';
 			case 'authentication.authenticationPage.buttons.signIn': return 'Sign In';
 			case 'authentication.authenticationPage.buttons.signUp': return 'Sign Up';
 			case 'authentication.authenticationPage.buttons.resetPassword': return 'Forgot Password?';
@@ -1499,10 +1536,12 @@ extension on Translations {
 			case 'authentication.firebaseAuth.error.userNotFound': return 'Account not found';
 			case 'authentication.firebaseAuth.error.wrongPassword': return 'Password is incorrect';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'Email address is already in use. Please log in or create with another email address';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return 'This phone number is already in use. Please use a different number.';
 			case 'authentication.firebaseAuth.error.unexpected': return 'An error occurred. Please try again in a good network environment';
 			case 'authentication.resetPasswordPage.title': return 'Reset Password';
 			case 'authentication.resetPasswordPage.description': return 'A password reset email will be sent to the entered email address';
 			case 'authentication.resetPasswordPage.textFields.email': return 'Email Address';
+			case 'authentication.resetPasswordPage.snackBar.failedToSendResetPasswordEmail': return 'Failed to send password reset email';
 			case 'authentication.resetPasswordPage.buttons.submit': return 'Submit';
 			case 'authentication.emailVerificationPage.title': return 'Email Address Verification';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => 'A verification email has been sent to the entered ${email}';
@@ -1550,7 +1589,8 @@ extension on Translations {
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return 'Edit Phone Number';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'Please enter the SMS code';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return 'Verification successful';
-			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return 'Verification failed. Please check the SMS code and try again.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToVerify': return 'Verification failed. Please check the SMS code and try again.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToResendSmsCode': return 'Failed to resend SMS code. Please check your network connection and try again.';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return 'An unexpected error occurred:';
 			case 'validation.emailRequired': return 'Please enter your email address';
 			case 'validation.emailInvalid': return 'The email address format is incorrect';

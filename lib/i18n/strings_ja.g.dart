@@ -450,6 +450,7 @@ class _TranslationsAuthenticationAuthenticationPageJa implements TranslationsAut
 	@override String get optionText => ' または ';
 	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsJa textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsJa._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageButtonsJa buttons = _TranslationsAuthenticationAuthenticationPageButtonsJa._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageSnackBarJa snackBar = _TranslationsAuthenticationAuthenticationPageSnackBarJa._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa._(_root);
 }
 
@@ -463,6 +464,7 @@ class _TranslationsAuthenticationResetPasswordPageJa implements TranslationsAuth
 	@override String get title => 'パスワードのリセット';
 	@override String get description => '入力されたメールアドレスにパスワードリセットのメールを送信します';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsJa textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsJa._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageSnackBarJa snackBar = _TranslationsAuthenticationResetPasswordPageSnackBarJa._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsJa buttons = _TranslationsAuthenticationResetPasswordPageButtonsJa._(_root);
 }
 
@@ -1006,6 +1008,17 @@ class _TranslationsAuthenticationAuthenticationPageButtonsJa implements Translat
 	@override String get signInAfter => '後で登録';
 }
 
+// Path: authentication.authenticationPage.snackBar
+class _TranslationsAuthenticationAuthenticationPageSnackBarJa implements TranslationsAuthenticationAuthenticationPageSnackBarEn {
+	_TranslationsAuthenticationAuthenticationPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSignIn => 'ログインに失敗しました。';
+	@override String get failedToSignUp => '新規登録に失敗しました。';
+}
+
 // Path: authentication.authenticationPage.changeLanguageDialog
 class _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa implements TranslationsAuthenticationAuthenticationPageChangeLanguageDialogEn {
 	_TranslationsAuthenticationAuthenticationPageChangeLanguageDialogJa._(this._root);
@@ -1025,6 +1038,16 @@ class _TranslationsAuthenticationResetPasswordPageTextFieldsJa implements Transl
 
 	// Translations
 	@override String get email => 'メールアドレス';
+}
+
+// Path: authentication.resetPasswordPage.snackBar
+class _TranslationsAuthenticationResetPasswordPageSnackBarJa implements TranslationsAuthenticationResetPasswordPageSnackBarEn {
+	_TranslationsAuthenticationResetPasswordPageSnackBarJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSendResetPasswordEmail => 'パスワードリセット用のメール送信に失敗しました';
 }
 
 // Path: authentication.resetPasswordPage.buttons
@@ -1144,7 +1167,7 @@ class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerJa implemen
 	// Translations
 	@override String get empty => 'SMSコードを入力してください';
 	@override String get success => '認証に成功しました';
-	@override String get error => '認証に失敗しました。SMSコードをご確認の上、再度お試しください。';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorJa error = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorJa._(_root);
 	@override String get unexpectedError => '予期しないエラーが発生しました:';
 }
 
@@ -1161,6 +1184,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorJa implements TranslationsAuth
 	@override String get userNotFound => 'アカウントが見つかりません';
 	@override String get wrongPassword => 'パスワードが正しくありません';
 	@override String get emailAlreadyInUse => 'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
+	@override String get phoneNumberAlreadyInUse => '電話番号がすでに使用されています。他の電話番号をご使用ください。';
 	@override String get unexpected => 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 }
 
@@ -1395,6 +1419,17 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorJa implements T
 	@override String get unexpected => 'エラーが発生しました。時間をおいて再度お試しください';
 }
 
+// Path: authentication.smsVerificationPage.scaffoldMessenger.error
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorJa implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToVerify => '認証に失敗しました。SMSコードをご確認の上、再度お試しください。';
+	@override String get failedToResendSmsCode => 'SMSコードの再送信に失敗しました。ネット環境を確認してもう一度お試しください。';
+}
+
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
 class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceJa._(this._root);
@@ -1487,11 +1522,14 @@ extension on TranslationsJa {
 			case 'authentication.authenticationPage.buttons.appleSignIn': return 'Appleで認証';
 			case 'authentication.authenticationPage.buttons.googleSignIn': return 'Googleで認証';
 			case 'authentication.authenticationPage.buttons.signInAfter': return '後で登録';
+			case 'authentication.authenticationPage.snackBar.failedToSignIn': return 'ログインに失敗しました。';
+			case 'authentication.authenticationPage.snackBar.failedToSignUp': return '新規登録に失敗しました。';
 			case 'authentication.authenticationPage.changeLanguageDialog.title': return '言語を選択';
 			case 'authentication.authenticationPage.changeLanguageDialog.button': return '閉じる';
 			case 'authentication.resetPasswordPage.title': return 'パスワードのリセット';
 			case 'authentication.resetPasswordPage.description': return '入力されたメールアドレスにパスワードリセットのメールを送信します';
 			case 'authentication.resetPasswordPage.textFields.email': return 'メールアドレス';
+			case 'authentication.resetPasswordPage.snackBar.failedToSendResetPasswordEmail': return 'パスワードリセット用のメール送信に失敗しました';
 			case 'authentication.resetPasswordPage.buttons.submit': return '送信';
 			case 'authentication.emailVerificationPage.title': return 'メールアドレスの確認';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '入力された${email}に確認メールを送信しました';
@@ -1539,7 +1577,8 @@ extension on TranslationsJa {
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '電話番号を修正する';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'SMSコードを入力してください';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '認証に成功しました';
-			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '認証に失敗しました。SMSコードをご確認の上、再度お試しください。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToVerify': return '認証に失敗しました。SMSコードをご確認の上、再度お試しください。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToResendSmsCode': return 'SMSコードの再送信に失敗しました。ネット環境を確認してもう一度お試しください。';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '予期しないエラーが発生しました:';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '通信環境がいい所で再度やり直してください';
 			case 'authentication.firebaseAuth.error.weakPassword': return 'パスワードが短すぎます。6文字以上を入力してください';
@@ -1547,6 +1586,7 @@ extension on TranslationsJa {
 			case 'authentication.firebaseAuth.error.userNotFound': return 'アカウントが見つかりません';
 			case 'authentication.firebaseAuth.error.wrongPassword': return 'パスワードが正しくありません';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return 'メールアドレスがすでに使用されています。ログインするか別のメールアドレスで作成してください';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return '電話番号がすでに使用されています。他の電話番号をご使用ください。';
 			case 'authentication.firebaseAuth.error.unexpected': return 'エラーが発生しました。通信環境がいい所で再度やり直してください。';
 			case 'validation.emailRequired': return 'メールアドレスを入力してください';
 			case 'validation.emailInvalid': return 'メールアドレスの形式が正しくありません';

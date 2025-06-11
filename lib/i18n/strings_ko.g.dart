@@ -449,6 +449,7 @@ class _TranslationsAuthenticationAuthenticationPageKo implements TranslationsAut
 	@override String get title => '로그인 / 회원가입';
 	@override String get optionText => ' 또는 ';
 	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsKo textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsKo._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageSnackBarKo snackBar = _TranslationsAuthenticationAuthenticationPageSnackBarKo._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageButtonsKo buttons = _TranslationsAuthenticationAuthenticationPageButtonsKo._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogKo changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogKo._(_root);
 }
@@ -463,6 +464,7 @@ class _TranslationsAuthenticationResetPasswordPageKo implements TranslationsAuth
 	@override String get title => '비밀번호 재설정';
 	@override String get description => '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsKo textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsKo._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageSnackBarKo snackBar = _TranslationsAuthenticationResetPasswordPageSnackBarKo._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsKo buttons = _TranslationsAuthenticationResetPasswordPageButtonsKo._(_root);
 }
 
@@ -991,6 +993,17 @@ class _TranslationsAuthenticationAuthenticationPageTextFieldsKo implements Trans
 	@override String get password => '비밀번호';
 }
 
+// Path: authentication.authenticationPage.snackBar
+class _TranslationsAuthenticationAuthenticationPageSnackBarKo implements TranslationsAuthenticationAuthenticationPageSnackBarEn {
+	_TranslationsAuthenticationAuthenticationPageSnackBarKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSignIn => '로그인에 실패했습니다.';
+	@override String get failedToSignUp => '회원가입에 실패했습니다.';
+}
+
 // Path: authentication.authenticationPage.buttons
 class _TranslationsAuthenticationAuthenticationPageButtonsKo implements TranslationsAuthenticationAuthenticationPageButtonsEn {
 	_TranslationsAuthenticationAuthenticationPageButtonsKo._(this._root);
@@ -1025,6 +1038,16 @@ class _TranslationsAuthenticationResetPasswordPageTextFieldsKo implements Transl
 
 	// Translations
 	@override String get email => '이메일 주소';
+}
+
+// Path: authentication.resetPasswordPage.snackBar
+class _TranslationsAuthenticationResetPasswordPageSnackBarKo implements TranslationsAuthenticationResetPasswordPageSnackBarEn {
+	_TranslationsAuthenticationResetPasswordPageSnackBarKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSendResetPasswordEmail => '비밀번호 재설정 이메일 전송에 실패했습니다';
 }
 
 // Path: authentication.resetPasswordPage.buttons
@@ -1144,7 +1167,7 @@ class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerKo implemen
 	// Translations
 	@override String get empty => 'SMS 코드를 입력해주세요';
 	@override String get success => '인증에 성공했습니다';
-	@override String get error => '인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorKo error = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorKo._(_root);
 	@override String get unexpectedError => '예기치 못한 오류가 발생했습니다:';
 }
 
@@ -1161,6 +1184,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorKo implements TranslationsAuth
 	@override String get userNotFound => '계정을 찾을 수 없습니다.';
 	@override String get wrongPassword => '비밀번호가 올바르지 않습니다.';
 	@override String get emailAlreadyInUse => '이메일 주소가 이미 사용 중입니다. 로그인하거나 다른 이메일 주소로 생성하세요.';
+	@override String get phoneNumberAlreadyInUse => '이미 사용 중인 전화번호입니다. 다른 번호를 사용해 주세요.';
 	@override String get unexpected => '오류가 발생했습니다. 통신 환경이 좋은 곳에서 다시 시도해주세요.';
 }
 
@@ -1395,6 +1419,17 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorKo implements T
 	@override String get unexpected => '오류가 발생했습니다. 잠시 후 다시 시도하세요.';
 }
 
+// Path: authentication.smsVerificationPage.scaffoldMessenger.error
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorKo implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToVerify => '인증에 실패했습니다. SMS 코드를 확인한 후 다시 시도해 주세요.';
+	@override String get failedToResendSmsCode => 'SMS 코드 재전송에 실패했습니다. 네트워크 상태를 확인한 후 다시 시도해 주세요.';
+}
+
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
 class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceKo._(this._root);
@@ -1481,6 +1516,8 @@ extension on TranslationsKo {
 			case 'authentication.authenticationPage.optionText': return ' 또는 ';
 			case 'authentication.authenticationPage.textFields.email': return '이메일 주소';
 			case 'authentication.authenticationPage.textFields.password': return '비밀번호';
+			case 'authentication.authenticationPage.snackBar.failedToSignIn': return '로그인에 실패했습니다.';
+			case 'authentication.authenticationPage.snackBar.failedToSignUp': return '회원가입에 실패했습니다.';
 			case 'authentication.authenticationPage.buttons.signIn': return '로그인';
 			case 'authentication.authenticationPage.buttons.signUp': return '회원가입';
 			case 'authentication.authenticationPage.buttons.resetPassword': return '비밀번호를 잊으셨나요?';
@@ -1492,6 +1529,7 @@ extension on TranslationsKo {
 			case 'authentication.resetPasswordPage.title': return '비밀번호 재설정';
 			case 'authentication.resetPasswordPage.description': return '입력한 이메일 주소로 비밀번호 재설정 이메일을 발송합니다.';
 			case 'authentication.resetPasswordPage.textFields.email': return '이메일 주소';
+			case 'authentication.resetPasswordPage.snackBar.failedToSendResetPasswordEmail': return '비밀번호 재설정 이메일 전송에 실패했습니다';
 			case 'authentication.resetPasswordPage.buttons.submit': return '발송';
 			case 'authentication.emailVerificationPage.title': return '이메일 주소 확인';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '입력된 ${email}로 확인 이메일을 보냈습니다';
@@ -1539,7 +1577,8 @@ extension on TranslationsKo {
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '전화번호 수정';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return 'SMS 코드를 입력해주세요';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '인증에 성공했습니다';
-			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '인증에 실패했습니다. SMS 코드를 확인하고 다시 시도해주세요.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToVerify': return '인증에 실패했습니다. SMS 코드를 확인한 후 다시 시도해 주세요.';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToResendSmsCode': return 'SMS 코드 재전송에 실패했습니다. 네트워크 상태를 확인한 후 다시 시도해 주세요.';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '예기치 못한 오류가 발생했습니다:';
 			case 'authentication.firebaseAuth.error.networkRequestFailed': return '통신 환경이 좋은 곳에서 다시 시도해주세요.';
 			case 'authentication.firebaseAuth.error.weakPassword': return '비밀번호가 너무 짧습니다. 6자 이상 입력해주세요.';
@@ -1547,6 +1586,7 @@ extension on TranslationsKo {
 			case 'authentication.firebaseAuth.error.userNotFound': return '계정을 찾을 수 없습니다.';
 			case 'authentication.firebaseAuth.error.wrongPassword': return '비밀번호가 올바르지 않습니다.';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '이메일 주소가 이미 사용 중입니다. 로그인하거나 다른 이메일 주소로 생성하세요.';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return '이미 사용 중인 전화번호입니다. 다른 번호를 사용해 주세요.';
 			case 'authentication.firebaseAuth.error.unexpected': return '오류가 발생했습니다. 통신 환경이 좋은 곳에서 다시 시도해주세요.';
 			case 'validation.emailRequired': return '이메일 주소를 입력해주세요.';
 			case 'validation.emailInvalid': return '이메일 주소 형식이 올바르지 않습니다.';

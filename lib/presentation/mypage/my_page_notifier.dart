@@ -24,7 +24,7 @@ class MyPageNotifier extends _$MyPageNotifier {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      throw Exception('Could not launch $url');
+      return;
     }
   }
 }

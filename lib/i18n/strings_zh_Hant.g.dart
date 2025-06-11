@@ -449,6 +449,7 @@ class _TranslationsAuthenticationAuthenticationPageZhHant implements Translation
 	@override String get title => '登入 / 註冊';
 	@override String get optionText => ' 或 ';
 	@override late final _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant textFields = _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant._(_root);
+	@override late final _TranslationsAuthenticationAuthenticationPageSnackBarZhHant snackBar = _TranslationsAuthenticationAuthenticationPageSnackBarZhHant._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageButtonsZhHant buttons = _TranslationsAuthenticationAuthenticationPageButtonsZhHant._(_root);
 	@override late final _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHant changeLanguageDialog = _TranslationsAuthenticationAuthenticationPageChangeLanguageDialogZhHant._(_root);
 }
@@ -473,6 +474,7 @@ class _TranslationsAuthenticationResetPasswordPageZhHant implements Translations
 	@override String get title => '重設密碼';
 	@override String get description => '將發送密碼重設郵件到輸入的電子郵件地址';
 	@override late final _TranslationsAuthenticationResetPasswordPageTextFieldsZhHant textFields = _TranslationsAuthenticationResetPasswordPageTextFieldsZhHant._(_root);
+	@override late final _TranslationsAuthenticationResetPasswordPageSnackBarZhHant snackBar = _TranslationsAuthenticationResetPasswordPageSnackBarZhHant._(_root);
 	@override late final _TranslationsAuthenticationResetPasswordPageButtonsZhHant buttons = _TranslationsAuthenticationResetPasswordPageButtonsZhHant._(_root);
 }
 
@@ -991,6 +993,17 @@ class _TranslationsAuthenticationAuthenticationPageTextFieldsZhHant implements T
 	@override String get password => '密碼';
 }
 
+// Path: authentication.authenticationPage.snackBar
+class _TranslationsAuthenticationAuthenticationPageSnackBarZhHant implements TranslationsAuthenticationAuthenticationPageSnackBarEn {
+	_TranslationsAuthenticationAuthenticationPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSignIn => '登入失敗。';
+	@override String get failedToSignUp => '註冊失敗。';
+}
+
 // Path: authentication.authenticationPage.buttons
 class _TranslationsAuthenticationAuthenticationPageButtonsZhHant implements TranslationsAuthenticationAuthenticationPageButtonsEn {
 	_TranslationsAuthenticationAuthenticationPageButtonsZhHant._(this._root);
@@ -1030,6 +1043,7 @@ class _TranslationsAuthenticationFirebaseAuthErrorZhHant implements Translations
 	@override String get userNotFound => '找不到帳戶';
 	@override String get wrongPassword => '密碼錯誤';
 	@override String get emailAlreadyInUse => '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
+	@override String get phoneNumberAlreadyInUse => '該電話號碼已被使用。請使用其他電話號碼。';
 	@override String get unexpected => '發生錯誤。請在良好的網絡環境中重試';
 }
 
@@ -1041,6 +1055,16 @@ class _TranslationsAuthenticationResetPasswordPageTextFieldsZhHant implements Tr
 
 	// Translations
 	@override String get email => '電子郵件地址';
+}
+
+// Path: authentication.resetPasswordPage.snackBar
+class _TranslationsAuthenticationResetPasswordPageSnackBarZhHant implements TranslationsAuthenticationResetPasswordPageSnackBarEn {
+	_TranslationsAuthenticationResetPasswordPageSnackBarZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToSendResetPasswordEmail => '發送重設密碼郵件失敗';
 }
 
 // Path: authentication.resetPasswordPage.buttons
@@ -1160,7 +1184,7 @@ class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerZhHant impl
 	// Translations
 	@override String get empty => '請輸入 SMS 驗證碼';
 	@override String get success => '驗證成功';
-	@override String get error => '驗證失敗。請確認 SMS 驗證碼後再試一次。';
+	@override late final _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHant error = _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHant._(_root);
 	@override String get unexpectedError => '發生未預期的錯誤：';
 }
 
@@ -1395,6 +1419,17 @@ class _TranslationsAuthenticationRegisterProfilePageSnackBarErrorZhHant implemen
 	@override String get unexpected => '發生錯誤，請稍後再試。';
 }
 
+// Path: authentication.smsVerificationPage.scaffoldMessenger.error
+class _TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHant implements TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorEn {
+	_TranslationsAuthenticationSmsVerificationPageScaffoldMessengerErrorZhHant._(this._root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToVerify => '驗證失敗。請確認簡訊驗證碼後再試一次。';
+	@override String get failedToResendSmsCode => '重新發送簡訊驗證碼失敗。請檢查網路連線後再試一次。';
+}
+
 // Path: billDetailsPage.pricingPlan.details.premiumPrice
 class _TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant implements TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceEn {
 	_TranslationsBillDetailsPagePricingPlanDetailsPremiumPriceZhHant._(this._root);
@@ -1481,6 +1516,8 @@ extension on TranslationsZhHant {
 			case 'authentication.authenticationPage.optionText': return ' 或 ';
 			case 'authentication.authenticationPage.textFields.email': return '電子郵件地址';
 			case 'authentication.authenticationPage.textFields.password': return '密碼';
+			case 'authentication.authenticationPage.snackBar.failedToSignIn': return '登入失敗。';
+			case 'authentication.authenticationPage.snackBar.failedToSignUp': return '註冊失敗。';
 			case 'authentication.authenticationPage.buttons.signIn': return '登入';
 			case 'authentication.authenticationPage.buttons.signUp': return '註冊';
 			case 'authentication.authenticationPage.buttons.resetPassword': return '忘記密碼？';
@@ -1495,10 +1532,12 @@ extension on TranslationsZhHant {
 			case 'authentication.firebaseAuth.error.userNotFound': return '找不到帳戶';
 			case 'authentication.firebaseAuth.error.wrongPassword': return '密碼錯誤';
 			case 'authentication.firebaseAuth.error.emailAlreadyInUse': return '電子郵件地址已在使用中。請使用其他電子郵件地址登錄或創建';
+			case 'authentication.firebaseAuth.error.phoneNumberAlreadyInUse': return '該電話號碼已被使用。請使用其他電話號碼。';
 			case 'authentication.firebaseAuth.error.unexpected': return '發生錯誤。請在良好的網絡環境中重試';
 			case 'authentication.resetPasswordPage.title': return '重設密碼';
 			case 'authentication.resetPasswordPage.description': return '將發送密碼重設郵件到輸入的電子郵件地址';
 			case 'authentication.resetPasswordPage.textFields.email': return '電子郵件地址';
+			case 'authentication.resetPasswordPage.snackBar.failedToSendResetPasswordEmail': return '發送重設密碼郵件失敗';
 			case 'authentication.resetPasswordPage.buttons.submit': return '發送';
 			case 'authentication.emailVerificationPage.title': return '電子郵件地址驗證';
 			case 'authentication.emailVerificationPage.descriptionForDestination': return ({required Object email}) => '已向輸入的${email}發送了驗證郵件';
@@ -1546,7 +1585,8 @@ extension on TranslationsZhHant {
 			case 'authentication.smsVerificationPage.fixPhoneNumber': return '修改電話號碼';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.empty': return '請輸入 SMS 驗證碼';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.success': return '驗證成功';
-			case 'authentication.smsVerificationPage.scaffoldMessenger.error': return '驗證失敗。請確認 SMS 驗證碼後再試一次。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToVerify': return '驗證失敗。請確認簡訊驗證碼後再試一次。';
+			case 'authentication.smsVerificationPage.scaffoldMessenger.error.failedToResendSmsCode': return '重新發送簡訊驗證碼失敗。請檢查網路連線後再試一次。';
 			case 'authentication.smsVerificationPage.scaffoldMessenger.unexpectedError': return '發生未預期的錯誤：';
 			case 'validation.emailRequired': return '請輸入電子郵件地址';
 			case 'validation.emailInvalid': return '電子郵件地址格式不正確';
